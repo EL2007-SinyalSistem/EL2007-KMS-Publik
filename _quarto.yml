@@ -8,7 +8,7 @@ website:
     right:
       - href: index.html
         text: Beranda
-      - text: "Iklan Produk
+      - text: "Iklan Produk"
         href: iklan_produk/index.html
       - text: "Produk Mahasiswa"
         href: produk_mahasiswa_terpilih/index.html
