@@ -1,0 +1,26 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "website"
+  navbar:
+    right:
+      - href: index.html
+        text: Beranda
+      - text: "Iklan Produk
+        href: iklan_produk/index.html
+      - text: "Produk Mahasiswa"
+        href: produk_mahasiswa_terpilih/index.html
+                   
+
+format:
+  html:
+    theme:
+      - cosmo
+      - brand
+    css: styles.css
+    toc: true
+
+
+
