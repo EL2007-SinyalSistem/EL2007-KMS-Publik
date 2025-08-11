@@ -3,7 +3,7 @@ project:
   output-dir: docs
 
 website:
-  title: "website"
+  title: "EL 2007 Sinyal dan Sistem"
   navbar:
     right:
       - href: index.html
