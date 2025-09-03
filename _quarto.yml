@@ -10,8 +10,6 @@ book:
     - index.qmd
     - intro.qmd
     - kuliah/materi_1.qmd
-    - kuliah/Peta_1.qmd
-    - requirements/Soal_1.qmd
     - summary.qmd
     - references.qmd
 

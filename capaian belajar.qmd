@@ -10,6 +10,9 @@ Berdasarkan dokumen `RPS.pdf`, berikut adalah rincian tujuan pembelajaran untuk 
 - **Bahan Kajian:** Deskripsi Sistem di Domain Waktu: Persamaan Diferensial dan Respon Impuls (Time-Domain Description of Systems: Differential Equation and Impulse Response).
 - **Tujuan Belajar:** Mahasiswa diharapkan mampu **mengenal karakteristik sistem linear tak-berubah waktu (LTI)**, termasuk konsep sistem, sifat-sifatnya, dan pentingnya respon impuls.
 - **Penilaian (Akhir Minggu 3):** PR 1 (terkait deskripsi sinyal dan sistem di domain waktu).
+
+**Minggu 4-5:**
+
 - **Bahan Kajian:** Analisis Sistem di Domain Waktu: Solusi Persamaan Diferensial dan Konvolusi (Time-Domain Analysis of Systems: Solution to Differential Equation and Convolution).
 - **Tujuan Belajar:** Mahasiswa diharapkan **mampu menganalisis respon sistem LTI menggunakan konvolusi dan menyelesaikan persamaan diferensial** yang menggambarkan sistem.
 

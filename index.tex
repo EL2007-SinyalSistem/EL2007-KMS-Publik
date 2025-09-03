@@ -1,5 +1,4 @@
 % Options for packages loaded elsewhere
-% Options for packages loaded elsewhere
 \PassOptionsToPackage{unicode}{hyperref}
 \PassOptionsToPackage{hyphens}{url}
 \PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
@@ -8,22 +7,21 @@
   letterpaper,
   DIV=11,
   numbers=noendperiod]{scrreprt}
-\usepackage{xcolor}
+
 \usepackage{amsmath,amssymb}
-\setcounter{secnumdepth}{5}
 \usepackage{iftex}
 \ifPDFTeX
   \usepackage[T1]{fontenc}
   \usepackage[utf8]{inputenc}
   \usepackage{textcomp} % provide euro and other symbols
 \else % if luatex or xetex
-  \usepackage{unicode-math} % this also loads fontspec
+  \usepackage{unicode-math}
   \defaultfontfeatures{Scale=MatchLowercase}
   \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
 \fi
 \usepackage{lmodern}
-\ifPDFTeX\else
-  % xetex/luatex font selection
+\ifPDFTeX\else  
+    % xetex/luatex font selection
 \fi
 % Use upquote if available, for straight quotes in verbatim environments
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
@@ -41,6 +39,9 @@
 }{% if KOMA class
   \KOMAoptions{parskip=half}}
 \makeatother
+\usepackage{xcolor}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\setcounter{secnumdepth}{5}
 % Make \paragraph and \subparagraph free-standing
 \makeatletter
 \ifx\paragraph\undefined\else
@@ -65,48 +66,9 @@
 \fi
 \makeatother
 
-\usepackage{color}
-\usepackage{fancyvrb}
-\newcommand{\VerbBar}{|}
-\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
-\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
-% Add ',fontsize=\small' for more characters per line
-\usepackage{framed}
-\definecolor{shadecolor}{RGB}{241,243,245}
-\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
-\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
-\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
-\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.40,0.45,0.13}{#1}}
-\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
-\newcommand{\BuiltInTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
-\newcommand{\CharTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
-\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
-\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
-\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
-\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{\textbf{#1}}}
-\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
-\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
-\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
-\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
-\newcommand{\ExtensionTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
-\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
-\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.28,0.35,0.67}{#1}}
-\newcommand{\ImportTok}[1]{\textcolor[rgb]{0.00,0.46,0.62}{#1}}
-\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
-\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{\textbf{#1}}}
-\newcommand{\NormalTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
-\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
-\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
-\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
-\newcommand{\RegionMarkerTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
-\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
-\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
-\newcommand{\StringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
-\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.07,0.07,0.07}{#1}}
-\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
-\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
 
-\usepackage{longtable,booktabs,array}
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}\usepackage{longtable,booktabs,array}
 \usepackage{calc} % for calculating minipage widths
 % Correct order of tables after \paragraph or \subparagraph
 \usepackage{etoolbox}
@@ -118,33 +80,50 @@
 \makesavenoteenv{longtable}
 \usepackage{graphicx}
 \makeatletter
-\newsavebox\pandoc@box
-\newcommand*\pandocbounded[1]{% scales image to fit in text height/width
-  \sbox\pandoc@box{#1}%
-  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
-  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
-  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi% select the smaller of both
-  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
-  \else\usebox{\pandoc@box}%
-  \fi%
-}
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
 % Set default figure placement to htbp
+\makeatletter
 \def\fps@figure{htbp}
 \makeatother
-
-
-
-
-
-\setlength{\emergencystretch}{3em} % prevent overfull lines
-
-\providecommand{\tightlist}{%
-  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
-
-
-
- 
-
+% definitions for citeproc citations
+\NewDocumentCommand\citeproctext{}{}
+\NewDocumentCommand\citeproc{mm}{%
+  \begingroup\def\citeproctext{#2}\cite{#1}\endgroup}
+\makeatletter
+ % allow citations to break across lines
+ \let\@cite@ofmt\@firstofone
+ % avoid brackets around text for \cite:
+ \def\@biblabel#1{}
+ \def\@cite#1#2{{#1\if@tempswa , #2\fi}}
+\makeatother
+\newlength{\cslhangindent}
+\setlength{\cslhangindent}{1.5em}
+\newlength{\csllabelwidth}
+\setlength{\csllabelwidth}{3em}
+\newenvironment{CSLReferences}[2] % #1 hanging-indent, #2 entry-spacing
+ {\begin{list}{}{%
+  \setlength{\itemindent}{0pt}
+  \setlength{\leftmargin}{0pt}
+  \setlength{\parsep}{0pt}
+  % turn on hanging indent if param 1 is 1
+  \ifodd #1
+   \setlength{\leftmargin}{\cslhangindent}
+   \setlength{\itemindent}{-1\cslhangindent}
+  \fi
+  % set entry spacing
+  \setlength{\itemsep}{#2\baselineskip}}}
+ {\end{list}}
+\usepackage{calc}
+\newcommand{\CSLBlock}[1]{\hfill\break\parbox[t]{\linewidth}{\strut\ignorespaces#1\strut}}
+\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{\strut#1\strut}}
+\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{\strut#1\strut}}
+\newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
 
 \KOMAoption{captions}{tableheading}
 \makeatletter
@@ -191,9 +170,14 @@
 \@ifpackageloaded{caption}{}{\usepackage{caption}}
 \@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
 \makeatother
+
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
 \usepackage{bookmark}
+
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
-\urlstyle{same}
+\urlstyle{same} % disable monospaced font for URLs
 \hypersetup{
   pdftitle={EL-2007 Sinyal dan Sistem},
   pdfauthor={Armein Z R Langi},
@@ -208,6 +192,7 @@
 \title{EL-2007 Sinyal dan Sistem}
 \author{Armein Z R Langi}
 \date{2025-09-03}
+
 \begin{document}
 \maketitle
 
@@ -238,491 +223,1309 @@ To learn more about Quarto books visit
 
 \bookmarksetup{startatroot}
 
-\chapter{Capaian Belajar}\label{capaian-belajar}
-
-Berikut adalah rancangan pembelajaran satu semester untuk mata kuliah
-\textbf{Sinyal dan Sistem (EL2007)}, yang telah ditambahkan dengan
-rujukan pada buku teks \emph{Signals and Systems} oleh Oppenheim dan
-\emph{Schaum's Outline of Signals and Systems} oleh Hwei Hsu.
-
-\textbf{Rencana Pembelajaran Satu Semester}
-
-\textbf{Kode Mata Kuliah:} EL2007 \textbf{Nama Mata Kuliah:} Sinyal dan
-Sistem / Signals and Systems \textbf{Jumlah SKS:} 3 SKS
-\textbf{Penyelenggara:} 132 - Teknik Elektro / STEI
-\textbf{Co-requisite:} MA2074 Matematika Rekayasa IIA / Engineering
-Mathematics IIA \textbf{Bahasa Pengantar:} Bahasa Indonesia / English
-
-\textbf{Capaian Pembelajaran Mata Kuliah (CPMK):} Setelah mengikuti mata
-kuliah ini, mahasiswa diharapkan mampu: 1. \textbf{Menganalisis sifat
-sinyal dan sistem} dalam domain waktu, domain frekuensi, dan domain
-Laplace. 2. \textbf{Merancang filter dan pengendali secara matematis}
-pada studi kasus. 3. \textbf{Menggunakan alat bantu (perangkat lunak)}
-untuk menganalisis sinyal dan sistem.
-
-\textbf{Metode Pembelajaran:} Ceramah, Diskusi, Studi Kasus, Belajar
-\textbf{Modalitas Pembelajaran:} Luring, Daring, Bauran (Offline,
-Online, Hybrid) \textbf{Metode Penilaian:} PR (Pekerjaan Rumah), Kuis,
-Ujian \textbf{Jenis Nilai:} ABCDE
-
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
-
-\textbf{Distribusi Materi dan Kegiatan Per Minggu (14 Minggu
-Perkuliahan):}
-
-\textbf{Minggu 1:} * \textbf{Bahan Kajian:} Deskripsi Matematis Sinyal
-Waktu Kontinu (Mathematical Description of Continuous-time Signals). *
-\textbf{CPMK Terkait:} Memahami dasar-dasar sinyal waktu kontinu dan
-representasi matematisnya. * \textbf{Kegiatan:} Ceramah dan Diskusi
-tentang jenis-jenis sinyal dan operasi dasar sinyal. * \textbf{Rujukan:}
-* \textbf{Oppenheim:} Bab 2 (Signals, Transformations of the Independent
-Variable, Basic Continuous-Time Signals). * \textbf{Schaum's Series:}
-Bab 1 (Signals and Systems, Signals and Classification of Signals, Basic
-Continuous-Time Signals). Lihat juga Solved Problems seperti 1.3, 1.4,
-1.5, 1.19, 1.46, 1.47, 1.48 untuk latihan.
-
-\textbf{Minggu 2-3:} * \textbf{Bahan Kajian:} Deskripsi Sistem di Domain
-Waktu: Persamaan Diferensial dan Respon Impuls (Time-Domain Description
-of Systems: Differential Equation and Impulse Response). * \textbf{CPMK
-Terkait:} Mengenal karakteristik sistem linear tak-berubah waktu (LTI)
-dan representasinya melalui persamaan diferensial dan respon impuls. *
-\textbf{Kegiatan:} Ceramah dan Diskusi mengenai konsep sistem,
-sifat-sifatnya, dan pentingnya respon impuls. * \textbf{Penilaian (Akhir
-Minggu 3):} PR 1 (terkait deskripsi sinyal dan sistem di domain waktu).
-* \textbf{Rujukan:} * \textbf{Oppenheim:} Bab 2 (Systems, Properties of
-Systems), Bab 3 (Linear Time-Invariant Systems, The Representation of
-Signals in Terms of Impulses, Systems Described by Differential and
-Difference Equations). * \textbf{Schaum's Series:} Bab 1 (Systems and
-Classification of Systems), Bab 2 (Introduction, Systems Described by
-Differential Equations, Eigenfunctions of Continuous-Time LTI Systems).
-Solved Problems seperti 1.44, 1.45, 1.51, 1.52 relevan untuk fungsi
-eigen dan deskripsi sistem.
-
-\textbf{Minggu 4-5:} * \textbf{Bahan Kajian:} Analisis Sistem di Domain
-Waktu: Solusi Persamaan Diferensial dan Konvolusi (Time-Domain Analysis
-of Systems: Solution to Differential Equation and Convolution). *
-\textbf{CPMK Terkait:} Mampu menganalisis respon sistem LTI menggunakan
-konvolusi dan menyelesaikan persamaan diferensial yang menggambarkan
-sistem. * \textbf{Kegiatan:} Ceramah, Diskusi, dan Studi Kasus tentang
-aplikasi operasi konvolusi untuk mendapatkan respon sistem. *
-\textbf{Rujukan:} * \textbf{Oppenheim:} Bab 3 (Discrete-Time LTI
-Systems: The Convolution Sum, Continuous-Time LTI Systems: The
-Convolution Integral, Systems Described by Differential and Difference
-Equations). * \textbf{Schaum's Series:} Bab 2 (Response of a
-Continuous-Time LTI System and the Convolution Integral, Systems
-Described by Differential Equations). Lihat Solved Problems seperti 2.1,
-2.8, 2.14, 2.46, 2.64 untuk latihan.
-
-\textbf{Minggu 6-7:} * \textbf{Bahan Kajian:} Deskripsi Domain
-Frekuensi: Transformasi Fourier (Frequency-Domain Description: Fourier
-Transform). * \textbf{CPMK Terkait:} Memahami konsep Transformasi
-Fourier sebagai alat untuk menganalisis sinyal dan sistem di domain
-frekuensi. * \textbf{Kegiatan:} Ceramah, Diskusi, dan Belajar Mandiri
-(latihan soal) tentang Transformasi Fourier untuk berbagai jenis sinyal.
-* \textbf{Penilaian (Akhir Minggu 7):} Kuis 1 (tentang Transformasi
-Fourier). * \textbf{Rujukan:} * \textbf{Oppenheim:} Bab 4
-(Representation of Aperiodic Signals: The Continuous-Time Fourier
-Transform, Properties of the Continuous-Time Fourier Transform). *
-\textbf{Schaum's Series:} Bab 5 (Introduction, The Fourier Transform,
-Properties of the Continuous-Time Fourier Transform). Lihat Solved
-Problems seperti 5.31, 5.32, 5.35 untuk latihan.
-
-\textbf{Minggu 8:} * \textbf{Bahan Kajian:} Analisis Sistem di Domain
-Frekuensi: Respon Frekuensi (Frequency-Domain Analysis of Systems:
-Frequency Response). * \textbf{CPMK Terkait:} Mampu menganalisis respon
-frekuensi sistem dan memahami dampaknya terhadap sinyal input. *
-\textbf{Kegiatan:} Ceramah, Diskusi, dan Studi Kasus mengenai
-karakteristik filter di domain frekuensi. * \textbf{Rujukan:} *
-\textbf{Oppenheim:} Bab 4 (The Frequency Response of Systems
-Characterized by Linear Constant-Coefficient Differential Equations,
-First-Order and Second-Order Systems). * \textbf{Schaum's Series:} Bab 5
-(The Frequency Response of Continuous-Time LTI Systems). Lihat Solved
-Problems seperti 5.45, 5.46, 5.47 untuk latihan.
-
-\textbf{Minggu 9-10:} * \textbf{Bahan Kajian:} Deskripsi Domain Laplace:
-Transformasi Laplace (Laplace-Domain Description: Laplace Transform). *
-\textbf{CPMK Terkait:} Memahami Transformasi Laplace dan inversnya
-sebagai alat yang ampuh untuk analisis sistem. * \textbf{Kegiatan:}
-Ceramah, Diskusi, dan Belajar Mandiri (latihan soal) tentang
-Transformasi Laplace untuk menyelesaikan persamaan diferensial. *
-\textbf{Penilaian (Akhir Minggu 10):} PR 2 (terkait Transformasi
-Laplace). * \textbf{Rujukan:} * \textbf{Oppenheim:} Bab 9 (Laplace and
-z-Transforms: Introduction, Relationship to Fourier Transform, Poles and
-Zeros, Region of Convergence of a Laplace or z-transform and its
-relationship to properties of the signal with which it is associated;
-inverse transforms using partial fraction expansion; basic transform
-properties). * \textbf{Schaum's Series:} Bab 3 (The Laplace Transform,
-Laplace Transforms of Some Common Signals, Properties of the Laplace
-Transform, The Inverse Laplace Transform, The Unilateral Laplace
-Transform). Lihat Solved Problems seperti 3.10, 3.15, 3.32, 3.33, 3.34,
-3.37, 3.38 untuk latihan.
-
-\textbf{Minggu 11-12:} * \textbf{Bahan Kajian:} Analisis Sistem di
-Domain Laplace: Fungsi Alih (Laplace-Domain Analysis of System: Transfer
-Function). * \textbf{CPMK Terkait:} Mampu menganalisis sistem
-menggunakan konsep fungsi alih dan diagram blok di domain Laplace. *
-\textbf{Kegiatan:} Ceramah, Diskusi, dan Studi Kasus analisis sistem
-kompleks menggunakan fungsi alih. * \textbf{Penilaian (Akhir Minggu
-12):} Kuis 2 (tentang Fungsi Alih). * \textbf{Rujukan:} *
-\textbf{Oppenheim:} Bab 9 (System Functions for LTI Systems,
-Interconnections of LTI Systems). * \textbf{Schaum's Series:} Bab 3 (The
-System Function, Transform Circuits). Lihat juga ilustrasi sistem
-kaskade dan paralel.
-
-\textbf{Minggu 13:} * \textbf{Bahan Kajian:} Studi kasus: Desain Filter
-(Case Study: Filter Designs). * \textbf{CPMK Terkait:} Mampu merancang
-filter secara matematis dan menggunakan perangkat lunak untuk
-memverifikasi desain. * \textbf{Kegiatan:} Studi Kasus dan Belajar
-mandiri/praktikum menggunakan perangkat lunak untuk simulasi desain
-filter (misalnya, low-pass, high-pass). * \textbf{Penilaian:} PR 3
-(proyek desain filter). * \textbf{Rujukan:} * \textbf{Oppenheim:} Bab 6
-(Introduction to Filtering in Continuous-Time and Discrete-Time, Ideal
-Frequency-Selective Filters, Examples of Filters described by
-differential and difference equations, Butterworth filters). *
-\textbf{Schaum's Series:} Bab 5 (Filtering, Bandwidth), Bab 6 (System
-Response to Sampled Continuous-Time Sinusoids, Simulation), lihat pula
-bilinear transformation (Prob. 6.46, 6.47).
-
-\textbf{Minggu 14:} * \textbf{Bahan Kajian:} Studi kasus: Pengantar
-Sistem Kendali Linier Umpan Balik (Case Study: Introduction to Linear
-Feedback Control System). * \textbf{CPMK Terkait:} Memahami prinsip
-dasar sistem kendali umpan balik dan mampu menganalisis karakteristik
-performanya. * \textbf{Kegiatan:} Ceramah, Diskusi, dan Studi Kasus
-pengantar konsep sistem kendali. * \textbf{Rujukan:} *
-\textbf{Oppenheim:} Bab 11 (Linear Feedback Systems: Introduction,
-Linear Feedback Systems, Some Applications and Consequences of Feedback,
-Root-Locus Analysis, The Nyquist Stability Criterion, Gain and Phase
-Margins). * \textbf{Schaum's Series:} Bab 7 (State Space Analysis:
-Introduction, The Concept of State, State Space Representation of
-Discrete-Time LTI Systems, State Space Representation of Continuous-Time
-LTI Systems, Solutions of State Equations for Discrete-Time LTI Systems,
-Solutions of State Equations for Continuous-Time LTI Systems). (Meskipun
-Bab 7 Schaum's lebih fokus pada analisis ruang keadaan, ini adalah dasar
-untuk sistem kendali).
-
-\textbf{Minggu Ujian Akhir Semester:} * \textbf{Penilaian:} Ujian Akhir
-Semester (mencakup seluruh bahan kajian dari minggu 1 hingga 14).
-
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
-
-\bookmarksetup{startatroot}
-
-\chapter{Latihan Minggu 1 -- Sinyal \&
-Sistem}\label{latihan-minggu-1-sinyal-sistem}
-
-EL2007 -- Signals and Systems
-
-\hfill\break
-
-\bookmarksetup{startatroot}
-
-\chapter{Latihan Minggu 1}\label{latihan-minggu-1}
-
-\section{Sinyal \& Sistem (EL2007)}\label{sinyal-sistem-el2007}
-
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
-
-\section{🗺️ Peta Pengetahuan Primitif (Minggu
-1)}\label{peta-pengetahuan-primitif-minggu-1}
-
-\includegraphics[width=27.12in,height=3.98in]{kuliah/Peta_1_files/figure-latex/mermaid-figure-1.png}
-
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
-
-\bookmarksetup{startatroot}
-
-\chapter{📘 Soal dari Oppenheim}\label{soal-dari-oppenheim}
-
-\subsection{Soal 1}\label{soal-1}
-
-\textbf{PN: OP-DW-SIGNAL-01-R} Sebutkan 4 contoh sinyal waktu-kontinu
-dasar. ??? \textbf{Jawaban \& Penjelasan}: Eksponensial, sinusoidal,
-unit step, unit impulse. Ini dasar untuk membangun sinyal kompleks.
-
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
-
-\subsection{Soal 2}\label{soal-2}
-
-\textbf{PN: OP-DW-SIGNAL-02-U} Jelaskan sifat eksponensial kompleks
-\(e^{st}\). ??? \textbf{Jawaban \& Penjelasan}: Eksponensial kompleks =
-eigenfunction sistem LTI. Jika \(s=j\omega\) → sinusoidal. Sifat ini
-dasar Fourier/Laplace.
-
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
-
-\subsection{Soal 3}\label{soal-3}
-
-\textbf{PN: OP-DW-SIGNAL-03-A} Apakah \(x(t)=\sin(3t)+\cos(5t)\)
-periodik? ??? \textbf{Jawaban \& Penjelasan}: Tidak periodik, karena 3/5
-bukan bilangan rasional. Periodisitas butuh rasio frekuensi rasional.
-
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
-
-\subsection{Soal 4}\label{soal-4}
-
-\textbf{PN: OP-DW-SIGNAL-04-A} Hitung energi sinyal \(x(t)=e^{-t}u(t)\).
-\emph{(Bloom: Apply)}
-
-??? \textbf{Jawaban \& Penjelasan}:
-\(E=\int_0^\infty e^{-2t} dt = 1/2\). Energi terbatas → sinyal energi,
-bukan daya.
-
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
-
-\section{🛠️ Peta Pemecahan Masalah -- Soal
-4}\label{peta-pemecahan-masalah-soal-4}
-
-\includegraphics[width=25.13in,height=5.33in]{kuliah/Peta_1_files/figure-latex/mermaid-figure-4.png}
-
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
-
-\subsection{Soal 5}\label{soal-5}
-
-\textbf{PN: OP-DW-SYSTEM-05-A} Apakah sistem \(y(t)=[x(t)]^2\) linear?
-\emph{(Bloom: Apply)}
-
-??? \textbf{Jawaban \& Penjelasan}: Tidak linear.
-
-\begin{itemize}
-\tightlist
-\item
-  Homogenitas gagal: \([a·x]^2 = a^2[x]^2 \neq a[x]^2\).
-\item
-  Aditivitas gagal: \([x₁+x₂]^2 \neq x₁²+x₂²\).
-\end{itemize}
-
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
-
-\section{🛠️ Peta Pemecahan Masalah -- Soal
-5}\label{peta-pemecahan-masalah-soal-5}
-
-\includegraphics[width=25.13in,height=5.33in]{kuliah/Peta_1_files/figure-latex/mermaid-figure-3.png}
-
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
-
-\subsection{Soal 6}\label{soal-6}
-
-\textbf{PN: OP-DW-SYSTEM-06-A} Apakah sistem \(y(t)=x(t-2)\) kausal? ???
-\textbf{Jawaban \& Penjelasan}: Ya, output di t hanya bergantung input
-waktu lampau/bersamaan.
-
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
-
-\subsection{Soal 7}\label{soal-7}
-
-\textbf{PN: OP-DW-SYSTEM-07-An}\\
-Apakah sistem (y(t)=t \cdot x(t)) time-invariant?\\
-\emph{(Bloom: Analyze)}
-
-??? \textbf{Jawaban \& Penjelasan}:\\
-Tidak time-invariant.\\
-- Tes pergeseran:\\
-Input digeser → (x(t-t₀)).\\
-Output seharusnya (t·x(t-t₀)).\\
-- Tetapi sistem memberi hasil: ((t-t₀)·x(t-t₀)).\\
-- Karena hasil berbeda → sistem \textbf{time-varying}.
-
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
-
-\section{🛠️ Peta Pemecahan Masalah -- Soal
-7}\label{peta-pemecahan-masalah-soal-7}
-
-\includegraphics[width=25.13in,height=5.33in]{kuliah/Peta_1_files/figure-latex/mermaid-figure-2.png}
-
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
-
-\subsection{Soal 8}\label{soal-8}
-
-\textbf{PN: OP-DW-SYSTEM-08-E} Apakah sistem
-\(y(t)=\int_{-\infty}^t x(\tau)d\tau\) stabil? ??? \textbf{Jawaban \&
-Penjelasan}: Tidak stabil. Input terbatas bisa hasilkan integral tak
-terbatas (BIBO gagal).
-
-Mantap. Ini \textbf{tambahan slide} untuk \textbf{Stabilitas (Soal 8:
-integrator)}---lengkap dengan \textbf{peta pemecahan masalah}. Tempelkan
-blok berikut ke file \texttt{.qmd} kamu (saya menaruhnya setelah Soal
-8).
-
-\section{````markdown}\label{markdown}
-
-\subsection{Soal 8}\label{soal-8-1}
-
-\textbf{PN: OP-DW-SYSTEM-08-E}\\
-Apakah sistem ( y(t)=\displaystyle\int\_\{-\infty\}\^{}t x(\tau),d\tau )
-\textbf{stabil (BIBO)}?\\
-\emph{(Bloom: Evaluate)}
-
-??? \textbf{Jawaban \& Penjelasan (ringkas \& ketat)}\\
-- Uji BIBO via respon impuls: (h(t)=u(t)).\\
-BIBO stabil ⇔ (\int\emph{\{-\infty\}\^{}\{\infty\}
-\textbar h(t)\textbar,dt = \int\emph{0\^{}\{\infty\} 1,dt = \infty) →
-\textbf{tidak stabil}.\\
-- Kontra-contoh input terbatas: (x(t)=u(t)) (terbatas,
-(\textbar x\textbar{}\le 1)).\\
-Maka (y(t)=\int}\{-\infty\}\^{}t x(\tau),d\tau =
-\int}\{0\}\^{}\{t\}1,d\tau = t) → \textbf{tak terbatas} saat
-(t\to\infty).\\
-Kesimpulan: \textbf{Tidak BIBO-stable}.
-
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
-
-\section{🛠️ Peta Pemecahan Masalah -- Soal 8 (Stabilitas
-Integrator)}\label{peta-pemecahan-masalah-soal-8-stabilitas-integrator}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{flowchart TD}
-\NormalTok{    A[Titik Mulai:\textless{}br/\textgreater{}S: y(t)= ∫\_\{{-}∞\}\^{}t x(τ)dτ]:::start}
-
-\NormalTok{    \%\% Dua jalur uji stabilitas}
-\NormalTok{    A {-}{-}\textgreater{} B[Definisi BIBO:\textless{}br/\textgreater{}Input terbatas ⇒ Output terbatas?]:::rule}
-\NormalTok{    B {-}{-}\textgreater{} C1[Metode 1 – Uji ‖h‖₁:\textless{}br/\textgreater{}h(t)=u(t)]:::vehicle}
-\NormalTok{    C1 {-}{-}\textgreater{} C2[Hitung ∫|h(t)|dt = ∫₀\^{}∞ 1 dt = ∞]:::calc}
-\NormalTok{    C2 {-}{-}\textgreater{} C3[‖h‖₁ divergen ⇒ Tidak stabil]:::fail}
-
-\NormalTok{    B {-}{-}\textgreater{} D1[Metode 2 – Kontra{-}Contoh:\textless{}br/\textgreater{}Pilih input terbatas]:::vehicle}
-\NormalTok{    D1 {-}{-}\textgreater{} D2[x(t)=u(t), |x(t)|≤1]:::example}
-\NormalTok{    D2 {-}{-}\textgreater{} D3[y(t)=∫₀\^{}t 1 dτ = t]:::calc}
-\NormalTok{    D3 {-}{-}\textgreater{} D4[t → ∞ ⇒ y(t) tak terbatas]:::fail}
-
-\NormalTok{    \%\% Kesimpulan}
-\NormalTok{    C3 {-}{-}\textgreater{} K[Kesimpulan:\textless{}br/\textgreater{}Sistem TIDAK BIBO{-}Stable]:::conclusion}
-\NormalTok{    D4 {-}{-}\textgreater{} K}
-
-\NormalTok{    \%\% Styles}
-\NormalTok{    classDef start fill:\#ffe082,stroke:\#333,stroke{-}width:2px}
-\NormalTok{    classDef rule fill:\#e1f5fe,stroke:\#333,stroke{-}width:1px}
-\NormalTok{    classDef vehicle fill:\#bbdefb,stroke:\#333,stroke{-}width:1px}
-\NormalTok{    classDef calc fill:\#c8e6c9,stroke:\#333,stroke{-}width:1px}
-\NormalTok{    classDef example fill:\#f3e5f5,stroke:\#333,stroke{-}width:1px}
-\NormalTok{    classDef fail fill:\#ffcdd2,stroke:\#333,stroke{-}width:2px}
-\NormalTok{    classDef conclusion fill:\#ffccbc,stroke:\#333,stroke{-}width:2px}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
-
-\subsection{Soal 9}\label{soal-9}
-
-\textbf{PN: OP-AD-09-An} Bandingkan representasi sinyal periodik di
-domain waktu vs frekuensi. ??? \textbf{Jawaban \& Penjelasan}:
-
-\begin{itemize}
-\tightlist
-\item
-  Waktu: kombinasi sinus/cos.
-\item
-  Frekuensi: spektrum garis (impuls di harmonik).
-\end{itemize}
-
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
-
-\subsection{Soal 10}\label{soal-10}
-
-\textbf{PN: OP-AD-10-C} Tuliskan representasi sinusoidal dalam bentuk
-eksponensial kompleks. ??? \textbf{Jawaban \& Penjelasan}:
-\(\cos(\omega t)=\tfrac{1}{2}(e^{j\omega t}+e^{-j\omega t})\). Dasar
-transformasi Fourier.
-
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
-
-\bookmarksetup{startatroot}
-
-\chapter{📗 Soal dari Schaum's Outline}\label{soal-dari-schaums-outline}
-
-\subsection{Soal 11}\label{soal-11}
-
-\textbf{PN: SC-DW-SIGNAL-11-R} Definisikan sinyal energi dan sinyal
-daya. ??? \textbf{Jawaban \& Penjelasan}: Energi:
-\(E=\int |x(t)|^2dt<\infty\). Daya:
-\(P=\lim_{T\to\infty}\frac{1}{2T}\int |x(t)|^2dt<\infty\).
-
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
-
-\subsection{Soal 12}\label{soal-12}
-
-\textbf{PN: SC-DW-SIGNAL-12-U} Apa arti penskalaan waktu \(x(at)\)? ???
-\textbf{Jawaban \& Penjelasan}: \(a>1\) → kompresi waktu; \(0<a<1\) →
-peregangan. Digunakan untuk analisis skala sinyal.
-
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
-
-\subsection{Soal 13}\label{soal-13}
-
-\textbf{PN: SC-DW-SIGNAL-13-A} Apakah \(x[n]=(-1)^n\) periodik? ???
-\textbf{Jawaban \& Penjelasan}: Ya, periodik dengan N=2. Setiap dua
-sampel pola berulang.
-
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
-
-\subsection{Soal 14}\label{soal-14}
-
-\textbf{PN: SC-DW-SIGNAL-14-A} Sketsa \(x(t)=u(t)-u(t-2)\). ???
-\textbf{Jawaban \& Penjelasan}: Pulsa kotak: aktif 0 ≤ t \textless{} 2,
-amplitudo = 1. Contoh sinyal diskrit dalam domain waktu.
-
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
-
-\subsection{Soal 15}\label{soal-15}
-
-\textbf{PN: SC-DW-SIGNAL-15-A} Hitung energi sinyal
-\(x[n]=(1/2)^n u[n]\). ??? \textbf{Jawaban \& Penjelasan}:
-\(E=\sum_{n=0}^\infty (1/4)^n=4/3\). Sinyal energi dengan energi
-terbatas.
-
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
-
-\subsection{Soal 16}\label{soal-16}
-
-\textbf{PN: SC-DW-SYSTEM-16-A} Apakah sistem \(y[n]=x[n]+3\) linear? ???
-\textbf{Jawaban \& Penjelasan}: Tidak linear karena ada offset
-konstanta.
-
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
-
-\subsection{Soal 17}\label{soal-17}
-
-\textbf{PN: SC-DW-SYSTEM-17-An} Apakah sistem \(y[n]=x[-n]\)
-time-invariant? ??? \textbf{Jawaban \& Penjelasan}: Ya, pembalikan
-indeks berlaku konsisten jika input digeser.
-
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
-
-\subsection{Soal 18}\label{soal-18}
-
-\textbf{PN: SC-DW-SYSTEM-18-E} Apakah sistem
-\(y[n]=\sum_{k=-\infty}^n x[k]\) stabil? ??? \textbf{Jawaban \&
-Penjelasan}: Tidak stabil, akumulasi input terbatas bisa divergen.
-
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
-
-\subsection{Soal 19}\label{soal-19}
-
-\textbf{PN: SC-AD-19-An} Analisis perbedaan representasi sinyal di
-domain waktu vs frekuensi. ??? \textbf{Jawaban \& Penjelasan}: Waktu →
-bentuk sinyal. Frekuensi → distribusi energi/komponen. Saling
-melengkapi.
-
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
-
-\subsection{Soal 20}\label{soal-20}
-
-\textbf{PN: SC-AD-20-C} Buat sistem diskrit yang \textbf{non-linear} dan
-\textbf{tidak kausal}. ??? \textbf{Jawaban \& Penjelasan}:
-\(y[n]=[x[n]]^2 + x[n+1]\). Non-linear (kuadrat), tidak kausal (butuh
-input masa depan).
-
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
-
-\bookmarksetup{startatroot}
-
 \chapter{}\label{section}
+
+\bookmarksetup{startatroot}
+
+\chapter{Materi Pembelajaran Minggu 1: Deskripsi Matematis Sinyal Waktu
+Kontinu}\label{materi-pembelajaran-minggu-1-deskripsi-matematis-sinyal-waktu-kontinu}
+
+Berikut adalah materi pembelajaran untuk Minggu 1 mata kuliah Sinyal dan
+Sistem (EL2007), dirancang sesuai dengan filosofi VALORAIZE Learning,
+yang mencakup peta pengetahuan, kendaraan matematika, set soal, dan peta
+pemecahan masalah untuk setiap soal.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\textbf{Capaian Pembelajaran Minggu (CPMK Terkait):} Mahasiswa
+diharapkan mampu \textbf{memahami dasar-dasar sinyal waktu kontinu dan
+representasi matematisnya}.
+
+Minggu ini, kita akan menjelajahi konsep fundamental sinyal dan sistem
+waktu kontinu, yang merupakan fondasi penting dalam banyak disiplin ilmu
+teknik. Kita akan mulai dengan memahami apa itu sinyal waktu kontinu,
+bagaimana merepresentasikannya secara matematis, mengklasifikasikannya,
+melakukan operasi dasar pada sinyal, serta memperkenalkan sistem waktu
+kontinu dan sifat-sifat fundamentalnya.
+
+\section{1.1 Pengenalan Sinyal Waktu Kontinu (Continuous-Time
+Signals)}\label{pengenalan-sinyal-waktu-kontinu-continuous-time-signals}
+
+Sinyal adalah suatu fungsi yang membawa informasi. Sinyal waktu kontinu
+(Continuous-Time Signals, CT Signals) adalah sinyal yang didefinisikan
+untuk setiap nilai waktu dalam suatu interval kontinu. Biasanya, ini
+direpresentasikan sebagai fungsi dari variabel waktu \(t\), misalnya
+\(x(t)\).
+
+\textbf{Contoh Sinyal Dasar Waktu Kontinu:}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Sinyal Sinusoidal:} Menggambarkan osilasi periodik, misalnya
+  \(x(t) = A \cos(\omega t + \phi)\).
+\item
+  \textbf{Sinyal Eksponensial:} Menunjukkan pertumbuhan atau peluruhan,
+  misalnya \(x(t) = A e^{\alpha t}\).
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Jika \(\alpha\) real dan negatif, sinyal meluruh.
+  \item
+    Jika \(\alpha\) real dan positif, sinyal bertumbuh.
+  \item
+    Jika \(\alpha\) kompleks (\(j\omega\)), menjadi eksponensial
+    kompleks (\(e^{j\omega t} = \cos(\omega t) + j\sin(\omega t)\)).
+  \end{itemize}
+\item
+  \textbf{Fungsi Unit Step (Unit Step Function):} Sinyal yang bernilai 0
+  untuk \(t<0\) dan 1 untuk \(t \ge 0\), dilambangkan \(u(t)\). Berguna
+  untuk merepresentasikan sinyal yang ``dimulai'' pada waktu tertentu.
+\item
+  \textbf{Fungsi Unit Impuls (Unit Impulse Function) / Delta Dirac:}
+  Sinyal ideal yang bernilai tak hingga pada \(t=0\) dan nol di tempat
+  lain, dengan luas area satu. Dilambangkan \(\delta(t)\). Sinyal ini
+  sering digunakan sebagai ``blok bangunan'' untuk merepresentasikan
+  sinyal lain dan menganalisis sistem.
+\end{itemize}
+
+\section{1.2 Klasifikasi Sinyal Waktu
+Kontinu}\label{klasifikasi-sinyal-waktu-kontinu}
+
+Sinyal dapat diklasifikasikan berdasarkan beberapa properti penting:
+
+\begin{itemize}
+\item
+  \textbf{Sinyal Energi (Energy Signal) vs.~Sinyal Daya (Power Signal):}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \textbf{Sinyal Energi:} Memiliki energi total terbatas
+    (\(0 < E < \infty\)) dan daya rata-rata nol (\(P=0\)). Energi \(E\)
+    dihitung sebagai \(E = \int_{-\infty}^{\infty} |x(t)|^2 dt\).
+  \item
+    \textbf{Sinyal Daya:} Memiliki daya rata-rata terbatas
+    (\(0 < P < \infty\)) dan energi total tak hingga (\(E=\infty\)).
+    Daya rata-rata \(P\) dihitung sebagai
+    \(P = \lim_{T \to \infty} \frac{1}{2T} \int_{-T}^{T} |x(t)|^2 dt\).
+  \item
+    Sinyal yang tidak memenuhi kedua kondisi ini tidak diklasifikasikan
+    sebagai sinyal energi maupun sinyal daya (misalnya, sinyal yang
+    terus bertumbuh).
+  \end{itemize}
+\item
+  \textbf{Sinyal Periodik (Periodic Signal) vs.~Aperiodik (Aperiodic
+  Signal):}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \textbf{Sinyal Periodik:} Sinyal yang berulang dengan periode waktu
+    tertentu \(T > 0\), yaitu \(x(t) = x(t+T)\) untuk semua \(t\).
+    \textbf{Periode fundamental} adalah periode \(T\) terkecil yang
+    memenuhi kondisi ini.
+  \item
+    \textbf{Sinyal Aperiodik:} Sinyal yang tidak berulang.
+  \end{itemize}
+\item
+  \textbf{Sinyal Genap (Even Signal) vs.~Sinyal Ganjil (Odd Signal):}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \textbf{Sinyal Genap:} Sinyal yang simetris terhadap sumbu vertikal,
+    yaitu \(x(t) = x(-t)\).
+  \item
+    \textbf{Sinyal Ganjil:} Sinyal yang antisimetris terhadap sumbu
+    vertikal, yaitu \(x(t) = -x(-t)\).
+  \item
+    Setiap sinyal dapat diuraikan menjadi komponen genap
+    \(x_e(t) = \frac{1}{2}(x(t) + x(-t))\) dan komponen ganjil
+    \(x_o(t) = \frac{1}{2}(x(t) - x(-t))\).
+  \end{itemize}
+\end{itemize}
+
+\section{1.3 Operasi Dasar pada Sinyal Waktu
+Kontinu}\label{operasi-dasar-pada-sinyal-waktu-kontinu}
+
+Berbagai operasi dapat dilakukan pada sinyal waktu kontinu.
+
+\begin{itemize}
+\item
+  \textbf{Transformasi Variabel Independen (Independent Variable
+  Transformations):}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \textbf{Pergeseran Waktu (Time Shift):} \(y(t) = x(t-t_0)\)
+    menggeser sinyal \(x(t)\) ke kanan (menunda) sebesar \(t_0\) unit
+    jika \(t_0 > 0\). \(y(t) = x(t+t_0)\) menggeser ke kiri (memajukan).
+  \item
+    \textbf{Penskalaan Waktu (Time Scaling):} \(y(t) = x(at)\) mengubah
+    ``kecepatan'' sinyal. Jika \(|a|>1\), sinyal dikompresi
+    (dipercepat). Jika \(0 < |a| < 1\), sinyal diekspansi (diperlambat).
+    Jika \(a < 0\), juga terjadi pembalikan waktu.
+  \item
+    \textbf{Pembalikan Waktu (Time Reversal):} \(y(t) = x(-t)\) membalik
+    sinyal terhadap sumbu vertikal.
+  \end{itemize}
+\item
+  \textbf{Transformasi Variabel Dependen (Dependent Variable
+  Transformations):}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \textbf{Penskalaan Amplitudo:} \(y(t) = A x(t)\) mengalikan
+    amplitudo sinyal dengan konstanta \(A\).
+  \item
+    \textbf{Penjumlahan Sinyal:} \(y(t) = x_1(t) + x_2(t)\).
+  \item
+    \textbf{Perkalian Sinyal:} \(y(t) = x_1(t) \cdot x_2(t)\).
+  \item
+    \textbf{Diferensiasi Sinyal:} \(y(t) = \frac{dx(t)}{dt}\).
+  \item
+    \textbf{Integrasi Sinyal:}
+    \(y(t) = \int_{-\infty}^{t} x(\tau) d\tau\).
+  \end{itemize}
+\end{itemize}
+
+\section{1.4 Pengenalan Sistem Waktu Kontinu (Continuous-Time
+Systems)}\label{pengenalan-sistem-waktu-kontinu-continuous-time-systems}
+
+Sistem dapat didefinisikan sebagai entitas yang memproses sinyal input
+untuk menghasilkan sinyal output. Hubungan input-output ini dapat
+direpresentasikan secara matematis atau grafis.
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Representasi Diagram Blok (Block Diagram Representation):}
+  Digunakan untuk memvisualisasikan bagaimana komponen-komponen sistem
+  dihubungkan. Simbol-simbol dasar meliputi penambah, pengali (gain),
+  dan integrator/diferensiator.
+\item
+  \textbf{Interkoneksi Sistem (Interconnection of Systems):}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \textbf{Seri (Cascade):} Output satu sistem menjadi input sistem
+    berikutnya.
+  \item
+    \textbf{Paralel:} Input yang sama diberikan ke beberapa sistem, dan
+    outputnya dijumlahkan.
+  \end{itemize}
+\end{itemize}
+
+\section{1.5 Sifat Dasar Sistem Waktu
+Kontinu}\label{sifat-dasar-sistem-waktu-kontinu}
+
+Klasifikasi sistem penting untuk memahami perilakunya.
+
+\begin{itemize}
+\item
+  \textbf{Sistem dengan Memori (System with Memory) vs.~Tanpa Memori
+  (Memoryless System):}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \textbf{Tanpa Memori:} Output \(y(t)\) pada waktu \(t\) hanya
+    bergantung pada input \(x(t)\) pada waktu yang sama.
+  \item
+    \textbf{Dengan Memori:} Output \(y(t)\) pada waktu \(t\) bergantung
+    pada nilai input atau output di masa lalu atau masa depan.
+    Contohnya, integrator.
+  \end{itemize}
+\item
+  \textbf{Kausalitas (Causality):} Output \(y(t)\) pada waktu \(t\)
+  hanya bergantung pada input \(x(\tau)\) untuk \(\tau \le t\) (yaitu,
+  input saat ini atau masa lalu). Sistem tidak dapat ``memprediksi''
+  input masa depan. Sistem fisik harus kausal.
+\item
+  \textbf{Invertibilitas (Invertibility):} Sistem dikatakan invertibel
+  jika inputnya dapat direkonstruksi secara unik dari outputnya.
+  Artinya, ada sistem invers yang, jika dihubungkan secara seri, akan
+  menghasilkan kembali input asli.
+\item
+  \textbf{Stabilitas BIBO (Bounded-Input Bounded-Output Stability):}
+  Sistem stabil BIBO jika setiap input terbatas (bounded) menghasilkan
+  output yang terbatas. Input \(x(t)\) terbatas jika ada konstanta
+  \(M_x < \infty\) sehingga \(|x(t)| \le M_x\) untuk semua \(t\). Output
+  \(y(t)\) terbatas jika ada konstanta \(M_y < \infty\) sehingga
+  \(|y(t)| \le M_y\) untuk semua \(t\).
+\item
+  \textbf{Invariansi Waktu (Time-Invariance):} Karakteristik sistem
+  tidak berubah seiring waktu. Jika input \(x(t)\) menghasilkan output
+  \(y(t)\), maka input yang digeser waktu \(x(t-t_0)\) akan menghasilkan
+  output \(y(t-t_0)\).
+\item
+  \textbf{Linearitas (Linearity):} Sistem linear jika memenuhi dua
+  prinsip:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \textbf{Aditivitas:} Input \(x_1(t)+x_2(t)\) menghasilkan output
+    \(y_1(t)+y_2(t)\), di mana \(y_1(t)\) adalah output dari \(x_1(t)\)
+    dan \(y_2(t)\) adalah output dari \(x_2(t)\).
+  \item
+    \textbf{Homogenitas (Scaling):} Input \(a x(t)\) menghasilkan output
+    \(a y(t)\) untuk konstanta skalar \(a\) apa pun.
+  \item
+    Seringkali disebut prinsip superposisi.
+  \end{itemize}
+\end{itemize}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\section{Peta Pengetahuan Primitif: Sinyal \& Sistem Waktu
+Kontinu}\label{peta-pengetahuan-primitif-sinyal-sistem-waktu-kontinu}
+
+\textbf{Tujuan:} Membantu mahasiswa melihat gambaran besar,
+interkonektivitas antar konsep, dan mengatur pengetahuan deklaratif
+(fakta dan definisi) sinyal dan sistem waktu kontinu. (Mengingat \&
+Memahami - Level 1-2 Bloom).
+
+\textbf{Node Pusat:} \textbf{Sinyal \& Sistem}
+
+\begin{itemize}
+\item
+  \textbf{Cabang 1: SWK (Sinyal Waktu Kontinu)}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \textbf{Sub-Cabang 1.1: Representasi Matematis (SWK\_Representasi)}
+
+    \begin{itemize}
+    \tightlist
+    \item
+      Node: Sinusoidal (SWK\_Sinusoidal), Eksponensial
+      (SWK\_Eksponensial), Unit Step (SWK\_UnitStep), Unit Impuls
+      (SWK\_UnitImpuls).
+    \end{itemize}
+  \item
+    \textbf{Sub-Cabang 1.2: Klasifikasi Sinyal (SWK\_Klasifikasi)}
+
+    \begin{itemize}
+    \tightlist
+    \item
+      Node: Energi/Daya (SWK\_EnergiDaya), Periodik/Aperiodik
+      (SWK\_Periodisitas), Genap/Ganjil (SWK\_Simetri).
+    \end{itemize}
+  \item
+    \textbf{Sub-Cabang 1.3: Operasi Sinyal (SWK\_Operasi)}
+
+    \begin{itemize}
+    \tightlist
+    \item
+      Node: Pergeseran Waktu (SWK\_GeserWaktu), Penskalaan Waktu
+      (SWK\_SkalaWaktu), Pembalikan Waktu (SWK\_BalikWaktu), Penjumlahan
+      (SWK\_Jumlah), Perkalian (SWK\_Kali), Penskalaan Amplitudo
+      (SWK\_SkalaAmplitudo).
+    \end{itemize}
+  \end{itemize}
+\item
+  \textbf{Cabang 2: SYWK (Sistem Waktu Kontinu)}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \textbf{Sub-Cabang 2.1: Definisi \& Representasi
+    (SYWK\_Representasi)}
+
+    \begin{itemize}
+    \tightlist
+    \item
+      Node: Sistem (SYWK\_Definisi), Diagram Blok (SYWK\_DiagramBlok),
+      Interkoneksi (SYWK\_Interkoneksi).
+    \end{itemize}
+  \item
+    \textbf{Sub-Cabang 2.2: Sifat Sistem (SYWK\_Sifat)}
+
+    \begin{itemize}
+    \tightlist
+    \item
+      Node: Memori (SYWK\_Memori), Kausalitas (SYWK\_Kausalitas),
+      Invertibilitas (SYWK\_Invertibilitas), Stabilitas
+      (SYWK\_Stabilitas), Invariansi Waktu (SYWK\_InvarianWaktu),
+      Linearitas (SYWK\_Linearitas).
+    \end{itemize}
+  \end{itemize}
+\end{itemize}
+
+\textbf{Hubungan (Edges):}
+
+\begin{itemize}
+\tightlist
+\item
+  ``Sinyal \& Sistem'' \textbf{TERDIRI\_DARI} ``SWK'', ``SYWK''.
+\item
+  ``SWK'' \textbf{MEMILIKI} ``SWK\_Representasi'', ``SWK\_Klasifikasi'',
+  ``SWK\_Operasi''.
+\item
+  ``SYWK'' \textbf{MEMILIKI} ``SYWK\_Representasi'', ``SYWK\_Sifat''.
+\item
+  ``SWK\_Representasi'' \textbf{MELIPUTI} ``SWK\_Sinusoidal'',
+  ``SWK\_Eksponensial'', ``SWK\_UnitStep'', ``SWK\_UnitImpuls''.
+\item
+  ``SWK\_Klasifikasi'' \textbf{MELIPUTI} ``SWK\_EnergiDaya'',
+  ``SWK\_Periodisitas'', ``SWK\_Simetri''.
+\item
+  ``SWK\_Operasi'' \textbf{MELIPUTI} ``SWK\_GeserWaktu'',
+  ``SWK\_SkalaWaktu'', ``SWK\_BalikWaktu'', ``SWK\_Jumlah'',
+  ``SWK\_Kali'', ``SWK\_SkalaAmplitudo''.
+\item
+  ``SYWK\_Representasi'' \textbf{MELIPUTI} ``SYWK\_Definisi'',
+  ``SYWK\_DiagramBlok'', ``SYWK\_Interkoneksi''.
+\item
+  ``SYWK\_Sifat'' \textbf{MELIPUTI} ``SYWK\_Memori'',
+  ``SYWK\_Kausalitas'', ``SYWK\_Invertibilitas'', ``SYWK\_Stabilitas'',
+  ``SYWK\_InvarianWaktu'', ``SYWK\_Linearitas''.
+\item
+  ``SYWK\_Interkoneksi'' \textbf{CONTOH\_NYA} ``Seri'', ``Paralel''.
+\item
+  ``SYWK\_Linearitas'' \textbf{MELIPUTI} ``Aditivitas'',
+  ``Homogenitas''.
+\end{itemize}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\section{Kendaraan Matematika (Mathematical
+Vehicles)}\label{kendaraan-matematika-mathematical-vehicles}
+
+Ini adalah alat, teknik, dan metode spesifik yang digunakan untuk
+memecahkan masalah dalam domain Sinyal dan Sistem.
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{K\_MAT\_Aljabar:} Untuk manipulasi ekspresi matematis,
+  penyelesaian persamaan, dan penyederhanaan.
+\item
+  \textbf{K\_MAT\_Kalkulus:} Untuk diferensiasi (turunan) dan integrasi
+  fungsi waktu kontinu.
+\item
+  \textbf{K\_MAT\_Bilangan\_Kompleks:} Untuk bekerja dengan sinyal
+  eksponensial kompleks dan memahami representasi fasor.
+\item
+  \textbf{K\_OPS\_Sinyal\_Dasar:} Meliputi operasi dasar pada sinyal
+  seperti penskalaan amplitudo, pergeseran waktu, penskalaan waktu,
+  pembalikan waktu, penjumlahan, perkalian, serta pemahaman definisi
+  unit step dan unit impuls.
+\item
+  \textbf{K\_VIS\_PlotSinyal:} Untuk memvisualisasikan sinyal waktu
+  kontinu, membantu dalam memahami dan menganalisis efek operasi sinyal.
+\end{itemize}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\section{Problem Set Minggu 1: Sinyal dan Sistem Waktu
+Kontinu}\label{problem-set-minggu-1-sinyal-dan-sistem-waktu-kontinu}
+
+\textbf{Petunjuk:} Untuk setiap soal, tentukan jawaban Anda tanpa
+menyertakan solusi. Untuk setiap jawaban, bayangkan Anda harus membuat
+\textbf{Peta Pengetahuan Aplikatif} yang menunjukkan ``Titik Mulai'',
+``Titik Akhir'', ``Rute/Jalan'' pemecahan masalah, dan ``Kendaraan''
+matematika/konseptual yang Anda gunakan.
+
+\textbf{Format Nomor Produk:} PS\_W1\_PX\_LY (Problem Set, Week 1,
+Problem X, Bloom Level Y)
+
+\textbf{PS\_W1\_P1\_L1: Identifikasi Sinyal Dasar} Identifikasi jenis
+sinyal waktu kontinu berikut (misalnya, sinusoidal, eksponensial, unit
+step, unit impuls): (a) \(x(t) = 5 \cos(3\pi t + \pi/4)\) (b)
+\(x(t) = 2e^{-4t} u(t)\) (c) \(x(t) = \delta(t-2)\) (d)
+\(x(t) = 3u(t+1)\) (e) \(x(t) = t e^{-t} u(t)\)
+
+\textbf{PS\_W1\_P2\_L2: Klasifikasi Sinyal - Periodik/Aperiodik}
+Tentukan apakah sinyal waktu kontinu berikut periodik atau aperiodik.
+Jika periodik, tentukan periode fundamentalnya: (a)
+\(x(t) = \sin(2t) + \cos(3t)\) (b) \(x(t) = e^{j2\pi t}\) (c)
+\(x(t) = e^{j2t} + e^{j3t}\) (d) \(x(t) = \cos(2t) u(t)\)
+
+\textbf{PS\_W1\_P3\_L2: Klasifikasi Sinyal - Energi/Daya} Klasifikasikan
+sinyal waktu kontinu berikut sebagai sinyal energi, sinyal daya, atau
+tidak keduanya. (a) \(x(t) = e^{-2t} u(t)\) (b) \(x(t) = \cos(t)\) (c)
+\(x(t) = u(t)\)
+
+\textbf{PS\_W1\_P4\_L2: Klasifikasi Sinyal - Genap/Ganjil} Tentukan
+apakah sinyal berikut genap, ganjil, atau tidak keduanya. Jika tidak
+keduanya, pisahkan menjadi komponen genap dan ganjil. (a)
+\(x(t) = t \cos(t)\) (b) \(x(t) = t u(t)\) (c) \(x(t) = \sin^2(t)\)
+
+\textbf{PS\_W1\_P5\_L3: Operasi Sinyal - Pergeseran \& Penskalaan Waktu}
+Diberikan sinyal \(x(t)\) adalah pulsa segitiga dengan puncak di
+\(t=0\), lebar total 2 (dari -1 hingga 1), dan tinggi 1. Gambarlah
+sinyal berikut: (a) \(y_1(t) = x(t-1)\) (b) \(y_2(t) = x(2t)\) (c)
+\(y_3(t) = x(-t+2)\) (d) \(y_4(t) = x(t/2 - 1)\)
+
+\textbf{PS\_W1\_P6\_L3: Operasi Sinyal - Penjumlahan \& Perkalian}
+Diberikan \(x_1(t) = u(t)\) dan \(x_2(t) = u(t-1)\). Gambarlah sinyal:
+(a) \(y(t) = x_1(t) + x_2(t)\) (b) \(y(t) = x_1(t) \cdot x_2(t)\) (c)
+\(y(t) = x_1(t) - x_2(t)\)
+
+\textbf{PS\_W1\_P7\_L3: Diferensiasi Sinyal} Tentukan dan gambarlah
+turunan pertama dari sinyal: (a) \(x(t) = u(t) - u(t-2)\) (b)
+\(x(t) = t u(t)\)
+
+\textbf{PS\_W1\_P8\_L2: Identifikasi Sifat Sistem - Tanpa Memori}
+Tentukan apakah sistem waktu kontinu berikut tanpa memori (memoryless)
+atau memiliki memori (with memory): (a) \(y(t) = x(t) + 2x(t-1)\) (b)
+\(y(t) = x^2(t)\) (c) \(y(t) = \int_{-\infty}^{t} x(\tau) d\tau\)
+
+\textbf{PS\_W1\_P9\_L2: Identifikasi Sifat Sistem - Kausalitas} Tentukan
+apakah sistem waktu kontinu berikut kausal atau non-kausal: (a)
+\(y(t) = x(t+1)\) (b) \(y(t) = x(t) \cos(t)\) (c)
+\(y(t) = x(t-1) + x(t+1)\)
+
+\textbf{PS\_W1\_P10\_L2: Identifikasi Sifat Sistem - Invertibilitas}
+Tentukan apakah sistem waktu kontinu berikut invertibel atau
+non-invertibel: (a) \(y(t) = 2x(t)\) (b) \(y(t) = x^2(t)\) (c)
+\(y(t) = \int_{-\infty}^{t} x(\tau) d\tau\)
+
+\textbf{PS\_W1\_P11\_L3: Identifikasi Sifat Sistem - Stabilitas BIBO}
+Tentukan apakah sistem waktu kontinu berikut stabil BIBO atau tidak
+stabil BIBO: (a) \(y(t) = t x(t)\) (b)
+\(y(t) = \int_{-\infty}^{t} x(\tau) d\tau\) (c) \(y(t) = e^{x(t)}\)
+
+\textbf{PS\_W1\_P12\_L3: Identifikasi Sifat Sistem - Linearitas}
+Tentukan apakah sistem waktu kontinu berikut linear atau non-linear: (a)
+\(y(t) = x(t) + 3\) (b) \(y(t) = x(t^2)\) (c)
+\(y(t) = \frac{dx(t)}{dt}\)
+
+\textbf{PS\_W1\_P13\_L3: Identifikasi Sifat Sistem - Invariansi Waktu}
+Tentukan apakah sistem waktu kontinu berikut invarian waktu atau
+bervariasi waktu: (a) \(y(t) = x(t-t_0)\) (b) \(y(t) = t x(t)\) (c)
+\(y(t) = \cos(2\pi t) x(t)\)
+
+\textbf{PS\_W1\_P14\_L4: Analisis Gabungan Sifat Sistem} Tentukan apakah
+sistem waktu kontinu berikut bersifat linear, invarian waktu, kausal,
+dan stabil BIBO: (a) \(y(t) = \frac{dx(t)}{dt}\) (b) \(y(t) = x(2t)\)
+
+\textbf{PS\_W1\_P15\_L3: Representasi Sinyal Kompleks} Nyatakan sinyal
+eksponensial kompleks \(x(t) = 3e^{j(\pi t + \pi/2)}\) dalam bentuk
+sinusoidal riil (misalnya, \(A \cos(\omega t + \phi)\)).
+
+\textbf{PS\_W1\_P16\_L4: Analisis Energi Sinyal} Hitung energi total
+dari sinyal \(x(t) = e^{-|t|}\).
+
+\textbf{PS\_W1\_P17\_L3: Operasi Sinyal - Kombinasi} Diberikan
+\(x(t) = u(t-1) - u(t-3)\). Gambarlah sinyal \(y(t) = x(2t+2)\).
+
+\textbf{PS\_W1\_P18\_L4: Sistem dan Kondisi Awal} Sistem waktu kontinu
+didefinisikan oleh \(y(t) = x(t)\) untuk \(t \ge 0\) dan \(y(t) = 0\)
+untuk \(t < 0\). Asumsikan input \(x(t) = e^{-t}\). (a) Apakah sistem
+ini kausal? (b) Apakah sistem ini invarian waktu?
+
+\textbf{PS\_W1\_P19\_L3: Klasifikasi Sistem - Interkoneksi} Dua sistem
+\(S_1\) dan \(S_2\) dihubungkan secara seri. Sistem \(S_1\)
+didefinisikan oleh \(y_1(t) = x_1(t-1)\), dan sistem \(S_2\)
+didefinisikan oleh \(y_2(t) = 2x_2(t)\). Apakah sistem gabungan (seri)
+ini linear dan invarian waktu?
+
+\textbf{PS\_W1\_P20\_L4: Sifat Sinyal - Ekstraksi Komponen} Diberikan
+sinyal \(x(t) = e^{-t} \cos(2t) u(t)\). Ekstraksi dan gambarlah komponen
+genap \(x_e(t)\) dan komponen ganjil \(x_o(t)\) dari \(x(t)\).
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\section{Peta Pengetahuan Aplikatif (Problem-Solving Knowledge Map)
+untuk Setiap
+Soal}\label{peta-pengetahuan-aplikatif-problem-solving-knowledge-map-untuk-setiap-soal}
+
+Peta Pemecahan Masalah ini bersifat dinamis dan berorientasi proses,
+dirancang untuk membimbing Anda melalui proses pemecahan masalah. Setiap
+masalah dikonseptualisasikan sebagai ``celah'' antara informasi yang
+diketahui (``Titik Mulai'') dan hasil yang diinginkan (``Titik Akhir'').
+Pemecahan masalah kemudian menjadi proses ``menemukan rute'' atau urutan
+langkah-langkah yang dipilih, menyerupai \emph{flowchart}. ``Kendaraan''
+adalah alat, teknik, dan metode spesifik yang digunakan untuk melintasi
+celah tersebut.
+
+\textbf{PS\_W1\_P1\_L1: Identifikasi Sinyal Dasar}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Titik Mulai:} Ekspresi matematis sinyal waktu kontinu,
+  misalnya \(x(t) = A \cos(\omega t + \phi)\),
+  \(x(t) = A e^{\alpha t}\), \(x(t) = u(t)\), \(x(t) = \delta(t)\).
+\item
+  \textbf{Titik Akhir:} Identifikasi jenis sinyal (sinusoidal,
+  eksponensial, unit step, unit impuls).
+\item
+  \textbf{Rute/Jalan:}
+
+  \begin{enumerate}
+  \def\labelenumi{\arabic{enumi}.}
+  \tightlist
+  \item
+    Tinjau bentuk umum definisi dari masing-masing
+    \textbf{SWK\_Representasi} (sinusoidal, eksponensial, unit step,
+    unit impuls).
+  \item
+    Bandingkan ekspresi sinyal yang diberikan dengan bentuk umum
+    tersebut.
+  \item
+    Tentukan jenis sinyal yang paling sesuai.
+  \end{enumerate}
+\item
+  \textbf{Kendaraan:} \textbf{K\_MAT\_Aljabar} (untuk membandingkan
+  bentuk), \textbf{SWK\_Representasi} (pemahaman definisi sinyal dasar).
+\end{itemize}
+
+\textbf{PS\_W1\_P2\_L2: Klasifikasi Sinyal - Periodik/Aperiodik}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Titik Mulai:} Ekspresi matematis sinyal \(x(t)\).
+\item
+  \textbf{Titik Akhir:} Klasifikasi (periodik/aperiodik) dan periode
+  fundamental (jika periodik).
+\item
+  \textbf{Rute/Jalan:}
+
+  \begin{enumerate}
+  \def\labelenumi{\arabic{enumi}.}
+  \tightlist
+  \item
+    Untuk setiap komponen sinusoidal atau eksponensial kompleks
+    (\(e^{j\omega t}\)), tentukan periode fundamentalnya
+    \(T_i = 2\pi / \omega_i\).
+  \item
+    Jika ada beberapa komponen, cari kelipatan persekutuan terkecil
+    (KPK) dari rasio periode fundamental komponen. Jika rasionya
+    irasional, sinyal aperiodik.
+  \item
+    Jika sinyal mengandung fungsi non-periodik (misalnya, \(u(t)\)),
+    sinyal tersebut aperiodik.
+  \end{enumerate}
+\item
+  \textbf{Kendaraan:} \textbf{K\_MAT\_Aljabar} (manipulasi ekspresi),
+  \textbf{K\_MAT\_Bilangan\_Kompleks} (untuk \(e^{j\omega t}\)),
+  \textbf{SWK\_Periodisitas} (pemahaman konsep periodisitas).
+  \textbf{Heuristik:} ``Mencari Pola'' (dalam pengulangan).
+\end{itemize}
+
+\textbf{PS\_W1\_P3\_L2: Klasifikasi Sinyal - Energi/Daya}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Titik Mulai:} Ekspresi matematis sinyal \(x(t)\).
+\item
+  \textbf{Titik Akhir:} Klasifikasi (sinyal energi, sinyal daya, atau
+  tidak keduanya).
+\item
+  \textbf{Rute/Jalan:}
+
+  \begin{enumerate}
+  \def\labelenumi{\arabic{enumi}.}
+  \tightlist
+  \item
+    Hitung energi total \(E = \int_{-\infty}^{\infty} |x(t)|^2 dt\).
+  \item
+    Jika \(0 < E < \infty\), sinyal adalah \textbf{SWK\_EnergiDaya}
+    (energi). Selesai.
+  \item
+    Jika \(E\) tak hingga, hitung daya rata-rata
+    \(P = \lim_{T \to \infty} \frac{1}{2T} \int_{-T}^{T} |x(t)|^2 dt\).
+  \item
+    Jika \(0 < P < \infty\), sinyal adalah \textbf{SWK\_EnergiDaya}
+    (daya). Selesai.
+  \item
+    Jika tidak ada yang memenuhi, tidak keduanya.
+  \end{enumerate}
+\item
+  \textbf{Kendaraan:} \textbf{K\_MAT\_Kalkulus} (integrasi),
+  \textbf{K\_MAT\_Aljabar} (limit), \textbf{SWK\_EnergiDaya} (definisi).
+\end{itemize}
+
+\textbf{PS\_W1\_P4\_L2: Klasifikasi Sinyal - Genap/Ganjil}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Titik Mulai:} Ekspresi matematis sinyal \(x(t)\).
+\item
+  \textbf{Titik Akhir:} Klasifikasi (genap/ganjil/tidak keduanya) dan
+  komponen genap/ganjil jika tidak keduanya.
+\item
+  \textbf{Rute/Jalan:}
+
+  \begin{enumerate}
+  \def\labelenumi{\arabic{enumi}.}
+  \tightlist
+  \item
+    Tentukan ekspresi \(x(-t)\).
+  \item
+    Bandingkan \(x(t)\) dengan \(x(-t)\).
+
+    \begin{itemize}
+    \tightlist
+    \item
+      Jika \(x(-t) = x(t)\), sinyal adalah \textbf{SWK\_Simetri}
+      (genap).
+    \item
+      Jika \(x(-t) = -x(t)\), sinyal adalah \textbf{SWK\_Simetri}
+      (ganjil).
+    \item
+      Jika tidak keduanya, gunakan rumus:
+      \(x_e(t) = \frac{1}{2}(x(t) + x(-t))\) dan
+      \(x_o(t) = \frac{1}{2}(x(t) - x(-t))\).
+    \end{itemize}
+  \end{enumerate}
+\item
+  \textbf{Kendaraan:} \textbf{K\_MAT\_Aljabar} (manipulasi ekspresi),
+  \textbf{SWK\_Simetri} (definisi genap/ganjil).
+\end{itemize}
+
+\textbf{PS\_W1\_P5\_L3: Operasi Sinyal - Pergeseran \& Penskalaan Waktu}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Titik Mulai:} Deskripsi sinyal \(x(t)\) (pulsa segitiga).
+  Ekspresi operasi waktu: \(y(t) = x(at-b)\).
+\item
+  \textbf{Titik Akhir:} Sketsa grafis sinyal hasil operasi.
+\item
+  \textbf{Rute/Jalan:}
+
+  \begin{enumerate}
+  \def\labelenumi{\arabic{enumi}.}
+  \tightlist
+  \item
+    Sketsa sinyal \(x(t)\) yang diberikan.
+  \item
+    Identifikasi titik-titik kritis (awal, puncak, akhir) dari \(x(t)\).
+  \item
+    Terapkan operasi waktu pada argumen \(t\):
+
+    \begin{itemize}
+    \tightlist
+    \item
+      Ubah \(x(at-b)\) menjadi \(x(a(t-b/a))\). Ini menunjukkan
+      pergeseran waktu \(t_0 = b/a\) dan penskalaan waktu \(a\).
+    \item
+      Terapkan \textbf{SWK\_GeserWaktu} terlebih dahulu (geser \(x(t)\)
+      sebesar \(b/a\)) kemudian \textbf{SWK\_SkalaWaktu} (penskalaan
+      dengan \(a\)) pada sumbu waktu.
+    \item
+      Atau, terapkan \textbf{SWK\_SkalaWaktu} terlebih dahulu
+      (penskalaan dengan \(a\)) kemudian \textbf{SWK\_GeserWaktu} (geser
+      sebesar \(b'\) pada sinyal berskala).
+    \item
+      Jika ada pembalikan waktu (\(a<0\)), lakukan setelah pergeseran.
+    \end{itemize}
+  \item
+    Hitung posisi baru titik-titik kritis dan sketsa sinyal \(y(t)\).
+  \end{enumerate}
+\item
+  \textbf{Kendaraan:} \textbf{K\_VIS\_PlotSinyal},
+  \textbf{SWK\_GeserWaktu}, \textbf{SWK\_SkalaWaktu},
+  \textbf{SWK\_BalikWaktu}. \textbf{Heuristik:} ``Menggambar Diagram'',
+  ``Menyederhanakan Masalah'' (menerapkan operasi satu per satu).
+\end{itemize}
+
+\textbf{PS\_W1\_P6\_L3: Operasi Sinyal - Penjumlahan \& Perkalian}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Titik Mulai:} Ekspresi matematis sinyal \(x_1(t)\) dan
+  \(x_2(t)\).
+\item
+  \textbf{Titik Akhir:} Sketsa grafis sinyal hasil operasi
+  (\(x_1(t) \pm x_2(t)\), \(x_1(t) \cdot x_2(t)\)).
+\item
+  \textbf{Rute/Jalan:}
+
+  \begin{enumerate}
+  \def\labelenumi{\arabic{enumi}.}
+  \tightlist
+  \item
+    Sketsa sinyal \(x_1(t)\) dan \(x_2(t)\) secara terpisah menggunakan
+    \textbf{K\_VIS\_PlotSinyal}.
+  \item
+    Identifikasi interval waktu di mana kedua sinyal memiliki nilai yang
+    berbeda dari nol atau bervariasi.
+  \item
+    Untuk operasi \textbf{SWK\_Jumlah} atau pengurangan, pada setiap
+    interval waktu, jumlahkan/kurangkan nilai amplitudo kedua sinyal.
+  \item
+    Untuk operasi \textbf{SWK\_Kali}, pada setiap interval waktu,
+    kalikan nilai amplitudo kedua sinyal. Perhatikan jika salah satu
+    sinyal nol pada interval tertentu.
+  \item
+    Sketsa sinyal hasil.
+  \end{enumerate}
+\item
+  \textbf{Kendaraan:} \textbf{K\_VIS\_PlotSinyal}, \textbf{SWK\_Jumlah},
+  \textbf{SWK\_Kali}. \textbf{Heuristik:} ``Menggambar Diagram''.
+\end{itemize}
+
+\textbf{PS\_W1\_P7\_L3: Diferensiasi Sinyal}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Titik Mulai:} Ekspresi matematis sinyal \(x(t)\).
+\item
+  \textbf{Titik Akhir:} Ekspresi dan sketsa turunan pertama sinyal
+  \(y(t) = \frac{dx(t)}{dt}\).
+\item
+  \textbf{Rute/Jalan:}
+
+  \begin{enumerate}
+  \def\labelenumi{\arabic{enumi}.}
+  \tightlist
+  \item
+    Sketsa sinyal \(x(t)\) menggunakan \textbf{K\_VIS\_PlotSinyal}.
+  \item
+    Identifikasi interval di mana \(x(t)\) konstan (turunan nol),
+    memiliki kemiringan konstan (turunan adalah konstanta), atau
+    memiliki diskontinuitas (turunan adalah impuls).
+  \item
+    Gunakan aturan \textbf{K\_MAT\_Kalkulus} (diferensiasi) dan sifat
+    \textbf{SWK\_UnitStep}, \textbf{SWK\_UnitImpuls}. Ingat
+    \(\frac{du(t)}{dt} = \delta(t)\).
+  \item
+    Sketsa sinyal turunan.
+  \end{enumerate}
+\item
+  \textbf{Kendaraan:} \textbf{K\_MAT\_Kalkulus} (diferensiasi),
+  \textbf{K\_VIS\_PlotSinyal}, \textbf{SWK\_UnitStep},
+  \textbf{SWK\_UnitImpuls}.
+\end{itemize}
+
+\textbf{PS\_W1\_P8\_L2: Identifikasi Sifat Sistem - Tanpa Memori}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Titik Mulai:} Hubungan input-output sistem \(y(t) = T{x(t)}\).
+\item
+  \textbf{Titik Akhir:} Klasifikasi sistem sebagai \textbf{SYWK\_Memori}
+  (tanpa memori) atau dengan memori.
+\item
+  \textbf{Rute/Jalan:}
+
+  \begin{enumerate}
+  \def\labelenumi{\arabic{enumi}.}
+  \tightlist
+  \item
+    Tinjau definisi \textbf{SYWK\_Memori} (tanpa memori): Output
+    \(y(t)\) pada waktu \(t\) hanya bergantung pada input \(x(t)\) pada
+    waktu \(t\).
+  \item
+    Periksa ekspresi \(y(t)\).
+
+    \begin{itemize}
+    \tightlist
+    \item
+      Jika \(y(t)\) hanya bergantung pada \(x(t)\) (tidak ada
+      \(x(t-t_0)\), \(x(t+t_0)\), atau integral/turunan), maka sistem
+      tanpa memori.
+    \item
+      Jika \(y(t)\) bergantung pada \(x(\tau)\) di mana \(\tau \neq t\),
+      atau pada nilai output masa lalu/depan (misalnya integral), maka
+      sistem memiliki memori.
+    \end{itemize}
+  \end{enumerate}
+\item
+  \textbf{Kendaraan:} \textbf{K\_MAT\_Aljabar} (analisis ekspresi),
+  \textbf{SYWK\_Memori} (definisi sifat).
+\end{itemize}
+
+\textbf{PS\_W1\_P9\_L2: Identifikasi Sifat Sistem - Kausalitas}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Titik Mulai:} Hubungan input-output sistem \(y(t) = T{x(t)}\).
+\item
+  \textbf{Titik Akhir:} Klasifikasi sistem sebagai
+  \textbf{SYWK\_Kausalitas} (kausal) atau non-kausal.
+\item
+  \textbf{Rute/Jalan:}
+
+  \begin{enumerate}
+  \def\labelenumi{\arabic{enumi}.}
+  \tightlist
+  \item
+    Tinjau definisi \textbf{SYWK\_Kausalitas}: Output \(y(t)\) pada
+    waktu \(t\) hanya bergantung pada input \(x(\tau)\) untuk
+    \(\tau \le t\).
+  \item
+    Periksa ekspresi \(y(t)\).
+
+    \begin{itemize}
+    \tightlist
+    \item
+      Jika \(y(t)\) bergantung pada \(x(\tau)\) di mana \(\tau > t\)
+      (input masa depan), maka sistem non-kausal.
+    \item
+      Jika hanya bergantung pada \(x(t)\) dan/atau \(x(\tau)\) untuk
+      \(\tau < t\), maka sistem kausal.
+    \end{itemize}
+  \end{enumerate}
+\item
+  \textbf{Kendaraan:} \textbf{K\_MAT\_Aljabar} (analisis ekspresi),
+  \textbf{SYWK\_Kausalitas} (definisi sifat).
+\end{itemize}
+
+\textbf{PS\_W1\_P10\_L2: Identifikasi Sifat Sistem - Invertibilitas}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Titik Mulai:} Hubungan input-output sistem \(y(t) = T{x(t)}\).
+\item
+  \textbf{Titik Akhir:} Klasifikasi sistem sebagai
+  \textbf{SYWK\_Invertibilitas} (invertibel) atau non-invertibel.
+\item
+  \textbf{Rute/Jalan:}
+
+  \begin{enumerate}
+  \def\labelenumi{\arabic{enumi}.}
+  \tightlist
+  \item
+    Tinjau definisi \textbf{SYWK\_Invertibilitas}: Input unik
+    menghasilkan output unik.
+  \item
+    Coba temukan dua input berbeda \(x_1(t) \neq x_2(t)\) yang
+    menghasilkan output yang sama \(y_1(t) = y_2(t)\).
+
+    \begin{itemize}
+    \tightlist
+    \item
+      Jika ditemukan, sistem non-invertibel. (Contoh: \(y(t) = x^2(t)\),
+      di mana \(x(t)\) dan \(-x(t)\) menghasilkan output yang sama).
+    \end{itemize}
+  \item
+    Atau, coba cari sistem invers \(x(t) = T^{-1}{y(t)}\). Jika
+    \(T^{-1}\) ada dan unik, sistem invertibel.
+  \end{enumerate}
+\item
+  \textbf{Kendaraan:} \textbf{K\_MAT\_Aljabar} (analisis ekspresi),
+  \textbf{SYWK\_Invertibilitas} (definisi sifat).
+\end{itemize}
+
+\textbf{PS\_W1\_P11\_L3: Identifikasi Sifat Sistem - Stabilitas BIBO}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Titik Mulai:} Hubungan input-output sistem \(y(t) = T{x(t)}\).
+\item
+  \textbf{Titik Akhir:} Klasifikasi sistem sebagai
+  \textbf{SYWK\_Stabilitas} (stabil BIBO) atau tidak stabil BIBO.
+\item
+  \textbf{Rute/Jalan:}
+
+  \begin{enumerate}
+  \def\labelenumi{\arabic{enumi}.}
+  \tightlist
+  \item
+    Tinjau definisi \textbf{SYWK\_Stabilitas} (BIBO): Input terbatas
+    menghasilkan output terbatas.
+  \item
+    Asumsikan input \(x(t)\) terbatas, yaitu \(|x(t)| \le M_x < \infty\)
+    untuk semua \(t\).
+  \item
+    Dari ekspresi \(y(t)\), periksa apakah \(|y(t)|\) akan selalu
+    terbatas.
+  \item
+    Cari contoh \emph{counterexample}: Input terbatas yang menghasilkan
+    output tak terbatas. Jika ditemukan, sistem tidak stabil BIBO.
+  \end{enumerate}
+\item
+  \textbf{Kendaraan:} \textbf{K\_MAT\_Aljabar} (analisis batas,
+  ketaksamaan), \textbf{SYWK\_Stabilitas} (definisi sifat).
+\end{itemize}
+
+\textbf{PS\_W1\_P12\_L3: Identifikasi Sifat Sistem - Linearitas}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Titik Mulai:} Hubungan input-output sistem \(y(t) = T{x(t)}\).
+\item
+  \textbf{Titik Akhir:} Klasifikasi sistem sebagai
+  \textbf{SYWK\_Linearitas} (linear) atau non-linear.
+\item
+  \textbf{Rute/Jalan:}
+
+  \begin{enumerate}
+  \def\labelenumi{\arabic{enumi}.}
+  \tightlist
+  \item
+    Uji \textbf{Aditivitas}: Apakah
+    \(T{x_1(t) + x_2(t)} = T{x_1(t)} + T{x_2(t)}\)?
+
+    \begin{itemize}
+    \tightlist
+    \item
+      Ganti \(x(t)\) dengan \(x_1(t) + x_2(t)\) dalam ekspresi sistem
+      untuk mendapatkan LHS.
+    \item
+      Hitung \(T{x_1(t)}\) dan \(T{x_2(t)}\) secara terpisah dan
+      jumlahkan untuk mendapatkan RHS.
+    \item
+      Bandingkan LHS dan RHS.
+    \end{itemize}
+  \item
+    Uji \textbf{Homogenitas}: Apakah \(T{a x(t)} = a T{x(t)}\)?
+
+    \begin{itemize}
+    \tightlist
+    \item
+      Ganti \(x(t)\) dengan \(a x(t)\) dalam ekspresi sistem untuk
+      mendapatkan LHS.
+    \item
+      Hitung \(a T{x(t)}\) untuk mendapatkan RHS.
+    \item
+      Bandingkan LHS dan RHS.
+    \end{itemize}
+  \item
+    Jika kedua sifat terpenuhi, sistem linear. Jika salah satu atau
+    keduanya tidak, sistem non-linear.
+  \end{enumerate}
+\item
+  \textbf{Kendaraan:} \textbf{K\_MAT\_Aljabar} (manipulasi ekspresi),
+  \textbf{SYWK\_Linearitas} (definisi sifat, aditivitas, homogenitas).
+\end{itemize}
+
+\textbf{PS\_W1\_P13\_L3: Identifikasi Sifat Sistem - Invariansi Waktu}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Titik Mulai:} Hubungan input-output sistem \(y(t) = T{x(t)}\).
+\item
+  \textbf{Titik Akhir:} Klasifikasi sistem sebagai
+  \textbf{SYWK\_InvarianWaktu} (invarian waktu) atau bervariasi waktu.
+\item
+  \textbf{Rute/Jalan:}
+
+  \begin{enumerate}
+  \def\labelenumi{\arabic{enumi}.}
+  \tightlist
+  \item
+    Tentukan output \(y(t)\) untuk input \(x(t)\).
+  \item
+    Definisikan input yang digeser waktu \(x_d(t) = x(t-t_0)\). Tentukan
+    output \(y_d(t)\) untuk input ini.
+  \item
+    Geser output asli \(y(t)\) sebesar \(t_0\) untuk mendapatkan
+    \(y_s(t) = y(t-t_0)\).
+  \item
+    Bandingkan \(y_d(t)\) dan \(y_s(t)\).
+
+    \begin{itemize}
+    \tightlist
+    \item
+      Jika \(y_d(t) = y_s(t)\) untuk semua \(x(t)\) dan \(t_0\), sistem
+      adalah \textbf{SYWK\_InvarianWaktu}.
+    \item
+      Jika tidak, sistem bervariasi waktu.
+    \end{itemize}
+  \end{enumerate}
+\item
+  \textbf{Kendaraan:} \textbf{K\_MAT\_Aljabar} (manipulasi ekspresi),
+  \textbf{SWK\_GeserWaktu}, \textbf{SYWK\_InvarianWaktu} (definisi
+  sifat).
+\end{itemize}
+
+\textbf{PS\_W1\_P14\_L4: Analisis Gabungan Sifat Sistem}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Titik Mulai:} Hubungan input-output sistem \(y(t) = T{x(t)}\).
+\item
+  \textbf{Titik Akhir:} Klasifikasi lengkap (linear, invarian waktu,
+  kausal, stabil BIBO).
+\item
+  \textbf{Rute/Jalan:}
+
+  \begin{enumerate}
+  \def\labelenumi{\arabic{enumi}.}
+  \tightlist
+  \item
+    Terapkan langkah-langkah P8 hingga P13 secara berurutan untuk setiap
+    sifat: \textbf{SYWK\_Memori}, \textbf{SYWK\_Kausalitas},
+    \textbf{SYWK\_Invertibilitas}, \textbf{SYWK\_Stabilitas},
+    \textbf{SYWK\_Linearitas}, \textbf{SYWK\_InvarianWaktu}.
+  \item
+    Dokumentasikan kesimpulan untuk setiap sifat.
+  \end{enumerate}
+\item
+  \textbf{Kendaraan:} \textbf{K\_MAT\_Aljabar},
+  \textbf{K\_MAT\_Kalkulus}, \textbf{K\_OPS\_Sinyal\_Dasar} (semua
+  definisi sifat sistem). \textbf{Heuristik:} ``Mentransformasi
+  Masalah'' (ke dalam analisis sifat), ``Menyederhanakan Masalah''
+  (analisis sifat satu per satu).
+\end{itemize}
+
+\textbf{PS\_W1\_P15\_L3: Representasi Sinyal Kompleks}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Titik Mulai:} Sinyal eksponensial kompleks
+  \(x(t) = A e^{j(\omega t + \phi)}\).
+\item
+  \textbf{Titik Akhir:} Bentuk sinusoidal riil
+  \(A \cos(\omega t + \phi)\).
+\item
+  \textbf{Rute/Jalan:}
+
+  \begin{enumerate}
+  \def\labelenumi{\arabic{enumi}.}
+  \tightlist
+  \item
+    Identifikasi amplitudo \(A\), frekuensi sudut \(\omega\), dan fase
+    \(\phi\) dari ekspresi eksponensial kompleks.
+  \item
+    Gunakan identitas Euler:
+    \(e^{j\theta} = \cos\theta + j \sin\theta\).
+  \item
+    Substitusikan argumen eksponensial kompleks \((\omega t + \phi)\)
+    sebagai \(\theta\) ke dalam identitas Euler.
+  \item
+    Ambil bagian riil dari hasilnya.
+  \end{enumerate}
+\item
+  \textbf{Kendaraan:} \textbf{K\_MAT\_Bilangan\_Kompleks} (identitas
+  Euler), \textbf{K\_MAT\_Aljabar}.
+\end{itemize}
+
+\textbf{PS\_W1\_P16\_L4: Analisis Energi Sinyal}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Titik Mulai:} Ekspresi sinyal \(x(t) = e^{-|t|}\).
+\item
+  \textbf{Titik Akhir:} Energi total sinyal \(E\).
+\item
+  \textbf{Rute/Jalan:}
+
+  \begin{enumerate}
+  \def\labelenumi{\arabic{enumi}.}
+  \tightlist
+  \item
+    Uraikan sinyal \(x(t) = e^{-|t|}\) menjadi bentuk fungsi
+    \emph{piecewise}: \(x(t) = e^t\) untuk \(t<0\) dan \(x(t) = e^{-t}\)
+    untuk \(t \ge 0\).
+  \item
+    Gunakan rumus energi total:
+    \(E = \int_{-\infty}^{\infty} |x(t)|^2 dt\).
+  \item
+    Pisahkan integral menjadi dua bagian berdasarkan fungsi
+    \emph{piecewise}:
+    \(E = \int_{-\infty}^{0} (e^t)^2 dt + \int_{0}^{\infty} (e^{-t})^2 dt\).
+  \item
+    Hitung masing-masing integral menggunakan \textbf{K\_MAT\_Kalkulus}.
+  \item
+    Jumlahkan hasilnya.
+  \end{enumerate}
+\item
+  \textbf{Kendaraan:} \textbf{K\_MAT\_Kalkulus} (integrasi),
+  \textbf{K\_MAT\_Aljabar} (fungsi \emph{piecewise}, sifat
+  eksponensial), \textbf{SWK\_EnergiDaya} (definisi).
+\end{itemize}
+
+\textbf{PS\_W1\_P17\_L3: Operasi Sinyal - Kombinasi}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Titik Mulai:} Ekspresi sinyal \(x(t) = u(t-1) - u(t-3)\).
+  Transformasi \(y(t) = x(2t+2)\).
+\item
+  \textbf{Titik Akhir:} Sketsa sinyal \(y(t)\).
+\item
+  \textbf{Rute/Jalan:}
+
+  \begin{enumerate}
+  \def\labelenumi{\arabic{enumi}.}
+  \tightlist
+  \item
+    Sketsa sinyal \(x(t)\) (pulsa persegi dari \(t=1\) hingga \(t=3\))
+    menggunakan \textbf{K\_VIS\_PlotSinyal}.
+  \item
+    Terapkan operasi waktu pada argumen \(t\) dari \(y(t) = x(2t+2)\):
+
+    \begin{itemize}
+    \tightlist
+    \item
+      Tulis ulang argumen sebagai \(2(t+1)\). Ini berarti penskalaan
+      waktu dengan \(a=2\) dan pergeseran waktu dengan \(t_0=-1\).
+    \item
+      Terapkan \textbf{SWK\_GeserWaktu} terlebih dahulu: Geser \(x(t)\)
+      ke kiri 1 unit menjadi \(x(t+1)\). Pulsa menjadi dari \(t=0\)
+      hingga \(t=2\).
+    \item
+      Kemudian terapkan \textbf{SWK\_SkalaWaktu}: Kompres \(x(t+1)\)
+      dengan faktor 2 menjadi \(x(2(t+1))\). Pulsa menjadi dari \(t=0\)
+      hingga \(t=1\).
+    \end{itemize}
+  \item
+    Sketsa sinyal \(y(t)\).
+  \end{enumerate}
+\item
+  \textbf{Kendaraan:} \textbf{K\_VIS\_PlotSinyal},
+  \textbf{SWK\_UnitStep}, \textbf{SWK\_GeserWaktu},
+  \textbf{SWK\_SkalaWaktu}. \textbf{Heuristik:} ``Menggambar Diagram'',
+  ``Menyederhanakan Masalah'' (menerapkan operasi berurutan).
+\end{itemize}
+
+\textbf{PS\_W1\_P18\_L4: Sistem dan Kondisi Awal}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Titik Mulai:} Definisi sistem: \(y(t) = x(t)\) untuk
+  \(t \ge 0\), \(y(t) = 0\) untuk \(t < 0\). Input \(x(t) = e^{-t}\).
+\item
+  \textbf{Titik Akhir:} Klasifikasi kausal/invarian waktu.
+\item
+  \textbf{Rute/Jalan:}
+
+  \begin{enumerate}
+  \def\labelenumi{\arabic{enumi}.}
+  \tightlist
+  \item
+    \textbf{Untuk SYWK\_Kausalitas:} Periksa apakah \(y(t)\) bergantung
+    pada input masa depan \(x(\tau)\) dengan \(\tau > t\).
+
+    \begin{itemize}
+    \tightlist
+    \item
+      Untuk \(t < 0\), \(y(t)=0\), tidak bergantung pada \(x(t)\).
+    \item
+      Untuk \(t \ge 0\), \(y(t)=x(t)\), bergantung pada \(x(t)\) saat
+      ini.
+    \item
+      Simpulkan berdasarkan definisi.
+    \end{itemize}
+  \item
+    \textbf{Untuk SYWK\_InvarianWaktu:}
+
+    \begin{itemize}
+    \tightlist
+    \item
+      Tentukan output \(y(t)\) untuk input \(x(t) = e^{-t}\) (yaitu
+      \(y(t) = e^{-t} u(t)\)).
+    \item
+      Tentukan output \(y_d(t)\) untuk input yang digeser
+      \(x_d(t) = x(t-t_0) = e^{-(t-t_0)}\). Sesuai definisi sistem,
+      \(y_d(t) = e^{-(t-t_0)} u(t)\).
+    \item
+      Tentukan output asli yang digeser waktu
+      \(y_s(t) = y(t-t_0) = e^{-(t-t_0)} u(t-t_0)\).
+    \item
+      Bandingkan \(y_d(t)\) dan \(y_s(t)\). Jika tidak sama, simpulkan
+      sistem bervariasi waktu.
+    \end{itemize}
+  \end{enumerate}
+\item
+  \textbf{Kendaraan:} \textbf{K\_MAT\_Aljabar}, \textbf{SWK\_UnitStep},
+  \textbf{SYWK\_Kausalitas} (definisi), \textbf{SYWK\_InvarianWaktu}
+  (definisi).
+\end{itemize}
+
+\textbf{PS\_W1\_P19\_L3: Klasifikasi Sistem - Interkoneksi}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Titik Mulai:} Dua sistem \(S_1\) (\(y_1(t) = x_1(t-1)\)) dan
+  \(S_2\) (\(y_2(t) = 2x_2(t)\)) dihubungkan seri.
+\item
+  \textbf{Titik Akhir:} Klasifikasi sistem gabungan (linear, invarian
+  waktu).
+\item
+  \textbf{Rute/Jalan:}
+
+  \begin{enumerate}
+  \def\labelenumi{\arabic{enumi}.}
+  \tightlist
+  \item
+    Tentukan hubungan input-output untuk sistem gabungan:
+    \(y(t) = S_2{S_1{x(t)}}\).
+
+    \begin{itemize}
+    \tightlist
+    \item
+      Substitusikan output \(S_1\) ke dalam input \(S_2\):
+      \(y(t) = S_2{x(t-1)} = 2x(t-1)\).
+    \end{itemize}
+  \item
+    Uji \textbf{SYWK\_Linearitas} sistem gabungan (ikuti P12).
+  \item
+    Uji \textbf{SYWK\_InvarianWaktu} sistem gabungan (ikuti P13).
+  \end{enumerate}
+\item
+  \textbf{Kendaraan:} \textbf{K\_MAT\_Aljabar},
+  \textbf{SWK\_GeserWaktu}, \textbf{SYWK\_Linearitas} (definisi),
+  \textbf{SYWK\_InvarianWaktu} (definisi).
+\end{itemize}
+
+\textbf{PS\_W1\_P20\_L4: Sifat Sinyal - Ekstraksi Komponen}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Titik Mulai:} Sinyal \(x(t) = e^{-t} \cos(2t) u(t)\).
+\item
+  \textbf{Titik Akhir:} Ekspresi dan sketsa komponen genap \(x_e(t)\)
+  dan komponen ganjil \(x_o(t)\).
+\item
+  \textbf{Rute/Jalan:}
+
+  \begin{enumerate}
+  \def\labelenumi{\arabic{enumi}.}
+  \tightlist
+  \item
+    Tentukan ekspresi untuk \(x(-t)\). Ingat \(\cos(-A) = \cos(A)\) dan
+    \(u(-t)\).
+  \item
+    Gunakan rumus untuk komponen genap:
+    \(x_e(t) = \frac{1}{2} (x(t) + x(-t))\).
+  \item
+    Gunakan rumus untuk komponen ganjil:
+    \(x_o(t) = \frac{1}{2} (x(t) - x(-t))\).
+  \item
+    Substitusikan \(x(t)\) dan \(x(-t)\) ke dalam rumus dan sederhanakan
+    ekspresi menggunakan \textbf{K\_MAT\_Aljabar}.
+  \item
+    Sketsa masing-masing komponen \(x_e(t)\) dan \(x_o(t)\) menggunakan
+    \textbf{K\_VIS\_PlotSinyal}.
+  \end{enumerate}
+\item
+  \textbf{Kendaraan:} \textbf{K\_MAT\_Aljabar} (manipulasi ekspresi,
+  sifat trigonometri), \textbf{SWK\_UnitStep}, \textbf{SWK\_Simetri}
+  (definisi genap/ganjil), \textbf{K\_VIS\_PlotSinyal}.
+\end{itemize}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
 \bookmarksetup{startatroot}
 
 \chapter{Summary}\label{summary}
 
-In summary, this book has no content whatsoever.
+In summary, this book has no content whatsoever.@knuth84
 
 \bookmarksetup{startatroot}
 
@@ -732,6 +1535,8 @@ In summary, this book has no content whatsoever.
 \markboth{References}{References}
 
 \phantomsection\label{refs}
+\begin{CSLReferences}{0}{1}
+\end{CSLReferences}
 
 
 
