@@ -9,6 +9,8 @@ book:
   chapters:
     - index.qmd
     - intro.qmd
+    - kuliah/Peta_1.qmd
+    - requirements/Soal_1.qmd
     - summary.qmd
     - references.qmd
 

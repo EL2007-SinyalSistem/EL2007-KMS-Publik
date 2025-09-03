@@ -1,4 +1,7 @@
-# Preface {.unnumbered}
+# Selamat Datang di KuLiahEL 2007 Sinyal dan Sistem {.unnumbered}
+
+
+Video Clip <https://www.youtube.com/playlist?list=PLgnoib8dkAOy1CnW9UXWDRpcdEpDVWfey>
 
 This is a Quarto book.
 
