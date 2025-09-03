@@ -1,7 +1,0 @@
----
-title: "Propduk Mahasiswa Terpilih"
----
-
-This is a Quarto website. Under Construction
-
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
