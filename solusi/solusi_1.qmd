@@ -1,8 +1,10 @@
-# Solusi Tugas 1
+## Solusi Tugas 1
 
-## Peta Pengetahuan Aplikatif (Problem-Solving Knowledge Map) untuk Setiap Soal
+** Peta Pengetahuan Aplikatif (Problem-Solving Knowledge Map) untuk Setiap Soal **
 
 Peta Pemecahan Masalah ini bersifat dinamis dan berorientasi proses, dirancang untuk membimbing Anda melalui proses pemecahan masalah. Setiap masalah dikonseptualisasikan sebagai "celah" antara informasi yang diketahui ("Titik Mulai") dan hasil yang diinginkan ("Titik Akhir"). Pemecahan masalah kemudian menjadi proses "menemukan rute" atau urutan langkah-langkah yang dipilih, menyerupai _flowchart_. "Kendaraan" adalah alat, teknik, dan metode spesifik yang digunakan untuk melintasi celah tersebut.
+
+
 
 **PS_W1_P1_L1: Identifikasi Sinyal Dasar**
 
