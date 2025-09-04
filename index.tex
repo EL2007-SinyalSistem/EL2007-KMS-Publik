@@ -1,4 +1,5 @@
 % Options for packages loaded elsewhere
+% Options for packages loaded elsewhere
 \PassOptionsToPackage{unicode}{hyperref}
 \PassOptionsToPackage{hyphens}{url}
 \PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
@@ -7,21 +8,22 @@
   letterpaper,
   DIV=11,
   numbers=noendperiod]{scrreprt}
-
+\usepackage{xcolor}
 \usepackage{amsmath,amssymb}
+\setcounter{secnumdepth}{5}
 \usepackage{iftex}
 \ifPDFTeX
   \usepackage[T1]{fontenc}
   \usepackage[utf8]{inputenc}
   \usepackage{textcomp} % provide euro and other symbols
 \else % if luatex or xetex
-  \usepackage{unicode-math}
+  \usepackage{unicode-math} % this also loads fontspec
   \defaultfontfeatures{Scale=MatchLowercase}
   \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
 \fi
 \usepackage{lmodern}
-\ifPDFTeX\else  
-    % xetex/luatex font selection
+\ifPDFTeX\else
+  % xetex/luatex font selection
 \fi
 % Use upquote if available, for straight quotes in verbatim environments
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
@@ -39,9 +41,6 @@
 }{% if KOMA class
   \KOMAoptions{parskip=half}}
 \makeatother
-\usepackage{xcolor}
-\setlength{\emergencystretch}{3em} % prevent overfull lines
-\setcounter{secnumdepth}{5}
 % Make \paragraph and \subparagraph free-standing
 \makeatletter
 \ifx\paragraph\undefined\else
@@ -67,8 +66,7 @@
 \makeatother
 
 
-\providecommand{\tightlist}{%
-  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}\usepackage{longtable,booktabs,array}
+\usepackage{longtable,booktabs,array}
 \usepackage{calc} % for calculating minipage widths
 % Correct order of tables after \paragraph or \subparagraph
 \usepackage{etoolbox}
@@ -80,50 +78,33 @@
 \makesavenoteenv{longtable}
 \usepackage{graphicx}
 \makeatletter
-\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
-\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
-\makeatother
-% Scale images if necessary, so that they will not overflow the page
-% margins by default, and it is still possible to overwrite the defaults
-% using explicit options in \includegraphics[width, height, ...]{}
-\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+\newsavebox\pandoc@box
+\newcommand*\pandocbounded[1]{% scales image to fit in text height/width
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi% select the smaller of both
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox{\pandoc@box}%
+  \fi%
+}
 % Set default figure placement to htbp
-\makeatletter
 \def\fps@figure{htbp}
 \makeatother
-% definitions for citeproc citations
-\NewDocumentCommand\citeproctext{}{}
-\NewDocumentCommand\citeproc{mm}{%
-  \begingroup\def\citeproctext{#2}\cite{#1}\endgroup}
-\makeatletter
- % allow citations to break across lines
- \let\@cite@ofmt\@firstofone
- % avoid brackets around text for \cite:
- \def\@biblabel#1{}
- \def\@cite#1#2{{#1\if@tempswa , #2\fi}}
-\makeatother
-\newlength{\cslhangindent}
-\setlength{\cslhangindent}{1.5em}
-\newlength{\csllabelwidth}
-\setlength{\csllabelwidth}{3em}
-\newenvironment{CSLReferences}[2] % #1 hanging-indent, #2 entry-spacing
- {\begin{list}{}{%
-  \setlength{\itemindent}{0pt}
-  \setlength{\leftmargin}{0pt}
-  \setlength{\parsep}{0pt}
-  % turn on hanging indent if param 1 is 1
-  \ifodd #1
-   \setlength{\leftmargin}{\cslhangindent}
-   \setlength{\itemindent}{-1\cslhangindent}
-  \fi
-  % set entry spacing
-  \setlength{\itemsep}{#2\baselineskip}}}
- {\end{list}}
-\usepackage{calc}
-\newcommand{\CSLBlock}[1]{\hfill\break\parbox[t]{\linewidth}{\strut\ignorespaces#1\strut}}
-\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{\strut#1\strut}}
-\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{\strut#1\strut}}
-\newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
+
+
+
+
+
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+
+
+ 
+
 
 \KOMAoption{captions}{tableheading}
 \makeatletter
@@ -170,14 +151,9 @@
 \@ifpackageloaded{caption}{}{\usepackage{caption}}
 \@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
 \makeatother
-
-\ifLuaTeX
-  \usepackage{selnolig}  % disable illegal ligatures
-\fi
 \usepackage{bookmark}
-
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
-\urlstyle{same} % disable monospaced font for URLs
+\urlstyle{same}
 \hypersetup{
   pdftitle={EL-2007 Sinyal dan Sistem},
   pdfauthor={Armein Z R Langi},
@@ -192,7 +168,6 @@
 \title{EL-2007 Sinyal dan Sistem}
 \author{Armein Z R Langi}
 \date{2025-09-03}
-
 \begin{document}
 \maketitle
 
@@ -216,19 +191,14 @@ Datang di KuLiahEL 2007 Sinyal dan Sistem}
 Video Clip
 \url{https://www.youtube.com/playlist?list=PLgnoib8dkAOy1CnW9UXWDRpcdEpDVWfey}
 
-This is a Quarto book.
-
-To learn more about Quarto books visit
-\url{https://quarto.org/docs/books}.
-
 \bookmarksetup{startatroot}
 
 \chapter{}\label{section}
 
 \bookmarksetup{startatroot}
 
-\chapter{Materi Pembelajaran Minggu 1: Deskripsi Matematis Sinyal Waktu
-Kontinu}\label{materi-pembelajaran-minggu-1-deskripsi-matematis-sinyal-waktu-kontinu}
+\chapter{Minggui 1L Sinyal di Kwasan
+Waktu}\label{minggui-1l-sinyal-di-kwasan-waktu}
 
 Berikut adalah materi pembelajaran untuk Minggu 1 mata kuliah Sinyal dan
 Sistem (EL2007), dirancang sesuai dengan filosofi VALORAIZE Learning,
@@ -236,6 +206,9 @@ yang mencakup peta pengetahuan, kendaraan matematika, set soal, dan peta
 pemecahan masalah untuk setiap soal.
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\section{Materi Pembelajaran Minggu 1: Deskripsi Matematis Sinyal Waktu
+Kontinu}\label{materi-pembelajaran-minggu-1-deskripsi-matematis-sinyal-waktu-kontinu}
 
 \textbf{Capaian Pembelajaran Minggu (CPMK Terkait):} Mahasiswa
 diharapkan mampu \textbf{memahami dasar-dasar sinyal waktu kontinu dan
@@ -1523,6 +1496,1999 @@ celah tersebut.
 
 \bookmarksetup{startatroot}
 
+\chapter{Minggu 2: Sistem di Kawsan
+Waktu}\label{minggu-2-sistem-di-kawsan-waktu}
+
+Berdasarkan tujuan pembelajaran Minggu ke-2 dari \texttt{RPS.pdf},
+materi kuliah akan berfokus pada \textbf{Deskripsi Sistem di Domain
+Waktu: Persamaan Diferensial dan Respon Impuls}. Ini termasuk memahami
+karakteristik sistem linear tak-berubah waktu (LTI) dan pentingnya
+respon impuls.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{Materi Kuliah Minggu 2: Deskripsi Sistem di Domain Waktu dan
+Sifat-sifat
+Dasarnya}\label{materi-kuliah-minggu-2-deskripsi-sistem-di-domain-waktu-dan-sifat-sifat-dasarnya}
+
+Pada minggu ini, kita akan menjelajahi bagaimana sinyal dan sistem dapat
+digambarkan dan diklasifikasikan berdasarkan perilaku mereka di domain
+waktu. Pemahaman dasar ini sangat penting sebagai fondasi untuk analisis
+sistem yang lebih kompleks.
+
+\textbf{1. Sinyal Waktu Kontinu dan Waktu Diskrit} Sinyal adalah
+fenomena fisik apa pun yang membawa informasi.
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Sinyal Waktu Kontinu (Continuous-Time Signals):} Sinyal yang
+  didefinisikan untuk setiap nilai waktu kontinu \(t\). Contohnya
+  gelombang suara, tegangan pada rangkaian listrik.
+\item
+  \textbf{Sinyal Waktu Diskrit (Discrete-Time Signals):} Sinyal yang
+  hanya didefinisikan pada interval waktu diskrit tertentu. Contohnya
+  urutan sampel digital dari sinyal analog.
+\end{itemize}
+
+\textbf{2. Sistem Waktu Kontinu dan Waktu Diskrit} Sistem dapat
+memproses sinyal, mengubah satu sinyal input menjadi sinyal output.
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Sistem Waktu Kontinu:} Sistem yang mengambil sinyal waktu
+  kontinu sebagai input dan menghasilkan sinyal waktu kontinu sebagai
+  output.
+\item
+  \textbf{Sistem Waktu Diskrit:} Sistem yang mengambil sinyal waktu
+  diskrit sebagai input dan menghasilkan sinyal waktu diskrit sebagai
+  output.
+\end{itemize}
+
+\textbf{3. Representasi Matematis Sistem di Domain Waktu} Sistem dapat
+dijelaskan secara matematis melalui berbagai bentuk:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Persamaan Diferensial (Continuous-Time Systems):} Banyak
+  sistem fisik waktu kontinu, seperti rangkaian listrik atau sistem
+  mekanik, dapat dimodelkan menggunakan persamaan diferensial linear
+  koefisien konstan (Linear Constant-Coefficient Differential
+  Equations). Misalnya, sistem LTI yang umum dapat dijelaskan oleh
+  persamaan diferensial
+  \(d^Ny(t)/dt^N + \sum_{k=0}^{N-1} a_k d^ky(t)/dt^k = \sum_{k=0}^{M} b_k d^kx(t)/dt^k\).
+\item
+  \textbf{Persamaan Beda (Difference Equations) (Discrete-Time
+  Systems):} Sistem waktu diskrit sering dijelaskan oleh persamaan beda
+  linear koefisien konstan (Linear Constant-Coefficient Difference
+  Equations).
+\item
+  \textbf{Respon Impuls (Impulse Response):} Karakteristik fundamental
+  dari sistem LTI adalah responnya terhadap sinyal impuls unit (unit
+  impulse function). Respon impuls, \(h(t)\) untuk CT atau \(h[n]\)
+  untuk DT, sepenuhnya mengkarakterisasi perilaku sistem LTI. Ini
+  memungkinkan kita untuk menghitung output sistem untuk input apa pun
+  melalui operasi konvolusi (yang akan dibahas lebih detail di minggu
+  berikutnya).
+\end{itemize}
+
+\textbf{4. Sifat-sifat Sistem Dasar} Sistem dapat diklasifikasikan
+berdasarkan sifat-sifat fundamentalnya:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Sistem dengan dan tanpa Memori (Memory vs.~Memoryless
+  Systems):}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \textbf{Sistem tanpa Memori (Memoryless System):} Output sistem pada
+    waktu tertentu hanya bergantung pada input pada waktu yang sama.
+    Contoh: \(y(t) = 2x(t)\).
+  \item
+    \textbf{Sistem dengan Memori (System with Memory):} Output sistem
+    pada waktu tertentu bergantung pada input dari waktu lampau atau
+    masa depan. Contoh: \(y(t) = \int_{-\infty}^{t} x(\tau)d\tau\).
+  \end{itemize}
+\item
+  \textbf{Kausalitas (Causality):}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \textbf{Sistem Kausal (Causal System):} Output sistem pada waktu
+    tertentu hanya bergantung pada input pada waktu sekarang dan waktu
+    lampau. Sistem fisik harus kausal.
+  \item
+    \textbf{Sistem Non-Kausal (Non-causal System):} Output bergantung
+    pada input di masa depan.
+  \end{itemize}
+\item
+  \textbf{Invertibilitas (Invertibility):} Sistem dikatakan
+  \emph{invertible} jika inputnya dapat ditentukan secara unik dari
+  outputnya. Artinya, ada sistem invers yang, jika dikaskadekan dengan
+  sistem asli, akan menghasilkan input asli sebagai output.
+\item
+  \textbf{Stabilitas BIBO (Bounded-Input Bounded-Output Stability):}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \textbf{Sistem Stabil BIBO:} Sebuah sistem dikatakan stabil BIBO
+    jika setiap input yang terbatas (bounded input) menghasilkan output
+    yang terbatas (bounded output). Untuk sistem LTI, stabilitas BIBO
+    terjamin jika respon impulsnya dapat diintegrasikan secara absolut
+    (\(\sum |h[n]| < \infty\) untuk DT atau \(\int |h(t)| dt < \infty\)
+    untuk CT).
+  \end{itemize}
+\item
+  \textbf{Invariansi Waktu (Time-Invariance):} Sistem dikatakan
+  \emph{time-invariant} jika perilaku dan karakteristiknya tidak berubah
+  seiring waktu. Artinya, pergeseran waktu pada input akan menghasilkan
+  pergeseran waktu yang sama pada output.
+\item
+  \textbf{Linearitas (Linearity):} Sistem dikatakan \emph{linear} jika
+  memenuhi prinsip superposisi, yaitu homogenitas (perkalian input
+  dengan konstanta menghasilkan output yang dikalikan konstanta yang
+  sama) dan aditivitas (respon terhadap jumlah input adalah jumlah
+  respon terhadap masing-masing input secara terpisah).
+\end{itemize}
+
+Pemahaman yang kuat tentang sifat-sifat ini sangat penting untuk
+menganalisis dan merancang sistem yang berperilaku sesuai keinginan.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{Peta Pengetahuan Primitif (Primitive Knowledge Map) Minggu
+2: Deskripsi Sistem di Domain
+Waktu}\label{peta-pengetahuan-primitif-primitive-knowledge-map-minggu-2-deskripsi-sistem-di-domain-waktu}
+
+Peta ini bertujuan untuk mengorganisir pengetahuan deklaratif (fakta dan
+definisi) dan membantu melihat gambaran besar serta interkonektivitas
+antar konsep.
+
+\textbf{Node Utama:}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{SISTEM \& SINYAL (UTAMA)}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \textbf{SINYAL}
+
+    \begin{itemize}
+    \tightlist
+    \item
+      Sinyal Waktu Kontinu (WK)
+    \item
+      Sinyal Waktu Diskrit (WD)
+    \end{itemize}
+  \item
+    \textbf{SISTEM}
+
+    \begin{itemize}
+    \tightlist
+    \item
+      Sistem Waktu Kontinu (WK)
+    \item
+      Sistem Waktu Diskrit (WD)
+    \item
+      Representasi Sistem DW (Domain Waktu)
+
+      \begin{itemize}
+      \tightlist
+      \item
+        Persamaan Diferensial (PD)
+      \item
+        Persamaan Beda (PB)
+      \item
+        Respon Impuls (h(t) / h{[}n{]})
+      \end{itemize}
+    \item
+      Sifat Sistem
+
+      \begin{itemize}
+      \tightlist
+      \item
+        Memori
+
+        \begin{itemize}
+        \tightlist
+        \item
+          Tanpa Memori
+        \item
+          Dengan Memori
+        \end{itemize}
+      \item
+        Kausalitas
+
+        \begin{itemize}
+        \tightlist
+        \item
+          Kausal
+        \item
+          Non-Kausal
+        \end{itemize}
+      \item
+        Invertibilitas
+
+        \begin{itemize}
+        \tightlist
+        \item
+          Invertibel
+        \item
+          Tidak Invertibel
+        \end{itemize}
+      \item
+        Stabilitas BIBO
+
+        \begin{itemize}
+        \tightlist
+        \item
+          Stabil BIBO
+        \item
+          Tidak Stabil BIBO
+        \end{itemize}
+      \item
+        Invariansi Waktu
+
+        \begin{itemize}
+        \tightlist
+        \item
+          Time-Invariant
+        \item
+          Time-Varying
+        \end{itemize}
+      \item
+        Linearitas
+
+        \begin{itemize}
+        \tightlist
+        \item
+          Linear
+        \item
+          Non-Linear
+        \item
+          Prinsip Superposisi
+        \end{itemize}
+      \end{itemize}
+    \end{itemize}
+  \end{itemize}
+\end{itemize}
+
+\textbf{Hubungan (Edges) dan Label:}
+
+\begin{itemize}
+\tightlist
+\item
+  SISTEM \& SINYAL --\textbf{MODELKAN\_SBG}--\textgreater{} SINYAL WK;
+  SINYAL WD
+\item
+  SISTEM \& SINYAL --\textbf{MODELKAN\_SBG}--\textgreater{} SISTEM WK;
+  SISTEM WD
+\item
+  SISTEM --\textbf{DICIRIKAN\_OLEH}--\textgreater{} Representasi Sistem
+  DW
+\item
+  Representasi Sistem DW --\textbf{MELIPUTI}--\textgreater{} Persamaan
+  Diferensial (PD); Persamaan Beda (PB); Respon Impuls
+\item
+  PD --\textbf{UTK}--\textgreater{} SISTEM WK
+\item
+  PB --\textbf{UTK}--\textgreater{} SISTEM WD
+\item
+  Respon Impuls --\textbf{DEFINISIKAN}--\textgreater{} Sistem LTI
+  (implisit, karena sangat relevan untuk LTI)
+\item
+  SISTEM --\textbf{DICIRIKAN\_OLEH}--\textgreater{} Sifat Sistem
+\item
+  Sifat Sistem --\textbf{MELIPUTI}--\textgreater{} Memori; Kausalitas;
+  Invertibilitas; Stabilitas BIBO; Invariansi Waktu; Linearitas
+\item
+  Memori --\textbf{JENIS\_DARI}--\textgreater{} Tanpa Memori; Dengan
+  Memori
+\item
+  Kausalitas --\textbf{JENIS\_DARI}--\textgreater{} Kausal; Non-Kausal
+\item
+  Invertibilitas --\textbf{JENIS\_DARI}--\textgreater{} Invertibel;
+  Tidak Invertibel
+\item
+  Stabilitas BIBO --\textbf{JENIS\_DARI}--\textgreater{} Stabil BIBO;
+  Tidak Stabil BIBO
+\item
+  Invariansi Waktu --\textbf{JENIS\_DARI}--\textgreater{}
+  Time-Invariant; Time-Varying
+\item
+  Linearitas --\textbf{JENIS\_DARI}--\textgreater{} Linear; Non-Linear
+\item
+  Linearitas --\textbf{MELIPUTI}--\textgreater{} Prinsip Superposisi
+\item
+  Sistem LTI --\textbf{STABIL\_JIKA}--\textgreater{}
+  \(\int |h(t)| dt < \infty\) atau \(\sum |h[n]| < \infty\)
+\end{itemize}
+
+\textbf{Struktur Visual:} Hierarkis, dengan ``SISTEM \& SINYAL (UTAMA)''
+sebagai node pusat, bercabang ke ``SINYAL'' dan ``SISTEM'', kemudian
+merinci sub-topik di bawahnya.
+
+\subsection{Kendaraan yang Diperlukan untuk Peta Pengetahuan
+Primitif:}\label{kendaraan-yang-diperlukan-untuk-peta-pengetahuan-primitif}
+
+Untuk membangun dan memahami Peta Pengetahuan Primitif ini,
+kendaraan-kendaraan berikut sangat penting:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{K\_MAT\_Aljabar:} Untuk memanipulasi ekspresi matematis dan
+  persamaan.
+\item
+  \textbf{K\_MAT\_Kalkulus:} Untuk memahami persamaan diferensial,
+  integral, dan derivatif.
+\item
+  \textbf{K\_MAT\_Bilangan\_Kompleks:} Untuk memahami sinyal
+  eksponensial kompleks (meskipun detailnya akan lebih mendalam di bab
+  selanjutnya).
+\item
+  \textbf{K\_VIS\_PlotSinyal:} Untuk merepresentasikan sinyal waktu
+  kontinu dan diskrit secara grafis.
+\item
+  \textbf{K\_OPS\_Definisi:} Untuk memahami dan menyatakan
+  definisi-definisi kunci dari berbagai sifat sistem dan konsep sinyal.
+\item
+  \textbf{K\_OPS\_Klasifikasi:} Untuk mengkategorikan sinyal dan sistem
+  berdasarkan propertinya.
+\item
+  \textbf{K\_OPS\_Representasi\_Matematis:} Untuk menuliskan persamaan
+  diferensial, persamaan beda, dan ekspresi respon impuls.
+\end{itemize}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{20 Soal Latihan (Tanpa
+Solusi)}\label{soal-latihan-tanpa-solusi}
+
+Berikut adalah 20 soal latihan yang mencerminkan topik Deskripsi Sistem
+di Domain Waktu dan Sifat-sifat Sistem Dasar, beserta Nomor Produk yang
+mengindikasikan Topik, Level Taksonomi Bloom, dan Nomor Soal.
+
+\textbf{WK2-SP-B3-P01} Tentukan apakah sistem waktu kontinu yang
+dijelaskan oleh \(y(t) = \int_{-\infty}^{t} x(\tau) d\tau\) adalah
+\textbf{linear}.
+
+\textbf{WK2-DE-B2-P02} Sistem waktu diskrit dijelaskan oleh persamaan
+beda \(y[n] = 0.5y[n-1] + x[n]\). Identifikasi \textbf{orde} dari
+persamaan beda ini.
+
+\textbf{WK2-IR-B1-P03} Jelaskan \textbf{apa yang dimaksud dengan respon
+impuls} dari suatu sistem Linear Time-Invariant (LTI).
+
+\textbf{WK2-SP-B4-P04} Analisis apakah sistem waktu diskrit
+\(y[n] = x[n] + n\) adalah \textbf{time-invariant}.
+
+\textbf{WK2-DE-B2-P05} Sebutkan dua contoh komponen fisik yang perilaku
+waktu kontinu LTI-nya dapat dijelaskan menggunakan \textbf{persamaan
+diferensial orde pertama}.
+
+\textbf{WK2-IR-B3-P06} Sebuah sistem memiliki respon impuls
+\(h[n] = \delta[n] - \delta[n-1]\). Tentukan output sistem jika inputnya
+adalah \(\delta[n]\).
+
+\textbf{WK2-SP-B3-P07} Periksa apakah sistem waktu kontinu
+\(y(t) = x(t) \cdot \cos(\omega_0 t)\) adalah \textbf{kausal}.
+
+\textbf{WK2-DE-B2-P08} Berikan contoh \textbf{persamaan diferensial orde
+kedua} yang menggambarkan sistem LTI waktu kontinu.
+
+\textbf{WK2-SP-B5-P09} Evaluasi apakah sistem waktu diskrit
+\(y[n] = \sum_{k=-\infty}^{n} x[k]\) memiliki \textbf{memori}.
+Justifikasikan jawaban Anda.
+
+\textbf{WK2-IR-B2-P10} Mengapa respon impuls penting dalam analisis
+sistem Linear Time-Invariant (LTI)? Jelaskan secara singkat.
+
+\textbf{WK2-SP-B3-P11} Tentukan apakah sistem waktu kontinu
+\(y(t) = \frac{dx(t)}{dt}\) adalah \textbf{invertibel}. Jika ya, berikan
+sistem inversnya.
+
+\textbf{WK2-DE-B6-P12} Rancang persamaan beda orde pertama yang
+menggambarkan sistem waktu diskrit yang outputnya adalah rata-rata input
+saat ini dan input sebelumnya.
+
+\textbf{WK2-SP-B4-P13} Analisis stabilitas BIBO dari sistem waktu
+diskrit dengan respon impuls \(h[n] = (0.9)^n u[n]\).
+
+\textbf{WK2-IR-B3-P14} Untuk sistem waktu diskrit
+\(y[n] = x[n] + x[n-1]\), tentukan \textbf{respon impulsnya}.
+
+\textbf{WK2-SP-B3-P15} Periksa apakah sistem waktu kontinu
+\(y(t) = x(t)/t\) adalah \textbf{linear}.
+
+\textbf{WK2-DE-B2-P16} Apa perbedaan utama antara \textbf{persamaan
+diferensial} dan \textbf{persamaan beda} dalam konteks representasi
+sistem?
+
+\textbf{WK2-SP-B4-P17} Analisis apakah sistem waktu diskrit
+\(y[n] = x^2[n]\) adalah \textbf{linear}.
+
+\textbf{WK2-IR-B5-P18} Evaluasi bagaimana perubahan pada respon impuls
+\(h(t)\) dapat memengaruhi sifat kausalitas suatu sistem LTI waktu
+kontinu.
+
+\textbf{WK2-SP-B3-P19} Tentukan apakah sistem waktu kontinu
+\(y(t) = 2x(t-1)\) memiliki \textbf{memori}.
+
+\textbf{WK2-DE-B6-P20} Formulasikan persamaan diferensial yang
+menggambarkan sistem waktu kontinu LTI orde pertama yang menghasilkan
+output \(y(t)\) ketika inputnya adalah \(x(t)\) dan konstanta waktu
+sistem adalah \(T\).
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{Peta Pengetahuan Aplikatif dan Solusi untuk Setiap
+Soal}\label{peta-pengetahuan-aplikatif-dan-solusi-untuk-setiap-soal}
+
+Berikut adalah peta pengetahuan aplikatif untuk setiap soal di atas,
+beserta solusinya menggunakan pendekatan peta tersebut.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\textbf{Soal 1:} Tentukan apakah sistem waktu kontinu yang dijelaskan
+oleh \(y(t) = \int_{-\infty}^{t} x(\tau) d\tau\) adalah \textbf{linear}.
+\textbf{Nomor Produk:} WK2-SP-B3-P01
+
+\textbf{Peta Pemecahan Masalah WK2-SP-B3-P01}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Titik Mulai:} Sistem
+  \(y(t) = \int_{-\infty}^{t} x(\tau) d\tau\).
+\item
+  \textbf{Titik Akhir:} Kesimpulan apakah sistem tersebut linear atau
+  tidak.
+\item
+  \textbf{Rute Pemecahan Masalah:}
+
+  \begin{enumerate}
+  \def\labelenumi{\arabic{enumi}.}
+  \tightlist
+  \item
+    Mengingat definisi linearitas (prinsip superposisi: aditivitas dan
+    homogenitas).
+  \item
+    Menguji sifat aditivitas: Masukkan dua input \(x_1(t)\) dan
+    \(x_2(t)\), dan periksa apakah
+    \(T(x_1(t)+x_2(t)) = T(x_1(t)) + T(x_2(t))\).
+  \item
+    Menguji sifat homogenitas: Masukkan input \(ax(t)\) (di mana \(a\)
+    adalah konstanta), dan periksa apakah \(T(ax(t)) = aT(x(t))\).
+  \item
+    Jika kedua sifat terpenuhi, sistem adalah linear.
+  \end{enumerate}
+\item
+  \textbf{Kendaraan:}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    K\_OPS\_Definisi: Definisi Linearitas (Aditivitas \& Homogenitas).
+  \item
+    K\_MAT\_Kalkulus: Operasi Integral.
+  \item
+    K\_MAT\_Aljabar: Manipulasi Persamaan.
+  \end{itemize}
+\end{itemize}
+
+\textbf{Solusi WK2-SP-B3-P01:}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Definisi Linearitas:} Sistem linear harus memenuhi aditivitas
+  dan homogenitas.
+\item
+  \textbf{Uji Aditivitas:}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Misalkan input
+    \(x_1(t) \rightarrow y_1(t) = \int_{-\infty}^{t} x_1(\tau) d\tau\).
+  \item
+    Misalkan input
+    \(x_2(t) \rightarrow y_2(t) = \int_{-\infty}^{t} x_2(\tau) d\tau\).
+  \item
+    Input gabungan \(x_g(t) = x_1(t) + x_2(t)\).
+  \item
+    Output
+    \(y_g(t) = \int_{-\infty}^{t} (x_1(\tau) + x_2(\tau)) d\tau = \int_{-\infty}^{t} x_1(\tau) d\tau + \int_{-\infty}^{t} x_2(\tau) d\tau = y_1(t) + y_2(t)\).
+  \item
+    Aditivitas terpenuhi.
+  \end{itemize}
+\item
+  \textbf{Uji Homogenitas:}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Misalkan input \(x_a(t) = a x(t)\).
+  \item
+    Output
+    \(y_a(t) = \int_{-\infty}^{t} (a x(\tau)) d\tau = a \int_{-\infty}^{t} x(\tau) d\tau = a y(t)\).
+  \item
+    Homogenitas terpenuhi.
+  \end{itemize}
+\end{enumerate}
+
+\textbf{Kesimpulan:} Karena kedua sifat (aditivitas dan homogenitas)
+terpenuhi, sistem \(y(t) = \int_{-\infty}^{t} x(\tau) d\tau\) adalah
+\textbf{linear}.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\textbf{Soal 2:} Sistem waktu diskrit dijelaskan oleh persamaan beda
+\(y[n] = 0.5y[n-1] + x[n]\). Identifikasi \textbf{orde} dari persamaan
+beda ini. \textbf{Nomor Produk:} WK2-DE-B2-P02
+
+\textbf{Peta Pemecahan Masalah WK2-DE-B2-P02}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Titik Mulai:} Persamaan beda \(y[n] = 0.5y[n-1] + x[n]\).
+\item
+  \textbf{Titik Akhir:} Orde dari persamaan beda.
+\item
+  \textbf{Rute Pemecahan Masalah:}
+
+  \begin{enumerate}
+  \def\labelenumi{\arabic{enumi}.}
+  \tightlist
+  \item
+    Mengingat definisi orde persamaan beda (perbedaan waktu maksimum
+    antara indeks output).
+  \item
+    Identifikasi indeks output dalam persamaan.
+  \item
+    Identifikasi indeks output yang terlambat dalam persamaan.
+  \item
+    Hitung perbedaan antara indeks output saat ini dan indeks output
+    yang terlambat.
+  \end{enumerate}
+\item
+  \textbf{Kendaraan:}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    K\_OPS\_Definisi: Definisi Orde Persamaan Beda.
+  \item
+    K\_MAT\_Aljabar: Identifikasi Indeks.
+  \end{itemize}
+\end{itemize}
+
+\textbf{Solusi WK2-DE-B2-P02:}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Definisi Orde Persamaan Beda:} Orde persamaan beda adalah
+  perbedaan maksimum antara indeks waktu dari variabel output dalam
+  persamaan.
+\item
+  Dalam persamaan \(y[n] = 0.5y[n-1] + x[n]\):
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Output saat ini adalah \(y[n]\).
+  \item
+    Output yang terlambat (delay) adalah \(y[n-1]\).
+  \end{itemize}
+\item
+  Perbedaan antara indeks waktu output saat ini dan output yang paling
+  terlambat adalah \(n - (n-1) = 1\).
+\end{enumerate}
+
+\textbf{Kesimpulan:} Orde dari persamaan beda ini adalah \textbf{1}
+(orde pertama).
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\textbf{Soal 3:} Jelaskan \textbf{apa yang dimaksud dengan respon
+impuls} dari suatu sistem Linear Time-Invariant (LTI). \textbf{Nomor
+Produk:} WK2-IR-B1-P03
+
+\textbf{Peta Pemecahan Masalah WK2-IR-B1-P03}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Titik Mulai:} Permintaan definisi respon impuls sistem LTI.
+\item
+  \textbf{Titik Akhir:} Penjelasan yang jelas tentang respon impuls.
+\item
+  \textbf{Rute Pemecahan Masalah:}
+
+  \begin{enumerate}
+  \def\labelenumi{\arabic{enumi}.}
+  \tightlist
+  \item
+    Mengingat definisi sinyal impuls unit (delta Dirac/Kronecker).
+  \item
+    Mengingat bagaimana input ini diterapkan ke sistem LTI.
+  \item
+    Menganalisis output yang dihasilkan dari input ini sebagai respon
+    impuls.
+  \end{enumerate}
+\item
+  \textbf{Kendaraan:}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    K\_OPS\_Definisi: Definisi Sinyal Impuls Unit.
+  \item
+    K\_OPS\_Definisi: Definisi Respon Impuls.
+  \item
+    K\_OPS\_Klasifikasi: Sistem LTI.
+  \end{itemize}
+\end{itemize}
+
+\textbf{Solusi WK2-IR-B1-P03:}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Sinyal Impuls Unit:} Sinyal impuls unit, dilambangkan sebagai
+  \(\delta(t)\) untuk waktu kontinu atau \(\delta[n]\) untuk waktu
+  diskrit, adalah sinyal ideal yang memiliki durasi sangat singkat (atau
+  hanya satu titik waktu) dan luas area (atau nilai) satu.
+\item
+  \textbf{Penerapan ke Sistem LTI:} Ketika sinyal impuls unit ini
+  diterapkan sebagai input ke sistem Linear Time-Invariant (LTI), yaitu
+  \(x(t) = \delta(t)\) atau \(x[n] = \delta[n]\).
+\item
+  \textbf{Output yang Dihasilkan:} Output sistem LTI yang dihasilkan
+  dari input impuls unit inilah yang disebut sebagai \textbf{respon
+  impuls}. Respon impuls, dilambangkan sebagai \(h(t)\) atau \(h[n]\),
+  secara unik mengkarakterisasi sistem LTI dan dapat digunakan untuk
+  menemukan output untuk input arbitrer melalui operasi konvolusi.
+\end{enumerate}
+
+\textbf{Kesimpulan:} Respon impuls dari sistem LTI adalah \textbf{output
+sistem ketika inputnya adalah sinyal impuls unit}.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\textbf{Soal 4:} Analisis apakah sistem waktu diskrit
+\(y[n] = x[n] + n\) adalah \textbf{time-invariant}. \textbf{Nomor
+Produk:} WK2-SP-B4-P04
+
+\textbf{Peta Pemecahan Masalah WK2-SP-B4-P04}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Titik Mulai:} Sistem \(y[n] = x[n] + n\).
+\item
+  \textbf{Titik Akhir:} Kesimpulan apakah sistem time-invariant atau
+  tidak.
+\item
+  \textbf{Rute Pemecahan Masalah:}
+
+  \begin{enumerate}
+  \def\labelenumi{\arabic{enumi}.}
+  \tightlist
+  \item
+    Mengingat definisi time-invariance.
+  \item
+    Tentukan respon sistem terhadap input \(x[n]\) sebagai \(y[n]\).
+  \item
+    Tentukan respon sistem terhadap input yang digeser waktu
+    \(x[n-n_0]\) sebagai \(y_{shifted}[n]\).
+  \item
+    Geser output awal \(y[n]\) dengan jumlah yang sama \(n_0\),
+    menghasilkan \(y[n-n_0]\).
+  \item
+    Bandingkan \(y_{shifted}[n]\) dan \(y[n-n_0]\). Jika keduanya sama,
+    sistem adalah time-invariant.
+  \end{enumerate}
+\item
+  \textbf{Kendaraan:}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    K\_OPS\_Definisi: Definisi Time-Invariance.
+  \item
+    K\_MAT\_Aljabar: Substitusi dan Perbandingan Ekspresi.
+  \end{itemize}
+\end{itemize}
+
+\textbf{Solusi WK2-SP-B4-P04:}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Definisi Time-Invariance:} Sebuah sistem adalah time-invariant
+  jika pergeseran waktu pada input menghasilkan pergeseran waktu yang
+  sama pada output.
+\item
+  \textbf{Output Asli:} Untuk input \(x[n]\), outputnya adalah
+  \(y[n] = x[n] + n\).
+\item
+  \textbf{Input Digeser Waktu:} Misalkan input digeser adalah
+  \(x'[n] = x[n-n_0]\).
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Output sistem terhadap input yang digeser adalah
+    \(y'[n] = x'[n] + n = x[n-n_0] + n\).
+  \end{itemize}
+\item
+  \textbf{Output Asli Digeser Waktu:} Pergeseran waktu pada output asli
+  \(y[n]\) adalah \(y[n-n_0] = x[n-n_0] + (n-n_0)\).
+\item
+  \textbf{Perbandingan:}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \(y'[n] = x[n-n_0] + n\)
+  \item
+    \(y[n-n_0] = x[n-n_0] + n - n_0\)
+  \item
+    Jelas, \(y'[n] \neq y[n-n_0]\) karena adanya \(n_0\) pada
+    \(y[n-n_0]\). Koefisien \(n\) di \(x[n]+n\) menyebabkan sistem
+    menjadi time-varying.
+  \end{itemize}
+\end{enumerate}
+
+\textbf{Kesimpulan:} Sistem \(y[n] = x[n] + n\) \textbf{tidak
+time-invariant} (time-varying).
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\textbf{Soal 5:} Sebutkan dua contoh komponen fisik yang perilaku waktu
+kontinu LTI-nya dapat dijelaskan menggunakan \textbf{persamaan
+diferensial orde pertama}. \textbf{Nomor Produk:} WK2-DE-B2-P05
+
+\textbf{Peta Pemecahan Masalah WK2-DE-B2-P05}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Titik Mulai:} Permintaan dua contoh komponen fisik yang
+  dimodelkan oleh PD orde pertama LTI.
+\item
+  \textbf{Titik Akhir:} Dua contoh komponen fisik.
+\item
+  \textbf{Rute Pemecahan Masalah:}
+
+  \begin{enumerate}
+  \def\labelenumi{\arabic{enumi}.}
+  \tightlist
+  \item
+    Mengingat sistem fisik dasar yang memiliki dinamika orde pertama.
+  \item
+    Identifikasi hubungan input-output yang melibatkan turunan pertama.
+  \item
+    Verifikasi bahwa model tersebut LTI.
+  \end{enumerate}
+\item
+  \textbf{Kendaraan:}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    K\_OPS\_Klasifikasi: Klasifikasi Sistem Fisik.
+  \item
+    K\_OPS\_Representasi\_Matematis: Persamaan Diferensial.
+  \item
+    K\_OPS\_Definisi: LTI.
+  \end{itemize}
+\end{itemize}
+
+\textbf{Solusi WK2-DE-B2-P05:}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Rangkaian RC (Resistor-Capacitor):}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Input: Tegangan sumber \(v_s(t)\). Output: Tegangan kapasitor
+    \(v_c(t)\).
+  \item
+    Persamaan diferensial: \(RC \frac{dv_c(t)}{dt} + v_c(t) = v_s(t)\).
+    Ini adalah persamaan diferensial orde pertama. Resistor dan
+    kapasitor adalah elemen linear, dan nilainya biasanya konstan,
+    sehingga rangkaian ini LTI.
+  \end{itemize}
+\item
+  \textbf{Rangkaian RL (Resistor-Inductor):}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Input: Tegangan sumber \(v_s(t)\). Output: Arus induktor \(i_L(t)\).
+  \item
+    Persamaan diferensial: \(L \frac{di_L(t)}{dt} + R i_L(t) = v_s(t)\).
+    Ini juga merupakan persamaan diferensial orde pertama, dan karena
+    elemennya linear dan nilainya konstan, rangkaian ini LTI.
+  \end{itemize}
+\end{enumerate}
+
+\textbf{Kesimpulan:} Dua contoh komponen fisik yang perilaku waktu
+kontinu LTI-nya dapat dijelaskan menggunakan persamaan diferensial orde
+pertama adalah \textbf{rangkaian RC dan rangkaian RL}.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\textbf{Soal 6:} Sebuah sistem memiliki respon impuls
+\(h[n] = \delta[n] - \delta[n-1]\). Tentukan output sistem jika inputnya
+adalah \(\delta[n]\). \textbf{Nomor Produk:} WK2-IR-B3-P06
+
+\textbf{Peta Pemecahan Masalah WK2-IR-B3-P06}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Titik Mulai:} Respon impuls \(h[n] = \delta[n] - \delta[n-1]\)
+  dan input \(x[n] = \delta[n]\).
+\item
+  \textbf{Titik Akhir:} Output sistem \(y[n]\).
+\item
+  \textbf{Rute Pemecahan Masalah:}
+
+  \begin{enumerate}
+  \def\labelenumi{\arabic{enumi}.}
+  \tightlist
+  \item
+    Mengingat definisi respon impuls.
+  \item
+    Jika input sistem LTI adalah impuls unit, outputnya adalah respon
+    impuls itu sendiri.
+  \item
+    Tuliskan ekspresi untuk output.
+  \end{enumerate}
+\item
+  \textbf{Kendaraan:}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    K\_OPS\_Definisi: Definisi Respon Impuls.
+  \item
+    K\_MAT\_Aljabar: Identifikasi Sinyal.
+  \end{itemize}
+\end{itemize}
+
+\textbf{Solusi WK2-IR-B3-P06:}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Definisi Respon Impuls:} Respon impuls \(h[n]\) adalah output
+  sistem LTI ketika inputnya adalah sinyal impuls unit \(\delta[n]\).
+\item
+  \textbf{Input yang Diberikan:} Pada soal ini, input \(x[n]\) diberikan
+  sebagai \(\delta[n]\).
+\item
+  \textbf{Menentukan Output:} Oleh karena itu, output \(y[n]\) dari
+  sistem LTI dengan input \(\delta[n]\) secara definisi adalah respon
+  impuls sistem itu sendiri, yaitu \(h[n]\).
+\end{enumerate}
+
+\textbf{Kesimpulan:} Output sistem \(y[n]\) jika inputnya adalah
+\(\delta[n]\) adalah \(y[n] = h[n] = \delta[n] - \delta[n-1]\).
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\textbf{Soal 7:} Periksa apakah sistem waktu kontinu
+\(y(t) = x(t) \cdot \cos(\omega_0 t)\) adalah \textbf{kausal}.
+\textbf{Nomor Produk:} WK2-SP-B3-P07
+
+\textbf{Peta Pemecahan Masalah WK2-SP-B3-P07}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Titik Mulai:} Sistem \(y(t) = x(t) \cdot \cos(\omega_0 t)\).
+\item
+  \textbf{Titik Akhir:} Kesimpulan apakah sistem kausal atau tidak.
+\item
+  \textbf{Rute Pemecahan Masalah:}
+
+  \begin{enumerate}
+  \def\labelenumi{\arabic{enumi}.}
+  \tightlist
+  \item
+    Mengingat definisi kausalitas.
+  \item
+    Tentukan apakah output pada waktu \(t_0\) bergantung pada nilai
+    input \(x(t)\) untuk \(t > t_0\).
+  \item
+    Periksa apakah fungsi \(\cos(\omega_0 t)\) memperkenalkan
+    ketergantungan pada masa depan input.
+  \end{enumerate}
+\item
+  \textbf{Kendaraan:}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    K\_OPS\_Definisi: Definisi Kausalitas.
+  \item
+    K\_MAT\_Aljabar: Analisis Ketergantungan Waktu.
+  \item
+    K\_MAT\_Kalkulus: Fungsi Trigonometri.
+  \end{itemize}
+\end{itemize}
+
+\textbf{Solusi WK2-SP-B3-P07:}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Definisi Kausalitas:} Sebuah sistem adalah kausal jika output
+  pada waktu \(t_0\) hanya bergantung pada nilai input pada waktu
+  \(t \le t_0\) (waktu sekarang dan masa lalu).
+\item
+  \textbf{Analisis Sistem:} Dalam sistem
+  \(y(t) = x(t) \cdot \cos(\omega_0 t)\):
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Output pada waktu \(t\) adalah \(y(t)\).
+  \item
+    \(y(t)\) bergantung pada nilai input \(x(t)\) pada waktu yang sama
+    \(t\).
+  \item
+    \(y(t)\) juga bergantung pada nilai \(\cos(\omega_0 t)\) pada waktu
+    yang sama \(t\).
+  \end{itemize}
+\item
+  Fungsi \(\cos(\omega_0 t)\) adalah fungsi yang hanya bergantung pada
+  waktu \(t\) itu sendiri, bukan pada nilai input \(x(\tau)\) di masa
+  depan atau masa lalu. Ia tidak menyebabkan sistem ``melihat'' ke masa
+  depan input.
+\end{enumerate}
+
+\textbf{Kesimpulan:} Sistem \(y(t) = x(t) \cdot \cos(\omega_0 t)\)
+adalah \textbf{kausal}.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\textbf{Soal 8:} Berikan contoh \textbf{persamaan diferensial orde
+kedua} yang menggambarkan sistem LTI waktu kontinu. \textbf{Nomor
+Produk:} WK2-DE-B2-P08
+
+\textbf{Peta Pemecahan Masalah WK2-DE-B2-P08}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Titik Mulai:} Permintaan contoh PD orde kedua LTI.
+\item
+  \textbf{Titik Akhir:} Sebuah persamaan diferensial orde kedua.
+\item
+  \textbf{Rute Pemecahan Masalah:}
+
+  \begin{enumerate}
+  \def\labelenumi{\arabic{enumi}.}
+  \tightlist
+  \item
+    Mengingat struktur umum persamaan diferensial linear koefisien
+    konstan.
+  \item
+    Tetapkan orde maksimum turunan output menjadi dua.
+  \item
+    Pastikan koefisien adalah konstan untuk menjaga sifat LTI.
+  \end{enumerate}
+\item
+  \textbf{Kendaraan:}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    K\_OPS\_Representasi\_Matematis: Struktur Persamaan Diferensial.
+  \item
+    K\_OPS\_Klasifikasi: LTI.
+  \item
+    K\_MAT\_Aljabar: Pemilihan Koefisien.
+  \end{itemize}
+\end{itemize}
+
+\textbf{Solusi WK2-DE-B2-P08:}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Struktur PD LTI:} Sistem LTI waktu kontinu sering dijelaskan
+  oleh persamaan diferensial linear koefisien konstan. Bentuk umum orde
+  ke-N untuk output dan M untuk input adalah
+  \(\sum_{k=0}^{N} a_k \frac{d^k y(t)}{dt^k} = \sum_{k=0}^{M} b_k \frac{d^k x(t)}{dt^k}\).
+\item
+  \textbf{Orde Kedua:} Untuk orde kedua, \(N=2\). Kita dapat memilih
+  \(a_k\) dan \(b_k\) sebagai konstanta.
+\end{enumerate}
+
+\textbf{Contoh:} Sebuah sistem pegas-massa-peredam (mass-spring-damper)
+yang dijelaskan oleh:
+\(M \frac{d^2 y(t)}{dt^2} + B \frac{dy(t)}{dt} + K y(t) = x(t)\) Di mana
+\(M\), \(B\), dan \(K\) adalah konstanta (massa, konstanta redaman, dan
+konstanta pegas). Input \(x(t)\) adalah gaya, dan output \(y(t)\) adalah
+perpindahan. Ini adalah persamaan diferensial orde kedua. Atau, contoh
+yang lebih sederhana:
+\(\frac{d^2 y(t)}{dt^2} + 5 \frac{dy(t)}{dt} + 6 y(t) = x(t)\)
+
+\textbf{Kesimpulan:} Contoh persamaan diferensial orde kedua yang
+menggambarkan sistem LTI waktu kontinu adalah
+\textbf{\(\frac{d^2 y(t)}{dt^2} + 5 \frac{dy(t)}{dt} + 6 y(t) = x(t)\)}.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\textbf{Soal 9:} Evaluasi apakah sistem waktu diskrit
+\(y[n] = \sum_{k=-\infty}^{n} x[k]\) memiliki \textbf{memori}.
+Justifikasikan jawaban Anda. \textbf{Nomor Produk:} WK2-SP-B5-P09
+
+\textbf{Peta Pemecahan Masalah WK2-SP-B5-P09}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Titik Mulai:} Sistem \(y[n] = \sum_{k=-\infty}^{n} x[k]\).
+\item
+  \textbf{Titik Akhir:} Kesimpulan apakah sistem memiliki memori atau
+  tidak.
+\item
+  \textbf{Rute Pemecahan Masalah:}
+
+  \begin{enumerate}
+  \def\labelenumi{\arabic{enumi}.}
+  \tightlist
+  \item
+    Mengingat definisi sistem dengan memori dan tanpa memori.
+  \item
+    Analisis ekspresi output \(y[n]\).
+  \item
+    Tentukan apakah \(y[n]\) bergantung pada nilai input \(x[k]\) selain
+    \(x[n]\) (yaitu, nilai \(x[k]\) di masa lalu).
+  \end{enumerate}
+\item
+  \textbf{Kendaraan:}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    K\_OPS\_Definisi: Definisi Memori Sistem.
+  \item
+    K\_MAT\_Aljabar: Analisis Ketergantungan Indeks.
+  \item
+    K\_MAT\_Kalkulus: Operasi Penjumlahan (Summation).
+  \end{itemize}
+\end{itemize}
+
+\textbf{Solusi WK2-SP-B5-P09:}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Definisi Sistem dengan Memori:} Sebuah sistem dikatakan
+  memiliki memori jika outputnya pada waktu \(n\) bergantung pada nilai
+  input pada waktu selain \(n\) (yaitu, waktu lalu atau masa depan).
+\item
+  \textbf{Analisis Ekspresi \(y[n]\):}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Output pada waktu \(n\) adalah
+    \(y[n] = x[n] + x[n-1] + x[n-2] + \dots\).
+  \item
+    Ini berarti \(y[n]\) tidak hanya bergantung pada \(x[n]\) (input
+    saat ini), tetapi juga pada nilai-nilai input sebelumnya seperti
+    \(x[n-1], x[n-2]\), dan seterusnya.
+  \end{itemize}
+\item
+  Karena \(y[n]\) membutuhkan nilai input di masa lalu (\(x[k]\) untuk
+  \(k < n\)) untuk dihitung, sistem ini menyimpan atau ``mengingat''
+  nilai-nilai input sebelumnya.
+\end{enumerate}
+
+\textbf{Kesimpulan:} Sistem \(y[n] = \sum_{k=-\infty}^{n} x[k]\)
+\textbf{memiliki memori}.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\textbf{Soal 10:} Mengapa respon impuls penting dalam analisis sistem
+Linear Time-Invariant (LTI)? Jelaskan secara singkat. \textbf{Nomor
+Produk:} WK2-IR-B2-P10
+
+\textbf{Peta Pemecahan Masalah WK2-IR-B2-P10}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Titik Mulai:} Pertanyaan tentang pentingnya respon impuls
+  dalam analisis sistem LTI.
+\item
+  \textbf{Titik Akhir:} Penjelasan singkat mengenai pentingnya.
+\item
+  \textbf{Rute Pemecahan Masalah:}
+
+  \begin{enumerate}
+  \def\labelenumi{\arabic{enumi}.}
+  \tightlist
+  \item
+    Mengingat definisi respon impuls.
+  \item
+    Mengingat sifat-sifat sistem LTI (linearitas dan time-invariance).
+  \item
+    Menghubungkan respon impuls dengan operasi konvolusi.
+  \item
+    Menganalisis bagaimana respon impuls memungkinkan karakterisasi
+    lengkap sistem LTI.
+  \end{enumerate}
+\item
+  \textbf{Kendaraan:}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    K\_OPS\_Definisi: Definisi Respon Impuls.
+  \item
+    K\_OPS\_Klasifikasi: LTI.
+  \item
+    K\_OPS\_Representasi\_Matematis: Konvolusi (secara konseptual).
+  \end{itemize}
+\end{itemize}
+
+\textbf{Solusi WK2-IR-B2-P10:}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Definisi Respon Impuls:} Respon impuls \(h(t)\) atau \(h[n]\)
+  adalah output sistem LTI ketika inputnya adalah sinyal impuls unit.
+\item
+  \textbf{Karakterisasi Lengkap LTI:} Untuk sistem LTI, respon impuls
+  \textbf{sepenuhnya mengkarakterisasi sistem tersebut}. Ini berarti
+  bahwa jika kita mengetahui \(h(t)\) atau \(h[n]\), kita dapat
+  menentukan output \(y(t)\) atau \(y[n]\) untuk \emph{input \(x(t)\)
+  atau \(x[n]\) apa pun} melalui operasi konvolusi.
+\item
+  \textbf{Kemudahan Analisis:} Hal ini sangat menyederhanakan analisis
+  sistem LTI karena alih-alih harus menguji sistem untuk setiap input,
+  kita hanya perlu mengetahui satu karakteristik: respon impulsnya.
+  Dengan linearitas dan time-invariance, sinyal input kompleks dapat
+  didekomposisi menjadi jumlah impuls, dan outputnya adalah jumlah
+  respon impuls yang digeser dan diskalakan.
+\end{enumerate}
+
+\textbf{Kesimpulan:} Respon impuls penting karena \textbf{sepenuhnya
+mengkarakterisasi sistem LTI}, memungkinkan kita untuk menentukan output
+untuk input arbitrer melalui konvolusi.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\textbf{Soal 11:} Tentukan apakah sistem waktu kontinu
+\(y(t) = \frac{dx(t)}{dt}\) adalah \textbf{invertibel}. Jika ya, berikan
+sistem inversnya. \textbf{Nomor Produk:} WK2-SP-B3-P11
+
+\textbf{Peta Pemecahan Masalah WK2-SP-B3-P11}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Titik Mulai:} Sistem \(y(t) = \frac{dx(t)}{dt}\).
+\item
+  \textbf{Titik Akhir:} Kesimpulan apakah sistem invertibel dan, jika
+  ya, sistem inversnya.
+\item
+  \textbf{Rute Pemecahan Masalah:}
+
+  \begin{enumerate}
+  \def\labelenumi{\arabic{enumi}.}
+  \tightlist
+  \item
+    Mengingat definisi invertibilitas.
+  \item
+    Coba temukan operasi yang dapat mengembalikan \(x(t)\) dari
+    \(y(t)\).
+  \item
+    Pertimbangkan apakah ada input yang berbeda yang dapat menghasilkan
+    output yang sama.
+  \end{enumerate}
+\item
+  \textbf{Kendaraan:}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    K\_OPS\_Definisi: Definisi Invertibilitas.
+  \item
+    K\_MAT\_Kalkulus: Operasi Diferensiasi dan Integrasi.
+  \item
+    K\_MAT\_Aljabar: Manipulasi Persamaan.
+  \end{itemize}
+\end{itemize}
+
+\textbf{Solusi WK2-SP-B3-P11:}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Definisi Invertibilitas:} Sebuah sistem invertibel jika
+  inputnya dapat ditentukan secara unik dari outputnya.
+\item
+  \textbf{Mencari Sistem Invers:} Jika \(y(t) = \frac{dx(t)}{dt}\),
+  untuk mendapatkan \(x(t)\) dari \(y(t)\), kita perlu mengintegrasikan
+  \(y(t)\). Jadi, \(x(t) = \int_{-\infty}^{t} y(\tau) d\tau\). Sistem
+  invers yang memungkinkan adalah integrator.
+\item
+  \textbf{Masalah dengan Unik:} Namun, ketika kita melakukan integrasi,
+  ada konstanta integrasi yang tidak diketahui. Artinya, jika \(x(t)\)
+  dan \(x(t) + C\) (di mana \(C\) adalah konstanta apa pun) diberikan
+  sebagai input, keduanya akan menghasilkan output yang sama
+  \(y(t) = \frac{dx(t)}{dt}\). Misalnya, jika \(x_1(t) = u(t)\) dan
+  \(x_2(t) = u(t) + 5\), keduanya akan menghasilkan
+  \(y(t) = \delta(t)\). Karena input yang berbeda dapat menghasilkan
+  output yang sama, kita tidak dapat secara unik menentukan input dari
+  output.
+\end{enumerate}
+
+\textbf{Kesimpulan:} Sistem \(y(t) = \frac{dx(t)}{dt}\) \textbf{tidak
+invertibel}.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\textbf{Soal 12:} Rancang persamaan beda orde pertama yang menggambarkan
+sistem waktu diskrit yang outputnya adalah rata-rata input saat ini dan
+input sebelumnya. \textbf{Nomor Produk:} WK2-DE-B6-P12
+
+\textbf{Peta Pemecahan Masalah WK2-DE-B6-P12}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Titik Mulai:} Keinginan untuk merancang persamaan beda orde
+  pertama: output = rata-rata input saat ini dan input sebelumnya.
+\item
+  \textbf{Titik Akhir:} Persamaan beda yang diinginkan.
+\item
+  \textbf{Rute Pemecahan Masalah:}
+
+  \begin{enumerate}
+  \def\labelenumi{\arabic{enumi}.}
+  \tightlist
+  \item
+    Mengingat definisi output \(y[n]\) sebagai rata-rata.
+  \item
+    Identifikasi input yang relevan: input saat ini \(x[n]\) dan input
+    sebelumnya \(x[n-1]\).
+  \item
+    Formulasikan ekspresi rata-rata untuk input-input ini.
+  \item
+    Pastikan orde persamaan beda adalah satu.
+  \end{enumerate}
+\item
+  \textbf{Kendaraan:}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    K\_OPS\_Representasi\_Matematis: Struktur Persamaan Beda.
+  \item
+    K\_MAT\_Aljabar: Operasi Rata-rata.
+  \end{itemize}
+\end{itemize}
+
+\textbf{Solusi WK2-DE-B6-P12:}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Definisi Output:} Output sistem \(y[n]\) adalah rata-rata
+  input saat ini dan input sebelumnya.
+\item
+  \textbf{Input yang Relevan:}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Input saat ini: \(x[n]\)
+  \item
+    Input sebelumnya: \(x[n-1]\)
+  \end{itemize}
+\item
+  \textbf{Formulasi Rata-rata:} Rata-rata dari dua nilai adalah jumlah
+  keduanya dibagi dua.
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \(y[n] = \frac{x[n] + x[n-1]}{2}\)
+  \end{itemize}
+\item
+  \textbf{Orde Persamaan Beda:} Karena output bergantung pada \(x[n]\)
+  dan \(x[n-1]\), perbedaan indeks input maksimum adalah
+  \(n - (n-1) = 1\), yang berarti ini adalah persamaan beda orde
+  pertama.
+\end{enumerate}
+
+\textbf{Kesimpulan:} Persamaan beda orde pertama yang menggambarkan
+sistem tersebut adalah
+\textbf{\(y[n] = \frac{1}{2} x[n] + \frac{1}{2} x[n-1]\)}.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\textbf{Soal 13:} Analisis stabilitas BIBO dari sistem waktu diskrit
+dengan respon impuls \(h[n] = (0.9)^n u[n]\). \textbf{Nomor Produk:}
+WK2-SP-B4-P13
+
+\textbf{Peta Pemecahan Masalah WK2-SP-B4-P13}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Titik Mulai:} Respon impuls \(h[n] = (0.9)^n u[n]\).
+\item
+  \textbf{Titik Akhir:} Kesimpulan apakah sistem stabil BIBO atau tidak.
+\item
+  \textbf{Rute Pemecahan Masalah:}
+
+  \begin{enumerate}
+  \def\labelenumi{\arabic{enumi}.}
+  \tightlist
+  \item
+    Mengingat kriteria stabilitas BIBO untuk sistem LTI (sumabilitas
+    absolut dari respon impuls).
+  \item
+    Hitung \(\sum_{n=-\infty}^{\infty} |h[n]|\).
+  \item
+    Evaluasi apakah jumlahnya terbatas.
+  \end{enumerate}
+\item
+  \textbf{Kendaraan:}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    K\_OPS\_Definisi: Kriteria Stabilitas BIBO.
+  \item
+    K\_MAT\_Aljabar: Deret Geometri.
+  \item
+    K\_MAT\_Kalkulus: Operasi Penjumlahan (Summation).
+  \end{itemize}
+\end{itemize}
+
+\textbf{Solusi WK2-SP-B4-P13:}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Kriteria Stabilitas BIBO untuk LTI:} Sebuah sistem LTI adalah
+  stabil BIBO jika respon impulsnya dapat dijumlahkan secara absolut
+  (absolutely summable), yaitu
+  \(\sum_{n=-\infty}^{\infty} |h[n]| < \infty\).
+\item
+  \textbf{Menghitung Jumlah Absolut:}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \(h[n] = (0.9)^n u[n]\). Sinyal \(u[n]\) adalah fungsi langkah unit,
+    yang berarti \(h[n]\) hanya ada untuk \(n \ge 0\).
+  \item
+    \(\sum_{n=-\infty}^{\infty} |h[n]| = \sum_{n=0}^{\infty} |(0.9)^n u[n]| = \sum_{n=0}^{\infty} (0.9)^n\).
+  \end{itemize}
+\item
+  Ini adalah deret geometri dengan rasio \(r = 0.9\). Karena
+  \(|r| < 1\), deret ini konvergen.
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Jumlahnya adalah \(\frac{1}{1 - 0.9} = \frac{1}{0.1} = 10\).
+  \end{itemize}
+\item
+  Karena jumlah absolut adalah 10, yang merupakan nilai yang terbatas.
+\end{enumerate}
+
+\textbf{Kesimpulan:} Sistem dengan respon impuls \(h[n] = (0.9)^n u[n]\)
+\textbf{stabil BIBO}.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\textbf{Soal 14:} Untuk sistem waktu diskrit \(y[n] = x[n] + x[n-1]\),
+tentukan \textbf{respon impulsnya}. \textbf{Nomor Produk:} WK2-IR-B3-P14
+
+\textbf{Peta Pemecahan Masalah WK2-IR-B3-P14}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Titik Mulai:} Sistem \(y[n] = x[n] + x[n-1]\).
+\item
+  \textbf{Titik Akhir:} Respon impuls \(h[n]\).
+\item
+  \textbf{Rute Pemecahan Masalah:}
+
+  \begin{enumerate}
+  \def\labelenumi{\arabic{enumi}.}
+  \tightlist
+  \item
+    Mengingat definisi respon impuls (output ketika inputnya impuls
+    unit).
+  \item
+    Ganti \(x[n]\) dengan \(\delta[n]\) dalam persamaan sistem.
+  \item
+    Output yang dihasilkan adalah \(h[n]\).
+  \end{enumerate}
+\item
+  \textbf{Kendaraan:}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    K\_OPS\_Definisi: Definisi Respon Impuls.
+  \item
+    K\_MAT\_Aljabar: Substitusi Sinyal.
+  \end{itemize}
+\end{itemize}
+
+\textbf{Solusi WK2-IR-B3-P14:}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Definisi Respon Impuls:} Respon impuls \(h[n]\) adalah output
+  sistem ketika inputnya adalah \(\delta[n]\).
+\item
+  \textbf{Substitusi Input:} Ganti \(x[n]\) dengan \(\delta[n]\) dalam
+  persamaan sistem:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \(h[n] = \delta[n] + \delta[n-1]\).
+  \end{itemize}
+\end{enumerate}
+
+\textbf{Kesimpulan:} Respon impuls sistem adalah
+\textbf{\(h[n] = \delta[n] + \delta[n-1]\)}.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\textbf{Soal 15:} Periksa apakah sistem waktu kontinu \(y(t) = x(t)/t\)
+adalah \textbf{linear}. \textbf{Nomor Produk:} WK2-SP-B3-P15
+
+\textbf{Peta Pemecahan Masalah WK2-SP-B3-P15}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Titik Mulai:} Sistem \(y(t) = x(t)/t\).
+\item
+  \textbf{Titik Akhir:} Kesimpulan apakah sistem linear atau tidak.
+\item
+  \textbf{Rute Pemecahan Masalah:}
+
+  \begin{enumerate}
+  \def\labelenumi{\arabic{enumi}.}
+  \tightlist
+  \item
+    Mengingat definisi linearitas (aditivitas dan homogenitas).
+  \item
+    Menguji sifat aditivitas.
+  \item
+    Menguji sifat homogenitas.
+  \item
+    Jika kedua sifat terpenuhi, sistem adalah linear.
+  \end{enumerate}
+\item
+  \textbf{Kendaraan:}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    K\_OPS\_Definisi: Definisi Linearitas (Aditivitas \& Homogenitas).
+  \item
+    K\_MAT\_Aljabar: Manipulasi Persamaan.
+  \end{itemize}
+\end{itemize}
+
+\textbf{Solusi WK2-SP-B3-P15:}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Definisi Linearitas:} Sistem linear harus memenuhi aditivitas
+  dan homogenitas.
+\item
+  \textbf{Uji Aditivitas:}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Misalkan input \(x_1(t) \rightarrow y_1(t) = x_1(t)/t\).
+  \item
+    Misalkan input \(x_2(t) \rightarrow y_2(t) = x_2(t)/t\).
+  \item
+    Input gabungan \(x_g(t) = x_1(t) + x_2(t)\).
+  \item
+    Output
+    \(y_g(t) = (x_1(t) + x_2(t))/t = x_1(t)/t + x_2(t)/t = y_1(t) + y_2(t)\).
+  \item
+    Aditivitas terpenuhi.
+  \end{itemize}
+\item
+  \textbf{Uji Homogenitas:}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Misalkan input \(x_a(t) = a x(t)\).
+  \item
+    Output \(y_a(t) = (a x(t))/t = a (x(t)/t) = a y(t)\).
+  \item
+    Homogenitas terpenuhi.
+  \end{itemize}
+\end{enumerate}
+
+\textbf{Kesimpulan:} Karena kedua sifat terpenuhi, sistem
+\(y(t) = x(t)/t\) adalah \textbf{linear}.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\textbf{Soal 16:} Apa perbedaan utama antara \textbf{persamaan
+diferensial} dan \textbf{persamaan beda} dalam konteks representasi
+sistem? \textbf{Nomor Produk:} WK2-DE-B2-P16
+
+\textbf{Peta Pemecahan Masalah WK2-DE-B2-P16}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Titik Mulai:} Pertanyaan tentang perbedaan PD dan PB.
+\item
+  \textbf{Titik Akhir:} Penjelasan perbedaan utama.
+\item
+  \textbf{Rute Pemecahan Masalah:}
+
+  \begin{enumerate}
+  \def\labelenumi{\arabic{enumi}.}
+  \tightlist
+  \item
+    Mengingat definisi persamaan diferensial.
+  \item
+    Mengingat definisi persamaan beda.
+  \item
+    Identifikasi domain waktu yang terkait dengan masing-masing.
+  \item
+    Sintesis perbedaan inti.
+  \end{enumerate}
+\item
+  \textbf{Kendaraan:}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    K\_OPS\_Definisi: Definisi Persamaan Diferensial.
+  \item
+    K\_OPS\_Definisi: Definisi Persamaan Beda.
+  \item
+    K\_OPS\_Klasifikasi: Sinyal Waktu Kontinu vs.~Waktu Diskrit.
+  \end{itemize}
+\end{itemize}
+
+\textbf{Solusi WK2-DE-B2-P16:}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Persamaan Diferensial (PD):} Digunakan untuk menggambarkan
+  \textbf{sistem waktu kontinu}. Persamaan ini melibatkan fungsi input
+  dan output serta turunan-turunan mereka. PD menggambarkan hubungan
+  antara laju perubahan sinyal.
+\item
+  \textbf{Persamaan Beda (PB):} Digunakan untuk menggambarkan
+  \textbf{sistem waktu diskrit}. Persamaan ini melibatkan nilai-nilai
+  input dan output pada indeks waktu diskrit yang berbeda. PB
+  menggambarkan hubungan antara nilai sinyal yang berurutan.
+\end{enumerate}
+
+\textbf{Perbedaan Utama:}
+
+\begin{itemize}
+\tightlist
+\item
+  PD merepresentasikan sistem yang beroperasi pada \textbf{sinyal waktu
+  kontinu} (menggunakan turunan), sedangkan PB merepresentasikan sistem
+  yang beroperasi pada \textbf{sinyal waktu diskrit} (menggunakan
+  perbedaan atau pergeseran indeks waktu).
+\end{itemize}
+
+\textbf{Kesimpulan:} Perbedaan utamanya adalah \textbf{persamaan
+diferensial digunakan untuk sistem waktu kontinu yang melibatkan
+turunan, sedangkan persamaan beda digunakan untuk sistem waktu diskrit
+yang melibatkan nilai-nilai sinyal pada waktu yang berbeda}.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\textbf{Soal 17:} Analisis apakah sistem waktu diskrit \(y[n] = x^2[n]\)
+adalah \textbf{linear}. \textbf{Nomor Produk:} WK2-SP-B4-P17
+
+\textbf{Peta Pemecahan Masalah WK2-SP-B4-P17}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Titik Mulai:} Sistem \(y[n] = x^2[n]\).
+\item
+  \textbf{Titik Akhir:} Kesimpulan apakah sistem linear atau tidak.
+\item
+  \textbf{Rute Pemecahan Masalah:}
+
+  \begin{enumerate}
+  \def\labelenumi{\arabic{enumi}.}
+  \tightlist
+  \item
+    Mengingat definisi linearitas (aditivitas dan homogenitas).
+  \item
+    Menguji sifat homogenitas (ini seringkali lebih cepat untuk sistem
+    non-linear).
+  \item
+    Jika satu sifat tidak terpenuhi, sistem tidak linear.
+  \end{enumerate}
+\item
+  \textbf{Kendaraan:}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    K\_OPS\_Definisi: Definisi Linearitas (Aditivitas \& Homogenitas).
+  \item
+    K\_MAT\_Aljabar: Manipulasi Persamaan.
+  \end{itemize}
+\end{itemize}
+
+\textbf{Solusi WK2-SP-B4-P17:}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Definisi Linearitas:} Sistem linear harus memenuhi aditivitas
+  dan homogenitas.
+\item
+  \textbf{Uji Homogenitas:}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Misalkan input \(x[n] \rightarrow y[n] = x^2[n]\).
+  \item
+    Misalkan input \(x_a[n] = a x[n]\).
+  \item
+    Output \(y_a[n] = (a x[n])^2 = a^2 x^2[n] = a^2 y[n]\).
+  \item
+    Agar sistem homogen, kita membutuhkan \(y_a[n] = a y[n]\).
+  \item
+    Dalam kasus ini, \(a^2 y[n] \neq a y[n]\) kecuali jika \(a=0\) atau
+    \(a=1\).
+  \end{itemize}
+\end{enumerate}
+
+\textbf{Kesimpulan:} Karena sifat homogenitas tidak terpenuhi (kecuali
+untuk kasus-kasus trivial), sistem \(y[n] = x^2[n]\) \textbf{tidak
+linear}.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\textbf{Soal 18:} Evaluasi bagaimana perubahan pada respon impuls
+\(h(t)\) dapat memengaruhi sifat kausalitas suatu sistem LTI waktu
+kontinu. \textbf{Nomor Produk:} WK2-IR-B5-P18
+
+\textbf{Peta Pemecahan Masalah WK2-IR-B5-P18}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Titik Mulai:} Permintaan evaluasi hubungan antara \(h(t)\) dan
+  kausalitas sistem LTI.
+\item
+  \textbf{Titik Akhir:} Penjelasan bagaimana perubahan \(h(t)\)
+  memengaruhi kausalitas.
+\item
+  \textbf{Rute Pemecahan Masalah:}
+
+  \begin{enumerate}
+  \def\labelenumi{\arabic{enumi}.}
+  \tightlist
+  \item
+    Mengingat definisi kausalitas sistem LTI.
+  \item
+    Mengingat definisi respon impuls \(h(t)\).
+  \item
+    Hubungkan kapan \(h(t)\) harus nol untuk memastikan kausalitas.
+  \item
+    Diskusikan bagaimana perubahan ini memengaruhi ketergantungan output
+    pada input masa lalu/depan.
+  \end{enumerate}
+\item
+  \textbf{Kendaraan:}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    K\_OPS\_Definisi: Definisi Kausalitas LTI.
+  \item
+    K\_OPS\_Definisi: Definisi Respon Impuls.
+  \item
+    K\_MAT\_Aljabar: Analisis Domain Waktu.
+  \end{itemize}
+\end{itemize}
+
+\textbf{Solusi WK2-IR-B5-P18:}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Definisi Kausalitas LTI:} Sebuah sistem LTI adalah kausal jika
+  output pada waktu \(t_0\) hanya bergantung pada input pada waktu
+  \(t \le t_0\).
+\item
+  \textbf{Kausalitas dan Respon Impuls:} Untuk sistem LTI, kausalitas
+  memiliki hubungan langsung dengan respon impuls \(h(t)\). Sistem LTI
+  adalah kausal jika dan hanya jika \textbf{\(h(t) = 0\) untuk
+  \(t < 0\)}.
+\item
+  \textbf{Pengaruh Perubahan \(h(t)\):}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \textbf{Jika \(h(t)\) non-nol untuk \(t < 0\):} Ini berarti respon
+    impuls ``muncul'' sebelum input impuls diterapkan. Akibatnya, sistem
+    akan menghasilkan output sebelum input sebenarnya diberikan
+    (misalnya, \(y(t_0)\) bergantung pada \(x(t)\) untuk \(t > t_0\)
+    melalui \(h(t)\) jika \(h(t)\) ada untuk \(t < 0\)), menjadikannya
+    \textbf{non-kausal}.
+  \item
+    \textbf{Jika \(h(t)\) nol untuk \(t < 0\):} Ini memastikan bahwa
+    output sistem pada waktu \(t\) hanya bergantung pada input pada
+    waktu \(t\) dan masa lalu, menjadikannya \textbf{kausal}.
+  \end{itemize}
+\end{enumerate}
+
+\textbf{Kesimpulan:} Perubahan pada \(h(t)\) yang menyebabkan \(h(t)\)
+menjadi non-nol untuk \(t<0\) akan mengubah sistem LTI dari
+\textbf{kausal menjadi non-kausal}.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\textbf{Soal 19:} Tentukan apakah sistem waktu kontinu
+\(y(t) = 2x(t-1)\) memiliki \textbf{memori}. \textbf{Nomor Produk:}
+WK2-SP-B3-P19
+
+\textbf{Peta Pemecahan Masalah WK2-SP-B3-P19}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Titik Mulai:} Sistem \(y(t) = 2x(t-1)\).
+\item
+  \textbf{Titik Akhir:} Kesimpulan apakah sistem memiliki memori atau
+  tidak.
+\item
+  \textbf{Rute Pemecahan Masalah:}
+
+  \begin{enumerate}
+  \def\labelenumi{\arabic{enumi}.}
+  \tightlist
+  \item
+    Mengingat definisi sistem dengan memori dan tanpa memori.
+  \item
+    Analisis ekspresi output \(y(t)\).
+  \item
+    Tentukan apakah \(y(t)\) bergantung pada nilai input \(x(\tau)\)
+    selain \(x(t)\).
+  \end{enumerate}
+\item
+  \textbf{Kendaraan:}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    K\_OPS\_Definisi: Definisi Memori Sistem.
+  \item
+    K\_MAT\_Aljabar: Analisis Ketergantungan Waktu.
+  \end{itemize}
+\end{itemize}
+
+\textbf{Solusi WK2-SP-B3-P19:}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Definisi Sistem dengan Memori:} Sebuah sistem dikatakan
+  memiliki memori jika outputnya pada waktu \(t\) bergantung pada nilai
+  input pada waktu selain \(t\) (yaitu, waktu lalu atau masa depan).
+\item
+  \textbf{Analisis Ekspresi \(y(t)\):}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Output pada waktu \(t\) adalah \(y(t) = 2x(t-1)\).
+  \item
+    Ini berarti \(y(t)\) bergantung pada nilai input \(x\) pada waktu
+    \(t-1\). Karena \(t-1\) adalah waktu di masa lalu relatif terhadap
+    \(t\), sistem ini ``mengingat'' nilai input sebelumnya.
+  \end{itemize}
+\end{enumerate}
+
+\textbf{Kesimpulan:} Sistem \(y(t) = 2x(t-1)\) \textbf{memiliki memori}.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\textbf{Soal 20:} Formulasikan persamaan diferensial yang menggambarkan
+sistem waktu kontinu LTI orde pertama yang menghasilkan output \(y(t)\)
+ketika inputnya adalah \(x(t)\) dan konstanta waktu sistem adalah \(T\).
+\textbf{Nomor Produk:} WK2-DE-B6-P20
+
+\textbf{Peta Pemecahan Masalah WK2-DE-B6-P20}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Titik Mulai:} Permintaan formulasi PD orde pertama LTI dengan
+  konstanta waktu \(T\).
+\item
+  \textbf{Titik Akhir:} Persamaan diferensial yang diformulasikan.
+\item
+  \textbf{Rute Pemecahan Masalah:}
+
+  \begin{enumerate}
+  \def\labelenumi{\arabic{enumi}.}
+  \tightlist
+  \item
+    Mengingat bentuk umum persamaan diferensial orde pertama.
+  \item
+    Menggabungkan input \(x(t)\) dan output \(y(t)\) dengan turunan
+    pertama.
+  \item
+    Memasukkan konstanta waktu \(T\) ke dalam persamaan.
+  \item
+    Memastikan koefisien konstan untuk sifat LTI.
+  \end{enumerate}
+\item
+  \textbf{Kendaraan:}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    K\_OPS\_Representasi\_Matematis: Struktur Persamaan Diferensial.
+  \item
+    K\_MAT\_Kalkulus: Turunan Pertama.
+  \item
+    K\_MAT\_Aljabar: Manipulasi Simbol.
+  \end{itemize}
+\end{itemize}
+
+\textbf{Solusi WK2-DE-B6-P20:}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Bentuk Umum PD Orde Pertama LTI:} Sistem LTI orde pertama
+  waktu kontinu umumnya melibatkan turunan pertama dari output dan
+  input, dengan koefisien konstan. Bentuk umumnya adalah
+  \(A \frac{dy(t)}{dt} + B y(t) = C x(t)\).
+\item
+  \textbf{Konstanta Waktu \(T\):} Konstanta waktu \(T\) adalah parameter
+  penting dalam sistem orde pertama dan sering muncul sebagai koefisien
+  dari turunan tertinggi. Dalam bentuk standar, persamaan orde pertama
+  dapat ditulis sebagai \(T \frac{dy(t)}{dt} + y(t) = K x(t)\), di mana
+  \(K\) adalah gain DC.
+\item
+  \textbf{Formulasi Persamaan Diferensial:} Kita dapat memilih koefisien
+  sehingga mencerminkan konstanta waktu \(T\).
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Persamaan standar orde pertama adalah:
+    \(T \frac{dy(t)}{dt} + y(t) = x(t)\). (Di sini, kita mengasumsikan
+    gain DC adalah 1 untuk kesederhanaan).
+  \end{itemize}
+\end{enumerate}
+
+\textbf{Kesimpulan:} Persamaan diferensial yang menggambarkan sistem
+waktu kontinu LTI orde pertama dengan konstanta waktu \(T\) adalah
+\textbf{\(T \frac{dy(t)}{dt} + y(t) = x(t)\)}.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{Daftar Kendaraan yang
+Digunakan:}\label{daftar-kendaraan-yang-digunakan}
+
+Berikut adalah daftar kendaraan unik yang digunakan di seluruh Peta
+Pengetahuan Aplikatif di atas, dikategorikan sesuai dengan jenisnya:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Matematika (Fundamental):}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \textbf{K\_MAT\_Aljabar:} Manipulasi persamaan, identifikasi indeks,
+    substitusi, perbandingan ekspresi, operasi rata-rata, analisis
+    ketergantungan waktu, pemilihan koefisien, manipulasi simbol.
+  \item
+    \textbf{K\_MAT\_Kalkulus:} Operasi integral, operasi diferensiasi,
+    operasi penjumlahan (summation), turunan pertama, fungsi
+    trigonometri.
+  \end{itemize}
+\item
+  \textbf{Operasi Dasar Sinyal/Sistem:}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \textbf{K\_OPS\_Definisi:} Definisi Linearitas (Aditivitas \&
+    Homogenitas), Definisi Orde Persamaan Beda, Definisi Sinyal Impuls
+    Unit, Definisi Respon Impuls, Definisi Time-Invariance, Definisi
+    Kausalitas, Definisi Memori Sistem, Kriteria Stabilitas BIBO,
+    Definisi Invertibilitas.
+  \item
+    \textbf{K\_OPS\_Klasifikasi:} Klasifikasi Sistem Fisik, LTI (Linear
+    Time-Invariant), Sinyal Waktu Kontinu vs.~Waktu Diskrit.
+  \item
+    \textbf{K\_OPS\_Representasi\_Matematis:} Struktur Persamaan
+    Diferensial, Struktur Persamaan Beda, Konvolusi (secara konseptual).
+  \end{itemize}
+\end{itemize}
+
+\bookmarksetup{startatroot}
+
 \chapter{Summary}\label{summary}
 
 In summary, this book has no content whatsoever.@knuth84
@@ -1535,8 +3501,6 @@ In summary, this book has no content whatsoever.@knuth84
 \markboth{References}{References}
 
 \phantomsection\label{refs}
-\begin{CSLReferences}{0}{1}
-\end{CSLReferences}
 
 
 
