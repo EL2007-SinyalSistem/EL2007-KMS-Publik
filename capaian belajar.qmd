@@ -1,0 +1,54 @@
+Berdasarkan dokumen `RPS.pdf`, berikut adalah rincian tujuan pembelajaran untuk setiap minggu mata kuliah Sinyal dan Sistem (EL2007):
+
+**Minggu 1:**
+
+- **Bahan Kajian:** Deskripsi Matematis Sinyal Waktu Kontinu (Mathematical Description of Continuous-time Signals).
+- **Tujuan Belajar:** Mahasiswa diharapkan mampu **memahami dasar-dasar sinyal waktu kontinu dan representasi matematisnya**, termasuk jenis-jenis sinyal dan operasi dasar sinyal.
+
+**Minggu 2-3:**
+
+- **Bahan Kajian:** Deskripsi Sistem di Domain Waktu: Persamaan Diferensial dan Respon Impuls (Time-Domain Description of Systems: Differential Equation and Impulse Response).
+- **Tujuan Belajar:** Mahasiswa diharapkan mampu **mengenal karakteristik sistem linear tak-berubah waktu (LTI)**, termasuk konsep sistem, sifat-sifatnya, dan pentingnya respon impuls.
+- **Penilaian (Akhir Minggu 3):** PR 1 (terkait deskripsi sinyal dan sistem di domain waktu).
+
+**Minggu 4-5:**
+
+- **Bahan Kajian:** Analisis Sistem di Domain Waktu: Solusi Persamaan Diferensial dan Konvolusi (Time-Domain Analysis of Systems: Solution to Differential Equation and Convolution).
+- **Tujuan Belajar:** Mahasiswa diharapkan **mampu menganalisis respon sistem LTI menggunakan konvolusi dan menyelesaikan persamaan diferensial** yang menggambarkan sistem.
+
+**Minggu 6-7:**
+
+- **Bahan Kajian:** Deskripsi Domain Frekuensi: Transformasi Fourier (Frequency-Domain Description: Fourier Transform).
+- **Tujuan Belajar:** Mahasiswa diharapkan **memahami konsep Transformasi Fourier sebagai alat untuk menganalisis sinyal dan sistem di domain frekuensi**, serta dapat menerapkan Transformasi Fourier untuk berbagai jenis sinyal.
+- **Penilaian (Akhir Minggu 7):** Kuis 1 (tentang Transformasi Fourier).
+
+**Minggu 8:**
+
+- **Bahan Kajian:** Analisis Sistem di Domain Frekuensi: Respon Frekuensi (Frequency-Domain Analysis of Systems: Frequency Response).
+- **Tujuan Belajar:** Mahasiswa diharapkan **mampu menganalisis respon frekuensi sistem dan memahami dampaknya terhadap sinyal input**, termasuk karakteristik filter di domain frekuensi.
+
+**Minggu 9-10:**
+
+- **Bahan Kajian:** Deskripsi Domain Laplace: Transformasi Laplace (Laplace-Domain Description: Laplace Transform).
+- **Tujuan Belajar:** Mahasiswa diharapkan **memahami Transformasi Laplace dan inversnya sebagai alat yang ampuh untuk analisis sistem**, serta dapat menggunakannya untuk menyelesaikan persamaan diferensial.
+
+**Minggu 11-12:**
+
+- **Bahan Kajian:** Analisis Sistem di Domain Laplace: Fungsi Alih (Laplace-Domain Analysis of System: Transfer Function).
+- **Tujuan Belajar:** Mahasiswa diharapkan **mampu menganalisis sistem menggunakan konsep fungsi alih dan diagram blok di domain Laplace**, serta menganalisis sistem kompleks menggunakan fungsi alih.
+- **Penilaian (Akhir Minggu 12):** Kuis 2 (tentang Fungsi Alih).
+
+**Minggu 13:**
+
+- **Bahan Kajian:** Studi kasus: Desain Filter (Case Study: Filter Designs).
+- **Tujuan Belajar:** Mahasiswa diharapkan **mampu merancang filter secara matematis dan menggunakan perangkat lunak untuk memverifikasi desain**, termasuk simulasi desain filter low-pass dan high-pass.
+- **Penilaian:** PR 3 (proyek desain filter).
+
+**Minggu 14:**
+
+- **Bahan Kajian:** Studi kasus: Pengantar Sistem Kendali Linier Umpan Balik (Case Study: Introduction to Linear Feedback Control System).
+- **Tujuan Belajar:** Mahasiswa diharapkan **memahami prinsip dasar sistem kendali umpan balik dan mampu menganalisis karakteristik performanya**.
+
+**Minggu Ujian Akhir Semester:**
+
+- **Penilaian:** Ujian Akhir Semester yang mencakup seluruh bahan kajian dari minggu 1 hingga 14.
