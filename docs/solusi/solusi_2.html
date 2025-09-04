@@ -1,0 +1,1267 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.33">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>7&nbsp; Solusi – EL-2007 Sinyal dan Sistem</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../summary.html" rel="next">
+<link href="../requirements/soal_2.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-364982630eef5352dd1537128a8ed5cb.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../solusi/solusi_2.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Solusi</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">EL-2007 Sinyal dan Sistem</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Petunjuk Belajar Mata Kuliah Sinyal dan Sistem</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Tinjauan Kuliah</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../kuliah/materi_1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Materi Pembelajaran Minggu 1: Deskripsi Matematis Sinyal Waktu Kontinu</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../requirements/soal_1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Problem Set Minggu 1: Sinyal dan Sistem Waktu Kontinu</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../solusi/solusi_1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Solusi Tugas 1</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../kuliah/materi_2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Materi Kuliah Minggu 2: Deskripsi Sistem di Domain Waktu dan Sifat-sifat Dasarnya</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../requirements/soal_2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Soal Latihan</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../solusi/solusi_2.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Solusi</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../summary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Lampiran Petunjuk Penggunaan Alat Bantu dan Kendaraan dalam Sinyal dan Sistem (VALORAIZE Learning)</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#daftar-kendaraan-yang-digunakan" id="toc-daftar-kendaraan-yang-digunakan" class="nav-link active" data-scroll-target="#daftar-kendaraan-yang-digunakan"><span class="header-section-number">7.0.1</span> Daftar Kendaraan yang Digunakan:</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Solusi</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p><strong>Peta Pengetahuan Aplikatif dan Solusi untuk Setiap Soal</strong></p>
+<p>Berikut adalah peta pengetahuan aplikatif untuk setiap soal di atas, beserta solusinya menggunakan pendekatan peta tersebut.</p>
+<p><strong>Soal 1:</strong> Tentukan apakah sistem waktu kontinu yang dijelaskan oleh <span class="math inline">\(y(t) = \int_{-\infty}^{t} x(\tau) d\tau\)</span> adalah <strong>linear</strong>. <strong>Nomor Produk:</strong> WK2-SP-B3-P01</p>
+<p><strong>Peta Pemecahan Masalah WK2-SP-B3-P01</strong></p>
+<ul>
+<li><strong>Titik Mulai:</strong> Sistem <span class="math inline">\(y(t) = \int_{-\infty}^{t} x(\tau) d\tau\)</span>.</li>
+<li><strong>Titik Akhir:</strong> Kesimpulan apakah sistem tersebut linear atau tidak.</li>
+<li><strong>Rute Pemecahan Masalah:</strong>
+<ol type="1">
+<li>Mengingat definisi linearitas (prinsip superposisi: aditivitas dan homogenitas).</li>
+<li>Menguji sifat aditivitas: Masukkan dua input <span class="math inline">\(x_1(t)\)</span> dan <span class="math inline">\(x_2(t)\)</span>, dan periksa apakah <span class="math inline">\(T(x_1(t)+x_2(t)) = T(x_1(t)) + T(x_2(t))\)</span>.</li>
+<li>Menguji sifat homogenitas: Masukkan input <span class="math inline">\(ax(t)\)</span> (di mana <span class="math inline">\(a\)</span> adalah konstanta), dan periksa apakah <span class="math inline">\(T(ax(t)) = aT(x(t))\)</span>.</li>
+<li>Jika kedua sifat terpenuhi, sistem adalah linear.</li>
+</ol></li>
+<li><strong>Kendaraan:</strong>
+<ul>
+<li>K_OPS_Definisi: Definisi Linearitas (Aditivitas &amp; Homogenitas).</li>
+<li>K_MAT_Kalkulus: Operasi Integral.</li>
+<li>K_MAT_Aljabar: Manipulasi Persamaan.</li>
+</ul></li>
+</ul>
+<p><strong>Solusi WK2-SP-B3-P01:</strong></p>
+<ol type="1">
+<li><strong>Definisi Linearitas:</strong> Sistem linear harus memenuhi aditivitas dan homogenitas.</li>
+<li><strong>Uji Aditivitas:</strong>
+<ul>
+<li>Misalkan input <span class="math inline">\(x_1(t) \rightarrow y_1(t) = \int_{-\infty}^{t} x_1(\tau) d\tau\)</span>.</li>
+<li>Misalkan input <span class="math inline">\(x_2(t) \rightarrow y_2(t) = \int_{-\infty}^{t} x_2(\tau) d\tau\)</span>.</li>
+<li>Input gabungan <span class="math inline">\(x_g(t) = x_1(t) + x_2(t)\)</span>.</li>
+<li>Output <span class="math inline">\(y_g(t) = \int_{-\infty}^{t} (x_1(\tau) + x_2(\tau)) d\tau = \int_{-\infty}^{t} x_1(\tau) d\tau + \int_{-\infty}^{t} x_2(\tau) d\tau = y_1(t) + y_2(t)\)</span>.</li>
+<li>Aditivitas terpenuhi.</li>
+</ul></li>
+<li><strong>Uji Homogenitas:</strong>
+<ul>
+<li>Misalkan input <span class="math inline">\(x_a(t) = a x(t)\)</span>.</li>
+<li>Output <span class="math inline">\(y_a(t) = \int_{-\infty}^{t} (a x(\tau)) d\tau = a \int_{-\infty}^{t} x(\tau) d\tau = a y(t)\)</span>.</li>
+<li>Homogenitas terpenuhi.</li>
+</ul></li>
+</ol>
+<p><strong>Kesimpulan:</strong> Karena kedua sifat (aditivitas dan homogenitas) terpenuhi, sistem <span class="math inline">\(y(t) = \int_{-\infty}^{t} x(\tau) d\tau\)</span> adalah <strong>linear</strong>.</p>
+<p><strong>Soal 2:</strong> Sistem waktu diskrit dijelaskan oleh persamaan beda <span class="math inline">\(y[n] = 0.5y[n-1] + x[n]\)</span>. Identifikasi <strong>orde</strong> dari persamaan beda ini. <strong>Nomor Produk:</strong> WK2-DE-B2-P02</p>
+<p><strong>Peta Pemecahan Masalah WK2-DE-B2-P02</strong></p>
+<ul>
+<li><strong>Titik Mulai:</strong> Persamaan beda <span class="math inline">\(y[n] = 0.5y[n-1] + x[n]\)</span>.</li>
+<li><strong>Titik Akhir:</strong> Orde dari persamaan beda.</li>
+<li><strong>Rute Pemecahan Masalah:</strong>
+<ol type="1">
+<li>Mengingat definisi orde persamaan beda (perbedaan waktu maksimum antara indeks output).</li>
+<li>Identifikasi indeks output dalam persamaan.</li>
+<li>Identifikasi indeks output yang terlambat dalam persamaan.</li>
+<li>Hitung perbedaan antara indeks output saat ini dan indeks output yang terlambat.</li>
+</ol></li>
+<li><strong>Kendaraan:</strong>
+<ul>
+<li>K_OPS_Definisi: Definisi Orde Persamaan Beda.</li>
+<li>K_MAT_Aljabar: Identifikasi Indeks.</li>
+</ul></li>
+</ul>
+<p><strong>Solusi WK2-DE-B2-P02:</strong></p>
+<ol type="1">
+<li><strong>Definisi Orde Persamaan Beda:</strong> Orde persamaan beda adalah perbedaan maksimum antara indeks waktu dari variabel output dalam persamaan.</li>
+<li>Dalam persamaan <span class="math inline">\(y[n] = 0.5y[n-1] + x[n]\)</span>:
+<ul>
+<li>Output saat ini adalah <span class="math inline">\(y[n]\)</span>.</li>
+<li>Output yang terlambat (delay) adalah <span class="math inline">\(y[n-1]\)</span>.</li>
+</ul></li>
+<li>Perbedaan antara indeks waktu output saat ini dan output yang paling terlambat adalah <span class="math inline">\(n - (n-1) = 1\)</span>.</li>
+</ol>
+<p><strong>Kesimpulan:</strong> Orde dari persamaan beda ini adalah <strong>1</strong> (orde pertama).</p>
+<p><strong>Soal 3:</strong> Jelaskan <strong>apa yang dimaksud dengan respon impuls</strong> dari suatu sistem Linear Time-Invariant (LTI). <strong>Nomor Produk:</strong> WK2-IR-B1-P03</p>
+<p><strong>Peta Pemecahan Masalah WK2-IR-B1-P03</strong></p>
+<ul>
+<li><strong>Titik Mulai:</strong> Permintaan definisi respon impuls sistem LTI.</li>
+<li><strong>Titik Akhir:</strong> Penjelasan yang jelas tentang respon impuls.</li>
+<li><strong>Rute Pemecahan Masalah:</strong>
+<ol type="1">
+<li>Mengingat definisi sinyal impuls unit (delta Dirac/Kronecker).</li>
+<li>Mengingat bagaimana input ini diterapkan ke sistem LTI.</li>
+<li>Menganalisis output yang dihasilkan dari input ini sebagai respon impuls.</li>
+</ol></li>
+<li><strong>Kendaraan:</strong>
+<ul>
+<li>K_OPS_Definisi: Definisi Sinyal Impuls Unit.</li>
+<li>K_OPS_Definisi: Definisi Respon Impuls.</li>
+<li>K_OPS_Klasifikasi: Sistem LTI.</li>
+</ul></li>
+</ul>
+<p><strong>Solusi WK2-IR-B1-P03:</strong></p>
+<ol type="1">
+<li><strong>Sinyal Impuls Unit:</strong> Sinyal impuls unit, dilambangkan sebagai <span class="math inline">\(\delta(t)\)</span> untuk waktu kontinu atau <span class="math inline">\(\delta[n]\)</span> untuk waktu diskrit, adalah sinyal ideal yang memiliki durasi sangat singkat (atau hanya satu titik waktu) dan luas area (atau nilai) satu.</li>
+<li><strong>Penerapan ke Sistem LTI:</strong> Ketika sinyal impuls unit ini diterapkan sebagai input ke sistem Linear Time-Invariant (LTI), yaitu <span class="math inline">\(x(t) = \delta(t)\)</span> atau <span class="math inline">\(x[n] = \delta[n]\)</span>.</li>
+<li><strong>Output yang Dihasilkan:</strong> Output sistem LTI yang dihasilkan dari input impuls unit inilah yang disebut sebagai <strong>respon impuls</strong>. Respon impuls, dilambangkan sebagai <span class="math inline">\(h(t)\)</span> atau <span class="math inline">\(h[n]\)</span>, secara unik mengkarakterisasi sistem LTI dan dapat digunakan untuk menemukan output untuk input arbitrer melalui operasi konvolusi.</li>
+</ol>
+<p><strong>Kesimpulan:</strong> Respon impuls dari sistem LTI adalah <strong>output sistem ketika inputnya adalah sinyal impuls unit</strong>.</p>
+<p><strong>Soal 4:</strong> Analisis apakah sistem waktu diskrit <span class="math inline">\(y[n] = x[n] + n\)</span> adalah <strong>time-invariant</strong>. <strong>Nomor Produk:</strong> WK2-SP-B4-P04</p>
+<p><strong>Peta Pemecahan Masalah WK2-SP-B4-P04</strong></p>
+<ul>
+<li><strong>Titik Mulai:</strong> Sistem <span class="math inline">\(y[n] = x[n] + n\)</span>.</li>
+<li><strong>Titik Akhir:</strong> Kesimpulan apakah sistem time-invariant atau tidak.</li>
+<li><strong>Rute Pemecahan Masalah:</strong>
+<ol type="1">
+<li>Mengingat definisi time-invariance.</li>
+<li>Tentukan respon sistem terhadap input <span class="math inline">\(x[n]\)</span> sebagai <span class="math inline">\(y[n]\)</span>.</li>
+<li>Tentukan respon sistem terhadap input yang digeser waktu <span class="math inline">\(x[n-n_0]\)</span> sebagai <span class="math inline">\(y_{shifted}[n]\)</span>.</li>
+<li>Geser output awal <span class="math inline">\(y[n]\)</span> dengan jumlah yang sama <span class="math inline">\(n_0\)</span>, menghasilkan <span class="math inline">\(y[n-n_0]\)</span>.</li>
+<li>Bandingkan <span class="math inline">\(y_{shifted}[n]\)</span> dan <span class="math inline">\(y[n-n_0]\)</span>. Jika keduanya sama, sistem adalah time-invariant.</li>
+</ol></li>
+<li><strong>Kendaraan:</strong>
+<ul>
+<li>K_OPS_Definisi: Definisi Time-Invariance.</li>
+<li>K_MAT_Aljabar: Substitusi dan Perbandingan Ekspresi.</li>
+</ul></li>
+</ul>
+<p><strong>Solusi WK2-SP-B4-P04:</strong></p>
+<ol type="1">
+<li><strong>Definisi Time-Invariance:</strong> Sebuah sistem adalah time-invariant jika pergeseran waktu pada input menghasilkan pergeseran waktu yang sama pada output.</li>
+<li><strong>Output Asli:</strong> Untuk input <span class="math inline">\(x[n]\)</span>, outputnya adalah <span class="math inline">\(y[n] = x[n] + n\)</span>.</li>
+<li><strong>Input Digeser Waktu:</strong> Misalkan input digeser adalah <span class="math inline">\(x'[n] = x[n-n_0]\)</span>.
+<ul>
+<li>Output sistem terhadap input yang digeser adalah <span class="math inline">\(y'[n] = x'[n] + n = x[n-n_0] + n\)</span>.</li>
+</ul></li>
+<li><strong>Output Asli Digeser Waktu:</strong> Pergeseran waktu pada output asli <span class="math inline">\(y[n]\)</span> adalah <span class="math inline">\(y[n-n_0] = x[n-n_0] + (n-n_0)\)</span>.</li>
+<li><strong>Perbandingan:</strong>
+<ul>
+<li><span class="math inline">\(y'[n] = x[n-n_0] + n\)</span></li>
+<li><span class="math inline">\(y[n-n_0] = x[n-n_0] + n - n_0\)</span></li>
+<li>Jelas, <span class="math inline">\(y'[n] \neq y[n-n_0]\)</span> karena adanya <span class="math inline">\(n_0\)</span> pada <span class="math inline">\(y[n-n_0]\)</span>. Koefisien <span class="math inline">\(n\)</span> di <span class="math inline">\(x[n]+n\)</span> menyebabkan sistem menjadi time-varying.</li>
+</ul></li>
+</ol>
+<p><strong>Kesimpulan:</strong> Sistem <span class="math inline">\(y[n] = x[n] + n\)</span> <strong>tidak time-invariant</strong> (time-varying).</p>
+<p><strong>Soal 5:</strong> Sebutkan dua contoh komponen fisik yang perilaku waktu kontinu LTI-nya dapat dijelaskan menggunakan <strong>persamaan diferensial orde pertama</strong>. <strong>Nomor Produk:</strong> WK2-DE-B2-P05</p>
+<p><strong>Peta Pemecahan Masalah WK2-DE-B2-P05</strong></p>
+<ul>
+<li><strong>Titik Mulai:</strong> Permintaan dua contoh komponen fisik yang dimodelkan oleh PD orde pertama LTI.</li>
+<li><strong>Titik Akhir:</strong> Dua contoh komponen fisik.</li>
+<li><strong>Rute Pemecahan Masalah:</strong>
+<ol type="1">
+<li>Mengingat sistem fisik dasar yang memiliki dinamika orde pertama.</li>
+<li>Identifikasi hubungan input-output yang melibatkan turunan pertama.</li>
+<li>Verifikasi bahwa model tersebut LTI.</li>
+</ol></li>
+<li><strong>Kendaraan:</strong>
+<ul>
+<li>K_OPS_Klasifikasi: Klasifikasi Sistem Fisik.</li>
+<li>K_OPS_Representasi_Matematis: Persamaan Diferensial.</li>
+<li>K_OPS_Definisi: LTI.</li>
+</ul></li>
+</ul>
+<p><strong>Solusi WK2-DE-B2-P05:</strong></p>
+<ol type="1">
+<li><strong>Rangkaian RC (Resistor-Capacitor):</strong>
+<ul>
+<li>Input: Tegangan sumber <span class="math inline">\(v_s(t)\)</span>. Output: Tegangan kapasitor <span class="math inline">\(v_c(t)\)</span>.</li>
+<li>Persamaan diferensial: <span class="math inline">\(RC \frac{dv_c(t)}{dt} + v_c(t) = v_s(t)\)</span>. Ini adalah persamaan diferensial orde pertama. Resistor dan kapasitor adalah elemen linear, dan nilainya biasanya konstan, sehingga rangkaian ini LTI.</li>
+</ul></li>
+<li><strong>Rangkaian RL (Resistor-Inductor):</strong>
+<ul>
+<li>Input: Tegangan sumber <span class="math inline">\(v_s(t)\)</span>. Output: Arus induktor <span class="math inline">\(i_L(t)\)</span>.</li>
+<li>Persamaan diferensial: <span class="math inline">\(L \frac{di_L(t)}{dt} + R i_L(t) = v_s(t)\)</span>. Ini juga merupakan persamaan diferensial orde pertama, dan karena elemennya linear dan nilainya konstan, rangkaian ini LTI.</li>
+</ul></li>
+</ol>
+<p><strong>Kesimpulan:</strong> Dua contoh komponen fisik yang perilaku waktu kontinu LTI-nya dapat dijelaskan menggunakan persamaan diferensial orde pertama adalah <strong>rangkaian RC dan rangkaian RL</strong>.</p>
+<p><strong>Soal 6:</strong> Sebuah sistem memiliki respon impuls <span class="math inline">\(h[n] = \delta[n] - \delta[n-1]\)</span>. Tentukan output sistem jika inputnya adalah <span class="math inline">\(\delta[n]\)</span>. <strong>Nomor Produk:</strong> WK2-IR-B3-P06</p>
+<p><strong>Peta Pemecahan Masalah WK2-IR-B3-P06</strong></p>
+<ul>
+<li><strong>Titik Mulai:</strong> Respon impuls <span class="math inline">\(h[n] = \delta[n] - \delta[n-1]\)</span> dan input <span class="math inline">\(x[n] = \delta[n]\)</span>.</li>
+<li><strong>Titik Akhir:</strong> Output sistem <span class="math inline">\(y[n]\)</span>.</li>
+<li><strong>Rute Pemecahan Masalah:</strong>
+<ol type="1">
+<li>Mengingat definisi respon impuls.</li>
+<li>Jika input sistem LTI adalah impuls unit, outputnya adalah respon impuls itu sendiri.</li>
+<li>Tuliskan ekspresi untuk output.</li>
+</ol></li>
+<li><strong>Kendaraan:</strong>
+<ul>
+<li>K_OPS_Definisi: Definisi Respon Impuls.</li>
+<li>K_MAT_Aljabar: Identifikasi Sinyal.</li>
+</ul></li>
+</ul>
+<p><strong>Solusi WK2-IR-B3-P06:</strong></p>
+<ol type="1">
+<li><strong>Definisi Respon Impuls:</strong> Respon impuls <span class="math inline">\(h[n]\)</span> adalah output sistem LTI ketika inputnya adalah sinyal impuls unit <span class="math inline">\(\delta[n]\)</span>.</li>
+<li><strong>Input yang Diberikan:</strong> Pada soal ini, input <span class="math inline">\(x[n]\)</span> diberikan sebagai <span class="math inline">\(\delta[n]\)</span>.</li>
+<li><strong>Menentukan Output:</strong> Oleh karena itu, output <span class="math inline">\(y[n]\)</span> dari sistem LTI dengan input <span class="math inline">\(\delta[n]\)</span> secara definisi adalah respon impuls sistem itu sendiri, yaitu <span class="math inline">\(h[n]\)</span>.</li>
+</ol>
+<p><strong>Kesimpulan:</strong> Output sistem <span class="math inline">\(y[n]\)</span> jika inputnya adalah <span class="math inline">\(\delta[n]\)</span> adalah <span class="math inline">\(y[n] = h[n] = \delta[n] - \delta[n-1]\)</span>.</p>
+<p><strong>Soal 7:</strong> Periksa apakah sistem waktu kontinu <span class="math inline">\(y(t) = x(t) \cdot \cos(\omega_0 t)\)</span> adalah <strong>kausal</strong>. <strong>Nomor Produk:</strong> WK2-SP-B3-P07</p>
+<p><strong>Peta Pemecahan Masalah WK2-SP-B3-P07</strong></p>
+<ul>
+<li><strong>Titik Mulai:</strong> Sistem <span class="math inline">\(y(t) = x(t) \cdot \cos(\omega_0 t)\)</span>.</li>
+<li><strong>Titik Akhir:</strong> Kesimpulan apakah sistem kausal atau tidak.</li>
+<li><strong>Rute Pemecahan Masalah:</strong>
+<ol type="1">
+<li>Mengingat definisi kausalitas.</li>
+<li>Tentukan apakah output pada waktu <span class="math inline">\(t_0\)</span> bergantung pada nilai input <span class="math inline">\(x(t)\)</span> untuk <span class="math inline">\(t &gt; t_0\)</span>.</li>
+<li>Periksa apakah fungsi <span class="math inline">\(\cos(\omega_0 t)\)</span> memperkenalkan ketergantungan pada masa depan input.</li>
+</ol></li>
+<li><strong>Kendaraan:</strong>
+<ul>
+<li>K_OPS_Definisi: Definisi Kausalitas.</li>
+<li>K_MAT_Aljabar: Analisis Ketergantungan Waktu.</li>
+<li>K_MAT_Kalkulus: Fungsi Trigonometri.</li>
+</ul></li>
+</ul>
+<p><strong>Solusi WK2-SP-B3-P07:</strong></p>
+<ol type="1">
+<li><strong>Definisi Kausalitas:</strong> Sebuah sistem adalah kausal jika output pada waktu <span class="math inline">\(t_0\)</span> hanya bergantung pada nilai input pada waktu <span class="math inline">\(t \le t_0\)</span> (waktu sekarang dan masa lalu).</li>
+<li><strong>Analisis Sistem:</strong> Dalam sistem <span class="math inline">\(y(t) = x(t) \cdot \cos(\omega_0 t)\)</span>:
+<ul>
+<li>Output pada waktu <span class="math inline">\(t\)</span> adalah <span class="math inline">\(y(t)\)</span>.</li>
+<li><span class="math inline">\(y(t)\)</span> bergantung pada nilai input <span class="math inline">\(x(t)\)</span> pada waktu yang sama <span class="math inline">\(t\)</span>.</li>
+<li><span class="math inline">\(y(t)\)</span> juga bergantung pada nilai <span class="math inline">\(\cos(\omega_0 t)\)</span> pada waktu yang sama <span class="math inline">\(t\)</span>.</li>
+</ul></li>
+<li>Fungsi <span class="math inline">\(\cos(\omega_0 t)\)</span> adalah fungsi yang hanya bergantung pada waktu <span class="math inline">\(t\)</span> itu sendiri, bukan pada nilai input <span class="math inline">\(x(\tau)\)</span> di masa depan atau masa lalu. Ia tidak menyebabkan sistem “melihat” ke masa depan input.</li>
+</ol>
+<p><strong>Kesimpulan:</strong> Sistem <span class="math inline">\(y(t) = x(t) \cdot \cos(\omega_0 t)\)</span> adalah <strong>kausal</strong>.</p>
+<p><strong>Soal 8:</strong> Berikan contoh <strong>persamaan diferensial orde kedua</strong> yang menggambarkan sistem LTI waktu kontinu. <strong>Nomor Produk:</strong> WK2-DE-B2-P08</p>
+<p><strong>Peta Pemecahan Masalah WK2-DE-B2-P08</strong></p>
+<ul>
+<li><strong>Titik Mulai:</strong> Permintaan contoh PD orde kedua LTI.</li>
+<li><strong>Titik Akhir:</strong> Sebuah persamaan diferensial orde kedua.</li>
+<li><strong>Rute Pemecahan Masalah:</strong>
+<ol type="1">
+<li>Mengingat struktur umum persamaan diferensial linear koefisien konstan.</li>
+<li>Tetapkan orde maksimum turunan output menjadi dua.</li>
+<li>Pastikan koefisien adalah konstan untuk menjaga sifat LTI.</li>
+</ol></li>
+<li><strong>Kendaraan:</strong>
+<ul>
+<li>K_OPS_Representasi_Matematis: Struktur Persamaan Diferensial.</li>
+<li>K_OPS_Klasifikasi: LTI.</li>
+<li>K_MAT_Aljabar: Pemilihan Koefisien.</li>
+</ul></li>
+</ul>
+<p><strong>Solusi WK2-DE-B2-P08:</strong></p>
+<ol type="1">
+<li><strong>Struktur PD LTI:</strong> Sistem LTI waktu kontinu sering dijelaskan oleh persamaan diferensial linear koefisien konstan. Bentuk umum orde ke-N untuk output dan M untuk input adalah <span class="math inline">\(\sum_{k=0}^{N} a_k \frac{d^k y(t)}{dt^k} = \sum_{k=0}^{M} b_k \frac{d^k x(t)}{dt^k}\)</span>.</li>
+<li><strong>Orde Kedua:</strong> Untuk orde kedua, <span class="math inline">\(N=2\)</span>. Kita dapat memilih <span class="math inline">\(a_k\)</span> dan <span class="math inline">\(b_k\)</span> sebagai konstanta.</li>
+</ol>
+<p><strong>Contoh:</strong> Sebuah sistem pegas-massa-peredam (mass-spring-damper) yang dijelaskan oleh: <span class="math inline">\(M \frac{d^2 y(t)}{dt^2} + B \frac{dy(t)}{dt} + K y(t) = x(t)\)</span> Di mana <span class="math inline">\(M\)</span>, <span class="math inline">\(B\)</span>, dan <span class="math inline">\(K\)</span> adalah konstanta (massa, konstanta redaman, dan konstanta pegas). Input <span class="math inline">\(x(t)\)</span> adalah gaya, dan output <span class="math inline">\(y(t)\)</span> adalah perpindahan. Ini adalah persamaan diferensial orde kedua. Atau, contoh yang lebih sederhana: <span class="math inline">\(\frac{d^2 y(t)}{dt^2} + 5 \frac{dy(t)}{dt} + 6 y(t) = x(t)\)</span></p>
+<p><strong>Kesimpulan:</strong> Contoh persamaan diferensial orde kedua yang menggambarkan sistem LTI waktu kontinu adalah <strong><span class="math inline">\(\frac{d^2 y(t)}{dt^2} + 5 \frac{dy(t)}{dt} + 6 y(t) = x(t)\)</span></strong>.</p>
+<p><strong>Soal 9:</strong> Evaluasi apakah sistem waktu diskrit <span class="math inline">\(y[n] = \sum_{k=-\infty}^{n} x[k]\)</span> memiliki <strong>memori</strong>. Justifikasikan jawaban Anda. <strong>Nomor Produk:</strong> WK2-SP-B5-P09</p>
+<p><strong>Peta Pemecahan Masalah WK2-SP-B5-P09</strong></p>
+<ul>
+<li><strong>Titik Mulai:</strong> Sistem <span class="math inline">\(y[n] = \sum_{k=-\infty}^{n} x[k]\)</span>.</li>
+<li><strong>Titik Akhir:</strong> Kesimpulan apakah sistem memiliki memori atau tidak.</li>
+<li><strong>Rute Pemecahan Masalah:</strong>
+<ol type="1">
+<li>Mengingat definisi sistem dengan memori dan tanpa memori.</li>
+<li>Analisis ekspresi output <span class="math inline">\(y[n]\)</span>.</li>
+<li>Tentukan apakah <span class="math inline">\(y[n]\)</span> bergantung pada nilai input <span class="math inline">\(x[k]\)</span> selain <span class="math inline">\(x[n]\)</span> (yaitu, nilai <span class="math inline">\(x[k]\)</span> di masa lalu).</li>
+</ol></li>
+<li><strong>Kendaraan:</strong>
+<ul>
+<li>K_OPS_Definisi: Definisi Memori Sistem.</li>
+<li>K_MAT_Aljabar: Analisis Ketergantungan Indeks.</li>
+<li>K_MAT_Kalkulus: Operasi Penjumlahan (Summation).</li>
+</ul></li>
+</ul>
+<p><strong>Solusi WK2-SP-B5-P09:</strong></p>
+<ol type="1">
+<li><strong>Definisi Sistem dengan Memori:</strong> Sebuah sistem dikatakan memiliki memori jika outputnya pada waktu <span class="math inline">\(n\)</span> bergantung pada nilai input pada waktu selain <span class="math inline">\(n\)</span> (yaitu, waktu lalu atau masa depan).</li>
+<li><strong>Analisis Ekspresi <span class="math inline">\(y[n]\)</span>:</strong>
+<ul>
+<li>Output pada waktu <span class="math inline">\(n\)</span> adalah <span class="math inline">\(y[n] = x[n] + x[n-1] + x[n-2] + \dots\)</span>.</li>
+<li>Ini berarti <span class="math inline">\(y[n]\)</span> tidak hanya bergantung pada <span class="math inline">\(x[n]\)</span> (input saat ini), tetapi juga pada nilai-nilai input sebelumnya seperti <span class="math inline">\(x[n-1], x[n-2]\)</span>, dan seterusnya.</li>
+</ul></li>
+<li>Karena <span class="math inline">\(y[n]\)</span> membutuhkan nilai input di masa lalu (<span class="math inline">\(x[k]\)</span> untuk <span class="math inline">\(k &lt; n\)</span>) untuk dihitung, sistem ini menyimpan atau “mengingat” nilai-nilai input sebelumnya.</li>
+</ol>
+<p><strong>Kesimpulan:</strong> Sistem <span class="math inline">\(y[n] = \sum_{k=-\infty}^{n} x[k]\)</span> <strong>memiliki memori</strong>.</p>
+<p><strong>Soal 10:</strong> Mengapa respon impuls penting dalam analisis sistem Linear Time-Invariant (LTI)? Jelaskan secara singkat. <strong>Nomor Produk:</strong> WK2-IR-B2-P10</p>
+<p><strong>Peta Pemecahan Masalah WK2-IR-B2-P10</strong></p>
+<ul>
+<li><strong>Titik Mulai:</strong> Pertanyaan tentang pentingnya respon impuls dalam analisis sistem LTI.</li>
+<li><strong>Titik Akhir:</strong> Penjelasan singkat mengenai pentingnya.</li>
+<li><strong>Rute Pemecahan Masalah:</strong>
+<ol type="1">
+<li>Mengingat definisi respon impuls.</li>
+<li>Mengingat sifat-sifat sistem LTI (linearitas dan time-invariance).</li>
+<li>Menghubungkan respon impuls dengan operasi konvolusi.</li>
+<li>Menganalisis bagaimana respon impuls memungkinkan karakterisasi lengkap sistem LTI.</li>
+</ol></li>
+<li><strong>Kendaraan:</strong>
+<ul>
+<li>K_OPS_Definisi: Definisi Respon Impuls.</li>
+<li>K_OPS_Klasifikasi: LTI.</li>
+<li>K_OPS_Representasi_Matematis: Konvolusi (secara konseptual).</li>
+</ul></li>
+</ul>
+<p><strong>Solusi WK2-IR-B2-P10:</strong></p>
+<ol type="1">
+<li><strong>Definisi Respon Impuls:</strong> Respon impuls <span class="math inline">\(h(t)\)</span> atau <span class="math inline">\(h[n]\)</span> adalah output sistem LTI ketika inputnya adalah sinyal impuls unit.</li>
+<li><strong>Karakterisasi Lengkap LTI:</strong> Untuk sistem LTI, respon impuls <strong>sepenuhnya mengkarakterisasi sistem tersebut</strong>. Ini berarti bahwa jika kita mengetahui <span class="math inline">\(h(t)\)</span> atau <span class="math inline">\(h[n]\)</span>, kita dapat menentukan output <span class="math inline">\(y(t)\)</span> atau <span class="math inline">\(y[n]\)</span> untuk <em>input <span class="math inline">\(x(t)\)</span> atau <span class="math inline">\(x[n]\)</span> apa pun</em> melalui operasi konvolusi.</li>
+<li><strong>Kemudahan Analisis:</strong> Hal ini sangat menyederhanakan analisis sistem LTI karena alih-alih harus menguji sistem untuk setiap input, kita hanya perlu mengetahui satu karakteristik: respon impulsnya. Dengan linearitas dan time-invariance, sinyal input kompleks dapat didekomposisi menjadi jumlah impuls, dan outputnya adalah jumlah respon impuls yang digeser dan diskalakan.</li>
+</ol>
+<p><strong>Kesimpulan:</strong> Respon impuls penting karena <strong>sepenuhnya mengkarakterisasi sistem LTI</strong>, memungkinkan kita untuk menentukan output untuk input arbitrer melalui konvolusi.</p>
+<p><strong>Soal 11:</strong> Tentukan apakah sistem waktu kontinu <span class="math inline">\(y(t) = \frac{dx(t)}{dt}\)</span> adalah <strong>invertibel</strong>. Jika ya, berikan sistem inversnya. <strong>Nomor Produk:</strong> WK2-SP-B3-P11</p>
+<p><strong>Peta Pemecahan Masalah WK2-SP-B3-P11</strong></p>
+<ul>
+<li><strong>Titik Mulai:</strong> Sistem <span class="math inline">\(y(t) = \frac{dx(t)}{dt}\)</span>.</li>
+<li><strong>Titik Akhir:</strong> Kesimpulan apakah sistem invertibel dan, jika ya, sistem inversnya.</li>
+<li><strong>Rute Pemecahan Masalah:</strong>
+<ol type="1">
+<li>Mengingat definisi invertibilitas.</li>
+<li>Coba temukan operasi yang dapat mengembalikan <span class="math inline">\(x(t)\)</span> dari <span class="math inline">\(y(t)\)</span>.</li>
+<li>Pertimbangkan apakah ada input yang berbeda yang dapat menghasilkan output yang sama.</li>
+</ol></li>
+<li><strong>Kendaraan:</strong>
+<ul>
+<li>K_OPS_Definisi: Definisi Invertibilitas.</li>
+<li>K_MAT_Kalkulus: Operasi Diferensiasi dan Integrasi.</li>
+<li>K_MAT_Aljabar: Manipulasi Persamaan.</li>
+</ul></li>
+</ul>
+<p><strong>Solusi WK2-SP-B3-P11:</strong></p>
+<ol type="1">
+<li><strong>Definisi Invertibilitas:</strong> Sebuah sistem invertibel jika inputnya dapat ditentukan secara unik dari outputnya.</li>
+<li><strong>Mencari Sistem Invers:</strong> Jika <span class="math inline">\(y(t) = \frac{dx(t)}{dt}\)</span>, untuk mendapatkan <span class="math inline">\(x(t)\)</span> dari <span class="math inline">\(y(t)\)</span>, kita perlu mengintegrasikan <span class="math inline">\(y(t)\)</span>. Jadi, <span class="math inline">\(x(t) = \int_{-\infty}^{t} y(\tau) d\tau\)</span>. Sistem invers yang memungkinkan adalah integrator.</li>
+<li><strong>Masalah dengan Unik:</strong> Namun, ketika kita melakukan integrasi, ada konstanta integrasi yang tidak diketahui. Artinya, jika <span class="math inline">\(x(t)\)</span> dan <span class="math inline">\(x(t) + C\)</span> (di mana <span class="math inline">\(C\)</span> adalah konstanta apa pun) diberikan sebagai input, keduanya akan menghasilkan output yang sama <span class="math inline">\(y(t) = \frac{dx(t)}{dt}\)</span>. Misalnya, jika <span class="math inline">\(x_1(t) = u(t)\)</span> dan <span class="math inline">\(x_2(t) = u(t) + 5\)</span>, keduanya akan menghasilkan <span class="math inline">\(y(t) = \delta(t)\)</span>. Karena input yang berbeda dapat menghasilkan output yang sama, kita tidak dapat secara unik menentukan input dari output.</li>
+</ol>
+<p><strong>Kesimpulan:</strong> Sistem <span class="math inline">\(y(t) = \frac{dx(t)}{dt}\)</span> <strong>tidak invertibel</strong>.</p>
+<p><strong>Soal 12:</strong> Rancang persamaan beda orde pertama yang menggambarkan sistem waktu diskrit yang outputnya adalah rata-rata input saat ini dan input sebelumnya. <strong>Nomor Produk:</strong> WK2-DE-B6-P12</p>
+<p><strong>Peta Pemecahan Masalah WK2-DE-B6-P12</strong></p>
+<ul>
+<li><strong>Titik Mulai:</strong> Keinginan untuk merancang persamaan beda orde pertama: output = rata-rata input saat ini dan input sebelumnya.</li>
+<li><strong>Titik Akhir:</strong> Persamaan beda yang diinginkan.</li>
+<li><strong>Rute Pemecahan Masalah:</strong>
+<ol type="1">
+<li>Mengingat definisi output <span class="math inline">\(y[n]\)</span> sebagai rata-rata.</li>
+<li>Identifikasi input yang relevan: input saat ini <span class="math inline">\(x[n]\)</span> dan input sebelumnya <span class="math inline">\(x[n-1]\)</span>.</li>
+<li>Formulasikan ekspresi rata-rata untuk input-input ini.</li>
+<li>Pastikan orde persamaan beda adalah satu.</li>
+</ol></li>
+<li><strong>Kendaraan:</strong>
+<ul>
+<li>K_OPS_Representasi_Matematis: Struktur Persamaan Beda.</li>
+<li>K_MAT_Aljabar: Operasi Rata-rata.</li>
+</ul></li>
+</ul>
+<p><strong>Solusi WK2-DE-B6-P12:</strong></p>
+<ol type="1">
+<li><strong>Definisi Output:</strong> Output sistem <span class="math inline">\(y[n]\)</span> adalah rata-rata input saat ini dan input sebelumnya.</li>
+<li><strong>Input yang Relevan:</strong>
+<ul>
+<li>Input saat ini: <span class="math inline">\(x[n]\)</span></li>
+<li>Input sebelumnya: <span class="math inline">\(x[n-1]\)</span></li>
+</ul></li>
+<li><strong>Formulasi Rata-rata:</strong> Rata-rata dari dua nilai adalah jumlah keduanya dibagi dua.
+<ul>
+<li><span class="math inline">\(y[n] = \frac{x[n] + x[n-1]}{2}\)</span></li>
+</ul></li>
+<li><strong>Orde Persamaan Beda:</strong> Karena output bergantung pada <span class="math inline">\(x[n]\)</span> dan <span class="math inline">\(x[n-1]\)</span>, perbedaan indeks input maksimum adalah <span class="math inline">\(n - (n-1) = 1\)</span>, yang berarti ini adalah persamaan beda orde pertama.</li>
+</ol>
+<p><strong>Kesimpulan:</strong> Persamaan beda orde pertama yang menggambarkan sistem tersebut adalah <strong><span class="math inline">\(y[n] = \frac{1}{2} x[n] + \frac{1}{2} x[n-1]\)</span></strong>.</p>
+<p><strong>Soal 13:</strong> Analisis stabilitas BIBO dari sistem waktu diskrit dengan respon impuls <span class="math inline">\(h[n] = (0.9)^n u[n]\)</span>. <strong>Nomor Produk:</strong> WK2-SP-B4-P13</p>
+<p><strong>Peta Pemecahan Masalah WK2-SP-B4-P13</strong></p>
+<ul>
+<li><strong>Titik Mulai:</strong> Respon impuls <span class="math inline">\(h[n] = (0.9)^n u[n]\)</span>.</li>
+<li><strong>Titik Akhir:</strong> Kesimpulan apakah sistem stabil BIBO atau tidak.</li>
+<li><strong>Rute Pemecahan Masalah:</strong>
+<ol type="1">
+<li>Mengingat kriteria stabilitas BIBO untuk sistem LTI (sumabilitas absolut dari respon impuls).</li>
+<li>Hitung <span class="math inline">\(\sum_{n=-\infty}^{\infty} |h[n]|\)</span>.</li>
+<li>Evaluasi apakah jumlahnya terbatas.</li>
+</ol></li>
+<li><strong>Kendaraan:</strong>
+<ul>
+<li>K_OPS_Definisi: Kriteria Stabilitas BIBO.</li>
+<li>K_MAT_Aljabar: Deret Geometri.</li>
+<li>K_MAT_Kalkulus: Operasi Penjumlahan (Summation).</li>
+</ul></li>
+</ul>
+<p><strong>Solusi WK2-SP-B4-P13:</strong></p>
+<ol type="1">
+<li><strong>Kriteria Stabilitas BIBO untuk LTI:</strong> Sebuah sistem LTI adalah stabil BIBO jika respon impulsnya dapat dijumlahkan secara absolut (absolutely summable), yaitu <span class="math inline">\(\sum_{n=-\infty}^{\infty} |h[n]| &lt; \infty\)</span>.</li>
+<li><strong>Menghitung Jumlah Absolut:</strong>
+<ul>
+<li><span class="math inline">\(h[n] = (0.9)^n u[n]\)</span>. Sinyal <span class="math inline">\(u[n]\)</span> adalah fungsi langkah unit, yang berarti <span class="math inline">\(h[n]\)</span> hanya ada untuk <span class="math inline">\(n \ge 0\)</span>.</li>
+<li><span class="math inline">\(\sum_{n=-\infty}^{\infty} |h[n]| = \sum_{n=0}^{\infty} |(0.9)^n u[n]| = \sum_{n=0}^{\infty} (0.9)^n\)</span>.</li>
+</ul></li>
+<li>Ini adalah deret geometri dengan rasio <span class="math inline">\(r = 0.9\)</span>. Karena <span class="math inline">\(|r| &lt; 1\)</span>, deret ini konvergen.
+<ul>
+<li>Jumlahnya adalah <span class="math inline">\(\frac{1}{1 - 0.9} = \frac{1}{0.1} = 10\)</span>.</li>
+</ul></li>
+<li>Karena jumlah absolut adalah 10, yang merupakan nilai yang terbatas.</li>
+</ol>
+<p><strong>Kesimpulan:</strong> Sistem dengan respon impuls <span class="math inline">\(h[n] = (0.9)^n u[n]\)</span> <strong>stabil BIBO</strong>.</p>
+<p><strong>Soal 14:</strong> Untuk sistem waktu diskrit <span class="math inline">\(y[n] = x[n] + x[n-1]\)</span>, tentukan <strong>respon impulsnya</strong>. <strong>Nomor Produk:</strong> WK2-IR-B3-P14</p>
+<p><strong>Peta Pemecahan Masalah WK2-IR-B3-P14</strong></p>
+<ul>
+<li><strong>Titik Mulai:</strong> Sistem <span class="math inline">\(y[n] = x[n] + x[n-1]\)</span>.</li>
+<li><strong>Titik Akhir:</strong> Respon impuls <span class="math inline">\(h[n]\)</span>.</li>
+<li><strong>Rute Pemecahan Masalah:</strong>
+<ol type="1">
+<li>Mengingat definisi respon impuls (output ketika inputnya impuls unit).</li>
+<li>Ganti <span class="math inline">\(x[n]\)</span> dengan <span class="math inline">\(\delta[n]\)</span> dalam persamaan sistem.</li>
+<li>Output yang dihasilkan adalah <span class="math inline">\(h[n]\)</span>.</li>
+</ol></li>
+<li><strong>Kendaraan:</strong>
+<ul>
+<li>K_OPS_Definisi: Definisi Respon Impuls.</li>
+<li>K_MAT_Aljabar: Substitusi Sinyal.</li>
+</ul></li>
+</ul>
+<p><strong>Solusi WK2-IR-B3-P14:</strong></p>
+<ol type="1">
+<li><strong>Definisi Respon Impuls:</strong> Respon impuls <span class="math inline">\(h[n]\)</span> adalah output sistem ketika inputnya adalah <span class="math inline">\(\delta[n]\)</span>.</li>
+<li><strong>Substitusi Input:</strong> Ganti <span class="math inline">\(x[n]\)</span> dengan <span class="math inline">\(\delta[n]\)</span> dalam persamaan sistem:
+<ul>
+<li><span class="math inline">\(h[n] = \delta[n] + \delta[n-1]\)</span>.</li>
+</ul></li>
+</ol>
+<p><strong>Kesimpulan:</strong> Respon impuls sistem adalah <strong><span class="math inline">\(h[n] = \delta[n] + \delta[n-1]\)</span></strong>.</p>
+<p><strong>Soal 15:</strong> Periksa apakah sistem waktu kontinu <span class="math inline">\(y(t) = x(t)/t\)</span> adalah <strong>linear</strong>. <strong>Nomor Produk:</strong> WK2-SP-B3-P15</p>
+<p><strong>Peta Pemecahan Masalah WK2-SP-B3-P15</strong></p>
+<ul>
+<li><strong>Titik Mulai:</strong> Sistem <span class="math inline">\(y(t) = x(t)/t\)</span>.</li>
+<li><strong>Titik Akhir:</strong> Kesimpulan apakah sistem linear atau tidak.</li>
+<li><strong>Rute Pemecahan Masalah:</strong>
+<ol type="1">
+<li>Mengingat definisi linearitas (aditivitas dan homogenitas).</li>
+<li>Menguji sifat aditivitas.</li>
+<li>Menguji sifat homogenitas.</li>
+<li>Jika kedua sifat terpenuhi, sistem adalah linear.</li>
+</ol></li>
+<li><strong>Kendaraan:</strong>
+<ul>
+<li>K_OPS_Definisi: Definisi Linearitas (Aditivitas &amp; Homogenitas).</li>
+<li>K_MAT_Aljabar: Manipulasi Persamaan.</li>
+</ul></li>
+</ul>
+<p><strong>Solusi WK2-SP-B3-P15:</strong></p>
+<ol type="1">
+<li><strong>Definisi Linearitas:</strong> Sistem linear harus memenuhi aditivitas dan homogenitas.</li>
+<li><strong>Uji Aditivitas:</strong>
+<ul>
+<li>Misalkan input <span class="math inline">\(x_1(t) \rightarrow y_1(t) = x_1(t)/t\)</span>.</li>
+<li>Misalkan input <span class="math inline">\(x_2(t) \rightarrow y_2(t) = x_2(t)/t\)</span>.</li>
+<li>Input gabungan <span class="math inline">\(x_g(t) = x_1(t) + x_2(t)\)</span>.</li>
+<li>Output <span class="math inline">\(y_g(t) = (x_1(t) + x_2(t))/t = x_1(t)/t + x_2(t)/t = y_1(t) + y_2(t)\)</span>.</li>
+<li>Aditivitas terpenuhi.</li>
+</ul></li>
+<li><strong>Uji Homogenitas:</strong>
+<ul>
+<li>Misalkan input <span class="math inline">\(x_a(t) = a x(t)\)</span>.</li>
+<li>Output <span class="math inline">\(y_a(t) = (a x(t))/t = a (x(t)/t) = a y(t)\)</span>.</li>
+<li>Homogenitas terpenuhi.</li>
+</ul></li>
+</ol>
+<p><strong>Kesimpulan:</strong> Karena kedua sifat terpenuhi, sistem <span class="math inline">\(y(t) = x(t)/t\)</span> adalah <strong>linear</strong>.</p>
+<p><strong>Soal 16:</strong> Apa perbedaan utama antara <strong>persamaan diferensial</strong> dan <strong>persamaan beda</strong> dalam konteks representasi sistem? <strong>Nomor Produk:</strong> WK2-DE-B2-P16</p>
+<p><strong>Peta Pemecahan Masalah WK2-DE-B2-P16</strong></p>
+<ul>
+<li><strong>Titik Mulai:</strong> Pertanyaan tentang perbedaan PD dan PB.</li>
+<li><strong>Titik Akhir:</strong> Penjelasan perbedaan utama.</li>
+<li><strong>Rute Pemecahan Masalah:</strong>
+<ol type="1">
+<li>Mengingat definisi persamaan diferensial.</li>
+<li>Mengingat definisi persamaan beda.</li>
+<li>Identifikasi domain waktu yang terkait dengan masing-masing.</li>
+<li>Sintesis perbedaan inti.</li>
+</ol></li>
+<li><strong>Kendaraan:</strong>
+<ul>
+<li>K_OPS_Definisi: Definisi Persamaan Diferensial.</li>
+<li>K_OPS_Definisi: Definisi Persamaan Beda.</li>
+<li>K_OPS_Klasifikasi: Sinyal Waktu Kontinu vs.&nbsp;Waktu Diskrit.</li>
+</ul></li>
+</ul>
+<p><strong>Solusi WK2-DE-B2-P16:</strong></p>
+<ol type="1">
+<li><strong>Persamaan Diferensial (PD):</strong> Digunakan untuk menggambarkan <strong>sistem waktu kontinu</strong>. Persamaan ini melibatkan fungsi input dan output serta turunan-turunan mereka. PD menggambarkan hubungan antara laju perubahan sinyal.</li>
+<li><strong>Persamaan Beda (PB):</strong> Digunakan untuk menggambarkan <strong>sistem waktu diskrit</strong>. Persamaan ini melibatkan nilai-nilai input dan output pada indeks waktu diskrit yang berbeda. PB menggambarkan hubungan antara nilai sinyal yang berurutan.</li>
+</ol>
+<p><strong>Perbedaan Utama:</strong></p>
+<ul>
+<li>PD merepresentasikan sistem yang beroperasi pada <strong>sinyal waktu kontinu</strong> (menggunakan turunan), sedangkan PB merepresentasikan sistem yang beroperasi pada <strong>sinyal waktu diskrit</strong> (menggunakan perbedaan atau pergeseran indeks waktu).</li>
+</ul>
+<p><strong>Kesimpulan:</strong> Perbedaan utamanya adalah <strong>persamaan diferensial digunakan untuk sistem waktu kontinu yang melibatkan turunan, sedangkan persamaan beda digunakan untuk sistem waktu diskrit yang melibatkan nilai-nilai sinyal pada waktu yang berbeda</strong>.</p>
+<p><strong>Soal 17:</strong> Analisis apakah sistem waktu diskrit <span class="math inline">\(y[n] = x^2[n]\)</span> adalah <strong>linear</strong>. <strong>Nomor Produk:</strong> WK2-SP-B4-P17</p>
+<p><strong>Peta Pemecahan Masalah WK2-SP-B4-P17</strong></p>
+<ul>
+<li><strong>Titik Mulai:</strong> Sistem <span class="math inline">\(y[n] = x^2[n]\)</span>.</li>
+<li><strong>Titik Akhir:</strong> Kesimpulan apakah sistem linear atau tidak.</li>
+<li><strong>Rute Pemecahan Masalah:</strong>
+<ol type="1">
+<li>Mengingat definisi linearitas (aditivitas dan homogenitas).</li>
+<li>Menguji sifat homogenitas (ini seringkali lebih cepat untuk sistem non-linear).</li>
+<li>Jika satu sifat tidak terpenuhi, sistem tidak linear.</li>
+</ol></li>
+<li><strong>Kendaraan:</strong>
+<ul>
+<li>K_OPS_Definisi: Definisi Linearitas (Aditivitas &amp; Homogenitas).</li>
+<li>K_MAT_Aljabar: Manipulasi Persamaan.</li>
+</ul></li>
+</ul>
+<p><strong>Solusi WK2-SP-B4-P17:</strong></p>
+<ol type="1">
+<li><strong>Definisi Linearitas:</strong> Sistem linear harus memenuhi aditivitas dan homogenitas.</li>
+<li><strong>Uji Homogenitas:</strong>
+<ul>
+<li>Misalkan input <span class="math inline">\(x[n] \rightarrow y[n] = x^2[n]\)</span>.</li>
+<li>Misalkan input <span class="math inline">\(x_a[n] = a x[n]\)</span>.</li>
+<li>Output <span class="math inline">\(y_a[n] = (a x[n])^2 = a^2 x^2[n] = a^2 y[n]\)</span>.</li>
+<li>Agar sistem homogen, kita membutuhkan <span class="math inline">\(y_a[n] = a y[n]\)</span>.</li>
+<li>Dalam kasus ini, <span class="math inline">\(a^2 y[n] \neq a y[n]\)</span> kecuali jika <span class="math inline">\(a=0\)</span> atau <span class="math inline">\(a=1\)</span>.</li>
+</ul></li>
+</ol>
+<p><strong>Kesimpulan:</strong> Karena sifat homogenitas tidak terpenuhi (kecuali untuk kasus-kasus trivial), sistem <span class="math inline">\(y[n] = x^2[n]\)</span> <strong>tidak linear</strong>.</p>
+<p><strong>Soal 18:</strong> Evaluasi bagaimana perubahan pada respon impuls <span class="math inline">\(h(t)\)</span> dapat memengaruhi sifat kausalitas suatu sistem LTI waktu kontinu. <strong>Nomor Produk:</strong> WK2-IR-B5-P18</p>
+<p><strong>Peta Pemecahan Masalah WK2-IR-B5-P18</strong></p>
+<ul>
+<li><strong>Titik Mulai:</strong> Permintaan evaluasi hubungan antara <span class="math inline">\(h(t)\)</span> dan kausalitas sistem LTI.</li>
+<li><strong>Titik Akhir:</strong> Penjelasan bagaimana perubahan <span class="math inline">\(h(t)\)</span> memengaruhi kausalitas.</li>
+<li><strong>Rute Pemecahan Masalah:</strong>
+<ol type="1">
+<li>Mengingat definisi kausalitas sistem LTI.</li>
+<li>Mengingat definisi respon impuls <span class="math inline">\(h(t)\)</span>.</li>
+<li>Hubungkan kapan <span class="math inline">\(h(t)\)</span> harus nol untuk memastikan kausalitas.</li>
+<li>Diskusikan bagaimana perubahan ini memengaruhi ketergantungan output pada input masa lalu/depan.</li>
+</ol></li>
+<li><strong>Kendaraan:</strong>
+<ul>
+<li>K_OPS_Definisi: Definisi Kausalitas LTI.</li>
+<li>K_OPS_Definisi: Definisi Respon Impuls.</li>
+<li>K_MAT_Aljabar: Analisis Domain Waktu.</li>
+</ul></li>
+</ul>
+<p><strong>Solusi WK2-IR-B5-P18:</strong></p>
+<ol type="1">
+<li><strong>Definisi Kausalitas LTI:</strong> Sebuah sistem LTI adalah kausal jika output pada waktu <span class="math inline">\(t_0\)</span> hanya bergantung pada input pada waktu <span class="math inline">\(t \le t_0\)</span>.</li>
+<li><strong>Kausalitas dan Respon Impuls:</strong> Untuk sistem LTI, kausalitas memiliki hubungan langsung dengan respon impuls <span class="math inline">\(h(t)\)</span>. Sistem LTI adalah kausal jika dan hanya jika <strong><span class="math inline">\(h(t) = 0\)</span> untuk <span class="math inline">\(t &lt; 0\)</span></strong>.</li>
+<li><strong>Pengaruh Perubahan <span class="math inline">\(h(t)\)</span>:</strong>
+<ul>
+<li><strong>Jika <span class="math inline">\(h(t)\)</span> non-nol untuk <span class="math inline">\(t &lt; 0\)</span>:</strong> Ini berarti respon impuls “muncul” sebelum input impuls diterapkan. Akibatnya, sistem akan menghasilkan output sebelum input sebenarnya diberikan (misalnya, <span class="math inline">\(y(t_0)\)</span> bergantung pada <span class="math inline">\(x(t)\)</span> untuk <span class="math inline">\(t &gt; t_0\)</span> melalui <span class="math inline">\(h(t)\)</span> jika <span class="math inline">\(h(t)\)</span> ada untuk <span class="math inline">\(t &lt; 0\)</span>), menjadikannya <strong>non-kausal</strong>.</li>
+<li><strong>Jika <span class="math inline">\(h(t)\)</span> nol untuk <span class="math inline">\(t &lt; 0\)</span>:</strong> Ini memastikan bahwa output sistem pada waktu <span class="math inline">\(t\)</span> hanya bergantung pada input pada waktu <span class="math inline">\(t\)</span> dan masa lalu, menjadikannya <strong>kausal</strong>.</li>
+</ul></li>
+</ol>
+<p><strong>Kesimpulan:</strong> Perubahan pada <span class="math inline">\(h(t)\)</span> yang menyebabkan <span class="math inline">\(h(t)\)</span> menjadi non-nol untuk <span class="math inline">\(t&lt;0\)</span> akan mengubah sistem LTI dari <strong>kausal menjadi non-kausal</strong>.</p>
+<p><strong>Soal 19:</strong> Tentukan apakah sistem waktu kontinu <span class="math inline">\(y(t) = 2x(t-1)\)</span> memiliki <strong>memori</strong>. <strong>Nomor Produk:</strong> WK2-SP-B3-P19</p>
+<p><strong>Peta Pemecahan Masalah WK2-SP-B3-P19</strong></p>
+<ul>
+<li><strong>Titik Mulai:</strong> Sistem <span class="math inline">\(y(t) = 2x(t-1)\)</span>.</li>
+<li><strong>Titik Akhir:</strong> Kesimpulan apakah sistem memiliki memori atau tidak.</li>
+<li><strong>Rute Pemecahan Masalah:</strong>
+<ol type="1">
+<li>Mengingat definisi sistem dengan memori dan tanpa memori.</li>
+<li>Analisis ekspresi output <span class="math inline">\(y(t)\)</span>.</li>
+<li>Tentukan apakah <span class="math inline">\(y(t)\)</span> bergantung pada nilai input <span class="math inline">\(x(\tau)\)</span> selain <span class="math inline">\(x(t)\)</span>.</li>
+</ol></li>
+<li><strong>Kendaraan:</strong>
+<ul>
+<li>K_OPS_Definisi: Definisi Memori Sistem.</li>
+<li>K_MAT_Aljabar: Analisis Ketergantungan Waktu.</li>
+</ul></li>
+</ul>
+<p><strong>Solusi WK2-SP-B3-P19:</strong></p>
+<ol type="1">
+<li><strong>Definisi Sistem dengan Memori:</strong> Sebuah sistem dikatakan memiliki memori jika outputnya pada waktu <span class="math inline">\(t\)</span> bergantung pada nilai input pada waktu selain <span class="math inline">\(t\)</span> (yaitu, waktu lalu atau masa depan).</li>
+<li><strong>Analisis Ekspresi <span class="math inline">\(y(t)\)</span>:</strong>
+<ul>
+<li>Output pada waktu <span class="math inline">\(t\)</span> adalah <span class="math inline">\(y(t) = 2x(t-1)\)</span>.</li>
+<li>Ini berarti <span class="math inline">\(y(t)\)</span> bergantung pada nilai input <span class="math inline">\(x\)</span> pada waktu <span class="math inline">\(t-1\)</span>. Karena <span class="math inline">\(t-1\)</span> adalah waktu di masa lalu relatif terhadap <span class="math inline">\(t\)</span>, sistem ini “mengingat” nilai input sebelumnya.</li>
+</ul></li>
+</ol>
+<p><strong>Kesimpulan:</strong> Sistem <span class="math inline">\(y(t) = 2x(t-1)\)</span> <strong>memiliki memori</strong>.</p>
+<p><strong>Soal 20:</strong> Formulasikan persamaan diferensial yang menggambarkan sistem waktu kontinu LTI orde pertama yang menghasilkan output <span class="math inline">\(y(t)\)</span> ketika inputnya adalah <span class="math inline">\(x(t)\)</span> dan konstanta waktu sistem adalah <span class="math inline">\(T\)</span>. <strong>Nomor Produk:</strong> WK2-DE-B6-P20</p>
+<p><strong>Peta Pemecahan Masalah WK2-DE-B6-P20</strong></p>
+<ul>
+<li><strong>Titik Mulai:</strong> Permintaan formulasi PD orde pertama LTI dengan konstanta waktu <span class="math inline">\(T\)</span>.</li>
+<li><strong>Titik Akhir:</strong> Persamaan diferensial yang diformulasikan.</li>
+<li><strong>Rute Pemecahan Masalah:</strong>
+<ol type="1">
+<li>Mengingat bentuk umum persamaan diferensial orde pertama.</li>
+<li>Menggabungkan input <span class="math inline">\(x(t)\)</span> dan output <span class="math inline">\(y(t)\)</span> dengan turunan pertama.</li>
+<li>Memasukkan konstanta waktu <span class="math inline">\(T\)</span> ke dalam persamaan.</li>
+<li>Memastikan koefisien konstan untuk sifat LTI.</li>
+</ol></li>
+<li><strong>Kendaraan:</strong>
+<ul>
+<li>K_OPS_Representasi_Matematis: Struktur Persamaan Diferensial.</li>
+<li>K_MAT_Kalkulus: Turunan Pertama.</li>
+<li>K_MAT_Aljabar: Manipulasi Simbol.</li>
+</ul></li>
+</ul>
+<p><strong>Solusi WK2-DE-B6-P20:</strong></p>
+<ol type="1">
+<li><strong>Bentuk Umum PD Orde Pertama LTI:</strong> Sistem LTI orde pertama waktu kontinu umumnya melibatkan turunan pertama dari output dan input, dengan koefisien konstan. Bentuk umumnya adalah <span class="math inline">\(A \frac{dy(t)}{dt} + B y(t) = C x(t)\)</span>.</li>
+<li><strong>Konstanta Waktu <span class="math inline">\(T\)</span>:</strong> Konstanta waktu <span class="math inline">\(T\)</span> adalah parameter penting dalam sistem orde pertama dan sering muncul sebagai koefisien dari turunan tertinggi. Dalam bentuk standar, persamaan orde pertama dapat ditulis sebagai <span class="math inline">\(T \frac{dy(t)}{dt} + y(t) = K x(t)\)</span>, di mana <span class="math inline">\(K\)</span> adalah gain DC.</li>
+<li><strong>Formulasi Persamaan Diferensial:</strong> Kita dapat memilih koefisien sehingga mencerminkan konstanta waktu <span class="math inline">\(T\)</span>.
+<ul>
+<li>Persamaan standar orde pertama adalah: <span class="math inline">\(T \frac{dy(t)}{dt} + y(t) = x(t)\)</span>. (Di sini, kita mengasumsikan gain DC adalah 1 untuk kesederhanaan).</li>
+</ul></li>
+</ol>
+<p><strong>Kesimpulan:</strong> Persamaan diferensial yang menggambarkan sistem waktu kontinu LTI orde pertama dengan konstanta waktu <span class="math inline">\(T\)</span> adalah <strong><span class="math inline">\(T \frac{dy(t)}{dt} + y(t) = x(t)\)</span></strong>.</p>
+<section id="daftar-kendaraan-yang-digunakan" class="level3" data-number="7.0.1">
+<h3 data-number="7.0.1" class="anchored" data-anchor-id="daftar-kendaraan-yang-digunakan"><span class="header-section-number">7.0.1</span> Daftar Kendaraan yang Digunakan:</h3>
+<p>Berikut adalah daftar kendaraan unik yang digunakan di seluruh Peta Pengetahuan Aplikatif di atas, dikategorikan sesuai dengan jenisnya:</p>
+<ul>
+<li><strong>Matematika (Fundamental):</strong>
+<ul>
+<li><strong>K_MAT_Aljabar:</strong> Manipulasi persamaan, identifikasi indeks, substitusi, perbandingan ekspresi, operasi rata-rata, analisis ketergantungan waktu, pemilihan koefisien, manipulasi simbol.</li>
+<li><strong>K_MAT_Kalkulus:</strong> Operasi integral, operasi diferensiasi, operasi penjumlahan (summation), turunan pertama, fungsi trigonometri.</li>
+</ul></li>
+<li><strong>Operasi Dasar Sinyal/Sistem:</strong>
+<ul>
+<li><strong>K_OPS_Definisi:</strong> Definisi Linearitas (Aditivitas &amp; Homogenitas), Definisi Orde Persamaan Beda, Definisi Sinyal Impuls Unit, Definisi Respon Impuls, Definisi Time-Invariance, Definisi Kausalitas, Definisi Memori Sistem, Kriteria Stabilitas BIBO, Definisi Invertibilitas.</li>
+<li><strong>K_OPS_Klasifikasi:</strong> Klasifikasi Sistem Fisik, LTI (Linear Time-Invariant), Sinyal Waktu Kontinu vs.&nbsp;Waktu Diskrit.</li>
+<li><strong>K_OPS_Representasi_Matematis:</strong> Struktur Persamaan Diferensial, Struktur Persamaan Beda, Konvolusi (secara konseptual).</li>
+</ul></li>
+</ul>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../requirements/soal_2.html" class="pagination-link" aria-label="Soal Latihan">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Soal Latihan</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../summary.html" class="pagination-link" aria-label="Lampiran Petunjuk Penggunaan Alat Bantu dan Kendaraan dalam Sinyal dan Sistem (VALORAIZE Learning)">
+        <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Lampiran Petunjuk Penggunaan Alat Bantu dan Kendaraan dalam Sinyal dan Sistem (VALORAIZE Learning)</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
