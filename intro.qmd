@@ -1,0 +1,74 @@
+# Tinjauan Kuliah
+
+Berikut adalah gambaran umum (overview) mata kuliah Sinyal dan Sistem, mengintegrasikan filosofi pembelajaran VALORAIZE, struktur materi, dan tujuan utama yang dirancang untuk mahasiswa.
+
+---
+
+### **Gambaran Umum Mata Kuliah Sinyal dan Sistem (EL2007)**
+
+Mata kuliah Sinyal dan Sistem (kode EL2007) merupakan **fondasi penting dalam semua disiplin ilmu teknik**, khususnya teknik elektro. Mata kuliah ini akan membekali Anda dengan konsep dan teknik fundamental untuk **menganalisis dan menyintesis proses yang kompleks**. Sinyal didefinisikan sebagai fenomena fisik yang bervariasi terhadap waktu yang dimaksudkan untuk menyampaikan informasi, seperti sinyal suara atau video. Ilmu Sinyal dan Sistem memiliki sejarah panjang dan terus berkembang sebagai respons terhadap masalah, teknik, dan peluang baru.
+
+Mata kuliah ini dirancang untuk lebih dari sekadar penguasaan materi. Filosofi intinya adalah **VALORAIZE Learning**, sebuah paradigma transformatif yang secara eksplisit berfokus pada **pembentukan sosok, karakter, dan pola pikir layaknya insinyur profesional**. Anda tidak hanya akan belajar tentang sinyal dan sistem, tetapi juga **dibimbing untuk berpikir dan bertindak sebagai seorang insinyur profesional**. Dalam ekosistem ini, dosen berperan sebagai **fasilitator, pembimbing, dan teladan** dari profesi insinyur, sementara Anda akan bertransformasi menjadi **pembelajar aktif, pencipta pengetahuan, dan reflektor diri**.
+
+**Capaian Pembelajaran Mata Kuliah (CPMK)** yang akan Anda kuasai setelah mengikuti mata kuliah ini meliputi kemampuan untuk:
+
+1. **Menganalisis sifat sinyal dan sistem** dalam domain waktu, domain frekuensi, dan domain Laplace.
+2. **Merancang filter dan pengendali** secara matematis pada studi kasus.
+3. **Menggunakan alat bantu (perangkat lunak)** untuk menganalisis sinyal dan sistem.
+
+#### **I. Pilar Pembelajaran VALORAIZE Learning**
+
+Untuk mencapai CPMK dan membentuk identitas profesional, VALORAIZE Learning mengintegrasikan beberapa pilar utama:
+
+1. **Peta Pengetahuan (Knowledge Maps)**: Ini adalah fondasi kognitif untuk pemahaman mendalam.
+    
+    - **Peta Pengetahuan Primitif (Primitive Knowledge Maps)**: Membantu Anda melihat **"gambaran besar"** dan keterkaitan antar konsep inti (pengetahuan deklaratif) di seluruh domain Sinyal dan Sistem, seperti Domain Waktu, Domain Frekuensi, Transformasi Fourier, dan properti sistem.
+    - **Peta Pemecahan Masalah (Problem-Solving Knowledge Maps)**: Memandu Anda melalui proses pemecahan masalah tertentu. Setiap masalah dikonseptualisasikan sebagai **"celah"** antara informasi yang diketahui ("Titik Mulai") dan solusi yang diinginkan ("Titik Akhir"). Anda akan mengidentifikasi **"rute"** (langkah-langkah) dan **"kendaraan"** (alat, teknik, algoritma, heuristik) yang tepat untuk melintasi celah tersebut. "Kendaraan" ini dapat berupa matematika dasar (aljabar, kalkulus), diagram & visualisasi (diagram blok, plot pole-zero), alat komputasi (SciPy, SymPy), operasi dasar sinyal/sistem, transformasi (Fourier, Laplace, Z), dan heuristik (strategi pemecahan masalah).
+2. **Jurnal Pembelajaran Reflektif (Learning Journal)**: Anda diwajibkan untuk mendokumentasikan pengalaman belajar Anda, termasuk **perjuangan, alat yang dipakai, kegagalan, terobosan, dan pelajaran yang dipetik**. Ini penting untuk membangun kesadaran metakognitif dan pola pikir berkembang, seringkali menggunakan kerangka DAR (Deskripsi, Analisis, Refleksi, Rencana Tindak Lanjut).
+    
+3. **Knowledge Marketplace**: Sistem penilaian inovatif ini menyerupai pasar profesional. Dosen akan "mengiklankan" kebutuhan akan "karya pengetahuan dan pemecahan masalah" (seringkali dalam bentuk peta pengetahuan) pada topik dan tingkat Taksonomi Bloom tertentu. Karya Anda akan "dibeli" oleh dosen menggunakan **sistem mata uang digital berjenjang** (Point Uang untuk Mengingat & Memahami, Point Emas untuk Menerapkan, Point Platinum untuk Menganalisis & Mengevaluasi, Point Berlian untuk Menciptakan) dan, secara opsional, **mata uang fiat** yang dikaitkan dengan domain teknis spesifik (misalnya, IDR untuk Domain Waktu Kontinu, USD untuk Domain Frekuensi). Karya yang "dibeli" akan diunggah ke situs web kuliah, menjadi sumber belajar bagi mahasiswa di tahun berikutnya.
+    
+4. **Pemanfaatan Teknologi Digital dan Kecerdasan Buatan (AI)**: Teknologi adalah "pengganda kekuatan". Anda akan menggunakan alat pembuatan peta seperti Miro atau MindMeister, dan alat komputasi seperti Matplotlib, SciPy, atau SymPy. AI, seperti NotebookLM, akan berfungsi sebagai asisten riset pribadi untuk meringkas sumber, memberikan wawasan, dan menjelaskan konsep. Penggunaan Git/GitHub juga dianjurkan untuk melacak progres proyek dan jurnal Anda.
+    
+5. **Pembelajaran Kolaboratif**: Bekerja sama dengan rekan-rekan dalam membuat peta pengetahuan akan mendorong diskusi yang kaya dan memperdalam pemahaman.
+    
+
+#### **II. Cakupan Materi Mata Kuliah (Distribusi Umum)**
+
+Mata kuliah ini akan mencakup serangkaian topik inti dalam Sinyal dan Sistem, seringkali disusun sebagai berikut:
+
+- **Minggu 1-3: Deskripsi Sinyal dan Sistem di Domain Waktu**
+    
+    - Pengantar Sinyal: Sinyal waktu kontinu dan diskrit, representasi matematis, energi dan daya sinyal.
+    - Transformasi Variabel Independen: Pergeseran waktu, penskalaan, sinyal periodik, sinyal genap dan ganjil.
+    - Sinyal Elementer: Sinyal eksponensial kompleks dan sinusoidal, fungsi impuls unit dan _step_ unit (waktu kontinu dan diskrit).
+    - Pengantar Sistem: Contoh sistem sederhana, interkoneksi sistem.
+    - Properti Sistem Dasar: Memori, invertibilitas, kausalitas, stabilitas (BIBO), invarian waktu, linearitas.
+    - Analisis Sistem LTI (Linear Time-Invariant): Konsep respon impuls, integral dan jumlah konvolusi untuk representasi sistem LTI. Sistem yang dicirikan oleh persamaan diferensial dan beda koefisien konstan.
+- **Minggu 4-7: Analisis Domain Frekuensi (Transformasi Fourier)**
+    
+    - Representasi Deret Fourier: Untuk sinyal periodik waktu kontinu dan diskrit.
+    - Transformasi Fourier: Untuk sinyal aperiodik waktu kontinu dan diskrit.
+    - Properti Transformasi Fourier: Linearitas, pergeseran waktu, pergeseran frekuensi, penskalaan, konvolusi, perkalian.
+    - Respon Frekuensi Sistem LTI: Konsep filter, filter selektif frekuensi ideal dan non-ideal, _magnitude-phase representation_, _Bode plots_.
+- **Minggu 8: Sampling**
+    
+    - Teorema Sampling: Representasi sinyal waktu kontinu oleh sampelnya.
+    - Efek _Undersampling_: Konsep _aliasing_.
+    - Rekonstruksi Sinyal dari Sampel: Interpolasi.
+- **Minggu 9-12: Analisis Domain Laplace dan Z-Transform**
+    
+    - Transformasi Laplace: Definisi, Region of Convergence (ROC), transformasi Laplace invers.
+    - Properti Transformasi Laplace: Linearitas, pergeseran waktu, konvolusi, diferensiasi, teorema nilai awal/akhir.
+    - Analisis Sistem LTI menggunakan Fungsi Alih: Kausalitas, stabilitas sistem.
+    - Transformasi Z: Konsep, ROC, transformasi Z invers.
+    - Properti Transformasi Z: Linearitas, penskalaan, pergeseran waktu, konvolusi, diferensiasi, teorema nilai awal.
+    - Analisis Sistem LTI menggunakan Fungsi Sistem: Kausalitas, stabilitas, representasi diagram blok.
+- **Minggu 13-14: Desain Filter dan Pengantar Sistem Kendali Umpan Balik**
+    
+    - Studi Kasus Desain Filter: Perancangan filter secara matematis dan penggunaan perangkat lunak untuk verifikasi.
+    - Pengantar Sistem Kendali Linier Umpan Balik: Konsep dasar, aplikasi, analisis _root-locus_, kriteria stabilitas Nyquist, _gain_ dan _phase margin_.
+
+---
+
+Dengan berpartisipasi aktif dalam setiap aspek pembelajaran ini, Anda akan mengembangkan pemahaman konseptual yang mendalam, keterampilan pemecahan masalah layaknya ahli, kesadaran metakognitif, dan identitas profesional yang kuat, mempersiapkan Anda untuk tantangan kompleks di dunia kerja.
