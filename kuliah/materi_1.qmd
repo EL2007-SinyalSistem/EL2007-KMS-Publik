@@ -1,8 +1,11 @@
+
+# Minggui 1L Sinyal di Kwasan Waktu
+
 Berikut adalah materi pembelajaran untuk Minggu 1 mata kuliah Sinyal dan Sistem (EL2007), dirancang sesuai dengan filosofi VALORAIZE Learning, yang mencakup peta pengetahuan, kendaraan matematika, set soal, dan peta pemecahan masalah untuk setiap soal.
 
 ---
 
-# Materi Pembelajaran Minggu 1: Deskripsi Matematis Sinyal Waktu Kontinu
+## Materi Pembelajaran Minggu 1: Deskripsi Matematis Sinyal Waktu Kontinu
 
 **Capaian Pembelajaran Minggu (CPMK Terkait):** Mahasiswa diharapkan mampu **memahami dasar-dasar sinyal waktu kontinu dan representasi matematisnya**.
 
