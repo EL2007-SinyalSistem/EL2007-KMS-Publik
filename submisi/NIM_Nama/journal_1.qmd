@@ -1,0 +1,39 @@
+---
+title: "Sinyal di Kawasan Waktu"
+subtitle: "Jurnal Belajar Minggu ke-X EL 2007"
+author: Nama dan NIM
+format: typst
+---
+
+
+# Petunjuk
+Dalam kerangka VALORAIZE Learning, sebuah **jurnal belajar reflektif** adalah produk pengetahuan krusial yang mendokumentasikan "perjuangan, kegagalan, dan terobosan" mahasiswa dalam proses belajar mereka. Jurnal ini berfungsi sebagai catatan kronologis pengalaman belajar yang membantu mahasiswa menemukan makna, menghubungkan materi, memahami lebih baik, dan menerapkan pengetahuan. Ini dirancang untuk mendorong pengembangan keterampilan metakognitif dan menumbuhkan pola pikir berkembang (growth mindset) serta ketahanan.
+
+Setiap entri jurnal sebaiknya mencakup empat komponen utama, dikenal sebagai kerangka **DAR (Deskripsi, Analisis, Refleksi, dan Rencana Tindak Lanjut)**:
+
+- **Deskripsi (Description):** Merinci apa yang telah dipelajari atau aktivitas pembelajaran yang dilakukan.
+- **Analisis (Analysis):** Mengeksplorasi bagaimana pemahaman atau penerapan dilakukan, serta tantangan atau hambatan yang dihadapi.
+- **Refleksi (Reflection):** Mengambil pelajaran dari pengalaman, termasuk wawasan baru yang diperoleh dari perjuangan, kegagalan, atau terobosan.
+- **Rencana Tindak Lanjut (Action Plan):** Merumuskan langkah-langkah konkret untuk memperdalam pemahaman, mengatasi kesulitan, atau menerapkan pengetahuan di masa depan.
+
+Mahasiswa juga didorong untuk menggunakan alat kontrol versi seperti Git/GitHub untuk melacak kemajuan dan riwayat pembelajaran jurnal/proyek, yang memungkinkan pencatatan yang mendetail dan tidak dapat diubah dari perjalanan intelektual mereka.
+
+Berikut adalah contoh isi jurnal belajar yang mengikuti kerangka DAR, dengan fokus pada topik "Konvolusi" dari mata kuliah Sinyal dan Sistem:
+
+---
+
+**Entri Jurnal Pembelajaran**
+
+**Tanggal:** 27 Oktober 2024 **Minggu Perkuliahan:** 3 **Topik:** Konvolusi Sum dan Konvolusi Integral pada Sistem LTI (Linear Time-Invariant)
+
+---
+
+**1. Deskripsi** Minggu ini, kami mempelajari konsep dasar konvolusi, baik untuk sinyal waktu diskrit (Convolution Sum) maupun sinyal waktu kontinu (Convolution Integral). Kami diajarkan bahwa konvolusi adalah operasi fundamental untuk menentukan respons sistem LTI terhadap input arbitrer, berdasarkan respons impulsnya. Dosen memodelkan contoh-contoh perhitungan konvolusi secara grafis dan analitis, serta menjelaskan sifat-sifat konvolusi seperti komutatif, distributif, dan asosiatif. Tugas rumah (PR 1) mencakup soal-soal konvolusi dari buku teks.
+
+**2. Analisis** Saya mencoba menyelesaikan beberapa soal konvolusi, terutama yang melibatkan fungsi-fungsi bertingkat (step functions) dan impuls. Saya menemukan tantangan besar dalam visualisasi grafis, khususnya ketika membalik dan menggeser sinyal respons impuls _h(τ)_ relatif terhadap sinyal input _x(t)_. Kesalahan sering terjadi saat menentukan batas integrasi atau penjumlahan yang benar untuk setiap interval waktu _t_. Misalnya, pada soal yang melibatkan konvolusi dua sinyal persegi panjang, saya awalnya kesulitan untuk memecah masalah menjadi beberapa kasus berdasarkan rentang waktu _t_ yang berbeda, yang menghasilkan segmen-segmen output berbentuk segitiga atau trapesium. Saya juga menghabiskan waktu cukup lama untuk memverifikasi ulang hasil saya karena mudah sekali membuat kesalahan aritmetika sederhana dalam penjumlahan atau integrasi.
+
+**3. Refleksi** Perjuangan saya dengan visualisasi grafis konvolusi mengajar saya bahwa penting untuk tidak terburu-buru. Meluangkan waktu untuk menggambar setiap langkah pembalikan dan pergeseran secara cermat sangat membantu. Saya menyadari bahwa pendekatan tabular, meskipun agak membosankan, lebih akurat untuk sinyal diskrit dengan nilai-nilai yang jelas. Untuk sinyal kontinu, saya belajar untuk lebih fokus pada titik-titik kritis (misalnya, awal dan akhir sinyal) dan bagaimana pergeseran _h(t-τ)_ memengaruhi tumpang tindih dengan _x(τ)_. Kegagalan awal saya dalam mendapatkan batas integrasi yang benar menunjukkan kurangnya pemahaman intuitif saya tentang pergerakan sinyal. Saya juga mendapatkan wawasan bahwa sifat komutatif konvolusi (_x(t) * h(t) = h(t) * x(t)_) bisa sangat berguna; jika salah satu sinyal lebih sederhana untuk dibalik dan digeser, gunakan itu. Ini adalah "terobosan" kecil yang membuat proses terasa tidak terlalu menakutkan.
+
+**4. Rencana Tindak Lanjut** Untuk mengatasi kesulitan visualisasi, saya akan berlatih lebih banyak soal konvolusi menggunakan perangkat lunak seperti MATLAB untuk memverifikasi secara visual pergeseran dan tumpang tindih sinyal, serta hasil akhirnya. Saya juga akan membuat "peta pemecahan masalah" pribadi untuk konvolusi, mencatat langkah-langkah sistematis yang saya gunakan, termasuk titik keputusan untuk menentukan batas. Saya akan meninjau kembali bagian tentang "Transformasi Variabel Independen" di Bab 1 buku teks untuk memperkuat dasar pemahaman saya tentang pergeseran dan penskalaan sinyal. Selain itu, saya akan mencari studi kasus atau contoh di mana konvolusi digunakan dalam aplikasi nyata untuk melihat relevansinya dan meningkatkan motivasi saya.
+
+---

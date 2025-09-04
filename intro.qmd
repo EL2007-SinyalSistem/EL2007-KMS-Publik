@@ -4,7 +4,7 @@ Berikut adalah gambaran umum (overview) mata kuliah Sinyal dan Sistem, menginteg
 
 ---
 
-### **Gambaran Umum Mata Kuliah Sinyal dan Sistem (EL2007)**
+## **Gambaran Umum Mata Kuliah Sinyal dan Sistem (EL2007)**
 
 Mata kuliah Sinyal dan Sistem (kode EL2007) merupakan **fondasi penting dalam semua disiplin ilmu teknik**, khususnya teknik elektro. Mata kuliah ini akan membekali Anda dengan konsep dan teknik fundamental untuk **menganalisis dan menyintesis proses yang kompleks**. Sinyal didefinisikan sebagai fenomena fisik yang bervariasi terhadap waktu yang dimaksudkan untuk menyampaikan informasi, seperti sinyal suara atau video. Ilmu Sinyal dan Sistem memiliki sejarah panjang dan terus berkembang sebagai respons terhadap masalah, teknik, dan peluang baru.
 
@@ -16,7 +16,7 @@ Mata kuliah ini dirancang untuk lebih dari sekadar penguasaan materi. Filosofi i
 2. **Merancang filter dan pengendali** secara matematis pada studi kasus.
 3. **Menggunakan alat bantu (perangkat lunak)** untuk menganalisis sinyal dan sistem.
 
-#### **I. Pilar Pembelajaran VALORAIZE Learning**
+## **I. Pilar Pembelajaran VALORAIZE Learning**
 
 Untuk mencapai CPMK dan membentuk identitas profesional, VALORAIZE Learning mengintegrasikan beberapa pilar utama:
 
@@ -33,7 +33,7 @@ Untuk mencapai CPMK dan membentuk identitas profesional, VALORAIZE Learning meng
 5. **Pembelajaran Kolaboratif**: Bekerja sama dengan rekan-rekan dalam membuat peta pengetahuan akan mendorong diskusi yang kaya dan memperdalam pemahaman.
     
 
-#### **II. Cakupan Materi Mata Kuliah (Distribusi Umum)**
+## **II. Cakupan Materi Mata Kuliah (Distribusi Umum)**
 
 Mata kuliah ini akan mencakup serangkaian topik inti dalam Sinyal dan Sistem, seringkali disusun sebagai berikut:
 

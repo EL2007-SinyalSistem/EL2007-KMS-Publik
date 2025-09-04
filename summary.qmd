@@ -1,15 +1,14 @@
-# Lampiran Alat Bantu
+# Lampiran Petunjuk Penggunaan Alat Bantu dan Kendaraan dalam Sinyal dan Sistem (VALORAIZE Learning)
 
-In summary, this book has no content whatsoever.@knuth84
+@knuth84
 Dalam kerangka pembelajaran VALORAIZE, penguasaan alat bantu (tools) dan "kendaraan" (vehicles) merupakan elemen krusial untuk mengembangkan pemahaman mendalam dan keterampilan pemecahan masalah layaknya ahli. Berikut adalah petunjuk penggunaan alat bantu dan kategori kendaraan yang relevan:
 
 ---
 
-### **Petunjuk Penggunaan Alat Bantu dan Kendaraan dalam Sinyal dan Sistem (VALORAIZE Learning)**
 
 Dalam VALORAIZE Learning, proses pemecahan masalah dikonseptualisasikan sebagai upaya **menjembatani "celah" antara informasi yang diketahui ("Titik Mulai") dan solusi yang diinginkan ("Titik Akhir")**. Untuk melintasi celah ini, Anda akan menggunakan **"rute" (langkah-langkah) dan "kendaraan" (alat, teknik, metode)** yang tepat. Dosen akan bertindak sebagai fasilitator yang memodelkan proses berpikir ini.
 
-#### **I. Kategori Kendaraan Pemecahan Masalah**
+## **I. Kategori Kendaraan Pemecahan Masalah**
 
 "Kendaraan" adalah alat, teknik, dan metode spesifik yang digunakan untuk melintasi peta pengetahuan dan menjembatani kesenjangan antara yang diketahui dan yang tidak diketahui. Ini dikategorikan sebagai berikut:
 
@@ -66,7 +65,7 @@ Dalam VALORAIZE Learning, proses pemecahan masalah dikonseptualisasikan sebagai 
         - **"Bekerja Mundur"**: Memulai dari hasil yang diinginkan dan melacak kembali langkah-langkah untuk menemukan titik awal.
         - **"Menyederhanakan Masalah"**: Memecah masalah kompleks menjadi sub-masalah yang lebih kecil atau menganalisis versi yang lebih sederhana dari masalah tersebut.
 
-#### **II. Alat Bantu Umum (General Purpose Tools)**
+## **II. Alat Bantu Umum (General Purpose Tools)**
 
 1. **GitHub**
     

@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2025.2.21)  4 SEP 2025 07:56
+This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2025.2.21)  4 SEP 2025 10:21
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -410,6 +410,8 @@ Package graphics Info: Driver file: xetex.def on input line 106.
 \Gin@req@width=\dimen175
 )
 \pandoc@box=\box66
+\cslhangindent=\skip79
+\csllabelwidth=\skip80
 (c:/Users/azrla/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/bookmark/bookmark.sty
 Package: bookmark 2023-12-10 v1.31 PDF bookmarks (HO)
 (c:/Users/azrla/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/hyperref.sty
@@ -513,7 +515,7 @@ Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
 )
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 285.
 )
-\Hy@SectionHShift=\skip79
+\Hy@SectionHShift=\skip81
 ) (c:/Users/azrla/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/bookmark/bkm-dvipdfm.def
 File: bkm-dvipdfm.def 2023-12-10 v1.31 bookmark driver for dvipdfm (HO)
 \BKM@id=\count325
@@ -560,55 +562,55 @@ Package caption Info: New subtype `subfigure' on input line 238.
 Package caption Info: New subtype `subtable' on input line 238.
 \c@subtable=\count331
 )
-Package hyperref Info: Option `colorlinks' set `true' on input line 165.
+Package hyperref Info: Option `colorlinks' set `true' on input line 198.
 No file index.aux.
 \openout1 = `index.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 171.
-LaTeX Font Info:    ... okay on input line 171.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 171.
-LaTeX Font Info:    ... okay on input line 171.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 171.
-LaTeX Font Info:    ... okay on input line 171.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 171.
-LaTeX Font Info:    ... okay on input line 171.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 171.
-LaTeX Font Info:    ... okay on input line 171.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 171.
-LaTeX Font Info:    ... okay on input line 171.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 171.
-LaTeX Font Info:    ... okay on input line 171.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 171.
-LaTeX Font Info:    ... okay on input line 171.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 171.
-LaTeX Font Info:    ... okay on input line 171.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 171.
-LaTeX Font Info:    ... okay on input line 171.
-Package scrbase Info: activating english \abstractname on input line 171.
-Package scrbase Info: activating english \partname on input line 171.
-Package scrbase Info: activating english \chaptername on input line 171.
-Package scrbase Info: activating english \appendixname on input line 171.
-Package scrbase Info: activating english \figurename on input line 171.
-Package scrbase Info: activating english \tablename on input line 171.
-Package scrbase Info: activating english \contentsname on input line 171.
-Package scrbase Info: activating english \listfigurename on input line 171.
-Package scrbase Info: activating english \listtablename on input line 171.
-Package scrbase Info: activating english \bibname on input line 171.
-Package scrbase Info: activating english \indexname on input line 171.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 204.
+LaTeX Font Info:    ... okay on input line 204.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 204.
+LaTeX Font Info:    ... okay on input line 204.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 204.
+LaTeX Font Info:    ... okay on input line 204.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 204.
+LaTeX Font Info:    ... okay on input line 204.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 204.
+LaTeX Font Info:    ... okay on input line 204.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 204.
+LaTeX Font Info:    ... okay on input line 204.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 204.
+LaTeX Font Info:    ... okay on input line 204.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 204.
+LaTeX Font Info:    ... okay on input line 204.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 204.
+LaTeX Font Info:    ... okay on input line 204.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 204.
+LaTeX Font Info:    ... okay on input line 204.
+Package scrbase Info: activating english \abstractname on input line 204.
+Package scrbase Info: activating english \partname on input line 204.
+Package scrbase Info: activating english \chaptername on input line 204.
+Package scrbase Info: activating english \appendixname on input line 204.
+Package scrbase Info: activating english \figurename on input line 204.
+Package scrbase Info: activating english \tablename on input line 204.
+Package scrbase Info: activating english \contentsname on input line 204.
+Package scrbase Info: activating english \listfigurename on input line 204.
+Package scrbase Info: activating english \listtablename on input line 204.
+Package scrbase Info: activating english \bibname on input line 204.
+Package scrbase Info: activating english \indexname on input line 204.
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `normal'
-(Font)                  OT1/lmr/m/n --> TU/lmr/m/n on input line 171.
+(Font)                  OT1/lmr/m/n --> TU/lmr/m/n on input line 204.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/lmr/m/it --> TU/lmr/m/it on input line 171.
+(Font)                  OT1/lmr/m/it --> TU/lmr/m/it on input line 204.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/lmr/bx/n --> TU/lmr/bx/n on input line 171.
+(Font)                  OT1/lmr/bx/n --> TU/lmr/bx/n on input line 204.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/lmss/m/n --> TU/lmss/m/n on input line 171.
+(Font)                  OT1/lmss/m/n --> TU/lmss/m/n on input line 204.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/lmss/bx/n --> TU/lmss/bx/n on input line 171.
+(Font)                  OT1/lmss/bx/n --> TU/lmss/bx/n on input line 204.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/lmtt/m/n --> TU/lmtt/m/n on input line 171.
+(Font)                  OT1/lmtt/m/n --> TU/lmtt/m/n on input line 204.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/lmtt/m/n --> TU/lmtt/bx/n on input line 171.
+(Font)                  OT1/lmtt/m/n --> TU/lmtt/bx/n on input line 204.
 
 Package fontspec Info: 
 (fontspec)             latinmodern-math scale = 0.9999967668407183.
@@ -636,7 +638,7 @@ Package fontspec Info:
 (fontspec)             <->s*[0.9999967668407183]"[latinmodern-math.otf]/OT:script=math;language=dflt;"
 
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(0)/m/n' will be
-(Font)              scaled to size 10.95pt on input line 171.
+(Font)              scaled to size 10.95pt on input line 204.
 
 Package fontspec Info: 
 (fontspec)             latinmodern-math scale = 0.9999967668407183.
@@ -672,15 +674,15 @@ Package fontspec Info:
 (fontspec)             <->s*[0.9999967668407183]"[latinmodern-math.otf]/OT:script=math;language=dflt;"
 
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 10.95pt on input line 171.
+(Font)              scaled to size 10.95pt on input line 204.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `normal' on input line 171.
+(Font)              `operators' in the math version `normal' on input line 204.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/lmr/m/n --> TU/latinmodern-math.otf(1)/m/n on input line 171.
+(Font)                  OT1/lmr/m/n --> TU/latinmodern-math.otf(1)/m/n on input line 204.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `bold' on input line 171.
+(Font)              `operators' in the math version `bold' on input line 204.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/lmr/bx/n --> TU/latinmodern-math.otf(1)/b/n on input line 171.
+(Font)                  OT1/lmr/bx/n --> TU/latinmodern-math.otf(1)/b/n on input line 204.
 
 Package fontspec Info: 
 (fontspec)             latinmodern-math scale = 0.9999967668407183.
@@ -746,13 +748,13 @@ Package fontspec Info:
 (fontspec)             <->s*[1.000096766517402]"[latinmodern-math.otf]/OT:script=math;language=dflt;"
 
 LaTeX Font Info:    Encoding `OMS' has changed to `TU' for symbol font
-(Font)              `symbols' in the math version `normal' on input line 171.
+(Font)              `symbols' in the math version `normal' on input line 204.
 LaTeX Font Info:    Overwriting symbol font `symbols' in version `normal'
-(Font)                  OMS/lmsy/m/n --> TU/latinmodern-math.otf(2)/m/n on input line 171.
+(Font)                  OMS/lmsy/m/n --> TU/latinmodern-math.otf(2)/m/n on input line 204.
 LaTeX Font Info:    Encoding `OMS' has changed to `TU' for symbol font
-(Font)              `symbols' in the math version `bold' on input line 171.
+(Font)              `symbols' in the math version `bold' on input line 204.
 LaTeX Font Info:    Overwriting symbol font `symbols' in version `bold'
-(Font)                  OMS/lmsy/b/n --> TU/latinmodern-math.otf(2)/b/n on input line 171.
+(Font)                  OMS/lmsy/b/n --> TU/latinmodern-math.otf(2)/b/n on input line 204.
 
 Package fontspec Info: 
 (fontspec)             latinmodern-math scale = 0.9999967668407183.
@@ -812,20 +814,20 @@ Package fontspec Info:
 (fontspec)             <->s*[0.9998967671640342]"[latinmodern-math.otf]/OT:script=math;language=dflt;"
 
 LaTeX Font Info:    Encoding `OMX' has changed to `TU' for symbol font
-(Font)              `largesymbols' in the math version `normal' on input line 171.
+(Font)              `largesymbols' in the math version `normal' on input line 204.
 LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `normal'
-(Font)                  OMX/lmex/m/n --> TU/latinmodern-math.otf(3)/m/n on input line 171.
+(Font)                  OMX/lmex/m/n --> TU/latinmodern-math.otf(3)/m/n on input line 204.
 LaTeX Font Info:    Encoding `OMX' has changed to `TU' for symbol font
-(Font)              `largesymbols' in the math version `bold' on input line 171.
+(Font)              `largesymbols' in the math version `bold' on input line 204.
 LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `bold'
-(Font)                  OMX/lmex/m/n --> TU/latinmodern-math.otf(3)/b/n on input line 171.
-LaTeX Info: Redefining \microtypecontext on input line 171.
-Package microtype Info: Applying patch `item' on input line 171.
-Package microtype Info: Applying patch `toc' on input line 171.
-Package microtype Info: Applying patch `eqnum' on input line 171.
-Package microtype Info: Applying patch `footnote' on input line 171.
-Package microtype Info: Applying patch `verbatim' on input line 171.
-LaTeX Info: Redefining \microtypesetup on input line 171.
+(Font)                  OMX/lmex/m/n --> TU/latinmodern-math.otf(3)/b/n on input line 204.
+LaTeX Info: Redefining \microtypecontext on input line 204.
+Package microtype Info: Applying patch `item' on input line 204.
+Package microtype Info: Applying patch `toc' on input line 204.
+Package microtype Info: Applying patch `eqnum' on input line 204.
+Package microtype Info: Applying patch `footnote' on input line 204.
+Package microtype Info: Applying patch `verbatim' on input line 204.
+LaTeX Info: Redefining \microtypesetup on input line 204.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using protrusion set `basicmath'.
 Package microtype Info: No adjustment of tracking.
@@ -834,7 +836,7 @@ Package microtype Info: No adjustment of kerning.
 (c:/Users/azrla/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/microtype/mt-LatinModernRoman.cfg
 File: mt-LatinModernRoman.cfg 2021/02/21 v1.1 microtype config. file: Latin Modern Roman (RS)
 )
-Package hyperref Info: Link coloring ON on input line 171.
+Package hyperref Info: Link coloring ON on input line 204.
 
 Package hyperref Warning: Rerun to get /PageLabels entry.
 
@@ -846,34 +848,34 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 14.4pt on input line 173.
+(Font)              scaled to size 14.4pt on input line 206.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 10.0pt on input line 173.
+(Font)              scaled to size 10.0pt on input line 206.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 7.0pt on input line 173.
-LaTeX Font Info:    Trying to load font information for OML+lmm on input line 173.
+(Font)              scaled to size 7.0pt on input line 206.
+LaTeX Font Info:    Trying to load font information for OML+lmm on input line 206.
 (c:/Users/azrla/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 14.4013pt on input line 173.
+(Font)              scaled to size 14.4013pt on input line 206.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 10.00092pt on input line 173.
+(Font)              scaled to size 10.00092pt on input line 206.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 7.00064pt on input line 173.
+(Font)              scaled to size 7.00064pt on input line 206.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 14.39845pt on input line 173.
+(Font)              scaled to size 14.39845pt on input line 206.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 9.99893pt on input line 173.
+(Font)              scaled to size 9.99893pt on input line 206.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 6.99925pt on input line 173.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 173.
+(Font)              scaled to size 6.99925pt on input line 206.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 206.
 (c:/Users/azrla/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 ) (c:/Users/azrla/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/microtype/mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 173.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 206.
 (c:/Users/azrla/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) (c:/Users/azrla/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/microtype/mt-msb.cfg
@@ -885,7 +887,7 @@ File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 
 
 ]
-Package tocbasic Info: character protrusion at toc deactivated on input line 178.
+Package tocbasic Info: character protrusion at toc deactivated on input line 211.
 No file index.toc.
 \tf@toc=\write3
 \openout3 = `index.toc'.
@@ -895,28 +897,6 @@ No file index.toc.
 [2
 
 ]
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 7.665pt on input line 191.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 5.475pt on input line 191.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 10.95099pt on input line 191.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 7.66568pt on input line 191.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 5.4755pt on input line 191.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 10.94882pt on input line 191.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 7.66417pt on input line 191.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 5.47441pt on input line 191.
-
-Overfull \hbox (45.24533pt too wide) in paragraph at lines 190--192
-[]\TU/lmr/m/n/10.95 Video Clip [][]$[][][][][] [] [] [] [][][] [] [][][][][][][] [] [][][] [] [][][][][][][][] [] [][][][] [] [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]$[][] 
- []
-
-
 
 [3
 
@@ -942,6 +922,22 @@ chapter 1.
 
 [11]
 chapter 2.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
+(Font)              scaled to size 7.665pt on input line 786.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
+(Font)              scaled to size 5.475pt on input line 786.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 10.95099pt on input line 786.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 7.66568pt on input line 786.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 5.4755pt on input line 786.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 10.94882pt on input line 786.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 7.66417pt on input line 786.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 5.47441pt on input line 786.
 
 
 [12
@@ -953,49 +949,49 @@ chapter 2.
 [14]
 
 [15]
-Overfull \hbox (20.28682pt too wide) in paragraph at lines 1022--1024
+Overfull \hbox (20.28682pt too wide) in paragraph at lines 1047--1049
 []\TU/lmr/m/n/10.95 Node: Energi/Daya (SWK_EnergiDaya), Periodik/Aperiodik (SWK_Periodisitas),
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1031--1035
+Underfull \hbox (badness 10000) in paragraph at lines 1056--1060
 []\TU/lmr/m/n/10.95 Node: Pergeseran Waktu (SWK_GeserWaktu), Penskalaan Waktu
  []
 
 
-Underfull \hbox (badness 4886) in paragraph at lines 1031--1035
+Underfull \hbox (badness 4886) in paragraph at lines 1056--1060
 \TU/lmr/m/n/10.95 (SWK_SkalaWaktu), Pembalikan Waktu (SWK_BalikWaktu), Penjum-
  []
 
 
-Underfull \hbox (badness 3635) in paragraph at lines 1031--1035
+Underfull \hbox (badness 3635) in paragraph at lines 1056--1060
 \TU/lmr/m/n/10.95 lahan (SWK_Jumlah), Perkalian (SWK_Kali), Penskalaan Amplitudo
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1078--1081
+Underfull \hbox (badness 10000) in paragraph at lines 1103--1106
 []\TU/lmr/m/n/10.95 “SWK_Representasi” \TU/lmr/bx/n/10.95 MELIPUTI \TU/lmr/m/n/10.95 “SWK_Sinusoidal”, “SWK_Eksponensial”,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1081--1084
+Underfull \hbox (badness 10000) in paragraph at lines 1106--1109
 []\TU/lmr/m/n/10.95 “SWK_Klasifikasi” \TU/lmr/bx/n/10.95 MELIPUTI \TU/lmr/m/n/10.95 “SWK_EnergiDaya”, “SWK_Periodisitas”,
  []
 
 
-Overfull \hbox (48.68674pt too wide) in paragraph at lines 1084--1088
+Overfull \hbox (48.68674pt too wide) in paragraph at lines 1109--1113
 []\TU/lmr/m/n/10.95 “SWK_Operasi” \TU/lmr/bx/n/10.95 MELIPUTI \TU/lmr/m/n/10.95 “SWK_GeserWaktu”, “SWK_SkalaWaktu”, “SWK_BalikWaktu”,
  []
 
 
-Underfull \hbox (badness 6493) in paragraph at lines 1088--1091
+Underfull \hbox (badness 6493) in paragraph at lines 1113--1116
 []\TU/lmr/m/n/10.95 “SYWK_Representasi” \TU/lmr/bx/n/10.95 MELIPUTI \TU/lmr/m/n/10.95 “SYWK_Definisi”, “SYWK_DiagramBlok”,
  []
 
 
 
 [16]
-Overfull \hbox (41.7992pt too wide) in paragraph at lines 1091--1095
+Overfull \hbox (41.7992pt too wide) in paragraph at lines 1116--1120
 []\TU/lmr/m/n/10.95 “SYWK_Sifat” \TU/lmr/bx/n/10.95 MELIPUTI \TU/lmr/m/n/10.95 “SYWK_Memori”, “SYWK_Kausalitas”, “SYWK_Invertibilitas”,
  []
 
@@ -1006,31 +1002,31 @@ Overfull \hbox (41.7992pt too wide) in paragraph at lines 1091--1095
 [18]
 
 [19]
-Overfull \hbox (18.53493pt too wide) in paragraph at lines 1283--1285
+Overfull \hbox (18.53493pt too wide) in paragraph at lines 1308--1310
 []\TU/lmr/bx/n/10.95 Kendaraan: K_MAT_Aljabar \TU/lmr/m/n/10.95 (untuk membandingkan bentuk), \TU/lmr/bx/n/10.95 SWK_Representasi
  []
 
 
-Overfull \hbox (26.5941pt too wide) in paragraph at lines 1315--1319
+Overfull \hbox (26.5941pt too wide) in paragraph at lines 1340--1344
 []\TU/lmr/bx/n/10.95 Kendaraan: K_MAT_Aljabar \TU/lmr/m/n/10.95 (manipulasi ekspresi), \TU/lmr/bx/n/10.95 K_MAT_Bilangan_Kompleks
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1351--1353
+Underfull \hbox (badness 10000) in paragraph at lines 1376--1378
 []\TU/lmr/bx/n/10.95 Kendaraan: K_MAT_Kalkulus \TU/lmr/m/n/10.95 (integrasi), \TU/lmr/bx/n/10.95 K_MAT_Aljabar \TU/lmr/m/n/10.95 (limit),
  []
 
 
 
 [20]
-Underfull \hbox (badness 1442) in paragraph at lines 1436--1440
+Underfull \hbox (badness 1442) in paragraph at lines 1461--1465
 \TU/lmr/bx/n/10.95 SWK_BalikWaktu\TU/lmr/m/n/10.95 . \TU/lmr/bx/n/10.95 Heuristik: \TU/lmr/m/n/10.95 “Menggambar Diagram”, “Menyederhanakan
  []
 
 
 
 [21]
-Overfull \hbox (27.54897pt too wide) in paragraph at lines 1508--1511
+Overfull \hbox (27.54897pt too wide) in paragraph at lines 1533--1536
 []\TU/lmr/bx/n/10.95 Kendaraan: K_MAT_Kalkulus \TU/lmr/m/n/10.95 (diferensiasi), \TU/lmr/bx/n/10.95 K_VIS_PlotSinyal\TU/lmr/m/n/10.95 , \TU/lmr/bx/n/10.95 SWK_UnitStep\TU/lmr/m/n/10.95 ,
  []
 
@@ -1039,63 +1035,63 @@ Overfull \hbox (27.54897pt too wide) in paragraph at lines 1508--1511
 [22]
 
 [23]
-Overfull \hbox (25.0259pt too wide) in paragraph at lines 1740--1743
+Overfull \hbox (25.0259pt too wide) in paragraph at lines 1765--1768
 []\TU/lmr/m/n/10.95 Jika $[][][][][] [] [][][][][]$ untuk semua $[][][][]$ dan $[][]$, sistem adalah \TU/lmr/bx/n/10.95 SYWK_InvarianWaktu\TU/lmr/m/n/10.95 . 
  []
 
 
-Underfull \hbox (badness 3229) in paragraph at lines 1747--1750
+Underfull \hbox (badness 3229) in paragraph at lines 1772--1775
 []\TU/lmr/bx/n/10.95 Kendaraan: K_MAT_Aljabar \TU/lmr/m/n/10.95 (manipulasi ekspresi), \TU/lmr/bx/n/10.95 SWK_GeserWaktu\TU/lmr/m/n/10.95 ,
  []
 
 
-Underfull \hbox (badness 3302) in paragraph at lines 1768--1773
+Underfull \hbox (badness 3302) in paragraph at lines 1793--1798
 []\TU/lmr/m/n/10.95 Terapkan langkah-langkah P8 hingga P13 secara berurutan untuk setiap
  []
 
 
-Underfull \hbox (badness 7433) in paragraph at lines 1768--1773
+Underfull \hbox (badness 7433) in paragraph at lines 1793--1798
 \TU/lmr/m/n/10.95 sifat: \TU/lmr/bx/n/10.95 SYWK_Memori\TU/lmr/m/n/10.95 , \TU/lmr/bx/n/10.95 SYWK_Kausalitas\TU/lmr/m/n/10.95 , \TU/lmr/bx/n/10.95 SYWK_Invertibilitas\TU/lmr/m/n/10.95 ,
  []
 
 
 
 [24]
-Overfull \hbox (5.03355pt too wide) in paragraph at lines 1812--1814
+Overfull \hbox (5.03355pt too wide) in paragraph at lines 1837--1839
 []\TU/lmr/bx/n/10.95 Kendaraan: K_MAT_Bilangan_Kompleks \TU/lmr/m/n/10.95 (identitas Euler), \TU/lmr/bx/n/10.95 K_MAT_Aljabar\TU/lmr/m/n/10.95 . 
  []
 
 
-Underfull \hbox (badness 1173) in paragraph at lines 1838--1842
+Underfull \hbox (badness 1173) in paragraph at lines 1863--1867
 []\TU/lmr/m/n/10.95 Pisahkan integral menjadi dua bagian berdasarkan fungsi \TU/lmr/m/it/10.95 piecewise\TU/lmr/m/n/10.95 : $[] []
  []
 
 
 
 [25]
-Underfull \hbox (badness 6300) in paragraph at lines 1891--1895
+Underfull \hbox (badness 6300) in paragraph at lines 1916--1920
 []\TU/lmr/bx/n/10.95 Kendaraan: K_VIS_PlotSinyal\TU/lmr/m/n/10.95 , \TU/lmr/bx/n/10.95 SWK_UnitStep\TU/lmr/m/n/10.95 , \TU/lmr/bx/n/10.95 SWK_GeserWaktu\TU/lmr/m/n/10.95 ,
  []
 
 
-Underfull \hbox (badness 1226) in paragraph at lines 1891--1895
+Underfull \hbox (badness 1226) in paragraph at lines 1916--1920
 \TU/lmr/bx/n/10.95 SWK_SkalaWaktu\TU/lmr/m/n/10.95 . \TU/lmr/bx/n/10.95 Heuristik: \TU/lmr/m/n/10.95 “Menggambar Diagram”, “Menyederhanakan
  []
 
 
 
 [26]
-Underfull \hbox (badness 3536) in paragraph at lines 1984--1987
+Underfull \hbox (badness 3536) in paragraph at lines 2009--2012
 []\TU/lmr/bx/n/10.95 Kendaraan: K_MAT_Aljabar\TU/lmr/m/n/10.95 , \TU/lmr/bx/n/10.95 SWK_GeserWaktu\TU/lmr/m/n/10.95 , \TU/lmr/bx/n/10.95 SYWK_Linearitas
  []
 
 
-Overfull \hbox (9.90439pt too wide) in paragraph at lines 2017--2019
+Overfull \hbox (9.90439pt too wide) in paragraph at lines 2042--2044
 []\TU/lmr/m/n/10.95 Sketsa masing-masing komponen $[][][][][]$ dan $[][][][][]$ menggunakan \TU/lmr/bx/n/10.95 K_VIS_PlotSinyal\TU/lmr/m/n/10.95 . 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2021--2024
+Underfull \hbox (badness 10000) in paragraph at lines 2046--2049
 []\TU/lmr/bx/n/10.95 Kendaraan: K_MAT_Aljabar \TU/lmr/m/n/10.95 (manipulasi ekspresi, sifat trigonometri),
  []
 
@@ -1110,6 +1106,116 @@ chapter 3.
 ]
 
 [29]
+chapter 4.
+
+Overfull \hbox (18.53493pt too wide) in paragraph at lines 2208--2210
+[]\TU/lmr/bx/n/10.95 Kendaraan: K_MAT_Aljabar \TU/lmr/m/n/10.95 (untuk membandingkan bentuk), \TU/lmr/bx/n/10.95 SWK_Representasi
+ []
+
+
+Overfull \hbox (26.5941pt too wide) in paragraph at lines 2240--2244
+[]\TU/lmr/bx/n/10.95 Kendaraan: K_MAT_Aljabar \TU/lmr/m/n/10.95 (manipulasi ekspresi), \TU/lmr/bx/n/10.95 K_MAT_Bilangan_Kompleks
+ []
+
+
+
+[30
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 2276--2278
+[]\TU/lmr/bx/n/10.95 Kendaraan: K_MAT_Kalkulus \TU/lmr/m/n/10.95 (integrasi), \TU/lmr/bx/n/10.95 K_MAT_Aljabar \TU/lmr/m/n/10.95 (limit),
+ []
+
+
+
+[31]
+Underfull \hbox (badness 1442) in paragraph at lines 2361--2365
+\TU/lmr/bx/n/10.95 SWK_BalikWaktu\TU/lmr/m/n/10.95 . \TU/lmr/bx/n/10.95 Heuristik: \TU/lmr/m/n/10.95 “Menggambar Diagram”, “Menyederhanakan
+ []
+
+
+Overfull \hbox (27.54897pt too wide) in paragraph at lines 2433--2436
+[]\TU/lmr/bx/n/10.95 Kendaraan: K_MAT_Kalkulus \TU/lmr/m/n/10.95 (diferensiasi), \TU/lmr/bx/n/10.95 K_VIS_PlotSinyal\TU/lmr/m/n/10.95 , \TU/lmr/bx/n/10.95 SWK_UnitStep\TU/lmr/m/n/10.95 ,
+ []
+
+
+
+[32]
+
+[33]
+
+[34]
+Overfull \hbox (25.0259pt too wide) in paragraph at lines 2665--2668
+[]\TU/lmr/m/n/10.95 Jika $[][][][][] [] [][][][][]$ untuk semua $[][][][]$ dan $[][]$, sistem adalah \TU/lmr/bx/n/10.95 SYWK_InvarianWaktu\TU/lmr/m/n/10.95 . 
+ []
+
+
+Underfull \hbox (badness 3229) in paragraph at lines 2672--2675
+[]\TU/lmr/bx/n/10.95 Kendaraan: K_MAT_Aljabar \TU/lmr/m/n/10.95 (manipulasi ekspresi), \TU/lmr/bx/n/10.95 SWK_GeserWaktu\TU/lmr/m/n/10.95 ,
+ []
+
+
+Underfull \hbox (badness 3302) in paragraph at lines 2693--2698
+[]\TU/lmr/m/n/10.95 Terapkan langkah-langkah P8 hingga P13 secara berurutan untuk setiap
+ []
+
+
+Underfull \hbox (badness 7433) in paragraph at lines 2693--2698
+\TU/lmr/m/n/10.95 sifat: \TU/lmr/bx/n/10.95 SYWK_Memori\TU/lmr/m/n/10.95 , \TU/lmr/bx/n/10.95 SYWK_Kausalitas\TU/lmr/m/n/10.95 , \TU/lmr/bx/n/10.95 SYWK_Invertibilitas\TU/lmr/m/n/10.95 ,
+ []
+
+
+Overfull \hbox (5.03355pt too wide) in paragraph at lines 2737--2739
+[]\TU/lmr/bx/n/10.95 Kendaraan: K_MAT_Bilangan_Kompleks \TU/lmr/m/n/10.95 (identitas Euler), \TU/lmr/bx/n/10.95 K_MAT_Aljabar\TU/lmr/m/n/10.95 . 
+ []
+
+
+
+[35]
+Underfull \hbox (badness 1173) in paragraph at lines 2763--2767
+[]\TU/lmr/m/n/10.95 Pisahkan integral menjadi dua bagian berdasarkan fungsi \TU/lmr/m/it/10.95 piecewise\TU/lmr/m/n/10.95 : $[] []
+ []
+
+
+Underfull \hbox (badness 6300) in paragraph at lines 2816--2820
+[]\TU/lmr/bx/n/10.95 Kendaraan: K_VIS_PlotSinyal\TU/lmr/m/n/10.95 , \TU/lmr/bx/n/10.95 SWK_UnitStep\TU/lmr/m/n/10.95 , \TU/lmr/bx/n/10.95 SWK_GeserWaktu\TU/lmr/m/n/10.95 ,
+ []
+
+
+Underfull \hbox (badness 1226) in paragraph at lines 2816--2820
+\TU/lmr/bx/n/10.95 SWK_SkalaWaktu\TU/lmr/m/n/10.95 . \TU/lmr/bx/n/10.95 Heuristik: \TU/lmr/m/n/10.95 “Menggambar Diagram”, “Menyederhanakan
+ []
+
+
+
+[36]
+Underfull \hbox (badness 3536) in paragraph at lines 2909--2912
+[]\TU/lmr/bx/n/10.95 Kendaraan: K_MAT_Aljabar\TU/lmr/m/n/10.95 , \TU/lmr/bx/n/10.95 SWK_GeserWaktu\TU/lmr/m/n/10.95 , \TU/lmr/bx/n/10.95 SYWK_Linearitas
+ []
+
+
+Overfull \hbox (9.90439pt too wide) in paragraph at lines 2942--2944
+[]\TU/lmr/m/n/10.95 Sketsa masing-masing komponen $[][][][][]$ dan $[][][][][]$ menggunakan \TU/lmr/bx/n/10.95 K_VIS_PlotSinyal\TU/lmr/m/n/10.95 . 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2946--2949
+[]\TU/lmr/bx/n/10.95 Kendaraan: K_MAT_Aljabar \TU/lmr/m/n/10.95 (manipulasi ekspresi, sifat trigonometri),
+ []
+
+
+
+[37]
+
+[38]
+chapter 5.
+
+
+[39
+
+]
+
+[40]
 
 ! LaTeX Error: Too deeply nested.
 
@@ -1117,15 +1223,15 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.2233         \begin{itemize}
+l.3145         \begin{itemize}
                                
 Here is how much of TeX's memory you used:
- 23505 strings out of 475785
- 457002 string characters out of 5771065
- 1174527 words of memory out of 5000000
- 46168 multiletter control sequences out of 15000+600000
- 565284 words of font info for 88 fonts, out of 8000000 for 9000
+ 23488 strings out of 475785
+ 456006 string characters out of 5771065
+ 1177694 words of memory out of 5000000
+ 46154 multiletter control sequences out of 15000+600000
+ 565268 words of font info for 86 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
- 108i,7n,114p,10919b,615s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 108i,7n,114p,10919b,621s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on index.pdf (29 pages).
+Output written on index.pdf (40 pages).

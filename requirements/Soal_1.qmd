@@ -1,160 +1,46 @@
----
-title: "Latihan Minggu 1 – Sinyal & Sistem"
-subtitle: "EL2007 – Signals and Systems"
-format: 
-    revealjs :
-        revealjs-theme: simple
 
-    typst: 
-        keep-typ: true
----
+## Problem Set Minggu 1: Sinyal dan Sistem Waktu Kontinu
 
-# Latihan Minggu 1  
-## Sinyal & Sistem (EL2007)
+**Petunjuk:** Untuk setiap soal, tentukan jawaban Anda tanpa menyertakan solusi. Untuk setiap jawaban, bayangkan Anda harus membuat **Peta Pengetahuan Aplikatif** yang menunjukkan "Titik Mulai", "Titik Akhir", "Rute/Jalan" pemecahan masalah, dan "Kendaraan" matematika/konseptual yang Anda gunakan.
 
----
+**Format Nomor Produk:** PS_W1_PX_LY (Problem Set, Week 1, Problem X, Bloom Level Y)
 
-## 📘 Soal dari Oppenheim
+**PS_W1_P1_L1: Identifikasi Sinyal Dasar** Identifikasi jenis sinyal waktu kontinu berikut (misalnya, sinusoidal, eksponensial, unit step, unit impuls): (a) $x(t) = 5 \cos(3\pi t + \pi/4)$ (b) $x(t) = 2e^{-4t} u(t)$ (c) $x(t) = \delta(t-2)$ (d) $x(t) = 3u(t+1)$ (e) $x(t) = t e^{-t} u(t)$
 
-### Soal 1  
-**PN: OP-DW-SIGNAL-01-R**  
-Sebutkan 4 contoh sinyal waktu-kontinu dasar.  
-*(Bloom: Remember)*
+**PS_W1_P2_L2: Klasifikasi Sinyal - Periodik/Aperiodik** Tentukan apakah sinyal waktu kontinu berikut periodik atau aperiodik. Jika periodik, tentukan periode fundamentalnya: (a) $x(t) = \sin(2t) + \cos(3t)$ (b) $x(t) = e^{j2\pi t}$ (c) $x(t) = e^{j2t} + e^{j3t}$ (d) $x(t) = \cos(2t) u(t)$
 
----
+**PS_W1_P3_L2: Klasifikasi Sinyal - Energi/Daya** Klasifikasikan sinyal waktu kontinu berikut sebagai sinyal energi, sinyal daya, atau tidak keduanya. (a) $x(t) = e^{-2t} u(t)$ (b) $x(t) = \cos(t)$ (c) $x(t) = u(t)$
 
-### Soal 2  
-**PN: OP-DW-SIGNAL-02-U**  
-Jelaskan sifat eksponensial kompleks \(e^{st}\).  
-*(Bloom: Understand)*
+**PS_W1_P4_L2: Klasifikasi Sinyal - Genap/Ganjil** Tentukan apakah sinyal berikut genap, ganjil, atau tidak keduanya. Jika tidak keduanya, pisahkan menjadi komponen genap dan ganjil. (a) $x(t) = t \cos(t)$ (b) $x(t) = t u(t)$ (c) $x(t) = \sin^2(t)$
 
----
+**PS_W1_P5_L3: Operasi Sinyal - Pergeseran & Penskalaan Waktu** Diberikan sinyal $x(t)$ adalah pulsa segitiga dengan puncak di $t=0$, lebar total 2 (dari -1 hingga 1), dan tinggi 1. Gambarlah sinyal berikut: (a) $y_1(t) = x(t-1)$ (b) $y_2(t) = x(2t)$ (c) $y_3(t) = x(-t+2)$ (d) $y_4(t) = x(t/2 - 1)$
 
-### Soal 3  
-**PN: OP-DW-SIGNAL-03-A**  
-Tentukan apakah \(x(t)=\sin(3t)+\cos(5t)\) periodik.  
-*(Bloom: Apply)*
+**PS_W1_P6_L3: Operasi Sinyal - Penjumlahan & Perkalian** Diberikan $x_1(t) = u(t)$ dan $x_2(t) = u(t-1)$. Gambarlah sinyal: (a) $y(t) = x_1(t) + x_2(t)$ (b) $y(t) = x_1(t) \cdot x_2(t)$ (c) $y(t) = x_1(t) - x_2(t)$
 
----
+**PS_W1_P7_L3: Diferensiasi Sinyal** Tentukan dan gambarlah turunan pertama dari sinyal: (a) $x(t) = u(t) - u(t-2)$ (b) $x(t) = t u(t)$
 
-### Soal 4  
-**PN: OP-DW-SIGNAL-04-A**  
-Hitung energi sinyal \(x(t)=e^{-t}u(t)\).  
-*(Bloom: Apply)*
+**PS_W1_P8_L2: Identifikasi Sifat Sistem - Tanpa Memori** Tentukan apakah sistem waktu kontinu berikut tanpa memori (memoryless) atau memiliki memori (with memory): (a) $y(t) = x(t) + 2x(t-1)$ (b) $y(t) = x^2(t)$ (c) $y(t) = \int_{-\infty}^{t} x(\tau) d\tau$
 
----
+**PS_W1_P9_L2: Identifikasi Sifat Sistem - Kausalitas** Tentukan apakah sistem waktu kontinu berikut kausal atau non-kausal: (a) $y(t) = x(t+1)$ (b) $y(t) = x(t) \cos(t)$ (c) $y(t) = x(t-1) + x(t+1)$
 
-### Soal 5  
-**PN: OP-DW-SYSTEM-05-A**  
-Uji linearitas sistem \(y(t)=[x(t)]^2\).  
-*(Bloom: Apply)*
+**PS_W1_P10_L2: Identifikasi Sifat Sistem - Invertibilitas** Tentukan apakah sistem waktu kontinu berikut invertibel atau non-invertibel: (a) $y(t) = 2x(t)$ (b) $y(t) = x^2(t)$ (c) $y(t) = \int_{-\infty}^{t} x(\tau) d\tau$
 
----
+**PS_W1_P11_L3: Identifikasi Sifat Sistem - Stabilitas BIBO** Tentukan apakah sistem waktu kontinu berikut stabil BIBO atau tidak stabil BIBO: (a) $y(t) = t x(t)$ (b) $y(t) = \int_{-\infty}^{t} x(\tau) d\tau$ (c) $y(t) = e^{x(t)}$
 
-### Soal 6  
-**PN: OP-DW-SYSTEM-06-A**  
-Uji kausalitas sistem \(y(t)=x(t-2)\).  
-*(Bloom: Apply)*
+**PS_W1_P12_L3: Identifikasi Sifat Sistem - Linearitas** Tentukan apakah sistem waktu kontinu berikut linear atau non-linear: (a) $y(t) = x(t) + 3$ (b) $y(t) = x(t^2)$ (c) $y(t) = \frac{dx(t)}{dt}$
 
----
+**PS_W1_P13_L3: Identifikasi Sifat Sistem - Invariansi Waktu** Tentukan apakah sistem waktu kontinu berikut invarian waktu atau bervariasi waktu: (a) $y(t) = x(t-t_0)$ (b) $y(t) = t x(t)$ (c) $y(t) = \cos(2\pi t) x(t)$
 
-### Soal 7  
-**PN: OP-DW-SYSTEM-07-An**  
-Uji time-invariance sistem \(y(t)=t \cdot x(t)\).  
-*(Bloom: Analyze)*
+**PS_W1_P14_L4: Analisis Gabungan Sifat Sistem** Tentukan apakah sistem waktu kontinu berikut bersifat linear, invarian waktu, kausal, dan stabil BIBO: (a) $y(t) = \frac{dx(t)}{dt}$ (b) $y(t) = x(2t)$
 
----
+**PS_W1_P15_L3: Representasi Sinyal Kompleks** Nyatakan sinyal eksponensial kompleks $x(t) = 3e^{j(\pi t + \pi/2)}$ dalam bentuk sinusoidal riil (misalnya, $A \cos(\omega t + \phi)$).
 
-### Soal 8  
-**PN: OP-DW-SYSTEM-08-E**  
-Apakah sistem \(y(t)=\int_{-\infty}^t x(\tau)\,d\tau\) stabil?  
-*(Bloom: Evaluate)*
+**PS_W1_P16_L4: Analisis Energi Sinyal** Hitung energi total dari sinyal $x(t) = e^{-|t|}$.
 
----
+**PS_W1_P17_L3: Operasi Sinyal - Kombinasi** Diberikan $x(t) = u(t-1) - u(t-3)$. Gambarlah sinyal $y(t) = x(2t+2)$.
 
-### Soal 9  
-**PN: OP-AD-09-An**  
-Bandingkan representasi sinyal periodik di domain waktu vs domain frekuensi.  
-*(Bloom: Analyze)*
+**PS_W1_P18_L4: Sistem dan Kondisi Awal** Sistem waktu kontinu didefinisikan oleh $y(t) = x(t)$ untuk $t \ge 0$ dan $y(t) = 0$ untuk $t < 0$. Asumsikan input $x(t) = e^{-t}$. (a) Apakah sistem ini kausal? (b) Apakah sistem ini invarian waktu?
 
----
+**PS_W1_P19_L3: Klasifikasi Sistem - Interkoneksi** Dua sistem $S_1$ dan $S_2$ dihubungkan secara seri. Sistem $S_1$ didefinisikan oleh $y_1(t) = x_1(t-1)$, dan sistem $S_2$ didefinisikan oleh $y_2(t) = 2x_2(t)$. Apakah sistem gabungan (seri) ini linear dan invarian waktu?
 
-### Soal 10  
-**PN: OP-AD-10-C**  
-Buat representasi alternatif sinyal sinusoidal dalam domain kompleks.  
-*(Bloom: Create)*
-
----
-
-## 📗 Soal dari Schaum’s Outline
-
-### Soal 11  
-**PN: SC-DW-SIGNAL-11-R**  
-Definisikan sinyal energi vs daya.  
-*(Bloom: Remember)*
-
----
-
-### Soal 12  
-**PN: SC-DW-SIGNAL-12-U**  
-Apa arti penskalaan waktu \(x(at)\).  
-*(Bloom: Understand)*
-
----
-
-### Soal 13  
-**PN: SC-DW-SIGNAL-13-A**  
-Tentukan apakah \(x[n]=(-1)^n\) periodik.  
-*(Bloom: Apply)*
-
----
-
-### Soal 14  
-**PN: SC-DW-SIGNAL-14-A**  
-Sketsa \(x(t)=u(t)-u(t-2)\).  
-*(Bloom: Apply)*
-
----
-
-### Soal 15  
-**PN: SC-DW-SIGNAL-15-A**  
-Hitung energi sinyal diskrit \(x[n]=(1/2)^n u[n]\).  
-*(Bloom: Apply)*
-
----
-
-### Soal 16  
-**PN: SC-DW-SYSTEM-16-A**  
-Uji linearitas sistem \(y[n]=x[n]+3\).  
-*(Bloom: Apply)*
-
----
-
-### Soal 17  
-**PN: SC-DW-SYSTEM-17-An**  
-Uji time-invariance sistem \(y[n]=x[-n]\).  
-*(Bloom: Analyze)*
-
----
-
-### Soal 18  
-**PN: SC-DW-SYSTEM-18-E**  
-Apakah sistem \(y[n]=\sum_{k=-\infty}^n x[k]\) stabil?  
-*(Bloom: Evaluate)*
-
----
-
-### Soal 19  
-**PN: SC-AD-19-An**  
-Analisis perbedaan transformasi waktu vs frekuensi.  
-*(Bloom: Analyze)*
-
----
-
-### Soal 20  
-**PN: SC-AD-20-C**  
-Rancang contoh sistem sederhana yang bersifat non-linear dan tidak kausal.  
-*(Bloom: Create)*
-```
-
-Mau saya simpan jadi file `.qmd` siap unduh?
+**PS_W1_P20_L4: Sifat Sinyal - Ekstraksi Komponen** Diberikan sinyal $x(t) = e^{-t} \cos(2t) u(t)$. Ekstraksi dan gambarlah komponen genap $x_e(t)$ dan komponen ganjil $x_o(t)$ dari $x(t)$.

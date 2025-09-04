@@ -1,15 +1,7 @@
-# Selamat Datang {.unnumbered}
-
-EL 2007 Sinyal dan Sistem
+# Petunjuk Belajar Mata Kuliah Sinyal dan Sistem {.unnumbered}
 
 
-Video Clip <https://www.youtube.com/playlist?list=PLgnoib8dkAOy1CnW9UXWDRpcdEpDVWfey>
-
-Berikut adalah petunjuk belajar komprehensif untuk mahasiswa yang mengambil mata kuliah Sinyal dan Sistem, dengan mengintegrasikan filosofi dan alat dari kerangka VALORAIZE Learning serta tips belajar umum dari sumber-sumber yang diberikan.
-
----
-
-### **Petunjuk Belajar Mata Kuliah Sinyal dan Sistem**
+**EL 2007 Sinyal dan Sistem**
 
 Selamat datang di mata kuliah Sinyal dan Sistem! Mata kuliah ini akan membekali Anda dengan fondasi penting dalam semua disiplin ilmu teknik, khususnya teknik elektro. Pendekatan pembelajaran kita akan didasarkan pada kerangka **VALORAIZE Learning**, yang berfokus pada **pembentukan sosok, karakter, dan pola pikir layaknya insinyur profesional**, bukan hanya penguasaan materi. Tujuannya adalah agar Anda tidak hanya memahami konsep, tetapi juga mampu **berpikir dan bertindak sebagai seorang insinyur profesional** saat menghadapi tantangan di dunia nyata.
 
@@ -17,7 +9,7 @@ Dosen akan berperan sebagai **fasilitator, pembimbing, dan teladan** dari profes
 
 Berikut adalah panduan belajar yang akan membantu Anda sukses dalam mata kuliah ini:
 
-#### **I. Fondasi VALORAIZE Learning: Membangun Keahlian Profesional**
+## **I. Fondasi VALORAIZE Learning: Membangun Keahlian Profesional**
 
 1. **Mengintegrasikan Pembuatan Peta Pengetahuan (Knowledge Maps)** Peta pengetahuan adalah inti dari metode belajar ini, membantu Anda memvisualisasikan, mengatur, dan mengintegrasikan informasi untuk pemahaman yang lebih dalam. Ada dua jenis peta pengetahuan yang wajib Anda kuasai:
     
@@ -63,7 +55,7 @@ Berikut adalah panduan belajar yang akan membantu Anda sukses dalam mata kuliah 
 6. **Membangun Portofolio Kuliah** Wajib membangun portofolio kuliah yang berisi dokumen karya hasil belajar dan tugas-tugas, ditautkan di blog pribadi Anda. Ini berfungsi sebagai refleksi atas pemahaman dan kesadaran metakognitif Anda.
     
 
-#### **II. Strategi Belajar Umum untuk Sinyal dan Sistem**
+## **II. Strategi Belajar Umum untuk Sinyal dan Sistem**
 
 1. **Kuasai Dasar-dasar Matematika** Mata kuliah ini memiliki konten matematika yang substansial. Pastikan Anda memiliki latar belakang yang kuat dalam **kalkulus, trigonometri, bilangan kompleks, dan aljabar linear**. Tinjau topik-topik ini secara cermat.
     

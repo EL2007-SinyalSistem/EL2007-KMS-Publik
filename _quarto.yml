@@ -10,7 +10,11 @@ book:
     - index.qmd
     - intro.qmd
     - kuliah/materi_1.qmd
+    - requirements/soal_1.qmd
+    - solusi/solusi_1.qmd
     - kuliah/materi_2.qmd
+    - requirements/soal_2.qmd
+    - solusi/solusi_2.qmd
     - summary.qmd
     - references.qmd
 

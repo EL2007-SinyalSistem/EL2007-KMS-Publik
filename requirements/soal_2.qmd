@@ -1,0 +1,44 @@
+# 20 Soal Latihan (Tanpa Solusi)
+
+Berikut adalah 20 soal latihan yang mencerminkan topik Deskripsi Sistem di Domain Waktu dan Sifat-sifat Sistem Dasar, beserta Nomor Produk yang mengindikasikan Topik, Level Taksonomi Bloom, dan Nomor Soal.
+
+**WK2-SP-B3-P01** Tentukan apakah sistem waktu kontinu yang dijelaskan oleh $y(t) = \int_{-\infty}^{t} x(\tau) d\tau$ adalah **linear**.
+
+**WK2-DE-B2-P02** Sistem waktu diskrit dijelaskan oleh persamaan beda $y[n] = 0.5y[n-1] + x[n]$. Identifikasi **orde** dari persamaan beda ini.
+
+**WK2-IR-B1-P03** Jelaskan **apa yang dimaksud dengan respon impuls** dari suatu sistem Linear Time-Invariant (LTI).
+
+**WK2-SP-B4-P04** Analisis apakah sistem waktu diskrit $y[n] = x[n] + n$ adalah **time-invariant**.
+
+**WK2-DE-B2-P05** Sebutkan dua contoh komponen fisik yang perilaku waktu kontinu LTI-nya dapat dijelaskan menggunakan **persamaan diferensial orde pertama**.
+
+**WK2-IR-B3-P06** Sebuah sistem memiliki respon impuls $h[n] = \delta[n] - \delta[n-1]$. Tentukan output sistem jika inputnya adalah $\delta[n]$.
+
+**WK2-SP-B3-P07** Periksa apakah sistem waktu kontinu $y(t) = x(t) \cdot \cos(\omega_0 t)$ adalah **kausal**.
+
+**WK2-DE-B2-P08** Berikan contoh **persamaan diferensial orde kedua** yang menggambarkan sistem LTI waktu kontinu.
+
+**WK2-SP-B5-P09** Evaluasi apakah sistem waktu diskrit $y[n] = \sum_{k=-\infty}^{n} x[k]$ memiliki **memori**. Justifikasikan jawaban Anda.
+
+**WK2-IR-B2-P10** Mengapa respon impuls penting dalam analisis sistem Linear Time-Invariant (LTI)? Jelaskan secara singkat.
+
+**WK2-SP-B3-P11** Tentukan apakah sistem waktu kontinu $y(t) = \frac{dx(t)}{dt}$ adalah **invertibel**. Jika ya, berikan sistem inversnya.
+
+**WK2-DE-B6-P12** Rancang persamaan beda orde pertama yang menggambarkan sistem waktu diskrit yang outputnya adalah rata-rata input saat ini dan input sebelumnya.
+
+**WK2-SP-B4-P13** Analisis stabilitas BIBO dari sistem waktu diskrit dengan respon impuls $h[n] = (0.9)^n u[n]$.
+
+**WK2-IR-B3-P14** Untuk sistem waktu diskrit $y[n] = x[n] + x[n-1]$, tentukan **respon impulsnya**.
+
+**WK2-SP-B3-P15** Periksa apakah sistem waktu kontinu $y(t) = x(t)/t$ adalah **linear**.
+
+**WK2-DE-B2-P16** Apa perbedaan utama antara **persamaan diferensial** dan **persamaan beda** dalam konteks representasi sistem?
+
+**WK2-SP-B4-P17** Analisis apakah sistem waktu diskrit $y[n] = x^2[n]$ adalah **linear**.
+
+**WK2-IR-B5-P18** Evaluasi bagaimana perubahan pada respon impuls $h(t)$ dapat memengaruhi sifat kausalitas suatu sistem LTI waktu kontinu.
+
+**WK2-SP-B3-P19** Tentukan apakah sistem waktu kontinu $y(t) = 2x(t-1)$ memiliki **memori**.
+
+**WK2-DE-B6-P20** Formulasikan persamaan diferensial yang menggambarkan sistem waktu kontinu LTI orde pertama yang menghasilkan output $y(t)$ ketika inputnya adalah $x(t)$ dan konstanta waktu sistem adalah $T$.
+
