@@ -1,0 +1,160 @@
+---
+title: "Latihan Minggu 1 – Sinyal & Sistem"
+subtitle: "EL2007 – Signals and Systems"
+format: 
+    revealjs :
+        revealjs-theme: simple
+
+    typst: 
+        keep-typ: true
+---
+
+# Latihan Minggu 1  
+## Sinyal & Sistem (EL2007)
+
+---
+
+## 📘 Soal dari Oppenheim
+
+### Soal 1  
+**PN: OP-DW-SIGNAL-01-R**  
+Sebutkan 4 contoh sinyal waktu-kontinu dasar.  
+*(Bloom: Remember)*
+
+---
+
+### Soal 2  
+**PN: OP-DW-SIGNAL-02-U**  
+Jelaskan sifat eksponensial kompleks \(e^{st}\).  
+*(Bloom: Understand)*
+
+---
+
+### Soal 3  
+**PN: OP-DW-SIGNAL-03-A**  
+Tentukan apakah \(x(t)=\sin(3t)+\cos(5t)\) periodik.  
+*(Bloom: Apply)*
+
+---
+
+### Soal 4  
+**PN: OP-DW-SIGNAL-04-A**  
+Hitung energi sinyal \(x(t)=e^{-t}u(t)\).  
+*(Bloom: Apply)*
+
+---
+
+### Soal 5  
+**PN: OP-DW-SYSTEM-05-A**  
+Uji linearitas sistem \(y(t)=[x(t)]^2\).  
+*(Bloom: Apply)*
+
+---
+
+### Soal 6  
+**PN: OP-DW-SYSTEM-06-A**  
+Uji kausalitas sistem \(y(t)=x(t-2)\).  
+*(Bloom: Apply)*
+
+---
+
+### Soal 7  
+**PN: OP-DW-SYSTEM-07-An**  
+Uji time-invariance sistem \(y(t)=t \cdot x(t)\).  
+*(Bloom: Analyze)*
+
+---
+
+### Soal 8  
+**PN: OP-DW-SYSTEM-08-E**  
+Apakah sistem \(y(t)=\int_{-\infty}^t x(\tau)\,d\tau\) stabil?  
+*(Bloom: Evaluate)*
+
+---
+
+### Soal 9  
+**PN: OP-AD-09-An**  
+Bandingkan representasi sinyal periodik di domain waktu vs domain frekuensi.  
+*(Bloom: Analyze)*
+
+---
+
+### Soal 10  
+**PN: OP-AD-10-C**  
+Buat representasi alternatif sinyal sinusoidal dalam domain kompleks.  
+*(Bloom: Create)*
+
+---
+
+## 📗 Soal dari Schaum’s Outline
+
+### Soal 11  
+**PN: SC-DW-SIGNAL-11-R**  
+Definisikan sinyal energi vs daya.  
+*(Bloom: Remember)*
+
+---
+
+### Soal 12  
+**PN: SC-DW-SIGNAL-12-U**  
+Apa arti penskalaan waktu \(x(at)\).  
+*(Bloom: Understand)*
+
+---
+
+### Soal 13  
+**PN: SC-DW-SIGNAL-13-A**  
+Tentukan apakah \(x[n]=(-1)^n\) periodik.  
+*(Bloom: Apply)*
+
+---
+
+### Soal 14  
+**PN: SC-DW-SIGNAL-14-A**  
+Sketsa \(x(t)=u(t)-u(t-2)\).  
+*(Bloom: Apply)*
+
+---
+
+### Soal 15  
+**PN: SC-DW-SIGNAL-15-A**  
+Hitung energi sinyal diskrit \(x[n]=(1/2)^n u[n]\).  
+*(Bloom: Apply)*
+
+---
+
+### Soal 16  
+**PN: SC-DW-SYSTEM-16-A**  
+Uji linearitas sistem \(y[n]=x[n]+3\).  
+*(Bloom: Apply)*
+
+---
+
+### Soal 17  
+**PN: SC-DW-SYSTEM-17-An**  
+Uji time-invariance sistem \(y[n]=x[-n]\).  
+*(Bloom: Analyze)*
+
+---
+
+### Soal 18  
+**PN: SC-DW-SYSTEM-18-E**  
+Apakah sistem \(y[n]=\sum_{k=-\infty}^n x[k]\) stabil?  
+*(Bloom: Evaluate)*
+
+---
+
+### Soal 19  
+**PN: SC-AD-19-An**  
+Analisis perbedaan transformasi waktu vs frekuensi.  
+*(Bloom: Analyze)*
+
+---
+
+### Soal 20  
+**PN: SC-AD-20-C**  
+Rancang contoh sistem sederhana yang bersifat non-linear dan tidak kausal.  
+*(Bloom: Create)*
+```
+
+Mau saya simpan jadi file `.qmd` siap unduh?
