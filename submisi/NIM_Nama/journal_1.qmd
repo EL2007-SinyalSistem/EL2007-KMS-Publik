@@ -4,7 +4,8 @@ subtitle: "Jurnal Belajar Minggu ke-X EL 2007"
 author: Nama dan NIM
 format: typst
 ---
-
+# Lognook
+		thap peana adalah mendwload tugas dari Github 
 
 # Petunjuk
 Dalam kerangka VALORAIZE Learning, sebuah **jurnal belajar reflektif** adalah produk pengetahuan krusial yang mendokumentasikan "perjuangan, kegagalan, dan terobosan" mahasiswa dalam proses belajar mereka. Jurnal ini berfungsi sebagai catatan kronologis pengalaman belajar yang membantu mahasiswa menemukan makna, menghubungkan materi, memahami lebih baik, dan menerapkan pengetahuan. Ini dirancang untuk mendorong pengembangan keterampilan metakognitif dan menumbuhkan pola pikir berkembang (growth mindset) serta ketahanan.
