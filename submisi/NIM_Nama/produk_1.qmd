@@ -209,7 +209,7 @@ Jawab:
     3. Terapkan operasi waktu pada argumen $t$:
         - Ubah $x(at-b)$ menjadi $x(a(t-b/a))$. Ini menunjukkan pergeseran waktu $t_0 = b/a$ dan penskalaan waktu $a$.
         - Terapkan **SWK_GeserWaktu** terlebih dahulu (geser $x(t)$ sebesar $b/a$) kemudian **SWK_SkalaWaktu** (penskalaan dengan $a$) pada sumbu waktu.
-        - Atau, terapkan **SWK_SkalaWaktu** terlebih dahulu (penskalaan dengan $a$) kemudian **SWK_GeserWaktu** (geser sebesar $b'$ pada sinyal berskala).
+        - Atau, terapkan **SWK_SkalaWaktu** terlebih dahulu (penskalaan dengan $a$) kemudian **SWK_GeserWaktu** (geser sebesar $b$ pada sinyal berskala).
         - Jika ada pembalikan waktu ($a<0$), lakukan setelah pergeseran.
     4. Hitung posisi baru titik-titik kritis dan sketsa sinyal $y(t)$.
 - **Kendaraan:** **K_VIS_PlotSinyal**, **SWK_GeserWaktu**, **SWK_SkalaWaktu**, **SWK_BalikWaktu**. **Heuristik:** "Menggambar Diagram", "Menyederhanakan Masalah" (menerapkan operasi satu per satu).
@@ -503,26 +503,26 @@ Jawab:
 
 Jawab
 
-Sip 👍. Berikut solusi semua soal **Problem Set Minggu 1** dengan semua formula matematis sudah dalam standar LaTeX `$...$`:
+Sip 👍. Berikut solusi semua soal **Problem Set Minggu 1** dengan semua formula matematis sudah dalam standar LaTeX $...$:
 
 ---
 
 ### PS_W1_P1_L1
 
 a) sinusoidal.  
-b) eksponensial menurun kausal `$2e^{-4t}u(t)$`.  
-c) impuls tergeser `$\delta(t-2)$`.  
-d) unit step tergeser ke kiri `$u(t+1)$`.  
-e) eksponensial termodifikasi `$t e^{-t}u(t)$` (poli-eksponensial).
+b) eksponensial menurun kausal $2e^{-4t}u(t)$.  
+c) impuls tergeser $\delta(t-2)$.  
+d) unit step tergeser ke kiri $u(t+1)$.  
+e) eksponensial termodifikasi $t e^{-t}u(t)$ (poli-eksponensial).
 
 ---
 
 ### PS_W1_P2_L2
 
-a) Periodik, `$T_0=2\pi$`.  
-b) Periodik, `$T_0=1$`.  
-c) Periodik, `$T_0=2\pi$`.  
-d) Aperiodik (karena dikali `$u(t)$`).
+a) Periodik, $T_0=2\pi$.  
+b) Periodik, $T_0=1$.  
+c) Periodik, $T_0=2\pi$.  
+d) Aperiodik (karena dikali $u(t)$).
 
 ---
 
@@ -530,129 +530,129 @@ d) Aperiodik (karena dikali `$u(t)$`).
 
 a) Energi (terhingga).  
 b) Daya (energi tak hingga, rata-rata daya terhingga).  
-c) Daya, `$P=\lim_{T\to\infty}\frac1{2T}\int_{-T}^T u^2(t)\,dt=\tfrac12$`.
+c) Daya, $P=\lim_{T\to\infty}\frac1{2T}\int_{-T}^T u^2(t)\,dt=\tfrac12$.
 
 ---
 
 ### PS_W1_P4_L2
 
-a) `$t\cos t$`: ganjil (ganjil × genap = ganjil).  
-b) `$t u(t)$`: bukan keduanya.
+a) $t\cos t$: ganjil (ganjil × genap = ganjil).  
+b) $t u(t)$: bukan keduanya.
 
 Decomposisi:  
-`$x_e(t)=\frac{x(t)+x(-t)}2=\frac{|t|}{2}$`,  
-`$x_o(t)=\frac{x(t)-x(-t)}2=\frac{t}{2}$`.
+$x_e(t)=\frac{x(t)+x(-t)}2=\frac{|t|}{2}$,  
+$x_o(t)=\frac{x(t)-x(-t)}2=\frac{t}{2}$.
 
-c) `$\sin^2 t=\tfrac12(1-\cos 2t)$`: genap.
+c) $\sin^2 t=\tfrac12(1-\cos 2t)$: genap.
 
 ---
 
 ### PS_W1_P5_L3
 
-- Asal: puncak di `$t=0$`, alas `[-1,1]`, tinggi 1.  
-    a) `$x(t-1)$`: geser kanan 1 → alas `[0,2]`, puncak `$t=1$`.  
-    b) `$x(2t)$`: kompresi 2× → alas `[-0.5,0.5]`.  
-    c) `$x(-t+2)$`: refleksi + geser kanan 2 → alas `[1,3]`, puncak `$t=2$`.  
-    d) `$x(t/2-1)$`: ekspansi 2× + geser kanan 2 → alas `[0,4]`, puncak `$t=2$`.
+- Asal: puncak di $t=0$, alas [-1,1], tinggi 1.  
+    a) $x(t-1)$: geser kanan 1 → alas [0,2], puncak $t=1$.  
+    b) $x(2t)$: kompresi 2× → alas [-0.5,0.5].  
+    c) $x(-t+2)$: refleksi + geser kanan 2 → alas [1,3], puncak $t=2$.  
+    d) $x(t/2-1)$: ekspansi 2× + geser kanan 2 → alas [0,4], puncak $t=2$.
     
 
 ---
 
 ### PS_W1_P6_L3
 
-a) `$y(t)=u(t)+u(t-1)=\begin{cases}0,&t<0\\1,&0\le t<1\\2,&t\ge1\end{cases}$`.  
-b) `$y(t)=u(t)u(t-1)=u(t-1)$`.  
-c) `$y(t)=u(t)-u(t-1)=\mathbf{1}_{[0,1)}(t)$`.
+a) $y(t)=u(t)+u(t-1)=\begin{cases}0,&t<0\\1,&0\le t<1\\2,&t\ge1\end{cases}$.  
+b) $y(t)=u(t)u(t-1)=u(t-1)$.  
+c) $y(t)=u(t)-u(t-1)=\mathbf{1}_{[0,1)}(t)$.
 
 ---
 
 ### PS_W1_P7_L3
 
-a) `$x(t)=u(t)-u(t-2)\ \Rightarrow\ x'(t)=\delta(t)-\delta(t-2)$`.  
-b) `$x(t)=t u(t)\ \Rightarrow\ x'(t)=u(t)+t\delta(t)$`.
+a) $x(t)=u(t)-u(t-2)\ \Rightarrow\ x'(t)=\delta(t)-\delta(t-2)$.  
+b) $x(t)=t u(t)\ \Rightarrow\ x'(t)=u(t)+t\delta(t)$.
 
 ---
 
 ### PS_W1_P8_L2
 
-a) `$x(t)+2x(t-1)$`: dengan memori.  
-b) `$x^2(t)$`: tanpa memori.  
-c) `$\int_{-\infty}^t x(\tau)\,d\tau$`: dengan memori.
+a) $x(t)+2x(t-1)$: dengan memori.  
+b) $x^2(t)$: tanpa memori.  
+c) $\int_{-\infty}^t x(\tau)\,d\tau$: dengan memori.
 
 ---
 
 ### PS_W1_P9_L2
 
-a) `$x(t+1)$`: non-kausal.  
-b) `$x(t)\cos t$`: kausal.  
-c) `$x(t-1)+x(t+1)$`: non-kausal.
+a) $x(t+1)$: non-kausal.  
+b) $x(t)\cos t$: kausal.  
+c) $x(t-1)+x(t+1)$: non-kausal.
 
 ---
 
 ### PS_W1_P10_L2
 
-a) `$y=2x$`: invertibel, invers `$x=\tfrac12 y$`.  
-b) `$y=x^2$`: non-invertibel.  
-c) `$y(t)=\int_{-\infty}^t x(\tau)\,d\tau$`: invertibel, invers `$x=dy/dt$`.
+a) $y=2x$: invertibel, invers $x=\tfrac12 y$.  
+b) $y=x^2$: non-invertibel.  
+c) $y(t)=\int_{-\infty}^t x(\tau)\,d\tau$: invertibel, invers $x=dy/dt$.
 
 ---
 
 ### PS_W1_P11_L3
 
-a) `$y=t\,x(t)$`: tidak stabil.  
+a) $y=t\,x(t)$: tidak stabil.  
 b) Integrator: tidak stabil.  
-c) `$y=e^{x(t)}$`: stabil.
+c) $y=e^{x(t)}$: stabil.
 
 ---
 
 ### PS_W1_P12_L3
 
-a) `$y=x+3$`: non-linear.  
-b) `$y=x(t^2)$`: linear (tapi bukan TI).  
-c) `$y=\frac{dx}{dt}$`: linear.
+a) $y=x+3$: non-linear.  
+b) $y=x(t^2)$: linear (tapi bukan TI).  
+c) $y=\frac{dx}{dt}$: linear.
 
 ---
 
 ### PS_W1_P13_L3
 
-a) `$y=x(t-t_0)$`: invarian waktu.  
-b) `$y=t\,x(t)$`: varian waktu.  
-c) `$y=\cos(2\pi t)x(t)$`: varian waktu.
+a) $y=x(t-t_0)$: invarian waktu.  
+b) $y=t\,x(t)$: varian waktu.  
+c) $y=\cos(2\pi t)x(t)$: varian waktu.
 
 ---
 
 ### PS_W1_P14_L4
 
-a) `$y=\frac{dx}{dt}$`: linear, TI, kausal, **tidak BIBO stabil**.  
-b) `$y=x(2t)$`: linear, TV, non-kausal, BIBO stabil.
+a) $y=\frac{dx}{dt}$: linear, TI, kausal, **tidak BIBO stabil**.  
+b) $y=x(2t)$: linear, TV, non-kausal, BIBO stabil.
 
 ---
 
 ### PS_W1_P15_L3
 
-`$x(t)=3e^{j(\pi t+\tfrac{\pi}{2})}=3\cos(\pi t+\tfrac{\pi}{2})+j\,3\sin(\pi t+\tfrac{\pi}{2})$`.
+$x(t)=3e^{j(\pi t+\tfrac{\pi}{2})}=3\cos(\pi t+\tfrac{\pi}{2})+j\,3\sin(\pi t+\tfrac{\pi}{2})$.
 
-Bagian real: `$3\cos(\pi t+\tfrac{\pi}{2})=-3\sin(\pi t)$`.
+Bagian real: $3\cos(\pi t+\tfrac{\pi}{2})=-3\sin(\pi t)$.
 
 ---
 
 ### PS_W1_P16_L4
 
-`$E=\int_{-\infty}^\infty e^{-2|t|}\,dt=2\int_0^\infty e^{-2t}\,dt=1$`.
+$E=\int_{-\infty}^\infty e^{-2|t|}\,dt=2\int_0^\infty e^{-2t}\,dt=1$.
 
 ---
 
 ### PS_W1_P17_L3
 
-`$x(t)=u(t-1)-u(t-3)$` → pulsa `[1,3)`.  
-`$y(t)=x(2t+2)$` aktif jika `$1\le 2t+2<3 \Rightarrow -\tfrac12\le t<\tfrac12$`.  
-Jadi `$y(t)=1$` pada `[-0.5,0.5)`, 0 selainnya.
+$x(t)=u(t-1)-u(t-3)$ → pulsa [1,3).  
+$y(t)=x(2t+2)$ aktif jika $1\le 2t+2<3 \Rightarrow -\tfrac12\le t<\tfrac12$.  
+Jadi $y(t)=1$ pada [-0.5,0.5), 0 selainnya.
 
 ---
 
 ### PS_W1_P18_L4
 
-`$y(t)=x(t)u(t)$`.  
+$y(t)=x(t)u(t)$.  
 a) kausal.  
 b) varian waktu.
 
@@ -660,17 +660,15 @@ b) varian waktu.
 
 ### PS_W1_P19_L3
 
-`$S_1: y_1=x(t-1)$`, lalu `$S_2: y=2y_1\Rightarrow y(t)=2x(t-1)$`.  
+$S_1: y_1=x(t-1)$, lalu $S_2: y=2y_1\Rightarrow y(t)=2x(t-1)$.  
 Linear & TI.
 
 ---
 
 ### PS_W1_P20_L4
 
-Dengan `$x(t)=e^{-t}\cos(2t)\,u(t)$`:  
-`$x_e(t)=\tfrac12(e^{-t}u(t)+e^t u(-t))\cos(2t)$`,  
-`$x_o(t)=\tfrac12(e^{-t}u(t)-e^t u(-t))\cos(2t)$`.
+Dengan $x(t)=e^{-t}\cos(2t)\,u(t)$:  
+$x_e(t)=\tfrac12(e^{-t}u(t)+e^t u(-t))\cos(2t)$,  
+$x_o(t)=\tfrac12(e^{-t}u(t)-e^t u(-t))\cos(2t)$.
 
 ---
-
-Apakah Bapak mau saya satukan jawaban ini ke dalam **file `.qmd`** (Quarto) supaya langsung siap dipakai untuk kuliah, atau cukup versi teks seperti ini saja?

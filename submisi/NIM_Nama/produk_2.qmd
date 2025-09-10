@@ -1,0 +1,90 @@
+---
+title: "Untitled"
+format: html
+---
+Siap. Berikut **solusi ringkas untuk 20 soal** dengan semua rumus berformat LaTeX diapit `$...$`.
+
+---
+
+### WK2-SP-B3-P01
+
+Sistem $y(t)=\displaystyle\int_{-\infty}^{t} x(\tau), d\tau$ **linear** (superposisi dan homogenitas terpenuhi).
+
+### WK2-DE-B2-P02
+
+$y[n]=0.5,y[n-1]+x[n]$ adalah **orde 1** (bergantung pada $y[n-1]$).
+
+### WK2-IR-B1-P03
+
+Respon impuls $h$ adalah **output sistem LTI saat input $\delta$**:  
+$y=x*h \iff y[n]=\sum_k h[k],x[n-k]$ (diskrit) atau $y(t)=\int h(\tau),x(t-\tau),d\tau$ (kontinu).
+
+### WK2-SP-B4-P04
+
+$y[n]=x[n]+n$ **time-varying** (tidak invarian waktu): uji geser $n_0$ memberi $y_1[n]=x[n-n_0]+n$, sedangkan $y[n-n_0]=x[n-n_0]+(n-n_0)\neq y_1[n]$.
+
+### WK2-DE-B2-P05 (contoh fisik orde-1)
+
+Misal: rangkaian **RC** ($\tau \dot v_C+v_C=v_{in}$) dan **RL** ($L\dot i + Ri = v_{in}$).
+
+### WK2-IR-B3-P06
+
+Jika $h[n]=\delta[n]-\delta[n-1]$ dan input $\delta[n]$, maka $y[n]=h[n]*\delta[n]=h[n]=\delta[n]-\delta[n-1]$.
+
+### WK2-SP-B3-P07
+
+$y(t)=x(t)\cos(\omega_0 t)$ **kausal** (hanya bergantung pada $x$ di saat $t$).
+
+### WK2-DE-B2-P08 (contoh orde-2)
+
+$\displaystyle \ddot y(t)+2\zeta\omega_n \dot y(t)+\omega_n^2 y(t)=\omega_n^2 x(t)$.
+
+### WK2-SP-B5-P09
+
+$y[n]=\displaystyle\sum_{k=-\infty}^{n} x[k]$ **bermemori** (output saat $n$ tergantung banyak sampel lampau $x[k]$).
+
+### WK2-IR-B2-P10
+
+$h$ itu **mencirikan penuh** sistem LTI: untuk sembarang $x$, $y=x*h$; analisis stabilitas/kausalitas juga lewat $h$ (mis. $\sum|h[n]|<\infty$ untuk BIBO).
+
+### WK2-SP-B3-P11
+
+$y(t)=\dfrac{dx}{dt}$ **invertibel dengan asumsi kondisi awal nol** (mis. $x(-\infty)=0$). Invers:  
+$\displaystyle x(t)=\int_{-\infty}^{t} y(\tau),d\tau$.
+
+### WK2-DE-B6-P12 (rata-rata $x[n]$ dan $x[n-1]$)
+
+Persamaan beda (FIR orde-1): $y[n]=\dfrac{1}{2}x[n]+\dfrac{1}{2}x[n-1]$  
+(setara $h[n]=\tfrac12\delta[n]+\tfrac12\delta[n-1]$).
+
+### WK2-SP-B4-P13
+
+Dengan $h[n]=(0.9)^n u[n]$, $\sum_{n=0}^{\infty}|h[n]|=\sum_{n=0}^{\infty}(0.9)^n=\dfrac{1}{1-0.9}=10<\infty$ ⇒ **BIBO stabil**.
+
+### WK2-IR-B3-P14
+
+Untuk $y[n]=x[n]+x[n-1]$, respon impuls: $h[n]=\delta[n]+\delta[n-1]$.
+
+### WK2-SP-B3-P15
+
+$y(t)=\dfrac{x(t)}{t}$ **linear** untuk domain $t\neq 0$ (operator perkalian oleh fungsi waktu). Catatan: tidak terdefinisi di $t=0$ dan **time-varying**.
+
+### WK2-DE-B2-P16 (beda utama)
+
+Persamaan **diferensial** (kontinu) memakai turunan ($\dot y,\ddot y$), sedangkan persamaan **beda** (diskrit) memakai pergeseran indeks ($y[n-1],y[n-2]$). Keduanya memodelkan sistem LTI di ranahnya.
+
+### WK2-SP-B4-P17
+
+$y[n]=x^2[n]$ **nonlinear** (homogenitas/superposisi tidak berlaku).
+
+### WK2-IR-B5-P18 (kausalitas vs $h(t)$)
+
+Sistem LTI **kausal** $\iff h(t)=0$ untuk $t<0$. Mengubah $h$ sehingga ada bagian $t<0$ ⇒ **non-kausal**; menggeser ke kanan $h(t-t_0)$ dengan $t_0>0$ tetap kausal.
+
+### WK2-SP-B3-P19
+
+$y(t)=2x(t-1)$ **bermemori** (bergantung pada nilai lampau input).
+
+### WK2-DE-B6-P20 (orde-1, konstanta waktu $T$)
+
+Model standar: $T,\dfrac{dy(t)}{dt}+y(t)=x(t)$ (LTI orde-1, time constant $T$).
