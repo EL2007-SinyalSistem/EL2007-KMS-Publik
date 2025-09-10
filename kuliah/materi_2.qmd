@@ -1,0 +1,110 @@
+# Materi Kuliah Minggu 2: Deskripsi Sistem di Domain Waktu dan Sifat-sifat Dasarnya
+
+Pada minggu ini, kita akan menjelajahi bagaimana sinyal dan sistem dapat digambarkan dan diklasifikasikan berdasarkan perilaku mereka di domain waktu. Pemahaman dasar ini sangat penting sebagai fondasi untuk analisis sistem yang lebih kompleks.
+
+**1. Sinyal Waktu Kontinu dan Waktu Diskrit** Sinyal adalah fenomena fisik apa pun yang membawa informasi.
+
+- **Sinyal Waktu Kontinu (Continuous-Time Signals):** Sinyal yang didefinisikan untuk setiap nilai waktu kontinu $t$. Contohnya gelombang suara, tegangan pada rangkaian listrik.
+- **Sinyal Waktu Diskrit (Discrete-Time Signals):** Sinyal yang hanya didefinisikan pada interval waktu diskrit tertentu. Contohnya urutan sampel digital dari sinyal analog.
+
+**2. Sistem Waktu Kontinu dan Waktu Diskrit** Sistem dapat memproses sinyal, mengubah satu sinyal input menjadi sinyal output.
+
+- **Sistem Waktu Kontinu:** Sistem yang mengambil sinyal waktu kontinu sebagai input dan menghasilkan sinyal waktu kontinu sebagai output.
+- **Sistem Waktu Diskrit:** Sistem yang mengambil sinyal waktu diskrit sebagai input dan menghasilkan sinyal waktu diskrit sebagai output.
+
+**3. Representasi Matematis Sistem di Domain Waktu** Sistem dapat dijelaskan secara matematis melalui berbagai bentuk:
+
+- **Persamaan Diferensial (Continuous-Time Systems):** Banyak sistem fisik waktu kontinu, seperti rangkaian listrik atau sistem mekanik, dapat dimodelkan menggunakan persamaan diferensial linear koefisien konstan (Linear Constant-Coefficient Differential Equations). Misalnya, sistem LTI yang umum dapat dijelaskan oleh persamaan diferensial $d^Ny(t)/dt^N + \sum_{k=0}^{N-1} a_k d^ky(t)/dt^k = \sum_{k=0}^{M} b_k d^kx(t)/dt^k$.
+- **Persamaan Beda (Difference Equations) (Discrete-Time Systems):** Sistem waktu diskrit sering dijelaskan oleh persamaan beda linear koefisien konstan (Linear Constant-Coefficient Difference Equations).
+- **Respon Impuls (Impulse Response):** Karakteristik fundamental dari sistem LTI adalah responnya terhadap sinyal impuls unit (unit impulse function). Respon impuls, $h(t)$ untuk CT atau $h[n]$ untuk DT, sepenuhnya mengkarakterisasi perilaku sistem LTI. Ini memungkinkan kita untuk menghitung output sistem untuk input apa pun melalui operasi konvolusi (yang akan dibahas lebih detail di minggu berikutnya).
+
+**4. Sifat-sifat Sistem Dasar** Sistem dapat diklasifikasikan berdasarkan sifat-sifat fundamentalnya:
+
+- **Sistem dengan dan tanpa Memori (Memory vs. Memoryless Systems):**
+    - **Sistem tanpa Memori (Memoryless System):** Output sistem pada waktu tertentu hanya bergantung pada input pada waktu yang sama. Contoh: $y(t) = 2x(t)$.
+    - **Sistem dengan Memori (System with Memory):** Output sistem pada waktu tertentu bergantung pada input dari waktu lampau atau masa depan. Contoh: $y(t) = \int_{-\infty}^{t} x(\tau)d\tau$.
+- **Kausalitas (Causality):**
+    - **Sistem Kausal (Causal System):** Output sistem pada waktu tertentu hanya bergantung pada input pada waktu sekarang dan waktu lampau. Sistem fisik harus kausal.
+    - **Sistem Non-Kausal (Non-causal System):** Output bergantung pada input di masa depan.
+- **Invertibilitas (Invertibility):** Sistem dikatakan _invertible_ jika inputnya dapat ditentukan secara unik dari outputnya. Artinya, ada sistem invers yang, jika dikaskadekan dengan sistem asli, akan menghasilkan input asli sebagai output.
+- **Stabilitas BIBO (Bounded-Input Bounded-Output Stability):**
+    - **Sistem Stabil BIBO:** Sebuah sistem dikatakan stabil BIBO jika setiap input yang terbatas (bounded input) menghasilkan output yang terbatas (bounded output). Untuk sistem LTI, stabilitas BIBO terjamin jika respon impulsnya dapat diintegrasikan secara absolut ($\sum |h[n]| < \infty$ untuk DT atau $\int |h(t)| dt < \infty$ untuk CT).
+- **Invariansi Waktu (Time-Invariance):** Sistem dikatakan _time-invariant_ jika perilaku dan karakteristiknya tidak berubah seiring waktu. Artinya, pergeseran waktu pada input akan menghasilkan pergeseran waktu yang sama pada output.
+- **Linearitas (Linearity):** Sistem dikatakan _linear_ jika memenuhi prinsip superposisi, yaitu homogenitas (perkalian input dengan konstanta menghasilkan output yang dikalikan konstanta yang sama) dan aditivitas (respon terhadap jumlah input adalah jumlah respon terhadap masing-masing input secara terpisah).
+
+Pemahaman yang kuat tentang sifat-sifat ini sangat penting untuk menganalisis dan merancang sistem yang berperilaku sesuai keinginan.
+
+---
+
+## Peta Pengetahuan Primitif (Primitive Knowledge Map) Minggu 2: Deskripsi Sistem di Domain Waktu
+
+Peta ini bertujuan untuk mengorganisir pengetahuan deklaratif (fakta dan definisi) dan membantu melihat gambaran besar serta interkonektivitas antar konsep.
+
+**Node Utama:**
+
+- **SISTEM & SINYAL (UTAMA)**
+    - **SINYAL**
+        - Sinyal Waktu Kontinu (WK)
+        - Sinyal Waktu Diskrit (WD)
+    - **SISTEM**
+        - Sistem Waktu Kontinu (WK)
+        - Sistem Waktu Diskrit (WD)
+        - Representasi Sistem DW (Domain Waktu)
+            - Persamaan Diferensial (PD)
+            - Persamaan Beda (PB)
+            - Respon Impuls (h(t) / h[n])
+        - Sifat Sistem
+            - Memori
+                - Tanpa Memori
+                - Dengan Memori
+            - Kausalitas
+                - Kausal
+                - Non-Kausal
+            - Invertibilitas
+                - Invertibel
+                - Tidak Invertibel
+            - Stabilitas BIBO
+                - Stabil BIBO
+                - Tidak Stabil BIBO
+            - Invariansi Waktu
+                - Time-Invariant
+                - Time-Varying
+            - Linearitas
+                - Linear
+                - Non-Linear
+                - Prinsip Superposisi
+
+**Hubungan (Edges) dan Label:**
+
+- SISTEM & SINYAL --**MODELKAN_SBG**--> SINYAL WK; SINYAL WD
+- SISTEM & SINYAL --**MODELKAN_SBG**--> SISTEM WK; SISTEM WD
+- SISTEM --**DICIRIKAN_OLEH**--> Representasi Sistem DW
+- Representasi Sistem DW --**MELIPUTI**--> Persamaan Diferensial (PD); Persamaan Beda (PB); Respon Impuls
+- PD --**UTK**--> SISTEM WK
+- PB --**UTK**--> SISTEM WD
+- Respon Impuls --**DEFINISIKAN**--> Sistem LTI (implisit, karena sangat relevan untuk LTI)
+- SISTEM --**DICIRIKAN_OLEH**--> Sifat Sistem
+- Sifat Sistem --**MELIPUTI**--> Memori; Kausalitas; Invertibilitas; Stabilitas BIBO; Invariansi Waktu; Linearitas
+- Memori --**JENIS_DARI**--> Tanpa Memori; Dengan Memori
+- Kausalitas --**JENIS_DARI**--> Kausal; Non-Kausal
+- Invertibilitas --**JENIS_DARI**--> Invertibel; Tidak Invertibel
+- Stabilitas BIBO --**JENIS_DARI**--> Stabil BIBO; Tidak Stabil BIBO
+- Invariansi Waktu --**JENIS_DARI**--> Time-Invariant; Time-Varying
+- Linearitas --**JENIS_DARI**--> Linear; Non-Linear
+- Linearitas --**MELIPUTI**--> Prinsip Superposisi
+- Sistem LTI --**STABIL_JIKA**--> $\int |h(t)| dt < \infty$ atau $\sum |h[n]| < \infty$
+
+**Struktur Visual:** Hierarkis, dengan "SISTEM & SINYAL (UTAMA)" sebagai node pusat, bercabang ke "SINYAL" dan "SISTEM", kemudian merinci sub-topik di bawahnya.
+
+## Kendaraan yang Diperlukan untuk Peta Pengetahuan Primitif:
+
+Untuk membangun dan memahami Peta Pengetahuan Primitif ini, kendaraan-kendaraan berikut sangat penting:
+
+- **K_MAT_Aljabar:** Untuk memanipulasi ekspresi matematis dan persamaan.
+- **K_MAT_Kalkulus:** Untuk memahami persamaan diferensial, integral, dan derivatif.
+- **K_MAT_Bilangan_Kompleks:** Untuk memahami sinyal eksponensial kompleks (meskipun detailnya akan lebih mendalam di bab selanjutnya).
+- **K_VIS_PlotSinyal:** Untuk merepresentasikan sinyal waktu kontinu dan diskrit secara grafis.
+- **K_OPS_Definisi:** Untuk memahami dan menyatakan definisi-definisi kunci dari berbagai sifat sistem dan konsep sinyal.
+- **K_OPS_Klasifikasi:** Untuk mengkategorikan sinyal dan sistem berdasarkan propertinya.
+- **K_OPS_Representasi_Matematis:** Untuk menuliskan persamaan diferensial, persamaan beda, dan ekspresi respon impuls.
+

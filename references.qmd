@@ -1,0 +1,15 @@
+# References {.unnumbered}
+
+Berikut adalah daftar rujukan berdasarkan informasi yang diberikan dalam sumber Anda:
+
+1. Adams, M. D. (2012–2020). _Signals and Systems_ (Edition 3.0). Michael D. Adams.
+2. Boulet, B. (2005). _Fundamentals of signals and systems_. CHARLES RIVER MEDIA.
+3. Hsu, H. (n.d.). _Schaum's Outline of Signals and Systems_ (2nd ed.). (Diidentifikasi dari nama file sumber: "signals-and-systems-2nd-edition-schaums-outline-series-hwei-hsu.pdf").
+4. Johan, M. C., & Langi, A. Z. R. (n.d.). _VALORAIZE Learning: Kerangka Pembelajaran Inovatif Berbasis Peta Pengetahuan dan Ekosistem Penilaian Dinamis untuk Pendidikan Teknik_. (Dalam sumber ini juga dirujuk sebagai "Valoraize.pdf").
+5. Johan, M. C., & Langi, A. Z. R. (n.d.). _The VALORAIZE Architecture: A Pedagogical Framework for Cultivating Expert Cognition in the AI Era_.. (Merujuk pada "VALORAIZE Learning: Ringkasan dan Analisis").
+6. Muriel, M. A. (n.d.). _Signals and Systems: Introduction_. (Diidentifikasi dari judul dan penulis dalam sumber).
+7. Oppenheim, A. V., Willsky, A. S., & Hamid, S. (1996). _Signals and Systems_. Prentice Hall.
+8. Oppenheim, A. V. (n.d.). _Solutions: Signals and Systems_ (2nd ed.). (Diidentifikasi dari nama file sumber: "Oppenheim-Solutions-Signals-And-Systems-2E-www.dbs85.tk.pdf").
+9. RPS. (n.d.). _Rencana Pembelajaran Satu Semester (EL2007)_. (Dokumen perencanaan semester).
+10. _Signal-System-text-book-9.pdf_. (n.d.). (Buku teks tanpa informasi pengarang atau penerbit dalam kutipan).
+11. _SIGNALS & SYSTEMS.pdf_. (n.d.). (Dokumen ringkasan tanpa informasi pengarang atau penerbit dalam kutipan).
