@@ -2,8 +2,58 @@
 title: "Untitled"
 format: html
 ---
-Siap. Berikut **solusi ringkas untuk 20 soal** dengan semua rumus berformat LaTeX diapit `$...$`.
+## Soal Latihan
 
+Berikut adalah 20 soal latihan yang mencerminkan topik Deskripsi Sistem di Domain Waktu dan Sifat-sifat Sistem Dasar, beserta Nomor Produk yang mengindikasikan Topik, Level Taksonomi Bloom, dan Nomor Soal.
+
+**WK2-SP-B3-P01** Tentukan apakah sistem waktu kontinu yang dijelaskan oleh $y(t) = \int_{-\infty}^{t} x(\tau) d\tau$ adalah **linear**.
+
+**WK2-DE-B2-P02** Sistem waktu diskrit dijelaskan oleh persamaan beda $y[n] = 0.5y[n-1] + x[n]$. Identifikasi **orde** dari persamaan beda ini.
+
+**WK2-IR-B1-P03** Jelaskan **apa yang dimaksud dengan respon impuls** dari suatu sistem Linear Time-Invariant (LTI).
+
+**WK2-SP-B4-P04** Analisis apakah sistem waktu diskrit $y[n] = x[n] + n$ adalah **time-invariant**.
+
+**WK2-DE-B2-P05** Sebutkan dua contoh komponen fisik yang perilaku waktu kontinu LTI-nya dapat dijelaskan menggunakan **persamaan diferensial orde pertama**.
+
+**WK2-IR-B3-P06** Sebuah sistem memiliki respon impuls $h[n] = \delta[n] - \delta[n-1]$. Tentukan output sistem jika inputnya adalah $\delta[n]$.
+
+**WK2-SP-B3-P07** Periksa apakah sistem waktu kontinu $y(t) = x(t) \cdot \cos(\omega_0 t)$ adalah **kausal**.
+
+**WK2-DE-B2-P08** Berikan contoh **persamaan diferensial orde kedua** yang menggambarkan sistem LTI waktu kontinu.
+
+**WK2-SP-B5-P09** Evaluasi apakah sistem waktu diskrit $y[n] = \sum_{k=-\infty}^{n} x[k]$ memiliki **memori**. Justifikasikan jawaban Anda.
+
+**WK2-IR-B2-P10** Mengapa respon impuls penting dalam analisis sistem Linear Time-Invariant (LTI)? Jelaskan secara singkat.
+
+**WK2-SP-B3-P11** Tentukan apakah sistem waktu kontinu $y(t) = \frac{dx(t)}{dt}$ adalah **invertibel**. Jika ya, berikan sistem inversnya.
+
+**WK2-DE-B6-P12** Rancang persamaan beda orde pertama yang menggambarkan sistem waktu diskrit yang outputnya adalah rata-rata input saat ini dan input sebelumnya.
+
+**WK2-SP-B4-P13** Analisis stabilitas BIBO dari sistem waktu diskrit dengan respon impuls $h[n] = (0.9)^n u[n]$.
+
+**WK2-IR-B3-P14** Untuk sistem waktu diskrit $y[n] = x[n] + x[n-1]$, tentukan **respon impulsnya**.
+
+**WK2-SP-B3-P15** Periksa apakah sistem waktu kontinu $y(t) = x(t)/t$ adalah **linear**.
+
+**WK2-DE-B2-P16** Apa perbedaan utama antara **persamaan diferensial** dan **persamaan beda** dalam konteks representasi sistem?
+
+**WK2-SP-B4-P17** Analisis apakah sistem waktu diskrit $y[n] = x^2[n]$ adalah **linear**.
+
+**WK2-IR-B5-P18** Evaluasi bagaimana perubahan pada respon impuls $h(t)$ dapat memengaruhi sifat kausalitas suatu sistem LTI waktu kontinu.
+
+**WK2-SP-B3-P19** Tentukan apakah sistem waktu kontinu $y(t) = 2x(t-1)$ memiliki **memori**.
+
+**WK2-DE-B6-P20** Formulasikan persamaan diferensial yang menggambarkan sistem waktu kontinu LTI orde pertama yang menghasilkan output $y(t)$ ketika inputnya adalah $x(t)$ dan konstanta waktu sistem adalah $T$.
+
+-----
+jalan
+
+
+----
+
+Siap. Berikut **solusi ringkas untuk 20 soal** dengan semua rumus berformat LaTeX diapit `$...$`.
+JAWAB
 ---
 
 ### WK2-SP-B3-P01
@@ -88,3 +138,577 @@ $y(t)=2x(t-1)$ **bermemori** (bergantung pada nilai lampau input).
 ### WK2-DE-B6-P20 (orde-1, konstanta waktu $T$)
 
 Model standar: $T,\dfrac{dy(t)}{dt}+y(t)=x(t)$ (LTI orde-1, time constant $T$).
+
+## Solusi
+
+**Peta Pengetahuan Aplikatif dan Solusi untuk Setiap Soal**
+
+Berikut adalah peta pengetahuan aplikatif untuk setiap soal di atas, beserta solusinya menggunakan pendekatan peta tersebut.
+
+
+
+**Soal 1:** Tentukan apakah sistem waktu kontinu yang dijelaskan oleh $y(t) = \int_{-\infty}^{t} x(\tau) d\tau$ adalah **linear**. **Nomor Produk:** WK2-SP-B3-P01
+
+**Peta Pemecahan Masalah WK2-SP-B3-P01**
+
+- **Titik Mulai:** Sistem $y(t) = \int_{-\infty}^{t} x(\tau) d\tau$.
+- **Titik Akhir:** Kesimpulan apakah sistem tersebut linear atau tidak.
+- **Rute Pemecahan Masalah:**
+    1. Mengingat definisi linearitas (prinsip superposisi: aditivitas dan homogenitas).
+    2. Menguji sifat aditivitas: Masukkan dua input $x_1(t)$ dan $x_2(t)$, dan periksa apakah $T(x_1(t)+x_2(t)) = T(x_1(t)) + T(x_2(t))$.
+    3. Menguji sifat homogenitas: Masukkan input $ax(t)$ (di mana $a$ adalah konstanta), dan periksa apakah $T(ax(t)) = aT(x(t))$.
+    4. Jika kedua sifat terpenuhi, sistem adalah linear.
+- **Kendaraan:**
+    - K_OPS_Definisi: Definisi Linearitas (Aditivitas & Homogenitas).
+    - K_MAT_Kalkulus: Operasi Integral.
+    - K_MAT_Aljabar: Manipulasi Persamaan.
+
+**Solusi WK2-SP-B3-P01:**
+
+1. **Definisi Linearitas:** Sistem linear harus memenuhi aditivitas dan homogenitas.
+2. **Uji Aditivitas:**
+    - Misalkan input $x_1(t) \rightarrow y_1(t) = \int_{-\infty}^{t} x_1(\tau) d\tau$.
+    - Misalkan input $x_2(t) \rightarrow y_2(t) = \int_{-\infty}^{t} x_2(\tau) d\tau$.
+    - Input gabungan $x_g(t) = x_1(t) + x_2(t)$.
+    - Output $y_g(t) = \int_{-\infty}^{t} (x_1(\tau) + x_2(\tau)) d\tau = \int_{-\infty}^{t} x_1(\tau) d\tau + \int_{-\infty}^{t} x_2(\tau) d\tau = y_1(t) + y_2(t)$.
+    - Aditivitas terpenuhi.
+3. **Uji Homogenitas:**
+    - Misalkan input $x_a(t) = a x(t)$.
+    - Output $y_a(t) = \int_{-\infty}^{t} (a x(\tau)) d\tau = a \int_{-\infty}^{t} x(\tau) d\tau = a y(t)$.
+    - Homogenitas terpenuhi.
+
+**Kesimpulan:** Karena kedua sifat (aditivitas dan homogenitas) terpenuhi, sistem $y(t) = \int_{-\infty}^{t} x(\tau) d\tau$ adalah **linear**.
+
+
+
+**Soal 2:** Sistem waktu diskrit dijelaskan oleh persamaan beda $y[n] = 0.5y[n-1] + x[n]$. Identifikasi **orde** dari persamaan beda ini. **Nomor Produk:** WK2-DE-B2-P02
+
+**Peta Pemecahan Masalah WK2-DE-B2-P02**
+
+- **Titik Mulai:** Persamaan beda $y[n] = 0.5y[n-1] + x[n]$.
+- **Titik Akhir:** Orde dari persamaan beda.
+- **Rute Pemecahan Masalah:**
+    1. Mengingat definisi orde persamaan beda (perbedaan waktu maksimum antara indeks output).
+    2. Identifikasi indeks output dalam persamaan.
+    3. Identifikasi indeks output yang terlambat dalam persamaan.
+    4. Hitung perbedaan antara indeks output saat ini dan indeks output yang terlambat.
+- **Kendaraan:**
+    - K_OPS_Definisi: Definisi Orde Persamaan Beda.
+    - K_MAT_Aljabar: Identifikasi Indeks.
+
+**Solusi WK2-DE-B2-P02:**
+
+1. **Definisi Orde Persamaan Beda:** Orde persamaan beda adalah perbedaan maksimum antara indeks waktu dari variabel output dalam persamaan.
+2. Dalam persamaan $y[n] = 0.5y[n-1] + x[n]$:
+    - Output saat ini adalah $y[n]$.
+    - Output yang terlambat (delay) adalah $y[n-1]$.
+3. Perbedaan antara indeks waktu output saat ini dan output yang paling terlambat adalah $n - (n-1) = 1$.
+
+**Kesimpulan:** Orde dari persamaan beda ini adalah **1** (orde pertama).
+
+
+
+**Soal 3:** Jelaskan **apa yang dimaksud dengan respon impuls** dari suatu sistem Linear Time-Invariant (LTI). **Nomor Produk:** WK2-IR-B1-P03
+
+**Peta Pemecahan Masalah WK2-IR-B1-P03**
+
+- **Titik Mulai:** Permintaan definisi respon impuls sistem LTI.
+- **Titik Akhir:** Penjelasan yang jelas tentang respon impuls.
+- **Rute Pemecahan Masalah:**
+    1. Mengingat definisi sinyal impuls unit (delta Dirac/Kronecker).
+    2. Mengingat bagaimana input ini diterapkan ke sistem LTI.
+    3. Menganalisis output yang dihasilkan dari input ini sebagai respon impuls.
+- **Kendaraan:**
+    - K_OPS_Definisi: Definisi Sinyal Impuls Unit.
+    - K_OPS_Definisi: Definisi Respon Impuls.
+    - K_OPS_Klasifikasi: Sistem LTI.
+
+**Solusi WK2-IR-B1-P03:**
+
+1. **Sinyal Impuls Unit:** Sinyal impuls unit, dilambangkan sebagai $\delta(t)$ untuk waktu kontinu atau $\delta[n]$ untuk waktu diskrit, adalah sinyal ideal yang memiliki durasi sangat singkat (atau hanya satu titik waktu) dan luas area (atau nilai) satu.
+2. **Penerapan ke Sistem LTI:** Ketika sinyal impuls unit ini diterapkan sebagai input ke sistem Linear Time-Invariant (LTI), yaitu $x(t) = \delta(t)$ atau $x[n] = \delta[n]$.
+3. **Output yang Dihasilkan:** Output sistem LTI yang dihasilkan dari input impuls unit inilah yang disebut sebagai **respon impuls**. Respon impuls, dilambangkan sebagai $h(t)$ atau $h[n]$, secara unik mengkarakterisasi sistem LTI dan dapat digunakan untuk menemukan output untuk input arbitrer melalui operasi konvolusi.
+
+**Kesimpulan:** Respon impuls dari sistem LTI adalah **output sistem ketika inputnya adalah sinyal impuls unit**.
+
+
+
+**Soal 4:** Analisis apakah sistem waktu diskrit $y[n] = x[n] + n$ adalah **time-invariant**. **Nomor Produk:** WK2-SP-B4-P04
+
+**Peta Pemecahan Masalah WK2-SP-B4-P04**
+
+- **Titik Mulai:** Sistem $y[n] = x[n] + n$.
+- **Titik Akhir:** Kesimpulan apakah sistem time-invariant atau tidak.
+- **Rute Pemecahan Masalah:**
+    1. Mengingat definisi time-invariance.
+    2. Tentukan respon sistem terhadap input $x[n]$ sebagai $y[n]$.
+    3. Tentukan respon sistem terhadap input yang digeser waktu $x[n-n_0]$ sebagai $y_{shifted}[n]$.
+    4. Geser output awal $y[n]$ dengan jumlah yang sama $n_0$, menghasilkan $y[n-n_0]$.
+    5. Bandingkan $y_{shifted}[n]$ dan $y[n-n_0]$. Jika keduanya sama, sistem adalah time-invariant.
+- **Kendaraan:**
+    - K_OPS_Definisi: Definisi Time-Invariance.
+    - K_MAT_Aljabar: Substitusi dan Perbandingan Ekspresi.
+
+**Solusi WK2-SP-B4-P04:**
+
+1. **Definisi Time-Invariance:** Sebuah sistem adalah time-invariant jika pergeseran waktu pada input menghasilkan pergeseran waktu yang sama pada output.
+2. **Output Asli:** Untuk input $x[n]$, outputnya adalah $y[n] = x[n] + n$.
+3. **Input Digeser Waktu:** Misalkan input digeser adalah $x'[n] = x[n-n_0]$.
+    - Output sistem terhadap input yang digeser adalah $y'[n] = x'[n] + n = x[n-n_0] + n$.
+4. **Output Asli Digeser Waktu:** Pergeseran waktu pada output asli $y[n]$ adalah $y[n-n_0] = x[n-n_0] + (n-n_0)$.
+5. **Perbandingan:**
+    - $y'[n] = x[n-n_0] + n$
+    - $y[n-n_0] = x[n-n_0] + n - n_0$
+    - Jelas, $y'[n] \neq y[n-n_0]$ karena adanya $n_0$ pada $y[n-n_0]$. Koefisien $n$ di $x[n]+n$ menyebabkan sistem menjadi time-varying.
+
+**Kesimpulan:** Sistem $y[n] = x[n] + n$ **tidak time-invariant** (time-varying).
+
+
+
+**Soal 5:** Sebutkan dua contoh komponen fisik yang perilaku waktu kontinu LTI-nya dapat dijelaskan menggunakan **persamaan diferensial orde pertama**. **Nomor Produk:** WK2-DE-B2-P05
+
+**Peta Pemecahan Masalah WK2-DE-B2-P05**
+
+- **Titik Mulai:** Permintaan dua contoh komponen fisik yang dimodelkan oleh PD orde pertama LTI.
+- **Titik Akhir:** Dua contoh komponen fisik.
+- **Rute Pemecahan Masalah:**
+    1. Mengingat sistem fisik dasar yang memiliki dinamika orde pertama.
+    2. Identifikasi hubungan input-output yang melibatkan turunan pertama.
+    3. Verifikasi bahwa model tersebut LTI.
+- **Kendaraan:**
+    - K_OPS_Klasifikasi: Klasifikasi Sistem Fisik.
+    - K_OPS_Representasi_Matematis: Persamaan Diferensial.
+    - K_OPS_Definisi: LTI.
+
+**Solusi WK2-DE-B2-P05:**
+
+1. **Rangkaian RC (Resistor-Capacitor):**
+    - Input: Tegangan sumber $v_s(t)$. Output: Tegangan kapasitor $v_c(t)$.
+    - Persamaan diferensial: $RC \frac{dv_c(t)}{dt} + v_c(t) = v_s(t)$. Ini adalah persamaan diferensial orde pertama. Resistor dan kapasitor adalah elemen linear, dan nilainya biasanya konstan, sehingga rangkaian ini LTI.
+2. **Rangkaian RL (Resistor-Inductor):**
+    - Input: Tegangan sumber $v_s(t)$. Output: Arus induktor $i_L(t)$.
+    - Persamaan diferensial: $L \frac{di_L(t)}{dt} + R i_L(t) = v_s(t)$. Ini juga merupakan persamaan diferensial orde pertama, dan karena elemennya linear dan nilainya konstan, rangkaian ini LTI.
+
+**Kesimpulan:** Dua contoh komponen fisik yang perilaku waktu kontinu LTI-nya dapat dijelaskan menggunakan persamaan diferensial orde pertama adalah **rangkaian RC dan rangkaian RL**.
+
+
+
+**Soal 6:** Sebuah sistem memiliki respon impuls $h[n] = \delta[n] - \delta[n-1]$. Tentukan output sistem jika inputnya adalah $\delta[n]$. **Nomor Produk:** WK2-IR-B3-P06
+
+**Peta Pemecahan Masalah WK2-IR-B3-P06**
+
+- **Titik Mulai:** Respon impuls $h[n] = \delta[n] - \delta[n-1]$ dan input $x[n] = \delta[n]$.
+- **Titik Akhir:** Output sistem $y[n]$.
+- **Rute Pemecahan Masalah:**
+    1. Mengingat definisi respon impuls.
+    2. Jika input sistem LTI adalah impuls unit, outputnya adalah respon impuls itu sendiri.
+    3. Tuliskan ekspresi untuk output.
+- **Kendaraan:**
+    - K_OPS_Definisi: Definisi Respon Impuls.
+    - K_MAT_Aljabar: Identifikasi Sinyal.
+
+**Solusi WK2-IR-B3-P06:**
+
+1. **Definisi Respon Impuls:** Respon impuls $h[n]$ adalah output sistem LTI ketika inputnya adalah sinyal impuls unit $\delta[n]$.
+2. **Input yang Diberikan:** Pada soal ini, input $x[n]$ diberikan sebagai $\delta[n]$.
+3. **Menentukan Output:** Oleh karena itu, output $y[n]$ dari sistem LTI dengan input $\delta[n]$ secara definisi adalah respon impuls sistem itu sendiri, yaitu $h[n]$.
+
+**Kesimpulan:** Output sistem $y[n]$ jika inputnya adalah $\delta[n]$ adalah $y[n] = h[n] = \delta[n] - \delta[n-1]$.
+
+
+
+**Soal 7:** Periksa apakah sistem waktu kontinu $y(t) = x(t) \cdot \cos(\omega_0 t)$ adalah **kausal**. **Nomor Produk:** WK2-SP-B3-P07
+
+**Peta Pemecahan Masalah WK2-SP-B3-P07**
+
+- **Titik Mulai:** Sistem $y(t) = x(t) \cdot \cos(\omega_0 t)$.
+- **Titik Akhir:** Kesimpulan apakah sistem kausal atau tidak.
+- **Rute Pemecahan Masalah:**
+    1. Mengingat definisi kausalitas.
+    2. Tentukan apakah output pada waktu $t_0$ bergantung pada nilai input $x(t)$ untuk $t > t_0$.
+    3. Periksa apakah fungsi $\cos(\omega_0 t)$ memperkenalkan ketergantungan pada masa depan input.
+- **Kendaraan:**
+    - K_OPS_Definisi: Definisi Kausalitas.
+    - K_MAT_Aljabar: Analisis Ketergantungan Waktu.
+    - K_MAT_Kalkulus: Fungsi Trigonometri.
+
+**Solusi WK2-SP-B3-P07:**
+
+1. **Definisi Kausalitas:** Sebuah sistem adalah kausal jika output pada waktu $t_0$ hanya bergantung pada nilai input pada waktu $t \le t_0$ (waktu sekarang dan masa lalu).
+2. **Analisis Sistem:** Dalam sistem $y(t) = x(t) \cdot \cos(\omega_0 t)$:
+    - Output pada waktu $t$ adalah $y(t)$.
+    - $y(t)$ bergantung pada nilai input $x(t)$ pada waktu yang sama $t$.
+    - $y(t)$ juga bergantung pada nilai $\cos(\omega_0 t)$ pada waktu yang sama $t$.
+3. Fungsi $\cos(\omega_0 t)$ adalah fungsi yang hanya bergantung pada waktu $t$ itu sendiri, bukan pada nilai input $x(\tau)$ di masa depan atau masa lalu. Ia tidak menyebabkan sistem "melihat" ke masa depan input.
+
+**Kesimpulan:** Sistem $y(t) = x(t) \cdot \cos(\omega_0 t)$ adalah **kausal**.
+
+
+
+**Soal 8:** Berikan contoh **persamaan diferensial orde kedua** yang menggambarkan sistem LTI waktu kontinu. **Nomor Produk:** WK2-DE-B2-P08
+
+**Peta Pemecahan Masalah WK2-DE-B2-P08**
+
+- **Titik Mulai:** Permintaan contoh PD orde kedua LTI.
+- **Titik Akhir:** Sebuah persamaan diferensial orde kedua.
+- **Rute Pemecahan Masalah:**
+    1. Mengingat struktur umum persamaan diferensial linear koefisien konstan.
+    2. Tetapkan orde maksimum turunan output menjadi dua.
+    3. Pastikan koefisien adalah konstan untuk menjaga sifat LTI.
+- **Kendaraan:**
+    - K_OPS_Representasi_Matematis: Struktur Persamaan Diferensial.
+    - K_OPS_Klasifikasi: LTI.
+    - K_MAT_Aljabar: Pemilihan Koefisien.
+
+**Solusi WK2-DE-B2-P08:**
+
+1. **Struktur PD LTI:** Sistem LTI waktu kontinu sering dijelaskan oleh persamaan diferensial linear koefisien konstan. Bentuk umum orde ke-N untuk output dan M untuk input adalah $\sum_{k=0}^{N} a_k \frac{d^k y(t)}{dt^k} = \sum_{k=0}^{M} b_k \frac{d^k x(t)}{dt^k}$.
+2. **Orde Kedua:** Untuk orde kedua, $N=2$. Kita dapat memilih $a_k$ dan $b_k$ sebagai konstanta.
+
+**Contoh:** Sebuah sistem pegas-massa-peredam (mass-spring-damper) yang dijelaskan oleh: $M \frac{d^2 y(t)}{dt^2} + B \frac{dy(t)}{dt} + K y(t) = x(t)$ Di mana $M$, $B$, dan $K$ adalah konstanta (massa, konstanta redaman, dan konstanta pegas). Input $x(t)$ adalah gaya, dan output $y(t)$ adalah perpindahan. Ini adalah persamaan diferensial orde kedua. Atau, contoh yang lebih sederhana: $\frac{d^2 y(t)}{dt^2} + 5 \frac{dy(t)}{dt} + 6 y(t) = x(t)$
+
+**Kesimpulan:** Contoh persamaan diferensial orde kedua yang menggambarkan sistem LTI waktu kontinu adalah **$\frac{d^2 y(t)}{dt^2} + 5 \frac{dy(t)}{dt} + 6 y(t) = x(t)$**.
+
+
+
+**Soal 9:** Evaluasi apakah sistem waktu diskrit $y[n] = \sum_{k=-\infty}^{n} x[k]$ memiliki **memori**. Justifikasikan jawaban Anda. **Nomor Produk:** WK2-SP-B5-P09
+
+**Peta Pemecahan Masalah WK2-SP-B5-P09**
+
+- **Titik Mulai:** Sistem $y[n] = \sum_{k=-\infty}^{n} x[k]$.
+- **Titik Akhir:** Kesimpulan apakah sistem memiliki memori atau tidak.
+- **Rute Pemecahan Masalah:**
+    1. Mengingat definisi sistem dengan memori dan tanpa memori.
+    2. Analisis ekspresi output $y[n]$.
+    3. Tentukan apakah $y[n]$ bergantung pada nilai input $x[k]$ selain $x[n]$ (yaitu, nilai $x[k]$ di masa lalu).
+- **Kendaraan:**
+    - K_OPS_Definisi: Definisi Memori Sistem.
+    - K_MAT_Aljabar: Analisis Ketergantungan Indeks.
+    - K_MAT_Kalkulus: Operasi Penjumlahan (Summation).
+
+**Solusi WK2-SP-B5-P09:**
+
+1. **Definisi Sistem dengan Memori:** Sebuah sistem dikatakan memiliki memori jika outputnya pada waktu $n$ bergantung pada nilai input pada waktu selain $n$ (yaitu, waktu lalu atau masa depan).
+2. **Analisis Ekspresi $y[n]$:**
+    - Output pada waktu $n$ adalah $y[n] = x[n] + x[n-1] + x[n-2] + \dots$.
+    - Ini berarti $y[n]$ tidak hanya bergantung pada $x[n]$ (input saat ini), tetapi juga pada nilai-nilai input sebelumnya seperti $x[n-1], x[n-2]$, dan seterusnya.
+3. Karena $y[n]$ membutuhkan nilai input di masa lalu ($x[k]$ untuk $k < n$) untuk dihitung, sistem ini menyimpan atau "mengingat" nilai-nilai input sebelumnya.
+
+**Kesimpulan:** Sistem $y[n] = \sum_{k=-\infty}^{n} x[k]$ **memiliki memori**.
+
+
+
+**Soal 10:** Mengapa respon impuls penting dalam analisis sistem Linear Time-Invariant (LTI)? Jelaskan secara singkat. **Nomor Produk:** WK2-IR-B2-P10
+
+**Peta Pemecahan Masalah WK2-IR-B2-P10**
+
+- **Titik Mulai:** Pertanyaan tentang pentingnya respon impuls dalam analisis sistem LTI.
+- **Titik Akhir:** Penjelasan singkat mengenai pentingnya.
+- **Rute Pemecahan Masalah:**
+    1. Mengingat definisi respon impuls.
+    2. Mengingat sifat-sifat sistem LTI (linearitas dan time-invariance).
+    3. Menghubungkan respon impuls dengan operasi konvolusi.
+    4. Menganalisis bagaimana respon impuls memungkinkan karakterisasi lengkap sistem LTI.
+- **Kendaraan:**
+    - K_OPS_Definisi: Definisi Respon Impuls.
+    - K_OPS_Klasifikasi: LTI.
+    - K_OPS_Representasi_Matematis: Konvolusi (secara konseptual).
+
+**Solusi WK2-IR-B2-P10:**
+
+1. **Definisi Respon Impuls:** Respon impuls $h(t)$ atau $h[n]$ adalah output sistem LTI ketika inputnya adalah sinyal impuls unit.
+2. **Karakterisasi Lengkap LTI:** Untuk sistem LTI, respon impuls **sepenuhnya mengkarakterisasi sistem tersebut**. Ini berarti bahwa jika kita mengetahui $h(t)$ atau $h[n]$, kita dapat menentukan output $y(t)$ atau $y[n]$ untuk _input $x(t)$ atau $x[n]$ apa pun_ melalui operasi konvolusi.
+3. **Kemudahan Analisis:** Hal ini sangat menyederhanakan analisis sistem LTI karena alih-alih harus menguji sistem untuk setiap input, kita hanya perlu mengetahui satu karakteristik: respon impulsnya. Dengan linearitas dan time-invariance, sinyal input kompleks dapat didekomposisi menjadi jumlah impuls, dan outputnya adalah jumlah respon impuls yang digeser dan diskalakan.
+
+**Kesimpulan:** Respon impuls penting karena **sepenuhnya mengkarakterisasi sistem LTI**, memungkinkan kita untuk menentukan output untuk input arbitrer melalui konvolusi.
+
+
+
+**Soal 11:** Tentukan apakah sistem waktu kontinu $y(t) = \frac{dx(t)}{dt}$ adalah **invertibel**. Jika ya, berikan sistem inversnya. **Nomor Produk:** WK2-SP-B3-P11
+
+**Peta Pemecahan Masalah WK2-SP-B3-P11**
+
+- **Titik Mulai:** Sistem $y(t) = \frac{dx(t)}{dt}$.
+- **Titik Akhir:** Kesimpulan apakah sistem invertibel dan, jika ya, sistem inversnya.
+- **Rute Pemecahan Masalah:**
+    1. Mengingat definisi invertibilitas.
+    2. Coba temukan operasi yang dapat mengembalikan $x(t)$ dari $y(t)$.
+    3. Pertimbangkan apakah ada input yang berbeda yang dapat menghasilkan output yang sama.
+- **Kendaraan:**
+    - K_OPS_Definisi: Definisi Invertibilitas.
+    - K_MAT_Kalkulus: Operasi Diferensiasi dan Integrasi.
+    - K_MAT_Aljabar: Manipulasi Persamaan.
+
+**Solusi WK2-SP-B3-P11:**
+
+1. **Definisi Invertibilitas:** Sebuah sistem invertibel jika inputnya dapat ditentukan secara unik dari outputnya.
+2. **Mencari Sistem Invers:** Jika $y(t) = \frac{dx(t)}{dt}$, untuk mendapatkan $x(t)$ dari $y(t)$, kita perlu mengintegrasikan $y(t)$. Jadi, $x(t) = \int_{-\infty}^{t} y(\tau) d\tau$. Sistem invers yang memungkinkan adalah integrator.
+3. **Masalah dengan Unik:** Namun, ketika kita melakukan integrasi, ada konstanta integrasi yang tidak diketahui. Artinya, jika $x(t)$ dan $x(t) + C$ (di mana $C$ adalah konstanta apa pun) diberikan sebagai input, keduanya akan menghasilkan output yang sama $y(t) = \frac{dx(t)}{dt}$. Misalnya, jika $x_1(t) = u(t)$ dan $x_2(t) = u(t) + 5$, keduanya akan menghasilkan $y(t) = \delta(t)$. Karena input yang berbeda dapat menghasilkan output yang sama, kita tidak dapat secara unik menentukan input dari output.
+
+**Kesimpulan:** Sistem $y(t) = \frac{dx(t)}{dt}$ **tidak invertibel**.
+
+
+
+**Soal 12:** Rancang persamaan beda orde pertama yang menggambarkan sistem waktu diskrit yang outputnya adalah rata-rata input saat ini dan input sebelumnya. **Nomor Produk:** WK2-DE-B6-P12
+
+**Peta Pemecahan Masalah WK2-DE-B6-P12**
+
+- **Titik Mulai:** Keinginan untuk merancang persamaan beda orde pertama: output = rata-rata input saat ini dan input sebelumnya.
+- **Titik Akhir:** Persamaan beda yang diinginkan.
+- **Rute Pemecahan Masalah:**
+    1. Mengingat definisi output $y[n]$ sebagai rata-rata.
+    2. Identifikasi input yang relevan: input saat ini $x[n]$ dan input sebelumnya $x[n-1]$.
+    3. Formulasikan ekspresi rata-rata untuk input-input ini.
+    4. Pastikan orde persamaan beda adalah satu.
+- **Kendaraan:**
+    - K_OPS_Representasi_Matematis: Struktur Persamaan Beda.
+    - K_MAT_Aljabar: Operasi Rata-rata.
+
+**Solusi WK2-DE-B6-P12:**
+
+1. **Definisi Output:** Output sistem $y[n]$ adalah rata-rata input saat ini dan input sebelumnya.
+2. **Input yang Relevan:**
+    - Input saat ini: $x[n]$
+    - Input sebelumnya: $x[n-1]$
+3. **Formulasi Rata-rata:** Rata-rata dari dua nilai adalah jumlah keduanya dibagi dua.
+    - $y[n] = \frac{x[n] + x[n-1]}{2}$
+4. **Orde Persamaan Beda:** Karena output bergantung pada $x[n]$ dan $x[n-1]$, perbedaan indeks input maksimum adalah $n - (n-1) = 1$, yang berarti ini adalah persamaan beda orde pertama.
+
+**Kesimpulan:** Persamaan beda orde pertama yang menggambarkan sistem tersebut adalah **$y[n] = \frac{1}{2} x[n] + \frac{1}{2} x[n-1]$**.
+
+
+
+**Soal 13:** Analisis stabilitas BIBO dari sistem waktu diskrit dengan respon impuls $h[n] = (0.9)^n u[n]$. **Nomor Produk:** WK2-SP-B4-P13
+
+**Peta Pemecahan Masalah WK2-SP-B4-P13**
+
+- **Titik Mulai:** Respon impuls $h[n] = (0.9)^n u[n]$.
+- **Titik Akhir:** Kesimpulan apakah sistem stabil BIBO atau tidak.
+- **Rute Pemecahan Masalah:**
+    1. Mengingat kriteria stabilitas BIBO untuk sistem LTI (sumabilitas absolut dari respon impuls).
+    2. Hitung $\sum_{n=-\infty}^{\infty} |h[n]|$.
+    3. Evaluasi apakah jumlahnya terbatas.
+- **Kendaraan:**
+    - K_OPS_Definisi: Kriteria Stabilitas BIBO.
+    - K_MAT_Aljabar: Deret Geometri.
+    - K_MAT_Kalkulus: Operasi Penjumlahan (Summation).
+
+**Solusi WK2-SP-B4-P13:**
+
+1. **Kriteria Stabilitas BIBO untuk LTI:** Sebuah sistem LTI adalah stabil BIBO jika respon impulsnya dapat dijumlahkan secara absolut (absolutely summable), yaitu $\sum_{n=-\infty}^{\infty} |h[n]| < \infty$.
+2. **Menghitung Jumlah Absolut:**
+    - $h[n] = (0.9)^n u[n]$. Sinyal $u[n]$ adalah fungsi langkah unit, yang berarti $h[n]$ hanya ada untuk $n \ge 0$.
+    - $\sum_{n=-\infty}^{\infty} |h[n]| = \sum_{n=0}^{\infty} |(0.9)^n u[n]| = \sum_{n=0}^{\infty} (0.9)^n$.
+3. Ini adalah deret geometri dengan rasio $r = 0.9$. Karena $|r| < 1$, deret ini konvergen.
+    - Jumlahnya adalah $\frac{1}{1 - 0.9} = \frac{1}{0.1} = 10$.
+4. Karena jumlah absolut adalah 10, yang merupakan nilai yang terbatas.
+
+**Kesimpulan:** Sistem dengan respon impuls $h[n] = (0.9)^n u[n]$ **stabil BIBO**.
+
+
+
+**Soal 14:** Untuk sistem waktu diskrit $y[n] = x[n] + x[n-1]$, tentukan **respon impulsnya**. **Nomor Produk:** WK2-IR-B3-P14
+
+**Peta Pemecahan Masalah WK2-IR-B3-P14**
+
+- **Titik Mulai:** Sistem $y[n] = x[n] + x[n-1]$.
+- **Titik Akhir:** Respon impuls $h[n]$.
+- **Rute Pemecahan Masalah:**
+    1. Mengingat definisi respon impuls (output ketika inputnya impuls unit).
+    2. Ganti $x[n]$ dengan $\delta[n]$ dalam persamaan sistem.
+    3. Output yang dihasilkan adalah $h[n]$.
+- **Kendaraan:**
+    - K_OPS_Definisi: Definisi Respon Impuls.
+    - K_MAT_Aljabar: Substitusi Sinyal.
+
+**Solusi WK2-IR-B3-P14:**
+
+1. **Definisi Respon Impuls:** Respon impuls $h[n]$ adalah output sistem ketika inputnya adalah $\delta[n]$.
+2. **Substitusi Input:** Ganti $x[n]$ dengan $\delta[n]$ dalam persamaan sistem:
+    - $h[n] = \delta[n] + \delta[n-1]$.
+
+**Kesimpulan:** Respon impuls sistem adalah **$h[n] = \delta[n] + \delta[n-1]$**.
+
+
+
+**Soal 15:** Periksa apakah sistem waktu kontinu $y(t) = x(t)/t$ adalah **linear**. **Nomor Produk:** WK2-SP-B3-P15
+
+**Peta Pemecahan Masalah WK2-SP-B3-P15**
+
+- **Titik Mulai:** Sistem $y(t) = x(t)/t$.
+- **Titik Akhir:** Kesimpulan apakah sistem linear atau tidak.
+- **Rute Pemecahan Masalah:**
+    1. Mengingat definisi linearitas (aditivitas dan homogenitas).
+    2. Menguji sifat aditivitas.
+    3. Menguji sifat homogenitas.
+    4. Jika kedua sifat terpenuhi, sistem adalah linear.
+- **Kendaraan:**
+    - K_OPS_Definisi: Definisi Linearitas (Aditivitas & Homogenitas).
+    - K_MAT_Aljabar: Manipulasi Persamaan.
+
+**Solusi WK2-SP-B3-P15:**
+
+1. **Definisi Linearitas:** Sistem linear harus memenuhi aditivitas dan homogenitas.
+2. **Uji Aditivitas:**
+    - Misalkan input $x_1(t) \rightarrow y_1(t) = x_1(t)/t$.
+    - Misalkan input $x_2(t) \rightarrow y_2(t) = x_2(t)/t$.
+    - Input gabungan $x_g(t) = x_1(t) + x_2(t)$.
+    - Output $y_g(t) = (x_1(t) + x_2(t))/t = x_1(t)/t + x_2(t)/t = y_1(t) + y_2(t)$.
+    - Aditivitas terpenuhi.
+3. **Uji Homogenitas:**
+    - Misalkan input $x_a(t) = a x(t)$.
+    - Output $y_a(t) = (a x(t))/t = a (x(t)/t) = a y(t)$.
+    - Homogenitas terpenuhi.
+
+**Kesimpulan:** Karena kedua sifat terpenuhi, sistem $y(t) = x(t)/t$ adalah **linear**.
+
+
+
+**Soal 16:** Apa perbedaan utama antara **persamaan diferensial** dan **persamaan beda** dalam konteks representasi sistem? **Nomor Produk:** WK2-DE-B2-P16
+
+**Peta Pemecahan Masalah WK2-DE-B2-P16**
+
+- **Titik Mulai:** Pertanyaan tentang perbedaan PD dan PB.
+- **Titik Akhir:** Penjelasan perbedaan utama.
+- **Rute Pemecahan Masalah:**
+    1. Mengingat definisi persamaan diferensial.
+    2. Mengingat definisi persamaan beda.
+    3. Identifikasi domain waktu yang terkait dengan masing-masing.
+    4. Sintesis perbedaan inti.
+- **Kendaraan:**
+    - K_OPS_Definisi: Definisi Persamaan Diferensial.
+    - K_OPS_Definisi: Definisi Persamaan Beda.
+    - K_OPS_Klasifikasi: Sinyal Waktu Kontinu vs. Waktu Diskrit.
+
+**Solusi WK2-DE-B2-P16:**
+
+1. **Persamaan Diferensial (PD):** Digunakan untuk menggambarkan **sistem waktu kontinu**. Persamaan ini melibatkan fungsi input dan output serta turunan-turunan mereka. PD menggambarkan hubungan antara laju perubahan sinyal.
+2. **Persamaan Beda (PB):** Digunakan untuk menggambarkan **sistem waktu diskrit**. Persamaan ini melibatkan nilai-nilai input dan output pada indeks waktu diskrit yang berbeda. PB menggambarkan hubungan antara nilai sinyal yang berurutan.
+
+**Perbedaan Utama:**
+
+- PD merepresentasikan sistem yang beroperasi pada **sinyal waktu kontinu** (menggunakan turunan), sedangkan PB merepresentasikan sistem yang beroperasi pada **sinyal waktu diskrit** (menggunakan perbedaan atau pergeseran indeks waktu).
+
+**Kesimpulan:** Perbedaan utamanya adalah **persamaan diferensial digunakan untuk sistem waktu kontinu yang melibatkan turunan, sedangkan persamaan beda digunakan untuk sistem waktu diskrit yang melibatkan nilai-nilai sinyal pada waktu yang berbeda**.
+
+
+
+**Soal 17:** Analisis apakah sistem waktu diskrit $y[n] = x^2[n]$ adalah **linear**. **Nomor Produk:** WK2-SP-B4-P17
+
+**Peta Pemecahan Masalah WK2-SP-B4-P17**
+
+- **Titik Mulai:** Sistem $y[n] = x^2[n]$.
+- **Titik Akhir:** Kesimpulan apakah sistem linear atau tidak.
+- **Rute Pemecahan Masalah:**
+    1. Mengingat definisi linearitas (aditivitas dan homogenitas).
+    2. Menguji sifat homogenitas (ini seringkali lebih cepat untuk sistem non-linear).
+    3. Jika satu sifat tidak terpenuhi, sistem tidak linear.
+- **Kendaraan:**
+    - K_OPS_Definisi: Definisi Linearitas (Aditivitas & Homogenitas).
+    - K_MAT_Aljabar: Manipulasi Persamaan.
+
+**Solusi WK2-SP-B4-P17:**
+
+1. **Definisi Linearitas:** Sistem linear harus memenuhi aditivitas dan homogenitas.
+2. **Uji Homogenitas:**
+    - Misalkan input $x[n] \rightarrow y[n] = x^2[n]$.
+    - Misalkan input $x_a[n] = a x[n]$.
+    - Output $y_a[n] = (a x[n])^2 = a^2 x^2[n] = a^2 y[n]$.
+    - Agar sistem homogen, kita membutuhkan $y_a[n] = a y[n]$.
+    - Dalam kasus ini, $a^2 y[n] \neq a y[n]$ kecuali jika $a=0$ atau $a=1$.
+
+**Kesimpulan:** Karena sifat homogenitas tidak terpenuhi (kecuali untuk kasus-kasus trivial), sistem $y[n] = x^2[n]$ **tidak linear**.
+
+
+
+**Soal 18:** Evaluasi bagaimana perubahan pada respon impuls $h(t)$ dapat memengaruhi sifat kausalitas suatu sistem LTI waktu kontinu. **Nomor Produk:** WK2-IR-B5-P18
+
+**Peta Pemecahan Masalah WK2-IR-B5-P18**
+
+- **Titik Mulai:** Permintaan evaluasi hubungan antara $h(t)$ dan kausalitas sistem LTI.
+- **Titik Akhir:** Penjelasan bagaimana perubahan $h(t)$ memengaruhi kausalitas.
+- **Rute Pemecahan Masalah:**
+    1. Mengingat definisi kausalitas sistem LTI.
+    2. Mengingat definisi respon impuls $h(t)$.
+    3. Hubungkan kapan $h(t)$ harus nol untuk memastikan kausalitas.
+    4. Diskusikan bagaimana perubahan ini memengaruhi ketergantungan output pada input masa lalu/depan.
+- **Kendaraan:**
+    - K_OPS_Definisi: Definisi Kausalitas LTI.
+    - K_OPS_Definisi: Definisi Respon Impuls.
+    - K_MAT_Aljabar: Analisis Domain Waktu.
+
+**Solusi WK2-IR-B5-P18:**
+
+1. **Definisi Kausalitas LTI:** Sebuah sistem LTI adalah kausal jika output pada waktu $t_0$ hanya bergantung pada input pada waktu $t \le t_0$.
+2. **Kausalitas dan Respon Impuls:** Untuk sistem LTI, kausalitas memiliki hubungan langsung dengan respon impuls $h(t)$. Sistem LTI adalah kausal jika dan hanya jika **$h(t) = 0$ untuk $t < 0$**.
+3. **Pengaruh Perubahan $h(t)$:**
+    - **Jika $h(t)$ non-nol untuk $t < 0$:** Ini berarti respon impuls "muncul" sebelum input impuls diterapkan. Akibatnya, sistem akan menghasilkan output sebelum input sebenarnya diberikan (misalnya, $y(t_0)$ bergantung pada $x(t)$ untuk $t > t_0$ melalui $h(t)$ jika $h(t)$ ada untuk $t < 0$), menjadikannya **non-kausal**.
+    - **Jika $h(t)$ nol untuk $t < 0$:** Ini memastikan bahwa output sistem pada waktu $t$ hanya bergantung pada input pada waktu $t$ dan masa lalu, menjadikannya **kausal**.
+
+**Kesimpulan:** Perubahan pada $h(t)$ yang menyebabkan $h(t)$ menjadi non-nol untuk $t<0$ akan mengubah sistem LTI dari **kausal menjadi non-kausal**.
+
+
+
+**Soal 19:** Tentukan apakah sistem waktu kontinu $y(t) = 2x(t-1)$ memiliki **memori**. **Nomor Produk:** WK2-SP-B3-P19
+
+**Peta Pemecahan Masalah WK2-SP-B3-P19**
+
+- **Titik Mulai:** Sistem $y(t) = 2x(t-1)$.
+- **Titik Akhir:** Kesimpulan apakah sistem memiliki memori atau tidak.
+- **Rute Pemecahan Masalah:**
+    1. Mengingat definisi sistem dengan memori dan tanpa memori.
+    2. Analisis ekspresi output $y(t)$.
+    3. Tentukan apakah $y(t)$ bergantung pada nilai input $x(\tau)$ selain $x(t)$.
+- **Kendaraan:**
+    - K_OPS_Definisi: Definisi Memori Sistem.
+    - K_MAT_Aljabar: Analisis Ketergantungan Waktu.
+
+**Solusi WK2-SP-B3-P19:**
+
+1. **Definisi Sistem dengan Memori:** Sebuah sistem dikatakan memiliki memori jika outputnya pada waktu $t$ bergantung pada nilai input pada waktu selain $t$ (yaitu, waktu lalu atau masa depan).
+2. **Analisis Ekspresi $y(t)$:**
+    - Output pada waktu $t$ adalah $y(t) = 2x(t-1)$.
+    - Ini berarti $y(t)$ bergantung pada nilai input $x$ pada waktu $t-1$. Karena $t-1$ adalah waktu di masa lalu relatif terhadap $t$, sistem ini "mengingat" nilai input sebelumnya.
+
+**Kesimpulan:** Sistem $y(t) = 2x(t-1)$ **memiliki memori**.
+
+
+
+**Soal 20:** Formulasikan persamaan diferensial yang menggambarkan sistem waktu kontinu LTI orde pertama yang menghasilkan output $y(t)$ ketika inputnya adalah $x(t)$ dan konstanta waktu sistem adalah $T$. **Nomor Produk:** WK2-DE-B6-P20
+
+**Peta Pemecahan Masalah WK2-DE-B6-P20**
+
+- **Titik Mulai:** Permintaan formulasi PD orde pertama LTI dengan konstanta waktu $T$.
+- **Titik Akhir:** Persamaan diferensial yang diformulasikan.
+- **Rute Pemecahan Masalah:**
+    1. Mengingat bentuk umum persamaan diferensial orde pertama.
+    2. Menggabungkan input $x(t)$ dan output $y(t)$ dengan turunan pertama.
+    3. Memasukkan konstanta waktu $T$ ke dalam persamaan.
+    4. Memastikan koefisien konstan untuk sifat LTI.
+- **Kendaraan:**
+    - K_OPS_Representasi_Matematis: Struktur Persamaan Diferensial.
+    - K_MAT_Kalkulus: Turunan Pertama.
+    - K_MAT_Aljabar: Manipulasi Simbol.
+
+**Solusi WK2-DE-B6-P20:**
+
+1. **Bentuk Umum PD Orde Pertama LTI:** Sistem LTI orde pertama waktu kontinu umumnya melibatkan turunan pertama dari output dan input, dengan koefisien konstan. Bentuk umumnya adalah $A \frac{dy(t)}{dt} + B y(t) = C x(t)$.
+2. **Konstanta Waktu $T$:** Konstanta waktu $T$ adalah parameter penting dalam sistem orde pertama dan sering muncul sebagai koefisien dari turunan tertinggi. Dalam bentuk standar, persamaan orde pertama dapat ditulis sebagai $T \frac{dy(t)}{dt} + y(t) = K x(t)$, di mana $K$ adalah gain DC.
+3. **Formulasi Persamaan Diferensial:** Kita dapat memilih koefisien sehingga mencerminkan konstanta waktu $T$.
+    - Persamaan standar orde pertama adalah: $T \frac{dy(t)}{dt} + y(t) = x(t)$. (Di sini, kita mengasumsikan gain DC adalah 1 untuk kesederhanaan).
+
+**Kesimpulan:** Persamaan diferensial yang menggambarkan sistem waktu kontinu LTI orde pertama dengan konstanta waktu $T$ adalah **$T \frac{dy(t)}{dt} + y(t) = x(t)$**.
+
+
+
+### Daftar Kendaraan yang Digunakan:
+
+Berikut adalah daftar kendaraan unik yang digunakan di seluruh Peta Pengetahuan Aplikatif di atas, dikategorikan sesuai dengan jenisnya:
+
+- **Matematika (Fundamental):**
+    - **K_MAT_Aljabar:** Manipulasi persamaan, identifikasi indeks, substitusi, perbandingan ekspresi, operasi rata-rata, analisis ketergantungan waktu, pemilihan koefisien, manipulasi simbol.
+    - **K_MAT_Kalkulus:** Operasi integral, operasi diferensiasi, operasi penjumlahan (summation), turunan pertama, fungsi trigonometri.
+- **Operasi Dasar Sinyal/Sistem:**
+    - **K_OPS_Definisi:** Definisi Linearitas (Aditivitas & Homogenitas), Definisi Orde Persamaan Beda, Definisi Sinyal Impuls Unit, Definisi Respon Impuls, Definisi Time-Invariance, Definisi Kausalitas, Definisi Memori Sistem, Kriteria Stabilitas BIBO, Definisi Invertibilitas.
+    - **K_OPS_Klasifikasi:** Klasifikasi Sistem Fisik, LTI (Linear Time-Invariant), Sinyal Waktu Kontinu vs. Waktu Diskrit.
+    - **K_OPS_Representasi_Matematis:** Struktur Persamaan Diferensial, Struktur Persamaan Beda, Konvolusi (secara konseptual).
