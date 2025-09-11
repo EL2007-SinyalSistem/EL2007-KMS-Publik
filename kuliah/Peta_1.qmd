@@ -1,0 +1,407 @@
+---
+title: "Latihan Minggu 1 – Sinyal & Sistem"
+subtitle: "EL2007 – Signals and Systems"
+format: revealjs
+aarevealjs-theme: simple
+---
+
+# Latihan Minggu 1  
+## Sinyal & Sistem (EL2007)
+
+---
+
+## 🗺️ Peta Pengetahuan Primitif (Minggu 1)
+
+```{mermaid}
+graph TD
+    SS["SS — Sinyal & Sistem"]
+
+    %% DOMAIN
+    SS --> DW["DW — Domain Waktu"]
+    SS --> DF["DF — Domain Frekuensi"]
+    SS --> DK["DK — Domain Kompleks"]
+    SS --> AD["AD — Antar Domain"]
+
+    %% SINYAL
+    DW --> SIN["SINE — Sinusoidal"]
+    DW --> EXP["EXP — Eksponensial"]
+    DW --> STEP["STEP — Unit Step"]
+    DW --> IMP["IMP — Unit Impulse"]
+    DW --> CAT1["PER — Periodik/Aperiodik"]
+    DW --> CAT2["ENG — Energi vs Daya"]
+
+    %% SISTEM
+    SS --> SYS["SYS — Sistem"]
+    SYS --> LIN["LIN — Linearitas"]
+    SYS --> TI["INV — Invariansi Waktu"]
+    SYS --> CAU["CAU — Kausalitas"]
+    SYS --> STAB["STA — Stabilitas"]
+
+    EXP --> EIG["EIG — Eigenfunction LTI"]
+    CAT1 --> DF
+    CAT2 --> DK
+```
+
+---
+
+# 📘 Soal dari Oppenheim
+
+### Soal 1
+
+**PN: OP-DW-SIGNAL-01-R**
+Sebutkan 4 contoh sinyal waktu-kontinu dasar.
+???
+**Jawaban & Penjelasan**:
+Eksponensial, sinusoidal, unit step, unit impulse. Ini dasar untuk membangun sinyal kompleks.
+
+---
+
+### Soal 2
+
+**PN: OP-DW-SIGNAL-02-U**
+Jelaskan sifat eksponensial kompleks $e^{st}$.
+???
+**Jawaban & Penjelasan**:
+Eksponensial kompleks = eigenfunction sistem LTI. Jika $s=j\omega$ → sinusoidal. Sifat ini dasar Fourier/Laplace.
+
+---
+
+### Soal 3
+
+**PN: OP-DW-SIGNAL-03-A**
+Apakah $x(t)=\sin(3t)+\cos(5t)$ periodik?
+???
+**Jawaban & Penjelasan**:
+Tidak periodik, karena 3/5 bukan bilangan rasional. Periodisitas butuh rasio frekuensi rasional.
+
+---
+
+### Soal 4
+
+**PN: OP-DW-SIGNAL-04-A**
+Hitung energi sinyal $x(t)=e^{-t}u(t)$.
+*(Bloom: Apply)*
+
+???
+**Jawaban & Penjelasan**:
+$E=\int_0^\infty e^{-2t} dt = 1/2$.
+Energi terbatas → sinyal energi, bukan daya.
+
+---
+
+## 🛠️ Peta Pemecahan Masalah – Soal 4
+
+```{mermaid}
+flowchart TD
+    A[Titik Mulai:<br/>x(t)=e^{-t}u(t)]:::start
+    A --> B[Identifikasi: eksponensial teredam, causal (t≥0)]:::note
+    B --> C[Hitung Energi:<br/>E=∫|x(t)|² dt]:::vehicle
+    C --> C1[∫₀^∞ e^{-2t}·e^{-2t} dt]:::calc
+    C1 --> C2[E=∫₀^∞ e^{-4t} dt=1/4]:::result
+    B --> D[Hitung Daya:<br/>P=lim (T→∞) (1/2T)∫|x|² dt]:::vehicle
+    D --> D1[P=0]:::result
+    C2 --> F[Kesimpulan: Sinyal Energi (E=1/4, P=0)]:::conclusion
+    D1 --> F
+
+    classDef start fill:#ffe082,stroke:#333,stroke-width:2px
+    classDef note fill:#e1f5fe,stroke:#333,stroke-width:1px
+    classDef vehicle fill:#bbdefb,stroke:#333,stroke-width:1px
+    classDef calc fill:#c8e6c9,stroke:#333,stroke-width:1px
+    classDef result fill:#d1c4e9,stroke:#333,stroke-width:1px
+    classDef conclusion fill:#ffccbc,stroke:#333,stroke-width:2px
+```
+
+---
+
+### Soal 5
+
+**PN: OP-DW-SYSTEM-05-A**
+Apakah sistem $y(t)=[x(t)]^2$ linear?
+*(Bloom: Apply)*
+
+???
+**Jawaban & Penjelasan**:
+Tidak linear.
+
+* Homogenitas gagal: $[a·x]^2 = a^2[x]^2 \neq a[x]^2$.
+* Aditivitas gagal: $[x₁+x₂]^2 \neq x₁²+x₂²$.
+
+---
+
+## 🛠️ Peta Pemecahan Masalah – Soal 5
+
+```{mermaid}
+flowchart TD
+    A[Titik Mulai:<br/>y(t)=[x(t)]²]:::start
+    A --> B[Definisi Linear:<br/>Uji Homogenitas & Aditivitas]:::rule
+
+    %% Homogenitas
+    B --> H[Homogenitas]:::vehicle
+    H --> H1[S{a·x}=[a·x]²=a²[x]²]:::calc
+    H1 --> H2[a·S{x}=a[x]²]:::calc
+    H2 --> H3[Umumnya a²≠a → Gagal]:::fail
+
+    %% Aditivitas
+    B --> A1[Aditivitas]:::vehicle
+    A1 --> A2[Contoh: x1=1, x2=2]:::example
+    A2 --> A3[S{x1+x2}=(1+2)²=9]:::calc
+    A3 --> A4[S{x1}+S{x2}=1²+2²=5]:::calc
+    A4 --> A5[9≠5 → Gagal]:::fail
+
+    H3 --> K[Kesimpulan:<br/>Sistem Nonlinear]:::conclusion
+    A5 --> K
+
+    classDef start fill:#ffe082,stroke:#333,stroke-width:2px
+    classDef rule fill:#e1f5fe,stroke:#333,stroke-width:1px
+    classDef vehicle fill:#bbdefb,stroke:#333,stroke-width:1px
+    classDef calc fill:#c8e6c9,stroke:#333,stroke-width:1px
+    classDef example fill:#f3e5f5,stroke:#333,stroke-width:1px
+    classDef fail fill:#ffcdd2,stroke:#333,stroke-width:2px
+    classDef conclusion fill:#ffccbc,stroke:#333,stroke-width:2px
+```
+---
+
+### Soal 6
+
+**PN: OP-DW-SYSTEM-06-A**
+Apakah sistem $y(t)=x(t-2)$ kausal?
+???
+**Jawaban & Penjelasan**:
+Ya, output di t hanya bergantung input waktu lampau/bersamaan.
+
+
+---
+
+### Soal 7  
+**PN: OP-DW-SYSTEM-07-An**  
+Apakah sistem \(y(t)=t \cdot x(t)\) time-invariant?  
+*(Bloom: Analyze)*
+
+???
+**Jawaban & Penjelasan**:  
+Tidak time-invariant.  
+- Tes pergeseran:  
+  Input digeser → \(x(t-t₀)\).  
+  Output seharusnya \(t·x(t-t₀)\).  
+- Tetapi sistem memberi hasil: \((t-t₀)·x(t-t₀)\).  
+- Karena hasil berbeda → sistem **time-varying**.
+
+---
+
+## 🛠️ Peta Pemecahan Masalah – Soal 7
+
+```{mermaid}
+flowchart TD
+    A[Titik Mulai:<br/>y(t)=t·x(t)]:::start
+    A --> B[Definisi Time-Invariance:<br/>S{x(t-t₀)} = y(t-t₀)]:::rule
+
+    %% Rute uji
+    B --> C1[Geser Input:<br/>x₁(t)=x(t-t₀)]:::vehicle
+    C1 --> C2[S{x₁}=t·x(t-t₀)]:::calc
+
+    B --> D1[Geser Output:<br/>y(t-t₀)]:::vehicle
+    D1 --> D2=[(t-t₀)·x(t-t₀)]:::calc
+
+    %% Bandingkan
+    C2 --> E[Bandingkan<br/>t·x(t-t₀) vs (t-t₀)·x(t-t₀)]:::compare
+    D2 --> E
+    E --> F[Hasil berbeda → Time-Varying]:::conclusion
+
+    classDef start fill:#ffe082,stroke:#333,stroke-width:2px
+    classDef rule fill:#e1f5fe,stroke:#333,stroke-width:1px
+    classDef vehicle fill:#bbdefb,stroke:#333,stroke-width:1px
+    classDef calc fill:#c8e6c9,stroke:#333,stroke-width:1px
+    classDef compare fill:#f0f4c3,stroke:#333,stroke-width:1px
+    classDef conclusion fill:#ffccbc,stroke:#333,stroke-width:2px
+```
+
+---
+
+
+### Soal 8
+
+**PN: OP-DW-SYSTEM-08-E**
+Apakah sistem $y(t)=\int_{-\infty}^t x(\tau)d\tau$ stabil?
+???
+**Jawaban & Penjelasan**:
+Tidak stabil. Input terbatas bisa hasilkan integral tak terbatas (BIBO gagal).
+
+Mantap. Ini **tambahan slide** untuk **Stabilitas (Soal 8: integrator)**—lengkap dengan **peta pemecahan masalah**. Tempelkan blok berikut ke file `.qmd` kamu (saya menaruhnya setelah Soal 8).
+
+````markdown
+---
+
+### Soal 8  
+**PN: OP-DW-SYSTEM-08-E**  
+Apakah sistem \( y(t)=\displaystyle\int_{-\infty}^t x(\tau)\,d\tau \) **stabil (BIBO)**?  
+*(Bloom: Evaluate)*
+
+???
+**Jawaban & Penjelasan (ringkas & ketat)**  
+- Uji BIBO via respon impuls: \(h(t)=u(t)\).  
+  BIBO stabil ⇔ \(\int_{-\infty}^{\infty} |h(t)|\,dt = \int_0^{\infty} 1\,dt = \infty\) → **tidak stabil**.  
+- Kontra-contoh input terbatas: \(x(t)=u(t)\) (terbatas, \(|x|\le 1\)).  
+  Maka \(y(t)=\int_{-\infty}^t x(\tau)\,d\tau = \int_{0}^{t}1\,d\tau = t\) → **tak terbatas** saat \(t\to\infty\).  
+Kesimpulan: **Tidak BIBO-stable**.
+
+---
+
+## 🛠️ Peta Pemecahan Masalah – Soal 8 (Stabilitas Integrator)
+
+```{mermaid}
+flowchart TD
+    A[Titik Mulai:<br/>S: y(t)= ∫_{-∞}^t x(τ)dτ]:::start
+
+    %% Dua jalur uji stabilitas
+    A --> B[Definisi BIBO:<br/>Input terbatas ⇒ Output terbatas?]:::rule
+    B --> C1[Metode 1 – Uji ‖h‖₁:<br/>h(t)=u(t)]:::vehicle
+    C1 --> C2[Hitung ∫|h(t)|dt = ∫₀^∞ 1 dt = ∞]:::calc
+    C2 --> C3[‖h‖₁ divergen ⇒ Tidak stabil]:::fail
+
+    B --> D1[Metode 2 – Kontra-Contoh:<br/>Pilih input terbatas]:::vehicle
+    D1 --> D2[x(t)=u(t), |x(t)|≤1]:::example
+    D2 --> D3[y(t)=∫₀^t 1 dτ = t]:::calc
+    D3 --> D4[t → ∞ ⇒ y(t) tak terbatas]:::fail
+
+    %% Kesimpulan
+    C3 --> K[Kesimpulan:<br/>Sistem TIDAK BIBO-Stable]:::conclusion
+    D4 --> K
+
+    %% Styles
+    classDef start fill:#ffe082,stroke:#333,stroke-width:2px
+    classDef rule fill:#e1f5fe,stroke:#333,stroke-width:1px
+    classDef vehicle fill:#bbdefb,stroke:#333,stroke-width:1px
+    classDef calc fill:#c8e6c9,stroke:#333,stroke-width:1px
+    classDef example fill:#f3e5f5,stroke:#333,stroke-width:1px
+    classDef fail fill:#ffcdd2,stroke:#333,stroke-width:2px
+    classDef conclusion fill:#ffccbc,stroke:#333,stroke-width:2px
+```
+---
+
+### Soal 9
+
+**PN: OP-AD-09-An**
+Bandingkan representasi sinyal periodik di domain waktu vs frekuensi.
+???
+**Jawaban & Penjelasan**:
+
+* Waktu: kombinasi sinus/cos.
+* Frekuensi: spektrum garis (impuls di harmonik).
+
+---
+
+### Soal 10
+
+**PN: OP-AD-10-C**
+Tuliskan representasi sinusoidal dalam bentuk eksponensial kompleks.
+???
+**Jawaban & Penjelasan**:
+$\cos(\omega t)=\tfrac{1}{2}(e^{j\omega t}+e^{-j\omega t})$. Dasar transformasi Fourier.
+
+---
+
+# 📗 Soal dari Schaum’s Outline
+
+### Soal 11
+
+**PN: SC-DW-SIGNAL-11-R**
+Definisikan sinyal energi dan sinyal daya.
+???
+**Jawaban & Penjelasan**:
+Energi: $E=\int |x(t)|^2dt<\infty$.
+Daya: $P=\lim_{T\to\infty}\frac{1}{2T}\int |x(t)|^2dt<\infty$.
+
+---
+
+### Soal 12
+
+**PN: SC-DW-SIGNAL-12-U**
+Apa arti penskalaan waktu $x(at)$?
+???
+**Jawaban & Penjelasan**:
+$a>1$ → kompresi waktu; $0<a<1$ → peregangan. Digunakan untuk analisis skala sinyal.
+
+---
+
+### Soal 13
+
+**PN: SC-DW-SIGNAL-13-A**
+Apakah $x[n]=(-1)^n$ periodik?
+???
+**Jawaban & Penjelasan**:
+Ya, periodik dengan N=2. Setiap dua sampel pola berulang.
+
+---
+
+### Soal 14
+
+**PN: SC-DW-SIGNAL-14-A**
+Sketsa $x(t)=u(t)-u(t-2)$.
+???
+**Jawaban & Penjelasan**:
+Pulsa kotak: aktif 0 ≤ t < 2, amplitudo = 1. Contoh sinyal diskrit dalam domain waktu.
+
+---
+
+### Soal 15
+
+**PN: SC-DW-SIGNAL-15-A**
+Hitung energi sinyal $x[n]=(1/2)^n u[n]$.
+???
+**Jawaban & Penjelasan**:
+$E=\sum_{n=0}^\infty (1/4)^n=4/3$. Sinyal energi dengan energi terbatas.
+
+---
+
+### Soal 16
+
+**PN: SC-DW-SYSTEM-16-A**
+Apakah sistem $y[n]=x[n]+3$ linear?
+???
+**Jawaban & Penjelasan**:
+Tidak linear karena ada offset konstanta.
+
+---
+
+### Soal 17
+
+**PN: SC-DW-SYSTEM-17-An**
+Apakah sistem $y[n]=x[-n]$ time-invariant?
+???
+**Jawaban & Penjelasan**:
+Ya, pembalikan indeks berlaku konsisten jika input digeser.
+
+---
+
+### Soal 18
+
+**PN: SC-DW-SYSTEM-18-E**
+Apakah sistem $y[n]=\sum_{k=-\infty}^n x[k]$ stabil?
+???
+**Jawaban & Penjelasan**:
+Tidak stabil, akumulasi input terbatas bisa divergen.
+
+---
+
+### Soal 19
+
+**PN: SC-AD-19-An**
+Analisis perbedaan representasi sinyal di domain waktu vs frekuensi.
+???
+**Jawaban & Penjelasan**:
+Waktu → bentuk sinyal. Frekuensi → distribusi energi/komponen. Saling melengkapi.
+
+---
+
+### Soal 20
+
+**PN: SC-AD-20-C**
+Buat sistem diskrit yang **non-linear** dan **tidak kausal**.
+???
+**Jawaban & Penjelasan**:
+$y[n]=[x[n]]^2 + x[n+1]$. Non-linear (kuadrat), tidak kausal (butuh input masa depan).
+
+
+---
+
+

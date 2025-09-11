@@ -1,0 +1,137 @@
+
+# Materi Pembelajaran Minggu 1: Deskripsi Matematis Sinyal Waktu Kontinu
+
+**Capaian Pembelajaran Minggu (CPMK Terkait):** Mahasiswa diharapkan mampu **memahami dasar-dasar sinyal waktu kontinu dan representasi matematisnya**.
+
+Minggu ini, kita akan menjelajahi konsep fundamental sinyal dan sistem waktu kontinu, yang merupakan fondasi penting dalam banyak disiplin ilmu teknik. Kita akan mulai dengan memahami apa itu sinyal waktu kontinu, bagaimana merepresentasikannya secara matematis, mengklasifikasikannya, melakukan operasi dasar pada sinyal, serta memperkenalkan sistem waktu kontinu dan sifat-sifat fundamentalnya.
+
+## 1.1 Pengenalan Sinyal Waktu Kontinu (Continuous-Time Signals)
+
+Sinyal adalah suatu fungsi yang membawa informasi. Sinyal waktu kontinu (Continuous-Time Signals, CT Signals) adalah sinyal yang didefinisikan untuk setiap nilai waktu dalam suatu interval kontinu. Biasanya, ini direpresentasikan sebagai fungsi dari variabel waktu $t$, misalnya $x(t)$.
+
+**Contoh Sinyal Dasar Waktu Kontinu:**
+
+- **Sinyal Sinusoidal:** Menggambarkan osilasi periodik, misalnya $x(t) = A \cos(\omega t + \phi)$.
+- **Sinyal Eksponensial:** Menunjukkan pertumbuhan atau peluruhan, misalnya $x(t) = A e^{\alpha t}$.
+    - Jika $\alpha$ real dan negatif, sinyal meluruh.
+    - Jika $\alpha$ real dan positif, sinyal bertumbuh.
+    - Jika $\alpha$ kompleks ($j\omega$), menjadi eksponensial kompleks ($e^{j\omega t} = \cos(\omega t) + j\sin(\omega t)$).
+- **Fungsi Unit Step (Unit Step Function):** Sinyal yang bernilai 0 untuk $t<0$ dan 1 untuk $t \ge 0$, dilambangkan $u(t)$. Berguna untuk merepresentasikan sinyal yang "dimulai" pada waktu tertentu.
+- **Fungsi Unit Impuls (Unit Impulse Function) / Delta Dirac:** Sinyal ideal yang bernilai tak hingga pada $t=0$ dan nol di tempat lain, dengan luas area satu. Dilambangkan $\delta(t)$. Sinyal ini sering digunakan sebagai "blok bangunan" untuk merepresentasikan sinyal lain dan menganalisis sistem.
+
+## 1.2 Klasifikasi Sinyal Waktu Kontinu
+
+Sinyal dapat diklasifikasikan berdasarkan beberapa properti penting:
+
+- **Sinyal Energi (Energy Signal) vs. Sinyal Daya (Power Signal):**
+    
+    - **Sinyal Energi:** Memiliki energi total terbatas ($0 < E < \infty$) dan daya rata-rata nol ($P=0$). Energi $E$ dihitung sebagai $E = \int_{-\infty}^{\infty} |x(t)|^2 dt$.
+    - **Sinyal Daya:** Memiliki daya rata-rata terbatas ($0 < P < \infty$) dan energi total tak hingga ($E=\infty$). Daya rata-rata $P$ dihitung sebagai $P = \lim_{T \to \infty} \frac{1}{2T} \int_{-T}^{T} |x(t)|^2 dt$.
+    - Sinyal yang tidak memenuhi kedua kondisi ini tidak diklasifikasikan sebagai sinyal energi maupun sinyal daya (misalnya, sinyal yang terus bertumbuh).
+- **Sinyal Periodik (Periodic Signal) vs. Aperiodik (Aperiodic Signal):**
+    
+    - **Sinyal Periodik:** Sinyal yang berulang dengan periode waktu tertentu $T > 0$, yaitu $x(t) = x(t+T)$ untuk semua $t$. **Periode fundamental** adalah periode $T$ terkecil yang memenuhi kondisi ini.
+    - **Sinyal Aperiodik:** Sinyal yang tidak berulang.
+- **Sinyal Genap (Even Signal) vs. Sinyal Ganjil (Odd Signal):**
+    
+    - **Sinyal Genap:** Sinyal yang simetris terhadap sumbu vertikal, yaitu $x(t) = x(-t)$.
+    - **Sinyal Ganjil:** Sinyal yang antisimetris terhadap sumbu vertikal, yaitu $x(t) = -x(-t)$.
+    - Setiap sinyal dapat diuraikan menjadi komponen genap $x_e(t) = \frac{1}{2}(x(t) + x(-t))$ dan komponen ganjil $x_o(t) = \frac{1}{2}(x(t) - x(-t))$.
+
+## 1.3 Operasi Dasar pada Sinyal Waktu Kontinu
+
+Berbagai operasi dapat dilakukan pada sinyal waktu kontinu.
+
+- **Transformasi Variabel Independen (Independent Variable Transformations):**
+    
+    - **Pergeseran Waktu (Time Shift):** $y(t) = x(t-t_0)$ menggeser sinyal $x(t)$ ke kanan (menunda) sebesar $t_0$ unit jika $t_0 > 0$. $y(t) = x(t+t_0)$ menggeser ke kiri (memajukan).
+    - **Penskalaan Waktu (Time Scaling):** $y(t) = x(at)$ mengubah "kecepatan" sinyal. Jika $|a|>1$, sinyal dikompresi (dipercepat). Jika $0 < |a| < 1$, sinyal diekspansi (diperlambat). Jika $a < 0$, juga terjadi pembalikan waktu.
+    - **Pembalikan Waktu (Time Reversal):** $y(t) = x(-t)$ membalik sinyal terhadap sumbu vertikal.
+- **Transformasi Variabel Dependen (Dependent Variable Transformations):**
+    
+    - **Penskalaan Amplitudo:** $y(t) = A x(t)$ mengalikan amplitudo sinyal dengan konstanta $A$.
+    - **Penjumlahan Sinyal:** $y(t) = x_1(t) + x_2(t)$.
+    - **Perkalian Sinyal:** $y(t) = x_1(t) \cdot x_2(t)$.
+    - **Diferensiasi Sinyal:** $y(t) = \frac{dx(t)}{dt}$.
+    - **Integrasi Sinyal:** $y(t) = \int_{-\infty}^{t} x(\tau) d\tau$.
+
+## 1.4 Pengenalan Sistem Waktu Kontinu (Continuous-Time Systems)
+
+Sistem dapat didefinisikan sebagai entitas yang memproses sinyal input untuk menghasilkan sinyal output. Hubungan input-output ini dapat direpresentasikan secara matematis atau grafis.
+
+- **Representasi Diagram Blok (Block Diagram Representation):** Digunakan untuk memvisualisasikan bagaimana komponen-komponen sistem dihubungkan. Simbol-simbol dasar meliputi penambah, pengali (gain), dan integrator/diferensiator.
+- **Interkoneksi Sistem (Interconnection of Systems):**
+    - **Seri (Cascade):** Output satu sistem menjadi input sistem berikutnya.
+    - **Paralel:** Input yang sama diberikan ke beberapa sistem, dan outputnya dijumlahkan.
+
+## 1.5 Sifat Dasar Sistem Waktu Kontinu
+
+Klasifikasi sistem penting untuk memahami perilakunya.
+
+- **Sistem dengan Memori (System with Memory) vs. Tanpa Memori (Memoryless System):**
+    
+    - **Tanpa Memori:** Output $y(t)$ pada waktu $t$ hanya bergantung pada input $x(t)$ pada waktu yang sama.
+    - **Dengan Memori:** Output $y(t)$ pada waktu $t$ bergantung pada nilai input atau output di masa lalu atau masa depan. Contohnya, integrator.
+- **Kausalitas (Causality):** Output $y(t)$ pada waktu $t$ hanya bergantung pada input $x(\tau)$ untuk $\tau \le t$ (yaitu, input saat ini atau masa lalu). Sistem tidak dapat "memprediksi" input masa depan. Sistem fisik harus kausal.
+    
+- **Invertibilitas (Invertibility):** Sistem dikatakan invertibel jika inputnya dapat direkonstruksi secara unik dari outputnya. Artinya, ada sistem invers yang, jika dihubungkan secara seri, akan menghasilkan kembali input asli.
+    
+- **Stabilitas BIBO (Bounded-Input Bounded-Output Stability):** Sistem stabil BIBO jika setiap input terbatas (bounded) menghasilkan output yang terbatas. Input $x(t)$ terbatas jika ada konstanta $M_x < \infty$ sehingga $|x(t)| \le M_x$ untuk semua $t$. Output $y(t)$ terbatas jika ada konstanta $M_y < \infty$ sehingga $|y(t)| \le M_y$ untuk semua $t$.
+    
+- **Invariansi Waktu (Time-Invariance):** Karakteristik sistem tidak berubah seiring waktu. Jika input $x(t)$ menghasilkan output $y(t)$, maka input yang digeser waktu $x(t-t_0)$ akan menghasilkan output $y(t-t_0)$.
+    
+- **Linearitas (Linearity):** Sistem linear jika memenuhi dua prinsip:
+    
+    - **Aditivitas:** Input $x_1(t)+x_2(t)$ menghasilkan output $y_1(t)+y_2(t)$, di mana $y_1(t)$ adalah output dari $x_1(t)$ dan $y_2(t)$ adalah output dari $x_2(t)$.
+    - **Homogenitas (Scaling):** Input $a x(t)$ menghasilkan output $a y(t)$ untuk konstanta skalar $a$ apa pun.
+    - Seringkali disebut prinsip superposisi.
+
+---
+
+## Peta Pengetahuan Primitif: Sinyal & Sistem Waktu Kontinu
+
+**Tujuan:** Membantu mahasiswa melihat gambaran besar, interkonektivitas antar konsep, dan mengatur pengetahuan deklaratif (fakta dan definisi) sinyal dan sistem waktu kontinu. (Mengingat & Memahami - Level 1-2 Bloom).
+
+**Node Pusat:** **Sinyal & Sistem**
+
+- **Cabang 1: SWK (Sinyal Waktu Kontinu)**
+    
+    - **Sub-Cabang 1.1: Representasi Matematis (SWK_Representasi)**
+        - Node: Sinusoidal (SWK_Sinusoidal), Eksponensial (SWK_Eksponensial), Unit Step (SWK_UnitStep), Unit Impuls (SWK_UnitImpuls).
+    - **Sub-Cabang 1.2: Klasifikasi Sinyal (SWK_Klasifikasi)**
+        - Node: Energi/Daya (SWK_EnergiDaya), Periodik/Aperiodik (SWK_Periodisitas), Genap/Ganjil (SWK_Simetri).
+    - **Sub-Cabang 1.3: Operasi Sinyal (SWK_Operasi)**
+        - Node: Pergeseran Waktu (SWK_GeserWaktu), Penskalaan Waktu (SWK_SkalaWaktu), Pembalikan Waktu (SWK_BalikWaktu), Penjumlahan (SWK_Jumlah), Perkalian (SWK_Kali), Penskalaan Amplitudo (SWK_SkalaAmplitudo).
+- **Cabang 2: SYWK (Sistem Waktu Kontinu)**
+    
+    - **Sub-Cabang 2.1: Definisi & Representasi (SYWK_Representasi)**
+        - Node: Sistem (SYWK_Definisi), Diagram Blok (SYWK_DiagramBlok), Interkoneksi (SYWK_Interkoneksi).
+    - **Sub-Cabang 2.2: Sifat Sistem (SYWK_Sifat)**
+        - Node: Memori (SYWK_Memori), Kausalitas (SYWK_Kausalitas), Invertibilitas (SYWK_Invertibilitas), Stabilitas (SYWK_Stabilitas), Invariansi Waktu (SYWK_InvarianWaktu), Linearitas (SYWK_Linearitas).
+
+**Hubungan (Edges):**
+
+- "Sinyal & Sistem" **TERDIRI_DARI** "SWK", "SYWK".
+- "SWK" **MEMILIKI** "SWK_Representasi", "SWK_Klasifikasi", "SWK_Operasi".
+- "SYWK" **MEMILIKI** "SYWK_Representasi", "SYWK_Sifat".
+- "SWK_Representasi" **MELIPUTI** "SWK_Sinusoidal", "SWK_Eksponensial", "SWK_UnitStep", "SWK_UnitImpuls".
+- "SWK_Klasifikasi" **MELIPUTI** "SWK_EnergiDaya", "SWK_Periodisitas", "SWK_Simetri".
+- "SWK_Operasi" **MELIPUTI** "SWK_GeserWaktu", "SWK_SkalaWaktu", "SWK_BalikWaktu", "SWK_Jumlah", "SWK_Kali", "SWK_SkalaAmplitudo".
+- "SYWK_Representasi" **MELIPUTI** "SYWK_Definisi", "SYWK_DiagramBlok", "SYWK_Interkoneksi".
+- "SYWK_Sifat" **MELIPUTI** "SYWK_Memori", "SYWK_Kausalitas", "SYWK_Invertibilitas", "SYWK_Stabilitas", "SYWK_InvarianWaktu", "SYWK_Linearitas".
+- "SYWK_Interkoneksi" **CONTOH_NYA** "Seri", "Paralel".
+- "SYWK_Linearitas" **MELIPUTI** "Aditivitas", "Homogenitas".
+
+---
+
+## Kendaraan Matematika (Mathematical Vehicles)
+
+Ini adalah alat, teknik, dan metode spesifik yang digunakan untuk memecahkan masalah dalam domain Sinyal dan Sistem.
+
+- **K_MAT_Aljabar:** Untuk manipulasi ekspresi matematis, penyelesaian persamaan, dan penyederhanaan.
+- **K_MAT_Kalkulus:** Untuk diferensiasi (turunan) dan integrasi fungsi waktu kontinu.
+- **K_MAT_Bilangan_Kompleks:** Untuk bekerja dengan sinyal eksponensial kompleks dan memahami representasi fasor.
+- **K_OPS_Sinyal_Dasar:** Meliputi operasi dasar pada sinyal seperti penskalaan amplitudo, pergeseran waktu, penskalaan waktu, pembalikan waktu, penjumlahan, perkalian, serta pemahaman definisi unit step dan unit impuls.
+- **K_VIS_PlotSinyal:** Untuk memvisualisasikan sinyal waktu kontinu, membantu dalam memahami dan menganalisis efek operasi sinyal.
+
+---

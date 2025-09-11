@@ -1,0 +1,247 @@
+## Solusi Tugas 1
+
+** Peta Pengetahuan Aplikatif (Problem-Solving Knowledge Map) untuk Setiap Soal **
+
+Peta Pemecahan Masalah ini bersifat dinamis dan berorientasi proses, dirancang untuk membimbing Anda melalui proses pemecahan masalah. Setiap masalah dikonseptualisasikan sebagai "celah" antara informasi yang diketahui ("Titik Mulai") dan hasil yang diinginkan ("Titik Akhir"). Pemecahan masalah kemudian menjadi proses "menemukan rute" atau urutan langkah-langkah yang dipilih, menyerupai _flowchart_. "Kendaraan" adalah alat, teknik, dan metode spesifik yang digunakan untuk melintasi celah tersebut.
+
+
+
+**PS_W1_P1_L1: Identifikasi Sinyal Dasar**
+
+- **Titik Mulai:** Ekspresi matematis sinyal waktu kontinu, misalnya $x(t) = A \cos(\omega t + \phi)$, $x(t) = A e^{\alpha t}$, $x(t) = u(t)$, $x(t) = \delta(t)$.
+- **Titik Akhir:** Identifikasi jenis sinyal (sinusoidal, eksponensial, unit step, unit impuls).
+- **Rute/Jalan:**
+    1. Tinjau bentuk umum definisi dari masing-masing **SWK_Representasi** (sinusoidal, eksponensial, unit step, unit impuls).
+    2. Bandingkan ekspresi sinyal yang diberikan dengan bentuk umum tersebut.
+    3. Tentukan jenis sinyal yang paling sesuai.
+- **Kendaraan:** **K_MAT_Aljabar** (untuk membandingkan bentuk), **SWK_Representasi** (pemahaman definisi sinyal dasar).
+
+**PS_W1_P2_L2: Klasifikasi Sinyal - Periodik/Aperiodik**
+
+- **Titik Mulai:** Ekspresi matematis sinyal $x(t)$.
+- **Titik Akhir:** Klasifikasi (periodik/aperiodik) dan periode fundamental (jika periodik).
+- **Rute/Jalan:**
+    1. Untuk setiap komponen sinusoidal atau eksponensial kompleks ($e^{j\omega t}$), tentukan periode fundamentalnya $T_i = 2\pi / \omega_i$.
+    2. Jika ada beberapa komponen, cari kelipatan persekutuan terkecil (KPK) dari rasio periode fundamental komponen. Jika rasionya irasional, sinyal aperiodik.
+    3. Jika sinyal mengandung fungsi non-periodik (misalnya, $u(t)$), sinyal tersebut aperiodik.
+- **Kendaraan:** **K_MAT_Aljabar** (manipulasi ekspresi), **K_MAT_Bilangan_Kompleks** (untuk $e^{j\omega t}$), **SWK_Periodisitas** (pemahaman konsep periodisitas). **Heuristik:** "Mencari Pola" (dalam pengulangan).
+
+**PS_W1_P3_L2: Klasifikasi Sinyal - Energi/Daya**
+
+- **Titik Mulai:** Ekspresi matematis sinyal $x(t)$.
+- **Titik Akhir:** Klasifikasi (sinyal energi, sinyal daya, atau tidak keduanya).
+- **Rute/Jalan:**
+    1. Hitung energi total $E = \int_{-\infty}^{\infty} |x(t)|^2 dt$.
+    2. Jika $0 < E < \infty$, sinyal adalah **SWK_EnergiDaya** (energi). Selesai.
+    3. Jika $E$ tak hingga, hitung daya rata-rata $P = \lim_{T \to \infty} \frac{1}{2T} \int_{-T}^{T} |x(t)|^2 dt$.
+    4. Jika $0 < P < \infty$, sinyal adalah **SWK_EnergiDaya** (daya). Selesai.
+    5. Jika tidak ada yang memenuhi, tidak keduanya.
+- **Kendaraan:** **K_MAT_Kalkulus** (integrasi), **K_MAT_Aljabar** (limit), **SWK_EnergiDaya** (definisi).
+
+**PS_W1_P4_L2: Klasifikasi Sinyal - Genap/Ganjil**
+
+- **Titik Mulai:** Ekspresi matematis sinyal $x(t)$.
+- **Titik Akhir:** Klasifikasi (genap/ganjil/tidak keduanya) dan komponen genap/ganjil jika tidak keduanya.
+- **Rute/Jalan:**
+    1. Tentukan ekspresi $x(-t)$.
+    2. Bandingkan $x(t)$ dengan $x(-t)$.
+        - Jika $x(-t) = x(t)$, sinyal adalah **SWK_Simetri** (genap).
+        - Jika $x(-t) = -x(t)$, sinyal adalah **SWK_Simetri** (ganjil).
+        - Jika tidak keduanya, gunakan rumus: $x_e(t) = \frac{1}{2}(x(t) + x(-t))$ dan $x_o(t) = \frac{1}{2}(x(t) - x(-t))$.
+- **Kendaraan:** **K_MAT_Aljabar** (manipulasi ekspresi), **SWK_Simetri** (definisi genap/ganjil).
+
+**PS_W1_P5_L3: Operasi Sinyal - Pergeseran & Penskalaan Waktu**
+
+- **Titik Mulai:** Deskripsi sinyal $x(t)$ (pulsa segitiga). Ekspresi operasi waktu: $y(t) = x(at-b)$.
+- **Titik Akhir:** Sketsa grafis sinyal hasil operasi.
+- **Rute/Jalan:**
+    1. Sketsa sinyal $x(t)$ yang diberikan.
+    2. Identifikasi titik-titik kritis (awal, puncak, akhir) dari $x(t)$.
+    3. Terapkan operasi waktu pada argumen $t$:
+        - Ubah $x(at-b)$ menjadi $x(a(t-b/a))$. Ini menunjukkan pergeseran waktu $t_0 = b/a$ dan penskalaan waktu $a$.
+        - Terapkan **SWK_GeserWaktu** terlebih dahulu (geser $x(t)$ sebesar $b/a$) kemudian **SWK_SkalaWaktu** (penskalaan dengan $a$) pada sumbu waktu.
+        - Atau, terapkan **SWK_SkalaWaktu** terlebih dahulu (penskalaan dengan $a$) kemudian **SWK_GeserWaktu** (geser sebesar $b'$ pada sinyal berskala).
+        - Jika ada pembalikan waktu ($a<0$), lakukan setelah pergeseran.
+    4. Hitung posisi baru titik-titik kritis dan sketsa sinyal $y(t)$.
+- **Kendaraan:** **K_VIS_PlotSinyal**, **SWK_GeserWaktu**, **SWK_SkalaWaktu**, **SWK_BalikWaktu**. **Heuristik:** "Menggambar Diagram", "Menyederhanakan Masalah" (menerapkan operasi satu per satu).
+
+**PS_W1_P6_L3: Operasi Sinyal - Penjumlahan & Perkalian**
+
+- **Titik Mulai:** Ekspresi matematis sinyal $x_1(t)$ dan $x_2(t)$.
+- **Titik Akhir:** Sketsa grafis sinyal hasil operasi ($x_1(t) \pm x_2(t)$, $x_1(t) \cdot x_2(t)$).
+- **Rute/Jalan:**
+    1. Sketsa sinyal $x_1(t)$ dan $x_2(t)$ secara terpisah menggunakan **K_VIS_PlotSinyal**.
+    2. Identifikasi interval waktu di mana kedua sinyal memiliki nilai yang berbeda dari nol atau bervariasi.
+    3. Untuk operasi **SWK_Jumlah** atau pengurangan, pada setiap interval waktu, jumlahkan/kurangkan nilai amplitudo kedua sinyal.
+    4. Untuk operasi **SWK_Kali**, pada setiap interval waktu, kalikan nilai amplitudo kedua sinyal. Perhatikan jika salah satu sinyal nol pada interval tertentu.
+    5. Sketsa sinyal hasil.
+- **Kendaraan:** **K_VIS_PlotSinyal**, **SWK_Jumlah**, **SWK_Kali**. **Heuristik:** "Menggambar Diagram".
+
+**PS_W1_P7_L3: Diferensiasi Sinyal**
+
+- **Titik Mulai:** Ekspresi matematis sinyal $x(t)$.
+- **Titik Akhir:** Ekspresi dan sketsa turunan pertama sinyal $y(t) = \frac{dx(t)}{dt}$.
+- **Rute/Jalan:**
+    1. Sketsa sinyal $x(t)$ menggunakan **K_VIS_PlotSinyal**.
+    2. Identifikasi interval di mana $x(t)$ konstan (turunan nol), memiliki kemiringan konstan (turunan adalah konstanta), atau memiliki diskontinuitas (turunan adalah impuls).
+    3. Gunakan aturan **K_MAT_Kalkulus** (diferensiasi) dan sifat **SWK_UnitStep**, **SWK_UnitImpuls**. Ingat $\frac{du(t)}{dt} = \delta(t)$.
+    4. Sketsa sinyal turunan.
+- **Kendaraan:** **K_MAT_Kalkulus** (diferensiasi), **K_VIS_PlotSinyal**, **SWK_UnitStep**, **SWK_UnitImpuls**.
+
+**PS_W1_P8_L2: Identifikasi Sifat Sistem - Tanpa Memori**
+
+- **Titik Mulai:** Hubungan input-output sistem $y(t) = T{x(t)}$.
+- **Titik Akhir:** Klasifikasi sistem sebagai **SYWK_Memori** (tanpa memori) atau dengan memori.
+- **Rute/Jalan:**
+    1. Tinjau definisi **SYWK_Memori** (tanpa memori): Output $y(t)$ pada waktu $t$ hanya bergantung pada input $x(t)$ pada waktu $t$.
+    2. Periksa ekspresi $y(t)$.
+        - Jika $y(t)$ hanya bergantung pada $x(t)$ (tidak ada $x(t-t_0)$, $x(t+t_0)$, atau integral/turunan), maka sistem tanpa memori.
+        - Jika $y(t)$ bergantung pada $x(\tau)$ di mana $\tau \neq t$, atau pada nilai output masa lalu/depan (misalnya integral), maka sistem memiliki memori.
+- **Kendaraan:** **K_MAT_Aljabar** (analisis ekspresi), **SYWK_Memori** (definisi sifat).
+
+**PS_W1_P9_L2: Identifikasi Sifat Sistem - Kausalitas**
+
+- **Titik Mulai:** Hubungan input-output sistem $y(t) = T{x(t)}$.
+- **Titik Akhir:** Klasifikasi sistem sebagai **SYWK_Kausalitas** (kausal) atau non-kausal.
+- **Rute/Jalan:**
+    1. Tinjau definisi **SYWK_Kausalitas**: Output $y(t)$ pada waktu $t$ hanya bergantung pada input $x(\tau)$ untuk $\tau \le t$.
+    2. Periksa ekspresi $y(t)$.
+        - Jika $y(t)$ bergantung pada $x(\tau)$ di mana $\tau > t$ (input masa depan), maka sistem non-kausal.
+        - Jika hanya bergantung pada $x(t)$ dan/atau $x(\tau)$ untuk $\tau < t$, maka sistem kausal.
+- **Kendaraan:** **K_MAT_Aljabar** (analisis ekspresi), **SYWK_Kausalitas** (definisi sifat).
+
+**PS_W1_P10_L2: Identifikasi Sifat Sistem - Invertibilitas**
+
+- **Titik Mulai:** Hubungan input-output sistem $y(t) = T{x(t)}$.
+- **Titik Akhir:** Klasifikasi sistem sebagai **SYWK_Invertibilitas** (invertibel) atau non-invertibel.
+- **Rute/Jalan:**
+    1. Tinjau definisi **SYWK_Invertibilitas**: Input unik menghasilkan output unik.
+    2. Coba temukan dua input berbeda $x_1(t) \neq x_2(t)$ yang menghasilkan output yang sama $y_1(t) = y_2(t)$.
+        - Jika ditemukan, sistem non-invertibel. (Contoh: $y(t) = x^2(t)$, di mana $x(t)$ dan $-x(t)$ menghasilkan output yang sama).
+    3. Atau, coba cari sistem invers $x(t) = T^{-1}{y(t)}$. Jika $T^{-1}$ ada dan unik, sistem invertibel.
+- **Kendaraan:** **K_MAT_Aljabar** (analisis ekspresi), **SYWK_Invertibilitas** (definisi sifat).
+
+**PS_W1_P11_L3: Identifikasi Sifat Sistem - Stabilitas BIBO**
+
+- **Titik Mulai:** Hubungan input-output sistem $y(t) = T{x(t)}$.
+- **Titik Akhir:** Klasifikasi sistem sebagai **SYWK_Stabilitas** (stabil BIBO) atau tidak stabil BIBO.
+- **Rute/Jalan:**
+    1. Tinjau definisi **SYWK_Stabilitas** (BIBO): Input terbatas menghasilkan output terbatas.
+    2. Asumsikan input $x(t)$ terbatas, yaitu $|x(t)| \le M_x < \infty$ untuk semua $t$.
+    3. Dari ekspresi $y(t)$, periksa apakah $|y(t)|$ akan selalu terbatas.
+    4. Cari contoh _counterexample_: Input terbatas yang menghasilkan output tak terbatas. Jika ditemukan, sistem tidak stabil BIBO.
+- **Kendaraan:** **K_MAT_Aljabar** (analisis batas, ketaksamaan), **SYWK_Stabilitas** (definisi sifat).
+
+**PS_W1_P12_L3: Identifikasi Sifat Sistem - Linearitas**
+
+- **Titik Mulai:** Hubungan input-output sistem $y(t) = T{x(t)}$.
+- **Titik Akhir:** Klasifikasi sistem sebagai **SYWK_Linearitas** (linear) atau non-linear.
+- **Rute/Jalan:**
+    1. Uji **Aditivitas**: Apakah $T{x_1(t) + x_2(t)} = T{x_1(t)} + T{x_2(t)}$?
+        - Ganti $x(t)$ dengan $x_1(t) + x_2(t)$ dalam ekspresi sistem untuk mendapatkan LHS.
+        - Hitung $T{x_1(t)}$ dan $T{x_2(t)}$ secara terpisah dan jumlahkan untuk mendapatkan RHS.
+        - Bandingkan LHS dan RHS.
+    2. Uji **Homogenitas**: Apakah $T{a x(t)} = a T{x(t)}$?
+        - Ganti $x(t)$ dengan $a x(t)$ dalam ekspresi sistem untuk mendapatkan LHS.
+        - Hitung $a T{x(t)}$ untuk mendapatkan RHS.
+        - Bandingkan LHS dan RHS.
+    3. Jika kedua sifat terpenuhi, sistem linear. Jika salah satu atau keduanya tidak, sistem non-linear.
+- **Kendaraan:** **K_MAT_Aljabar** (manipulasi ekspresi), **SYWK_Linearitas** (definisi sifat, aditivitas, homogenitas).
+
+**PS_W1_P13_L3: Identifikasi Sifat Sistem - Invariansi Waktu**
+
+- **Titik Mulai:** Hubungan input-output sistem $y(t) = T{x(t)}$.
+- **Titik Akhir:** Klasifikasi sistem sebagai **SYWK_InvarianWaktu** (invarian waktu) atau bervariasi waktu.
+- **Rute/Jalan:**
+    1. Tentukan output $y(t)$ untuk input $x(t)$.
+    2. Definisikan input yang digeser waktu $x_d(t) = x(t-t_0)$. Tentukan output $y_d(t)$ untuk input ini.
+    3. Geser output asli $y(t)$ sebesar $t_0$ untuk mendapatkan $y_s(t) = y(t-t_0)$.
+    4. Bandingkan $y_d(t)$ dan $y_s(t)$.
+        - Jika $y_d(t) = y_s(t)$ untuk semua $x(t)$ dan $t_0$, sistem adalah **SYWK_InvarianWaktu**.
+        - Jika tidak, sistem bervariasi waktu.
+- **Kendaraan:** **K_MAT_Aljabar** (manipulasi ekspresi), **SWK_GeserWaktu**, **SYWK_InvarianWaktu** (definisi sifat).
+
+**PS_W1_P14_L4: Analisis Gabungan Sifat Sistem**
+
+- **Titik Mulai:** Hubungan input-output sistem $y(t) = T{x(t)}$.
+- **Titik Akhir:** Klasifikasi lengkap (linear, invarian waktu, kausal, stabil BIBO).
+- **Rute/Jalan:**
+    1. Terapkan langkah-langkah P8 hingga P13 secara berurutan untuk setiap sifat: **SYWK_Memori**, **SYWK_Kausalitas**, **SYWK_Invertibilitas**, **SYWK_Stabilitas**, **SYWK_Linearitas**, **SYWK_InvarianWaktu**.
+    2. Dokumentasikan kesimpulan untuk setiap sifat.
+- **Kendaraan:** **K_MAT_Aljabar**, **K_MAT_Kalkulus**, **K_OPS_Sinyal_Dasar** (semua definisi sifat sistem). **Heuristik:** "Mentransformasi Masalah" (ke dalam analisis sifat), "Menyederhanakan Masalah" (analisis sifat satu per satu).
+
+**PS_W1_P15_L3: Representasi Sinyal Kompleks**
+
+- **Titik Mulai:** Sinyal eksponensial kompleks $x(t) = A e^{j(\omega t + \phi)}$.
+- **Titik Akhir:** Bentuk sinusoidal riil $A \cos(\omega t + \phi)$.
+- **Rute/Jalan:**
+    1. Identifikasi amplitudo $A$, frekuensi sudut $\omega$, dan fase $\phi$ dari ekspresi eksponensial kompleks.
+    2. Gunakan identitas Euler: $e^{j\theta} = \cos\theta + j \sin\theta$.
+    3. Substitusikan argumen eksponensial kompleks $(\omega t + \phi)$ sebagai $\theta$ ke dalam identitas Euler.
+    4. Ambil bagian riil dari hasilnya.
+- **Kendaraan:** **K_MAT_Bilangan_Kompleks** (identitas Euler), **K_MAT_Aljabar**.
+
+**PS_W1_P16_L4: Analisis Energi Sinyal**
+
+- **Titik Mulai:** Ekspresi sinyal $x(t) = e^{-|t|}$.
+- **Titik Akhir:** Energi total sinyal $E$.
+- **Rute/Jalan:**
+    1. Uraikan sinyal $x(t) = e^{-|t|}$ menjadi bentuk fungsi _piecewise_: $x(t) = e^t$ untuk $t<0$ dan $x(t) = e^{-t}$ untuk $t \ge 0$.
+    2. Gunakan rumus energi total: $E = \int_{-\infty}^{\infty} |x(t)|^2 dt$.
+    3. Pisahkan integral menjadi dua bagian berdasarkan fungsi _piecewise_: $E = \int_{-\infty}^{0} (e^t)^2 dt + \int_{0}^{\infty} (e^{-t})^2 dt$.
+    4. Hitung masing-masing integral menggunakan **K_MAT_Kalkulus**.
+    5. Jumlahkan hasilnya.
+- **Kendaraan:** **K_MAT_Kalkulus** (integrasi), **K_MAT_Aljabar** (fungsi _piecewise_, sifat eksponensial), **SWK_EnergiDaya** (definisi).
+
+**PS_W1_P17_L3: Operasi Sinyal - Kombinasi**
+
+- **Titik Mulai:** Ekspresi sinyal $x(t) = u(t-1) - u(t-3)$. Transformasi $y(t) = x(2t+2)$.
+- **Titik Akhir:** Sketsa sinyal $y(t)$.
+- **Rute/Jalan:**
+    1. Sketsa sinyal $x(t)$ (pulsa persegi dari $t=1$ hingga $t=3$) menggunakan **K_VIS_PlotSinyal**.
+    2. Terapkan operasi waktu pada argumen $t$ dari $y(t) = x(2t+2)$:
+        - Tulis ulang argumen sebagai $2(t+1)$. Ini berarti penskalaan waktu dengan $a=2$ dan pergeseran waktu dengan $t_0=-1$.
+        - Terapkan **SWK_GeserWaktu** terlebih dahulu: Geser $x(t)$ ke kiri 1 unit menjadi $x(t+1)$. Pulsa menjadi dari $t=0$ hingga $t=2$.
+        - Kemudian terapkan **SWK_SkalaWaktu**: Kompres $x(t+1)$ dengan faktor 2 menjadi $x(2(t+1))$. Pulsa menjadi dari $t=0$ hingga $t=1$.
+    3. Sketsa sinyal $y(t)$.
+- **Kendaraan:** **K_VIS_PlotSinyal**, **SWK_UnitStep**, **SWK_GeserWaktu**, **SWK_SkalaWaktu**. **Heuristik:** "Menggambar Diagram", "Menyederhanakan Masalah" (menerapkan operasi berurutan).
+
+**PS_W1_P18_L4: Sistem dan Kondisi Awal**
+
+- **Titik Mulai:** Definisi sistem: $y(t) = x(t)$ untuk $t \ge 0$, $y(t) = 0$ untuk $t < 0$. Input $x(t) = e^{-t}$.
+- **Titik Akhir:** Klasifikasi kausal/invarian waktu.
+- **Rute/Jalan:**
+    1. **Untuk SYWK_Kausalitas:** Periksa apakah $y(t)$ bergantung pada input masa depan $x(\tau)$ dengan $\tau > t$.
+        - Untuk $t < 0$, $y(t)=0$, tidak bergantung pada $x(t)$.
+        - Untuk $t \ge 0$, $y(t)=x(t)$, bergantung pada $x(t)$ saat ini.
+        - Simpulkan berdasarkan definisi.
+    2. **Untuk SYWK_InvarianWaktu:**
+        - Tentukan output $y(t)$ untuk input $x(t) = e^{-t}$ (yaitu $y(t) = e^{-t} u(t)$).
+        - Tentukan output $y_d(t)$ untuk input yang digeser $x_d(t) = x(t-t_0) = e^{-(t-t_0)}$. Sesuai definisi sistem, $y_d(t) = e^{-(t-t_0)} u(t)$.
+        - Tentukan output asli yang digeser waktu $y_s(t) = y(t-t_0) = e^{-(t-t_0)} u(t-t_0)$.
+        - Bandingkan $y_d(t)$ dan $y_s(t)$. Jika tidak sama, simpulkan sistem bervariasi waktu.
+- **Kendaraan:** **K_MAT_Aljabar**, **SWK_UnitStep**, **SYWK_Kausalitas** (definisi), **SYWK_InvarianWaktu** (definisi).
+
+**PS_W1_P19_L3: Klasifikasi Sistem - Interkoneksi**
+
+- **Titik Mulai:** Dua sistem $S_1$ ($y_1(t) = x_1(t-1)$) dan $S_2$ ($y_2(t) = 2x_2(t)$) dihubungkan seri.
+- **Titik Akhir:** Klasifikasi sistem gabungan (linear, invarian waktu).
+- **Rute/Jalan:**
+    1. Tentukan hubungan input-output untuk sistem gabungan: $y(t) = S_2{S_1{x(t)}}$.
+        - Substitusikan output $S_1$ ke dalam input $S_2$: $y(t) = S_2{x(t-1)} = 2x(t-1)$.
+    2. Uji **SYWK_Linearitas** sistem gabungan (ikuti P12).
+    3. Uji **SYWK_InvarianWaktu** sistem gabungan (ikuti P13).
+- **Kendaraan:** **K_MAT_Aljabar**, **SWK_GeserWaktu**, **SYWK_Linearitas** (definisi), **SYWK_InvarianWaktu** (definisi).
+
+**PS_W1_P20_L4: Sifat Sinyal - Ekstraksi Komponen**
+
+- **Titik Mulai:** Sinyal $x(t) = e^{-t} \cos(2t) u(t)$.
+- **Titik Akhir:** Ekspresi dan sketsa komponen genap $x_e(t)$ dan komponen ganjil $x_o(t)$.
+- **Rute/Jalan:**
+    1. Tentukan ekspresi untuk $x(-t)$. Ingat $\cos(-A) = \cos(A)$ dan $u(-t)$.
+    2. Gunakan rumus untuk komponen genap: $x_e(t) = \frac{1}{2} (x(t) + x(-t))$.
+    3. Gunakan rumus untuk komponen ganjil: $x_o(t) = \frac{1}{2} (x(t) - x(-t))$.
+    4. Substitusikan $x(t)$ dan $x(-t)$ ke dalam rumus dan sederhanakan ekspresi menggunakan **K_MAT_Aljabar**.
+    5. Sketsa masing-masing komponen $x_e(t)$ dan $x_o(t)$ menggunakan **K_VIS_PlotSinyal**.
+- **Kendaraan:** **K_MAT_Aljabar** (manipulasi ekspresi, sifat trigonometri), **SWK_UnitStep**, **SWK_Simetri** (definisi genap/ganjil), **K_VIS_PlotSinyal**.
+

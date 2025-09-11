@@ -1,26 +1,32 @@
 project:
-  type: website
+  type: book
   output-dir: docs
 
-website:
-  title: "EL 2007 Sinyal dan Sistem"
-  navbar:
-    right:
-      - href: index.html
-        text: Beranda
-      - text: "Iklan Produk"
-        href: iklan_produk/index.html
-      - text: "Produk Mahasiswa"
-        href: produk_mahasiswa_terpilih/index.html
-                   
+book:
+  title: "EL-2007 Sinyal dan Sistem"
+  author: "Armein Z R Langi"
+  date: "9/3/2025"
+  chapters:
+    - index.qmd
+    - intro.qmd
+    - kuliah/materi_1.qmd
+    - requirements/soal_1.qmd
+    - solusi/solusi_1.qmd
+    - kuliah/materi_2.qmd
+    - requirements/soal_2.qmd
+    - solusi/solusi_2.qmd
+    - summary.qmd
+    - references.qmd
+
+bibliography: references.bib
 
 format:
   html:
     theme:
       - cosmo
       - brand
-    css: styles.css
-    toc: true
+  pdf:
+    documentclass: scrreprt
 
 
 
