@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.33">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>5&nbsp; I. Materi Pembelajaran Minggu 4: Analisis Sistem di Domain Waktu – EL-2007 Sinyal dan Sistem</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../summary.html" rel="next">
+<link href="../kuliah/materi_3.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-364982630eef5352dd1537128a8ed5cb.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../kuliah/materi_4.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">I. Materi Pembelajaran Minggu 4: Analisis Sistem di Domain Waktu</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">EL-2007 Sinyal dan Sistem</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Petunjuk Belajar Mata Kuliah Sinyal dan Sistem</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Tinjauan Kuliah</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../kuliah/materi_1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Materi Pembelajaran Minggu 1: Deskripsi Matematis Sinyal Waktu Kontinu</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../kuliah/materi_2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Materi Kuliah Minggu 2: Deskripsi Sistem di Domain Waktu dan Sifat-sifat Dasarnya</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../kuliah/materi_3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Sistem LTI dan LCCDE</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../kuliah/materi_4.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">I. Materi Pembelajaran Minggu 4: Analisis Sistem di Domain Waktu</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../summary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Lampiran Petunjuk Penggunaan Alat Bantu dan Kendaraan dalam Sinyal dan Sistem (VALORAIZE Learning)</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#konsep-kunci" id="toc-konsep-kunci" class="nav-link active" data-scroll-target="#konsep-kunci"><span class="header-section-number">5.0.1</span> Konsep Kunci:</a></li>
+  <li><a href="#ii.-peta-pengetahuan-primitif-analisis-sistem-di-domain-waktu-minggu-4" id="toc-ii.-peta-pengetahuan-primitif-analisis-sistem-di-domain-waktu-minggu-4" class="nav-link" data-scroll-target="#ii.-peta-pengetahuan-primitif-analisis-sistem-di-domain-waktu-minggu-4"><span class="header-section-number">5.1</span> II. Peta Pengetahuan Primitif: Analisis Sistem di Domain Waktu (Minggu 4)</a>
+  <ul class="collapse">
+  <li><a href="#kendaraan-matematika-dan-konseptual-untuk-minggu-4" id="toc-kendaraan-matematika-dan-konseptual-untuk-minggu-4" class="nav-link" data-scroll-target="#kendaraan-matematika-dan-konseptual-untuk-minggu-4"><span class="header-section-number">5.1.1</span> Kendaraan Matematika dan Konseptual untuk Minggu 4</a></li>
+  </ul></li>
+  <li><a href="#iii.-20-soal-latihan-minggu-4-analisis-domain-waktu" id="toc-iii.-20-soal-latihan-minggu-4-analisis-domain-waktu" class="nav-link" data-scroll-target="#iii.-20-soal-latihan-minggu-4-analisis-domain-waktu"><span class="header-section-number">5.2</span> III. 20 Soal Latihan Minggu 4 (Analisis Domain Waktu)</a></li>
+  <li><a href="#v.-daftar-kendaraan-yang-digunakan" id="toc-v.-daftar-kendaraan-yang-digunakan" class="nav-link" data-scroll-target="#v.-daftar-kendaraan-yang-digunakan"><span class="header-section-number">5.3</span> V. Daftar Kendaraan yang Digunakan</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">I. Materi Pembelajaran Minggu 4: Analisis Sistem di Domain Waktu</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>**Berdasarkan tujuan pembelajaran yang ditetapkan dalam RPS.pdf untuk Minggu 4, materi kuliah akan berfokus pada analisis sistem Linear Tak-berubah Waktu (LTI) di Domain Waktu, menggunakan dua alat fundamental: Konvolusi dan Persamaan Diferensial Linear Koefisien Konstan (LCCDEs).</p>
+<hr>
+<p><strong>Bahan Kajian:</strong> Analisis Sistem di Domain Waktu: Solusi Persamaan Diferensial dan Konvolusi (Time-Domain Analysis of Systems: Solution to Differential Equation and Convolution). <strong>CPMK Terkait:</strong> Mampu <strong>menganalisis respon sistem LTI menggunakan konvolusi dan menyelesaikan persamaan diferensial yang menggambarkan sistem</strong>.</p>
+<section id="konsep-kunci" class="level3" data-number="5.0.1">
+<h3 data-number="5.0.1" class="anchored" data-anchor-id="konsep-kunci"><span class="header-section-number">5.0.1</span> Konsep Kunci:</h3>
+<section id="konvolusi-untuk-sistem-lti-waktu-kontinu-ct-convolution" class="level4" data-number="5.0.1.1">
+<h4 data-number="5.0.1.1" class="anchored" data-anchor-id="konvolusi-untuk-sistem-lti-waktu-kontinu-ct-convolution"><span class="header-section-number">5.0.1.1</span> 1. Konvolusi untuk Sistem LTI Waktu Kontinu (CT Convolution)</h4>
+<p>Sistem Linear Tak-berubah Waktu (LTI) sepenuhnya dikarakterisasi oleh <strong>respon impulsnya</strong>, <span class="math inline">\(h(t)\)</span>. Output <span class="math inline">\(y(t)\)</span> dari sistem LTI untuk input <span class="math inline">\(x(t)\)</span> yang diberikan dapat ditentukan secara eksklusif menggunakan <strong>operasi konvolusi</strong>: <span class="math display">\[y(t) = x(t) * h(t) = \int_{-\infty}^{\infty} x(\tau)h(t-\tau)d\tau\]</span>.</p>
+<p>Operasi konvolusi memungkinkan kita untuk menemukan output sistem untuk input sembarang. Konvolusi juga memiliki sifat-sifat aljabar penting seperti <strong>komutatif</strong> (<span class="math inline">\(x(t) * h(t) = h(t) * x(t)\)</span>), <strong>distributif</strong>, dan <strong>asosiatif</strong>.</p>
+</section>
+<section id="persamaan-diferensial-linear-koefisien-konstan-lccdes" class="level4" data-number="5.0.1.2">
+<h4 data-number="5.0.1.2" class="anchored" data-anchor-id="persamaan-diferensial-linear-koefisien-konstan-lccdes"><span class="header-section-number">5.0.1.2</span> 2. Persamaan Diferensial Linear Koefisien Konstan (LCCDEs)</h4>
+<p>Banyak sistem fisik waktu kontinu (seperti rangkaian listrik atau sistem mekanik) dimodelkan menggunakan persamaan diferensial linear koefisien konstan. Bentuk umum: <span class="math inline">\(\sum_{k=0}^{N} a_k \frac{d^k y(t)}{dt^k} = \sum_{k=0}^{M} b_k \frac{d^k x(t)}{dt^k}\)</span>.</p>
+</section>
+<section id="solusi-lccdes" class="level4" data-number="5.0.1.3">
+<h4 data-number="5.0.1.3" class="anchored" data-anchor-id="solusi-lccdes"><span class="header-section-number">5.0.1.3</span> 3. Solusi LCCDEs</h4>
+<p>Solusi lengkap dari persamaan diferensial ini terdiri dari dua bagian: 1. <strong>Solusi Homogen (<span class="math inline">\(y_h(t)\)</span>):</strong> Menjelaskan perilaku internal sistem (disebut juga <em>natural response</em>) dan ditentukan oleh <strong>akar-akar persamaan karakteristik</strong> sistem (yang diperoleh dengan menyamakan input menjadi nol). 2. <strong>Solusi Partikular (<span class="math inline">\(y_p(t)\)</span>):</strong> Menjelaskan respon sistem terhadap input tertentu (<em>forced response</em>) dan biasanya memiliki bentuk yang sama dengan input atau turunan-turunannya. Solusi lengkapnya adalah <span class="math inline">\(y(t) = y_h(t) + y_p(t)\)</span>. <strong>Kondisi awal</strong> seringkali diperlukan untuk menemukan konstanta dalam solusi homogen.</p>
+<hr>
+</section>
+</section>
+<section id="ii.-peta-pengetahuan-primitif-analisis-sistem-di-domain-waktu-minggu-4" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="ii.-peta-pengetahuan-primitif-analisis-sistem-di-domain-waktu-minggu-4"><span class="header-section-number">5.1</span> II. Peta Pengetahuan Primitif: Analisis Sistem di Domain Waktu (Minggu 4)</h2>
+<p>Peta ini berfokus pada pengetahuan deklaratif dan konseptual yang mengatur operasi utama analisis sistem LTI di domain waktu.</p>
+<p><strong>Node Pusat:</strong> <strong>Sinyal &amp; Sistem</strong> * <strong>Cabang 1: Analisis Domain Waktu (ADW)</strong> * <strong>Sub-Cabang 1.1: Pemodelan Sistem (ADW_Pemodelan)</strong> * Node: Sistem LTI (LTI), Respon Impuls (<span class="math inline">\(h(t)\)</span>). * Node: Persamaan Diferensial (PD). * <strong>Sub-Cabang 1.2: Konvolusi (ADW_Konvolusi)</strong> * Node: Integral Konvolusi (IntKonvolusi). * Node: Sifat Konvolusi (SifatKonvolusi). * Node: Input Sinyal Dasar (SWK_Dasar). * <strong>Sub-Cabang 1.3: Solusi PD (ADW_SolusiPD)</strong> * Node: Solusi Lengkap (YLengkap). * Node: Solusi Homogen (<span class="math inline">\(y_h\)</span>). * Node: Solusi Partikular (<span class="math inline">\(y_p\)</span>). * Node: Persamaan Karakteristik (PK). * Node: Kondisi Awal (KA). * <strong>Cabang 2: Sifat LTI dari <span class="math inline">\(h(t)\)</span> (LTI_Sifat)</strong> * Node: Kausalitas_h(t). * Node: Stabilitas_h(t) (BIBO).</p>
+<p><strong>Hubungan (Edges):</strong> * “LTI” <strong>DICIRIKAN_OLEH</strong> “<span class="math inline">\(h(t)\)</span>”. * “Output Sistem LTI” <strong>DIHITUNG_DENGAN</strong> “IntKonvolusi”. * “PD” <strong>MENGGAMBARKAN</strong> “LTI”. * “YLengkap” <strong>TERDIRI_DARI</strong> “<span class="math inline">\(y_h\)</span>” <strong>DAN</strong> “<span class="math inline">\(y_p\)</span>”. * “<span class="math inline">\(y_h\)</span>” <strong>DITENTUKAN_OLEH</strong> “PK”. * “PK” <strong>DITENTUKAN_OLEH</strong> “PD”. * “KA” <strong>DIPERLUKAN_UNTUK_MENEMUKAN_KONSTANTA_DI</strong> “<span class="math inline">\(y_h\)</span>”. * “Kausalitas_h(t)” <strong>DITENTUKAN_OLEH</strong> “<span class="math inline">\(h(t)=0\)</span> untuk <span class="math inline">\(t&lt;0\)</span>”. * “Stabilitas_h(t)” <strong>DITENTUKAN_OLEH</strong> “<span class="math inline">\(\int |h(t)| dt &lt; \infty\)</span>”.</p>
+<section id="kendaraan-matematika-dan-konseptual-untuk-minggu-4" class="level3" data-number="5.1.1">
+<h3 data-number="5.1.1" class="anchored" data-anchor-id="kendaraan-matematika-dan-konseptual-untuk-minggu-4"><span class="header-section-number">5.1.1</span> Kendaraan Matematika dan Konseptual untuk Minggu 4</h3>
+<p>Kendaraan (Vehicles) yang diperlukan untuk mengoperasikan Peta Pengetahuan Primitif dan memecahkan masalah Minggu 4 meliputi: * <strong>K_MAT_Aljabar:</strong> Untuk manipulasi ekspresi, penyederhanaan, penyelesaian persamaan karakteristik, dan manipulasi sinyal dasar. * <strong>K_MAT_Kalkulus:</strong> Untuk diferensiasi dan <strong>integrasi fungsi waktu kontinu</strong> (khususnya Integral Konvolusi) dan mengevaluasi stabilitas. * <strong>K_MAT_Bilangan_Kompleks:</strong> Untuk menemukan akar-akar PD (persamaan karakteristik) yang kompleks, yang menghasilkan solusi homogen sinusoidal. * <strong>K_OPS_Definisi:</strong> Definisi Konvolusi, Respon Impuls (<span class="math inline">\(h(t)\)</span>), Linearitas, Kausalitas LTI, dan Stabilitas BIBO. * <strong>K_OPS_Representasi_Matematis:</strong> Struktur PD LCC dan Persamaan Karakteristik. * <strong>K_OPS_SifatKonvolusi:</strong> Properti Asosiatif, Komutatif, dan Distributif. * <strong>K_VIS_PlotSinyal:</strong> Untuk memvisualisasikan sinyal <span class="math inline">\(x(\tau)\)</span> dan <span class="math inline">\(h(t-\tau)\)</span> dalam rangka menentukan batas integral konvolusi (Graphical Convolution). * <strong>Heuristik_Menganalisis_Batas:</strong> Aturan tak-algoritmik untuk memecah masalah konvolusi menjadi kasus-kasus berdasarkan overlap sinyal.</p>
+<hr>
+</section>
+</section>
+<section id="iii.-20-soal-latihan-minggu-4-analisis-domain-waktu" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="iii.-20-soal-latihan-minggu-4-analisis-domain-waktu"><span class="header-section-number">5.2</span> III. 20 Soal Latihan Minggu 4 (Analisis Domain Waktu)</h2>
+<p>Berikut 20 soal latihan yang berfokus pada Konvolusi (CONV), Solusi Persamaan Diferensial (PD_SOL), dan sifat LTI dari Respon Impuls (IR_AN / IR_PROP), tanpa solusi.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">No.</th>
+<th style="text-align: left;">Produk Number</th>
+<th style="text-align: left;">Topik</th>
+<th style="text-align: left;">Level Bloom</th>
+<th style="text-align: left;">Deskripsi Soal</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>1</strong></td>
+<td style="text-align: left;"><strong>WK4-CONV-L3-P01</strong></td>
+<td style="text-align: left;">CONV</td>
+<td style="text-align: left;">Menerapkan (L3)</td>
+<td style="text-align: left;">Hitung output <span class="math inline">\(y(t) = x(t) * h(t)\)</span> jika <span class="math inline">\(x(t) = u(t-2)\)</span> dan <span class="math inline">\(h(t) = \delta(t+1)\)</span>.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>2</strong></td>
+<td style="text-align: left;"><strong>WK4-PD_SOL-L2-P02</strong></td>
+<td style="text-align: left;">PD_SOL</td>
+<td style="text-align: left;">Memahami (L2)</td>
+<td style="text-align: left;">Tuliskan bentuk umum solusi homogen <span class="math inline">\(y_h(t)\)</span> untuk PD orde kedua <span class="math inline">\(d^2y/dt^2 - 4dy/dt + 4y(t) = x(t)\)</span>. (Asumsikan akar kembar real).</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>3</strong></td>
+<td style="text-align: left;"><strong>WK4-IR_AN-L4-P03</strong></td>
+<td style="text-align: left;">IR_AN</td>
+<td style="text-align: left;">Menganalisis (L4)</td>
+<td style="text-align: left;">Analisis kausalitas sistem LTI waktu kontinu dengan respon impuls <span class="math inline">\(h(t) = e^{2t}u(1-t)\)</span>.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>4</strong></td>
+<td style="text-align: left;"><strong>WK4-CONV-L3-P04</strong></td>
+<td style="text-align: left;">CONV</td>
+<td style="text-align: left;">Menerapkan (L3)</td>
+<td style="text-align: left;">Diberikan <span class="math inline">\(x(t) = e^{-t}u(t)\)</span> dan <span class="math inline">\(h(t) = u(t)\)</span>, hitung nilai output <span class="math inline">\(y(t)\)</span> pada <span class="math inline">\(t=2\)</span>.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>5</strong></td>
+<td style="text-align: left;"><strong>WK4-PD_SOL-L4-P05</strong></td>
+<td style="text-align: left;">PD_SOL</td>
+<td style="text-align: left;">Menganalisis (L4)</td>
+<td style="text-align: left;">Tentukan solusi partikular <span class="math inline">\(y_p(t)\)</span> untuk PD orde pertama <span class="math inline">\(\frac{dy(t)}{dt} + 2y(t) = 3u(t)\)</span>.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>6</strong></td>
+<td style="text-align: left;"><strong>WK4-CONV-L5-P06</strong></td>
+<td style="text-align: left;">CONV</td>
+<td style="text-align: left;">Mengevaluasi (L5)</td>
+<td style="text-align: left;">Evaluasi apakah <span class="math inline">\(x(t) * \delta(t-t_0) = \delta(t-t_0) * x(t)\)</span>. Justifikasikan menggunakan sifat konvolusi.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>7</strong></td>
+<td style="text-align: left;"><strong>WK4-PD_SOL-L2-P07</strong></td>
+<td style="text-align: left;">PD_SOL</td>
+<td style="text-align: left;">Memahami (L2)</td>
+<td style="text-align: left;">Jelaskan perbedaan peran solusi homogen dan solusi partikular dalam menentukan respon sistem LTI yang dimodelkan oleh PD.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>8</strong></td>
+<td style="text-align: left;"><strong>WK4-IR_AN-L4-P08</strong></td>
+<td style="text-align: left;">IR_AN</td>
+<td style="text-align: left;">Menganalisis (L4)</td>
+<td style="text-align: left;">Buktikan stabilitas BIBO untuk sistem LTI waktu kontinu dengan respon impuls <span class="math inline">\(h(t) = 5e^{-0.5t}u(t)\)</span>.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>9</strong></td>
+<td style="text-align: left;"><strong>WK4-CONV-L4-P09</strong></td>
+<td style="text-align: left;">CONV</td>
+<td style="text-align: left;">Menganalisis (L4)</td>
+<td style="text-align: left;">Hitung dan sketsa output <span class="math inline">\(y(t)\)</span> jika <span class="math inline">\(x(t)\)</span> adalah pulsa persegi (dari 0 hingga 1) dan <span class="math inline">\(h(t) = \delta(t) + \delta(t-1)\)</span>.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>10</strong></td>
+<td style="text-align: left;"><strong>WK4-PD_SOL-L3-P10</strong></td>
+<td style="text-align: left;">PD_SOL</td>
+<td style="text-align: left;">Menerapkan (L3)</td>
+<td style="text-align: left;">Tentukan respon natural (solusi homogen) dari sistem yang dijelaskan oleh <span class="math inline">\(\frac{d^2y(t)}{dt^2} + 9y(t) = x(t)\)</span>.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>11</strong></td>
+<td style="text-align: left;"><strong>WK4-IR_PROP-L2-P11</strong></td>
+<td style="text-align: left;">IR_PROP</td>
+<td style="text-align: left;">Memahami (L2)</td>
+<td style="text-align: left;">Tuliskan kriteria matematis untuk stabilitas BIBO sistem LTI waktu kontinu berdasarkan respon impuls <span class="math inline">\(h(t)\)</span>.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>12</strong></td>
+<td style="text-align: left;"><strong>WK4-CONV-L3-P12</strong></td>
+<td style="text-align: left;">CONV</td>
+<td style="text-align: left;">Menerapkan (L3)</td>
+<td style="text-align: left;">Selesaikan konvolusi integral untuk <span class="math inline">\(x(t) = e^{-2t}u(t)\)</span> dan <span class="math inline">\(h(t) = e^{-3t}u(t)\)</span>.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>13</strong></td>
+<td style="text-align: left;"><strong>WK4-LTI_PROP-L4-P13</strong></td>
+<td style="text-align: left;">LTI_PROP</td>
+<td style="text-align: left;">Menganalisis (L4)</td>
+<td style="text-align: left;">Diberikan dua sistem LTI kausal <span class="math inline">\(h_1(t)\)</span> dan <span class="math inline">\(h_2(t)\)</span>. Analisis apakah sistem kaskade <span class="math inline">\(h_1(t) * h_2(t)\)</span> pasti kausal.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>14</strong></td>
+<td style="text-align: left;"><strong>WK4-IR_PROP-L6-P14</strong></td>
+<td style="text-align: left;">IR_PROP</td>
+<td style="text-align: left;">Menciptakan (L6)</td>
+<td style="text-align: left;">Formulasikan ekspresi respon impuls <span class="math inline">\(h(t)\)</span> sistem LTI agar kausal dan tidak stabil BIBO.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>15</strong></td>
+<td style="text-align: left;"><strong>WK4-CONV-L3-P15</strong></td>
+<td style="text-align: left;">CONV</td>
+<td style="text-align: left;">Menerapkan (L3)</td>
+<td style="text-align: left;">Hitung output <span class="math inline">\(y[n]\)</span> dari konvolusi waktu diskrit <span class="math inline">\(x[n] * h[n]\)</span> di mana <span class="math inline">\(x[n] = \{1, 2, 0, 1\}\)</span> dan <span class="math inline">\(h[n] = \{1, 1, 1\}\)</span>.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>16</strong></td>
+<td style="text-align: left;"><strong>WK4-PD_SOL-L5-P16</strong></td>
+<td style="text-align: left;">PD_SOL</td>
+<td style="text-align: left;">Mengevaluasi (L5)</td>
+<td style="text-align: left;">Evaluasi apakah kondisi awal <span class="math inline">\(y(0)\)</span> dan <span class="math inline">\(dy(0)/dt\)</span> (untuk PD orde 2) sama dengan nol jika sistem berada dalam keadaan istirahat (<em>at rest</em>).</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>17</strong></td>
+<td style="text-align: left;"><strong>WK4-IR_AN-L4-P17</strong></td>
+<td style="text-align: left;">IR_AN</td>
+<td style="text-align: left;">Menganalisis (L4)</td>
+<td style="text-align: left;">Tentukan respon impuls <span class="math inline">\(h(t)\)</span> untuk sistem yang didefinisikan oleh <span class="math inline">\(y(t) = 3x(t) + \frac{1}{2}\frac{dx(t)}{dt}\)</span>.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>18</strong></td>
+<td style="text-align: left;"><strong>WK4-CONV-L4-P18</strong></td>
+<td style="text-align: left;">CONV</td>
+<td style="text-align: left;">Menganalisis (L4)</td>
+<td style="text-align: left;">Diberikan output <span class="math inline">\(y(t)\)</span> dan respon impuls <span class="math inline">\(h(t)\)</span>, tunjukkan bagaimana sifat komutatif konvolusi membantu memecahkan masalah dekonvolusi.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>19</strong></td>
+<td style="text-align: left;"><strong>WK4-PD_SOL-L4-P19</strong></td>
+<td style="text-align: left;">PD_SOL</td>
+<td style="text-align: left;">Menganalisis (L4)</td>
+<td style="text-align: left;">Tentukan bentuk solusi partikular yang tepat jika sistem PD orde 2 memiliki akar homogen <span class="math inline">\(s_1 = -1\)</span> dan <span class="math inline">\(s_2 = -2\)</span>, dan inputnya adalah <span class="math inline">\(x(t) = e^{-2t}u(t)\)</span>.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>20</strong></td>
+<td style="text-align: left;"><strong>WK4-PD_SOL-L6-P20</strong></td>
+<td style="text-align: left;">PD_SOL</td>
+<td style="text-align: left;">Menciptakan (L6)</td>
+<td style="text-align: left;">Formulasikan PD orde 2 LTI yang menghasilkan respon homogen osilasi teredam (damped oscillation).</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+<section id="v.-daftar-kendaraan-yang-digunakan" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="v.-daftar-kendaraan-yang-digunakan"><span class="header-section-number">5.3</span> V. Daftar Kendaraan yang Digunakan</h2>
+<p>Berikut adalah daftar kendaraan unik yang digunakan dalam Peta Pengetahuan Aplikatif untuk analisis Domain Waktu (Minggu 4):</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Kategori Kendaraan</th>
+<th style="text-align: left;">Kendaraan Spesifik</th>
+<th style="text-align: left;">Deskripsi Penggunaan</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Matematika (Fundamental)</strong></td>
+<td style="text-align: left;"><strong>K_MAT_Aljabar</strong></td>
+<td style="text-align: left;">Manipulasi ekspresi, faktorisasi, penyelesaian konstanta PD, penjumlahan sinyal.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><strong>K_MAT_Kalkulus</strong></td>
+<td style="text-align: left;">Diferensiasi untuk analisis PD, <strong>integrasi</strong> untuk Konvolusi dan uji stabilitas.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><strong>K_MAT_Bilangan_Kompleks</strong></td>
+<td style="text-align: left;">Penentuan akar persamaan karakteristik kompleks konjugat.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Operasi Dasar Sinyal/Sistem</strong></td>
+<td style="text-align: left;"><strong>K_OPS_Definisi</strong></td>
+<td style="text-align: left;">Definisi Konvolusi Integral, Respon Impuls (<span class="math inline">\(h(t)\)</span>), Kausalitas LTI, Stabilitas BIBO, Solusi PD.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><strong>K_OPS_SifatKonvolusi</strong></td>
+<td style="text-align: left;">Penerapan sifat Komutatif, Distributif, dan Sifting Property dari <span class="math inline">\(\delta(t)\)</span>.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><strong>K_OPS_Representasi_Matematis</strong></td>
+<td style="text-align: left;">Struktur PD LCC, bentuk umum Solusi Homogen (<span class="math inline">\(y_h\)</span>), dan bentuk asumsi Solusi Partikular (<span class="math inline">\(y_p\)</span>).</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><strong>K_OPS_Sinyal_Dasar</strong></td>
+<td style="text-align: left;">Turunan dari fungsi impuls (<span class="math inline">\(\delta'(t)\)</span>).</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Diagram &amp; Visualisasi</strong></td>
+<td style="text-align: left;"><strong>K_VIS_PlotSinyal</strong></td>
+<td style="text-align: left;">Sketsa sinyal output dan visualisasi batas integral konvolusi.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Heuristik</strong></td>
+<td style="text-align: left;"><strong>Heuristik_MenyederhanakanMasalah</strong></td>
+<td style="text-align: left;">Memilih urutan konvolusi yang lebih mudah dihitung (memanfaatkan sifat komutatif).</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><strong>Heuristik_Menganalisis_Batas</strong></td>
+<td style="text-align: left;">Strategi memecah integral konvolusi menjadi kasus-kasus berdasarkan overlap sinyal.</td>
+</tr>
+</tbody>
+</table>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../kuliah/materi_3.html" class="pagination-link" aria-label="Sistem LTI dan LCCDE">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Sistem LTI dan LCCDE</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../summary.html" class="pagination-link" aria-label="Lampiran Petunjuk Penggunaan Alat Bantu dan Kendaraan dalam Sinyal dan Sistem (VALORAIZE Learning)">
+        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Lampiran Petunjuk Penggunaan Alat Bantu dan Kendaraan dalam Sinyal dan Sistem (VALORAIZE Learning)</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
