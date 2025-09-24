@@ -1,0 +1,731 @@
+# Sistem LTI dan LCCDE
+
+Berikut adalah materi kuliah, peta pengetahuan dasar, kendaraan, 20 soal latihan beserta peta pengetahuan aplikatif dan solusinya, serta daftar kendaraan yang digunakan, dengan mengacu pada tujuan belajar Minggu ke-3 pada sumber RPS.pdf.
+
+---
+
+# Materi Pembelajaran Minggu 3: Analisis Sistem di Domain Waktu
+
+**Capaian Pembelajaran Mata Kuliah (CPMK) Terkait Minggu 3:** Mahasiswa diharapkan mampu **menganalisis respon sistem LTI menggunakan konvolusi dan menyelesaikan persamaan diferensial yang menggambarkan sistem**.
+
+Minggu ini, kita akan mendalami bagaimana sistem waktu kontinu, khususnya Sistem Linear Tak-berubah Waktu (LTI), dianalisis di domain waktu. Fokus utama adalah pada dua alat fundamental: **operasi konvolusi** untuk menentukan output sistem LTI dari input dan respon impulsnya, serta **solusi persamaan diferensial** yang sering digunakan untuk memodelkan sistem fisik LTI.
+
+## 3.1 Sistem LTI (Linear Time-Invariant Systems)
+
+Sistem LTI adalah sistem yang memenuhi sifat linearitas dan invarian waktu. Sistem ini sepenuhnya dikarakterisasi oleh **respon impulsnya**, $h(t)$. Ini berarti bahwa jika $h(t)$ diketahui, output sistem untuk input $x(t)$ apa pun dapat ditentukan.
+
+## 3.2 Konvolusi (Convolution)
+
+Konvolusi adalah operasi matematis yang digunakan untuk menentukan output $y(t)$ dari sistem LTI untuk input $x(t)$ yang diberikan dan respon impuls $h(t)$ sistem.
+
+- **Integral Konvolusi:** Untuk sistem waktu kontinu, integral konvolusi didefinisikan sebagai: $y(t) = x(t) * h(t) = \int_{-\infty}^{\infty} x(\tau)h(t-\tau)d\tau$ Atau, secara ekivalen, $y(t) = \int_{-\infty}^{\infty} h(\tau)x(t-\tau)d\tau$.
+- **Konvolusi Grafis:** Konvolusi juga dapat dilakukan secara grafis melalui langkah-langkah:
+    1. Membalik (flip) salah satu sinyal (misalnya, $h(\tau)$ menjadi $h(-\tau)$).
+    2. Menggeser (shift) sinyal yang dibalik sejauh $t$ (menjadi $h(t-\tau)$).
+    3. Mengalikan (multiply) kedua sinyal, $x(\tau) \cdot h(t-\tau)$.
+    4. Mengintegrasikan (integrate) hasil perkalian dari $-\infty$ hingga $\infty$.
+- **Sifat-sifat Konvolusi:**
+    - **Komutatif:** $x(t) * h(t) = h(t) * x(t)$.
+    - **Distributif:** $x(t) * (h_1(t) + h_2(t)) = (x(t) * h_1(t)) + (x(t) * h_2(t))$.
+    - **Asosiatif:** $x(t) * (h_1(t) * h_2(t)) = (x(t) * h_1(t)) * h_2(t)$.
+    - **Sifat Impuls:** Konvolusi dengan fungsi impuls unit tidak mengubah sinyal: $x(t) * \delta(t) = x(t)$. Ini juga berlaku untuk impuls yang digeser: $x(t) * \delta(t-t_0) = x(t-t_0)$.
+
+## 3.3 Persamaan Diferensial Linear Koefisien Konstan (LCCDEs)
+
+Banyak sistem fisik waktu kontinu dapat dimodelkan menggunakan persamaan diferensial linear koefisien konstan. Bentuk umum dari LCCDE untuk sistem LTI adalah: $ \sum_{k=0}^{N} a_k \frac{d^k y(t)}{dt^k} = \sum_{k=0}^{M} b_k \frac{d^k x(t)}{dt^k} $ Di mana $a_k$ dan $b_k$ adalah konstanta, $x(t)$ adalah input, dan $y(t)$ adalah output. Orde persamaan diferensial ditentukan oleh turunan tertinggi dari output $y(t)$ (yaitu, $N$).
+
+## 3.4 Solusi Persamaan Diferensial
+
+Solusi lengkap dari persamaan diferensial, terutama yang menggambarkan sistem LTI, terdiri dari dua bagian: $y(t) = y_h(t) + y_p(t)$
+
+- **Solusi Homogen ($y_h(t)$) / Respon Karakteristik:**
+    - Menjelaskan perilaku internal sistem (disebut juga respon natural atau zero-input response, jika hanya bergantung pada kondisi awal).
+    - Ditemukan dengan menyelesaikan persamaan karakteristik, yang diperoleh dengan mengganti turunan ke-$k$ dengan $r^k$ dan menyetel input ke nol: $\sum_{k=0}^{N} a_k r^k = 0$.
+    - Bentuk $y_h(t)$ bergantung pada akar-akar persamaan karakteristik:
+        - **Akar Riil Berbeda ($r_1, r_2, \dots$):** $y_h(t) = C_1 e^{r_1 t} + C_2 e^{r_2 t} + \dots$
+        - **Akar Riil Berulang ($r_1$ dengan multiplisitas $u_1$):** $y_h(t) = (C_1 + C_2 t + \dots + C_{u_1} t^{u_1-1}) e^{r_1 t}$.
+        - **Akar Kompleks Konjugat ($\alpha \pm j\beta$):** $y_h(t) = e^{\alpha t}(C_1 \cos(\beta t) + C_2 \sin(\beta t))$.
+- **Solusi Partikular ($y_p(t)$) / Respon Paksa:**
+    - Menjelaskan respon sistem terhadap input tertentu $x(t)$ (disebut juga zero-state response, jika kondisi awal nol).
+    - Bentuk $y_p(t)$ biasanya memiliki bentuk yang sama dengan input $x(t)$ atau turunan-turunannya. Metode yang umum digunakan adalah **metode koefisien tak tentu**. Misalnya, jika input adalah eksponensial $e^{at}$, solusi partikularnya juga akan berbentuk $K e^{at}$ (kecuali jika $a$ adalah akar homogen). Jika $a$ adalah akar homogen, maka bentuknya $K t e^{at}$.
+- **Kondisi Awal (Initial Conditions):**
+    - Diperlukan untuk menentukan konstanta-konstanta ($C_1, C_2, \dots$) dalam solusi homogen dan, pada akhirnya, dalam solusi lengkap. Kondisi awal umumnya mencakup nilai $y(0), y'(0), \dots, y^{(N-1)}(0)$.
+
+---
+
+# Peta Pengetahuan Primitif: Analisis Sistem di Domain Waktu (Minggu 3)
+
+**Tujuan:** Membantu mahasiswa melihat gambaran besar, interkonektivitas antar konsep, dan mengatur pengetahuan deklaratif (fakta dan definisi) sinyal dan sistem waktu kontinu, khususnya terkait analisis sistem di domain waktu.
+
+**Node Pusat:** **Sinyal & Sistem**
+
+- **Cabang 1: SYWK (Sistem Waktu Kontinu)**
+    - **Sub-Cabang 1.1: Representasi & Analisis (SYWK_RepresentasiAnalisis)**
+        - Node: Sistem LTI (SYWK_LTI).
+        - Node: Respon Impuls (SYWK_ResponImpuls).
+        - Node: Persamaan Diferensial (SYWK_PD).
+        - Node: Konvolusi (SYWK_Konvolusi).
+            - Node: Integral Konvolusi (SYWK_IntKonvolusi).
+            - Node: Konvolusi Grafis (SYWK_KonvolusiGrafis).
+            - Node: Sifat Konvolusi (SYWK_SifatKonvolusi).
+                - Node: Komutatif (SifatConv_Komutatif).
+                - Node: Distributif (SifatConv_Distributif).
+                - Node: Asosiatif (SifatConv_Asosiatif).
+                - Node: Impuls (SifatConv_Impuls).
+        - Node: Solusi Persamaan Diferensial (SYWK_SolusiPD).
+            - Node: Solusi Homogen (SYWK_SolusiHomogen).
+                - Node: Persamaan Karakteristik (SYWK_PD_PersamaanKarakteristik).
+                - Node: Akar Riil Berbeda (SYWK_PD_AkarRiilBeda).
+                - Node: Akar Riil Berulang (SYWK_PD_AkarRiilUlang).
+                - Node: Akar Kompleks Konjugat (SYWK_PD_AkarKompleks).
+            - Node: Solusi Partikular (SYWK_SolusiPartikular).
+                - Node: Metode Koefisien Tak Tentu (SYWK_PD_KoefisienTakTentu).
+            - Node: Kondisi Awal (SYWK_KondisiAwal).
+    - **Sub-Cabang 1.2: Sifat Sistem LTI (SYWK_SifatLTI)**
+        - Node: Linearitas (SYWK_Linearitas).
+        - Node: Invariansi Waktu (SYWK_InvarianWaktu).
+        - Node: Kausalitas (SYWK_Kausalitas).
+        - Node: Stabilitas BIBO (SYWK_Stabilitas).
+        - Node: Memori (SYWK_Memori).
+        - Node: Invertibilitas (SYWK_Invertibilitas).
+
+**Hubungan (Edges):**
+
+- "Sinyal & Sistem" **TERDIRI_DARI** "SYWK".
+- "SYWK" **MELIPUTI** "SYWK_RepresentasiAnalisis", "SYWK_SifatLTI".
+- "SYWK_LTI" **DICIRIKAN_OLEH** "SYWK_ResponImpuls".
+- "SYWK_Konvolusi" **MENGHITUNG_OUTPUT_LTI_DARI** "Input" **DAN** "SYWK_ResponImpuls".
+- "SYWK_Konvolusi" **TERDIRI_DARI** "SYWK_IntKonvolusi", "SYWK_KonvolusiGrafis", "SYWK_SifatKonvolusi".
+- "SYWK_SifatKonvolusi" **MELIPUTI** "SifatConv_Komutatif", "SifatConv_Distributif", "SifatConv_Asosiatif", "SifatConv_Impuls".
+- "SYWK_PD" **MENGGAMBARKAN** "SYWK_LTI".
+- "SYWK_SolusiPD" **TERDIRI_DARI** "SYWK_SolusiHomogen", "SYWK_SolusiPartikular" **DAN_MEMBUTUHKAN** "SYWK_KondisiAwal".
+- "SYWK_SolusiHomogen" **DITENTUKAN_OLEH** "SYWK_PD_PersamaanKarakteristik" **YANG_MENGHASILKAN** "SYWK_PD_AkarRiilBeda", "SYWK_PD_AkarRiilUlang", "SYWK_PD_AkarKompleks".
+- "SYWK_SolusiPartikular" **DITENTUKAN_OLEH** "SYWK_PD_KoefisienTakTentu" **SESUAI_INPUT**.
+- "SWK_UnitImpuls" **ADALAH_INPUT_UNTUK_MENCARI** "SYWK_ResponImpuls".
+- "SYWK_ResponImpuls" **MENENTUKAN** "SYWK_Kausalitas" (jika $h(t)=0$ untuk $t<0$) **DAN** "SYWK_Stabilitas" (jika $\int |h(t)|dt < \infty$).
+- "SYWK_SifatLTI" **MELIPUTI** "SYWK_Linearitas", "SYWK_InvarianWaktu", "SYWK_Kausalitas", "SYWK_Stabilitas", "SYWK_Memori", "SYWK_Invertibilitas".
+
+**Struktur Visual:** Hierarkis, dengan "Sinyal & Sistem" sebagai node pusat, bercabang ke topik utama, kemudian merinci sub-topik di bawahnya.
+
+---
+
+# Kendaraan Matematika (Mathematical Vehicles) untuk Minggu 3
+
+Ini adalah alat, teknik, dan metode spesifik yang digunakan untuk memecahkan masalah dalam domain Sinyal dan Sistem, khususnya terkait analisis sistem di domain waktu.
+
+- **K_MAT_Aljabar:** Untuk manipulasi ekspresi matematis, penyelesaian persamaan karakteristik, penyederhanaan hasil konvolusi, substitusi, dan evaluasi ekspresi.
+- **K_MAT_Kalkulus:** Untuk diferensiasi (turunan) dan integrasi fungsi waktu kontinu. Ini krusial untuk integral konvolusi, mencari solusi persamaan diferensial (homogen dan partikular), dan menganalisis respon impuls.
+- **K_MAT_Bilangan_Kompleks:** Untuk bekerja dengan akar-akar kompleks persamaan karakteristik dan memahami representasi fasor.
+- **K_OPS_Definisi:** Untuk memahami dan menyatakan definisi-definisi kunci dari Konvolusi, Respon Impuls, Solusi Homogen/Partikular, Kondisi Awal, dan sifat-sifat sistem LTI.
+- **K_OPS_Konvolusi_Grafis:** Metode langkah-demi-langkah untuk melakukan konvolusi secara visual.
+- **K_OPS_Konvolusi_Integral:** Penerapan langsung rumus integral konvolusi.
+- **K_OPS_Solusi_PD_Homogen:** Teknik untuk menemukan solusi homogen berdasarkan akar persamaan karakteristik.
+- **K_OPS_Solusi_PD_Partikular:** Teknik untuk menemukan solusi partikular (misalnya, metode koefisien tak tentu).
+- **K_OPS_Akar_PD_Karakteristik:** Prosedur untuk mencari akar-akar dari persamaan karakteristik.
+- **K_OPS_Kondisi_Awal:** Prosedur untuk menentukan konstanta dari solusi lengkap menggunakan kondisi awal.
+- **K_OPS_PartialFractionExpansion:** Teknik untuk memecah fungsi rasional menjadi penjumlahan suku-suku sederhana (sering digunakan dalam mencari respon impuls dari PD dengan turunan input).
+- **K_VIS_PlotSinyal:** Untuk memvisualisasikan sinyal, terutama dalam konvolusi grafis dan plotting solusi PD.
+- **K_KOM_SymPy:** (Super Kendaraan) Alat komputasi simbolik untuk membantu menyelesaikan persamaan diferensial dan integral secara analitis.
+- **Heuristik_MenggambarDiagram:** Strategi untuk memvisualisasikan masalah atau langkah solusi.
+- **Heuristik_MenyederhanakanMasalah:** Strategi untuk memecah masalah kompleks menjadi sub-masalah yang lebih kecil.
+
+---
+
+# 20 Soal Latihan (Tanpa Solusi)
+
+Berikut adalah 20 soal latihan yang mencerminkan topik Analisis Sistem di Domain Waktu, beserta Nomor Produk yang mengindikasikan Topik, Level Taksonomi Bloom, dan Nomor Soal. **Format Nomor Produk:** WK3-TP_BX_PY (Week 3, Topic, Bloom Level X, Problem Y). (Contoh Topik: Conv=Konvolusi, PD=Persamaan Diferensial, LTI=Sifat Sistem LTI)
+
+1. **WK3-Conv_B2_P01: Definisi Konvolusi** Jelaskan **apa yang dimaksud dengan operasi konvolusi** dalam konteks analisis sistem LTI waktu kontinu. Mengapa operasi ini penting?
+    
+2. **WK3-Conv_B3_P02: Konvolusi Fungsi Step** Hitung dan sketsakan konvolusi $y(t) = u(t) * u(t)$.
+    
+3. **WK3-Conv_B3_P03: Konvolusi Eksponensial** Tentukan konvolusi $y(t) = x(t) * h(t)$ di mana $x(t) = e^{-2t}u(t)$ dan $h(t) = e^{-3t}u(t)$.
+    
+4. **WK3-Conv_B3_P04: Konvolusi dengan Impuls Digeser** Diberikan sinyal input $x(t) = \cos(2t)u(t)$ dan respon impuls $h(t) = \delta(t- \pi/4)$. Tentukan output sistem LTI $y(t) = x(t) * h(t)$.
+    
+5. **WK3-Conv_B4_P05: Konvolusi Grafis Pulsa Persegi** Diberikan sinyal $x(t) = u(t) - u(t-1)$ dan $h(t) = u(t) - u(t-2)$. Sketsakan secara grafis hasil konvolusi $y(t) = x(t) * h(t)$.
+    
+6. **WK3-Conv_B4_P06: Konvolusi dengan Kombinasi Impuls** Sistem LTI memiliki respon impuls $h(t) = e^{-t}u(t)$. Tentukan output sistem jika inputnya adalah $x(t) = 3\delta(t) + \delta(t-2)$.
+    
+7. **WK3-PD_B2_P07: Komponen Solusi Persamaan Diferensial** Sebutkan dan jelaskan dua komponen utama yang membentuk solusi lengkap dari persamaan diferensial linear koefisien konstan.
+    
+8. **WK3-PD_B3_P08: Solusi Homogen - Akar Riil Berbeda** Tentukan solusi homogen $y_h(t)$ dari persamaan diferensial: $\frac{d^2 y(t)}{dt^2} + 5 \frac{dy(t)}{dt} + 6 y(t) = 2x(t)$.
+    
+9. **WK3-PD_B3_P09: Solusi Homogen - Akar Riil Berulang** Tentukan solusi homogen $y_h(t)$ dari persamaan diferensial: $\frac{d^2 y(t)}{dt^2} + 6 \frac{dy(t)}{dt} + 9 y(t) = 3x(t)$.
+    
+10. **WK3-PD_B3_P10: Solusi Homogen - Akar Kompleks Konjugat** Tentukan solusi homogen $y_h(t)$ dari persamaan diferensial: $\frac{d^2 y(t)}{dt^2} + 4 \frac{dy(t)}{dt} + 13 y(t) = 5x(t)$.
+    
+11. **WK3-PD_B3_P11: Solusi Partikular - Input Konstanta** Tentukan solusi partikular $y_p(t)$ dari persamaan diferensial: $\frac{dy(t)}{dt} + 4y(t) = 8u(t)$.
+    
+12. **WK3-PD_B3_P12: Solusi Partikular - Input Eksponensial (Non-Resonan)** Tentukan solusi partikular $y_p(t)$ dari persamaan diferensial: $\frac{dy(t)}{dt} + 2y(t) = 3e^{-4t}u(t)$.
+    
+13. **WK3-PD_B4_P13: Solusi Partikular - Input Eksponensial (Resonan)** Tentukan solusi partikular $y_p(t)$ dari persamaan diferensial: $\frac{dy(t)}{dt} + 5y(t) = e^{-5t}u(t)$.
+    
+14. **WK3-PD_B4_P14: Solusi Lengkap dengan Kondisi Awal Nol** Sistem LTI dijelaskan oleh $\frac{dy(t)}{dt} + 2y(t) = x(t)$. Tentukan solusi lengkap $y(t)$ jika input $x(t) = u(t)$ dan sistem berada dalam kondisi awal nol (yaitu, $y(0^-)=0$).
+    
+15. **WK3-LTI_B4_P15: Respon Impuls dari PD Orde Pertama** Tentukan respon impuls $h(t)$ dari sistem LTI yang dijelaskan oleh persamaan diferensial: $\frac{dy(t)}{dt} + 5y(t) = x(t)$. Asumsikan sistem kausal.
+    
+16. **WK3-Conv_B4_P16: Sifat Distributif Konvolusi** Diberikan $x(t) = e^{-t}u(t)$, $h_1(t) = \delta(t-1)$, dan $h_2(t) = \delta(t-2)$. Gunakan sifat distributif konvolusi untuk menentukan $y(t) = x(t) * (h_1(t) + h_2(t))$.
+    
+17. **WK3-LTI_B4_P17: Kriteria Kausalitas dan Stabilitas LTI** Jelaskan kriteria yang harus dipenuhi oleh respon impuls $h(t)$ agar sistem LTI waktu kontinu bersifat **kausal** dan **stabil BIBO**.
+    
+18. **WK3-PD_B5_P18: Respon Impuls dari PD dengan Turunan Input** Tentukan respon impuls $h(t)$ dari sistem LTI yang dijelaskan oleh persamaan diferensial: $\frac{d y(t)}{dt} + 3 y(t) = 2 \frac{d x(t)}{dt} + x(t)$. Asumsikan sistem kausal.
+    
+19. **WK3-Conv_B4_P19: Konvolusi dengan Pulsa Persegi dan Impuls** Hitung dan sketsakan konvolusi $y(t) = x(t) * h(t)$ di mana $x(t) = u(t) - u(t-1)$ dan $h(t) = \delta(t+1) - \delta(t)$.
+    
+20. **WK3-PD_B6_P20: Solusi Lengkap Sistem LTI Orde Kedua** Sistem LTI orde kedua dijelaskan oleh $\frac{d^2 y(t)}{dt^2} + 4 \frac{dy(t)}{dt} + 3 y(t) = x(t)$. Tentukan solusi lengkap $y(t)$ jika input $x(t) = 6u(t)$ dan kondisi awal adalah $y(0) = 1$, $y'(0) = -1$.
+    
+
+---
+
+# Peta Pengetahuan Aplikatif (Problem-Solving Knowledge Map) dan Solusi untuk Setiap Soal
+
+Peta Pemecahan Masalah ini bersifat dinamis dan berorientasi proses, dirancang untuk membimbing Anda melalui proses pemecahan masalah. Setiap masalah dikonseptualisasikan sebagai "celah" antara informasi yang diketahui ("Titik Mulai") dan hasil yang diinginkan ("Titik Akhir"). Pemecahan masalah kemudian menjadi proses "menemukan rute" atau urutan langkah-langkah yang dipilih, menyerupai _flowchart_. "Kendaraan" adalah alat, teknik, dan metode spesifik yang digunakan untuk melintasi celah tersebut.
+
+## Soal 1: Definisi Konvolusi
+
+**Nomor Produk:** WK3-Conv_B2_P01 **Peta Pemecahan Masalah WK3-Conv_B2_P01**
+
+- **Titik Mulai:** Permintaan definisi dan pentingnya operasi konvolusi.
+- **Titik Akhir:** Penjelasan yang jelas tentang konvolusi dan relevansinya.
+- **Rute/Jalan:**
+    1. Mengingat definisi **SYWK_Konvolusi** (integral konvolusi).
+    2. Menjelaskan input dan output yang terlibat (input, respon impuls, output sistem LTI).
+    3. Menganalisis mengapa operasi ini penting untuk sistem LTI (karakterisasi sistem, linearitas, invarian waktu).
+- **Kendaraan:**
+    - **K_OPS_Definisi:** Konvolusi.
+    - **K_OPS_Definisi:** Respon Impuls.
+    - **K_OPS_Definisi:** Sistem LTI.
+    - **K_MAT_Aljabar:** Pemahaman Ekspresi.
+
+**Solusi WK3-Conv_B2_P01:**
+
+1. **Definisi Konvolusi:** Operasi konvolusi adalah operasi matematis yang digunakan untuk menentukan output $y(t)$ dari sistem Linear Time-Invariant (LTI) yang diketahui, berdasarkan input $x(t)$ dan respon impuls $h(t)$ sistem tersebut. Integral konvolusi untuk sistem waktu kontinu didefinisikan sebagai $y(t) = \int_{-\infty}^{\infty} x(\tau)h(t-\tau)d\tau$.
+2. **Pentingnya Konvolusi:** Operasi ini sangat penting karena sistem LTI sepenuhnya dikarakterisasi oleh respon impulsnya. Artinya, jika kita mengetahui respon impuls $h(t)$ suatu sistem LTI, kita dapat menentukan outputnya untuk _input apa pun_ melalui konvolusi. Ini adalah konsekuensi langsung dari sifat linearitas dan invarian waktu sistem LTI, yang memungkinkan input apa pun didekomposisi menjadi kumpulan impuls, dan outputnya adalah superposisi respon impuls yang diskalakan dan digeser. **Kesimpulan:** Konvolusi adalah operasi yang mengaitkan input, respon impuls, dan output sistem LTI. Ini fundamental karena memungkinkan kita menganalisis respon sistem terhadap input apa pun hanya dengan mengetahui respon impulsnya.
+
+## Soal 2: Konvolusi Fungsi Step
+
+**Nomor Produk:** WK3-Conv_B3_P02 **Peta Pemecahan Masalah WK3-Conv_B3_P02**
+
+- **Titik Mulai:** $x(t) = u(t)$ dan $h(t) = u(t)$.
+- **Titik Akhir:** Hasil konvolusi $y(t)$ dan sketsanya.
+- **Rute/Jalan:**
+    1. Mengingat rumus **K_OPS_Konvolusi_Integral**: $y(t) = \int_{-\infty}^{\infty} x(\tau)h(t-\tau)d\tau$.
+    2. Substitusikan $x(\tau)=u(\tau)$ dan $h(t-\tau)=u(t-\tau)$ ke dalam integral.
+    3. Tentukan batas integrasi berdasarkan fungsi unit step.
+    4. Evaluasi integral menggunakan **K_MAT_Kalkulus**.
+    5. Sketsakan hasilnya menggunakan **K_VIS_PlotSinyal**.
+- **Kendaraan:**
+    - **K_OPS_Konvolusi_Integral.**
+    - **K_MAT_Aljabar:** Manipulasi Fungsi Step, Batas Integral.
+    - **K_MAT_Kalkulus:** Integrasi.
+    - **K_VIS_PlotSinyal.**
+
+**Solusi WK3-Conv_B3_P02:**
+
+1. **Rumus Konvolusi:** $y(t) = \int_{-\infty}^{\infty} u(\tau)u(t-\tau)d\tau$.
+2. **Batas Integrasi:**
+    - $u(\tau)$ adalah 1 untuk $\tau \ge 0$ dan 0 untuk $\tau < 0$.
+    - $u(t-\tau)$ adalah 1 untuk $t-\tau \ge 0 \Rightarrow \tau \le t$ dan 0 untuk $t-\tau < 0 \Rightarrow \tau > t$.
+    - Jadi, integral hanya non-nol jika $0 \le \tau \le t$.
+3. **Evaluasi Integral:**
+    - Jika $t < 0$, tidak ada tumpang tindih antara $u(\tau)$ dan $u(t-\tau)$, sehingga $y(t) = 0$.
+    - Jika $t \ge 0$, $y(t) = \int_{0}^{t} 1 \cdot 1 d\tau = [\tau]_{0}^{t} = t$.
+4. **Gabungkan Hasil:** $y(t) = t u(t)$ (fungsi ramp). **Kesimpulan:** Konvolusi $u(t) * u(t)$ adalah **$t u(t)$**. Sinyal ini adalah fungsi ramp yang dimulai dari 0 dan meningkat secara linear seiring waktu.
+
+## Soal 3: Konvolusi Eksponensial
+
+**Nomor Produk:** WK3-Conv_B3_P03 **Peta Pemecahan Masalah WK3-Conv_B3_P03**
+
+- **Titik Mulai:** $x(t) = e^{-2t}u(t)$ dan $h(t) = e^{-3t}u(t)$.
+- **Titik Akhir:** Hasil konvolusi $y(t)$.
+- **Rute/Jalan:**
+    1. Mengingat rumus **K_OPS_Konvolusi_Integral**.
+    2. Substitusikan $x(\tau)=e^{-2\tau}u(\tau)$ dan $h(t-\tau)=e^{-3(t-\tau)}u(t-\tau)$.
+    3. Tentukan batas integrasi berdasarkan fungsi unit step.
+    4. Evaluasi integral menggunakan **K_MAT_Kalkulus**.
+    5. Sederhanakan ekspresi hasil menggunakan **K_MAT_Aljabar**.
+- **Kendaraan:**
+    - **K_OPS_Konvolusi_Integral.**
+    - **K_MAT_Aljabar:** Manipulasi Eksponensial, Batas Integral.
+    - **K_MAT_Kalkulus:** Integrasi.
+
+**Solusi WK3-Conv_B3_P03:**
+
+1. **Rumus Konvolusi:** $y(t) = \int_{-\infty}^{\infty} x(\tau)h(t-\tau)d\tau = \int_{-\infty}^{\infty} e^{-2\tau}u(\tau)e^{-3(t-\tau)}u(t-\tau)d\tau$.
+2. **Batas Integrasi:** $u(\tau)$ mensyaratkan $\tau \ge 0$. $u(t-\tau)$ mensyaratkan $\tau \le t$. Jadi, integral hanya non-nol jika $0 \le \tau \le t$. Jika $t < 0$, $y(t)=0$.
+3. **Evaluasi Integral (untuk $t \ge 0$):** $y(t) = \int_{0}^{t} e^{-2\tau}e^{-3(t-\tau)}d\tau = \int_{0}^{t} e^{-2\tau}e^{-3t}e^{3\tau}d\tau$ $y(t) = e^{-3t} \int_{0}^{t} e^{\tau}d\tau = e^{-3t} [e^{\tau}]_{0}^{t} = e^{-3t} (e^t - e^0) = e^{-3t} (e^t - 1)$ $y(t) = e^{-2t} - e^{-3t}$.
+4. **Gabungkan Hasil:** $y(t) = (e^{-2t} - e^{-3t})u(t)$. **Kesimpulan:** Konvolusi $y(t)$ adalah **$(e^{-2t} - e^{-3t})u(t)$**.
+
+## Soal 4: Konvolusi dengan Impuls Digeser
+
+**Nomor Produk:** WK3-Conv_B3_P04 **Peta Pemecahan Masalah WK3-Conv_B3_P04**
+
+- **Titik Mulai:** $x(t) = \cos(2t)u(t)$ dan $h(t) = \delta(t- \pi/4)$.
+- **Titik Akhir:** Hasil konvolusi $y(t)$.
+- **Rute/Jalan:**
+    1. Mengingat **K_OPS_Definisi: Sifat Impuls Konvolusi** ($x(t) * \delta(t-t_0) = x(t-t_0)$).
+    2. Identifikasi $t_0$ dari fungsi impuls.
+    3. Terapkan sifat tersebut ke input $x(t)$.
+- **Kendaraan:**
+    - **K_OPS_Definisi:** Sifat Impuls Konvolusi.
+    - **K_MAT_Aljabar:** Substitusi Sinyal.
+
+**Solusi WK3-Conv_B3_P04:**
+
+1. **Sifat Konvolusi dengan Impuls:** Kita tahu bahwa konvolusi sinyal apa pun $x(t)$ dengan impuls unit yang digeser $\delta(t-t_0)$ akan menghasilkan sinyal $x(t)$ yang digeser sejauh $t_0$, yaitu $x(t) * \delta(t-t_0) = x(t-t_0)$.
+2. **Identifikasi $t_0$:** Dalam kasus ini, $h(t) = \delta(t- \pi/4)$, sehingga $t_0 = \pi/4$.
+3. **Terapkan Sifat:** $y(t) = x(t) * h(t) = x(t - \pi/4)$. Substitusikan ke $x(t)$: $x(t - \pi/4) = \cos(2(t - \pi/4))u(t - \pi/4)$. $x(t - \pi/4) = \cos(2t - \pi/2)u(t - \pi/4)$. Karena $\cos(\theta - \pi/2) = \sin(\theta)$, maka $\cos(2t - \pi/2) = \sin(2t)$. **Kesimpulan:** Output sistem $y(t)$ adalah **$\sin(2t)u(t - \pi/4)$**.
+
+## Soal 5: Konvolusi Grafis Pulsa Persegi
+
+**Nomor Produk:** WK3-Conv_B4_P05 **Peta Pemecahan Masalah WK3-Conv_B4_P05**
+
+- **Titik Mulai:** $x(t) = u(t) - u(t-1)$ dan $h(t) = u(t) - u(t-2)$.
+- **Titik Akhir:** Sketsa grafis hasil konvolusi $y(t)$.
+- **Rute/Jalan:**
+    1. Sketsakan $x(\tau)$ dan $h(\tau)$ menggunakan **K_VIS_PlotSinyal**.
+    2. Balik $h(\tau)$ menjadi $h(-\tau)$ dan sketsakan.
+    3. Geser $h(-\tau)$ menjadi $h(t-\tau)$ untuk berbagai nilai $t$ (mulai dari $t$ sangat negatif, tumpang tindih sebagian, tumpang tindih penuh, tumpang tindih sebagian lagi, hingga $t$ sangat positif).
+    4. Untuk setiap rentang $t$, kalikan $x(\tau)$ dan $h(t-\tau)$ (secara grafis) dan hitung luas area integral.
+    5. Gabungkan hasil untuk membentuk $y(t)$ dan sketsakan.
+- **Kendaraan:**
+    - **K_OPS_Konvolusi_Grafis.**
+    - **K_MAT_Aljabar:** Penentuan Batas.
+    - **K_MAT_Kalkulus:** Integrasi Luas Area (Geometris).
+    - **K_VIS_PlotSinyal.**
+    - **Heuristik_MenggambarDiagram.**
+
+**Solusi WK3-Conv_B4_P05:**
+
+1. **Sinyal Input dan Respon Impuls:**
+    - $x(t)$ adalah pulsa persegi dari $t=0$ sampai $t=1$ dengan amplitudo 1.
+    - $h(t)$ adalah pulsa persegi dari $t=0$ sampai $t=2$ dengan amplitudo 1.
+2. **Langkah-langkah Konvolusi Grafis ($y(t) = \int_{-\infty}^{\infty} x(\tau)h(t-\tau)d\tau$):**
+    - **Balik dan Geser:** Balik $h(\tau)$ menjadi $h(-\tau)$ (pulsa dari $-2$ sampai $0$). Geser menjadi $h(t-\tau)$ (pulsa dari $t-2$ sampai $t$).
+    - **Kasus 1: $t < 0$**: Pulsa $h(t-\tau)$ belum tumpang tindih dengan $x(\tau)$. $y(t) = 0$.
+    - **Kasus 2: $0 \le t < 1$**: Pulsa $h(t-\tau)$ mulai tumpang tindih dengan $x(\tau)$ dari $0$ hingga $t$. Luas area tumpang tindih adalah integral dari 1 kali 1 untuk rentang $t$: $y(t) = \int_{0}^{t} 1 \cdot 1 d\tau = t$.
+    - **Kasus 3: $1 \le t < 2$**: Pulsa $h(t-\tau)$ sepenuhnya menutupi $x(\tau)$ (dari $0$ hingga $1$), dan sebagian lagi hingga $t$. Tetapi hanya tumpang tindih $x(\tau)$ yang dihitung. Jadi, tumpang tindih dari $0$ hingga $1$. Luas area tumpang tindih adalah $1 \cdot 1 = 1$. _Re-evaluasi:_ Untuk $1 \le t < 2$, pulsa $h(t-\tau)$ berada dari $t-2$ hingga $t$. Bagian $x(\tau)$ dari $0$ hingga $1$ tumpang tindih dari $0$ hingga $1$. Luas area tumpang tindih adalah $1 \cdot 1 = 1$. _Wait, this is incorrect._ For $1 \le t < 2$, the start of $h(t-\tau)$ is $t-2$. The end of $x(\tau)$ is $1$. So, the overlap is from $\max(0, t-2)$ to $\min(1, t)$. Since $1 \le t < 2$, then $t-2 < 0$. So $\max(0,t-2)=0$. And $\min(1,t)=1$. So the overlap is from $0$ to $1$. The integral is $\int_0^1 1 \cdot 1 d\tau = 1$. No, this is wrong. Let's re-analyze the overlap intervals:
+        
+        - $t < 0$: No overlap. $y(t) = 0$.
+        - $0 \le t < 1$: $h(t-\tau)$ starts at $t-2$, ends at $t$. $x(\tau)$ starts at $0$, ends at $1$. Overlap is from $0$ to $t$. $y(t) = \int_0^t 1 \cdot 1 d\tau = t$.
+        - $1 \le t < 2$: $h(t-\tau)$ starts at $t-2$, ends at $t$. $x(\tau)$ starts at $0$, ends at $1$. Now, $t-2$ could be negative or positive. The start of $x(\tau)$ is 0, start of $h(t-\tau)$ is $t-2$. The end of $x(\tau)$ is 1, end of $h(t-\tau)$ is $t$. Overlap is from $\max(0, t-2)$ to $\min(1, t)$. Since $1 \le t < 2$, we have $t-2 < 0$. So $\max(0, t-2) = 0$. And $\min(1, t) = 1$. The overlap is from $0$ to $1$. $y(t) = \int_0^1 1 \cdot 1 d\tau = 1$. No, this must be wrong. The peak of the convolution must be where the full overlap occurs, and then it should decrease. Let's rethink: $x(t) = rect(t-0.5)$ centered at 0.5, width 1. $h(t) = rect(t-1)$ centered at 1, width 2. Result is a trapezoid. Max width of output is $W_x + W_h = 1+2 = 3$. Starting point: $0+0=0$. Ending point: $1+2=3$. For $y(t) = x(t)*h(t)$.
+        
+        1. $t < 0$: $y(t)=0$.
+        2. $0 \le t < 1$: $x(\tau)$ active for $0 \le \tau \le 1$. $h(t-\tau)$ active for $0 \le t-\tau \le 2 \implies t-2 \le \tau \le t$. Overlap from $0$ to $t$. $y(t) = \int_0^t 1 \cdot 1 d\tau = t$. (Linear rise)
+        3. $1 \le t < 2$: Overlap from $t-2$ to $1$. This is because $x(\tau)$ ends at $1$ and $h(t-\tau)$ begins to cover it. No. This logic is still problematic. Let's use graphical method. $x(\tau)$ from 0 to 1. $h(t-\tau)$ from $t-2$ to $t$.
+        
+        - $t < 0$: No overlap. $y(t)=0$.
+        - $0 \le t < 1$: Overlap $[0, t]$. $y(t) = \int_0^t 1 d\tau = t$.
+        - $1 \le t < 2$: $h(t-\tau)$ window is $[t-2, t]$. $x(\tau)$ window is $$. Overlap is from $\max(0, t-2)$ to $\min(1, t)$. Since $1 \le t < 2$, $t-2$ is between $-1$ and $0$. So $\max(0, t-2) = 0$. Also, $t$ is between $1$ and $2$. So $\min(1, t) = 1$. The overlap region is $$. The integral is $\int_0^1 1 d\tau = 1$. This is the plateau.
+        - $2 \le t < 3$: $t-2$ is between $0$ and $1$. So $\max(0, t-2) = t-2$. $t$ is between $2$ and $3$. So $\min(1, t) = 1$. The overlap region is $[t-2, 1]$. The integral is $\int_{t-2}^1 1 d\tau = 1 - (t-2) = 3-t$. (Linear decay)
+        - $t \ge 3$: No overlap. $y(t)=0$.
+    - **Combine and Sketch:** $y(t) = \begin{cases} 0 & t < 0 \ t & 0 \le t < 1 \ 1 & 1 \le t < 2 \ 3-t & 2 \le t < 3 \ 0 & t \ge 3 \end{cases}$ **Kesimpulan:** Konvolusi $y(t)$ adalah **pulsa trapesium** yang naik linear dari 0 ke 1 (dari $t=0$ hingga $t=1$), tetap konstan 1 (dari $t=1$ hingga $t=2$), dan turun linear dari 1 ke 0 (dari $t=2$ hingga $t=3$).
+
+## Soal 6: Konvolusi dengan Kombinasi Impuls
+
+**Nomor Produk:** WK3-Conv_B4_P06 **Peta Pemecahan Masalah WK3-Conv_B4_P06**
+
+- **Titik Mulai:** $h(t) = e^{-t}u(t)$ dan $x(t) = 3\delta(t) + \delta(t-2)$.
+- **Titik Akhir:** Output sistem $y(t)$.
+- **Rute/Jalan:**
+    1. Mengingat sifat **SifatConv_Distributif**: $x(t) * (h_1(t) + h_2(t)) = (x(t) * h_1(t)) + (x(t) * h_2(t))$.
+    2. Mengingat sifat **SifatConv_Impuls**: $x(t) * \delta(t-t_0) = x(t-t_0)$.
+    3. Terapkan sifat distributif untuk memisahkan konvolusi menjadi dua bagian.
+    4. Terapkan sifat impuls untuk setiap bagian.
+    5. Jumlahkan hasilnya menggunakan **K_MAT_Aljabar**.
+- **Kendaraan:**
+    - **K_OPS_Definisi:** Sifat Distributif Konvolusi.
+    - **K_OPS_Definisi:** Sifat Impuls Konvolusi.
+    - **K_MAT_Aljabar:** Manipulasi Sinyal, Penjumlahan Ekspresi.
+
+**Solusi WK3-Conv_B4_P06:**
+
+1. **Sifat Distributif Konvolusi:** $y(t) = h(t) * x(t) = h(t) * (3\delta(t) + \delta(t-2)) = (h(t) * 3\delta(t)) + (h(t) * \delta(t-2))$.
+2. **Sifat Impuls Konvolusi:** $h(t) * C\delta(t-t_0) = C h(t-t_0)$.
+3. **Terapkan ke setiap suku:**
+    - Suku pertama: $h(t) * 3\delta(t) = 3h(t) = 3e^{-t}u(t)$.
+    - Suku kedua: $h(t) * \delta(t-2) = h(t-2) = e^{-(t-2)}u(t-2)$.
+4. **Jumlahkan hasilnya:** $y(t) = 3e^{-t}u(t) + e^{-(t-2)}u(t-2)$. **Kesimpulan:** Output sistem $y(t)$ adalah **$3e^{-t}u(t) + e^{-(t-2)}u(t-2)$**.
+
+## Soal 7: Komponen Solusi Persamaan Diferensial
+
+**Nomor Produk:** WK3-PD_B2_P07 **Peta Pemecahan Masalah WK3-PD_B2_P07**
+
+- **Titik Mulai:** Permintaan penjelasan dua komponen utama solusi PD.
+- **Titik Akhir:** Penjelasan jelas tentang solusi homogen dan partikular.
+- **Rute/Jalan:**
+    1. Mengingat definisi **SYWK_SolusiPD**.
+    2. Menjelaskan **SYWK_SolusiHomogen** (terkait perilaku internal, tanpa input).
+    3. Menjelaskan **SYWK_SolusiPartikular** (terkait respon terhadap input tertentu).
+- **Kendaraan:**
+    - **K_OPS_Definisi:** Solusi Persamaan Diferensial.
+    - **K_OPS_Definisi:** Solusi Homogen.
+    - **K_OPS_Definisi:** Solusi Partikular.
+
+**Solusi WK3-PD_B2_P07:**
+
+1. **Solusi lengkap dari persamaan diferensial linear koefisien konstan** terdiri dari dua komponen utama:
+    - **Solusi Homogen ($y_h(t)$):** Juga dikenal sebagai respon natural atau respon input-nol (zero-input response). Bagian ini menggambarkan perilaku internal (dinamika intrinsik) sistem ketika tidak ada input eksternal yang diterapkan ($x(t)=0$). Bentuknya ditentukan oleh akar-akar persamaan karakteristik sistem dan mengandung konstanta arbitrer yang akan ditentukan oleh kondisi awal sistem.
+    - **Solusi Partikular ($y_p(t)$):** Juga dikenal sebagai respon paksa atau respon kondisi-nol (zero-state response). Bagian ini menggambarkan respon sistem terhadap input spesifik $x(t)$ yang diterapkan. Bentuknya biasanya diasumsikan memiliki bentuk yang sama dengan input $x(t)$ atau turunan-turunannya, dan tidak mengandung konstanta arbitrer. **Kesimpulan:** Dua komponen utama solusi persamaan diferensial adalah **solusi homogen ($y_h(t)$)** yang menjelaskan dinamika internal dan **solusi partikular ($y_p(t)$)** yang menjelaskan respon terhadap input.
+
+## Soal 8: Solusi Homogen - Akar Riil Berbeda
+
+**Nomor Produk:** WK3-PD_B3_P08 **Peta Pemecahan Masalah WK3-PD_B3_P08**
+
+- **Titik Mulai:** Persamaan diferensial $\frac{d^2 y(t)}{dt^2} + 5 \frac{dy(t)}{dt} + 6 y(t) = 2x(t)$.
+- **Titik Akhir:** Solusi homogen $y_h(t)$.
+- **Rute/Jalan:**
+    1. Bentuk **SYWK_PD_PersamaanKarakteristik** dengan menyetel input ke nol dan mengganti turunan dengan pangkat $r$.
+    2. Cari akar-akar persamaan karakteristik menggunakan **K_OPS_Akar_PD_Karakteristik** (faktorisasi atau rumus kuadrat).
+    3. Tentukan bentuk solusi homogen berdasarkan jenis akar (**SYWK_PD_AkarRiilBeda**).
+    4. Tuliskan $y_h(t)$ menggunakan **K_MAT_Aljabar**.
+- **Kendaraan:**
+    - **K_OPS_Solusi_PD_Homogen.**
+    - **K_OPS_Akar_PD_Karakteristik.**
+    - **K_MAT_Aljabar:** Persamaan Kuadrat, Faktorisasi.
+
+**Solusi WK3-PD_B3_P08:**
+
+1. **Persamaan Karakteristik:** Setel input $x(t)=0$ dan ganti $\frac{d^k}{dt^k}$ dengan $r^k$: $r^2 + 5r + 6 = 0$.
+2. **Cari Akar-akar:** Faktorkan persamaan: $(r+2)(r+3) = 0$. Akar-akarnya adalah $r_1 = -2$ dan $r_2 = -3$. Ini adalah akar riil dan berbeda.
+3. **Bentuk Solusi Homogen:** Untuk akar riil yang berbeda, solusi homogennya berbentuk $C_1 e^{r_1 t} + C_2 e^{r_2 t}$. $y_h(t) = C_1 e^{-2t} + C_2 e^{-3t}$. **Kesimpulan:** Solusi homogen $y_h(t)$ adalah **$C_1 e^{-2t} + C_2 e^{-3t}$**.
+
+## Soal 9: Solusi Homogen - Akar Riil Berulang
+
+**Nomor Produk:** WK3-PD_B3_P09 **Peta Pemecahan Masalah WK3-PD_B3_P09**
+
+- **Titik Mulai:** Persamaan diferensial $\frac{d^2 y(t)}{dt^2} + 6 \frac{dy(t)}{dt} + 9 y(t) = 3x(t)$.
+- **Titik Akhir:** Solusi homogen $y_h(t)$.
+- **Rute/Jalan:**
+    1. Bentuk **SYWK_PD_PersamaanKarakteristik**.
+    2. Cari akar-akar persamaan karakteristik.
+    3. Tentukan bentuk solusi homogen berdasarkan jenis akar (**SYWK_PD_AkarRiilUlang**).
+    4. Tuliskan $y_h(t)$ menggunakan **K_MAT_Aljabar**.
+- **Kendaraan:**
+    - **K_OPS_Solusi_PD_Homogen.**
+    - **K_OPS_Akar_PD_Karakteristik.**
+    - **K_MAT_Aljabar:** Persamaan Kuadrat.
+
+**Solusi WK3-PD_B3_P09:**
+
+1. **Persamaan Karakteristik:** Setel input $x(t)=0$: $r^2 + 6r + 9 = 0$.
+2. **Cari Akar-akar:** Faktorkan persamaan: $(r+3)^2 = 0$. Akar-akarnya adalah $r_1 = -3$ dengan multiplisitas 2 (akar riil berulang).
+3. **Bentuk Solusi Homogen:** Untuk akar riil yang berulang (misalnya, $r_1$ dengan multiplisitas 2), solusi homogennya berbentuk $(C_1 + C_2 t) e^{r_1 t}$. $y_h(t) = (C_1 + C_2 t) e^{-3t}$. **Kesimpulan:** Solusi homogen $y_h(t)$ adalah **$(C_1 + C_2 t) e^{-3t}$**.
+
+## Soal 10: Solusi Homogen - Akar Kompleks Konjugat
+
+**Nomor Produk:** WK3-PD_B3_P10 **Peta Pemecahan Masalah WK3-PD_B3_P10**
+
+- **Titik Mulai:** Persamaan diferensial $\frac{d^2 y(t)}{dt^2} + 4 \frac{dy(t)}{dt} + 13 y(t) = 5x(t)$.
+- **Titik Akhir:** Solusi homogen $y_h(t)$.
+- **Rute/Jalan:**
+    1. Bentuk **SYWK_PD_PersamaanKarakteristik**.
+    2. Cari akar-akar persamaan karakteristik menggunakan **K_OPS_Akar_PD_Karakteristik** (rumus kuadrat).
+    3. Tentukan bentuk solusi homogen berdasarkan jenis akar (**SYWK_PD_AkarKompleks**).
+    4. Tuliskan $y_h(t)$ menggunakan **K_MAT_Aljabar** dan **K_MAT_Bilangan_Kompleks**.
+- **Kendaraan:**
+    - **K_OPS_Solusi_PD_Homogen.**
+    - **K_OPS_Akar_PD_Karakteristik.**
+    - **K_MAT_Aljabar:** Persamaan Kuadrat, Faktorisasi.
+    - **K_MAT_Bilangan_Kompleks.**
+
+**Solusi WK3-PD_B3_P10:**
+
+1. **Persamaan Karakteristik:** Setel input $x(t)=0$: $r^2 + 4r + 13 = 0$.
+2. **Cari Akar-akar (menggunakan rumus ABC):** $r = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a} = \frac{-4 \pm \sqrt{4^2 - 4 \cdot 1 \cdot 13}}{2 \cdot 1} = \frac{-4 \pm \sqrt{16 - 52}}{2} = \frac{-4 \pm \sqrt{-36}}{2}$ $r = \frac{-4 \pm j6}{2} = -2 \pm j3$. Akar-akarnya adalah $r_1 = -2 + j3$ dan $r_2 = -2 - j3$ (akar kompleks konjugat). Di sini $\alpha = -2$ dan $\beta = 3$.
+3. **Bentuk Solusi Homogen:** Untuk akar kompleks konjugat, solusi homogennya berbentuk $e^{\alpha t}(C_1 \cos(\beta t) + C_2 \sin(\beta t))$. $y_h(t) = e^{-2t}(C_1 \cos(3t) + C_2 \sin(3t))$. **Kesimpulan:** Solusi homogen $y_h(t)$ adalah **$e^{-2t}(C_1 \cos(3t) + C_2 \sin(3t))$**.
+
+## Soal 11: Solusi Partikular - Input Konstanta
+
+**Nomor Produk:** WK3-PD_B3_P11 **Peta Pemecahan Masalah WK3-PD_B3_P11**
+
+- **Titik Mulai:** Persamaan diferensial $\frac{dy(t)}{dt} + 4y(t) = 8u(t)$.
+- **Titik Akhir:** Solusi partikular $y_p(t)$.
+- **Rute/Jalan:**
+    1. Identifikasi bentuk input $x(t)$. Dalam kasus ini, $x(t)=8$ untuk $t \ge 0$.
+    2. Mengingat **SYWK_PD_KoefisienTakTentu**: Asumsikan bentuk solusi partikular $y_p(t)$ sama dengan bentuk input (konstanta).
+    3. Substitusikan $y_p(t)$ dan turunannya ke dalam PD.
+    4. Selesaikan untuk konstanta di $y_p(t)$ menggunakan **K_MAT_Aljabar**.
+- **Kendaraan:**
+    - **K_OPS_Solusi_PD_Partikular.**
+    - **K_MAT_Aljabar:** Substitusi, Penyelesaian Persamaan.
+    - **K_MAT_Kalkulus:** Diferensiasi.
+
+**Solusi WK3-PD_B3_P11:**
+
+1. **Bentuk Input:** Input adalah $x(t) = 8u(t)$, yang berarti input konstan 8 untuk $t \ge 0$.
+2. **Asumsi Bentuk Solusi Partikular:** Karena input adalah konstanta, asumsikan solusi partikular juga konstanta: $y_p(t) = K$.
+3. **Turunan Solusi Partikular:** $\frac{dy_p(t)}{dt} = 0$.
+4. **Substitusikan ke PD:** $0 + 4(K) = 8$. $4K = 8 \Rightarrow K = 2$.
+5. **Hasil Solusi Partikular:** $y_p(t) = 2$. **Kesimpulan:** Solusi partikular $y_p(t)$ adalah **$2u(t)$** (dikalikan $u(t)$ karena input dimulai pada $t=0$).
+
+## Soal 12: Solusi Partikular - Input Eksponensial (Non-Resonan)
+
+**Nomor Produk:** WK3-PD_B3_P12 **Peta Pemecahan Masalah WK3-PD_B3_P12**
+
+- **Titik Mulai:** Persamaan diferensial $\frac{dy(t)}{dt} + 2y(t) = 3e^{-4t}u(t)$.
+- **Titik Akhir:** Solusi partikular $y_p(t)$.
+- **Rute/Jalan:**
+    1. Tentukan akar homogen untuk memeriksa resonansi.
+    2. Identifikasi bentuk input $x(t)$.
+    3. Asumsikan bentuk solusi partikular $y_p(t)$ sama dengan bentuk input.
+    4. Substitusikan $y_p(t)$ dan turunannya ke dalam PD.
+    5. Selesaikan untuk konstanta di $y_p(t)$ menggunakan **K_MAT_Aljabar**.
+- **Kendaraan:**
+    - **K_OPS_Solusi_PD_Partikular.**
+    - **K_OPS_Akar_PD_Karakteristik** (untuk cek resonansi).
+    - **K_MAT_Aljabar:** Substitusi, Penyelesaian Persamaan.
+    - **K_MAT_Kalkulus:** Diferensiasi.
+
+**Solusi WK3-PD_B3_P12:**
+
+1. **Akar Homogen:** Dari $\frac{dy(t)}{dt} + 2y(t) = 0$, persamaan karakteristiknya $r+2=0$, jadi $r=-2$. Inputnya $e^{-4t}$, yang tidak sama dengan $e^{-2t}$, jadi tidak ada resonansi.
+2. **Bentuk Input:** Input adalah $3e^{-4t}u(t)$.
+3. **Asumsi Bentuk Solusi Partikular:** Asumsikan $y_p(t) = K e^{-4t}$.
+4. **Turunan Solusi Partikular:** $\frac{dy_p(t)}{dt} = -4K e^{-4t}$.
+5. **Substitusikan ke PD:** $-4K e^{-4t} + 2(K e^{-4t}) = 3e^{-4t}$. $-2K e^{-4t} = 3e^{-4t}$. $-2K = 3 \Rightarrow K = -\frac{3}{2}$.
+6. **Hasil Solusi Partikular:** $y_p(t) = -\frac{3}{2} e^{-4t}$. **Kesimpulan:** Solusi partikular $y_p(t)$ adalah **$-\frac{3}{2} e^{-4t}u(t)$**.
+
+## Soal 13: Solusi Partikular - Input Eksponensial (Resonan)
+
+**Nomor Produk:** WK3-PD_B4_P13 **Peta Pemecahan Masalah WK3-PD_B4_P13**
+
+- **Titik Mulai:** Persamaan diferensial $\frac{dy(t)}{dt} + 5y(t) = e^{-5t}u(t)$.
+- **Titik Akhir:** Solusi partikular $y_p(t)$.
+- **Rute/Jalan:**
+    1. Tentukan akar homogen untuk memeriksa resonansi.
+    2. Identifikasi bentuk input $x(t)$.
+    3. Karena inputnya adalah akar homogen, asumsikan bentuk solusi partikular $y_p(t)$ sebagai $K t e^{r t}$ (dikalikan $t$).
+    4. Substitusikan $y_p(t)$ dan turunannya ke dalam PD.
+    5. Selesaikan untuk konstanta di $y_p(t)$ menggunakan **K_MAT_Aljabar**.
+- **Kendaraan:**
+    - **K_OPS_Solusi_PD_Partikular.**
+    - **K_OPS_Akar_PD_Karakteristik** (untuk cek resonansi).
+    - **K_MAT_Aljabar:** Substitusi, Penyelesaian Persamaan.
+    - **K_MAT_Kalkulus:** Diferensiasi (aturan produk).
+
+**Solusi WK3-PD_B4_P13:**
+
+1. **Akar Homogen:** Dari $\frac{dy(t)}{dt} + 5y(t) = 0$, persamaan karakteristiknya $r+5=0$, jadi $r=-5$. Inputnya $e^{-5t}$, yang sama dengan bentuk akar homogen. Ini adalah kasus resonansi.
+2. **Asumsi Bentuk Solusi Partikular (Resonan):** Karena ada resonansi, asumsikan $y_p(t) = K t e^{-5t}$.
+3. **Turunan Solusi Partikular (aturan produk):** $\frac{dy_p(t)}{dt} = K e^{-5t} + K t (-5e^{-5t}) = K e^{-5t} - 5K t e^{-5t}$.
+4. **Substitusikan ke PD:** $(K e^{-5t} - 5K t e^{-5t}) + 5(K t e^{-5t}) = e^{-5t}$. $K e^{-5t} = e^{-5t}$. $K = 1$.
+5. **Hasil Solusi Partikular:** $y_p(t) = t e^{-5t}$. **Kesimpulan:** Solusi partikular $y_p(t)$ adalah **$t e^{-5t}u(t)$**.
+
+## Soal 14: Solusi Lengkap dengan Kondisi Awal Nol
+
+**Nomor Produk:** WK3-PD_B4_P14 **Peta Pemecahan Masalah WK3-PD_B4_P14**
+
+- **Titik Mulai:** PD $\frac{dy(t)}{dt} + 2y(t) = x(t)$, $x(t)=u(t)$, $y(0^-)=0$.
+- **Titik Akhir:** Solusi lengkap $y(t)$.
+- **Rute/Jalan:**
+    1. Tentukan **SYWK_SolusiHomogen**.
+    2. Tentukan **SYWK_SolusiPartikular** (untuk $x(t)=1$).
+    3. Bentuk solusi lengkap $y(t) = y_h(t) + y_p(t)$.
+    4. Gunakan **SYWK_KondisiAwal** $y(0^-)=0$ untuk mencari konstanta di $y_h(t)$. Ingat bahwa untuk LTI, jika kondisi awal nol, $y(0^+)=0$.
+    5. Gabungkan hasil untuk $t \ge 0$.
+- **Kendaraan:**
+    - **K_OPS_Solusi_PD_Homogen.**
+    - **K_OPS_Solusi_PD_Partikular.**
+    - **K_OPS_Kondisi_Awal.**
+    - **K_MAT_Aljabar:** Penyelesaian Konstanta.
+    - **K_MAT_Kalkulus:** Diferensiasi (jika turunan diperlukan untuk kondisi awal).
+
+**Solusi WK3-PD_B4_P14:**
+
+1. **Solusi Homogen ($y_h(t)$):** Persamaan karakteristik: $r+2=0 \Rightarrow r=-2$. $y_h(t) = C e^{-2t}$.
+2. **Solusi Partikular ($y_p(t)$):** Untuk input $x(t)=u(t)$, asumsikan $y_p(t)=K$ (untuk $t \ge 0$). $\frac{d}{dt}(K) + 2K = 1 \Rightarrow 0 + 2K = 1 \Rightarrow K = 1/2$. $y_p(t) = \frac{1}{2}$ (untuk $t \ge 0$).
+3. **Solusi Lengkap ($y(t)$):** $y(t) = y_h(t) + y_p(t) = C e^{-2t} + \frac{1}{2}$ (untuk $t \ge 0$).
+4. **Kondisi Awal:** Diketahui $y(0^-) = 0$. Karena sistem LTI dan input adalah unit step (tidak ada impuls pada $t=0$), outputnya akan kontinu pada $t=0$. Jadi, $y(0) = y(0^-) = 0$. $y(0) = C e^{-2(0)} + \frac{1}{2} = 0$. $C + \frac{1}{2} = 0 \Rightarrow C = -\frac{1}{2}$.
+5. **Solusi Akhir:** $y(t) = -\frac{1}{2} e^{-2t} + \frac{1}{2}$ untuk $t \ge 0$. $y(t) = \frac{1}{2}(1 - e^{-2t})u(t)$. **Kesimpulan:** Solusi lengkap $y(t)$ adalah **$\frac{1}{2}(1 - e^{-2t})u(t)$**.
+
+## Soal 15: Respon Impuls dari PD Orde Pertama
+
+**Nomor Produk:** WK3-LTI_B4_P15 **Peta Pemecahan Masalah WK3-LTI_B4_P15**
+
+- **Titik Mulai:** PD $\frac{dy(t)}{dt} + 5y(t) = x(t)$. Sistem kausal.
+- **Titik Akhir:** Respon impuls $h(t)$.
+- **Rute/Jalan:**
+    1. Mengingat definisi **SYWK_ResponImpuls**: $x(t) = \delta(t)$.
+    2. Selesaikan PD dengan input $\delta(t)$. Ini berarti mencari solusi homogen dan menggunakan kondisi awal tertentu.
+    3. Untuk sistem kausal, $y(0^-)=0$. Turunan input impuls akan menghasilkan diskontinuitas pada $y(t)$ atau turunannya pada $t=0$.
+    4. Untuk PD orde pertama dengan input $\delta(t)$ di sisi kanan dan tidak ada turunan $\delta(t)$, asumsikan $y(0^+)=1/a_N$ (jika PD dalam bentuk $a_N y^{(N)}(t) + \dots + a_0 y(t) = x(t)$).
+    5. Solusi homogen akan menjadi respon impuls untuk $t \ge 0$.
+- **Kendaraan:**
+    - **K_OPS_Definisi:** Respon Impuls.
+    - **K_OPS_Solusi_PD_Homogen.**
+    - **K_OPS_Kondisi_Awal** (untuk sistem LTI, $y(0^+)$ setelah impuls).
+    - **K_MAT_Aljabar:** Penyelesaian Konstanta.
+
+**Solusi WK3-LTI_B4_P15:**
+
+1. **Definisi Respon Impuls:** Respon impuls $h(t)$ adalah output ketika input $x(t) = \delta(t)$. Jadi, kita perlu menyelesaikan $\frac{dh(t)}{dt} + 5h(t) = \delta(t)$.
+2. **Solusi Homogen:** Persamaan karakteristik $r+5=0 \Rightarrow r=-5$. Jadi, $h(t) = C e^{-5t}$ untuk $t \ge 0$.
+3. **Kondisi Awal:** Untuk sistem LTI kausal, kita tahu bahwa $h(t)=0$ untuk $t<0$. Input impuls pada $t=0$ akan menyebabkan $h(t)$ memiliki diskontinuitas pada $t=0$. Untuk PD orde pertama, jika inputnya adalah $\delta(t)$, maka nilai $h(0^+)$ adalah koefisien dari $\delta(t)$ di sisi kanan dibagi dengan koefisien dari turunan tertinggi di sisi kiri. Dalam $\frac{dh(t)}{dt} + 5h(t) = \delta(t)$, koefisien $\delta(t)$ adalah 1, dan koefisien $\frac{dh(t)}{dt}$ adalah 1. Maka $h(0^+) = 1/1 = 1$.
+4. **Mencari Konstanta $C$:** $h(0^+) = C e^{-5(0)} = C$. Karena $h(0^+) = 1$, maka $C=1$.
+5. **Respon Impuls:** $h(t) = e^{-5t}$ untuk $t \ge 0$. Karena kausal, $h(t)$ harus 0 untuk $t<0$. $h(t) = e^{-5t}u(t)$. **Kesimpulan:** Respon impuls $h(t)$ adalah **$e^{-5t}u(t)$**.
+
+## Soal 16: Sifat Distributif Konvolusi
+
+**Nomor Produk:** WK3-Conv_B4_P16 **Peta Pemecahan Masalah WK3-Conv_B4_P16**
+
+- **Titik Mulai:** $x(t) = e^{-t}u(t)$, $h_1(t) = \delta(t-1)$, $h_2(t) = \delta(t-2)$. $y(t) = x(t) * (h_1(t) + h_2(t))$.
+- **Titik Akhir:** Hasil konvolusi $y(t)$.
+- **Rute/Jalan:**
+    1. Mengingat **SifatConv_Distributif**.
+    2. Terapkan sifat distributif untuk memisahkan konvolusi menjadi dua bagian: $x(t)*h_1(t) + x(t)*h_2(t)$.
+    3. Mengingat **SifatConv_Impuls**.
+    4. Terapkan sifat impuls pada setiap bagian.
+    5. Jumlahkan hasilnya menggunakan **K_MAT_Aljabar**.
+- **Kendaraan:**
+    - **K_OPS_Definisi:** Sifat Distributif Konvolusi.
+    - **K_OPS_Definisi:** Sifat Impuls Konvolusi.
+    - **K_MAT_Aljabar:** Manipulasi Sinyal, Penjumlahan Ekspresi.
+
+**Solusi WK3-Conv_B4_P16:**
+
+1. **Sifat Distributif:** Konvolusi bersifat distributif terhadap penjumlahan: $y(t) = x(t) * (h_1(t) + h_2(t)) = (x(t) * h_1(t)) + (x(t) * h_2(t))$.
+2. **Sifat Impuls:** $x(t) * \delta(t-t_0) = x(t-t_0)$.
+3. **Hitung setiap bagian:**
+    - $x(t) * h_1(t) = x(t) * \delta(t-1) = x(t-1) = e^{-(t-1)}u(t-1)$.
+    - $x(t) * h_2(t) = x(t) * \delta(t-2) = x(t-2) = e^{-(t-2)}u(t-2)$.
+4. **Jumlahkan:** $y(t) = e^{-(t-1)}u(t-1) + e^{-(t-2)}u(t-2)$. **Kesimpulan:** Hasil konvolusi $y(t)$ adalah **$e^{-(t-1)}u(t-1) + e^{-(t-2)}u(t-2)$**.
+
+## Soal 17: Kriteria Kausalitas dan Stabilitas LTI
+
+**Nomor Produk:** WK3-LTI_B4_P17 **Peta Pemecahan Masalah WK3-LTI_B4_P17**
+
+- **Titik Mulai:** Permintaan kriteria kausalitas dan stabilitas BIBO untuk sistem LTI waktu kontinu.
+- **Titik Akhir:** Penjelasan kriteria berdasarkan respon impuls $h(t)$.
+- **Rute/Jalan:**
+    1. Mengingat definisi **SYWK_Kausalitas** untuk LTI dan kaitannya dengan $h(t)$.
+    2. Mengingat definisi **SYWK_Stabilitas** BIBO untuk LTI dan kaitannya dengan $h(t)$.
+    3. Formulasikan kriteria secara jelas.
+- **Kendaraan:**
+    - **K_OPS_Definisi:** Kausalitas Sistem LTI.
+    - **K_OPS_Definisi:** Stabilitas BIBO Sistem LTI.
+    - **K_OPS_Definisi:** Respon Impuls.
+    - **K_MAT_Kalkulus:** Integral (untuk stabilitas).
+
+**Solusi WK3-LTI_B4_P17:**
+
+1. **Kriteria Kausalitas Sistem LTI:** Sebuah sistem LTI waktu kontinu dikatakan **kausal** jika respon impulsnya $h(t)$ adalah nol untuk semua waktu negatif, yaitu **$h(t) = 0$ untuk $t < 0$**. Ini memastikan bahwa output sistem pada waktu tertentu hanya bergantung pada input saat ini atau masa lalu, bukan input di masa depan.
+2. **Kriteria Stabilitas BIBO Sistem LTI:** Sebuah sistem LTI waktu kontinu dikatakan **stabil BIBO (Bounded-Input Bounded-Output)** jika respon impulsnya $h(t)$ dapat diintegrasikan secara absolut (absolutely integrable). Yaitu, **$\int_{-\infty}^{\infty} |h(t)| dt < \infty$**. Ini menjamin bahwa setiap input yang terbatas (bounded) akan menghasilkan output yang juga terbatas. **Kesimpulan:** Kriteria kausalitas adalah $h(t)=0$ untuk $t<0$, dan kriteria stabilitas BIBO adalah $\int_{-\infty}^{\infty} |h(t)| dt < \infty$.
+
+## Soal 18: Respon Impuls dari PD dengan Turunan Input
+
+**Nomor Produk:** WK3-PD_B5_P18 **Peta Pemecahan Masalah WK3-PD_B5_P18**
+
+- **Titik Mulai:** PD $\frac{d y(t)}{dt} + 3 y(t) = 2 \frac{d x(t)}{dt} + x(t)$. Sistem kausal.
+- **Titik Akhir:** Respon impuls $h(t)$.
+- **Rute/Jalan:**
+    1. Tuliskan ulang PD menjadi $LHS = RHS$ dengan input $x(t) = \delta(t)$.
+    2. Pisahkan respon impuls menjadi dua bagian: $h(t) = h_{DI}(t) + h_{FI}(t)$, di mana $h_{DI}(t)$ adalah respon impuls dari sisi diferensial input, dan $h_{FI}(t)$ adalah respon impuls langsung dari input (jika ada).
+    3. Atau, dapatkan $h(t)$ dari $y_{aux}(t)$ dengan input $\delta(t)$ dan kemudian kenakan operator diferensial input.
+    4. Selesaikan PD: $\frac{d y_{aux}(t)}{dt} + 3 y_{aux}(t) = \delta(t)$ untuk mendapatkan respon impuls sistem "dasar" $h_{base}(t)$.
+    5. Kenakan operator turunan input ke $h_{base}(t)$: $h(t) = 2 \frac{d h_{base}(t)}{dt} + h_{base}(t)$.
+    6. Gunakan **K_MAT_Kalkulus** untuk diferensiasi dan **K_MAT_Aljabar** untuk penyederhanaan.
+- **Kendaraan:**
+    - **K_OPS_Definisi:** Respon Impuls.
+    - **K_OPS_Solusi_PD_Homogen.**
+    - **K_OPS_Kondisi_Awal.**
+    - **K_MAT_Kalkulus:** Diferensiasi.
+    - **K_MAT_Aljabar:** Substitusi Sinyal.
+
+**Solusi WK3-PD_B5_P18:**
+
+1. **Pendekatan:** Respon impuls $h(t)$ dari sistem yang diberikan $a_1 \frac{dy(t)}{dt} + a_0 y(t) = b_1 \frac{dx(t)}{dt} + b_0 x(t)$ dapat ditemukan dengan terlebih dahulu mencari respon impuls dari sistem "dasar" $\frac{dy_{base}(t)}{dt} + 3y_{base}(t) = \delta(t)$, lalu menerapkan operator sisi kanan ke $y_{base}(t)$.
+2. **Respon Impuls Sistem Dasar ($h_{base}(t)$):** Dari Soal 15, untuk $\frac{dy(t)}{dt} + 3y(t) = x(t)$, respon impulsnya adalah $h_{base}(t) = e^{-3t}u(t)$.
+3. **Terapkan Operator Input:** Output $h(t)$ adalah: $h(t) = 2 \frac{d h_{base}(t)}{dt} + h_{base}(t)$. $h(t) = 2 \frac{d}{dt}(e^{-3t}u(t)) + e^{-3t}u(t)$.
+4. **Diferensiasi ($e^{-3t}u(t)$):** Gunakan aturan produk $\frac{d}{dt}(f(t)g(t)) = f'(t)g(t) + f(t)g'(t)$ dan $\frac{du(t)}{dt} = \delta(t)$. $\frac{d}{dt}(e^{-3t}u(t)) = -3e^{-3t}u(t) + e^{-3t}\delta(t)$. Karena $e^{-3t}\delta(t) = e^{-3(0)}\delta(t) = \delta(t)$. Jadi, $\frac{d}{dt}(e^{-3t}u(t)) = -3e^{-3t}u(t) + \delta(t)$.
+5. **Substitusikan Kembali:** $h(t) = 2(-3e^{-3t}u(t) + \delta(t)) + e^{-3t}u(t)$. $h(t) = -6e^{-3t}u(t) + 2\delta(t) + e^{-3t}u(t)$. $h(t) = 2\delta(t) - 5e^{-3t}u(t)$. **Kesimpulan:** Respon impuls $h(t)$ adalah **$2\delta(t) - 5e^{-3t}u(t)$**.
+
+## Soal 19: Konvolusi dengan Pulsa Persegi dan Impuls
+
+**Nomor Produk:** WK3-Conv_B4_P19 **Peta Pemecahan Masalah WK3-Conv_B4_P19**
+
+- **Titik Mulai:** $x(t) = u(t) - u(t-1)$ dan $h(t) = \delta(t+1) - \delta(t)$.
+- **Titik Akhir:** Hasil konvolusi $y(t)$ dan sketsanya.
+- **Rute/Jalan:**
+    1. Mengingat **SifatConv_Distributif**.
+    2. Terapkan sifat distributif untuk memisahkan konvolusi menjadi dua bagian: $x(t)_\delta(t+1) - x(t)_\delta(t)$.
+    3. Mengingat **SifatConv_Impuls**.
+    4. Terapkan sifat impuls pada setiap bagian.
+    5. Jumlahkan/kurangkan hasilnya menggunakan **K_MAT_Aljabar**.
+    6. Sketsakan hasilnya menggunakan **K_VIS_PlotSinyal**.
+- **Kendaraan:**
+    - **K_OPS_Definisi:** Sifat Distributif Konvolusi.
+    - **K_OPS_Definisi:** Sifat Impuls Konvolusi.
+    - **K_MAT_Aljabar:** Manipulasi Sinyal, Penjumlahan/Pengurangan Ekspresi.
+    - **K_VIS_PlotSinyal.**
+
+**Solusi WK3-Conv_B4_P19:**
+
+1. **Sifat Distributif:** $y(t) = x(t) * (\delta(t+1) - \delta(t)) = (x(t) * \delta(t+1)) - (x(t) * \delta(t))$.
+2. **Sifat Impuls:** $x(t) * \delta(t-t_0) = x(t-t_0)$.
+3. **Hitung setiap bagian:**
+    - $x(t) * \delta(t+1) = x(t-(-1)) = x(t+1)$. $x(t+1) = (u(t+1) - u(t+1-1)) = u(t+1) - u(t)$. Ini adalah pulsa persegi dari $t=-1$ sampai $t=0$ dengan amplitudo 1.
+    - $x(t) * \delta(t) = x(t)$. $x(t) = u(t) - u(t-1)$. Ini adalah pulsa persegi dari $t=0$ sampai $t=1$ dengan amplitudo 1.
+4. **Kurangkan hasilnya:** $y(t) = (u(t+1) - u(t)) - (u(t) - u(t-1))$. $y(t) = u(t+1) - 2u(t) + u(t-1)$.
+5. **Sketsa:**
+    - Untuk $t < -1$: $y(t)=0$.
+    - Untuk $-1 \le t < 0$: $u(t+1)=1, u(t)=0, u(t-1)=0 \Rightarrow y(t)=1$.
+    - Untuk $0 \le t < 1$: $u(t+1)=1, u(t)=1, u(t-1)=0 \Rightarrow y(t)=1 - 2(1) + 0 = -1$.
+    - Untuk $t \ge 1$: $u(t+1)=1, u(t)=1, u(t-1)=1 \Rightarrow y(t)=1 - 2(1) + 1 = 0$. **Kesimpulan:** $y(t)$ adalah pulsa persegi dengan amplitudo 1 dari $t=-1$ hingga $t=0$, dan amplitudo -1 dari $t=0$ hingga $t=1$.
+
+## Soal 20: Solusi Lengkap Sistem LTI Orde Kedua
+
+**Nomor Produk:** WK3-PD_B6_P20 **Peta Pemecahan Masalah WK3-PD_B6_P20**
+
+- **Titik Mulai:** PD $\frac{d^2 y(t)}{dt^2} + 4 \frac{dy(t)}{dt} + 3 y(t) = x(t)$, $x(t) = 6u(t)$, $y(0)=1$, $y'(0)=-1$.
+- **Titik Akhir:** Solusi lengkap $y(t)$.
+- **Rute/Jalan:**
+    1. Tentukan **SYWK_SolusiHomogen** dengan mencari akar persamaan karakteristik.
+    2. Tentukan **SYWK_SolusiPartikular** untuk input $x(t)=6u(t)$.
+    3. Bentuk solusi lengkap $y(t) = y_h(t) + y_p(t)$.
+    4. Gunakan **SYWK_KondisiAwal** $y(0)=1$ dan $y'(0)=-1$ untuk mencari konstanta di $y_h(t)$ setelah mengganti $t=0$.
+    5. Gabungkan hasil untuk $t \ge 0$.
+- **Kendaraan:**
+    - **K_OPS_Solusi_PD_Homogen.**
+    - **K_OPS_Solusi_PD_Partikular.**
+    - **K_OPS_Kondisi_Awal.**
+    - **K_OPS_Akar_PD_Karakteristik.**
+    - **K_MAT_Aljabar:** Penyelesaian Sistem Persamaan Linear.
+    - **K_MAT_Kalkulus:** Diferensiasi.
+
+**Solusi WK3-PD_B6_P20:**
+
+1. **Solusi Homogen ($y_h(t)$):** Persamaan karakteristik: $r^2 + 4r + 3 = 0$. Faktorkan: $(r+1)(r+3) = 0$. Akar-akar: $r_1 = -1$, $r_2 = -3$. $y_h(t) = C_1 e^{-t} + C_2 e^{-3t}$.
+2. **Solusi Partikular ($y_p(t)$):** Untuk input $x(t) = 6u(t)$, asumsikan $y_p(t) = K$ (untuk $t \ge 0$). $\frac{d^2}{dt^2}(K) + 4\frac{d}{dt}(K) + 3K = 6$. $0 + 0 + 3K = 6 \Rightarrow K = 2$. $y_p(t) = 2$ (untuk $t \ge 0$).
+3. **Solusi Lengkap ($y(t)$):** $y(t) = y_h(t) + y_p(t) = C_1 e^{-t} + C_2 e^{-3t} + 2$ (untuk $t \ge 0$).
+4. **Kondisi Awal:** Kita perlu $y(0)$ dan $y'(0)$. Pertama, cari $y'(t)$: $y'(t) = -C_1 e^{-t} - 3C_2 e^{-3t}$. Gunakan kondisi $y(0)=1$: $y(0) = C_1 e^0 + C_2 e^0 + 2 = C_1 + C_2 + 2 = 1 \Rightarrow C_1 + C_2 = -1$ (Persamaan 1). Gunakan kondisi $y'(0)=-1$: $y'(0) = -C_1 e^0 - 3C_2 e^0 = -C_1 - 3C_2 = -1$ (Persamaan 2).
+5. **Selesaikan Sistem Persamaan:** Dari Persamaan 1: $C_1 = -1 - C_2$. Substitusikan ke Persamaan 2: $-(-1 - C_2) - 3C_2 = -1$. $1 + C_2 - 3C_2 = -1$. $1 - 2C_2 = -1$. $-2C_2 = -2 \Rightarrow C_2 = 1$. Substitusikan $C_2=1$ kembali ke $C_1 = -1 - C_2$: $C_1 = -1 - 1 = -2$.
+6. **Solusi Akhir:** $y(t) = -2e^{-t} + e^{-3t} + 2$ untuk $t \ge 0$. $y(t) = (-2e^{-t} + e^{-3t} + 2)u(t)$. **Kesimpulan:** Solusi lengkap $y(t)$ adalah **$(-2e^{-t} + e^{-3t} + 2)u(t)$**.
+
+---
+
+# Daftar Kendaraan yang Digunakan
+
+Berikut adalah daftar kendaraan unik yang digunakan di seluruh Peta Pengetahuan Aplikatif di atas, dikategorikan sesuai dengan jenisnya.
+
+- **Matematika (Fundamental):**
+    
+    - **K_MAT_Aljabar:** Manipulasi ekspresi matematis, penyelesaian persamaan, faktorisasi, penyederhanaan, substitusi sinyal, penentuan batas, penyelesaian konstanta, penyelesaian sistem persamaan linear.
+    - **K_MAT_Kalkulus:** Diferensiasi, integrasi, turunan (aturan produk).
+    - **K_MAT_Bilangan_Kompleks:** Bekerja dengan akar kompleks konjugat, rumus kuadrat.
+- **Operasi Dasar Sinyal/Sistem:**
+    
+    - **K_OPS_Definisi:** Konvolusi, Respon Impuls, Sistem LTI, Solusi Persamaan Diferensial, Solusi Homogen, Solusi Partikular, Sinyal Impuls Unit, Sifat Impuls Konvolusi, Sifat Distributif Konvolusi, Kausalitas Sistem LTI, Stabilitas BIBO Sistem LTI.
+    - **K_OPS_Konvolusi_Integral:** Penerapan rumus integral konvolusi.
+    - **K_OPS_Konvolusi_Grafis:** Metode langkah-demi-langkah untuk konvolusi visual.
+    - **K_OPS_Solusi_PD_Homogen:** Teknik untuk menemukan solusi homogen.
+    - **K_OPS_Solusi_PD_Partikular:** Teknik untuk menemukan solusi partikular (metode koefisien tak tentu).
+    - **K_OPS_Akar_PD_Karakteristik:** Prosedur untuk mencari akar-akar persamaan karakteristik.
+    - **K_OPS_Kondisi_Awal:** Prosedur untuk menentukan konstanta dari solusi lengkap menggunakan kondisi awal.
+- **Diagram & Visualisasi:**
+    
+    - **K_VIS_PlotSinyal:** Menggambar diagram sinyal.
+- **Heuristik:**
+    
+    - **Heuristik_MenggambarDiagram:** Strategi untuk memvisualisasikan masalah atau langkah solusi.
