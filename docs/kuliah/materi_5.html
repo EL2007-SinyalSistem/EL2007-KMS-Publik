@@ -1,0 +1,1589 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.23">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>6&nbsp; 1) Analisis Materi Minggu ke-5 (RPS.pdf) – EL-2007 Sinyal dan Sistem</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../summary.html" rel="next">
+<link href="../kuliah/materi_4.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-1fe81d0376b2c50856e68e651e390326.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-27c261d06b905028a18691de25d09dde.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../kuliah/materi_5.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">1) Analisis Materi Minggu ke-5 (RPS.pdf)</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="../index.html" class="sidebar-logo-link">
+      </a>
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">EL-2007 Sinyal dan Sistem</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Petunjuk Belajar Mata Kuliah Sinyal dan Sistem</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Tinjauan Kuliah</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../kuliah/materi_1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Materi Pembelajaran Minggu 1: Deskripsi Matematis Sinyal Waktu Kontinu</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../kuliah/materi_2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Materi Kuliah Minggu 2: Deskripsi Sistem di Domain Waktu dan Sifat-sifat Dasarnya</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../kuliah/materi_3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Sistem LTI dan LCCDE</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../kuliah/materi_4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">I. Materi Pembelajaran Minggu 4: Analisis Sistem di Domain Waktu</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../kuliah/materi_5.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">1) Analisis Materi Minggu ke-5 (RPS.pdf)</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../summary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Lampiran Petunjuk Penggunaan Alat Bantu dan Kendaraan dalam Sinyal dan Sistem (VALORAIZE Learning)</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#a-inti-materi-kuliah-minggu-ke-5" id="toc-a-inti-materi-kuliah-minggu-ke-5" class="nav-link active" data-scroll-target="#a-inti-materi-kuliah-minggu-ke-5"><span class="header-section-number">6.1</span> (a) Inti Materi Kuliah Minggu ke-5</a></li>
+  <li><a href="#b-ontologi-pengetahuan-dan-ekspresi-prolog" id="toc-b-ontologi-pengetahuan-dan-ekspresi-prolog" class="nav-link" data-scroll-target="#b-ontologi-pengetahuan-dan-ekspresi-prolog"><span class="header-section-number">6.2</span> (b) Ontologi Pengetahuan dan Ekspresi Prolog</a></li>
+  <li><a href="#c-diagram-graphviz-peta-pengetahuan-dasar" id="toc-c-diagram-graphviz-peta-pengetahuan-dasar" class="nav-link" data-scroll-target="#c-diagram-graphviz-peta-pengetahuan-dasar"><span class="header-section-number">6.3</span> (c) Diagram Graphviz Peta Pengetahuan Dasar</a></li>
+  <li><a href="#d-kendaraan-yang-diperlukan" id="toc-d-kendaraan-yang-diperlukan" class="nav-link" data-scroll-target="#d-kendaraan-yang-diperlukan"><span class="header-section-number">6.4</span> (d) Kendaraan yang Diperlukan</a></li>
+  <li><a href="#soal-tanpa-solusi-minggu-5" id="toc-soal-tanpa-solusi-minggu-5" class="nav-link" data-scroll-target="#soal-tanpa-solusi-minggu-5"><span class="header-section-number">7</span> 2) 20 Soal Tanpa Solusi (Minggu 5)</a></li>
+  <li><a href="#peta-pengetahuan-aplikatif-dan-solusi" id="toc-peta-pengetahuan-aplikatif-dan-solusi" class="nav-link" data-scroll-target="#peta-pengetahuan-aplikatif-dan-solusi"><span class="header-section-number">8</span> 3) Peta Pengetahuan Aplikatif dan Solusi</a>
+  <ul class="collapse">
+  <li><a href="#soal-1-konvolusi-pulsa-persegi" id="toc-soal-1-konvolusi-pulsa-persegi" class="nav-link" data-scroll-target="#soal-1-konvolusi-pulsa-persegi"><span class="header-section-number">8.1</span> Soal 1: Konvolusi Pulsa Persegi</a>
+  <ul class="collapse">
+  <li><a href="#a-peta-pengetahuan-aplikatif-pma-wk5-cv-l3-p01" id="toc-a-peta-pengetahuan-aplikatif-pma-wk5-cv-l3-p01" class="nav-link" data-scroll-target="#a-peta-pengetahuan-aplikatif-pma-wk5-cv-l3-p01"><span class="header-section-number">8.1.1</span> 3a) Peta Pengetahuan Aplikatif (PMA) WK5-CV-L3-P01</a></li>
+  <li><a href="#b-diagram-graphviz-pma-wk5-cv-l3-p01" id="toc-b-diagram-graphviz-pma-wk5-cv-l3-p01" class="nav-link" data-scroll-target="#b-diagram-graphviz-pma-wk5-cv-l3-p01"><span class="header-section-number">8.1.2</span> 3b) Diagram Graphviz PMA WK5-CV-L3-P01</a></li>
+  <li><a href="#c-solusi-wk5-cv-l3-p01" id="toc-c-solusi-wk5-cv-l3-p01" class="nav-link" data-scroll-target="#c-solusi-wk5-cv-l3-p01"><span class="header-section-number">8.1.3</span> 3c) Solusi WK5-CV-L3-P01</a></li>
+  </ul></li>
+  <li><a href="#soal-5-solusi-partikular-pd-resonansi" id="toc-soal-5-solusi-partikular-pd-resonansi" class="nav-link" data-scroll-target="#soal-5-solusi-partikular-pd-resonansi"><span class="header-section-number">8.2</span> Soal 5: Solusi Partikular PD (Resonansi)</a>
+  <ul class="collapse">
+  <li><a href="#a-peta-pengetahuan-aplikatif-pma-wk5-de-l4-p05" id="toc-a-peta-pengetahuan-aplikatif-pma-wk5-de-l4-p05" class="nav-link" data-scroll-target="#a-peta-pengetahuan-aplikatif-pma-wk5-de-l4-p05"><span class="header-section-number">8.2.1</span> 3a) Peta Pengetahuan Aplikatif (PMA) WK5-DE-L4-P05</a></li>
+  <li><a href="#b-diagram-graphviz-pma-wk5-de-l4-p05" id="toc-b-diagram-graphviz-pma-wk5-de-l4-p05" class="nav-link" data-scroll-target="#b-diagram-graphviz-pma-wk5-de-l4-p05"><span class="header-section-number">8.2.2</span> 3b) Diagram Graphviz PMA WK5-DE-L4-P05</a></li>
+  <li><a href="#c-solusi-wk5-de-l4-p05" id="toc-c-solusi-wk5-de-l4-p05" class="nav-link" data-scroll-target="#c-solusi-wk5-de-l4-p05"><span class="header-section-number">8.2.3</span> 3c) Solusi WK5-DE-L4-P05</a></li>
+  </ul></li>
+  <li><a href="#soal-7-konvolusi-kaskade-dan-sifat-komutatif" id="toc-soal-7-konvolusi-kaskade-dan-sifat-komutatif" class="nav-link" data-scroll-target="#soal-7-konvolusi-kaskade-dan-sifat-komutatif"><span class="header-section-number">8.3</span> Soal 7: Konvolusi Kaskade dan Sifat Komutatif</a>
+  <ul class="collapse">
+  <li><a href="#a-peta-pengetahuan-aplikatif-pma-wk5-cv-l5-p07" id="toc-a-peta-pengetahuan-aplikatif-pma-wk5-cv-l5-p07" class="nav-link" data-scroll-target="#a-peta-pengetahuan-aplikatif-pma-wk5-cv-l5-p07"><span class="header-section-number">8.3.1</span> 3a) Peta Pengetahuan Aplikatif (PMA) WK5-CV-L5-P07</a></li>
+  <li><a href="#b-diagram-graphviz-pma-wk5-cv-l5-p07" id="toc-b-diagram-graphviz-pma-wk5-cv-l5-p07" class="nav-link" data-scroll-target="#b-diagram-graphviz-pma-wk5-cv-l5-p07"><span class="header-section-number">8.3.2</span> 3b) Diagram Graphviz PMA WK5-CV-L5-P07</a></li>
+  <li><a href="#c-solusi-wk5-cv-l5-p07" id="toc-c-solusi-wk5-cv-l5-p07" class="nav-link" data-scroll-target="#c-solusi-wk5-cv-l5-p07"><span class="header-section-number">8.3.3</span> 3c) Solusi WK5-CV-L5-P07</a></li>
+  </ul></li>
+  <li><a href="#soal-10-desain-persamaan-diferensial-pd" id="toc-soal-10-desain-persamaan-diferensial-pd" class="nav-link" data-scroll-target="#soal-10-desain-persamaan-diferensial-pd"><span class="header-section-number">8.4</span> Soal 10: Desain Persamaan Diferensial (PD)</a>
+  <ul class="collapse">
+  <li><a href="#a-peta-pengetahuan-aplikatif-pma-wk5-ds-l6-p10" id="toc-a-peta-pengetahuan-aplikatif-pma-wk5-ds-l6-p10" class="nav-link" data-scroll-target="#a-peta-pengetahuan-aplikatif-pma-wk5-ds-l6-p10"><span class="header-section-number">8.4.1</span> 3a) Peta Pengetahuan Aplikatif (PMA) WK5-DS-L6-P10</a></li>
+  <li><a href="#b-diagram-graphviz-pma-wk5-ds-l6-p10" id="toc-b-diagram-graphviz-pma-wk5-ds-l6-p10" class="nav-link" data-scroll-target="#b-diagram-graphviz-pma-wk5-ds-l6-p10"><span class="header-section-number">8.4.2</span> 3b) Diagram Graphviz PMA WK5-DS-L6-P10</a></li>
+  <li><a href="#c-solusi-wk5-ds-l6-p10" id="toc-c-solusi-wk5-ds-l6-p10" class="nav-link" data-scroll-target="#c-solusi-wk5-ds-l6-p10"><span class="header-section-number">8.4.3</span> 3c) Solusi WK5-DS-L6-P10</a></li>
+  </ul></li>
+  <li><a href="#soal-7-solusi-lengkap-pd-respon-total" id="toc-soal-7-solusi-lengkap-pd-respon-total" class="nav-link" data-scroll-target="#soal-7-solusi-lengkap-pd-respon-total"><span class="header-section-number">8.5</span> Soal 7: Solusi Lengkap PD (Respon Total)</a>
+  <ul class="collapse">
+  <li><a href="#a-peta-pengetahuan-aplikatif-pma-wk5-de-l4-p17" id="toc-a-peta-pengetahuan-aplikatif-pma-wk5-de-l4-p17" class="nav-link" data-scroll-target="#a-peta-pengetahuan-aplikatif-pma-wk5-de-l4-p17"><span class="header-section-number">8.5.1</span> 3a) Peta Pengetahuan Aplikatif (PMA) WK5-DE-L4-P17</a></li>
+  <li><a href="#b-diagram-graphviz-pma-wk5-de-l4-p17" id="toc-b-diagram-graphviz-pma-wk5-de-l4-p17" class="nav-link" data-scroll-target="#b-diagram-graphviz-pma-wk5-de-l4-p17"><span class="header-section-number">8.5.2</span> 3b) Diagram Graphviz PMA WK5-DE-L4-P17</a></li>
+  <li><a href="#c-solusi-wk5-de-l4-p17" id="toc-c-solusi-wk5-de-l4-p17" class="nav-link" data-scroll-target="#c-solusi-wk5-de-l4-p17"><span class="header-section-number">8.5.3</span> 3c) Solusi WK5-DE-L4-P17</a></li>
+  </ul></li>
+  <li><a href="#soal-19-analisis-stabilitas-kaskade-pembatalan-polezero" id="toc-soal-19-analisis-stabilitas-kaskade-pembatalan-polezero" class="nav-link" data-scroll-target="#soal-19-analisis-stabilitas-kaskade-pembatalan-polezero"><span class="header-section-number">8.6</span> Soal 19: Analisis Stabilitas Kaskade (Pembatalan Pole/Zero)</a>
+  <ul class="collapse">
+  <li><a href="#a-peta-pengetahuan-aplikatif-pma-wk5-an-l5-p19" id="toc-a-peta-pengetahuan-aplikatif-pma-wk5-an-l5-p19" class="nav-link" data-scroll-target="#a-peta-pengetahuan-aplikatif-pma-wk5-an-l5-p19"><span class="header-section-number">8.6.1</span> 3a) Peta Pengetahuan Aplikatif (PMA) WK5-AN-L5-P19</a></li>
+  <li><a href="#b-diagram-graphviz-pma-wk5-an-l5-p19" id="toc-b-diagram-graphviz-pma-wk5-an-l5-p19" class="nav-link" data-scroll-target="#b-diagram-graphviz-pma-wk5-an-l5-p19"><span class="header-section-number">8.6.2</span> 3b) Diagram Graphviz PMA WK5-AN-L5-P19</a></li>
+  <li><a href="#c-solusi-wk5-an-l5-p19" id="toc-c-solusi-wk5-an-l5-p19" class="nav-link" data-scroll-target="#c-solusi-wk5-an-l5-p19"><span class="header-section-number">8.6.3</span> 3c) Solusi WK5-AN-L5-P19</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#daftar-kendaraan-yang-digunakan" id="toc-daftar-kendaraan-yang-digunakan" class="nav-link" data-scroll-target="#daftar-kendaraan-yang-digunakan"><span class="header-section-number">9</span> 4) Daftar Kendaraan yang Digunakan</a>
+  <ul class="collapse">
+  <li><a href="#a.-matematika-fundamental" id="toc-a.-matematika-fundamental" class="nav-link" data-scroll-target="#a.-matematika-fundamental"><span class="header-section-number">9.1</span> A. Matematika (Fundamental)</a></li>
+  <li><a href="#b.-diagram-visualisasi" id="toc-b.-diagram-visualisasi" class="nav-link" data-scroll-target="#b.-diagram-visualisasi"><span class="header-section-number">9.2</span> B. Diagram &amp; Visualisasi</a></li>
+  <li><a href="#c.-operasi-dasar-sinyalsistem-definisi" id="toc-c.-operasi-dasar-sinyalsistem-definisi" class="nav-link" data-scroll-target="#c.-operasi-dasar-sinyalsistem-definisi"><span class="header-section-number">9.3</span> C. Operasi Dasar Sinyal/Sistem &amp; Definisi</a></li>
+  <li><a href="#d.-transformasi-algoritma" id="toc-d.-transformasi-algoritma" class="nav-link" data-scroll-target="#d.-transformasi-algoritma"><span class="header-section-number">9.4</span> D. Transformasi (Algoritma)</a></li>
+  <li><a href="#e.-heuristik-meta-kendaraan-strategis" id="toc-e.-heuristik-meta-kendaraan-strategis" class="nav-link" data-scroll-target="#e.-heuristik-meta-kendaraan-strategis"><span class="header-section-number">9.5</span> E. Heuristik (Meta-Kendaraan Strategis)</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">1) Analisis Materi Minggu ke-5 (RPS.pdf)</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>Berdasarkan Rencana Pembelajaran Semester (RPS.pdf), <strong>Minggu 4-5</strong> membahas tema yang sama.</p>
+<p><strong>Tujuan Pembelajaran (CPMK Terkait):</strong> Mampu <strong>menganalisis respon sistem LTI menggunakan konvolusi dan menyelesaikan persamaan diferensial yang menggambarkan sistem</strong>.</p>
+<section id="a-inti-materi-kuliah-minggu-ke-5" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="a-inti-materi-kuliah-minggu-ke-5"><span class="header-section-number">6.1</span> (a) Inti Materi Kuliah Minggu ke-5</h2>
+<p>Inti materi kuliah Minggu ke-5 berfokus pada dua alat fundamental untuk menganalisis perilaku sistem Linear Tak-berubah Waktu (LTI) di domain waktu:</p>
+<ol type="1">
+<li><strong>Konvolusi (Convolution):</strong> Operasi matematis yang mendefinisikan output <span class="math inline">\(y(t)\)</span> atau <span class="math inline">\(y[n]\)</span> dari sistem LTI sebagai hasil input <span class="math inline">\(x(t)\)</span> atau <span class="math inline">\(x[n]\)</span> yang dikonvolusi dengan respons impuls <span class="math inline">\(h(t)\)</span> atau <span class="math inline">\(h[n]\)</span> sistem.
+<ul>
+<li><strong>Waktu Kontinu:</strong> Integral Konvolusi: <span class="math inline">\(y(t) = x(t) * h(t) = \int_{-\infty}^{\infty} x(\tau)h(t-\tau)d\tau\)</span>.</li>
+<li><strong>Sifat-sifat Konvolusi:</strong> Komutatif, Distributif, dan Asosiatif.</li>
+</ul></li>
+<li><strong>Solusi Persamaan Diferensial (PD) Linear Koefisien Konstan (LCCDEs):</strong> Banyak sistem fisik Waktu Kontinu (WK) dimodelkan menggunakan PD LCCDE. Solusi lengkap PD, yang merepresentasikan respons total sistem, terdiri dari <strong>solusi homogen (<span class="math inline">\(y_h(t)\)</span>)</strong> yang menjelaskan perilaku internal, dan <strong>solusi partikular (<span class="math inline">\(y_p(t)\)</span>)</strong> yang menjelaskan respons terhadap input spesifik.
+<ul>
+<li>Penentuan konstanta dalam solusi homogen memerlukan <strong>kondisi awal</strong> sistem.</li>
+</ul></li>
+<li><strong>Hubungan LTI:</strong> Konvolusi menyediakan representasi input-output yang berlaku untuk semua sistem LTI. Persamaan diferensial adalah cara umum untuk <strong>menggambarkan</strong> sistem LTI, dan konvolusi adalah cara untuk <strong>menganalisis</strong> responsnya.</li>
+</ol>
+</section>
+<section id="b-ontologi-pengetahuan-dan-ekspresi-prolog" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="b-ontologi-pengetahuan-dan-ekspresi-prolog"><span class="header-section-number">6.2</span> (b) Ontologi Pengetahuan dan Ekspresi Prolog</h2>
+<p>Ontologi Peta Pengetahuan Primitif (yang mencakup pengetahuan deklaratif/fundamental) untuk materi ini dapat berpusat pada konsep analisis sistem domain waktu:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Node (Konsep)</th>
+<th style="text-align: left;">Deskripsi</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>ANALISIS_DW</strong></td>
+<td style="text-align: left;">Analisis Sistem Domain Waktu (Node Pusat Materi)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>SYWK_LTI</strong></td>
+<td style="text-align: left;">Sistem Waktu Kontinu Linear Tak-berubah Waktu</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>SYWK_ResponImpuls</strong></td>
+<td style="text-align: left;">Karakteristik penting dari SYWK_LTI</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>SYWK_Konvolusi</strong></td>
+<td style="text-align: left;">Operasi untuk menemukan output SYWK_LTI</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>SYWK_IntKonvolusi</strong></td>
+<td style="text-align: left;">Definisi formal konvolusi WK</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>SYWK_SifatKonvolusi</strong></td>
+<td style="text-align: left;">Sifat-sifat matematis (Komutatif, Asosiatif, Distributif)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>SYWK_PD</strong></td>
+<td style="text-align: left;">Persamaan Diferensial LCC (Model matematika SYWK_LTI)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>SYWK_SolusiPD</strong></td>
+<td style="text-align: left;">Solusi Lengkap Persamaan Diferensial</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>SYWK_SolusiHomogen</strong></td>
+<td style="text-align: left;">Komponen respons internal (terkait akar karakteristik)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>SYWK_SolusiPartikular</strong></td>
+<td style="text-align: left;">Komponen respons terhadap input spesifik</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>SYWK_KondisiAwal</strong></td>
+<td style="text-align: left;">Dibutuhkan untuk menentukan konstanta solusi homogen</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Ekspresi Prolog dari Ontologi:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode prolog code-with-copy"><code class="sourceCode prolog"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">% Konsep Utama (Nodes)</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>konsep(analisis_dw)<span class="kw">.</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>konsep(sywk_lti)<span class="kw">.</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>konsep(sywk_responimpuls)<span class="kw">.</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>konsep(sywk_konvolusi)<span class="kw">.</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>konsep(sywk_intkonvolusi)<span class="kw">.</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>konsep(sywk_sifatkonvolusi)<span class="kw">.</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>konsep(sywk_pd)<span class="kw">.</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>konsep(sywk_solusipd)<span class="kw">.</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>konsep(sywk_solusihomogen)<span class="kw">.</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>konsep(sywk_solusipartikular)<span class="kw">.</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>konsep(sywk_kondisiawal)<span class="kw">.</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>konsep(sywk_output)<span class="kw">.</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co">% Hubungan (Edges)</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>hubungan(analisis_dw<span class="kw">,</span> terdiri_dari<span class="kw">,</span> sywk_konvolusi)<span class="kw">.</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>hubungan(analisis_dw<span class="kw">,</span> terdiri_dari<span class="kw">,</span> sywk_pd)<span class="kw">.</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>hubungan(sywk_lti<span class="kw">,</span> dicirikan_oleh<span class="kw">,</span> sywk_responimpuls)<span class="kw">.</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>hubungan(sywk_konvolusi<span class="kw">,</span> menghitung_output_dgn<span class="kw">,</span> sywk_responimpuls)<span class="kw">.</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>hubungan(sywk_konvolusi<span class="kw">,</span> menghitung_output_dgn<span class="kw">,</span> input)<span class="kw">.</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>hubungan(sywk_konvolusi<span class="kw">,</span> merupakan_bentuk_integrasi<span class="kw">,</span> sywk_intkonvolusi)<span class="kw">.</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>hubungan(sywk_konvolusi<span class="kw">,</span> memiliki_sifat<span class="kw">,</span> sywk_sifatkonvolusi)<span class="kw">.</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>hubungan(sywk_pd<span class="kw">,</span> menggambarkan<span class="kw">,</span> sywk_lti)<span class="kw">.</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>hubungan(sywk_solusipd<span class="kw">,</span> terdiri_dari<span class="kw">,</span> sywk_solusihomogen)<span class="kw">.</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>hubungan(sywk_solusipd<span class="kw">,</span> terdiri_dari<span class="kw">,</span> sywk_solusipartikular)<span class="kw">.</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>hubungan(sywk_solusipd<span class="kw">,</span> membutuhkan<span class="kw">,</span> sywk_kondisiawal)<span class="kw">.</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>hubungan(sywk_konvolusi<span class="kw">,</span> menghasilkan<span class="kw">,</span> sywk_output)<span class="kw">.</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>hubungan(sywk_solusipd<span class="kw">,</span> menghasilkan<span class="kw">,</span> sywk_output)<span class="kw">.</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="c-diagram-graphviz-peta-pengetahuan-dasar" class="level2" data-number="6.3">
+<h2 data-number="6.3" class="anchored" data-anchor-id="c-diagram-graphviz-peta-pengetahuan-dasar"><span class="header-section-number">6.3</span> (c) Diagram Graphviz Peta Pengetahuan Dasar</h2>
+<p>Berikut adalah kode Graphviz DOT untuk memvisualisasikan Peta Pengetahuan Primitif di atas:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode dot code-with-copy"><code class="sourceCode dot"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">digraph</span> <span class="va">G</span> <span class="ot">{</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="at">rankdir</span><span class="ot">=</span><span class="va">TB</span><span class="ot">;</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="kw">node</span><span class="co"> </span><span class="ot">[</span><span class="at">shape</span><span class="ot">=</span><span class="va">box</span><span class="co">, </span><span class="at">style</span><span class="ot">=</span><span class="st">"filled"</span><span class="co">, </span><span class="at">color</span><span class="ot">=</span><span class="st">"lightblue"</span><span class="co">, </span><span class="at">fontname</span><span class="ot">=</span><span class="st">"Helvetica"</span><span class="ot">];</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="kw">edge</span><span class="co"> </span><span class="ot">[</span><span class="at">fontname</span><span class="ot">=</span><span class="st">"Helvetica"</span><span class="co">, </span><span class="at">fontsize</span><span class="ot">=</span><span class="dv">10</span><span class="ot">];</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">ANALISIS_DW</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"ANALISIS SISTEM DOMAIN WAKTU (Minggu 5)"</span><span class="co">, </span><span class="at">shape</span><span class="ot">=</span><span class="va">octagon</span><span class="co">, </span><span class="at">style</span><span class="ot">=</span><span class="st">"filled"</span><span class="co">, </span><span class="at">fillcolor</span><span class="ot">=</span><span class="st">"red:yellow"</span><span class="co">, </span><span class="va">gradientangle</span><span class="ot">=</span><span class="dv">270</span><span class="ot">];</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">SYWK_LTI</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Sistem LTI (WK)"</span><span class="ot">];</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">SYWK_ResponImpuls</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Respon Impuls h(t)"</span><span class="ot">];</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">SYWK_Konvolusi</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Konvolusi"</span><span class="ot">];</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">SYWK_PD</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Persamaan Diferensial LCC"</span><span class="ot">];</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">SYWK_SolusiPD</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Solusi PD Lengkap"</span><span class="ot">];</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">OUTPUT</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Output Sistem y(t)"</span><span class="co">, </span><span class="at">fillcolor</span><span class="ot">=</span><span class="st">"lightgreen"</span><span class="ot">];</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="co">    </span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">SUB_CV</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Integral Konvolusi &amp; Sifat"</span><span class="co">, </span><span class="at">shape</span><span class="ot">=</span><span class="va">folder</span><span class="co">, </span><span class="at">fillcolor</span><span class="ot">=</span><span class="st">"lightyellow"</span><span class="ot">];</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">SUB_PD</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Solusi Homogen &amp; Partikular"</span><span class="co">, </span><span class="at">shape</span><span class="ot">=</span><span class="va">folder</span><span class="co">, </span><span class="at">fillcolor</span><span class="ot">=</span><span class="st">"lightyellow"</span><span class="ot">];</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="co">    </span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">ANALISIS_DW</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">SYWK_Konvolusi</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"melalui"</span><span class="ot">];</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">ANALISIS_DW</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">SYWK_PD</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"melalui"</span><span class="ot">];</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="co">    </span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">SYWK_Konvolusi</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">OUTPUT</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Menghasilkan"</span><span class="ot">];</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">SYWK_Konvolusi</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">SUB_CV</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Rincian"</span><span class="ot">];</span></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="co">    </span></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">SYWK_PD</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">SYWK_LTI</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Menggambarkan"</span><span class="ot">];</span></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">SYWK_PD</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">SUB_PD</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Rincian"</span><span class="ot">];</span></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">SYWK_PD</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">OUTPUT</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Menghasilkan Solusi"</span><span class="ot">];</span></span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a><span class="co">    </span></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">SYWK_LTI</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">SYWK_ResponImpuls</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Dicirikan oleh"</span><span class="ot">];</span></span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">SYWK_ResponImpuls</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">SYWK_Konvolusi</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Input Dasar untuk"</span><span class="ot">];</span></span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a><span class="co">    </span></span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">SUB_PD</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">SYWK_SolusiPD</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Perlu"</span><span class="ot">];</span></span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">SYWK_SolusiPD</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">OUTPUT</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Hasil Akhir"</span><span class="ot">];</span></span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a><span class="co">    </span></span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a><span class="co">    // Hubungan Internal Solusi PD</span></span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">SYWK_SolusiPD</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">SYWK_SolusiHomogen</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"terdiri dari"</span><span class="ot">];</span></span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">SYWK_SolusiPD</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">SYWK_SolusiPartikular</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"terdiri dari"</span><span class="ot">];</span></span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">SYWK_SolusiHomogen</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Solusi Homogen (y_h)"</span><span class="ot">];</span></span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">SYWK_SolusiPartikular</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Solusi Partikular (y_p)"</span><span class="ot">];</span></span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">KondisiAwal</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Kondisi Awal"</span><span class="co">, </span><span class="at">fillcolor</span><span class="ot">=</span><span class="st">"salmon"</span><span class="ot">];</span></span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">SYWK_SolusiPD</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">KondisiAwal</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Membutuhkan"</span><span class="ot">];</span></span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a><span class="ot">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="d-kendaraan-yang-diperlukan" class="level2" data-number="6.4">
+<h2 data-number="6.4" class="anchored" data-anchor-id="d-kendaraan-yang-diperlukan"><span class="header-section-number">6.4</span> (d) Kendaraan yang Diperlukan</h2>
+<p>Untuk materi analisis sistem di domain waktu (konvolusi dan PD), kendaraan utama yang diperlukan meliputi:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Kategori Kendaraan</th>
+<th style="text-align: left;">Kendaraan Spesifik</th>
+<th style="text-align: left;">Kegunaan</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>K_MAT_Aljabar</strong></td>
+<td style="text-align: left;">Manipulasi Ekspresi, penyelesaian persamaan karakteristik, Deret Geometri.</td>
+<td style="text-align: left;">Esensial untuk semua langkah perhitungan.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>K_MAT_Kalkulus</strong></td>
+<td style="text-align: left;"><strong>Integrasi</strong> (untuk Integral Konvolusi), <strong>Diferensiasi</strong> (untuk PD).</td>
+<td style="text-align: left;">Krusial untuk menghitung konvolusi waktu kontinu dan solusi PD.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>K_MAT_Bilangan_Kompleks</strong></td>
+<td style="text-align: left;">Identitas Euler, akar-akar kompleks.</td>
+<td style="text-align: left;">Untuk menangani akar karakteristik kompleks dalam solusi homogen PD.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>K_OPS_Sinyal_Dasar</strong></td>
+<td style="text-align: left;">Unit Step (<span class="math inline">\(u(t)\)</span>), Unit Impuls (<span class="math inline">\(\delta(t)\)</span>).</td>
+<td style="text-align: left;">Digunakan sebagai input dan respon impuls, serta untuk mendefinisikan batas integral konvolusi.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>K_OPS_Definisi</strong></td>
+<td style="text-align: left;">Definisi LTI, Konvolusi, Orde PD, Solusi Homogen/Partikular.</td>
+<td style="text-align: left;">Untuk memandu langkah-langkah pemecahan masalah (PMA).</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>K_VIS_PlotSinyal</strong></td>
+<td style="text-align: left;">Sketsa Sinyal Input/Respon Impuls.</td>
+<td style="text-align: left;">Untuk membantu visualisasi operasi lipat-geser dalam konvolusi.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Heuristik</strong></td>
+<td style="text-align: left;"><strong>Menggambar Diagram</strong> (untuk konvolusi grafis), <strong>Mentransformasi Masalah</strong> (misalnya, konvolusi menjadi aljabar setelah Transformasi).</td>
+<td style="text-align: left;">Strategi pemecahan masalah tingkat tinggi.</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+<section id="soal-tanpa-solusi-minggu-5" class="level1" data-number="7">
+<h1 data-number="7"><span class="header-section-number">7</span> 2) 20 Soal Tanpa Solusi (Minggu 5)</h1>
+<p>Berikut adalah 20 soal latihan yang berfokus pada Analisis Sistem Domain Waktu (Konvolusi dan PD), lengkap dengan Nomor Produk yang mencerminkan Topik (CV=Konvolusi, DE=Persamaan Diferensial, DS=Desain Sistem, AN=Analisis) dan Level Taksonomi Bloom (L3-L6).</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">No.</th>
+<th style="text-align: left;">Soal</th>
+<th style="text-align: left;">Nomor Produk</th>
+<th style="text-align: left;">Level Bloom</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">Hitung dan gambarkan output <span class="math inline">\(y(t) = x(t) * h(t)\)</span>, di mana <span class="math inline">\(x(t) = u(t) - u(t-1)\)</span> dan <span class="math inline">\(h(t) = u(t) - u(t-2)\)</span>.</td>
+<td style="text-align: left;">WK5-CV-L3-P01</td>
+<td style="text-align: left;">Menerapkan (L3)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">Tentukan respons impuls <span class="math inline">\(h(t)\)</span> dari sistem waktu kontinu LTI yang dijelaskan oleh <span class="math inline">\(\frac{dy(t)}{dt} + 3y(t) = x(t)\)</span>.</td>
+<td style="text-align: left;">WK5-DE-L3-P02</td>
+<td style="text-align: left;">Menerapkan (L3)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">3</td>
+<td style="text-align: left;">Tentukan respons homogen <span class="math inline">\(y_h(t)\)</span> dari sistem PD orde kedua: <span class="math inline">\(\frac{d^2 y(t)}{dt^2} + 4 \frac{dy(t)}{dt} + 4 y(t) = 2x(t)\)</span>.</td>
+<td style="text-align: left;">WK5-DE-L3-P03</td>
+<td style="text-align: left;">Menerapkan (L3)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">4</td>
+<td style="text-align: left;">Jika <span class="math inline">\(x[n] = \{1, 2, 3\}\)</span> (mulai di <span class="math inline">\(n=0\)</span>) dan <span class="math inline">\(h[n] = \delta[n-1] - 2\delta[n-2]\)</span>, hitung konvolusi diskrit <span class="math inline">\(y[n] = x[n] * h[n]\)</span>.</td>
+<td style="text-align: left;">WK5-CV-L3-P04</td>
+<td style="text-align: left;">Menerapkan (L3)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">5</td>
+<td style="text-align: left;">Tentukan bentuk respons partikular <span class="math inline">\(y_p(t)\)</span> yang paling umum untuk PD <span class="math inline">\(\frac{d^2 y(t)}{dt^2} + 5 \frac{dy(t)}{dt} + 6 y(t) = e^{-3t}\)</span>. (Perhatikan resonansi).</td>
+<td style="text-align: left;">WK5-DE-L4-P05</td>
+<td style="text-align: left;">Menganalisis (L4)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">6</td>
+<td style="text-align: left;">Sistem LTI waktu kontinu memiliki respon impuls <span class="math inline">\(h(t) = e^{-2t} u(t)\)</span>. Evaluasi stabilitas BIBO sistem ini.</td>
+<td style="text-align: left;">WK5-AN-L4-P06</td>
+<td style="text-align: left;">Menganalisis (L4)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">7</td>
+<td style="text-align: left;">Sebuah sistem LTI kaskade (seri) terdiri dari <span class="math inline">\(S_1\)</span> dengan <span class="math inline">\(h_1(t) = u(t)\)</span> dan <span class="math inline">\(S_2\)</span> dengan <span class="math inline">\(h_2(t) = \delta(t-2)\)</span>. Evaluasi apakah urutan kaskade (<span class="math inline">\(S_1\)</span> diikuti <span class="math inline">\(S_2\)</span> atau sebaliknya) memengaruhi respons total.</td>
+<td style="text-align: left;">WK5-CV-L5-P07</td>
+<td style="text-align: left;">Mengevaluasi (L5)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">8</td>
+<td style="text-align: left;">Diberikan respon impuls <span class="math inline">\(h[n] = (-2)^n u[n]\)</span>. Tentukan apakah sistem tersebut kausal dan stabil BIBO.</td>
+<td style="text-align: left;">WK5-AN-L4-P08</td>
+<td style="text-align: left;">Menganalisis (L4)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">9</td>
+<td style="text-align: left;">Jika input <span class="math inline">\(x(t) = 5u(t)\)</span> diberikan ke sistem yang dijelaskan oleh <span class="math inline">\(y(t) = \int_{t-1}^{t} x(\tau) d\tau\)</span>. Tentukan output <span class="math inline">\(y(t)\)</span> untuk <span class="math inline">\(t &gt; 1\)</span>.</td>
+<td style="text-align: left;">WK5-CV-L3-P09</td>
+<td style="text-align: left;">Menerapkan (L3)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">10</td>
+<td style="text-align: left;">Rancang persamaan diferensial orde pertama LTI yang respon impulsnya adalah <span class="math inline">\(h(t) = 4e^{-0.5t} u(t)\)</span>.</td>
+<td style="text-align: left;">WK5-DS-L6-P10</td>
+<td style="text-align: left;">Menciptakan (L6)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">11</td>
+<td style="text-align: left;">Diketahui <span class="math inline">\(x[n]\)</span> adalah pulsa dari <span class="math inline">\(n=0\)</span> hingga <span class="math inline">\(n=4\)</span> (panjang 5) dan <span class="math inline">\(h[n]\)</span> adalah pulsa dari <span class="math inline">\(n=1\)</span> hingga <span class="math inline">\(n=5\)</span> (panjang 5). Berapakah panjang total output <span class="math inline">\(y[n] = x[n] * h[n]\)</span>?</td>
+<td style="text-align: left;">WK5-CV-L3-P11</td>
+<td style="text-align: left;">Menerapkan (L3)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">12</td>
+<td style="text-align: left;">Sistem LTI diberikan oleh <span class="math inline">\(\frac{d y(t)}{dt} + 2y(t) = 2 \frac{d x(t)}{dt} + x(t)\)</span>. Tentukan sistem invers yang, jika dikaskadekan, mengembalikan input asli.</td>
+<td style="text-align: left;">WK5-DS-L6-P12</td>
+<td style="text-align: left;">Menciptakan (L6)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">13</td>
+<td style="text-align: left;">Evaluasi kondisi awal <span class="math inline">\(y(0^-)\)</span> dan <span class="math inline">\(\frac{dy(0^-)}{dt}\)</span> yang diperlukan agar respons total sistem <span class="math inline">\(\frac{d^2 y(t)}{dt^2} + y(t) = x(t)u(t)\)</span> menjadi respons nol-kondisi (zero-state response).</td>
+<td style="text-align: left;">WK5-DE-L5-P13</td>
+<td style="text-align: left;">Mengevaluasi (L5)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">14</td>
+<td style="text-align: left;">Tentukan akar karakteristik dan nilai frekuensi alami <span class="math inline">\(\omega_n\)</span> dari PD <span class="math inline">\(\frac{d^2 y(t)}{dt^2} + 2 \frac{dy(t)}{dt} + 10 y(t) = x(t)\)</span>.</td>
+<td style="text-align: left;">WK5-DE-L3-P14</td>
+<td style="text-align: left;">Menerapkan (L3)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">15</td>
+<td style="text-align: left;">Analisis apakah konvolusi dari dua sinyal anti-kausal, <span class="math inline">\(x(t) = e^{t} u(-t)\)</span> dan <span class="math inline">\(h(t) = u(-t)\)</span>, akan menghasilkan sinyal anti-kausal.</td>
+<td style="text-align: left;">WK5-CV-L4-P15</td>
+<td style="text-align: left;">Menganalisis (L4)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">16</td>
+<td style="text-align: left;">Untuk sistem diskrit <span class="math inline">\(y[n] = x[n] * h[n]\)</span>, di mana <span class="math inline">\(h[n]\)</span> memiliki panjang <span class="math inline">\(M\)</span> dan <span class="math inline">\(x[n]\)</span> memiliki panjang <span class="math inline">\(N\)</span>, gunakan sifat konvolusi untuk menyederhanakan perhitungan jika <span class="math inline">\(N \gg M\)</span>.</td>
+<td style="text-align: left;">WK5-CV-L4-P16</td>
+<td style="text-align: left;">Menganalisis (L4)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">17</td>
+<td style="text-align: left;">Tentukan solusi lengkap <span class="math inline">\(y(t)\)</span> untuk sistem <span class="math inline">\(\frac{dy(t)}{dt} + y(t) = 2u(t)\)</span> dengan kondisi awal <span class="math inline">\(y(0^-) = 3\)</span>.</td>
+<td style="text-align: left;">WK5-DE-L4-P17</td>
+<td style="text-align: left;">Menganalisis (L4)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">18</td>
+<td style="text-align: left;">Rancang persamaan beda LTI orde kedua yang merepresentasikan sistem yang outputnya adalah jumlah tiga sampel input saat ini dan dua sampel input sebelumnya.</td>
+<td style="text-align: left;">WK5-DS-L6-P18</td>
+<td style="text-align: left;">Menciptakan (L6)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">19</td>
+<td style="text-align: left;">Evaluasi, menggunakan sifat asosiatif konvolusi, apakah filter LTI yang tersusun seri (<span class="math inline">\(h_{total} = h_1 * h_2 * h_3\)</span>) tetap stabil BIBO jika salah satu sub-sistem (<span class="math inline">\(h_2\)</span>) tidak stabil, tetapi <span class="math inline">\(h_1\)</span> dan <span class="math inline">\(h_3\)</span> dapat membatalkan kutub non-stabilnya.</td>
+<td style="text-align: left;">WK5-AN-L5-P19</td>
+<td style="text-align: left;">Mengevaluasi (L5)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">20</td>
+<td style="text-align: left;">Diketahui output sistem <span class="math inline">\(y(t) = x(t) * h(t)\)</span>. Jika input diubah menjadi <span class="math inline">\(x_1(t) = \frac{d x(t)}{dt}\)</span>, tentukan output <span class="math inline">\(y_1(t)\)</span> dalam bentuk konvolusi yang melibatkan <span class="math inline">\(h(t)\)</span> dan <span class="math inline">\(x_1(t)\)</span>.</td>
+<td style="text-align: left;">WK5-CV-L4-P20</td>
+<td style="text-align: left;">Menganalisis (L4)</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+<section id="peta-pengetahuan-aplikatif-dan-solusi" class="level1" data-number="8">
+<h1 data-number="8"><span class="header-section-number">8</span> 3) Peta Pengetahuan Aplikatif dan Solusi</h1>
+<p>Di bawah ini, kami menyajikan Peta Pengetahuan Aplikatif (PMA), representasi Graphviz, dan Solusi untuk 5 contoh soal yang dipilih untuk mewakili berbagai tingkat kognitif: P01 (L3), P05 (L4), P07 (L5), P10 (L6), dan P17 (L4).</p>
+<section id="soal-1-konvolusi-pulsa-persegi" class="level2" data-number="8.1">
+<h2 data-number="8.1" class="anchored" data-anchor-id="soal-1-konvolusi-pulsa-persegi"><span class="header-section-number">8.1</span> Soal 1: Konvolusi Pulsa Persegi</h2>
+<p><strong>Nomor Produk:</strong> WK5-CV-L3-P01 <strong>Soal:</strong> Hitung dan gambarkan output <span class="math inline">\(y(t) = x(t) * h(t)\)</span>, di mana <span class="math inline">\(x(t) = u(t) - u(t-1)\)</span> dan <span class="math inline">\(h(t) = u(t) - u(t-2)\)</span>.</p>
+<section id="a-peta-pengetahuan-aplikatif-pma-wk5-cv-l3-p01" class="level3" data-number="8.1.1">
+<h3 data-number="8.1.1" class="anchored" data-anchor-id="a-peta-pengetahuan-aplikatif-pma-wk5-cv-l3-p01"><span class="header-section-number">8.1.1</span> 3a) Peta Pengetahuan Aplikatif (PMA) WK5-CV-L3-P01</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Komponen PMA</th>
+<th style="text-align: left;">Deskripsi</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Titik Mulai</strong></td>
+<td style="text-align: left;">Sinyal input <span class="math inline">\(x(t)\)</span> (pulsa persegi, lebar 1) dan respon impuls <span class="math inline">\(h(t)\)</span> (pulsa persegi, lebar 2).</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Titik Akhir</strong></td>
+<td style="text-align: left;">Ekspresi matematis dan sketsa grafis dari output konvolusi <span class="math inline">\(y(t)\)</span>.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Rute/Jalan</strong></td>
+<td style="text-align: left;">1. Tentukan batas integral konvolusi: <span class="math inline">\(y(t) = \int_{-\infty}^{\infty} x(\tau)h(t-\tau)d\tau\)</span>. 2. Terapkan Heuristik <strong>Menggambar Diagram</strong> untuk memvisualisasikan <span class="math inline">\(x(\tau)\)</span> dan <span class="math inline">\(h(t-\tau)\)</span>. 3. Tentukan interval <span class="math inline">\(t\)</span> di mana ada tumpang tindih (overlap). 4. Hitung integral untuk setiap interval. 5. Tuliskan ekspresi <span class="math inline">\(y(t)\)</span> dan buat sketsa hasilnya.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Kendaraan</strong></td>
+<td style="text-align: left;">K_MAT_Kalkulus (Integrasi), K_MAT_Aljabar (Manipulasi Batas), K_OPS_Sinyal_Dasar (<span class="math inline">\(u(t)\)</span>), K_VIS_PlotSinyal, Heuristik (Menggambar Diagram).</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="b-diagram-graphviz-pma-wk5-cv-l3-p01" class="level3" data-number="8.1.2">
+<h3 data-number="8.1.2" class="anchored" data-anchor-id="b-diagram-graphviz-pma-wk5-cv-l3-p01"><span class="header-section-number">8.1.2</span> 3b) Diagram Graphviz PMA WK5-CV-L3-P01</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode dot code-with-copy"><code class="sourceCode dot"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">digraph</span> <span class="va">PMA_WK5_CV_L3_P01</span> <span class="ot">{</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="at">rankdir</span><span class="ot">=</span><span class="va">LR</span><span class="ot">;</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="kw">node</span><span class="co"> </span><span class="ot">[</span><span class="at">shape</span><span class="ot">=</span><span class="va">box</span><span class="co">, </span><span class="at">fontname</span><span class="ot">=</span><span class="st">"Helvetica"</span><span class="ot">];</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co">    </span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">A</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Titik Mulai:\nx(t)=u(t)-u(t-1), h(t)=u(t)-u(t-2)"</span><span class="co">, </span><span class="at">style</span><span class="ot">=</span><span class="st">"filled"</span><span class="co">, </span><span class="at">fillcolor</span><span class="ot">=</span><span class="st">"yellow"</span><span class="ot">];</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">B</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Heuristik: Gambar x(τ) dan h(t-τ)"</span><span class="ot">];</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">C</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Tentukan Batas Overlap (Kasus 1: 0&lt;t&lt;1, Kasus 2: 1&lt;t&lt;2, Kasus 3: 2&lt;t&lt;3)"</span><span class="ot">];</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">D</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Kendaraan: K_MAT_Kalkulus (Integrasi)"</span><span class="ot">];</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">E</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Hitung y(t) = ∫ x(τ)h(t-τ)dτ untuk setiap kasus"</span><span class="ot">];</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">F</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Kendaraan: K_VIS_PlotSinyal"</span><span class="ot">];</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">G</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Titik Akhir:\nEkspresi &amp; Sketsa y(t)"</span><span class="co">, </span><span class="at">style</span><span class="ot">=</span><span class="st">"filled"</span><span class="co">, </span><span class="at">fillcolor</span><span class="ot">=</span><span class="st">"lightgreen"</span><span class="ot">];</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="co">    </span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">A</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">B</span><span class="ot">;</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">B</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">C</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"K_MAT_Aljabar"</span><span class="ot">];</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">C</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">E</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"K_OPS_Definisi"</span><span class="ot">];</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">E</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">F</span><span class="ot">;</span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">F</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">G</span><span class="ot">;</span></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a><span class="ot">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="c-solusi-wk5-cv-l3-p01" class="level3" data-number="8.1.3">
+<h3 data-number="8.1.3" class="anchored" data-anchor-id="c-solusi-wk5-cv-l3-p01"><span class="header-section-number">8.1.3</span> 3c) Solusi WK5-CV-L3-P01</h3>
+<ol type="1">
+<li><strong>Definisi Sinyal:</strong> <span class="math inline">\(x(\tau)\)</span> adalah pulsa dari <span class="math inline">\(\tau=0\)</span> hingga <span class="math inline">\(\tau=1\)</span>. <span class="math inline">\(h(t-\tau)\)</span> adalah pulsa dari <span class="math inline">\(\tau=t-2\)</span> hingga <span class="math inline">\(\tau=t\)</span>.</li>
+<li><strong>Interval Tumpang Tindih:</strong> Kita cari interval di mana <span class="math display">\[ pada $x(\tau)$ dan $[t-2, t]$ pada $h(t-\tau)$ berpotongan.
+*   **Kasus 1: $0 \le t &lt; 1$** (Pulsa $h(t-\tau)$ mulai tumpang tindih dari $\tau=0$ hingga $\tau=t$).
+     \]</span>y(t) = <em>{0}^{t} 1 d= t<span class="math display">\[
+*   **Kasus 2: $1 \le t &lt; 2$** (Pulsa $x(\tau)$ sepenuhnya tumpang tindih, tetapi $h(t-\tau)$ masih bergerak. Batas integrasi dari $\tau=0$ hingga $\tau=1$).
+     \]</span>y(t) = </em>{0}^{1} 1 d= 1<span class="math display">\[
+*   **Kasus 3: $2 \le t &lt; 3$** (Pulsa $x(\tau)$ mulai keluar dari $h(t-\tau)$ dari $t-2$ hingga $1$).
+     \]</span>y(t) = _{t-2}^{1} 1 d= 1 - (t-2) = 3 - t$$
+<ul>
+<li><strong>Kasus Lain:</strong> <span class="math inline">\(y(t) = 0\)</span>.</li>
+</ul></li>
+</ol>
+<p><strong>Kesimpulan:</strong> <span class="math display">\[y(t) = \begin{cases} t &amp; 0 \le t &lt; 1 \\ 1 &amp; 1 \le t &lt; 2 \\ 3-t &amp; 2 \le t &lt; 3 \\ 0 &amp; \text{lainnya} \end{cases}\]</span> (Sketsa <span class="math inline">\(y(t)\)</span> adalah trapesium yang naik dari 0 ke 1 (pada <span class="math inline">\(t=1\)</span>), datar pada 1 (hingga <span class="math inline">\(t=2\)</span>), dan turun ke 0 (pada <span class="math inline">\(t=3\)</span>)).</p>
+<hr>
+</section>
+</section>
+<section id="soal-5-solusi-partikular-pd-resonansi" class="level2" data-number="8.2">
+<h2 data-number="8.2" class="anchored" data-anchor-id="soal-5-solusi-partikular-pd-resonansi"><span class="header-section-number">8.2</span> Soal 5: Solusi Partikular PD (Resonansi)</h2>
+<p><strong>Nomor Produk:</strong> WK5-DE-L4-P05 <strong>Soal:</strong> Tentukan bentuk respons partikular <span class="math inline">\(y_p(t)\)</span> yang paling umum untuk PD <span class="math inline">\(\frac{d^2 y(t)}{dt^2} + 5 \frac{dy(t)}{dt} + 6 y(t) = e^{-3t}\)</span>. (Perhatikan resonansi).</p>
+<section id="a-peta-pengetahuan-aplikatif-pma-wk5-de-l4-p05" class="level3" data-number="8.2.1">
+<h3 data-number="8.2.1" class="anchored" data-anchor-id="a-peta-pengetahuan-aplikatif-pma-wk5-de-l4-p05"><span class="header-section-number">8.2.1</span> 3a) Peta Pengetahuan Aplikatif (PMA) WK5-DE-L4-P05</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Komponen PMA</th>
+<th style="text-align: left;">Deskripsi</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Titik Mulai</strong></td>
+<td style="text-align: left;">Persamaan Diferensial (PD) orde kedua dengan input eksponensial <span class="math inline">\(x(t) = e^{-3t}\)</span>.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Titik Akhir</strong></td>
+<td style="text-align: left;">Bentuk solusi partikular <span class="math inline">\(y_p(t)\)</span> yang tepat.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Rute/Jalan</strong></td>
+<td style="text-align: left;">1. Tentukan persamaan karakteristik (PC) dari sisi homogen PD. 2. Cari akar-akar PC (<span class="math inline">\(\lambda_1, \lambda_2\)</span>). 3. Bandingkan bentuk input <span class="math inline">\(x(t) = e^{st}\)</span> dengan akar-akar <span class="math inline">\(\lambda\)</span>. 4. Jika <span class="math inline">\(s\)</span> adalah akar PC, modifikasi solusi partikular dasar (<span class="math inline">\(A e^{st}\)</span>) menjadi <span class="math inline">\(A t e^{st}\)</span>. Jika <span class="math inline">\(s\)</span> adalah akar berganda, gunakan <span class="math inline">\(A t^2 e^{st}\)</span>. 5. Tuliskan bentuk <span class="math inline">\(y_p(t)\)</span> yang benar.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Kendaraan</strong></td>
+<td style="text-align: left;">K_MAT_Aljabar (Persamaan Karakteristik, Faktorisasi), K_OPS_Definisi (Solusi Partikular, Resonansi).</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="b-diagram-graphviz-pma-wk5-de-l4-p05" class="level3" data-number="8.2.2">
+<h3 data-number="8.2.2" class="anchored" data-anchor-id="b-diagram-graphviz-pma-wk5-de-l4-p05"><span class="header-section-number">8.2.2</span> 3b) Diagram Graphviz PMA WK5-DE-L4-P05</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode dot code-with-copy"><code class="sourceCode dot"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">digraph</span> <span class="va">PMA_WK5_DE_L4_P05</span> <span class="ot">{</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="at">rankdir</span><span class="ot">=</span><span class="va">LR</span><span class="ot">;</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="kw">node</span><span class="co"> </span><span class="ot">[</span><span class="at">shape</span><span class="ot">=</span><span class="va">box</span><span class="co">, </span><span class="at">fontname</span><span class="ot">=</span><span class="st">"Helvetica"</span><span class="ot">];</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co">    </span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">A</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Titik Mulai:\nPD Orde 2, Input x(t)=e^(-3t)"</span><span class="co">, </span><span class="at">style</span><span class="ot">=</span><span class="st">"filled"</span><span class="co">, </span><span class="at">fillcolor</span><span class="ot">=</span><span class="st">"yellow"</span><span class="ot">];</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">B</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Tentukan Persamaan Karakteristik (PC)\n(Kendaraan: K_MAT_Aljabar)"</span><span class="ot">];</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">C</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Cari Akar-akar PC (λ1, λ2)"</span><span class="ot">];</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">D</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Bandingkan Input s=-3 dengan Akar-akar (K_OPS_Definisi: Resonansi)"</span><span class="ot">];</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">E</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Apakah s=-3 adalah akar PC?"</span><span class="ot">];</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">F</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Modifikasi Solusi Partikular: y_p(t) = A*t*e^(-3t)"</span><span class="ot">];</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">G</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Titik Akhir:\nBentuk y_p(t)"</span><span class="co">, </span><span class="at">style</span><span class="ot">=</span><span class="st">"filled"</span><span class="co">, </span><span class="at">fillcolor</span><span class="ot">=</span><span class="st">"lightgreen"</span><span class="ot">];</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="co">    </span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">A</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">B</span><span class="ot">;</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">B</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">C</span><span class="ot">;</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">C</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">D</span><span class="ot">;</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">D</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">E</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Jika Ya"</span><span class="ot">];</span></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">E</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">F</span><span class="ot">;</span></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">F</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">G</span><span class="ot">;</span></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a><span class="ot">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="c-solusi-wk5-de-l4-p05" class="level3" data-number="8.2.3">
+<h3 data-number="8.2.3" class="anchored" data-anchor-id="c-solusi-wk5-de-l4-p05"><span class="header-section-number">8.2.3</span> 3c) Solusi WK5-DE-L4-P05</h3>
+<ol type="1">
+<li><strong>Persamaan Karakteristik (PC):</strong> Kita ganti turunan dengan pangkat <span class="math inline">\(\lambda\)</span>. <span class="math display">\[\lambda^2 + 5\lambda + 6 = 0\]</span></li>
+<li><strong>Akar-akar PC:</strong> Faktorisasi memberikan: <span class="math display">\[(\lambda + 2)(\lambda + 3) = 0\]</span> Akar-akarnya adalah <span class="math inline">\(\lambda_1 = -2\)</span> dan <strong><span class="math inline">\(\lambda_2 = -3\)</span></strong>.</li>
+<li><strong>Analisis Resonansi:</strong> Input adalah <span class="math inline">\(x(t) = e^{-3t}\)</span>. Ini memiliki bentuk <span class="math inline">\(e^{st}\)</span> di mana <span class="math inline">\(s = -3\)</span>.</li>
+<li>Karena nilai <span class="math inline">\(s = -3\)</span> sama dengan salah satu akar karakteristik (<span class="math inline">\(\lambda_2 = -3\)</span>), terjadi kasus resonansi.</li>
+<li><strong>Bentuk Solusi Partikular yang Tepat:</strong> Solusi partikular harus dikalikan dengan <span class="math inline">\(t\)</span> (karena ini adalah akar tunggal).</li>
+</ol>
+<p><strong>Kesimpulan:</strong> Bentuk solusi partikular yang paling umum adalah <span class="math inline">\(\mathbf{y_p(t) = A t e^{-3t}}\)</span>.</p>
+<hr>
+</section>
+</section>
+<section id="soal-7-konvolusi-kaskade-dan-sifat-komutatif" class="level2" data-number="8.3">
+<h2 data-number="8.3" class="anchored" data-anchor-id="soal-7-konvolusi-kaskade-dan-sifat-komutatif"><span class="header-section-number">8.3</span> Soal 7: Konvolusi Kaskade dan Sifat Komutatif</h2>
+<p><strong>Nomor Produk:</strong> WK5-CV-L5-P07 <strong>Soal:</strong> Sebuah sistem LTI kaskade (seri) terdiri dari <span class="math inline">\(S_1\)</span> dengan <span class="math inline">\(h_1(t) = u(t)\)</span> dan <span class="math inline">\(S_2\)</span> dengan <span class="math inline">\(h_2(t) = \delta(t-2)\)</span>. Evaluasi apakah urutan kaskade (<span class="math inline">\(S_1\)</span> diikuti <span class="math inline">\(S_2\)</span> atau sebaliknya) memengaruhi respons total.</p>
+<section id="a-peta-pengetahuan-aplikatif-pma-wk5-cv-l5-p07" class="level3" data-number="8.3.1">
+<h3 data-number="8.3.1" class="anchored" data-anchor-id="a-peta-pengetahuan-aplikatif-pma-wk5-cv-l5-p07"><span class="header-section-number">8.3.1</span> 3a) Peta Pengetahuan Aplikatif (PMA) WK5-CV-L5-P07</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Komponen PMA</th>
+<th style="text-align: left;">Deskripsi</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Titik Mulai</strong></td>
+<td style="text-align: left;">Dua respon impuls sistem LTI: <span class="math inline">\(h_1(t) = u(t)\)</span> dan <span class="math inline">\(h_2(t) = \delta(t-2)\)</span>.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Titik Akhir</strong></td>
+<td style="text-align: left;">Keputusan evaluatif mengenai pengaruh urutan kaskade terhadap respons total <span class="math inline">\(h_{total}(t)\)</span>.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Rute/Jalan</strong></td>
+<td style="text-align: left;">1. Mengingat definisi respon impuls total untuk sistem kaskade: <span class="math inline">\(h_{total} = h_1 * h_2\)</span>. 2. Mengingat sifat <strong>Komutatif</strong> konvolusi: <span class="math inline">\(h_1 * h_2 = h_2 * h_1\)</span>. 3. Hitung <span class="math inline">\(h_{total, A} = h_1(t) * h_2(t)\)</span>. 4. Hitung <span class="math inline">\(h_{total, B} = h_2(t) * h_1(t)\)</span>. 5. Evaluasi apakah <span class="math inline">\(h_{total, A} = h_{total, B}\)</span>.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Kendaraan</strong></td>
+<td style="text-align: left;">K_OPS_Definisi (Sistem Kaskade LTI), K_OPS_Definisi (Sifat Komutatif Konvolusi), K_OPS_Sinyal_Dasar (Sifat <span class="math inline">\(\delta(t)\)</span> dalam Konvolusi).</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="b-diagram-graphviz-pma-wk5-cv-l5-p07" class="level3" data-number="8.3.2">
+<h3 data-number="8.3.2" class="anchored" data-anchor-id="b-diagram-graphviz-pma-wk5-cv-l5-p07"><span class="header-section-number">8.3.2</span> 3b) Diagram Graphviz PMA WK5-CV-L5-P07</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode dot code-with-copy"><code class="sourceCode dot"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">digraph</span> <span class="va">PMA_WK5_CV_L5_P07</span> <span class="ot">{</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="at">rankdir</span><span class="ot">=</span><span class="va">LR</span><span class="ot">;</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="kw">node</span><span class="co"> </span><span class="ot">[</span><span class="at">shape</span><span class="ot">=</span><span class="va">box</span><span class="co">, </span><span class="at">fontname</span><span class="ot">=</span><span class="st">"Helvetica"</span><span class="ot">];</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co">    </span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">A</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Titik Mulai:\nh1(t)=u(t), h2(t)=δ(t-2)"</span><span class="co">, </span><span class="at">style</span><span class="ot">=</span><span class="st">"filled"</span><span class="co">, </span><span class="at">fillcolor</span><span class="ot">=</span><span class="st">"yellow"</span><span class="ot">];</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">B</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Tentukan Respon Total h_total = h1 * h2 (K_OPS_Definisi)"</span><span class="ot">];</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">C</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Kendaraan: K_OPS_Definisi (Sifat Komutatif Konvolusi)"</span><span class="ot">];</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">D</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Hitung h1 * h2 (Urutan A)"</span><span class="ot">];</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">E</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Hitung h2 * h1 (Urutan B)"</span><span class="ot">];</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">F</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Evaluasi: Apakah Urutan A = Urutan B?"</span><span class="ot">];</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">G</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Titik Akhir:\nKesimpulan Evaluatif"</span><span class="co">, </span><span class="at">style</span><span class="ot">=</span><span class="st">"filled"</span><span class="co">, </span><span class="at">fillcolor</span><span class="ot">=</span><span class="st">"lightgreen"</span><span class="ot">];</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="co">    </span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">A</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">B</span><span class="ot">;</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">B</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">C</span><span class="ot">;</span></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">C</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">D</span><span class="ot">;</span></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">C</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">E</span><span class="ot">;</span></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">D</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">F</span><span class="ot">;</span></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">E</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">F</span><span class="ot">;</span></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">F</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">G</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"K_MAT_Aljabar"</span><span class="ot">];</span></span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a><span class="ot">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="c-solusi-wk5-cv-l5-p07" class="level3" data-number="8.3.3">
+<h3 data-number="8.3.3" class="anchored" data-anchor-id="c-solusi-wk5-cv-l5-p07"><span class="header-section-number">8.3.3</span> 3c) Solusi WK5-CV-L5-P07</h3>
+<ol type="1">
+<li><strong>Respon Impuls Total:</strong> Untuk sistem kaskade LTI, respons impuls total adalah konvolusi dari respons impuls individu. <span class="math display">\[h_{total}(t) = h_1(t) * h_2(t)\]</span></li>
+<li><strong>Perhitungan Urutan A (<span class="math inline">\(S_1\)</span> diikuti <span class="math inline">\(S_2\)</span>):</strong> <span class="math display">\[h_{total, A}(t) = u(t) * \delta(t-2)\]</span> Menggunakan sifat sifting/pergeseran impuls unit: <span class="math inline">\(x(t) * \delta(t-t_0) = x(t-t_0)\)</span>. <span class="math display">\[h_{total, A}(t) = u(t-2)\]</span></li>
+<li><strong>Perhitungan Urutan B (<span class="math inline">\(S_2\)</span> diikuti <span class="math inline">\(S_1\)</span>):</strong> <span class="math display">\[h_{total, B}(t) = \delta(t-2) * u(t)\]</span> Karena konvolusi bersifat komutatif (<span class="math inline">\(h_1 * h_2 = h_2 * h_1\)</span>), hasilnya harus sama. <span class="math display">\[h_{total, B}(t) = u(t-2)\]</span></li>
+<li><strong>Evaluasi:</strong> Karena sifat LTI menjamin sifat komutatif konvolusi, <span class="math inline">\(h_{total, A}(t) = h_{total, B}(t)\)</span>.</li>
+</ol>
+<p><strong>Kesimpulan:</strong> Urutan kaskade <strong>tidak memengaruhi</strong> respons impuls total atau output sistem gabungan, karena konvolusi (operasi yang mendeskripsikan kaskade LTI) bersifat <strong>komutatif</strong>.</p>
+<hr>
+</section>
+</section>
+<section id="soal-10-desain-persamaan-diferensial-pd" class="level2" data-number="8.4">
+<h2 data-number="8.4" class="anchored" data-anchor-id="soal-10-desain-persamaan-diferensial-pd"><span class="header-section-number">8.4</span> Soal 10: Desain Persamaan Diferensial (PD)</h2>
+<p><strong>Nomor Produk:</strong> WK5-DS-L6-P10 <strong>Soal:</strong> Rancang persamaan diferensial orde pertama LTI yang respon impulsnya adalah <span class="math inline">\(h(t) = 4e^{-0.5t} u(t)\)</span>.</p>
+<section id="a-peta-pengetahuan-aplikatif-pma-wk5-ds-l6-p10" class="level3" data-number="8.4.1">
+<h3 data-number="8.4.1" class="anchored" data-anchor-id="a-peta-pengetahuan-aplikatif-pma-wk5-ds-l6-p10"><span class="header-section-number">8.4.1</span> 3a) Peta Pengetahuan Aplikatif (PMA) WK5-DS-L6-P10</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Komponen PMA</th>
+<th style="text-align: left;">Deskripsi</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Titik Mulai</strong></td>
+<td style="text-align: left;">Respon impuls <span class="math inline">\(h(t) = 4e^{-0.5t} u(t)\)</span> (LTI orde pertama).</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Titik Akhir</strong></td>
+<td style="text-align: left;">Persamaan diferensial linear koefisien konstan (PD LCC) yang tepat.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Rute/Jalan</strong></td>
+<td style="text-align: left;">1. Identifikasi bentuk umum respons impuls PD orde pertama: <span class="math inline">\(h(t) = K e^{-t/T} u(t)\)</span>. 2. Tentukan Persamaan Diferensial yang sesuai dengan Respon Impuls tersebut: <span class="math inline">\(\tau \frac{dy(t)}{dt} + y(t) = K x(t)\)</span>. 3. Bandingkan <span class="math inline">\(h(t)\)</span> yang diberikan untuk mencari konstanta <span class="math inline">\(\tau\)</span> (konstanta waktu) dan <span class="math inline">\(K\)</span>. 4. Susun PD LCC menggunakan nilai-nilai ini.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Kendaraan</strong></td>
+<td style="text-align: left;">K_OPS_Definisi (Respon Impuls Orde Pertama), K_MAT_Aljabar (Perbandingan Koefisien), K_OPS_Representasi_Matematis (Struktur PD).</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="b-diagram-graphviz-pma-wk5-ds-l6-p10" class="level3" data-number="8.4.2">
+<h3 data-number="8.4.2" class="anchored" data-anchor-id="b-diagram-graphviz-pma-wk5-ds-l6-p10"><span class="header-section-number">8.4.2</span> 3b) Diagram Graphviz PMA WK5-DS-L6-P10</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode dot code-with-copy"><code class="sourceCode dot"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">digraph</span> <span class="va">PMA_WK5_DS_L6_P10</span> <span class="ot">{</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="at">rankdir</span><span class="ot">=</span><span class="va">LR</span><span class="ot">;</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="kw">node</span><span class="co"> </span><span class="ot">[</span><span class="at">shape</span><span class="ot">=</span><span class="va">box</span><span class="co">, </span><span class="at">fontname</span><span class="ot">=</span><span class="st">"Helvetica"</span><span class="ot">];</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co">    </span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">A</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Titik Mulai:\nh(t) = 4e^(-0.5t)u(t)"</span><span class="co">, </span><span class="at">style</span><span class="ot">=</span><span class="st">"filled"</span><span class="co">, </span><span class="at">fillcolor</span><span class="ot">=</span><span class="st">"yellow"</span><span class="ot">];</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">B</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"K_OPS_Definisi: Tentukan Bentuk Standar PD Orde 1\n(T dy/dt + y = K x)"</span><span class="ot">];</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">C</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"K_MAT_Aljabar: Bandingkan h(t) dengan K/T e^(-t/T) u(t)"</span><span class="ot">];</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">D</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Tentukan Konstanta Waktu T dan Gain K (T=2, K=4)"</span><span class="ot">];</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">E</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"K_OPS_Representasi_Matematis: Formulasikan PD"</span><span class="ot">];</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">F</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Titik Akhir:\nPersamaan Diferensial"</span><span class="co">, </span><span class="at">style</span><span class="ot">=</span><span class="st">"filled"</span><span class="co">, </span><span class="at">fillcolor</span><span class="ot">=</span><span class="st">"lightgreen"</span><span class="ot">];</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="co">    </span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">A</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">B</span><span class="ot">;</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">B</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">C</span><span class="ot">;</span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">C</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">D</span><span class="ot">;</span></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">D</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">E</span><span class="ot">;</span></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">E</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">F</span><span class="ot">;</span></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a><span class="ot">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="c-solusi-wk5-ds-l6-p10" class="level3" data-number="8.4.3">
+<h3 data-number="8.4.3" class="anchored" data-anchor-id="c-solusi-wk5-ds-l6-p10"><span class="header-section-number">8.4.3</span> 3c) Solusi WK5-DS-L6-P10</h3>
+<ol type="1">
+<li><strong>Bentuk Standar Respon Impuls Orde Pertama:</strong> Respon impuls orde pertama (untuk sistem yang dimodelkan oleh <span class="math inline">\(T \frac{dy(t)}{dt} + y(t) = K x(t)\)</span>) memiliki bentuk umum <span class="math inline">\(h(t) = (K/\tau) e^{-t/\tau} u(t)\)</span> (jika input adalah <span class="math inline">\(\frac{1}{\tau} x(t)\)</span>) atau <span class="math inline">\(h(t) = K e^{-t/\tau} u(t)\)</span> (tergantung konvensi, di sini kita gunakan bentuk <span class="math inline">\(h(t) = A e^{-\lambda t} u(t)\)</span> di mana <span class="math inline">\(\lambda = 1/\tau\)</span>).</li>
+<li><strong>Identifikasi Parameter:</strong>
+<ul>
+<li>Dari <span class="math inline">\(h(t) = 4e^{-0.5t} u(t)\)</span>, kita memiliki <span class="math inline">\(\lambda = 0.5\)</span> dan amplitudo awal <span class="math inline">\(A=4\)</span>.</li>
+<li>Sistem PD LTI orde pertama yang kausal (respons <span class="math inline">\(e^{-\lambda t} u(t)\)</span>) memiliki persamaan homogen <span class="math inline">\(s + \lambda = 0\)</span>. Dalam domain waktu: <span class="math inline">\(\frac{dy(t)}{dt} + \lambda y(t) = C x(t)\)</span>.</li>
+<li>Di sini, <span class="math inline">\(\lambda = 0.5\)</span>. Jadi, <span class="math inline">\(\frac{dy(t)}{dt} + 0.5 y(t) = C x(t)\)</span>.</li>
+</ul></li>
+<li><strong>Tentukan Konstanta Input C:</strong> Respon impuls <span class="math inline">\(h(t)\)</span> adalah solusi PD ketika <span class="math inline">\(x(t) = \delta(t)\)</span> dengan kondisi awal nol, atau solusi ketika <span class="math inline">\(x(t)\)</span> tidak nol dan kondisi awal nol. Jika kita gunakan bentuk standar <span class="math inline">\(\frac{dy(t)}{dt} + \lambda y(t) = C x(t)\)</span>, maka <span class="math inline">\(h(t) = C e^{-\lambda t} u(t)\)</span>.
+<ul>
+<li>Membandingkan: <span class="math inline">\(C e^{-0.5t} u(t) = 4e^{-0.5t} u(t)\)</span>.</li>
+<li>Maka, <span class="math inline">\(C=4\)</span>.</li>
+</ul></li>
+</ol>
+<p><strong>Kesimpulan:</strong> Persamaan diferensial yang menggambarkan sistem LTI orde pertama tersebut adalah <strong><span class="math inline">\(\frac{dy(t)}{dt} + 0.5 y(t) = 4 x(t)\)</span></strong>.</p>
+<hr>
+</section>
+</section>
+<section id="soal-7-solusi-lengkap-pd-respon-total" class="level2" data-number="8.5">
+<h2 data-number="8.5" class="anchored" data-anchor-id="soal-7-solusi-lengkap-pd-respon-total"><span class="header-section-number">8.5</span> Soal 7: Solusi Lengkap PD (Respon Total)</h2>
+<p><strong>Nomor Produk:</strong> WK5-DE-L4-P17 <strong>Soal:</strong> Tentukan solusi lengkap <span class="math inline">\(y(t)\)</span> untuk sistem <span class="math inline">\(\frac{dy(t)}{dt} + y(t) = 2u(t)\)</span> dengan kondisi awal <span class="math inline">\(y(0^-) = 3\)</span>.</p>
+<section id="a-peta-pengetahuan-aplikatif-pma-wk5-de-l4-p17" class="level3" data-number="8.5.1">
+<h3 data-number="8.5.1" class="anchored" data-anchor-id="a-peta-pengetahuan-aplikatif-pma-wk5-de-l4-p17"><span class="header-section-number">8.5.1</span> 3a) Peta Pengetahuan Aplikatif (PMA) WK5-DE-L4-P17</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Komponen PMA</th>
+<th style="text-align: left;">Deskripsi</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Titik Mulai</strong></td>
+<td style="text-align: left;">PD Orde 1: <span class="math inline">\(\frac{dy(t)}{dt} + y(t) = 2u(t)\)</span>. Kondisi awal <span class="math inline">\(y(0^-) = 3\)</span>.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Titik Akhir</strong></td>
+<td style="text-align: left;">Solusi lengkap <span class="math inline">\(y(t) = y_h(t) + y_p(t)\)</span> untuk <span class="math inline">\(t \ge 0\)</span>.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Rute/Jalan</strong></td>
+<td style="text-align: left;">1. Cari <strong>Solusi Homogen</strong> (<span class="math inline">\(y_h(t)\)</span>) dari persamaan karakteristik. 2. Cari <strong>Solusi Partikular</strong> (<span class="math inline">\(y_p(t)\)</span>) berdasarkan input <span class="math inline">\(x(t) = 2u(t)\)</span>. 3. Kombinasikan menjadi <span class="math inline">\(y(t) = y_h(t) + y_p(t)\)</span>, meninggalkan konstanta tak tentu (<span class="math inline">\(A\)</span>). 4. Tentukan konstanta <span class="math inline">\(A\)</span> menggunakan <strong>Kondisi Awal</strong> <span class="math inline">\(y(0^+)\)</span>. 5. Tuliskan solusi lengkap.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Kendaraan</strong></td>
+<td style="text-align: left;">K_MAT_Aljabar (Akar Karakteristik, Konstanta), K_MAT_Kalkulus (Diferensiasi, Substitusi), K_OPS_Definisi (Solusi Homogen/Partikular), K_OPS_Definisi (Kondisi Awal).</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="b-diagram-graphviz-pma-wk5-de-l4-p17" class="level3" data-number="8.5.2">
+<h3 data-number="8.5.2" class="anchored" data-anchor-id="b-diagram-graphviz-pma-wk5-de-l4-p17"><span class="header-section-number">8.5.2</span> 3b) Diagram Graphviz PMA WK5-DE-L4-P17</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode dot code-with-copy"><code class="sourceCode dot"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">digraph</span> <span class="va">PMA_WK5_DE_L4_P17</span> <span class="ot">{</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="at">rankdir</span><span class="ot">=</span><span class="va">TB</span><span class="ot">;</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="kw">node</span><span class="co"> </span><span class="ot">[</span><span class="at">shape</span><span class="ot">=</span><span class="va">box</span><span class="co">, </span><span class="at">fontname</span><span class="ot">=</span><span class="st">"Helvetica"</span><span class="ot">];</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co">    </span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">A</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Titik Mulai:\nPD Orde 1 &amp; y(0^-)=3"</span><span class="co">, </span><span class="at">style</span><span class="ot">=</span><span class="st">"filled"</span><span class="co">, </span><span class="at">fillcolor</span><span class="ot">=</span><span class="st">"yellow"</span><span class="ot">];</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">B1</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Cari Solusi Homogen y_h(t)"</span><span class="ot">];</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">B2</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Cari Solusi Partikular y_p(t)"</span><span class="ot">];</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">C</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"y(t) = y_h(t) + y_p(t)"</span><span class="ot">];</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">D</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Terapkan Kondisi Awal y(0^+) untuk cari Konstanta A"</span><span class="ot">];</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">E</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Titik Akhir:\nSolusi Lengkap y(t) untuk t ≥ 0"</span><span class="co">, </span><span class="at">style</span><span class="ot">=</span><span class="st">"filled"</span><span class="co">, </span><span class="at">fillcolor</span><span class="ot">=</span><span class="st">"lightgreen"</span><span class="ot">];</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="co">    </span></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">A</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">B1</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"PC: λ+1=0"</span><span class="ot">];</span></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">A</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">B2</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Input: Konstanta (u(t))"</span><span class="ot">];</span></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">B1</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">C</span><span class="ot">;</span></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">B2</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">C</span><span class="ot">;</span></span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">C</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">D</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"K_MAT_Aljabar"</span><span class="ot">];</span></span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">D</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">E</span><span class="ot">;</span></span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a><span class="ot">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="c-solusi-wk5-de-l4-p17" class="level3" data-number="8.5.3">
+<h3 data-number="8.5.3" class="anchored" data-anchor-id="c-solusi-wk5-de-l4-p17"><span class="header-section-number">8.5.3</span> 3c) Solusi WK5-DE-L4-P17</h3>
+<p><strong>PD:</strong> <span class="math inline">\(\frac{dy(t)}{dt} + y(t) = 2u(t)\)</span>, <span class="math inline">\(y(0^-) = 3\)</span>.</p>
+<ol type="1">
+<li><strong>Solusi Homogen (<span class="math inline">\(y_h(t)\)</span>):</strong>
+<ul>
+<li>Persamaan Karakteristik: <span class="math inline">\(\lambda + 1 = 0 \Rightarrow \lambda = -1\)</span>.</li>
+<li><span class="math display">\[y_h(t) = A e^{-t}\]</span></li>
+</ul></li>
+<li><strong>Solusi Partikular (<span class="math inline">\(y_p(t)\)</span>):</strong>
+<ul>
+<li>Input <span class="math inline">\(x(t) = 2u(t)\)</span> (konstan untuk <span class="math inline">\(t&gt;0\)</span>). Asumsikan <span class="math inline">\(y_p(t) = C\)</span> untuk <span class="math inline">\(t \ge 0\)</span>.</li>
+<li>Substitusi ke PD: <span class="math inline">\(\frac{d}{dt}(C) + C = 2 \Rightarrow 0 + C = 2\)</span>.</li>
+<li><span class="math display">\[y_p(t) = 2\]</span></li>
+</ul></li>
+<li><strong>Solusi Lengkap (Respons Total):</strong>
+<ul>
+<li><span class="math display">\[y(t) = y_h(t) + y_p(t) = A e^{-t} + 2, \quad t \ge 0\]</span></li>
+</ul></li>
+<li><strong>Tentukan Konstanta A menggunakan Kondisi Awal:</strong>
+<ul>
+<li>Karena PD orde pertama tidak memiliki impuls di sisi kanan, <span class="math inline">\(y(0^+) = y(0^-) = 3\)</span>.</li>
+<li>Terapkan <span class="math inline">\(t=0\)</span>: <span class="math inline">\(y(0) = A e^0 + 2 = 3\)</span>.</li>
+<li><span class="math display">\[A + 2 = 3 \Rightarrow A = 1\]</span></li>
+</ul></li>
+</ol>
+<p><strong>Kesimpulan:</strong> Solusi lengkap sistem untuk <span class="math inline">\(t \ge 0\)</span> adalah <span class="math inline">\(\mathbf{y(t) = e^{-t} + 2}\)</span>.</p>
+<hr>
+</section>
+</section>
+<section id="soal-19-analisis-stabilitas-kaskade-pembatalan-polezero" class="level2" data-number="8.6">
+<h2 data-number="8.6" class="anchored" data-anchor-id="soal-19-analisis-stabilitas-kaskade-pembatalan-polezero"><span class="header-section-number">8.6</span> Soal 19: Analisis Stabilitas Kaskade (Pembatalan Pole/Zero)</h2>
+<p><strong>Nomor Produk:</strong> WK5-AN-L5-P19 <strong>Soal:</strong> Evaluasi, menggunakan sifat asosiatif konvolusi, apakah filter LTI yang tersusun seri (<span class="math inline">\(h_{total} = h_1 * h_2 * h_3\)</span>) tetap stabil BIBO jika salah satu sub-sistem (<span class="math inline">\(h_2\)</span>) tidak stabil, tetapi <span class="math inline">\(h_1\)</span> dan <span class="math inline">\(h_3\)</span> dapat membatalkan kutub non-stabilnya.</p>
+<section id="a-peta-pengetahuan-aplikatif-pma-wk5-an-l5-p19" class="level3" data-number="8.6.1">
+<h3 data-number="8.6.1" class="anchored" data-anchor-id="a-peta-pengetahuan-aplikatif-pma-wk5-an-l5-p19"><span class="header-section-number">8.6.1</span> 3a) Peta Pengetahuan Aplikatif (PMA) WK5-AN-L5-P19</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Komponen PMA</th>
+<th style="text-align: left;">Deskripsi</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Titik Mulai</strong></td>
+<td style="text-align: left;">Tiga sistem kaskade <span class="math inline">\(h_{total} = h_1 * h_2 * h_3\)</span>. <span class="math inline">\(h_2\)</span> tidak stabil (memiliki pole non-stabil).</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Titik Akhir</strong></td>
+<td style="text-align: left;">Evaluasi apakah <span class="math inline">\(h_{total}\)</span> secara keseluruhan stabil BIBO.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Rute/Jalan</strong></td>
+<td style="text-align: left;">1. Mengingat kriteria stabilitas BIBO untuk LTI: Respon impuls harus <em>absolutely integrable</em> (<span class="math inline">\(\int |h_{total}(t)| dt &lt; \infty\)</span>). 2. Dalam domain transformasi (Laplace/Z), stabilitas ditentukan oleh pole sistem di Wilayah Konvergensi (ROC). 3. Terapkan sifat kaskade dalam domain transformasi: <span class="math inline">\(H_{total}(s) = H_1(s) H_2(s) H_3(s)\)</span>. 4. Analisis kondisi pole/zero: Jika <span class="math inline">\(H_2(s)\)</span> memiliki pole non-stabil yang <strong>tepat dibatalkan</strong> oleh zero di <span class="math inline">\(H_1(s)\)</span> atau <span class="math inline">\(H_3(s)\)</span>, maka pole tersebut tidak muncul di <span class="math inline">\(H_{total}(s)\)</span>. 5. Evaluasi apakah pembatalan pole non-stabil menjamin stabilitas total.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Kendaraan</strong></td>
+<td style="text-align: left;">K_OPS_Definisi (Stabilitas BIBO LTI), K_MAT_Aljabar (Pembatalan Pole/Zero), Heuristik (Mentransformasi Masalah - ke Domain Transformasi), K_OPS_Definisi (Sifat Asosiatif Konvolusi).</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="b-diagram-graphviz-pma-wk5-an-l5-p19" class="level3" data-number="8.6.2">
+<h3 data-number="8.6.2" class="anchored" data-anchor-id="b-diagram-graphviz-pma-wk5-an-l5-p19"><span class="header-section-number">8.6.2</span> 3b) Diagram Graphviz PMA WK5-AN-L5-P19</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode dot code-with-copy"><code class="sourceCode dot"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">digraph</span> <span class="va">PMA_WK5_AN_L5_P19</span> <span class="ot">{</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="at">rankdir</span><span class="ot">=</span><span class="va">TB</span><span class="ot">;</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="kw">node</span><span class="co"> </span><span class="ot">[</span><span class="at">shape</span><span class="ot">=</span><span class="va">box</span><span class="co">, </span><span class="at">fontname</span><span class="ot">=</span><span class="st">"Helvetica"</span><span class="ot">];</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co">    </span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">A</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Titik Mulai:\nh_total = h1 * h2 * h3; h2 tidak stabil (Pole P)"</span><span class="co">, </span><span class="at">style</span><span class="ot">=</span><span class="st">"filled"</span><span class="co">, </span><span class="at">fillcolor</span><span class="ot">=</span><span class="st">"yellow"</span><span class="ot">];</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">B</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Heuristik: Mentransformasi Masalah (H_total(s) = H1(s) H2(s) H3(s))"</span><span class="ot">];</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">C</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Analisis Pole/Zero H_total(s)"</span><span class="ot">];</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">D</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Apakah Zero (h1/h3) membatalkan Pole P (h2)?\n(K_MAT_Aljabar: Pembatalan Pole/Zero)"</span><span class="ot">];</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">E</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Jika Ya, Pole P tidak ada di H_total(s)"</span><span class="ot">];</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">F</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"K_OPS_Definisi: Stabilitas BIBO (Semua pole stabil)"</span><span class="ot">];</span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">G</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Titik Akhir:\nKesimpulan Evaluatif Stabilitas"</span><span class="co">, </span><span class="at">style</span><span class="ot">=</span><span class="st">"filled"</span><span class="co">, </span><span class="at">fillcolor</span><span class="ot">=</span><span class="st">"lightgreen"</span><span class="ot">];</span></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a><span class="co">    </span></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">A</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">B</span><span class="ot">;</span></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">B</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">C</span><span class="ot">;</span></span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">C</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">D</span><span class="ot">;</span></span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">D</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">E</span><span class="ot">;</span></span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">E</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">F</span><span class="ot">;</span></span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">F</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">G</span><span class="ot">;</span></span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a><span class="ot">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="c-solusi-wk5-an-l5-p19" class="level3" data-number="8.6.3">
+<h3 data-number="8.6.3" class="anchored" data-anchor-id="c-solusi-wk5-an-l5-p19"><span class="header-section-number">8.6.3</span> 3c) Solusi WK5-AN-L5-P19</h3>
+<ol type="1">
+<li><strong>Sifat Asosiatif dan Kaskade:</strong> Karena sistem LTI, urutan konvolusi tidak masalah (<span class="math inline">\(h_1 * h_2 * h_3 = h_2 * h_1 * h_3\)</span>). Kita menganalisis respons impuls total <span class="math inline">\(h_{total}\)</span>.</li>
+<li><strong>Stabilitas Kaskade (Domain Transformasi):</strong> Stabilitas BIBO memerlukan semua pole dalam fungsi alih total <span class="math inline">\(H_{total}(s)\)</span> berada di sisi kiri bidang <span class="math inline">\(s\)</span> (untuk WK kausal). <span class="math display">\[H_{total}(s) = H_1(s) H_2(s) H_3(s)\]</span></li>
+<li><strong>Analisis Pembatalan Pole:</strong> Misalkan <span class="math inline">\(H_2(s)\)</span> memiliki pole non-stabil di <span class="math inline">\(s = p_u\)</span> (di sisi kanan bidang <span class="math inline">\(s\)</span> atau pada sumbu <span class="math inline">\(j\omega\)</span>). Agar <span class="math inline">\(H_{total}(s)\)</span> stabil, harus ada zero di <span class="math inline">\(H_1(s)\)</span> atau <span class="math inline">\(H_3(s)\)</span> yang membatalkan tepat <span class="math inline">\(p_u\)</span>.</li>
+<li><strong>Evaluasi:</strong> Jika pole non-stabil <span class="math inline">\(p_u\)</span> dari <span class="math inline">\(H_2(s)\)</span> <strong>sepenuhnya dibatalkan</strong> oleh zero pada sistem kaskade lainnya, maka <span class="math inline">\(p_u\)</span> tidak akan menjadi pole dari <span class="math inline">\(H_{total}(s)\)</span>. Jika semua pole lain di <span class="math inline">\(H_{total}(s)\)</span> stabil, maka <strong>sistem kaskade total (<span class="math inline">\(h_{total}\)</span>) akan stabil BIBO</strong>.</li>
+</ol>
+<p><strong>Kesimpulan:</strong> Secara matematis (mengabaikan masalah implementasi praktis dan sensitivitas numerik), <strong>YA</strong>, sistem kaskade total dapat menjadi stabil BIBO jika sub-sistem yang tidak stabil (<span class="math inline">\(h_2\)</span>) memiliki pole non-stabil yang tepat dibatalkan oleh zero dari sub-sistem lain (<span class="math inline">\(h_1\)</span> atau <span class="math inline">\(h_3\)</span>).</p>
+<hr>
+</section>
+</section>
+</section>
+<section id="daftar-kendaraan-yang-digunakan" class="level1" data-number="9">
+<h1 data-number="9"><span class="header-section-number">9</span> 4) Daftar Kendaraan yang Digunakan</h1>
+<p>Berikut adalah daftar Kendaraan (Matematika, Operasi Dasar, Transformasi, dan Heuristik) yang digunakan atau direkomendasikan untuk memecahkan ke-20 soal di atas, yang mencakup persyaratan Tingkat Bloom yang lebih tinggi (L4-L6) dari tugas analisis:</p>
+<section id="a.-matematika-fundamental" class="level2" data-number="9.1">
+<h2 data-number="9.1" class="anchored" data-anchor-id="a.-matematika-fundamental"><span class="header-section-number">9.1</span> A. Matematika (Fundamental)</h2>
+<ul>
+<li><strong>K_MAT_Aljabar:</strong> Manipulasi persamaan, faktorisasi polinomial, penyelesaian persamaan karakteristik (akar-akar PD), perbandingan koefisien (untuk <span class="math inline">\(y_p(t)\)</span>), penentuan batas integral/sumasi, deret geometri (untuk uji stabilitas diskrit).</li>
+<li><strong>K_MAT_Kalkulus:</strong> Operasi Integral (untuk Konvolusi WK, integral dalam uji stabilitas <span class="math inline">\(\int |h(t)| dt\)</span>), Operasi Diferensiasi (untuk turunan PD, dan dalam Konvolusi dengan <span class="math inline">\(\delta'(t)\)</span>).</li>
+<li><strong>K_MAT_Bilangan_Kompleks:</strong> Perhitungan akar-akar karakteristik kompleks (untuk <span class="math inline">\(\omega_n\)</span> PD orde 2).</li>
+</ul>
+</section>
+<section id="b.-diagram-visualisasi" class="level2" data-number="9.2">
+<h2 data-number="9.2" class="anchored" data-anchor-id="b.-diagram-visualisasi"><span class="header-section-number">9.2</span> B. Diagram &amp; Visualisasi</h2>
+<ul>
+<li><strong>K_VIS_PlotSinyal:</strong> Untuk memvisualisasikan sinyal input, respon impuls, dan hasil konvolusi (esensial untuk Konvolusi Grafis).</li>
+</ul>
+</section>
+<section id="c.-operasi-dasar-sinyalsistem-definisi" class="level2" data-number="9.3">
+<h2 data-number="9.3" class="anchored" data-anchor-id="c.-operasi-dasar-sinyalsistem-definisi"><span class="header-section-number">9.3</span> C. Operasi Dasar Sinyal/Sistem &amp; Definisi</h2>
+<ul>
+<li><strong>K_OPS_Definisi (Sifat Konvolusi):</strong> Komutatif, Asosiatif, Distributif, dan sifat-sifat turunan/integral konvolusi.</li>
+<li><strong>K_OPS_Definisi (Sifat Sistem):</strong> Definisi Kausalitas dan Stabilitas BIBO (kriteria <span class="math inline">\(\int |h(t)| dt &lt; \infty\)</span> atau <span class="math inline">\(\sum |h[n]| &lt; \infty\)</span>).</li>
+<li><strong>K_OPS_Definisi (PD/PB):</strong> Definisi Orde PD/PB, Solusi Homogen, Solusi Partikular, Kondisi Awal/Nol Kondisi, Resonansi.</li>
+<li><strong>K_OPS_Sinyal_Dasar:</strong> Sifat Sifting Impuls Unit (<span class="math inline">\(\delta(t)\)</span>) dalam konvolusi.</li>
+<li><strong>K_OPS_Representasi_Matematis:</strong> Struktur PD LCC orde pertama/kedua.</li>
+</ul>
+</section>
+<section id="d.-transformasi-algoritma" class="level2" data-number="9.4">
+<h2 data-number="9.4" class="anchored" data-anchor-id="d.-transformasi-algoritma"><span class="header-section-number">9.4</span> D. Transformasi (Algoritma)</h2>
+<ul>
+<li><strong>Transformasi Laplace/Z:</strong> Digunakan secara konseptual (Heuristik Mentransformasi Masalah) untuk menganalisis pole/zero sistem, terutama dalam soal desain sistem invers dan evaluasi stabilitas kaskade.</li>
+</ul>
+</section>
+<section id="e.-heuristik-meta-kendaraan-strategis" class="level2" data-number="9.5">
+<h2 data-number="9.5" class="anchored" data-anchor-id="e.-heuristik-meta-kendaraan-strategis"><span class="header-section-number">9.5</span> E. Heuristik (Meta-Kendaraan Strategis)</h2>
+<ul>
+<li><strong>Menggambar Diagram:</strong> Digunakan untuk memvisualisasikan pulsa/sinyal dalam Konvolusi Grafis.</li>
+<li><strong>Mentransformasi Masalah:</strong> Mengubah masalah Domain Waktu (Konvolusi atau PD) menjadi masalah Domain Transformasi (Laplace/Z) untuk mencari fungsi alih atau menganalisis pole/zero (misalnya, P19, P12).</li>
+<li><strong>Bekerja Mundur:</strong> Digunakan dalam soal desain (WK5-DS-L6-P10, P12, P18), dimulai dari hasil yang diinginkan (respon impuls/fungsi alih) untuk mendapatkan persamaan aslinya.</li>
+<li><strong>Mencari Pola:</strong> Digunakan untuk menentukan bentuk solusi partikular yang tepat (P05) atau untuk menemukan rentang tumpang tindih dalam konvolusi.</li>
+</ul>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../kuliah/materi_4.html" class="pagination-link" aria-label="I. Materi Pembelajaran Minggu 4: Analisis Sistem di Domain Waktu">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">I. Materi Pembelajaran Minggu 4: Analisis Sistem di Domain Waktu</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../summary.html" class="pagination-link" aria-label="Lampiran Petunjuk Penggunaan Alat Bantu dan Kendaraan dalam Sinyal dan Sistem (VALORAIZE Learning)">
+        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Lampiran Petunjuk Penggunaan Alat Bantu dan Kendaraan dalam Sinyal dan Sistem (VALORAIZE Learning)</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

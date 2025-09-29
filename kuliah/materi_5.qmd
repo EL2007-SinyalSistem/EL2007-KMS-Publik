@@ -1,0 +1,498 @@
+
+
+# 1) Analisis Materi Minggu ke-5 (RPS.pdf)
+
+Berdasarkan Rencana Pembelajaran Semester (RPS.pdf), **Minggu 4-5** membahas tema yang sama.
+
+**Tujuan Pembelajaran (CPMK Terkait):** Mampu **menganalisis respon sistem LTI menggunakan konvolusi dan menyelesaikan persamaan diferensial yang menggambarkan sistem**.
+
+## (a) Inti Materi Kuliah Minggu ke-5
+
+Inti materi kuliah Minggu ke-5 berfokus pada dua alat fundamental untuk menganalisis perilaku sistem Linear Tak-berubah Waktu (LTI) di domain waktu:
+
+1.  **Konvolusi (Convolution):** Operasi matematis yang mendefinisikan output $y(t)$ atau $y[n]$ dari sistem LTI sebagai hasil input $x(t)$ atau $x[n]$ yang dikonvolusi dengan respons impuls $h(t)$ atau $h[n]$ sistem.
+    *   **Waktu Kontinu:** Integral Konvolusi: $y(t) = x(t) * h(t) = \int_{-\infty}^{\infty} x(\tau)h(t-\tau)d\tau$.
+    *   **Sifat-sifat Konvolusi:** Komutatif, Distributif, dan Asosiatif.
+2.  **Solusi Persamaan Diferensial (PD) Linear Koefisien Konstan (LCCDEs):** Banyak sistem fisik Waktu Kontinu (WK) dimodelkan menggunakan PD LCCDE. Solusi lengkap PD, yang merepresentasikan respons total sistem, terdiri dari **solusi homogen ($y_h(t)$)** yang menjelaskan perilaku internal, dan **solusi partikular ($y_p(t)$)** yang menjelaskan respons terhadap input spesifik.
+    *   Penentuan konstanta dalam solusi homogen memerlukan **kondisi awal** sistem.
+3.  **Hubungan LTI:** Konvolusi menyediakan representasi input-output yang berlaku untuk semua sistem LTI. Persamaan diferensial adalah cara umum untuk **menggambarkan** sistem LTI, dan konvolusi adalah cara untuk **menganalisis** responsnya.
+
+## (b) Ontologi Pengetahuan dan Ekspresi Prolog
+
+Ontologi Peta Pengetahuan Primitif (yang mencakup pengetahuan deklaratif/fundamental) untuk materi ini dapat berpusat pada konsep analisis sistem domain waktu:
+
+| Node (Konsep) | Deskripsi |
+| :--- | :--- |
+| **ANALISIS_DW** | Analisis Sistem Domain Waktu (Node Pusat Materi) |
+| **SYWK_LTI** | Sistem Waktu Kontinu Linear Tak-berubah Waktu |
+| **SYWK_ResponImpuls** | Karakteristik penting dari SYWK_LTI |
+| **SYWK_Konvolusi** | Operasi untuk menemukan output SYWK_LTI |
+| **SYWK_IntKonvolusi** | Definisi formal konvolusi WK |
+| **SYWK_SifatKonvolusi** | Sifat-sifat matematis (Komutatif, Asosiatif, Distributif) |
+| **SYWK_PD** | Persamaan Diferensial LCC (Model matematika SYWK_LTI) |
+| **SYWK_SolusiPD** | Solusi Lengkap Persamaan Diferensial |
+| **SYWK_SolusiHomogen** | Komponen respons internal (terkait akar karakteristik) |
+| **SYWK_SolusiPartikular** | Komponen respons terhadap input spesifik |
+| **SYWK_KondisiAwal** | Dibutuhkan untuk menentukan konstanta solusi homogen |
+
+**Ekspresi Prolog dari Ontologi:**
+```prolog
+% Konsep Utama (Nodes)
+konsep(analisis_dw).
+konsep(sywk_lti).
+konsep(sywk_responimpuls).
+konsep(sywk_konvolusi).
+konsep(sywk_intkonvolusi).
+konsep(sywk_sifatkonvolusi).
+konsep(sywk_pd).
+konsep(sywk_solusipd).
+konsep(sywk_solusihomogen).
+konsep(sywk_solusipartikular).
+konsep(sywk_kondisiawal).
+konsep(sywk_output).
+
+% Hubungan (Edges)
+hubungan(analisis_dw, terdiri_dari, sywk_konvolusi).
+hubungan(analisis_dw, terdiri_dari, sywk_pd).
+hubungan(sywk_lti, dicirikan_oleh, sywk_responimpuls).
+hubungan(sywk_konvolusi, menghitung_output_dgn, sywk_responimpuls).
+hubungan(sywk_konvolusi, menghitung_output_dgn, input).
+hubungan(sywk_konvolusi, merupakan_bentuk_integrasi, sywk_intkonvolusi).
+hubungan(sywk_konvolusi, memiliki_sifat, sywk_sifatkonvolusi).
+hubungan(sywk_pd, menggambarkan, sywk_lti).
+hubungan(sywk_solusipd, terdiri_dari, sywk_solusihomogen).
+hubungan(sywk_solusipd, terdiri_dari, sywk_solusipartikular).
+hubungan(sywk_solusipd, membutuhkan, sywk_kondisiawal).
+hubungan(sywk_konvolusi, menghasilkan, sywk_output).
+hubungan(sywk_solusipd, menghasilkan, sywk_output).
+```
+
+## (c) Diagram Graphviz Peta Pengetahuan Dasar
+
+Berikut adalah kode Graphviz DOT untuk memvisualisasikan Peta Pengetahuan Primitif di atas:
+
+```dot
+digraph G {
+    rankdir=TB;
+    node [shape=box, style="filled", color="lightblue", fontname="Helvetica"];
+    edge [fontname="Helvetica", fontsize=10];
+
+    ANALISIS_DW [label="ANALISIS SISTEM DOMAIN WAKTU (Minggu 5)", shape=octagon, style="filled", fillcolor="red:yellow", gradientangle=270];
+    SYWK_LTI [label="Sistem LTI (WK)"];
+    SYWK_ResponImpuls [label="Respon Impuls h(t)"];
+    SYWK_Konvolusi [label="Konvolusi"];
+    SYWK_PD [label="Persamaan Diferensial LCC"];
+    SYWK_SolusiPD [label="Solusi PD Lengkap"];
+    OUTPUT [label="Output Sistem y(t)", fillcolor="lightgreen"];
+    
+    SUB_CV [label="Integral Konvolusi & Sifat", shape=folder, fillcolor="lightyellow"];
+    SUB_PD [label="Solusi Homogen & Partikular", shape=folder, fillcolor="lightyellow"];
+    
+    ANALISIS_DW -> SYWK_Konvolusi [label="melalui"];
+    ANALISIS_DW -> SYWK_PD [label="melalui"];
+    
+    SYWK_Konvolusi -> OUTPUT [label="Menghasilkan"];
+    SYWK_Konvolusi -> SUB_CV [label="Rincian"];
+    
+    SYWK_PD -> SYWK_LTI [label="Menggambarkan"];
+    SYWK_PD -> SUB_PD [label="Rincian"];
+    SYWK_PD -> OUTPUT [label="Menghasilkan Solusi"];
+    
+    SYWK_LTI -> SYWK_ResponImpuls [label="Dicirikan oleh"];
+    SYWK_ResponImpuls -> SYWK_Konvolusi [label="Input Dasar untuk"];
+    
+    SUB_PD -> SYWK_SolusiPD [label="Perlu"];
+    SYWK_SolusiPD -> OUTPUT [label="Hasil Akhir"];
+    
+    // Hubungan Internal Solusi PD
+    SYWK_SolusiPD -> SYWK_SolusiHomogen [label="terdiri dari"];
+    SYWK_SolusiPD -> SYWK_SolusiPartikular [label="terdiri dari"];
+    SYWK_SolusiHomogen [label="Solusi Homogen (y_h)"];
+    SYWK_SolusiPartikular [label="Solusi Partikular (y_p)"];
+    KondisiAwal [label="Kondisi Awal", fillcolor="salmon"];
+    SYWK_SolusiPD -> KondisiAwal [label="Membutuhkan"];
+}
+```
+
+## (d) Kendaraan yang Diperlukan
+
+Untuk materi analisis sistem di domain waktu (konvolusi dan PD), kendaraan utama yang diperlukan meliputi:
+
+| Kategori Kendaraan | Kendaraan Spesifik | Kegunaan |
+| :--- | :--- | :--- |
+| **K_MAT_Aljabar** | Manipulasi Ekspresi, penyelesaian persamaan karakteristik, Deret Geometri. | Esensial untuk semua langkah perhitungan. |
+| **K_MAT_Kalkulus** | **Integrasi** (untuk Integral Konvolusi), **Diferensiasi** (untuk PD). | Krusial untuk menghitung konvolusi waktu kontinu dan solusi PD. |
+| **K_MAT_Bilangan_Kompleks** | Identitas Euler, akar-akar kompleks. | Untuk menangani akar karakteristik kompleks dalam solusi homogen PD. |
+| **K_OPS_Sinyal_Dasar** | Unit Step ($u(t)$), Unit Impuls ($\delta(t)$). | Digunakan sebagai input dan respon impuls, serta untuk mendefinisikan batas integral konvolusi. |
+| **K_OPS_Definisi** | Definisi LTI, Konvolusi, Orde PD, Solusi Homogen/Partikular. | Untuk memandu langkah-langkah pemecahan masalah (PMA). |
+| **K_VIS_PlotSinyal** | Sketsa Sinyal Input/Respon Impuls. | Untuk membantu visualisasi operasi lipat-geser dalam konvolusi. |
+| **Heuristik** | **Menggambar Diagram** (untuk konvolusi grafis), **Mentransformasi Masalah** (misalnya, konvolusi menjadi aljabar setelah Transformasi). | Strategi pemecahan masalah tingkat tinggi. |
+
+---
+
+# 2) 20 Soal Tanpa Solusi (Minggu 5)
+
+Berikut adalah 20 soal latihan yang berfokus pada Analisis Sistem Domain Waktu (Konvolusi dan PD), lengkap dengan Nomor Produk yang mencerminkan Topik (CV=Konvolusi, DE=Persamaan Diferensial, DS=Desain Sistem, AN=Analisis) dan Level Taksonomi Bloom (L3-L6).
+
+| No. | Soal | Nomor Produk | Level Bloom |
+| :--- | :--- | :--- | :--- |
+| 1 | Hitung dan gambarkan output $y(t) = x(t) * h(t)$, di mana $x(t) = u(t) - u(t-1)$ dan $h(t) = u(t) - u(t-2)$. | WK5-CV-L3-P01 | Menerapkan (L3) |
+| 2 | Tentukan respons impuls $h(t)$ dari sistem waktu kontinu LTI yang dijelaskan oleh $\frac{dy(t)}{dt} + 3y(t) = x(t)$. | WK5-DE-L3-P02 | Menerapkan (L3) |
+| 3 | Tentukan respons homogen $y_h(t)$ dari sistem PD orde kedua: $\frac{d^2 y(t)}{dt^2} + 4 \frac{dy(t)}{dt} + 4 y(t) = 2x(t)$. | WK5-DE-L3-P03 | Menerapkan (L3) |
+| 4 | Jika $x[n] = \{1, 2, 3\}$ (mulai di $n=0$) dan $h[n] = \delta[n-1] - 2\delta[n-2]$, hitung konvolusi diskrit $y[n] = x[n] * h[n]$. | WK5-CV-L3-P04 | Menerapkan (L3) |
+| 5 | Tentukan bentuk respons partikular $y_p(t)$ yang paling umum untuk PD $\frac{d^2 y(t)}{dt^2} + 5 \frac{dy(t)}{dt} + 6 y(t) = e^{-3t}$. (Perhatikan resonansi). | WK5-DE-L4-P05 | Menganalisis (L4) |
+| 6 | Sistem LTI waktu kontinu memiliki respon impuls $h(t) = e^{-2t} u(t)$. Evaluasi stabilitas BIBO sistem ini. | WK5-AN-L4-P06 | Menganalisis (L4) |
+| 7 | Sebuah sistem LTI kaskade (seri) terdiri dari $S_1$ dengan $h_1(t) = u(t)$ dan $S_2$ dengan $h_2(t) = \delta(t-2)$. Evaluasi apakah urutan kaskade ($S_1$ diikuti $S_2$ atau sebaliknya) memengaruhi respons total. | WK5-CV-L5-P07 | Mengevaluasi (L5) |
+| 8 | Diberikan respon impuls $h[n] = (-2)^n u[n]$. Tentukan apakah sistem tersebut kausal dan stabil BIBO. | WK5-AN-L4-P08 | Menganalisis (L4) |
+| 9 | Jika input $x(t) = 5u(t)$ diberikan ke sistem yang dijelaskan oleh $y(t) = \int_{t-1}^{t} x(\tau) d\tau$. Tentukan output $y(t)$ untuk $t > 1$. | WK5-CV-L3-P09 | Menerapkan (L3) |
+| 10 | Rancang persamaan diferensial orde pertama LTI yang respon impulsnya adalah $h(t) = 4e^{-0.5t} u(t)$. | WK5-DS-L6-P10 | Menciptakan (L6) |
+| 11 | Diketahui $x[n]$ adalah pulsa dari $n=0$ hingga $n=4$ (panjang 5) dan $h[n]$ adalah pulsa dari $n=1$ hingga $n=5$ (panjang 5). Berapakah panjang total output $y[n] = x[n] * h[n]$? | WK5-CV-L3-P11 | Menerapkan (L3) |
+| 12 | Sistem LTI diberikan oleh $\frac{d y(t)}{dt} + 2y(t) = 2 \frac{d x(t)}{dt} + x(t)$. Tentukan sistem invers yang, jika dikaskadekan, mengembalikan input asli. | WK5-DS-L6-P12 | Menciptakan (L6) |
+| 13 | Evaluasi kondisi awal $y(0^-)$ dan $\frac{dy(0^-)}{dt}$ yang diperlukan agar respons total sistem $\frac{d^2 y(t)}{dt^2} + y(t) = x(t)u(t)$ menjadi respons nol-kondisi (zero-state response). | WK5-DE-L5-P13 | Mengevaluasi (L5) |
+| 14 | Tentukan akar karakteristik dan nilai frekuensi alami $\omega_n$ dari PD $\frac{d^2 y(t)}{dt^2} + 2 \frac{dy(t)}{dt} + 10 y(t) = x(t)$. | WK5-DE-L3-P14 | Menerapkan (L3) |
+| 15 | Analisis apakah konvolusi dari dua sinyal anti-kausal, $x(t) = e^{t} u(-t)$ dan $h(t) = u(-t)$, akan menghasilkan sinyal anti-kausal. | WK5-CV-L4-P15 | Menganalisis (L4) |
+| 16 | Untuk sistem diskrit $y[n] = x[n] * h[n]$, di mana $h[n]$ memiliki panjang $M$ dan $x[n]$ memiliki panjang $N$, gunakan sifat konvolusi untuk menyederhanakan perhitungan jika $N \gg M$. | WK5-CV-L4-P16 | Menganalisis (L4) |
+| 17 | Tentukan solusi lengkap $y(t)$ untuk sistem $\frac{dy(t)}{dt} + y(t) = 2u(t)$ dengan kondisi awal $y(0^-) = 3$. | WK5-DE-L4-P17 | Menganalisis (L4) |
+| 18 | Rancang persamaan beda LTI orde kedua yang merepresentasikan sistem yang outputnya adalah jumlah tiga sampel input saat ini dan dua sampel input sebelumnya. | WK5-DS-L6-P18 | Menciptakan (L6) |
+| 19 | Evaluasi, menggunakan sifat asosiatif konvolusi, apakah filter LTI yang tersusun seri ($h_{total} = h_1 * h_2 * h_3$) tetap stabil BIBO jika salah satu sub-sistem ($h_2$) tidak stabil, tetapi $h_1$ dan $h_3$ dapat membatalkan kutub non-stabilnya. | WK5-AN-L5-P19 | Mengevaluasi (L5) |
+| 20 | Diketahui output sistem $y(t) = x(t) * h(t)$. Jika input diubah menjadi $x_1(t) = \frac{d x(t)}{dt}$, tentukan output $y_1(t)$ dalam bentuk konvolusi yang melibatkan $h(t)$ dan $x_1(t)$. | WK5-CV-L4-P20 | Menganalisis (L4) |
+
+---
+
+# 3) Peta Pengetahuan Aplikatif dan Solusi
+
+Di bawah ini, kami menyajikan Peta Pengetahuan Aplikatif (PMA), representasi Graphviz, dan Solusi untuk 5 contoh soal yang dipilih untuk mewakili berbagai tingkat kognitif: P01 (L3), P05 (L4), P07 (L5), P10 (L6), dan P17 (L4).
+
+## Soal 1: Konvolusi Pulsa Persegi
+**Nomor Produk:** WK5-CV-L3-P01
+**Soal:** Hitung dan gambarkan output $y(t) = x(t) * h(t)$, di mana $x(t) = u(t) - u(t-1)$ dan $h(t) = u(t) - u(t-2)$.
+
+### 3a) Peta Pengetahuan Aplikatif (PMA) WK5-CV-L3-P01
+| Komponen PMA | Deskripsi |
+| :--- | :--- |
+| **Titik Mulai** | Sinyal input $x(t)$ (pulsa persegi, lebar 1) dan respon impuls $h(t)$ (pulsa persegi, lebar 2). |
+| **Titik Akhir** | Ekspresi matematis dan sketsa grafis dari output konvolusi $y(t)$. |
+| **Rute/Jalan** | 1. Tentukan batas integral konvolusi: $y(t) = \int_{-\infty}^{\infty} x(\tau)h(t-\tau)d\tau$. 2. Terapkan Heuristik **Menggambar Diagram** untuk memvisualisasikan $x(\tau)$ dan $h(t-\tau)$. 3. Tentukan interval $t$ di mana ada tumpang tindih (overlap). 4. Hitung integral untuk setiap interval. 5. Tuliskan ekspresi $y(t)$ dan buat sketsa hasilnya. |
+| **Kendaraan** | K_MAT_Kalkulus (Integrasi), K_MAT_Aljabar (Manipulasi Batas), K_OPS_Sinyal_Dasar ($u(t)$), K_VIS_PlotSinyal, Heuristik (Menggambar Diagram). |
+
+### 3b) Diagram Graphviz PMA WK5-CV-L3-P01
+```dot
+digraph PMA_WK5_CV_L3_P01 {
+    rankdir=LR;
+    node [shape=box, fontname="Helvetica"];
+    
+    A [label="Titik Mulai:\nx(t)=u(t)-u(t-1), h(t)=u(t)-u(t-2)", style="filled", fillcolor="yellow"];
+    B [label="Heuristik: Gambar x(τ) dan h(t-τ)"];
+    C [label="Tentukan Batas Overlap (Kasus 1: 0<t<1, Kasus 2: 1<t<2, Kasus 3: 2<t<3)"];
+    D [label="Kendaraan: K_MAT_Kalkulus (Integrasi)"];
+    E [label="Hitung y(t) = ∫ x(τ)h(t-τ)dτ untuk setiap kasus"];
+    F [label="Kendaraan: K_VIS_PlotSinyal"];
+    G [label="Titik Akhir:\nEkspresi & Sketsa y(t)", style="filled", fillcolor="lightgreen"];
+    
+    A -> B;
+    B -> C [label="K_MAT_Aljabar"];
+    C -> E [label="K_OPS_Definisi"];
+    E -> F;
+    F -> G;
+}
+```
+
+### 3c) Solusi WK5-CV-L3-P01
+1. **Definisi Sinyal:** $x(\tau)$ adalah pulsa dari $\tau=0$ hingga $\tau=1$. $h(t-\tau)$ adalah pulsa dari $\tau=t-2$ hingga $\tau=t$.
+2. **Interval Tumpang Tindih:** Kita cari interval di mana $$ pada $x(\tau)$ dan $[t-2, t]$ pada $h(t-\tau)$ berpotongan.
+    *   **Kasus 1: $0 \le t < 1$** (Pulsa $h(t-\tau)$ mulai tumpang tindih dari $\tau=0$ hingga $\tau=t$).
+        $$y(t) = \int_{0}^{t} 1 \cdot 1 d\tau = t$$
+    *   **Kasus 2: $1 \le t < 2$** (Pulsa $x(\tau)$ sepenuhnya tumpang tindih, tetapi $h(t-\tau)$ masih bergerak. Batas integrasi dari $\tau=0$ hingga $\tau=1$).
+        $$y(t) = \int_{0}^{1} 1 \cdot 1 d\tau = 1$$
+    *   **Kasus 3: $2 \le t < 3$** (Pulsa $x(\tau)$ mulai keluar dari $h(t-\tau)$ dari $t-2$ hingga $1$).
+        $$y(t) = \int_{t-2}^{1} 1 \cdot 1 d\tau = 1 - (t-2) = 3 - t$$
+    *   **Kasus Lain:** $y(t) = 0$.
+
+**Kesimpulan:**
+$$y(t) = \begin{cases} t & 0 \le t < 1 \\ 1 & 1 \le t < 2 \\ 3-t & 2 \le t < 3 \\ 0 & \text{lainnya} \end{cases}$$
+(Sketsa $y(t)$ adalah trapesium yang naik dari 0 ke 1 (pada $t=1$), datar pada 1 (hingga $t=2$), dan turun ke 0 (pada $t=3$)).
+
+---
+
+## Soal 5: Solusi Partikular PD (Resonansi)
+**Nomor Produk:** WK5-DE-L4-P05
+**Soal:** Tentukan bentuk respons partikular $y_p(t)$ yang paling umum untuk PD $\frac{d^2 y(t)}{dt^2} + 5 \frac{dy(t)}{dt} + 6 y(t) = e^{-3t}$. (Perhatikan resonansi).
+
+### 3a) Peta Pengetahuan Aplikatif (PMA) WK5-DE-L4-P05
+| Komponen PMA | Deskripsi |
+| :--- | :--- |
+| **Titik Mulai** | Persamaan Diferensial (PD) orde kedua dengan input eksponensial $x(t) = e^{-3t}$. |
+| **Titik Akhir** | Bentuk solusi partikular $y_p(t)$ yang tepat. |
+| **Rute/Jalan** | 1. Tentukan persamaan karakteristik (PC) dari sisi homogen PD. 2. Cari akar-akar PC ($\lambda_1, \lambda_2$). 3. Bandingkan bentuk input $x(t) = e^{st}$ dengan akar-akar $\lambda$. 4. Jika $s$ adalah akar PC, modifikasi solusi partikular dasar ($A e^{st}$) menjadi $A t e^{st}$. Jika $s$ adalah akar berganda, gunakan $A t^2 e^{st}$. 5. Tuliskan bentuk $y_p(t)$ yang benar. |
+| **Kendaraan** | K_MAT_Aljabar (Persamaan Karakteristik, Faktorisasi), K_OPS_Definisi (Solusi Partikular, Resonansi). |
+
+### 3b) Diagram Graphviz PMA WK5-DE-L4-P05
+```dot
+digraph PMA_WK5_DE_L4_P05 {
+    rankdir=LR;
+    node [shape=box, fontname="Helvetica"];
+    
+    A [label="Titik Mulai:\nPD Orde 2, Input x(t)=e^(-3t)", style="filled", fillcolor="yellow"];
+    B [label="Tentukan Persamaan Karakteristik (PC)\n(Kendaraan: K_MAT_Aljabar)"];
+    C [label="Cari Akar-akar PC (λ1, λ2)"];
+    D [label="Bandingkan Input s=-3 dengan Akar-akar (K_OPS_Definisi: Resonansi)"];
+    E [label="Apakah s=-3 adalah akar PC?"];
+    F [label="Modifikasi Solusi Partikular: y_p(t) = A*t*e^(-3t)"];
+    G [label="Titik Akhir:\nBentuk y_p(t)", style="filled", fillcolor="lightgreen"];
+    
+    A -> B;
+    B -> C;
+    C -> D;
+    D -> E [label="Jika Ya"];
+    E -> F;
+    F -> G;
+}
+```
+
+### 3c) Solusi WK5-DE-L4-P05
+1.  **Persamaan Karakteristik (PC):** Kita ganti turunan dengan pangkat $\lambda$.
+    $$\lambda^2 + 5\lambda + 6 = 0$$
+2.  **Akar-akar PC:** Faktorisasi memberikan:
+    $$(\lambda + 2)(\lambda + 3) = 0$$
+    Akar-akarnya adalah $\lambda_1 = -2$ dan **$\lambda_2 = -3$**.
+3.  **Analisis Resonansi:** Input adalah $x(t) = e^{-3t}$. Ini memiliki bentuk $e^{st}$ di mana $s = -3$.
+4.  Karena nilai $s = -3$ sama dengan salah satu akar karakteristik ($\lambda_2 = -3$), terjadi kasus resonansi.
+5.  **Bentuk Solusi Partikular yang Tepat:** Solusi partikular harus dikalikan dengan $t$ (karena ini adalah akar tunggal).
+
+**Kesimpulan:**
+Bentuk solusi partikular yang paling umum adalah $\mathbf{y_p(t) = A t e^{-3t}}$.
+
+---
+
+## Soal 7: Konvolusi Kaskade dan Sifat Komutatif
+**Nomor Produk:** WK5-CV-L5-P07
+**Soal:** Sebuah sistem LTI kaskade (seri) terdiri dari $S_1$ dengan $h_1(t) = u(t)$ dan $S_2$ dengan $h_2(t) = \delta(t-2)$. Evaluasi apakah urutan kaskade ($S_1$ diikuti $S_2$ atau sebaliknya) memengaruhi respons total.
+
+### 3a) Peta Pengetahuan Aplikatif (PMA) WK5-CV-L5-P07
+| Komponen PMA | Deskripsi |
+| :--- | :--- |
+| **Titik Mulai** | Dua respon impuls sistem LTI: $h_1(t) = u(t)$ dan $h_2(t) = \delta(t-2)$. |
+| **Titik Akhir** | Keputusan evaluatif mengenai pengaruh urutan kaskade terhadap respons total $h_{total}(t)$. |
+| **Rute/Jalan** | 1. Mengingat definisi respon impuls total untuk sistem kaskade: $h_{total} = h_1 * h_2$. 2. Mengingat sifat **Komutatif** konvolusi: $h_1 * h_2 = h_2 * h_1$. 3. Hitung $h_{total, A} = h_1(t) * h_2(t)$. 4. Hitung $h_{total, B} = h_2(t) * h_1(t)$. 5. Evaluasi apakah $h_{total, A} = h_{total, B}$. |
+| **Kendaraan** | K_OPS_Definisi (Sistem Kaskade LTI), K_OPS_Definisi (Sifat Komutatif Konvolusi), K_OPS_Sinyal_Dasar (Sifat $\delta(t)$ dalam Konvolusi). |
+
+### 3b) Diagram Graphviz PMA WK5-CV-L5-P07
+```dot
+digraph PMA_WK5_CV_L5_P07 {
+    rankdir=LR;
+    node [shape=box, fontname="Helvetica"];
+    
+    A [label="Titik Mulai:\nh1(t)=u(t), h2(t)=δ(t-2)", style="filled", fillcolor="yellow"];
+    B [label="Tentukan Respon Total h_total = h1 * h2 (K_OPS_Definisi)"];
+    C [label="Kendaraan: K_OPS_Definisi (Sifat Komutatif Konvolusi)"];
+    D [label="Hitung h1 * h2 (Urutan A)"];
+    E [label="Hitung h2 * h1 (Urutan B)"];
+    F [label="Evaluasi: Apakah Urutan A = Urutan B?"];
+    G [label="Titik Akhir:\nKesimpulan Evaluatif", style="filled", fillcolor="lightgreen"];
+    
+    A -> B;
+    B -> C;
+    C -> D;
+    C -> E;
+    D -> F;
+    E -> F;
+    F -> G [label="K_MAT_Aljabar"];
+}
+```
+
+### 3c) Solusi WK5-CV-L5-P07
+1.  **Respon Impuls Total:** Untuk sistem kaskade LTI, respons impuls total adalah konvolusi dari respons impuls individu.
+    $$h_{total}(t) = h_1(t) * h_2(t)$$
+2.  **Perhitungan Urutan A ($S_1$ diikuti $S_2$):**
+    $$h_{total, A}(t) = u(t) * \delta(t-2)$$
+    Menggunakan sifat sifting/pergeseran impuls unit: $x(t) * \delta(t-t_0) = x(t-t_0)$.
+    $$h_{total, A}(t) = u(t-2)$$
+3.  **Perhitungan Urutan B ($S_2$ diikuti $S_1$):**
+    $$h_{total, B}(t) = \delta(t-2) * u(t)$$
+    Karena konvolusi bersifat komutatif ($h_1 * h_2 = h_2 * h_1$), hasilnya harus sama.
+    $$h_{total, B}(t) = u(t-2)$$
+4.  **Evaluasi:** Karena sifat LTI menjamin sifat komutatif konvolusi, $h_{total, A}(t) = h_{total, B}(t)$.
+
+**Kesimpulan:**
+Urutan kaskade **tidak memengaruhi** respons impuls total atau output sistem gabungan, karena konvolusi (operasi yang mendeskripsikan kaskade LTI) bersifat **komutatif**.
+
+---
+
+## Soal 10: Desain Persamaan Diferensial (PD)
+**Nomor Produk:** WK5-DS-L6-P10
+**Soal:** Rancang persamaan diferensial orde pertama LTI yang respon impulsnya adalah $h(t) = 4e^{-0.5t} u(t)$.
+
+### 3a) Peta Pengetahuan Aplikatif (PMA) WK5-DS-L6-P10
+| Komponen PMA | Deskripsi |
+| :--- | :--- |
+| **Titik Mulai** | Respon impuls $h(t) = 4e^{-0.5t} u(t)$ (LTI orde pertama). |
+| **Titik Akhir** | Persamaan diferensial linear koefisien konstan (PD LCC) yang tepat. |
+| **Rute/Jalan** | 1. Identifikasi bentuk umum respons impuls PD orde pertama: $h(t) = K e^{-t/T} u(t)$. 2. Tentukan Persamaan Diferensial yang sesuai dengan Respon Impuls tersebut: $\tau \frac{dy(t)}{dt} + y(t) = K x(t)$. 3. Bandingkan $h(t)$ yang diberikan untuk mencari konstanta $\tau$ (konstanta waktu) dan $K$. 4. Susun PD LCC menggunakan nilai-nilai ini. |
+| **Kendaraan** | K_OPS_Definisi (Respon Impuls Orde Pertama), K_MAT_Aljabar (Perbandingan Koefisien), K_OPS_Representasi_Matematis (Struktur PD). |
+
+### 3b) Diagram Graphviz PMA WK5-DS-L6-P10
+```dot
+digraph PMA_WK5_DS_L6_P10 {
+    rankdir=LR;
+    node [shape=box, fontname="Helvetica"];
+    
+    A [label="Titik Mulai:\nh(t) = 4e^(-0.5t)u(t)", style="filled", fillcolor="yellow"];
+    B [label="K_OPS_Definisi: Tentukan Bentuk Standar PD Orde 1\n(T dy/dt + y = K x)"];
+    C [label="K_MAT_Aljabar: Bandingkan h(t) dengan K/T e^(-t/T) u(t)"];
+    D [label="Tentukan Konstanta Waktu T dan Gain K (T=2, K=4)"];
+    E [label="K_OPS_Representasi_Matematis: Formulasikan PD"];
+    F [label="Titik Akhir:\nPersamaan Diferensial", style="filled", fillcolor="lightgreen"];
+    
+    A -> B;
+    B -> C;
+    C -> D;
+    D -> E;
+    E -> F;
+}
+```
+
+### 3c) Solusi WK5-DS-L6-P10
+1.  **Bentuk Standar Respon Impuls Orde Pertama:** Respon impuls orde pertama (untuk sistem yang dimodelkan oleh $T \frac{dy(t)}{dt} + y(t) = K x(t)$) memiliki bentuk umum $h(t) = (K/\tau) e^{-t/\tau} u(t)$ (jika input adalah $\frac{1}{\tau} x(t)$) atau $h(t) = K e^{-t/\tau} u(t)$ (tergantung konvensi, di sini kita gunakan bentuk $h(t) = A e^{-\lambda t} u(t)$ di mana $\lambda = 1/\tau$).
+2.  **Identifikasi Parameter:**
+    *   Dari $h(t) = 4e^{-0.5t} u(t)$, kita memiliki $\lambda = 0.5$ dan amplitudo awal $A=4$.
+    *   Sistem PD LTI orde pertama yang kausal (respons $e^{-\lambda t} u(t)$) memiliki persamaan homogen $s + \lambda = 0$. Dalam domain waktu: $\frac{dy(t)}{dt} + \lambda y(t) = C x(t)$.
+    *   Di sini, $\lambda = 0.5$. Jadi, $\frac{dy(t)}{dt} + 0.5 y(t) = C x(t)$.
+3.  **Tentukan Konstanta Input C:** Respon impuls $h(t)$ adalah solusi PD ketika $x(t) = \delta(t)$ dengan kondisi awal nol, atau solusi ketika $x(t)$ tidak nol dan kondisi awal nol. Jika kita gunakan bentuk standar $\frac{dy(t)}{dt} + \lambda y(t) = C x(t)$, maka $h(t) = C e^{-\lambda t} u(t)$.
+    *   Membandingkan: $C e^{-0.5t} u(t) = 4e^{-0.5t} u(t)$.
+    *   Maka, $C=4$.
+
+**Kesimpulan:**
+Persamaan diferensial yang menggambarkan sistem LTI orde pertama tersebut adalah **$\frac{dy(t)}{dt} + 0.5 y(t) = 4 x(t)$**.
+
+---
+
+## Soal 7: Solusi Lengkap PD (Respon Total)
+**Nomor Produk:** WK5-DE-L4-P17
+**Soal:** Tentukan solusi lengkap $y(t)$ untuk sistem $\frac{dy(t)}{dt} + y(t) = 2u(t)$ dengan kondisi awal $y(0^-) = 3$.
+
+### 3a) Peta Pengetahuan Aplikatif (PMA) WK5-DE-L4-P17
+| Komponen PMA | Deskripsi |
+| :--- | :--- |
+| **Titik Mulai** | PD Orde 1: $\frac{dy(t)}{dt} + y(t) = 2u(t)$. Kondisi awal $y(0^-) = 3$. |
+| **Titik Akhir** | Solusi lengkap $y(t) = y_h(t) + y_p(t)$ untuk $t \ge 0$. |
+| **Rute/Jalan** | 1. Cari **Solusi Homogen** ($y_h(t)$) dari persamaan karakteristik. 2. Cari **Solusi Partikular** ($y_p(t)$) berdasarkan input $x(t) = 2u(t)$. 3. Kombinasikan menjadi $y(t) = y_h(t) + y_p(t)$, meninggalkan konstanta tak tentu ($A$). 4. Tentukan konstanta $A$ menggunakan **Kondisi Awal** $y(0^+)$. 5. Tuliskan solusi lengkap. |
+| **Kendaraan** | K_MAT_Aljabar (Akar Karakteristik, Konstanta), K_MAT_Kalkulus (Diferensiasi, Substitusi), K_OPS_Definisi (Solusi Homogen/Partikular), K_OPS_Definisi (Kondisi Awal). |
+
+### 3b) Diagram Graphviz PMA WK5-DE-L4-P17
+```dot
+digraph PMA_WK5_DE_L4_P17 {
+    rankdir=TB;
+    node [shape=box, fontname="Helvetica"];
+    
+    A [label="Titik Mulai:\nPD Orde 1 & y(0^-)=3", style="filled", fillcolor="yellow"];
+    B1 [label="Cari Solusi Homogen y_h(t)"];
+    B2 [label="Cari Solusi Partikular y_p(t)"];
+    C [label="y(t) = y_h(t) + y_p(t)"];
+    D [label="Terapkan Kondisi Awal y(0^+) untuk cari Konstanta A"];
+    E [label="Titik Akhir:\nSolusi Lengkap y(t) untuk t ≥ 0", style="filled", fillcolor="lightgreen"];
+    
+    A -> B1 [label="PC: λ+1=0"];
+    A -> B2 [label="Input: Konstanta (u(t))"];
+    B1 -> C;
+    B2 -> C;
+    C -> D [label="K_MAT_Aljabar"];
+    D -> E;
+}
+```
+
+### 3c) Solusi WK5-DE-L4-P17
+**PD:** $\frac{dy(t)}{dt} + y(t) = 2u(t)$, $y(0^-) = 3$.
+
+1.  **Solusi Homogen ($y_h(t)$):**
+    *   Persamaan Karakteristik: $\lambda + 1 = 0 \Rightarrow \lambda = -1$.
+    *   $$y_h(t) = A e^{-t}$$
+2.  **Solusi Partikular ($y_p(t)$):**
+    *   Input $x(t) = 2u(t)$ (konstan untuk $t>0$). Asumsikan $y_p(t) = C$ untuk $t \ge 0$.
+    *   Substitusi ke PD: $\frac{d}{dt}(C) + C = 2 \Rightarrow 0 + C = 2$.
+    *   $$y_p(t) = 2$$
+3.  **Solusi Lengkap (Respons Total):**
+    *   $$y(t) = y_h(t) + y_p(t) = A e^{-t} + 2, \quad t \ge 0$$
+4.  **Tentukan Konstanta A menggunakan Kondisi Awal:**
+    *   Karena PD orde pertama tidak memiliki impuls di sisi kanan, $y(0^+) = y(0^-) = 3$.
+    *   Terapkan $t=0$: $y(0) = A e^0 + 2 = 3$.
+    *   $$A + 2 = 3 \Rightarrow A = 1$$
+
+**Kesimpulan:**
+Solusi lengkap sistem untuk $t \ge 0$ adalah $\mathbf{y(t) = e^{-t} + 2}$.
+
+---
+
+## Soal 19: Analisis Stabilitas Kaskade (Pembatalan Pole/Zero)
+**Nomor Produk:** WK5-AN-L5-P19
+**Soal:** Evaluasi, menggunakan sifat asosiatif konvolusi, apakah filter LTI yang tersusun seri ($h_{total} = h_1 * h_2 * h_3$) tetap stabil BIBO jika salah satu sub-sistem ($h_2$) tidak stabil, tetapi $h_1$ dan $h_3$ dapat membatalkan kutub non-stabilnya.
+
+### 3a) Peta Pengetahuan Aplikatif (PMA) WK5-AN-L5-P19
+| Komponen PMA | Deskripsi |
+| :--- | :--- |
+| **Titik Mulai** | Tiga sistem kaskade $h_{total} = h_1 * h_2 * h_3$. $h_2$ tidak stabil (memiliki pole non-stabil). |
+| **Titik Akhir** | Evaluasi apakah $h_{total}$ secara keseluruhan stabil BIBO. |
+| **Rute/Jalan** | 1. Mengingat kriteria stabilitas BIBO untuk LTI: Respon impuls harus *absolutely integrable* ($\int |h_{total}(t)| dt < \infty$). 2. Dalam domain transformasi (Laplace/Z), stabilitas ditentukan oleh pole sistem di Wilayah Konvergensi (ROC). 3. Terapkan sifat kaskade dalam domain transformasi: $H_{total}(s) = H_1(s) H_2(s) H_3(s)$. 4. Analisis kondisi pole/zero: Jika $H_2(s)$ memiliki pole non-stabil yang **tepat dibatalkan** oleh zero di $H_1(s)$ atau $H_3(s)$, maka pole tersebut tidak muncul di $H_{total}(s)$. 5. Evaluasi apakah pembatalan pole non-stabil menjamin stabilitas total. |
+| **Kendaraan** | K_OPS_Definisi (Stabilitas BIBO LTI), K_MAT_Aljabar (Pembatalan Pole/Zero), Heuristik (Mentransformasi Masalah - ke Domain Transformasi), K_OPS_Definisi (Sifat Asosiatif Konvolusi). |
+
+### 3b) Diagram Graphviz PMA WK5-AN-L5-P19
+```dot
+digraph PMA_WK5_AN_L5_P19 {
+    rankdir=TB;
+    node [shape=box, fontname="Helvetica"];
+    
+    A [label="Titik Mulai:\nh_total = h1 * h2 * h3; h2 tidak stabil (Pole P)", style="filled", fillcolor="yellow"];
+    B [label="Heuristik: Mentransformasi Masalah (H_total(s) = H1(s) H2(s) H3(s))"];
+    C [label="Analisis Pole/Zero H_total(s)"];
+    D [label="Apakah Zero (h1/h3) membatalkan Pole P (h2)?\n(K_MAT_Aljabar: Pembatalan Pole/Zero)"];
+    E [label="Jika Ya, Pole P tidak ada di H_total(s)"];
+    F [label="K_OPS_Definisi: Stabilitas BIBO (Semua pole stabil)"];
+    G [label="Titik Akhir:\nKesimpulan Evaluatif Stabilitas", style="filled", fillcolor="lightgreen"];
+    
+    A -> B;
+    B -> C;
+    C -> D;
+    D -> E;
+    E -> F;
+    F -> G;
+}
+```
+
+### 3c) Solusi WK5-AN-L5-P19
+1.  **Sifat Asosiatif dan Kaskade:** Karena sistem LTI, urutan konvolusi tidak masalah ($h_1 * h_2 * h_3 = h_2 * h_1 * h_3$). Kita menganalisis respons impuls total $h_{total}$.
+2.  **Stabilitas Kaskade (Domain Transformasi):** Stabilitas BIBO memerlukan semua pole dalam fungsi alih total $H_{total}(s)$ berada di sisi kiri bidang $s$ (untuk WK kausal).
+    $$H_{total}(s) = H_1(s) H_2(s) H_3(s)$$
+3.  **Analisis Pembatalan Pole:** Misalkan $H_2(s)$ memiliki pole non-stabil di $s = p_u$ (di sisi kanan bidang $s$ atau pada sumbu $j\omega$). Agar $H_{total}(s)$ stabil, harus ada zero di $H_1(s)$ atau $H_3(s)$ yang membatalkan tepat $p_u$.
+4.  **Evaluasi:** Jika pole non-stabil $p_u$ dari $H_2(s)$ **sepenuhnya dibatalkan** oleh zero pada sistem kaskade lainnya, maka $p_u$ tidak akan menjadi pole dari $H_{total}(s)$. Jika semua pole lain di $H_{total}(s)$ stabil, maka **sistem kaskade total ($h_{total}$) akan stabil BIBO**.
+
+**Kesimpulan:**
+Secara matematis (mengabaikan masalah implementasi praktis dan sensitivitas numerik), **YA**, sistem kaskade total dapat menjadi stabil BIBO jika sub-sistem yang tidak stabil ($h_2$) memiliki pole non-stabil yang tepat dibatalkan oleh zero dari sub-sistem lain ($h_1$ atau $h_3$).
+
+---
+
+# 4) Daftar Kendaraan yang Digunakan
+
+Berikut adalah daftar Kendaraan (Matematika, Operasi Dasar, Transformasi, dan Heuristik) yang digunakan atau direkomendasikan untuk memecahkan ke-20 soal di atas, yang mencakup persyaratan Tingkat Bloom yang lebih tinggi (L4-L6) dari tugas analisis:
+
+## A. Matematika (Fundamental)
+*   **K_MAT_Aljabar:** Manipulasi persamaan, faktorisasi polinomial, penyelesaian persamaan karakteristik (akar-akar PD), perbandingan koefisien (untuk $y_p(t)$), penentuan batas integral/sumasi, deret geometri (untuk uji stabilitas diskrit).
+*   **K_MAT_Kalkulus:** Operasi Integral (untuk Konvolusi WK, integral dalam uji stabilitas $\int |h(t)| dt$), Operasi Diferensiasi (untuk turunan PD, dan dalam Konvolusi dengan $\delta'(t)$).
+*   **K_MAT_Bilangan_Kompleks:** Perhitungan akar-akar karakteristik kompleks (untuk $\omega_n$ PD orde 2).
+
+## B. Diagram & Visualisasi
+*   **K_VIS_PlotSinyal:** Untuk memvisualisasikan sinyal input, respon impuls, dan hasil konvolusi (esensial untuk Konvolusi Grafis).
+
+## C. Operasi Dasar Sinyal/Sistem & Definisi
+*   **K_OPS_Definisi (Sifat Konvolusi):** Komutatif, Asosiatif, Distributif, dan sifat-sifat turunan/integral konvolusi.
+*   **K_OPS_Definisi (Sifat Sistem):** Definisi Kausalitas dan Stabilitas BIBO (kriteria $\int |h(t)| dt < \infty$ atau $\sum |h[n]| < \infty$).
+*   **K_OPS_Definisi (PD/PB):** Definisi Orde PD/PB, Solusi Homogen, Solusi Partikular, Kondisi Awal/Nol Kondisi, Resonansi.
+*   **K_OPS_Sinyal_Dasar:** Sifat Sifting Impuls Unit ($\delta(t)$) dalam konvolusi.
+*   **K_OPS_Representasi_Matematis:** Struktur PD LCC orde pertama/kedua.
+
+## D. Transformasi (Algoritma)
+*   **Transformasi Laplace/Z:** Digunakan secara konseptual (Heuristik Mentransformasi Masalah) untuk menganalisis pole/zero sistem, terutama dalam soal desain sistem invers dan evaluasi stabilitas kaskade.
+
+## E. Heuristik (Meta-Kendaraan Strategis)
+*   **Menggambar Diagram:** Digunakan untuk memvisualisasikan pulsa/sinyal dalam Konvolusi Grafis.
+*   **Mentransformasi Masalah:** Mengubah masalah Domain Waktu (Konvolusi atau PD) menjadi masalah Domain Transformasi (Laplace/Z) untuk mencari fungsi alih atau menganalisis pole/zero (misalnya, P19, P12).
+*   **Bekerja Mundur:** Digunakan dalam soal desain (WK5-DS-L6-P10, P12, P18), dimulai dari hasil yang diinginkan (respon impuls/fungsi alih) untuk mendapatkan persamaan aslinya.
+*   **Mencari Pola:** Digunakan untuk menentukan bentuk solusi partikular yang tepat (P05) atau untuk menemukan rentang tumpang tindih dalam konvolusi.
