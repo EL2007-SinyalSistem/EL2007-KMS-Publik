@@ -1,0 +1,204 @@
+# Sistem LTI dan LCCDE
+
+Berikut adalah materi kuliah, peta pengetahuan dasar, kendaraan, 20 soal latihan beserta peta pengetahuan aplikatif dan solusinya, serta daftar kendaraan yang digunakan, dengan mengacu pada tujuan belajar Minggu ke-3 pada sumber RPS.pdf.
+
+---
+
+# Materi Pembelajaran Minggu 3: Analisis Sistem di Domain Waktu
+
+**Capaian Pembelajaran Mata Kuliah (CPMK) Terkait Minggu 3:** Mahasiswa diharapkan mampu **menganalisis respon sistem LTI menggunakan konvolusi dan menyelesaikan persamaan diferensial yang menggambarkan sistem**.
+
+Minggu ini, kita akan mendalami bagaimana sistem waktu kontinu, khususnya Sistem Linear Tak-berubah Waktu (LTI), dianalisis di domain waktu. Fokus utama adalah pada dua alat fundamental: **operasi konvolusi** untuk menentukan output sistem LTI dari input dan respon impulsnya, serta **solusi persamaan diferensial** yang sering digunakan untuk memodelkan sistem fisik LTI.
+
+## 3.1 Sistem LTI (Linear Time-Invariant Systems)
+
+Sistem LTI adalah sistem yang memenuhi sifat linearitas dan invarian waktu. Sistem ini sepenuhnya dikarakterisasi oleh **respon impulsnya**, $h(t)$. Ini berarti bahwa jika $h(t)$ diketahui, output sistem untuk input $x(t)$ apa pun dapat ditentukan.
+
+## 3.2 Konvolusi (Convolution)
+
+Konvolusi adalah operasi matematis yang digunakan untuk menentukan output $y(t)$ dari sistem LTI untuk input $x(t)$ yang diberikan dan respon impuls $h(t)$ sistem.
+
+- **Integral Konvolusi:** Untuk sistem waktu kontinu, integral konvolusi didefinisikan sebagai: $y(t) = x(t) * h(t) = \int_{-\infty}^{\infty} x(\tau)h(t-\tau)d\tau$ Atau, secara ekivalen, $y(t) = \int_{-\infty}^{\infty} h(\tau)x(t-\tau)d\tau$.
+- **Konvolusi Grafis:** Konvolusi juga dapat dilakukan secara grafis melalui langkah-langkah:
+    1. Membalik (flip) salah satu sinyal (misalnya, $h(\tau)$ menjadi $h(-\tau)$).
+    2. Menggeser (shift) sinyal yang dibalik sejauh $t$ (menjadi $h(t-\tau)$).
+    3. Mengalikan (multiply) kedua sinyal, $x(\tau) \cdot h(t-\tau)$.
+    4. Mengintegrasikan (integrate) hasil perkalian dari $-\infty$ hingga $\infty$.
+- **Sifat-sifat Konvolusi:**
+    - **Komutatif:** $x(t) * h(t) = h(t) * x(t)$.
+    - **Distributif:** $x(t) * (h_1(t) + h_2(t)) = (x(t) * h_1(t)) + (x(t) * h_2(t))$.
+    - **Asosiatif:** $x(t) * (h_1(t) * h_2(t)) = (x(t) * h_1(t)) * h_2(t)$.
+    - **Sifat Impuls:** Konvolusi dengan fungsi impuls unit tidak mengubah sinyal: $x(t) * \delta(t) = x(t)$. Ini juga berlaku untuk impuls yang digeser: $x(t) * \delta(t-t_0) = x(t-t_0)$.
+
+## 3.3 Persamaan Diferensial Linear Koefisien Konstan (LCCDEs)
+
+Banyak sistem fisik waktu kontinu dapat dimodelkan menggunakan persamaan diferensial linear koefisien konstan. Bentuk umum dari LCCDE untuk sistem LTI adalah: $ \sum_{k=0}^{N} a_k \frac{d^k y(t)}{dt^k} = \sum_{k=0}^{M} b_k \frac{d^k x(t)}{dt^k} $ Di mana $a_k$ dan $b_k$ adalah konstanta, $x(t)$ adalah input, dan $y(t)$ adalah output. Orde persamaan diferensial ditentukan oleh turunan tertinggi dari output $y(t)$ (yaitu, $N$).
+
+## 3.4 Solusi Persamaan Diferensial
+
+Solusi lengkap dari persamaan diferensial, terutama yang menggambarkan sistem LTI, terdiri dari dua bagian: $y(t) = y_h(t) + y_p(t)$
+
+- **Solusi Homogen ($y_h(t)$) / Respon Karakteristik:**
+    - Menjelaskan perilaku internal sistem (disebut juga respon natural atau zero-input response, jika hanya bergantung pada kondisi awal).
+    - Ditemukan dengan menyelesaikan persamaan karakteristik, yang diperoleh dengan mengganti turunan ke-$k$ dengan $r^k$ dan menyetel input ke nol: $\sum_{k=0}^{N} a_k r^k = 0$.
+    - Bentuk $y_h(t)$ bergantung pada akar-akar persamaan karakteristik:
+        - **Akar Riil Berbeda ($r_1, r_2, \dots$):** $y_h(t) = C_1 e^{r_1 t} + C_2 e^{r_2 t} + \dots$
+        - **Akar Riil Berulang ($r_1$ dengan multiplisitas $u_1$):** $y_h(t) = (C_1 + C_2 t + \dots + C_{u_1} t^{u_1-1}) e^{r_1 t}$.
+        - **Akar Kompleks Konjugat ($\alpha \pm j\beta$):** $y_h(t) = e^{\alpha t}(C_1 \cos(\beta t) + C_2 \sin(\beta t))$.
+- **Solusi Partikular ($y_p(t)$) / Respon Paksa:**
+    - Menjelaskan respon sistem terhadap input tertentu $x(t)$ (disebut juga zero-state response, jika kondisi awal nol).
+    - Bentuk $y_p(t)$ biasanya memiliki bentuk yang sama dengan input $x(t)$ atau turunan-turunannya. Metode yang umum digunakan adalah **metode koefisien tak tentu**. Misalnya, jika input adalah eksponensial $e^{at}$, solusi partikularnya juga akan berbentuk $K e^{at}$ (kecuali jika $a$ adalah akar homogen). Jika $a$ adalah akar homogen, maka bentuknya $K t e^{at}$.
+- **Kondisi Awal (Initial Conditions):**
+    - Diperlukan untuk menentukan konstanta-konstanta ($C_1, C_2, \dots$) dalam solusi homogen dan, pada akhirnya, dalam solusi lengkap. Kondisi awal umumnya mencakup nilai $y(0), y'(0), \dots, y^{(N-1)}(0)$.
+
+---
+
+# Peta Pengetahuan Primitif: Analisis Sistem di Domain Waktu (Minggu 3)
+
+**Tujuan:** Membantu mahasiswa melihat gambaran besar, interkonektivitas antar konsep, dan mengatur pengetahuan deklaratif (fakta dan definisi) sinyal dan sistem waktu kontinu, khususnya terkait analisis sistem di domain waktu.
+
+**Node Pusat:** **Sinyal & Sistem**
+
+- **Cabang 1: SYWK (Sistem Waktu Kontinu)**
+    - **Sub-Cabang 1.1: Representasi & Analisis (SYWK_RepresentasiAnalisis)**
+        - Node: Sistem LTI (SYWK_LTI).
+        - Node: Respon Impuls (SYWK_ResponImpuls).
+        - Node: Persamaan Diferensial (SYWK_PD).
+        - Node: Konvolusi (SYWK_Konvolusi).
+            - Node: Integral Konvolusi (SYWK_IntKonvolusi).
+            - Node: Konvolusi Grafis (SYWK_KonvolusiGrafis).
+            - Node: Sifat Konvolusi (SYWK_SifatKonvolusi).
+                - Node: Komutatif (SifatConv_Komutatif).
+                - Node: Distributif (SifatConv_Distributif).
+                - Node: Asosiatif (SifatConv_Asosiatif).
+                - Node: Impuls (SifatConv_Impuls).
+        - Node: Solusi Persamaan Diferensial (SYWK_SolusiPD).
+            - Node: Solusi Homogen (SYWK_SolusiHomogen).
+                - Node: Persamaan Karakteristik (SYWK_PD_PersamaanKarakteristik).
+                - Node: Akar Riil Berbeda (SYWK_PD_AkarRiilBeda).
+                - Node: Akar Riil Berulang (SYWK_PD_AkarRiilUlang).
+                - Node: Akar Kompleks Konjugat (SYWK_PD_AkarKompleks).
+            - Node: Solusi Partikular (SYWK_SolusiPartikular).
+                - Node: Metode Koefisien Tak Tentu (SYWK_PD_KoefisienTakTentu).
+            - Node: Kondisi Awal (SYWK_KondisiAwal).
+    - **Sub-Cabang 1.2: Sifat Sistem LTI (SYWK_SifatLTI)**
+        - Node: Linearitas (SYWK_Linearitas).
+        - Node: Invariansi Waktu (SYWK_InvarianWaktu).
+        - Node: Kausalitas (SYWK_Kausalitas).
+        - Node: Stabilitas BIBO (SYWK_Stabilitas).
+        - Node: Memori (SYWK_Memori).
+        - Node: Invertibilitas (SYWK_Invertibilitas).
+
+**Hubungan (Edges):**
+
+- "Sinyal & Sistem" **TERDIRI_DARI** "SYWK".
+- "SYWK" **MELIPUTI** "SYWK_RepresentasiAnalisis", "SYWK_SifatLTI".
+- "SYWK_LTI" **DICIRIKAN_OLEH** "SYWK_ResponImpuls".
+- "SYWK_Konvolusi" **MENGHITUNG_OUTPUT_LTI_DARI** "Input" **DAN** "SYWK_ResponImpuls".
+- "SYWK_Konvolusi" **TERDIRI_DARI** "SYWK_IntKonvolusi", "SYWK_KonvolusiGrafis", "SYWK_SifatKonvolusi".
+- "SYWK_SifatKonvolusi" **MELIPUTI** "SifatConv_Komutatif", "SifatConv_Distributif", "SifatConv_Asosiatif", "SifatConv_Impuls".
+- "SYWK_PD" **MENGGAMBARKAN** "SYWK_LTI".
+- "SYWK_SolusiPD" **TERDIRI_DARI** "SYWK_SolusiHomogen", "SYWK_SolusiPartikular" **DAN_MEMBUTUHKAN** "SYWK_KondisiAwal".
+- "SYWK_SolusiHomogen" **DITENTUKAN_OLEH** "SYWK_PD_PersamaanKarakteristik" **YANG_MENGHASILKAN** "SYWK_PD_AkarRiilBeda", "SYWK_PD_AkarRiilUlang", "SYWK_PD_AkarKompleks".
+- "SYWK_SolusiPartikular" **DITENTUKAN_OLEH** "SYWK_PD_KoefisienTakTentu" **SESUAI_INPUT**.
+- "SWK_UnitImpuls" **ADALAH_INPUT_UNTUK_MENCARI** "SYWK_ResponImpuls".
+- "SYWK_ResponImpuls" **MENENTUKAN** "SYWK_Kausalitas" (jika $h(t)=0$ untuk $t<0$) **DAN** "SYWK_Stabilitas" (jika $\int |h(t)|dt < \infty$).
+- "SYWK_SifatLTI" **MELIPUTI** "SYWK_Linearitas", "SYWK_InvarianWaktu", "SYWK_Kausalitas", "SYWK_Stabilitas", "SYWK_Memori", "SYWK_Invertibilitas".
+
+**Struktur Visual:** Hierarkis, dengan "Sinyal & Sistem" sebagai node pusat, bercabang ke topik utama, kemudian merinci sub-topik di bawahnya.
+
+---
+
+# Kendaraan Matematika (Mathematical Vehicles) untuk Minggu 3
+
+Ini adalah alat, teknik, dan metode spesifik yang digunakan untuk memecahkan masalah dalam domain Sinyal dan Sistem, khususnya terkait analisis sistem di domain waktu.
+
+- **K_MAT_Aljabar:** Untuk manipulasi ekspresi matematis, penyelesaian persamaan karakteristik, penyederhanaan hasil konvolusi, substitusi, dan evaluasi ekspresi.
+- **K_MAT_Kalkulus:** Untuk diferensiasi (turunan) dan integrasi fungsi waktu kontinu. Ini krusial untuk integral konvolusi, mencari solusi persamaan diferensial (homogen dan partikular), dan menganalisis respon impuls.
+- **K_MAT_Bilangan_Kompleks:** Untuk bekerja dengan akar-akar kompleks persamaan karakteristik dan memahami representasi fasor.
+- **K_OPS_Definisi:** Untuk memahami dan menyatakan definisi-definisi kunci dari Konvolusi, Respon Impuls, Solusi Homogen/Partikular, Kondisi Awal, dan sifat-sifat sistem LTI.
+- **K_OPS_Konvolusi_Grafis:** Metode langkah-demi-langkah untuk melakukan konvolusi secara visual.
+- **K_OPS_Konvolusi_Integral:** Penerapan langsung rumus integral konvolusi.
+- **K_OPS_Solusi_PD_Homogen:** Teknik untuk menemukan solusi homogen berdasarkan akar persamaan karakteristik.
+- **K_OPS_Solusi_PD_Partikular:** Teknik untuk menemukan solusi partikular (misalnya, metode koefisien tak tentu).
+- **K_OPS_Akar_PD_Karakteristik:** Prosedur untuk mencari akar-akar dari persamaan karakteristik.
+- **K_OPS_Kondisi_Awal:** Prosedur untuk menentukan konstanta dari solusi lengkap menggunakan kondisi awal.
+- **K_OPS_PartialFractionExpansion:** Teknik untuk memecah fungsi rasional menjadi penjumlahan suku-suku sederhana (sering digunakan dalam mencari respon impuls dari PD dengan turunan input).
+- **K_VIS_PlotSinyal:** Untuk memvisualisasikan sinyal, terutama dalam konvolusi grafis dan plotting solusi PD.
+- **K_KOM_SymPy:** (Super Kendaraan) Alat komputasi simbolik untuk membantu menyelesaikan persamaan diferensial dan integral secara analitis.
+- **Heuristik_MenggambarDiagram:** Strategi untuk memvisualisasikan masalah atau langkah solusi.
+- **Heuristik_MenyederhanakanMasalah:** Strategi untuk memecah masalah kompleks menjadi sub-masalah yang lebih kecil.
+
+---
+
+# 20 Soal Latihan (Tanpa Solusi)
+
+Berikut adalah 20 soal latihan yang mencerminkan topik Analisis Sistem di Domain Waktu, beserta Nomor Produk yang mengindikasikan Topik, Level Taksonomi Bloom, dan Nomor Soal. **Format Nomor Produk:** WK3-TP_BX_PY (Week 3, Topic, Bloom Level X, Problem Y). (Contoh Topik: Conv=Konvolusi, PD=Persamaan Diferensial, LTI=Sifat Sistem LTI)
+
+1. **WK3-Conv_B2_P01: Definisi Konvolusi** Jelaskan **apa yang dimaksud dengan operasi konvolusi** dalam konteks analisis sistem LTI waktu kontinu. Mengapa operasi ini penting?
+    
+2. **WK3-Conv_B3_P02: Konvolusi Fungsi Step** Hitung dan sketsakan konvolusi $y(t) = u(t) * u(t)$.
+    
+3. **WK3-Conv_B3_P03: Konvolusi Eksponensial** Tentukan konvolusi $y(t) = x(t) * h(t)$ di mana $x(t) = e^{-2t}u(t)$ dan $h(t) = e^{-3t}u(t)$.
+    
+4. **WK3-Conv_B3_P04: Konvolusi dengan Impuls Digeser** Diberikan sinyal input $x(t) = \cos(2t)u(t)$ dan respon impuls $h(t) = \delta(t- \pi/4)$. Tentukan output sistem LTI $y(t) = x(t) * h(t)$.
+    
+5. **WK3-Conv_B4_P05: Konvolusi Grafis Pulsa Persegi** Diberikan sinyal $x(t) = u(t) - u(t-1)$ dan $h(t) = u(t) - u(t-2)$. Sketsakan secara grafis hasil konvolusi $y(t) = x(t) * h(t)$.
+    
+6. **WK3-Conv_B4_P06: Konvolusi dengan Kombinasi Impuls** Sistem LTI memiliki respon impuls $h(t) = e^{-t}u(t)$. Tentukan output sistem jika inputnya adalah $x(t) = 3\delta(t) + \delta(t-2)$.
+    
+7. **WK3-PD_B2_P07: Komponen Solusi Persamaan Diferensial** Sebutkan dan jelaskan dua komponen utama yang membentuk solusi lengkap dari persamaan diferensial linear koefisien konstan.
+    
+8. **WK3-PD_B3_P08: Solusi Homogen - Akar Riil Berbeda** Tentukan solusi homogen $y_h(t)$ dari persamaan diferensial: $\frac{d^2 y(t)}{dt^2} + 5 \frac{dy(t)}{dt} + 6 y(t) = 2x(t)$.
+    
+9. **WK3-PD_B3_P09: Solusi Homogen - Akar Riil Berulang** Tentukan solusi homogen $y_h(t)$ dari persamaan diferensial: $\frac{d^2 y(t)}{dt^2} + 6 \frac{dy(t)}{dt} + 9 y(t) = 3x(t)$.
+    
+10. **WK3-PD_B3_P10: Solusi Homogen - Akar Kompleks Konjugat** Tentukan solusi homogen $y_h(t)$ dari persamaan diferensial: $\frac{d^2 y(t)}{dt^2} + 4 \frac{dy(t)}{dt} + 13 y(t) = 5x(t)$.
+    
+11. **WK3-PD_B3_P11: Solusi Partikular - Input Konstanta** Tentukan solusi partikular $y_p(t)$ dari persamaan diferensial: $\frac{dy(t)}{dt} + 4y(t) = 8u(t)$.
+    
+12. **WK3-PD_B3_P12: Solusi Partikular - Input Eksponensial (Non-Resonan)** Tentukan solusi partikular $y_p(t)$ dari persamaan diferensial: $\frac{dy(t)}{dt} + 2y(t) = 3e^{-4t}u(t)$.
+    
+13. **WK3-PD_B4_P13: Solusi Partikular - Input Eksponensial (Resonan)** Tentukan solusi partikular $y_p(t)$ dari persamaan diferensial: $\frac{dy(t)}{dt} + 5y(t) = e^{-5t}u(t)$.
+    
+14. **WK3-PD_B4_P14: Solusi Lengkap dengan Kondisi Awal Nol** Sistem LTI dijelaskan oleh $\frac{dy(t)}{dt} + 2y(t) = x(t)$. Tentukan solusi lengkap $y(t)$ jika input $x(t) = u(t)$ dan sistem berada dalam kondisi awal nol (yaitu, $y(0^-)=0$).
+    
+15. **WK3-LTI_B4_P15: Respon Impuls dari PD Orde Pertama** Tentukan respon impuls $h(t)$ dari sistem LTI yang dijelaskan oleh persamaan diferensial: $\frac{dy(t)}{dt} + 5y(t) = x(t)$. Asumsikan sistem kausal.
+    
+16. **WK3-Conv_B4_P16: Sifat Distributif Konvolusi** Diberikan $x(t) = e^{-t}u(t)$, $h_1(t) = \delta(t-1)$, dan $h_2(t) = \delta(t-2)$. Gunakan sifat distributif konvolusi untuk menentukan $y(t) = x(t) * (h_1(t) + h_2(t))$.
+    
+17. **WK3-LTI_B4_P17: Kriteria Kausalitas dan Stabilitas LTI** Jelaskan kriteria yang harus dipenuhi oleh respon impuls $h(t)$ agar sistem LTI waktu kontinu bersifat **kausal** dan **stabil BIBO**.
+    
+18. **WK3-PD_B5_P18: Respon Impuls dari PD dengan Turunan Input** Tentukan respon impuls $h(t)$ dari sistem LTI yang dijelaskan oleh persamaan diferensial: $\frac{d y(t)}{dt} + 3 y(t) = 2 \frac{d x(t)}{dt} + x(t)$. Asumsikan sistem kausal.
+    
+19. **WK3-Conv_B4_P19: Konvolusi dengan Pulsa Persegi dan Impuls** Hitung dan sketsakan konvolusi $y(t) = x(t) * h(t)$ di mana $x(t) = u(t) - u(t-1)$ dan $h(t) = \delta(t+1) - \delta(t)$.
+    
+20. **WK3-PD_B6_P20: Solusi Lengkap Sistem LTI Orde Kedua** Sistem LTI orde kedua dijelaskan oleh $\frac{d^2 y(t)}{dt^2} + 4 \frac{dy(t)}{dt} + 3 y(t) = x(t)$. Tentukan solusi lengkap $y(t)$ jika input $x(t) = 6u(t)$ dan kondisi awal adalah $y(0) = 1$, $y'(0) = -1$.
+    
+
+
+
+# Daftar Kendaraan yang Digunakan
+
+Berikut adalah daftar kendaraan unik yang digunakan di seluruh Peta Pengetahuan Aplikatif di atas, dikategorikan sesuai dengan jenisnya.
+
+- **Matematika (Fundamental):**
+    
+    - **K_MAT_Aljabar:** Manipulasi ekspresi matematis, penyelesaian persamaan, faktorisasi, penyederhanaan, substitusi sinyal, penentuan batas, penyelesaian konstanta, penyelesaian sistem persamaan linear.
+    - **K_MAT_Kalkulus:** Diferensiasi, integrasi, turunan (aturan produk).
+    - **K_MAT_Bilangan_Kompleks:** Bekerja dengan akar kompleks konjugat, rumus kuadrat.
+- **Operasi Dasar Sinyal/Sistem:**
+    
+    - **K_OPS_Definisi:** Konvolusi, Respon Impuls, Sistem LTI, Solusi Persamaan Diferensial, Solusi Homogen, Solusi Partikular, Sinyal Impuls Unit, Sifat Impuls Konvolusi, Sifat Distributif Konvolusi, Kausalitas Sistem LTI, Stabilitas BIBO Sistem LTI.
+    - **K_OPS_Konvolusi_Integral:** Penerapan rumus integral konvolusi.
+    - **K_OPS_Konvolusi_Grafis:** Metode langkah-demi-langkah untuk konvolusi visual.
+    - **K_OPS_Solusi_PD_Homogen:** Teknik untuk menemukan solusi homogen.
+    - **K_OPS_Solusi_PD_Partikular:** Teknik untuk menemukan solusi partikular (metode koefisien tak tentu).
+    - **K_OPS_Akar_PD_Karakteristik:** Prosedur untuk mencari akar-akar persamaan karakteristik.
+    - **K_OPS_Kondisi_Awal:** Prosedur untuk menentukan konstanta dari solusi lengkap menggunakan kondisi awal.
+- **Diagram & Visualisasi:**
+    
+    - **K_VIS_PlotSinyal:** Menggambar diagram sinyal.
+- **Heuristik:**
+    
+    - **Heuristik_MenggambarDiagram:** Strategi untuk memvisualisasikan masalah atau langkah solusi.
