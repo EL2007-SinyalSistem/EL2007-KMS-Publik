@@ -427,46 +427,198 @@ window.Quarto = {
 <section id="c-diagram-graphviz-peta-pengetahuan-dasar" class="level2" data-number="6.3">
 <h2 data-number="6.3" class="anchored" data-anchor-id="c-diagram-graphviz-peta-pengetahuan-dasar"><span class="header-section-number">6.3</span> (c) Diagram Graphviz Peta Pengetahuan Dasar</h2>
 <p>Berikut adalah kode Graphviz DOT untuk memvisualisasikan Peta Pengetahuan Primitif di atas:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode dot code-with-copy"><code class="sourceCode dot"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">digraph</span> <span class="va">G</span> <span class="ot">{</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="at">rankdir</span><span class="ot">=</span><span class="va">TB</span><span class="ot">;</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="kw">node</span><span class="co"> </span><span class="ot">[</span><span class="at">shape</span><span class="ot">=</span><span class="va">box</span><span class="co">, </span><span class="at">style</span><span class="ot">=</span><span class="st">"filled"</span><span class="co">, </span><span class="at">color</span><span class="ot">=</span><span class="st">"lightblue"</span><span class="co">, </span><span class="at">fontname</span><span class="ot">=</span><span class="st">"Helvetica"</span><span class="ot">];</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="kw">edge</span><span class="co"> </span><span class="ot">[</span><span class="at">fontname</span><span class="ot">=</span><span class="st">"Helvetica"</span><span class="co">, </span><span class="at">fontsize</span><span class="ot">=</span><span class="dv">10</span><span class="ot">];</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">ANALISIS_DW</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"ANALISIS SISTEM DOMAIN WAKTU (Minggu 5)"</span><span class="co">, </span><span class="at">shape</span><span class="ot">=</span><span class="va">octagon</span><span class="co">, </span><span class="at">style</span><span class="ot">=</span><span class="st">"filled"</span><span class="co">, </span><span class="at">fillcolor</span><span class="ot">=</span><span class="st">"red:yellow"</span><span class="co">, </span><span class="va">gradientangle</span><span class="ot">=</span><span class="dv">270</span><span class="ot">];</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">SYWK_LTI</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Sistem LTI (WK)"</span><span class="ot">];</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">SYWK_ResponImpuls</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Respon Impuls h(t)"</span><span class="ot">];</span></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">SYWK_Konvolusi</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Konvolusi"</span><span class="ot">];</span></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">SYWK_PD</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Persamaan Diferensial LCC"</span><span class="ot">];</span></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">SYWK_SolusiPD</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Solusi PD Lengkap"</span><span class="ot">];</span></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">OUTPUT</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Output Sistem y(t)"</span><span class="co">, </span><span class="at">fillcolor</span><span class="ot">=</span><span class="st">"lightgreen"</span><span class="ot">];</span></span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="co">    </span></span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">SUB_CV</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Integral Konvolusi &amp; Sifat"</span><span class="co">, </span><span class="at">shape</span><span class="ot">=</span><span class="va">folder</span><span class="co">, </span><span class="at">fillcolor</span><span class="ot">=</span><span class="st">"lightyellow"</span><span class="ot">];</span></span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">SUB_PD</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Solusi Homogen &amp; Partikular"</span><span class="co">, </span><span class="at">shape</span><span class="ot">=</span><span class="va">folder</span><span class="co">, </span><span class="at">fillcolor</span><span class="ot">=</span><span class="st">"lightyellow"</span><span class="ot">];</span></span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="co">    </span></span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">ANALISIS_DW</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">SYWK_Konvolusi</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"melalui"</span><span class="ot">];</span></span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">ANALISIS_DW</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">SYWK_PD</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"melalui"</span><span class="ot">];</span></span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="co">    </span></span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">SYWK_Konvolusi</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">OUTPUT</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Menghasilkan"</span><span class="ot">];</span></span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">SYWK_Konvolusi</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">SUB_CV</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Rincian"</span><span class="ot">];</span></span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="co">    </span></span>
-<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">SYWK_PD</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">SYWK_LTI</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Menggambarkan"</span><span class="ot">];</span></span>
-<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">SYWK_PD</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">SUB_PD</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Rincian"</span><span class="ot">];</span></span>
-<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">SYWK_PD</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">OUTPUT</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Menghasilkan Solusi"</span><span class="ot">];</span></span>
-<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a><span class="co">    </span></span>
-<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">SYWK_LTI</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">SYWK_ResponImpuls</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Dicirikan oleh"</span><span class="ot">];</span></span>
-<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">SYWK_ResponImpuls</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">SYWK_Konvolusi</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Input Dasar untuk"</span><span class="ot">];</span></span>
-<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a><span class="co">    </span></span>
-<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">SUB_PD</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">SYWK_SolusiPD</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Perlu"</span><span class="ot">];</span></span>
-<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">SYWK_SolusiPD</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">OUTPUT</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Hasil Akhir"</span><span class="ot">];</span></span>
-<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a><span class="co">    </span></span>
-<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a><span class="co">    // Hubungan Internal Solusi PD</span></span>
-<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">SYWK_SolusiPD</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">SYWK_SolusiHomogen</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"terdiri dari"</span><span class="ot">];</span></span>
-<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">SYWK_SolusiPD</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">SYWK_SolusiPartikular</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"terdiri dari"</span><span class="ot">];</span></span>
-<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">SYWK_SolusiHomogen</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Solusi Homogen (y_h)"</span><span class="ot">];</span></span>
-<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">SYWK_SolusiPartikular</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Solusi Partikular (y_p)"</span><span class="ot">];</span></span>
-<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">KondisiAwal</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Kondisi Awal"</span><span class="co">, </span><span class="at">fillcolor</span><span class="ot">=</span><span class="st">"salmon"</span><span class="ot">];</span></span>
-<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">SYWK_SolusiPD</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">KondisiAwal</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Membutuhkan"</span><span class="ot">];</span></span>
-<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a><span class="ot">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<svg width="672" height="480" viewbox="0.00 0.00 981.12 464.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 460)">
+<title>G</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-460 977.12,-460 977.12,4 -4,4"></polygon>
+<!-- ANALISIS_DW -->
+<g id="node1" class="node">
+<title>ANALISIS_DW</title>
+<defs>
+<lineargradient id="l_0" gradientunits="userSpaceOnUse" x1="239.04" y1="-456" x2="239.04" y2="-420">
+<stop offset="0" style="stop-color:red;stop-opacity:1.;"></stop>
+<stop offset="1" style="stop-color:yellow;stop-opacity:1.;"></stop>
+</lineargradient>
+</defs>
+<polygon fill="url(#l_0)" stroke="lightblue" points="478.13,-430.54 478.13,-445.46 338.08,-456 140.01,-456 -0.04,-445.46 -0.04,-430.54 140.01,-420 338.08,-420 478.13,-430.54"></polygon>
+<text text-anchor="middle" x="239.04" y="-433.8" font-family="Helvetica,sans-Serif" font-size="14.00">ANALISIS SISTEM DOMAIN WAKTU (Minggu 5)</text>
+</g>
+<!-- SYWK_Konvolusi -->
+<g id="node4" class="node">
+<title>SYWK_Konvolusi</title>
+<polygon fill="lightblue" stroke="lightblue" points="314.25,-120 237.84,-120 237.84,-84 314.25,-84 314.25,-120"></polygon>
+<text text-anchor="middle" x="276.04" y="-97.8" font-family="Helvetica,sans-Serif" font-size="14.00">Konvolusi</text>
+</g>
+<!-- ANALISIS_DW&#45;&gt;SYWK_Konvolusi -->
+<g id="edge1" class="edge">
+<title>ANALISIS_DW-&gt;SYWK_Konvolusi</title>
+<path fill="none" stroke="black" d="M233.72,-419.91C229.06,-403.45 223.04,-377.77 223.04,-355 223.04,-355 223.04,-355 223.04,-185 223.04,-163.2 236.42,-142.62 249.73,-127.52"></path>
+<polygon fill="black" stroke="black" points="252.34,-129.85 256.61,-120.15 247.23,-125.07 252.34,-129.85"></polygon>
+<text text-anchor="middle" x="238.88" y="-267" font-family="Helvetica,sans-Serif" font-size="10.00">melalui</text>
+</g>
+<!-- SYWK_PD -->
+<g id="node5" class="node">
+<title>SYWK_PD</title>
+<polygon fill="lightblue" stroke="lightblue" points="477.56,-372 288.53,-372 288.53,-336 477.56,-336 477.56,-372"></polygon>
+<text text-anchor="middle" x="383.04" y="-349.8" font-family="Helvetica,sans-Serif" font-size="14.00">Persamaan Diferensial LCC</text>
+</g>
+<!-- ANALISIS_DW&#45;&gt;SYWK_PD -->
+<g id="edge2" class="edge">
+<title>ANALISIS_DW-&gt;SYWK_PD</title>
+<path fill="none" stroke="black" d="M269.23,-419.81C291.02,-407.4 320.64,-390.54 344.19,-377.12"></path>
+<polygon fill="black" stroke="black" points="345.94,-380.16 352.9,-372.17 342.48,-374.07 345.94,-380.16"></polygon>
+<text text-anchor="middle" x="334.88" y="-393" font-family="Helvetica,sans-Serif" font-size="10.00">melalui</text>
+</g>
+<!-- SYWK_LTI -->
+<g id="node2" class="node">
+<title>SYWK_LTI</title>
+<polygon fill="lightblue" stroke="lightblue" points="391.21,-288 272.88,-288 272.88,-252 391.21,-252 391.21,-288"></polygon>
+<text text-anchor="middle" x="332.04" y="-265.8" font-family="Helvetica,sans-Serif" font-size="14.00">Sistem LTI (WK)</text>
+</g>
+<!-- SYWK_ResponImpuls -->
+<g id="node3" class="node">
+<title>SYWK_ResponImpuls</title>
+<polygon fill="lightblue" stroke="lightblue" points="385.31,-204 250.78,-204 250.78,-168 385.31,-168 385.31,-204"></polygon>
+<text text-anchor="middle" x="318.04" y="-181.8" font-family="Helvetica,sans-Serif" font-size="14.00">Respon Impuls h(t)</text>
+</g>
+<!-- SYWK_LTI&#45;&gt;SYWK_ResponImpuls -->
+<g id="edge8" class="edge">
+<title>SYWK_LTI-&gt;SYWK_ResponImpuls</title>
+<path fill="none" stroke="black" d="M329.08,-251.61C327.23,-240.77 324.81,-226.6 322.7,-214.29"></path>
+<polygon fill="black" stroke="black" points="326.09,-213.35 320.96,-204.08 319.19,-214.53 326.09,-213.35"></polygon>
+<text text-anchor="middle" x="355.06" y="-225" font-family="Helvetica,sans-Serif" font-size="10.00">Dicirikan oleh</text>
+</g>
+<!-- SYWK_ResponImpuls&#45;&gt;SYWK_Konvolusi -->
+<g id="edge9" class="edge">
+<title>SYWK_ResponImpuls-&gt;SYWK_Konvolusi</title>
+<path fill="none" stroke="black" d="M309.14,-167.61C303.42,-156.45 295.89,-141.74 289.45,-129.18"></path>
+<polygon fill="black" stroke="black" points="292.47,-127.39 284.8,-120.08 286.24,-130.58 292.47,-127.39"></polygon>
+<text text-anchor="middle" x="338.51" y="-141" font-family="Helvetica,sans-Serif" font-size="10.00">Input Dasar untuk</text>
+</g>
+<!-- OUTPUT -->
+<g id="node7" class="node">
+<title>OUTPUT</title>
+<polygon fill="lightgreen" stroke="lightblue" points="494.35,-36 365.74,-36 365.74,0 494.35,0 494.35,-36"></polygon>
+<text text-anchor="middle" x="430.04" y="-13.8" font-family="Helvetica,sans-Serif" font-size="14.00">Output Sistem y(t)</text>
+</g>
+<!-- SYWK_Konvolusi&#45;&gt;OUTPUT -->
+<g id="edge3" class="edge">
+<title>SYWK_Konvolusi-&gt;OUTPUT</title>
+<path fill="none" stroke="black" d="M298.72,-83.89C311.9,-74.39 329.09,-62.75 345.34,-54 354.58,-49.03 364.67,-44.29 374.58,-40.01"></path>
+<polygon fill="black" stroke="black" points="376.12,-43.15 383.98,-36.04 373.4,-36.7 376.12,-43.15"></polygon>
+<text text-anchor="middle" x="375.9" y="-57" font-family="Helvetica,sans-Serif" font-size="10.00">Menghasilkan</text>
+</g>
+<!-- SUB_CV -->
+<g id="node8" class="node">
+<title>SUB_CV</title>
+<polygon fill="lightyellow" stroke="lightblue" points="347.47,-36 344.47,-40 323.47,-40 320.47,-36 174.62,-36 174.62,0 347.47,0 347.47,-36"></polygon>
+<text text-anchor="middle" x="261.04" y="-13.8" font-family="Helvetica,sans-Serif" font-size="14.00">Integral Konvolusi &amp; Sifat</text>
+</g>
+<!-- SYWK_Konvolusi&#45;&gt;SUB_CV -->
+<g id="edge4" class="edge">
+<title>SYWK_Konvolusi-&gt;SUB_CV</title>
+<path fill="none" stroke="black" d="M272.86,-83.61C270.88,-72.77 268.29,-58.6 266.04,-46.29"></path>
+<polygon fill="black" stroke="black" points="269.41,-45.29 264.17,-36.08 262.53,-46.55 269.41,-45.29"></polygon>
+<text text-anchor="middle" x="286.72" y="-57" font-family="Helvetica,sans-Serif" font-size="10.00">Rincian</text>
+</g>
+<!-- SYWK_PD&#45;&gt;SYWK_LTI -->
+<g id="edge5" class="edge">
+<title>SYWK_PD-&gt;SYWK_LTI</title>
+<path fill="none" stroke="black" d="M348.21,-335.94C341.69,-331.09 335.76,-325.13 332,-318 328.86,-312.03 327.75,-305.01 327.69,-298.25"></path>
+<polygon fill="black" stroke="black" points="331.2,-298.21 328.32,-288.01 324.21,-297.78 331.2,-298.21"></polygon>
+<text text-anchor="middle" x="368.57" y="-309" font-family="Helvetica,sans-Serif" font-size="10.00">Menggambarkan</text>
+</g>
+<!-- SYWK_PD&#45;&gt;OUTPUT -->
+<g id="edge7" class="edge">
+<title>SYWK_PD-&gt;OUTPUT</title>
+<path fill="none" stroke="black" d="M396.34,-335.83C407.29,-319.93 421.04,-295.16 421.04,-271 421.04,-271 421.04,-271 421.04,-101 421.04,-82.73 423.28,-62.31 425.52,-46.41"></path>
+<polygon fill="black" stroke="black" points="429.03,-46.62 427.05,-36.22 422.11,-45.59 429.03,-46.62"></polygon>
+<text text-anchor="middle" x="466.9" y="-183" font-family="Helvetica,sans-Serif" font-size="10.00">Menghasilkan Solusi</text>
+</g>
+<!-- SUB_PD -->
+<g id="node9" class="node">
+<title>SUB_PD</title>
+<polygon fill="lightyellow" stroke="lightblue" points="675.52,-288 672.52,-292 651.52,-292 648.52,-288 480.57,-288 480.57,-252 675.52,-252 675.52,-288"></polygon>
+<text text-anchor="middle" x="578.04" y="-265.8" font-family="Helvetica,sans-Serif" font-size="14.00">Solusi Homogen &amp; Partikular</text>
+</g>
+<!-- SYWK_PD&#45;&gt;SUB_PD -->
+<g id="edge6" class="edge">
+<title>SYWK_PD-&gt;SUB_PD</title>
+<path fill="none" stroke="black" d="M423.92,-335.81C454.32,-323.03 495.94,-305.53 528.27,-291.93"></path>
+<polygon fill="black" stroke="black" points="529.69,-295.13 537.55,-288.03 526.98,-288.68 529.69,-295.13"></polygon>
+<text text-anchor="middle" x="508.72" y="-309" font-family="Helvetica,sans-Serif" font-size="10.00">Rincian</text>
+</g>
+<!-- SYWK_SolusiPD -->
+<g id="node6" class="node">
+<title>SYWK_SolusiPD</title>
+<polygon fill="lightblue" stroke="lightblue" points="677.62,-204 542.47,-204 542.47,-168 677.62,-168 677.62,-204"></polygon>
+<text text-anchor="middle" x="610.04" y="-181.8" font-family="Helvetica,sans-Serif" font-size="14.00">Solusi PD Lengkap</text>
+</g>
+<!-- SYWK_SolusiPD&#45;&gt;OUTPUT -->
+<g id="edge11" class="edge">
+<title>SYWK_SolusiPD-&gt;OUTPUT</title>
+<path fill="none" stroke="black" d="M554.56,-167.96C528.15,-157.57 497.73,-141.98 476.26,-120 456.01,-99.28 443.62,-68.1 436.83,-45.87"></path>
+<polygon fill="black" stroke="black" points="440.13,-44.71 434.01,-36.06 433.41,-46.64 440.13,-44.71"></polygon>
+<text text-anchor="middle" x="499.94" y="-99" font-family="Helvetica,sans-Serif" font-size="10.00">Hasil Akhir</text>
+</g>
+<!-- SYWK_SolusiHomogen -->
+<g id="node10" class="node">
+<title>SYWK_SolusiHomogen</title>
+<polygon fill="lightblue" stroke="lightblue" points="687.06,-120 533.03,-120 533.03,-84 687.06,-84 687.06,-120"></polygon>
+<text text-anchor="middle" x="610.04" y="-97.8" font-family="Helvetica,sans-Serif" font-size="14.00">Solusi Homogen (y_h)</text>
+</g>
+<!-- SYWK_SolusiPD&#45;&gt;SYWK_SolusiHomogen -->
+<g id="edge12" class="edge">
+<title>SYWK_SolusiPD-&gt;SYWK_SolusiHomogen</title>
+<path fill="none" stroke="black" d="M610.04,-167.61C610.04,-156.77 610.04,-142.6 610.04,-130.29"></path>
+<polygon fill="black" stroke="black" points="613.55,-130.08 610.04,-120.08 606.55,-130.08 613.55,-130.08"></polygon>
+<text text-anchor="middle" x="632.27" y="-141" font-family="Helvetica,sans-Serif" font-size="10.00">terdiri dari</text>
+</g>
+<!-- SYWK_SolusiPartikular -->
+<g id="node11" class="node">
+<title>SYWK_SolusiPartikular</title>
+<polygon fill="lightblue" stroke="lightblue" points="858.48,-120 705.61,-120 705.61,-84 858.48,-84 858.48,-120"></polygon>
+<text text-anchor="middle" x="782.04" y="-97.8" font-family="Helvetica,sans-Serif" font-size="14.00">Solusi Partikular (y_p)</text>
+</g>
+<!-- SYWK_SolusiPD&#45;&gt;SYWK_SolusiPartikular -->
+<g id="edge13" class="edge">
+<title>SYWK_SolusiPD-&gt;SYWK_SolusiPartikular</title>
+<path fill="none" stroke="black" d="M646.1,-167.81C672.56,-155.19 708.68,-137.98 737.04,-124.46"></path>
+<polygon fill="black" stroke="black" points="738.81,-127.49 746.33,-120.03 735.8,-121.17 738.81,-127.49"></polygon>
+<text text-anchor="middle" x="728.27" y="-141" font-family="Helvetica,sans-Serif" font-size="10.00">terdiri dari</text>
+</g>
+<!-- KondisiAwal -->
+<g id="node12" class="node">
+<title>KondisiAwal</title>
+<polygon fill="salmon" stroke="lightblue" points="973.2,-120 876.89,-120 876.89,-84 973.2,-84 973.2,-120"></polygon>
+<text text-anchor="middle" x="925.04" y="-97.8" font-family="Helvetica,sans-Serif" font-size="14.00">Kondisi Awal</text>
+</g>
+<!-- SYWK_SolusiPD&#45;&gt;KondisiAwal -->
+<g id="edge14" class="edge">
+<title>SYWK_SolusiPD-&gt;KondisiAwal</title>
+<path fill="none" stroke="black" d="M677.88,-168.82C701.96,-163 729.23,-156.31 754.04,-150 804.4,-137.2 817,-133.98 867.04,-120 867.15,-119.97 867.25,-119.94 867.35,-119.92"></path>
+<polygon fill="black" stroke="black" points="868.3,-123.28 876.97,-117.2 866.39,-116.55 868.3,-123.28"></polygon>
+<text text-anchor="middle" x="830.73" y="-141" font-family="Helvetica,sans-Serif" font-size="10.00">Membutuhkan</text>
+</g>
+<!-- SUB_PD&#45;&gt;SYWK_SolusiPD -->
+<g id="edge10" class="edge">
+<title>SUB_PD-&gt;SYWK_SolusiPD</title>
+<path fill="none" stroke="black" d="M584.83,-251.61C589.15,-240.56 594.81,-226.03 599.68,-213.55"></path>
+<polygon fill="black" stroke="black" points="603,-214.67 603.38,-204.08 596.48,-212.13 603,-214.67"></polygon>
+<text text-anchor="middle" x="606.72" y="-225" font-family="Helvetica,sans-Serif" font-size="10.00">Perlu</text>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
 </section>
 <section id="d-kendaraan-yang-diperlukan" class="level2" data-number="6.4">
 <h2 data-number="6.4" class="anchored" data-anchor-id="d-kendaraan-yang-diperlukan"><span class="header-section-number">6.4</span> (d) Kendaraan yang Diperlukan</h2>
@@ -708,24 +860,98 @@ window.Quarto = {
 </section>
 <section id="b-diagram-graphviz-pma-wk5-cv-l3-p01" class="level3" data-number="8.1.2">
 <h3 data-number="8.1.2" class="anchored" data-anchor-id="b-diagram-graphviz-pma-wk5-cv-l3-p01"><span class="header-section-number">8.1.2</span> 3b) Diagram Graphviz PMA WK5-CV-L3-P01</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode dot code-with-copy"><code class="sourceCode dot"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">digraph</span> <span class="va">PMA_WK5_CV_L3_P01</span> <span class="ot">{</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="at">rankdir</span><span class="ot">=</span><span class="va">LR</span><span class="ot">;</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="kw">node</span><span class="co"> </span><span class="ot">[</span><span class="at">shape</span><span class="ot">=</span><span class="va">box</span><span class="co">, </span><span class="at">fontname</span><span class="ot">=</span><span class="st">"Helvetica"</span><span class="ot">];</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co">    </span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">A</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Titik Mulai:\nx(t)=u(t)-u(t-1), h(t)=u(t)-u(t-2)"</span><span class="co">, </span><span class="at">style</span><span class="ot">=</span><span class="st">"filled"</span><span class="co">, </span><span class="at">fillcolor</span><span class="ot">=</span><span class="st">"yellow"</span><span class="ot">];</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">B</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Heuristik: Gambar x(τ) dan h(t-τ)"</span><span class="ot">];</span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">C</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Tentukan Batas Overlap (Kasus 1: 0&lt;t&lt;1, Kasus 2: 1&lt;t&lt;2, Kasus 3: 2&lt;t&lt;3)"</span><span class="ot">];</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">D</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Kendaraan: K_MAT_Kalkulus (Integrasi)"</span><span class="ot">];</span></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">E</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Hitung y(t) = ∫ x(τ)h(t-τ)dτ untuk setiap kasus"</span><span class="ot">];</span></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">F</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Kendaraan: K_VIS_PlotSinyal"</span><span class="ot">];</span></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">G</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Titik Akhir:\nEkspresi &amp; Sketsa y(t)"</span><span class="co">, </span><span class="at">style</span><span class="ot">=</span><span class="st">"filled"</span><span class="co">, </span><span class="at">fillcolor</span><span class="ot">=</span><span class="st">"lightgreen"</span><span class="ot">];</span></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="co">    </span></span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">A</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">B</span><span class="ot">;</span></span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">B</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">C</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"K_MAT_Aljabar"</span><span class="ot">];</span></span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">C</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">E</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"K_OPS_Definisi"</span><span class="ot">];</span></span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">E</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">F</span><span class="ot">;</span></span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">F</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">G</span><span class="ot">;</span></span>
-<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a><span class="ot">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<svg width="672" height="480" viewbox="0.00 0.00 631.43 451.80" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 447.8)">
+<title>PMA_WK5_CV_L3_P01</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-447.8 627.43,-447.8 627.43,4 -4,4"></polygon>
+<!-- A -->
+<g id="node1" class="node">
+<title>A</title>
+<polygon fill="yellow" stroke="black" points="338.71,-443.6 139.57,-443.6 139.57,-402.4 338.71,-402.4 338.71,-443.6"></polygon>
+<text text-anchor="middle" x="239.14" y="-427.2" font-family="Helvetica,sans-Serif" font-size="14.00">Titik Mulai:</text>
+<text text-anchor="middle" x="239.14" y="-410.4" font-family="Helvetica,sans-Serif" font-size="14.00">x(t)=u(t)-u(t-1), h(t)=u(t)-u(t-2)</text>
+</g>
+<!-- B -->
+<g id="node2" class="node">
+<title>B</title>
+<polygon fill="none" stroke="black" points="350.02,-365.2 128.26,-365.2 128.26,-329.2 350.02,-329.2 350.02,-365.2"></polygon>
+<text text-anchor="middle" x="239.14" y="-343" font-family="Helvetica,sans-Serif" font-size="14.00">Heuristik: Gambar x(τ) dan h(t-τ)</text>
+</g>
+<!-- A&#45;&gt;B -->
+<g id="edge1" class="edge">
+<title>A-&gt;B</title>
+<path fill="none" stroke="black" d="M239.14,-402.22C239.14,-394.09 239.14,-384.53 239.14,-375.73"></path>
+<polygon fill="black" stroke="black" points="242.64,-375.52 239.14,-365.52 235.64,-375.52 242.64,-375.52"></polygon>
+</g>
+<!-- C -->
+<g id="node3" class="node">
+<title>C</title>
+<polygon fill="none" stroke="black" points="478.42,-276.4 -0.14,-276.4 -0.14,-240.4 478.42,-240.4 478.42,-276.4"></polygon>
+<text text-anchor="middle" x="239.14" y="-254.2" font-family="Helvetica,sans-Serif" font-size="14.00">Tentukan Batas Overlap (Kasus 1: 0&lt;t&lt;1, Kasus 2: 1&lt;t&lt;2, Kasus 3: 2&lt;t&lt;3)</text>
+</g>
+<!-- B&#45;&gt;C -->
+<g id="edge2" class="edge">
+<title>B-&gt;C</title>
+<path fill="none" stroke="black" d="M239.14,-329.05C239.14,-316.92 239.14,-300.42 239.14,-286.52"></path>
+<polygon fill="black" stroke="black" points="242.64,-286.51 239.14,-276.51 235.64,-286.51 242.64,-286.51"></polygon>
+<text text-anchor="middle" x="287.74" y="-298.6" font-family="Times,serif" font-size="14.00">K_MAT_Aljabar</text>
+</g>
+<!-- E -->
+<g id="node5" class="node">
+<title>E</title>
+<polygon fill="none" stroke="black" points="391.68,-187.6 86.6,-187.6 86.6,-151.6 391.68,-151.6 391.68,-187.6"></polygon>
+<text text-anchor="middle" x="239.14" y="-165.4" font-family="Helvetica,sans-Serif" font-size="14.00">Hitung y(t) = ∫ x(τ)h(t-τ)dτ untuk setiap kasus</text>
+</g>
+<!-- C&#45;&gt;E -->
+<g id="edge3" class="edge">
+<title>C-&gt;E</title>
+<path fill="none" stroke="black" d="M239.14,-240.25C239.14,-228.12 239.14,-211.62 239.14,-197.72"></path>
+<polygon fill="black" stroke="black" points="242.64,-197.71 239.14,-187.71 235.64,-197.71 242.64,-197.71"></polygon>
+<text text-anchor="middle" x="286.59" y="-209.8" font-family="Times,serif" font-size="14.00">K_OPS_Definisi</text>
+</g>
+<!-- D -->
+<g id="node4" class="node">
+<title>D</title>
+<polygon fill="none" stroke="black" points="623.21,-441 357.07,-441 357.07,-405 623.21,-405 623.21,-441"></polygon>
+<text text-anchor="middle" x="490.14" y="-418.8" font-family="Helvetica,sans-Serif" font-size="14.00">Kendaraan: K_MAT_Kalkulus (Integrasi)</text>
+</g>
+<!-- F -->
+<g id="node6" class="node">
+<title>F</title>
+<polygon fill="none" stroke="black" points="340.15,-114.6 138.13,-114.6 138.13,-78.6 340.15,-78.6 340.15,-114.6"></polygon>
+<text text-anchor="middle" x="239.14" y="-92.4" font-family="Helvetica,sans-Serif" font-size="14.00">Kendaraan: K_VIS_PlotSinyal</text>
+</g>
+<!-- E&#45;&gt;F -->
+<g id="edge4" class="edge">
+<title>E-&gt;F</title>
+<path fill="none" stroke="black" d="M239.14,-151.41C239.14,-143.39 239.14,-133.65 239.14,-124.67"></path>
+<polygon fill="black" stroke="black" points="242.64,-124.63 239.14,-114.63 235.64,-124.63 242.64,-124.63"></polygon>
+</g>
+<!-- G -->
+<g id="node7" class="node">
+<title>G</title>
+<polygon fill="lightgreen" stroke="black" points="315.84,-41.4 162.44,-41.4 162.44,-0.2 315.84,-0.2 315.84,-41.4"></polygon>
+<text text-anchor="middle" x="239.14" y="-25" font-family="Helvetica,sans-Serif" font-size="14.00">Titik Akhir:</text>
+<text text-anchor="middle" x="239.14" y="-8.2" font-family="Helvetica,sans-Serif" font-size="14.00">Ekspresi &amp; Sketsa y(t)</text>
+</g>
+<!-- F&#45;&gt;G -->
+<g id="edge5" class="edge">
+<title>F-&gt;G</title>
+<path fill="none" stroke="black" d="M239.14,-78.48C239.14,-70.53 239.14,-60.83 239.14,-51.72"></path>
+<polygon fill="black" stroke="black" points="242.64,-51.43 239.14,-41.43 235.64,-51.43 242.64,-51.43"></polygon>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
 </section>
 <section id="c-solusi-wk5-cv-l3-p01" class="level3" data-number="8.1.3">
 <h3 data-number="8.1.3" class="anchored" data-anchor-id="c-solusi-wk5-cv-l3-p01"><span class="header-section-number">8.1.3</span> 3c) Solusi WK5-CV-L3-P01</h3>
@@ -784,25 +1010,104 @@ window.Quarto = {
 </section>
 <section id="b-diagram-graphviz-pma-wk5-de-l4-p05" class="level3" data-number="8.2.2">
 <h3 data-number="8.2.2" class="anchored" data-anchor-id="b-diagram-graphviz-pma-wk5-de-l4-p05"><span class="header-section-number">8.2.2</span> 3b) Diagram Graphviz PMA WK5-DE-L4-P05</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode dot code-with-copy"><code class="sourceCode dot"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">digraph</span> <span class="va">PMA_WK5_DE_L4_P05</span> <span class="ot">{</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="at">rankdir</span><span class="ot">=</span><span class="va">LR</span><span class="ot">;</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="kw">node</span><span class="co"> </span><span class="ot">[</span><span class="at">shape</span><span class="ot">=</span><span class="va">box</span><span class="co">, </span><span class="at">fontname</span><span class="ot">=</span><span class="st">"Helvetica"</span><span class="ot">];</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co">    </span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">A</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Titik Mulai:\nPD Orde 2, Input x(t)=e^(-3t)"</span><span class="co">, </span><span class="at">style</span><span class="ot">=</span><span class="st">"filled"</span><span class="co">, </span><span class="at">fillcolor</span><span class="ot">=</span><span class="st">"yellow"</span><span class="ot">];</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">B</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Tentukan Persamaan Karakteristik (PC)\n(Kendaraan: K_MAT_Aljabar)"</span><span class="ot">];</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">C</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Cari Akar-akar PC (λ1, λ2)"</span><span class="ot">];</span></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">D</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Bandingkan Input s=-3 dengan Akar-akar (K_OPS_Definisi: Resonansi)"</span><span class="ot">];</span></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">E</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Apakah s=-3 adalah akar PC?"</span><span class="ot">];</span></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">F</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Modifikasi Solusi Partikular: y_p(t) = A*t*e^(-3t)"</span><span class="ot">];</span></span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">G</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Titik Akhir:\nBentuk y_p(t)"</span><span class="co">, </span><span class="at">style</span><span class="ot">=</span><span class="st">"filled"</span><span class="co">, </span><span class="at">fillcolor</span><span class="ot">=</span><span class="st">"lightgreen"</span><span class="ot">];</span></span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="co">    </span></span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">A</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">B</span><span class="ot">;</span></span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">B</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">C</span><span class="ot">;</span></span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">C</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">D</span><span class="ot">;</span></span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">D</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">E</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Jika Ya"</span><span class="ot">];</span></span>
-<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">E</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">F</span><span class="ot">;</span></span>
-<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">F</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">G</span><span class="ot">;</span></span>
-<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a><span class="ot">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<svg width="672" height="480" viewbox="0.00 0.00 467.19 514.60" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 510.6)">
+<title>PMA_WK5_DE_L4_P05</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-510.6 463.19,-510.6 463.19,4 -4,4"></polygon>
+<!-- A -->
+<g id="node1" class="node">
+<title>A</title>
+<polygon fill="yellow" stroke="black" points="326.45,-506.4 132.75,-506.4 132.75,-465.2 326.45,-465.2 326.45,-506.4"></polygon>
+<text text-anchor="middle" x="229.6" y="-490" font-family="Helvetica,sans-Serif" font-size="14.00">Titik Mulai:</text>
+<text text-anchor="middle" x="229.6" y="-473.2" font-family="Helvetica,sans-Serif" font-size="14.00">PD Orde 2, Input x(t)=e^(-3t)</text>
+</g>
+<!-- B -->
+<g id="node2" class="node">
+<title>B</title>
+<polygon fill="none" stroke="black" points="361.52,-427.8 97.67,-427.8 97.67,-386.6 361.52,-386.6 361.52,-427.8"></polygon>
+<text text-anchor="middle" x="229.6" y="-411.4" font-family="Helvetica,sans-Serif" font-size="14.00">Tentukan Persamaan Karakteristik (PC)</text>
+<text text-anchor="middle" x="229.6" y="-394.6" font-family="Helvetica,sans-Serif" font-size="14.00">(Kendaraan: K_MAT_Aljabar)</text>
+</g>
+<!-- A&#45;&gt;B -->
+<g id="edge1" class="edge">
+<title>A-&gt;B</title>
+<path fill="none" stroke="black" d="M229.6,-465.07C229.6,-456.85 229.6,-447.13 229.6,-438.06"></path>
+<polygon fill="black" stroke="black" points="233.1,-437.86 229.6,-427.86 226.1,-437.86 233.1,-437.86"></polygon>
+</g>
+<!-- C -->
+<g id="node3" class="node">
+<title>C</title>
+<polygon fill="none" stroke="black" points="320.3,-349.4 138.89,-349.4 138.89,-313.4 320.3,-313.4 320.3,-349.4"></polygon>
+<text text-anchor="middle" x="229.6" y="-327.2" font-family="Helvetica,sans-Serif" font-size="14.00">Cari Akar-akar PC (λ1, λ2)</text>
+</g>
+<!-- B&#45;&gt;C -->
+<g id="edge2" class="edge">
+<title>B-&gt;C</title>
+<path fill="none" stroke="black" d="M229.6,-386.42C229.6,-378.29 229.6,-368.73 229.6,-359.93"></path>
+<polygon fill="black" stroke="black" points="233.1,-359.72 229.6,-349.72 226.1,-359.72 233.1,-359.72"></polygon>
+</g>
+<!-- D -->
+<g id="node4" class="node">
+<title>D</title>
+<polygon fill="none" stroke="black" points="459.29,-276.4 -0.1,-276.4 -0.1,-240.4 459.29,-240.4 459.29,-276.4"></polygon>
+<text text-anchor="middle" x="229.6" y="-254.2" font-family="Helvetica,sans-Serif" font-size="14.00">Bandingkan Input s=-3 dengan Akar-akar (K_OPS_Definisi: Resonansi)</text>
+</g>
+<!-- C&#45;&gt;D -->
+<g id="edge3" class="edge">
+<title>C-&gt;D</title>
+<path fill="none" stroke="black" d="M229.6,-313.21C229.6,-305.19 229.6,-295.45 229.6,-286.47"></path>
+<polygon fill="black" stroke="black" points="233.1,-286.43 229.6,-276.43 226.1,-286.43 233.1,-286.43"></polygon>
+</g>
+<!-- E -->
+<g id="node5" class="node">
+<title>E</title>
+<polygon fill="none" stroke="black" points="331.27,-187.6 127.92,-187.6 127.92,-151.6 331.27,-151.6 331.27,-187.6"></polygon>
+<text text-anchor="middle" x="229.6" y="-165.4" font-family="Helvetica,sans-Serif" font-size="14.00">Apakah s=-3 adalah akar PC?</text>
+</g>
+<!-- D&#45;&gt;E -->
+<g id="edge4" class="edge">
+<title>D-&gt;E</title>
+<path fill="none" stroke="black" d="M229.6,-240.25C229.6,-228.12 229.6,-211.62 229.6,-197.72"></path>
+<polygon fill="black" stroke="black" points="233.1,-197.71 229.6,-187.71 226.1,-197.71 233.1,-197.71"></polygon>
+<text text-anchor="middle" x="250.79" y="-209.8" font-family="Times,serif" font-size="14.00">Jika Ya</text>
+</g>
+<!-- F -->
+<g id="node6" class="node">
+<title>F</title>
+<polygon fill="none" stroke="black" points="383.04,-114.6 76.15,-114.6 76.15,-78.6 383.04,-78.6 383.04,-114.6"></polygon>
+<text text-anchor="middle" x="229.6" y="-92.4" font-family="Helvetica,sans-Serif" font-size="14.00">Modifikasi Solusi Partikular: y_p(t) = A*t*e^(-3t)</text>
+</g>
+<!-- E&#45;&gt;F -->
+<g id="edge5" class="edge">
+<title>E-&gt;F</title>
+<path fill="none" stroke="black" d="M229.6,-151.41C229.6,-143.39 229.6,-133.65 229.6,-124.67"></path>
+<polygon fill="black" stroke="black" points="233.1,-124.63 229.6,-114.63 226.1,-124.63 233.1,-124.63"></polygon>
+</g>
+<!-- G -->
+<g id="node7" class="node">
+<title>G</title>
+<polygon fill="lightgreen" stroke="black" points="279.36,-41.4 179.84,-41.4 179.84,-0.2 279.36,-0.2 279.36,-41.4"></polygon>
+<text text-anchor="middle" x="229.6" y="-25" font-family="Helvetica,sans-Serif" font-size="14.00">Titik Akhir:</text>
+<text text-anchor="middle" x="229.6" y="-8.2" font-family="Helvetica,sans-Serif" font-size="14.00">Bentuk y_p(t)</text>
+</g>
+<!-- F&#45;&gt;G -->
+<g id="edge6" class="edge">
+<title>F-&gt;G</title>
+<path fill="none" stroke="black" d="M229.6,-78.48C229.6,-70.53 229.6,-60.83 229.6,-51.72"></path>
+<polygon fill="black" stroke="black" points="233.1,-51.43 229.6,-41.43 226.1,-51.43 233.1,-51.43"></polygon>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
 </section>
 <section id="c-solusi-wk5-de-l4-p05" class="level3" data-number="8.2.3">
 <h3 data-number="8.2.3" class="anchored" data-anchor-id="c-solusi-wk5-de-l4-p05"><span class="header-section-number">8.2.3</span> 3c) Solusi WK5-DE-L4-P05</h3>
@@ -855,26 +1160,109 @@ window.Quarto = {
 </section>
 <section id="b-diagram-graphviz-pma-wk5-cv-l5-p07" class="level3" data-number="8.3.2">
 <h3 data-number="8.3.2" class="anchored" data-anchor-id="b-diagram-graphviz-pma-wk5-cv-l5-p07"><span class="header-section-number">8.3.2</span> 3b) Diagram Graphviz PMA WK5-CV-L5-P07</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode dot code-with-copy"><code class="sourceCode dot"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">digraph</span> <span class="va">PMA_WK5_CV_L5_P07</span> <span class="ot">{</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="at">rankdir</span><span class="ot">=</span><span class="va">LR</span><span class="ot">;</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="kw">node</span><span class="co"> </span><span class="ot">[</span><span class="at">shape</span><span class="ot">=</span><span class="va">box</span><span class="co">, </span><span class="at">fontname</span><span class="ot">=</span><span class="st">"Helvetica"</span><span class="ot">];</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co">    </span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">A</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Titik Mulai:\nh1(t)=u(t), h2(t)=δ(t-2)"</span><span class="co">, </span><span class="at">style</span><span class="ot">=</span><span class="st">"filled"</span><span class="co">, </span><span class="at">fillcolor</span><span class="ot">=</span><span class="st">"yellow"</span><span class="ot">];</span></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">B</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Tentukan Respon Total h_total = h1 * h2 (K_OPS_Definisi)"</span><span class="ot">];</span></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">C</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Kendaraan: K_OPS_Definisi (Sifat Komutatif Konvolusi)"</span><span class="ot">];</span></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">D</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Hitung h1 * h2 (Urutan A)"</span><span class="ot">];</span></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">E</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Hitung h2 * h1 (Urutan B)"</span><span class="ot">];</span></span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">F</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Evaluasi: Apakah Urutan A = Urutan B?"</span><span class="ot">];</span></span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">G</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Titik Akhir:\nKesimpulan Evaluatif"</span><span class="co">, </span><span class="at">style</span><span class="ot">=</span><span class="st">"filled"</span><span class="co">, </span><span class="at">fillcolor</span><span class="ot">=</span><span class="st">"lightgreen"</span><span class="ot">];</span></span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="co">    </span></span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">A</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">B</span><span class="ot">;</span></span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">B</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">C</span><span class="ot">;</span></span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">C</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">D</span><span class="ot">;</span></span>
-<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">C</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">E</span><span class="ot">;</span></span>
-<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">D</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">F</span><span class="ot">;</span></span>
-<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">E</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">F</span><span class="ot">;</span></span>
-<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">F</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">G</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"K_MAT_Aljabar"</span><span class="ot">];</span></span>
-<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a><span class="ot">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<svg width="672" height="480" viewbox="0.00 0.00 389.37 436.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 432)">
+<title>PMA_WK5_CV_L5_P07</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-432 385.37,-432 385.37,4 -4,4"></polygon>
+<!-- A -->
+<g id="node1" class="node">
+<title>A</title>
+<polygon fill="yellow" stroke="black" points="266.83,-427.8 114.54,-427.8 114.54,-386.6 266.83,-386.6 266.83,-427.8"></polygon>
+<text text-anchor="middle" x="190.69" y="-411.4" font-family="Helvetica,sans-Serif" font-size="14.00">Titik Mulai:</text>
+<text text-anchor="middle" x="190.69" y="-394.6" font-family="Helvetica,sans-Serif" font-size="14.00">h1(t)=u(t), h2(t)=δ(t-2)</text>
+</g>
+<!-- B -->
+<g id="node2" class="node">
+<title>B</title>
+<polygon fill="none" stroke="black" points="381.56,-349.4 -0.19,-349.4 -0.19,-313.4 381.56,-313.4 381.56,-349.4"></polygon>
+<text text-anchor="middle" x="190.69" y="-327.2" font-family="Helvetica,sans-Serif" font-size="14.00">Tentukan Respon Total h_total = h1 * h2 (K_OPS_Definisi)</text>
+</g>
+<!-- A&#45;&gt;B -->
+<g id="edge1" class="edge">
+<title>A-&gt;B</title>
+<path fill="none" stroke="black" d="M190.69,-386.42C190.69,-378.29 190.69,-368.73 190.69,-359.93"></path>
+<polygon fill="black" stroke="black" points="194.19,-359.72 190.69,-349.72 187.19,-359.72 194.19,-359.72"></polygon>
+</g>
+<!-- C -->
+<g id="node3" class="node">
+<title>C</title>
+<polygon fill="none" stroke="black" points="371.2,-276.4 10.18,-276.4 10.18,-240.4 371.2,-240.4 371.2,-276.4"></polygon>
+<text text-anchor="middle" x="190.69" y="-254.2" font-family="Helvetica,sans-Serif" font-size="14.00">Kendaraan: K_OPS_Definisi (Sifat Komutatif Konvolusi)</text>
+</g>
+<!-- B&#45;&gt;C -->
+<g id="edge2" class="edge">
+<title>B-&gt;C</title>
+<path fill="none" stroke="black" d="M190.69,-313.21C190.69,-305.19 190.69,-295.45 190.69,-286.47"></path>
+<polygon fill="black" stroke="black" points="194.19,-286.43 190.69,-276.43 187.19,-286.43 194.19,-286.43"></polygon>
+</g>
+<!-- D -->
+<g id="node4" class="node">
+<title>D</title>
+<polygon fill="none" stroke="black" points="182.38,-203.4 8.99,-203.4 8.99,-167.4 182.38,-167.4 182.38,-203.4"></polygon>
+<text text-anchor="middle" x="95.69" y="-181.2" font-family="Helvetica,sans-Serif" font-size="14.00">Hitung h1 * h2 (Urutan A)</text>
+</g>
+<!-- C&#45;&gt;D -->
+<g id="edge3" class="edge">
+<title>C-&gt;D</title>
+<path fill="none" stroke="black" d="M167.69,-240.21C155.32,-230.97 139.9,-219.44 126.5,-209.43"></path>
+<polygon fill="black" stroke="black" points="128.58,-206.61 118.47,-203.43 124.39,-212.22 128.58,-206.61"></polygon>
+</g>
+<!-- E -->
+<g id="node5" class="node">
+<title>E</title>
+<polygon fill="none" stroke="black" points="373.38,-203.4 199.99,-203.4 199.99,-167.4 373.38,-167.4 373.38,-203.4"></polygon>
+<text text-anchor="middle" x="286.69" y="-181.2" font-family="Helvetica,sans-Serif" font-size="14.00">Hitung h2 * h1 (Urutan B)</text>
+</g>
+<!-- C&#45;&gt;E -->
+<g id="edge4" class="edge">
+<title>C-&gt;E</title>
+<path fill="none" stroke="black" d="M213.93,-240.21C226.43,-230.97 242.01,-219.44 255.54,-209.43"></path>
+<polygon fill="black" stroke="black" points="257.7,-212.19 263.66,-203.43 253.54,-206.56 257.7,-212.19"></polygon>
+</g>
+<!-- F -->
+<g id="node6" class="node">
+<title>F</title>
+<polygon fill="none" stroke="black" points="321.99,-130.4 59.38,-130.4 59.38,-94.4 321.99,-94.4 321.99,-130.4"></polygon>
+<text text-anchor="middle" x="190.69" y="-108.2" font-family="Helvetica,sans-Serif" font-size="14.00">Evaluasi: Apakah Urutan A = Urutan B?</text>
+</g>
+<!-- D&#45;&gt;F -->
+<g id="edge5" class="edge">
+<title>D-&gt;F</title>
+<path fill="none" stroke="black" d="M118.68,-167.21C131.05,-157.97 146.47,-146.44 159.87,-136.43"></path>
+<polygon fill="black" stroke="black" points="161.99,-139.22 167.9,-130.43 157.8,-133.61 161.99,-139.22"></polygon>
+</g>
+<!-- E&#45;&gt;F -->
+<g id="edge6" class="edge">
+<title>E-&gt;F</title>
+<path fill="none" stroke="black" d="M263.45,-167.21C250.95,-157.97 235.36,-146.44 221.83,-136.43"></path>
+<polygon fill="black" stroke="black" points="223.83,-133.56 213.71,-130.43 219.67,-139.19 223.83,-133.56"></polygon>
+</g>
+<!-- G -->
+<g id="node7" class="node">
+<title>G</title>
+<polygon fill="lightgreen" stroke="black" points="263.92,-41.4 117.45,-41.4 117.45,-0.2 263.92,-0.2 263.92,-41.4"></polygon>
+<text text-anchor="middle" x="190.69" y="-25" font-family="Helvetica,sans-Serif" font-size="14.00">Titik Akhir:</text>
+<text text-anchor="middle" x="190.69" y="-8.2" font-family="Helvetica,sans-Serif" font-size="14.00">Kesimpulan Evaluatif</text>
+</g>
+<!-- F&#45;&gt;G -->
+<g id="edge7" class="edge">
+<title>F-&gt;G</title>
+<path fill="none" stroke="black" d="M190.69,-94.12C190.69,-82.13 190.69,-65.84 190.69,-51.75"></path>
+<polygon fill="black" stroke="black" points="194.19,-51.52 190.69,-41.52 187.19,-51.52 194.19,-51.52"></polygon>
+<text text-anchor="middle" x="239.29" y="-63.8" font-family="Times,serif" font-size="14.00">K_MAT_Aljabar</text>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
 </section>
 <section id="c-solusi-wk5-cv-l5-p07" class="level3" data-number="8.3.3">
 <h3 data-number="8.3.3" class="anchored" data-anchor-id="c-solusi-wk5-cv-l5-p07"><span class="header-section-number">8.3.3</span> 3c) Solusi WK5-CV-L5-P07</h3>
@@ -926,23 +1314,91 @@ window.Quarto = {
 </section>
 <section id="b-diagram-graphviz-pma-wk5-ds-l6-p10" class="level3" data-number="8.4.2">
 <h3 data-number="8.4.2" class="anchored" data-anchor-id="b-diagram-graphviz-pma-wk5-ds-l6-p10"><span class="header-section-number">8.4.2</span> 3b) Diagram Graphviz PMA WK5-DS-L6-P10</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode dot code-with-copy"><code class="sourceCode dot"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">digraph</span> <span class="va">PMA_WK5_DS_L6_P10</span> <span class="ot">{</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="at">rankdir</span><span class="ot">=</span><span class="va">LR</span><span class="ot">;</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="kw">node</span><span class="co"> </span><span class="ot">[</span><span class="at">shape</span><span class="ot">=</span><span class="va">box</span><span class="co">, </span><span class="at">fontname</span><span class="ot">=</span><span class="st">"Helvetica"</span><span class="ot">];</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co">    </span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">A</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Titik Mulai:\nh(t) = 4e^(-0.5t)u(t)"</span><span class="co">, </span><span class="at">style</span><span class="ot">=</span><span class="st">"filled"</span><span class="co">, </span><span class="at">fillcolor</span><span class="ot">=</span><span class="st">"yellow"</span><span class="ot">];</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">B</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"K_OPS_Definisi: Tentukan Bentuk Standar PD Orde 1\n(T dy/dt + y = K x)"</span><span class="ot">];</span></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">C</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"K_MAT_Aljabar: Bandingkan h(t) dengan K/T e^(-t/T) u(t)"</span><span class="ot">];</span></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">D</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Tentukan Konstanta Waktu T dan Gain K (T=2, K=4)"</span><span class="ot">];</span></span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">E</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"K_OPS_Representasi_Matematis: Formulasikan PD"</span><span class="ot">];</span></span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">F</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Titik Akhir:\nPersamaan Diferensial"</span><span class="co">, </span><span class="at">style</span><span class="ot">=</span><span class="st">"filled"</span><span class="co">, </span><span class="at">fillcolor</span><span class="ot">=</span><span class="st">"lightgreen"</span><span class="ot">];</span></span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="co">    </span></span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">A</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">B</span><span class="ot">;</span></span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">B</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">C</span><span class="ot">;</span></span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">C</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">D</span><span class="ot">;</span></span>
-<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">D</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">E</span><span class="ot">;</span></span>
-<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">E</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">F</span><span class="ot">;</span></span>
-<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a><span class="ot">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<svg width="672" height="480" viewbox="0.00 0.00 378.39 420.80" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 416.8)">
+<title>PMA_WK5_DS_L6_P10</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-416.8 374.39,-416.8 374.39,4 -4,4"></polygon>
+<!-- A -->
+<g id="node1" class="node">
+<title>A</title>
+<polygon fill="yellow" stroke="black" points="252.13,-412.6 118.26,-412.6 118.26,-371.4 252.13,-371.4 252.13,-412.6"></polygon>
+<text text-anchor="middle" x="185.19" y="-396.2" font-family="Helvetica,sans-Serif" font-size="14.00">Titik Mulai:</text>
+<text text-anchor="middle" x="185.19" y="-379.4" font-family="Helvetica,sans-Serif" font-size="14.00">h(t) = 4e^(-0.5t)u(t)</text>
+</g>
+<!-- B -->
+<g id="node2" class="node">
+<title>B</title>
+<polygon fill="none" stroke="black" points="361.65,-335 8.74,-335 8.74,-293.8 361.65,-293.8 361.65,-335"></polygon>
+<text text-anchor="middle" x="185.19" y="-318.6" font-family="Helvetica,sans-Serif" font-size="14.00">K_OPS_Definisi: Tentukan Bentuk Standar PD Orde 1</text>
+<text text-anchor="middle" x="185.19" y="-301.8" font-family="Helvetica,sans-Serif" font-size="14.00">(T dy/dt + y = K x)</text>
+</g>
+<!-- A&#45;&gt;B -->
+<g id="edge1" class="edge">
+<title>A-&gt;B</title>
+<path fill="none" stroke="black" d="M185.19,-371.14C185.19,-363.24 185.19,-353.98 185.19,-345.3"></path>
+<polygon fill="black" stroke="black" points="188.69,-345.13 185.19,-335.13 181.69,-345.13 188.69,-345.13"></polygon>
+</g>
+<!-- C -->
+<g id="node3" class="node">
+<title>C</title>
+<polygon fill="none" stroke="black" points="370.58,-257.6 -0.19,-257.6 -0.19,-221.6 370.58,-221.6 370.58,-257.6"></polygon>
+<text text-anchor="middle" x="185.19" y="-235.4" font-family="Helvetica,sans-Serif" font-size="14.00">K_MAT_Aljabar: Bandingkan h(t) dengan K/T e^(-t/T) u(t)</text>
+</g>
+<!-- B&#45;&gt;C -->
+<g id="edge2" class="edge">
+<title>B-&gt;C</title>
+<path fill="none" stroke="black" d="M185.19,-293.51C185.19,-285.69 185.19,-276.59 185.19,-268.16"></path>
+<polygon fill="black" stroke="black" points="188.69,-267.99 185.19,-257.99 181.69,-267.99 188.69,-267.99"></polygon>
+</g>
+<!-- D -->
+<g id="node4" class="node">
+<title>D</title>
+<polygon fill="none" stroke="black" points="356.25,-185.6 14.13,-185.6 14.13,-149.6 356.25,-149.6 356.25,-185.6"></polygon>
+<text text-anchor="middle" x="185.19" y="-163.4" font-family="Helvetica,sans-Serif" font-size="14.00">Tentukan Konstanta Waktu T dan Gain K (T=2, K=4)</text>
+</g>
+<!-- C&#45;&gt;D -->
+<g id="edge3" class="edge">
+<title>C-&gt;D</title>
+<path fill="none" stroke="black" d="M185.19,-221.3C185.19,-213.58 185.19,-204.31 185.19,-195.71"></path>
+<polygon fill="black" stroke="black" points="188.69,-195.7 185.19,-185.7 181.69,-195.7 188.69,-195.7"></polygon>
+</g>
+<!-- E -->
+<g id="node5" class="node">
+<title>E</title>
+<polygon fill="none" stroke="black" points="355.66,-113.6 14.73,-113.6 14.73,-77.6 355.66,-77.6 355.66,-113.6"></polygon>
+<text text-anchor="middle" x="185.19" y="-91.4" font-family="Helvetica,sans-Serif" font-size="14.00">K_OPS_Representasi_Matematis: Formulasikan PD</text>
+</g>
+<!-- D&#45;&gt;E -->
+<g id="edge4" class="edge">
+<title>D-&gt;E</title>
+<path fill="none" stroke="black" d="M185.19,-149.3C185.19,-141.58 185.19,-132.31 185.19,-123.71"></path>
+<polygon fill="black" stroke="black" points="188.69,-123.7 185.19,-113.7 181.69,-123.7 188.69,-123.7"></polygon>
+</g>
+<!-- F -->
+<g id="node6" class="node">
+<title>F</title>
+<polygon fill="lightgreen" stroke="black" points="263.81,-41.4 106.57,-41.4 106.57,-0.2 263.81,-0.2 263.81,-41.4"></polygon>
+<text text-anchor="middle" x="185.19" y="-25" font-family="Helvetica,sans-Serif" font-size="14.00">Titik Akhir:</text>
+<text text-anchor="middle" x="185.19" y="-8.2" font-family="Helvetica,sans-Serif" font-size="14.00">Persamaan Diferensial</text>
+</g>
+<!-- E&#45;&gt;F -->
+<g id="edge5" class="edge">
+<title>E-&gt;F</title>
+<path fill="none" stroke="black" d="M185.19,-77.35C185.19,-69.69 185.19,-60.46 185.19,-51.74"></path>
+<polygon fill="black" stroke="black" points="188.69,-51.5 185.19,-41.5 181.69,-51.5 188.69,-51.5"></polygon>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
 </section>
 <section id="c-solusi-wk5-ds-l6-p10" class="level3" data-number="8.4.3">
 <h3 data-number="8.4.3" class="anchored" data-anchor-id="c-solusi-wk5-ds-l6-p10"><span class="header-section-number">8.4.3</span> 3c) Solusi WK5-DS-L6-P10</h3>
@@ -1002,24 +1458,99 @@ window.Quarto = {
 </section>
 <section id="b-diagram-graphviz-pma-wk5-de-l4-p17" class="level3" data-number="8.5.2">
 <h3 data-number="8.5.2" class="anchored" data-anchor-id="b-diagram-graphviz-pma-wk5-de-l4-p17"><span class="header-section-number">8.5.2</span> 3b) Diagram Graphviz PMA WK5-DE-L4-P17</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode dot code-with-copy"><code class="sourceCode dot"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">digraph</span> <span class="va">PMA_WK5_DE_L4_P17</span> <span class="ot">{</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="at">rankdir</span><span class="ot">=</span><span class="va">TB</span><span class="ot">;</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="kw">node</span><span class="co"> </span><span class="ot">[</span><span class="at">shape</span><span class="ot">=</span><span class="va">box</span><span class="co">, </span><span class="at">fontname</span><span class="ot">=</span><span class="st">"Helvetica"</span><span class="ot">];</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co">    </span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">A</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Titik Mulai:\nPD Orde 1 &amp; y(0^-)=3"</span><span class="co">, </span><span class="at">style</span><span class="ot">=</span><span class="st">"filled"</span><span class="co">, </span><span class="at">fillcolor</span><span class="ot">=</span><span class="st">"yellow"</span><span class="ot">];</span></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">B1</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Cari Solusi Homogen y_h(t)"</span><span class="ot">];</span></span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">B2</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Cari Solusi Partikular y_p(t)"</span><span class="ot">];</span></span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">C</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"y(t) = y_h(t) + y_p(t)"</span><span class="ot">];</span></span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">D</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Terapkan Kondisi Awal y(0^+) untuk cari Konstanta A"</span><span class="ot">];</span></span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">E</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Titik Akhir:\nSolusi Lengkap y(t) untuk t ≥ 0"</span><span class="co">, </span><span class="at">style</span><span class="ot">=</span><span class="st">"filled"</span><span class="co">, </span><span class="at">fillcolor</span><span class="ot">=</span><span class="st">"lightgreen"</span><span class="ot">];</span></span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="co">    </span></span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">A</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">B1</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"PC: λ+1=0"</span><span class="ot">];</span></span>
-<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">A</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">B2</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Input: Konstanta (u(t))"</span><span class="ot">];</span></span>
-<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">B1</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">C</span><span class="ot">;</span></span>
-<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">B2</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">C</span><span class="ot">;</span></span>
-<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">C</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">D</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"K_MAT_Aljabar"</span><span class="ot">];</span></span>
-<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">D</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">E</span><span class="ot">;</span></span>
-<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a><span class="ot">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<svg width="672" height="480" viewbox="0.00 0.00 400.17 378.80" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 374.8)">
+<title>PMA_WK5_DE_L4_P17</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-374.8 396.17,-374.8 396.17,4 -4,4"></polygon>
+<!-- A -->
+<g id="node1" class="node">
+<title>A</title>
+<polygon fill="yellow" stroke="black" points="271.04,-370.6 120.92,-370.6 120.92,-329.4 271.04,-329.4 271.04,-370.6"></polygon>
+<text text-anchor="middle" x="195.98" y="-354.2" font-family="Helvetica,sans-Serif" font-size="14.00">Titik Mulai:</text>
+<text text-anchor="middle" x="195.98" y="-337.4" font-family="Helvetica,sans-Serif" font-size="14.00">PD Orde 1 &amp; y(0^-)=3</text>
+</g>
+<!-- B1 -->
+<g id="node2" class="node">
+<title>B1</title>
+<polygon fill="none" stroke="black" points="187.94,-276.4 0.02,-276.4 0.02,-240.4 187.94,-240.4 187.94,-276.4"></polygon>
+<text text-anchor="middle" x="93.98" y="-254.2" font-family="Helvetica,sans-Serif" font-size="14.00">Cari Solusi Homogen y_h(t)</text>
+</g>
+<!-- A&#45;&gt;B1 -->
+<g id="edge1" class="edge">
+<title>A-&gt;B1</title>
+<path fill="none" stroke="black" d="M173.59,-329.34C158.17,-315.79 137.59,-297.71 121.22,-283.33"></path>
+<polygon fill="black" stroke="black" points="123.38,-280.57 113.56,-276.6 118.76,-285.83 123.38,-280.57"></polygon>
+<text text-anchor="middle" x="182.63" y="-298.6" font-family="Times,serif" font-size="14.00">PC: λ+1=0</text>
+</g>
+<!-- B2 -->
+<g id="node3" class="node">
+<title>B2</title>
+<polygon fill="none" stroke="black" points="392.37,-276.4 205.59,-276.4 205.59,-240.4 392.37,-240.4 392.37,-276.4"></polygon>
+<text text-anchor="middle" x="298.98" y="-254.2" font-family="Helvetica,sans-Serif" font-size="14.00">Cari Solusi Partikular y_p(t)</text>
+</g>
+<!-- A&#45;&gt;B2 -->
+<g id="edge2" class="edge">
+<title>A-&gt;B2</title>
+<path fill="none" stroke="black" d="M218.58,-329.34C234.16,-315.79 254.94,-297.71 271.47,-283.33"></path>
+<polygon fill="black" stroke="black" points="273.96,-285.8 279.21,-276.6 269.37,-280.52 273.96,-285.8"></polygon>
+<text text-anchor="middle" x="319.35" y="-298.6" font-family="Times,serif" font-size="14.00">Input: Konstanta (u(t))</text>
+</g>
+<!-- C -->
+<g id="node4" class="node">
+<title>C</title>
+<polygon fill="none" stroke="black" points="265.68,-203.4 126.28,-203.4 126.28,-167.4 265.68,-167.4 265.68,-203.4"></polygon>
+<text text-anchor="middle" x="195.98" y="-181.2" font-family="Helvetica,sans-Serif" font-size="14.00">y(t) = y_h(t) + y_p(t)</text>
+</g>
+<!-- B1&#45;&gt;C -->
+<g id="edge3" class="edge">
+<title>B1-&gt;C</title>
+<path fill="none" stroke="black" d="M118.41,-240.39C131.81,-231.07 148.61,-219.37 163.14,-209.26"></path>
+<polygon fill="black" stroke="black" points="165.19,-212.1 171.39,-203.51 161.19,-206.35 165.19,-212.1"></polygon>
+</g>
+<!-- B2&#45;&gt;C -->
+<g id="edge4" class="edge">
+<title>B2-&gt;C</title>
+<path fill="none" stroke="black" d="M274.31,-240.39C260.78,-231.07 243.81,-219.37 229.14,-209.26"></path>
+<polygon fill="black" stroke="black" points="231.03,-206.31 220.81,-203.51 227.05,-212.07 231.03,-206.31"></polygon>
+</g>
+<!-- D -->
+<g id="node5" class="node">
+<title>D</title>
+<polygon fill="none" stroke="black" points="369.16,-114.6 22.8,-114.6 22.8,-78.6 369.16,-78.6 369.16,-114.6"></polygon>
+<text text-anchor="middle" x="195.98" y="-92.4" font-family="Helvetica,sans-Serif" font-size="14.00">Terapkan Kondisi Awal y(0^+) untuk cari Konstanta A</text>
+</g>
+<!-- C&#45;&gt;D -->
+<g id="edge5" class="edge">
+<title>C-&gt;D</title>
+<path fill="none" stroke="black" d="M195.98,-167.25C195.98,-155.12 195.98,-138.62 195.98,-124.72"></path>
+<polygon fill="black" stroke="black" points="199.48,-124.71 195.98,-114.71 192.48,-124.71 199.48,-124.71"></polygon>
+<text text-anchor="middle" x="244.58" y="-136.8" font-family="Times,serif" font-size="14.00">K_MAT_Aljabar</text>
+</g>
+<!-- E -->
+<g id="node6" class="node">
+<title>E</title>
+<polygon fill="lightgreen" stroke="black" points="300.47,-41.4 91.49,-41.4 91.49,-0.2 300.47,-0.2 300.47,-41.4"></polygon>
+<text text-anchor="middle" x="195.98" y="-25" font-family="Helvetica,sans-Serif" font-size="14.00">Titik Akhir:</text>
+<text text-anchor="middle" x="195.98" y="-8.2" font-family="Helvetica,sans-Serif" font-size="14.00">Solusi Lengkap y(t) untuk t ≥ 0</text>
+</g>
+<!-- D&#45;&gt;E -->
+<g id="edge6" class="edge">
+<title>D-&gt;E</title>
+<path fill="none" stroke="black" d="M195.98,-78.48C195.98,-70.53 195.98,-60.83 195.98,-51.72"></path>
+<polygon fill="black" stroke="black" points="199.48,-51.43 195.98,-41.43 192.48,-51.43 199.48,-51.43"></polygon>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
 </section>
 <section id="c-solusi-wk5-de-l4-p17" class="level3" data-number="8.5.3">
 <h3 data-number="8.5.3" class="anchored" data-anchor-id="c-solusi-wk5-de-l4-p17"><span class="header-section-number">8.5.3</span> 3c) Solusi WK5-DE-L4-P17</h3>
@@ -1089,25 +1620,103 @@ window.Quarto = {
 </section>
 <section id="b-diagram-graphviz-pma-wk5-an-l5-p19" class="level3" data-number="8.6.2">
 <h3 data-number="8.6.2" class="anchored" data-anchor-id="b-diagram-graphviz-pma-wk5-an-l5-p19"><span class="header-section-number">8.6.2</span> 3b) Diagram Graphviz PMA WK5-AN-L5-P19</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode dot code-with-copy"><code class="sourceCode dot"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">digraph</span> <span class="va">PMA_WK5_AN_L5_P19</span> <span class="ot">{</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="at">rankdir</span><span class="ot">=</span><span class="va">TB</span><span class="ot">;</span></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="kw">node</span><span class="co"> </span><span class="ot">[</span><span class="at">shape</span><span class="ot">=</span><span class="va">box</span><span class="co">, </span><span class="at">fontname</span><span class="ot">=</span><span class="st">"Helvetica"</span><span class="ot">];</span></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co">    </span></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">A</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Titik Mulai:\nh_total = h1 * h2 * h3; h2 tidak stabil (Pole P)"</span><span class="co">, </span><span class="at">style</span><span class="ot">=</span><span class="st">"filled"</span><span class="co">, </span><span class="at">fillcolor</span><span class="ot">=</span><span class="st">"yellow"</span><span class="ot">];</span></span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">B</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Heuristik: Mentransformasi Masalah (H_total(s) = H1(s) H2(s) H3(s))"</span><span class="ot">];</span></span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">C</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Analisis Pole/Zero H_total(s)"</span><span class="ot">];</span></span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">D</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Apakah Zero (h1/h3) membatalkan Pole P (h2)?\n(K_MAT_Aljabar: Pembatalan Pole/Zero)"</span><span class="ot">];</span></span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">E</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Jika Ya, Pole P tidak ada di H_total(s)"</span><span class="ot">];</span></span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">F</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"K_OPS_Definisi: Stabilitas BIBO (Semua pole stabil)"</span><span class="ot">];</span></span>
-<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">G</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Titik Akhir:\nKesimpulan Evaluatif Stabilitas"</span><span class="co">, </span><span class="at">style</span><span class="ot">=</span><span class="st">"filled"</span><span class="co">, </span><span class="at">fillcolor</span><span class="ot">=</span><span class="st">"lightgreen"</span><span class="ot">];</span></span>
-<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a><span class="co">    </span></span>
-<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">A</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">B</span><span class="ot">;</span></span>
-<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">B</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">C</span><span class="ot">;</span></span>
-<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">C</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">D</span><span class="ot">;</span></span>
-<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">D</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">E</span><span class="ot">;</span></span>
-<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">E</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">F</span><span class="ot">;</span></span>
-<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">F</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">G</span><span class="ot">;</span></span>
-<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a><span class="ot">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<svg width="672" height="480" viewbox="0.00 0.00 447.59 492.80" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 488.8)">
+<title>PMA_WK5_AN_L5_P19</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-488.8 443.59,-488.8 443.59,4 -4,4"></polygon>
+<!-- A -->
+<g id="node1" class="node">
+<title>A</title>
+<polygon fill="yellow" stroke="black" points="367.3,-484.6 72.29,-484.6 72.29,-443.4 367.3,-443.4 367.3,-484.6"></polygon>
+<text text-anchor="middle" x="219.79" y="-468.2" font-family="Helvetica,sans-Serif" font-size="14.00">Titik Mulai:</text>
+<text text-anchor="middle" x="219.79" y="-451.4" font-family="Helvetica,sans-Serif" font-size="14.00">h_total = h1 * h2 * h3; h2 tidak stabil (Pole P)</text>
+</g>
+<!-- B -->
+<g id="node2" class="node">
+<title>B</title>
+<polygon fill="none" stroke="black" points="439.38,-407.2 0.21,-407.2 0.21,-371.2 439.38,-371.2 439.38,-407.2"></polygon>
+<text text-anchor="middle" x="219.79" y="-385" font-family="Helvetica,sans-Serif" font-size="14.00">Heuristik: Mentransformasi Masalah (H_total(s) = H1(s) H2(s) H3(s))</text>
+</g>
+<!-- A&#45;&gt;B -->
+<g id="edge1" class="edge">
+<title>A-&gt;B</title>
+<path fill="none" stroke="black" d="M219.79,-443.11C219.79,-435.29 219.79,-426.19 219.79,-417.76"></path>
+<polygon fill="black" stroke="black" points="223.29,-417.59 219.79,-407.59 216.29,-417.59 223.29,-417.59"></polygon>
+</g>
+<!-- C -->
+<g id="node3" class="node">
+<title>C</title>
+<polygon fill="none" stroke="black" points="316.69,-335.2 122.89,-335.2 122.89,-299.2 316.69,-299.2 316.69,-335.2"></polygon>
+<text text-anchor="middle" x="219.79" y="-313" font-family="Helvetica,sans-Serif" font-size="14.00">Analisis Pole/Zero H_total(s)</text>
+</g>
+<!-- B&#45;&gt;C -->
+<g id="edge2" class="edge">
+<title>B-&gt;C</title>
+<path fill="none" stroke="black" d="M219.79,-370.9C219.79,-363.18 219.79,-353.91 219.79,-345.31"></path>
+<polygon fill="black" stroke="black" points="223.29,-345.3 219.79,-335.3 216.29,-345.3 223.29,-345.3"></polygon>
+</g>
+<!-- D -->
+<g id="node4" class="node">
+<title>D</title>
+<polygon fill="none" stroke="black" points="376.84,-263 62.75,-263 62.75,-221.8 376.84,-221.8 376.84,-263"></polygon>
+<text text-anchor="middle" x="219.79" y="-246.6" font-family="Helvetica,sans-Serif" font-size="14.00">Apakah Zero (h1/h3) membatalkan Pole P (h2)?</text>
+<text text-anchor="middle" x="219.79" y="-229.8" font-family="Helvetica,sans-Serif" font-size="14.00">(K_MAT_Aljabar: Pembatalan Pole/Zero)</text>
+</g>
+<!-- C&#45;&gt;D -->
+<g id="edge3" class="edge">
+<title>C-&gt;D</title>
+<path fill="none" stroke="black" d="M219.79,-298.95C219.79,-291.29 219.79,-282.06 219.79,-273.34"></path>
+<polygon fill="black" stroke="black" points="223.29,-273.1 219.79,-263.1 216.29,-273.1 223.29,-273.1"></polygon>
+</g>
+<!-- E -->
+<g id="node5" class="node">
+<title>E</title>
+<polygon fill="none" stroke="black" points="345.3,-185.6 94.29,-185.6 94.29,-149.6 345.3,-149.6 345.3,-185.6"></polygon>
+<text text-anchor="middle" x="219.79" y="-163.4" font-family="Helvetica,sans-Serif" font-size="14.00">Jika Ya, Pole P tidak ada di H_total(s)</text>
+</g>
+<!-- D&#45;&gt;E -->
+<g id="edge4" class="edge">
+<title>D-&gt;E</title>
+<path fill="none" stroke="black" d="M219.79,-221.51C219.79,-213.69 219.79,-204.59 219.79,-196.16"></path>
+<polygon fill="black" stroke="black" points="223.29,-195.99 219.79,-185.99 216.29,-195.99 223.29,-195.99"></polygon>
+</g>
+<!-- F -->
+<g id="node6" class="node">
+<title>F</title>
+<polygon fill="none" stroke="black" points="391.11,-113.6 48.48,-113.6 48.48,-77.6 391.11,-77.6 391.11,-113.6"></polygon>
+<text text-anchor="middle" x="219.79" y="-91.4" font-family="Helvetica,sans-Serif" font-size="14.00">K_OPS_Definisi: Stabilitas BIBO (Semua pole stabil)</text>
+</g>
+<!-- E&#45;&gt;F -->
+<g id="edge5" class="edge">
+<title>E-&gt;F</title>
+<path fill="none" stroke="black" d="M219.79,-149.3C219.79,-141.58 219.79,-132.31 219.79,-123.71"></path>
+<polygon fill="black" stroke="black" points="223.29,-123.7 219.79,-113.7 216.29,-123.7 223.29,-123.7"></polygon>
+</g>
+<!-- G -->
+<g id="node7" class="node">
+<title>G</title>
+<polygon fill="lightgreen" stroke="black" points="323.73,-41.4 115.86,-41.4 115.86,-0.2 323.73,-0.2 323.73,-41.4"></polygon>
+<text text-anchor="middle" x="219.79" y="-25" font-family="Helvetica,sans-Serif" font-size="14.00">Titik Akhir:</text>
+<text text-anchor="middle" x="219.79" y="-8.2" font-family="Helvetica,sans-Serif" font-size="14.00">Kesimpulan Evaluatif Stabilitas</text>
+</g>
+<!-- F&#45;&gt;G -->
+<g id="edge6" class="edge">
+<title>F-&gt;G</title>
+<path fill="none" stroke="black" d="M219.79,-77.35C219.79,-69.69 219.79,-60.46 219.79,-51.74"></path>
+<polygon fill="black" stroke="black" points="223.29,-51.5 219.79,-41.5 216.29,-51.5 223.29,-51.5"></polygon>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
 </section>
 <section id="c-solusi-wk5-an-l5-p19" class="level3" data-number="8.6.3">
 <h3 data-number="8.6.3" class="anchored" data-anchor-id="c-solusi-wk5-an-l5-p19"><span class="header-section-number">8.6.3</span> 3c) Solusi WK5-AN-L5-P19</h3>

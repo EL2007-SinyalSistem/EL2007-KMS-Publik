@@ -71,7 +71,7 @@ hubungan(sywk_solusipd, menghasilkan, sywk_output).
 
 Berikut adalah kode Graphviz DOT untuk memvisualisasikan Peta Pengetahuan Primitif di atas:
 
-```dot
+```{dot}
 digraph G {
     rankdir=TB;
     node [shape=box, style="filled", color="lightblue", fontname="Helvetica"];
@@ -176,9 +176,9 @@ Di bawah ini, kami menyajikan Peta Pengetahuan Aplikatif (PMA), representasi Gra
 | **Kendaraan** | K_MAT_Kalkulus (Integrasi), K_MAT_Aljabar (Manipulasi Batas), K_OPS_Sinyal_Dasar ($u(t)$), K_VIS_PlotSinyal, Heuristik (Menggambar Diagram). |
 
 ### 3b) Diagram Graphviz PMA WK5-CV-L3-P01
-```dot
+```{dot}
 digraph PMA_WK5_CV_L3_P01 {
-    rankdir=LR;
+    rankdir=TD;
     node [shape=box, fontname="Helvetica"];
     
     A [label="Titik Mulai:\nx(t)=u(t)-u(t-1), h(t)=u(t)-u(t-2)", style="filled", fillcolor="yellow"];
@@ -227,9 +227,9 @@ $$y(t) = \begin{cases} t & 0 \le t < 1 \\ 1 & 1 \le t < 2 \\ 3-t & 2 \le t < 3 \
 | **Kendaraan** | K_MAT_Aljabar (Persamaan Karakteristik, Faktorisasi), K_OPS_Definisi (Solusi Partikular, Resonansi). |
 
 ### 3b) Diagram Graphviz PMA WK5-DE-L4-P05
-```dot
+```{dot}
 digraph PMA_WK5_DE_L4_P05 {
-    rankdir=LR;
+    rankdir=TD;
     node [shape=box, fontname="Helvetica"];
     
     A [label="Titik Mulai:\nPD Orde 2, Input x(t)=e^(-3t)", style="filled", fillcolor="yellow"];
@@ -277,9 +277,9 @@ Bentuk solusi partikular yang paling umum adalah $\mathbf{y_p(t) = A t e^{-3t}}$
 | **Kendaraan** | K_OPS_Definisi (Sistem Kaskade LTI), K_OPS_Definisi (Sifat Komutatif Konvolusi), K_OPS_Sinyal_Dasar (Sifat $\delta(t)$ dalam Konvolusi). |
 
 ### 3b) Diagram Graphviz PMA WK5-CV-L5-P07
-```dot
+```{dot}
 digraph PMA_WK5_CV_L5_P07 {
-    rankdir=LR;
+    rankdir=TD;
     node [shape=box, fontname="Helvetica"];
     
     A [label="Titik Mulai:\nh1(t)=u(t), h2(t)=δ(t-2)", style="filled", fillcolor="yellow"];
@@ -331,9 +331,9 @@ Urutan kaskade **tidak memengaruhi** respons impuls total atau output sistem gab
 | **Kendaraan** | K_OPS_Definisi (Respon Impuls Orde Pertama), K_MAT_Aljabar (Perbandingan Koefisien), K_OPS_Representasi_Matematis (Struktur PD). |
 
 ### 3b) Diagram Graphviz PMA WK5-DS-L6-P10
-```dot
+```{dot}
 digraph PMA_WK5_DS_L6_P10 {
-    rankdir=LR;
+    rankdir=TD;
     node [shape=box, fontname="Helvetica"];
     
     A [label="Titik Mulai:\nh(t) = 4e^(-0.5t)u(t)", style="filled", fillcolor="yellow"];
@@ -379,7 +379,7 @@ Persamaan diferensial yang menggambarkan sistem LTI orde pertama tersebut adalah
 | **Kendaraan** | K_MAT_Aljabar (Akar Karakteristik, Konstanta), K_MAT_Kalkulus (Diferensiasi, Substitusi), K_OPS_Definisi (Solusi Homogen/Partikular), K_OPS_Definisi (Kondisi Awal). |
 
 ### 3b) Diagram Graphviz PMA WK5-DE-L4-P17
-```dot
+```{dot}
 digraph PMA_WK5_DE_L4_P17 {
     rankdir=TB;
     node [shape=box, fontname="Helvetica"];
@@ -435,7 +435,7 @@ Solusi lengkap sistem untuk $t \ge 0$ adalah $\mathbf{y(t) = e^{-t} + 2}$.
 | **Kendaraan** | K_OPS_Definisi (Stabilitas BIBO LTI), K_MAT_Aljabar (Pembatalan Pole/Zero), Heuristik (Mentransformasi Masalah - ke Domain Transformasi), K_OPS_Definisi (Sifat Asosiatif Konvolusi). |
 
 ### 3b) Diagram Graphviz PMA WK5-AN-L5-P19
-```dot
+```{dot}
 digraph PMA_WK5_AN_L5_P19 {
     rankdir=TB;
     node [shape=box, fontname="Helvetica"];
