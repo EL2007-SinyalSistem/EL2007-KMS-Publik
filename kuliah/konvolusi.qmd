@@ -1,0 +1,288 @@
+# Konvolusi
+
+```{python}
+import sympy as sym
+
+t = sym.symbols('t', real=True)
+
+# define a pretty printing function
+from IPython.display import display, Math, Latex
+def print_latex(str, x):
+    display(Math(str + "=" + sym.latex(x)))
+
+# define the first rectangular pulse. Width=1, height=1
+x = sym.Piecewise( (0, t<0), (0, t>1), (1, True))
+print_latex("x(t)", x)
+
+# and plot it
+sym.plot(x, (t, -1.2, 2.2), ylim=[-0.1, 1.3], ylabel=r'$x(t)$');
+
+
+# define the second rectangular pulse. Width=1, height=0.5
+y = sym.Piecewise( (0, t<-0), (0, t>1), (0.5, True))
+print_latex("y(t)", y)
+
+# and plot it
+sym.plot(y, (t, -1.2, 2.2), ylim=[-0.1, 1.3], ylabel=r'$y(t)$', line_color='red');
+
+```
+
+```{python}
+# variable of integration
+tau = sym.symbols('tau', real=True)
+
+# convolution integral
+z = sym.integrate(x.subs(t, tau)*y.subs(t, t-tau), (tau, -sym.oo, sym.oo))
+print_latex("z(t)",z)
+
+sym.plot(z, (t, -1, 3),  ylabel=r'$z(t)$');
+
+```
+
+Convolution
+The convolution of two continuous time (CT) signals, 
+ and 
+, is defined as follows:
+
+Let us see how convolution works step by step. We will use two rectangular pulse functions for ease of illustration. First, let us create these functions and plot them.
+
+import sympy as sym
+
+t = sym.symbols('t', real=True)
+
+# define a pretty printing function
+from IPython.display import display, Math, Latex
+def print_latex(str, x):
+    display(Math(str + "=" + sym.latex(x)))
+
+# define the first rectangular pulse. Width=1, height=1
+x = sym.Piecewise( (0, t<0), (0, t>1), (1, True))
+print_latex("x(t)", x)
+
+# and plot it
+sym.plot(x, (t, -1.2, 2.2), ylim=[-0.1, 1.3], ylabel=r'$x(t)$');
+
+
+# define the second rectangular pulse. Width=1, height=0.5
+y = sym.Piecewise( (0, t<-0), (0, t>1), (0.5, True))
+print_latex("y(t)", y)
+
+# and plot it
+sym.plot(y, (t, -1.2, 2.2), ylim=[-0.1, 1.3], ylabel=r'$y(t)$', line_color='red');
+ 
+ 
+_images/9679dbd94c86676dfa4179f299dffac536dbb622633c0cd2a685805703bbf320.png
+ 
+ 
+_images/066e95e2ead8118539ffd630f0380ad5865272d36a0dd3fdf2bf92fefd9f0013.png
+Before showing intermediate steps, let us find out the solution and plot it. We can easily evaluate the convolution integral using Sympy’s integrate() function as shown below.
+
+# variable of integration
+tau = sym.symbols('tau', real=True)
+
+# convolution integral
+z = sym.integrate(x.subs(t, tau)*y.subs(t, t-tau), (tau, -sym.oo, sym.oo))
+print_latex("z(t)",z)
+
+sym.plot(z, (t, -1, 3),  ylabel=r'$z(t)$');
+_images/0928916b7904f3a661c501bccf166e7ddf9b46d36cb8803da57f8914d5d58b74.png
+So, the result is a triangular pulse. Now let us understand how we obtained this result, step by step. First, let us implement a helper function to plot 
+ and 
+ on the same figure.
+
+# plots t vs x and t vs y
+def plot_xy(t, x,namex, y, namey):
+    px = sym.plot(x, (t, -3, 3), legend=True, label=namex, ylabel="",
+                  line_color='blue', show=False);
+    py = sym.plot(y, (t, -3, 3), legend=True, label=namey, ylabel="",
+                  line_color='red',  show=False);
+    px.append(py[0])
+    px.show();
+    return px
+
+plot_xy(t, x,"x(t)", y, "y(t)");
+_images/e6823ea693677b0d313c3eebd72def5329d6d625cf2ce4a24bdb375b0589f973.png
+Let us now follow the steps given in Section 4.1.3 in the book.
+
+Step 1
+We would like to compute 
+. The first step is to change the time variable 
+ to the variable of integration 
+. Now, instead of having 
+ and 
+, we have 
+ and 
+.
+
+tau = sym.symbols('tau', real=True)
+
+xtau = x.subs(t, tau)
+ytau = y.subs(t, tau)
+Step 2
+The second step is to time-reverse the second signal, i.e. in this case, 
+, to obtain 
+. However, note that the convolution is commutative, that is, 
+ is equivalent to 
+.
+
+plot_xy(tau, xtau, r'$x(\tau)$', ytau.subs(tau,-tau), r'$y(-\tau)$');
+_images/13190aa6a48c284bf95f97d4b16a283ec50e04579e78e683804593b130d7c115.png
+Step 3
+Now we shift 
+ by 
+, to obtain 
+. Below, you can see 
+ for different values of 
+.
+
+for t in [-1, 0.5, 2]:
+    print("For t =", t)
+    plot_xy(tau, xtau, r'$x(\tau)$', ytau.subs(tau,t-tau), r'$y(-1-\tau)$');
+For t = -1
+_images/2700809b588ff83441abfc8312e55e798f8564e5c2ad8c35e8680c592a68217a.png
+For t = 0.5
+_images/0898c2badf1fcc162fc380ef7ae2653b51744321c810f9db9e278bd2c1fc700a.png
+For t = 2
+_images/4b02e034fc668a0580b1e5f5fdd4c9c26765958f124c27e39090dc18e221372b.png
+Step 4
+Now let us take one of the values of 
+ and compute the convolution integral. For example, for 
+, the convolution integral is
+
+This expression calculates the integral of the multiplication of two functions, which corresponds to the area under 
+ weighted by 
+. This area is marked with yellow color below.
+
+import numpy as np
+t=.5
+print("For t =",t)
+p1 = sym.plot(xtau, (tau, -2, 2), show=False)
+p2 = sym.plot(ytau.subs(tau,t-tau), (tau, -2, 2), show=False)
+xarray = np.linspace(-2, 2, 500)
+
+xval = np.array([xtau.subs(tau, val) for val in xarray], dtype=float)
+yval = np.array([ytau.subs(tau, t-val) for val in xarray], dtype=float)
+
+#yarray = np.min(xtau.eval(xarray), ytau.subs(tau,t-tau).eval(xarray))
+p3 = sym.plot(fill={'x':xarray, 'y1': np.minimum(xval,yval), 'edgecolor':'none', 
+                                      'facecolor':'yellow'}, show=False)
+p3.append(p1[0])
+p3.append(p2[0])
+p3.show()
+For t = 0.5
+_images/a92ba28da30dc656b2706bbeefe44eec51976d85bc55969d86678582a289333c.png
+You can change the value of 
+ above to see how the yellow area changes.
+
+Animation of the whole process
+The whole process of convoluting 
+ with 
+, that is, computing
+
+is shown in the animation below. The code that produced this animation follows.
+
+fishy
+
+from matplotlib import pyplot as plt
+import matplotlib.animation as animation
+
+ts=np.linspace(-3, 5, 100)
+z = np.zeros(len(ts))
+
+fig, axs = plt.subplots(2)
+
+def animate(i): 
+    t = ts[i]
+
+    p1 = sym.plot(xtau, (tau, -3, 3), line_color='blue', show=False)
+    p1x,p1y = p1[0].get_data()
+
+    p2 = sym.plot(ytau.subs(tau,t-tau), (tau, -3, 3), line_color='orange', 
+                    show=False)
+    p2x,p2y = p2[0].get_data()
+
+    z[i] = sym.integrate(xtau*ytau.subs(tau, t-tau), (tau, -sym.oo, sym.oo))
+
+    # for area under the curve
+    xarray = np.linspace(-3, 3, 500)
+    xval = np.array([xtau.subs(tau, val) for val in xarray], dtype=float)
+    yval = np.array([ytau.subs(tau, t-val) for val in xarray], dtype=float)
+
+    axs[0].cla()
+    axs[0].set_xlim((-3,3))
+    axs[0].text(3.2,-.03,r'$\tau$')
+    axs[0].text(-2.5,.8,r'$t=$'+f'{t:.1f}')
+    
+    axs[0].plot(p1x,p1y, p2x, p2y) 
+    axs[0].legend([r'$x(\tau)$',r'$y(t-\tau)$'])
+    axs[0].fill_between(xarray, np.minimum(xval, yval), color='yellow', edgecolor='none')
+
+    axs[1].set_xlim((-3,3))    
+    axs[1].set_ylim((-.03,.61))
+    axs[1].text(3.2,-.03,r'$t$')
+    axs[1].plot(ts[0:i], z[0:i],color='red')
+    axs[1].legend([r'$z(t)$'])
+
+ani = animation.FuncAnimation(fig, animate, repeat=True,
+                                    frames=len(ts) - 1, interval=50)
+
+# #To save the animation as a gif file: 
+# writer = animation.PillowWriter(fps=4,
+#                                 metadata=dict(artist='384book'),
+#                                 bitrate=1800)
+# ani.save('conv_animation.gif', writer=writer)
+plt.close()
+Convolution and LTI systems
+The convolution integral uniquely identifies a linear, time-invariant (LTI) system. Formally, let 
+ be the input to the system and 
+ represent the impulse response of the system, then the output 
+ can be computed using the convolution integral:
+
+Example: Consider an LTI system whose impulse response is 
+. What would be the output of this system when the input is 
+?
+
+The answer is
+
+You can easily verify this answer using Sympy:
+
+# time variable
+t = sym.symbols('t', real=True)
+
+# variable of integration
+tau = sym.symbols('tau', real=True)
+
+# input
+x = sym.Function('x')(t)
+
+# impulse response
+delta = sym.DiracDelta(t)
+h = delta.subs(t, t-2)
+
+# convolution integral
+y = sym.integrate(x.subs(t, tau)*h.subs(t, t-tau), (tau, -sym.oo, sym.oo))
+y
+Another example: Let us find the output of a discrete time LTI system whose impulse response is 
+, when the input is 
+.
+
+For discrete time signals and systems, it is more convenient to use numpy. However, both 
+ and 
+ extend to infinity and it is challenging to both represent them and compute their convolution for the whole time axis. Instead, we will represent some finite parts of 
+ and 
+ with finite numpy arrays and compute their “valid” convolution to avoid boundary effects. Below you can find a piece of code that carries out this task.
+
+import numpy as np
+from matplotlib import pyplot as plt
+# input
+x = np.array([0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1], dtype=float)
+
+# impulse response of the system
+h = np.array([0,0,0,0.5,0.5**2, 0.5**3, 0.5**4], dtype=float)
+
+# the output y
+y = np.convolve(x,h,'valid')
+y
+
+plt.stem(y);
+_images/889eaa7fd5b3d558bb8ec96e88e0ddc2a47aa4bfd959fb1e8b3105664cd24d99.png
