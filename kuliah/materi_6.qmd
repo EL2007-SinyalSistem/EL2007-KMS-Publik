@@ -91,7 +91,7 @@ Peta Pengetahuan Dasar (PPD) mengorganisir konsep utama berdasarkan peran mereka
 
 ### (d) Diagram Graphviz untuk Peta Pengetahuan Dasar
 
-```graphviz
+```{dot}
 digraph G {
     rankdir=LR;
     node [shape=box, style="filled", fillcolor="#f0f0ff"];
@@ -210,7 +210,7 @@ Untuk alasan keterbatasan ruang dan kompleksitas, kami akan menyajikan Peta Peng
 
 **b) Diagram Graphviz KPA**
 
-```graphviz
+```{dot}
 digraph KPA_Q3 {
     rankdir=TB;
     node [shape=box, style="filled", fillcolor="#FFFFE0", fontname="Helvetica"];
@@ -245,7 +245,7 @@ Karena sinyal $x(t)$ bernilai real, maka berlaku kondisi **N1**: $x(t) = x^*(t)$
 
 **b) Diagram Graphviz KPA**
 
-```graphviz
+```{dot}
 digraph KPA_Q6 {
     rankdir=TB;
     node [shape=box, style="filled", fillcolor="#E0FFFF", fontname="Helvetica"];
@@ -287,7 +287,7 @@ Pergeseran sebesar setengah periode membalik tanda (magnitudo) koefisien harmoni
 
 **b) Diagram Graphviz KPA**
 
-```graphviz
+```{dot}
 digraph KPA_Q8 {
     rankdir=TB;
     node [shape=box, style="filled", fillcolor="#F0F8FF", fontname="Helvetica"];
@@ -331,7 +331,7 @@ Analisis ini didasarkan pada dua properti utama LTI: Eigenfunction dan Superposi
 
 **b) Diagram Graphviz KPA**
 
-```graphviz
+```{dot}
 digraph KPA_Q14 {
     rankdir=TB;
     node [shape=box, style="filled", fillcolor="#FFE0F0", fontname="Helvetica"];
@@ -376,7 +376,7 @@ digraph KPA_Q14 {
 
 **b) Diagram Graphviz KPA**
 
-```graphviz
+```{dot}
 digraph KPA_Q19 {
     rankdir=TB;
     node [shape=box, style="filled", fillcolor="#D8BFD8", fontname="Helvetica"];
