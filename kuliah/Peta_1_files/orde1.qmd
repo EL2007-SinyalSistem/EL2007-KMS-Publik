@@ -1,0 +1,11 @@
+
+
+1. 
+
+
+2. second
+3. third
+
+# Tampilkan persamaan dalam format LaTeX
+print("Persamaan Diferensial (LCCDE):")
+display(ode)

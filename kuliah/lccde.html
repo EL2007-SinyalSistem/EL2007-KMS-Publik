@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.23">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>lccde</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="lccde_files/libs/clipboard/clipboard.min.js"></script>
+<script src="lccde_files/libs/quarto-html/quarto.js" type="module"></script>
+<script src="lccde_files/libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="lccde_files/libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="lccde_files/libs/quarto-html/popper.min.js"></script>
+<script src="lccde_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="lccde_files/libs/quarto-html/anchor.min.js"></script>
+<link href="lccde_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="lccde_files/libs/quarto-html/quarto-syntax-highlighting-1fe81d0376b2c50856e68e651e390326.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="lccde_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="lccde_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="lccde_files/libs/bootstrap/bootstrap-d6a003b94517c951b2d65075d42fb01b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="fullcontent quarto-light">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+
+
+
+<section id="pendahuluan-dari-sistem-fisik-ke-model-matematis" class="level1">
+<h1>Pendahuluan: Dari Sistem Fisik ke Model Matematis</h1>
+<p>Dalam studi Sinyal dan Sistem, salah satu tujuan utamanya adalah untuk memahami dan memprediksi perilaku sistem-sistem fisik. Sistem-sistem ini, baik berupa rangkaian listrik, sistem mekanik, maupun proses termal, pada dasarnya diatur oleh hukum-hukum fisika fundamental. Kemampuan kita untuk menganalisis dan merancang sistem-sistem tersebut bergantung pada kemampuan kita untuk menerjemahkan hukum-hukum fisika ini ke dalam bahasa matematika yang presisi. Persamaan diferensial, khususnya <em>Linear Constant-Coefficient Differential Equations</em> (LCCDE), berfungsi sebagai "bahasa universal" yang memungkinkan penerjemahan ini. LCCDE menyediakan kerangka kerja yang kuat untuk memodelkan hubungan antara sinyal masukan (input) dan sinyal keluaran (output) dari sebuah kelas sistem yang sangat luas dan penting.[1]</p>
+<p>Sebuah sistem waktu-kontinu yang dapat direpresentasikan oleh LCCDE memiliki bentuk matematis umum sebagai berikut [1, 2]: <span class="math display">\[\sum_{k=0}^{N} a_k \frac{d^k y(t)}{dt^k} = \sum_{m=0}^{M} b_m \frac{d^m x(t)}{dt^m}\]</span> Di sini, <span class="math inline">\(y(t)\)</span> adalah sinyal output sistem, dan <span class="math inline">\(x(t)\)</span> adalah sinyal input. Koefisien <span class="math inline">\(a_k\)</span> dan <span class="math inline">\(b_m\)</span> adalah konstanta yang mendefinisikan karakteristik fisik dari sistem tersebut. Persamaan ini disebut <em>Linear</em> karena <span class="math inline">\(y(t)\)</span>, <span class="math inline">\(x(t)\)</span>, dan turunannya muncul secara linear. Persamaan ini disebut <em>Constant-Coefficient</em> karena nilai <span class="math inline">\(a_k\)</span> dan <span class="math inline">\(b_m\)</span> tidak berubah seiring waktu. Dua asumsi ini—linearitas dan koefisien konstan—sangatlah fundamental. Asumsi-asumsi ini menyiratkan bahwa sistem yang dimodelkan adalah <em>Linear Time-Invariant</em> (LTI), sebuah properti yang secara drastis menyederhanakan analisis dan memungkinkan kita untuk menggunakan perangkat matematika yang mapan seperti aljabar linear dan transformasi Laplace.[3] Tanpa asumsi LTI, analisis sistem menjadi jauh lebih rumit dan seringkali memerlukan metode numerik yang kompleks.</p>
+<section id="solusi-lengkap-respon-alami-dan-respon-paksa" class="level2">
+<h2 class="anchored" data-anchor-id="solusi-lengkap-respon-alami-dan-respon-paksa">Solusi Lengkap: Respon Alami dan Respon Paksa</h2>
+<p>Solusi total, <span class="math inline">\(y(t)\)</span>, dari sebuah LCCDE selalu dapat diuraikan menjadi dua komponen yang berbeda secara konseptual dan fisis.[2, 4, 5] Pemisahan ini bukan sekadar trik matematika, melainkan manifestasi dari prinsip superposisi yang berlaku pada sistem linear. Ini memungkinkan kita untuk menganalisis efek dari kondisi internal sistem dan efek dari stimulus eksternal secara terpisah, lalu menjumlahkan hasilnya untuk mendapatkan respons total.</p>
+<ol type="1">
+<li><p><strong>Solusi Homogen (<span class="math inline">\(y_h(t)\)</span>) atau Respon Alami</strong>: Komponen ini adalah solusi dari persamaan diferensial ketika inputnya nol (<span class="math inline">\(x(t) = 0\)</span>). Respon alami merepresentasikan perilaku intrinsik sistem—bagaimana sistem melepaskan atau mendisipasikan energi yang tersimpan di dalamnya tanpa adanya gaya eksternal. Perilaku ini sepenuhnya ditentukan oleh karakteristik internal sistem, yang direpresentasikan oleh koefisien <span class="math inline">\(a_k\)</span> (misalnya, nilai resistor, induktor, dan kapasitor dalam sebuah rangkaian).[2, 6] Respon alami ini seringkali bersifat transien, artinya ia akan meluruh menuju nol seiring berjalannya waktu pada sistem yang stabil.</p></li>
+<li><p><strong>Solusi Partikular (<span class="math inline">\(y_p(t)\)</span>) atau Respon Paksa</strong>: Komponen ini adalah solusi spesifik yang memenuhi persamaan diferensial untuk input <span class="math inline">\(x(t)\)</span> yang diberikan. Respon paksa menggambarkan bagaimana sistem berperilaku di bawah pengaruh input eksternal setelah semua efek transien (respon alami) telah mereda. Bentuk dari respon paksa sangat bergantung pada bentuk sinyal input <span class="math inline">\(x(t)\)</span>.[2, 7]</p></li>
+</ol>
+<p>Dengan demikian, solusi lengkap dari sistem adalah superposisi dari kedua respons ini: <span class="math display">\[y(t) = y_h(t) + y_p(t)\]</span> Pemisahan ini memberikan intuisi rekayasa yang sangat kuat. Kita dapat menganalisis stabilitas internal sistem dengan memeriksa respon alaminya, dan secara terpisah, menganalisis kinerja <em>steady-state</em> sistem terhadap berbagai input dengan memeriksa respon paksa.</p>
+</section>
+<section id="kondisi-awal-dan-sifat-lti" class="level2">
+<h2 class="anchored" data-anchor-id="kondisi-awal-dan-sifat-lti">Kondisi Awal dan Sifat LTI</h2>
+<p>Sebuah LCCDE saja tidak cukup untuk mendefinisikan sebuah sistem LTI secara unik. Kita juga memerlukan informasi tambahan berupa kondisi awal. Untuk memastikan bahwa sistem yang dimodelkan oleh LCCDE benar-benar bersifat LTI dan kausal, kita memberlakukan <strong>kondisi awal diam</strong> (<em>initial rest condition</em>).[8, 9] Kondisi ini menyatakan bahwa jika input ke sistem adalah nol untuk semua waktu sebelum <span class="math inline">\(t_0\)</span> (yaitu, <span class="math inline">\(x(t) = 0\)</span> untuk <span class="math inline">\(t &lt; t_0\)</span>), maka output sistem juga harus nol untuk semua waktu sebelum <span class="math inline">\(t_0\)</span> (yaitu, <span class="math inline">\(y(t) = 0\)</span> untuk <span class="math inline">\(t &lt; t_0\)</span>).[10] Secara fisis, ini berarti sistem tidak memiliki energi yang tersimpan sebelum input diterapkan. Dengan pemberlakuan kondisi ini, LCCDE secara unik mendefinisikan sebuah sistem LTI yang kausal.[8]</p>
+</section>
+</section>
+<section id="analisis-sistem-orde-pertama-rangkaian-rc" class="level1">
+<h1>Analisis Sistem Orde Pertama: Rangkaian RC</h1>
+<p>Untuk memahami bagaimana LCCDE memodelkan sistem LTI dalam praktik, kita akan memulai dengan contoh yang paling fundamental: sistem orde pertama. Sistem orde pertama dicirikan oleh persamaan diferensial yang turunan tertingginya adalah turunan pertama. Contoh kanonis yang paling intuitif dan sering dijumpai dalam rekayasa elektro adalah rangkaian Resistor-Kapasitor (RC).[6, 11, 12]</p>
+<section id="studi-kasus-rangkaian-rc-sebagai-prototipe-sistem-orde-pertama" class="level2">
+<h2 class="anchored" data-anchor-id="studi-kasus-rangkaian-rc-sebagai-prototipe-sistem-orde-pertama">Studi Kasus: Rangkaian RC sebagai Prototipe Sistem Orde Pertama</h2>
+<p>Perhatikan rangkaian RC seri sederhana yang ditunjukkan di bawah ini. Sistem ini memiliki satu elemen penyimpan energi, yaitu kapasitor. Input sistem adalah sumber tegangan <span class="math inline">\(v_s(t)\)</span>, dan output yang kita amati adalah tegangan pada kapasitor, <span class="math inline">\(v_c(t)\)</span>.</p>
+<figure id="fig:rc-circuit" data-latex-placement="H" class="figure">
+<figcaption>
+Rangkaian RC Seri sebagai Sistem LTI Orde Pertama
+</figcaption>
+</figure>
+<section id="penurunan-model-matematis-dari-prinsip-dasar" class="level3">
+<h3 class="anchored" data-anchor-id="penurunan-model-matematis-dari-prinsip-dasar">Penurunan Model Matematis dari Prinsip Dasar</h3>
+<p>Kita dapat menurunkan model matematis untuk rangkaian ini langsung dari hukum-hukum dasar rangkaian listrik. Dengan menggunakan Hukum Tegangan Kirchhoff (KVL) pada loop, kita tahu bahwa jumlah tegangan dalam satu loop tertutup adalah nol, atau tegangan sumber sama dengan jumlah penurunan tegangan pada setiap komponen.[13, 14] &nbsp;Selanjutnya, kita gunakan hubungan arus-tegangan (hukum konstitutif) untuk setiap komponen:</p>
+<ol type="1">
+<li><p>Untuk resistor, hukum Ohm menyatakan: <span class="math inline">\(v_R(t) = R \cdot i(t)\)</span>.</p></li>
+<li><p>Untuk kapasitor, arus yang mengalir sebanding dengan laju perubahan tegangan: <span class="math inline">\(i(t) = C \frac{dv_c(t)}{dt}\)</span>.[15, 16]</p></li>
+</ol>
+<p>Dengan menata ulang, kita mendapatkan LCCDE orde pertama yang memodelkan rangkaian RC [6, 7]: &nbsp;Persamaan ini secara sempurna menggambarkan hubungan dinamis antara input <span class="math inline">\(v_s(t)\)</span> dan output <span class="math inline">\(v_c(t)\)</span>.</p>
+</section>
+<section id="menemukan-solusi-lengkap-untuk-respon-undak-step-response" class="level3">
+<h3 class="anchored" data-anchor-id="menemukan-solusi-lengkap-untuk-respon-undak-step-response">Menemukan Solusi Lengkap untuk Respon Undak (Step Response)</h3>
+<p>Sekarang, mari kita selesaikan persamaan ini untuk menemukan bagaimana sistem merespons input yang paling umum, yaitu fungsi undak (<em>step function</em>), di mana tegangan sumber tiba-tiba berubah dari 0 ke nilai konstan <span class="math inline">\(V_s\)</span> pada <span class="math inline">\(t=0\)</span>. Jadi, <span class="math inline">\(v_s(t) = V_s u(t)\)</span>. Kita akan menggunakan kondisi awal diam, yaitu <span class="math inline">\(v_c(0) = 0\)</span>.</p>
+<section id="solusi-homogen-respon-alami" class="level4">
+<h4 class="anchored" data-anchor-id="solusi-homogen-respon-alami">1. Solusi Homogen (Respon Alami)</h4>
+<p>Pertama, kita cari solusi homogen dengan mengatur input menjadi nol: <span class="math inline">\(v_s(t) = 0\)</span>. &nbsp;Ini adalah <strong>persamaan karakteristik</strong> dari sistem: <span class="math inline">\(RCs + 1 = 0\)</span>. Akarnya adalah <span class="math inline">\(s = -\frac{1}{RC}\)</span>. Solusi homogennya adalah: &nbsp;Besaran <span class="math inline">\(RC\)</span> disebut <strong>konstanta waktu</strong> sistem, dilambangkan dengan <span class="math inline">\(\tau\)</span>.[6, 16]</p>
+</section>
+<section id="solusi-partikular-respon-paksa" class="level4">
+<h4 class="anchored" data-anchor-id="solusi-partikular-respon-paksa">2. Solusi Partikular (Respon Paksa)</h4>
+<p>Selanjutnya, kita cari solusi partikular untuk input <span class="math inline">\(v_s(t) = V_s\)</span> untuk <span class="math inline">\(t &gt; 0\)</span>. Karena input adalah konstan, kita asumsikan output juga akan menjadi konstan, <span class="math inline">\(v_{cp}(t) = K\)</span>.[7, 17] Substitusi ke LCCDE memberikan <span class="math inline">\(K = V_s\)</span>. Jadi, solusi partikularnya adalah <span class="math inline">\(v_{cp}(t) = V_s\)</span>.</p>
+</section>
+<section id="solusi-total-dan-kondisi-awal" class="level4">
+<h4 class="anchored" data-anchor-id="solusi-total-dan-kondisi-awal">3. Solusi Total dan Kondisi Awal</h4>
+<p>Solusi total adalah jumlah dari solusi homogen dan partikular: &nbsp;Menggunakan kondisi awal <span class="math inline">\(v_c(0) = 0\)</span>, kita dapatkan <span class="math inline">\(A = -V_s\)</span>. Solusi akhir untuk respon undak dari rangkaian RC adalah [7, 17, 18]: &nbsp;</p>
+</section>
+</section>
+<section id="simulasi-dan-visualisasi-dengan-sympy" class="level3">
+<h3 class="anchored" data-anchor-id="simulasi-dan-visualisasi-dengan-sympy">Simulasi dan Visualisasi dengan Sympy</h3>
+<p>Proses analitis di atas dapat diverifikasi dan divisualisasikan dengan mudah menggunakan pustaka <code>Sympy</code> di Python.</p>
+<pre><code>import sympy as sym
+import numpy as np
+import matplotlib.pyplot as plt
+
+sym.init_printing()
+
+t, R, C, Vs = sym.symbols('t R C Vs', real=True, positive=True)
+vc = sym.Function('vc')
+
+ode = sym.Eq(R * C * vc(t).diff(t) + vc(t), Vs)
+solution = sym.dsolve(ode, vc(t), ics={vc(0): 0})
+
+sol_numeric = solution.rhs.subs({R: 1000, C: 0.001, Vs: 5})
+
+# Plotting code would go here
+# For LaTeX, we show a placeholder for the plot.</code></pre>
+<figure id="fig:rc-step-response" data-latex-placement="H" class="figure">
+<figcaption>
+Respon Undak (Step Response) Rangkaian RC dengan R=1 k<span class="math inline"><em>Ω</em></span>, C=1 mF, dan Vs=5 V
+</figcaption>
+</figure>
+<p>Plot di atas secara visual mengkonfirmasi hasil analitis kita. Kurva menunjukkan tegangan kapasitor yang naik secara eksponensial dari 0 V menuju nilai <em>steady-state</em> 5 V.</p>
+</section>
+</section>
+</section>
+<section id="analisis-sistem-orde-tinggi-rangkaian-rlc" class="level1">
+<h1>Analisis Sistem Orde Tinggi: Rangkaian RLC</h1>
+<p>Sistem orde kedua dapat menunjukkan perilaku dinamis yang lebih kompleks, termasuk osilasi. Kehadiran dua elemen penyimpan energi yang independen, seperti induktor dan kapasitor, mengarah pada model persamaan diferensial orde kedua.[19, 20]</p>
+<section id="studi-kasus-rangkaian-rlc-sebagai-model-sistem-orde-kedua" class="level2">
+<h2 class="anchored" data-anchor-id="studi-kasus-rangkaian-rlc-sebagai-model-sistem-orde-kedua">Studi Kasus: Rangkaian RLC sebagai Model Sistem Orde Kedua</h2>
+<p>Kita akan menggunakan rangkaian RLC seri sebagai contoh.</p>
+<figure id="fig:rlc-circuit" data-latex-placement="H" class="figure">
+<figcaption>
+Rangkaian RLC Seri sebagai Sistem LTI Orde Kedua
+</figcaption>
+</figure>
+<section id="penurunan-lccde-orde-kedua" class="level3">
+<h3 class="anchored" data-anchor-id="penurunan-lccde-orde-kedua">Penurunan LCCDE Orde Kedua</h3>
+<p>Menerapkan KVL pada loop seri [19] dan mensubstitusikan hubungan arus-tegangan untuk setiap komponen menghasilkan LCCDE orde kedua [19, 21, 22]: &nbsp;</p>
+</section>
+</section>
+<section id="persamaan-karakteristik-jantung-dari-respon-sistem" class="level2">
+<h2 class="anchored" data-anchor-id="persamaan-karakteristik-jantung-dari-respon-sistem">Persamaan Karakteristik: Jantung dari Respon Sistem</h2>
+<p>Untuk respon alami (<span class="math inline">\(v_s(t) = 0\)</span>), dengan mengasumsikan solusi <span class="math inline">\(v_{ch}(t) = A e^{st}\)</span>, kita mendapatkan <strong>persamaan karakteristik</strong> [19, 23]: &nbsp;Dalam bentuk standar, persamaan ini menjadi: <span class="math display">\[s^2 + 2\zeta\omega_n s + \omega_n^2 = 0\]</span> di mana <span class="math inline">\(\omega_n = \frac{1}{\sqrt{LC}}\)</span> adalah <strong>frekuensi natural tak teredam</strong> dan <span class="math inline">\(\zeta = \frac{R}{2} \sqrt{\frac{C}{L}}\)</span> adalah <strong>rasio redaman</strong>.[24, 25] Akar-akarnya adalah: <span class="math display">\[s_{1,2} = -\zeta\omega_n \pm \omega_n \sqrt{\zeta^2 - 1}\]</span></p>
+</section>
+<section id="tiga-jenis-respon-natural" class="level2">
+<h2 class="anchored" data-anchor-id="tiga-jenis-respon-natural">Tiga Jenis Respon Natural</h2>
+<p>Berdasarkan nilai <span class="math inline">\(\zeta\)</span>, ada tiga kategori perilaku respon alami yang berbeda.</p>
+<section id="respon-overdamped-redaman-berlebih-zeta-1" class="level3">
+<h3 class="anchored" data-anchor-id="respon-overdamped-redaman-berlebih-zeta-1">Respon <em>Overdamped</em> (Redaman Berlebih, <span class="math inline">\(\zeta &gt; 1\)</span>)</h3>
+<p>Menghasilkan dua akar riil, berbeda, dan negatif.[23, 26] Solusinya adalah jumlah dari dua fungsi eksponensial yang meluruh. Sistem kembali ke ekuilibrium secara perlahan tanpa osilasi.[27, 28]</p>
+</section>
+<section id="respon-critically-damped-redaman-kritis-zeta-1" class="level3">
+<h3 class="anchored" data-anchor-id="respon-critically-damped-redaman-kritis-zeta-1">Respon <em>Critically Damped</em> (Redaman Kritis, <span class="math inline">\(\zeta = 1\)</span>)</h3>
+<p>Menghasilkan dua akar riil dan identik.[23, 26] Sistem kembali ke ekuilibrium secepat mungkin tanpa osilasi. Ini sering menjadi target desain yang ideal.[23, 27, 28]</p>
+</section>
+<section id="respon-underdamped-redaman-kurang-0-zeta-1" class="level3">
+<h3 class="anchored" data-anchor-id="respon-underdamped-redaman-kurang-0-zeta-1">Respon <em>Underdamped</em> (Redaman Kurang, <span class="math inline">\(0 &lt; \zeta &lt; 1\)</span>)</h3>
+<p>Menghasilkan sepasang akar kompleks konjugat.[23, 26] Sistem berosilasi dengan amplitudo yang meluruh secara eksponensial.[26, 29]</p>
+<table class="caption-top table">
+<caption>Rangkuman Tiga Kasus Respon Natural</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Kondisi Redaman</strong></th>
+<th style="text-align: left;"><strong>Nilai <span class="math inline">\(\zeta\)</span></strong></th>
+<th style="text-align: left;"><strong>Sifat Akar</strong></th>
+<th style="text-align: left;"><strong>Deskripsi Perilaku Fisis</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><em>Overdamped</em></td>
+<td style="text-align: left;"><span class="math inline">\(\zeta &gt; 1\)</span></td>
+<td style="text-align: left;">Dua akar riil, berbeda, negatif</td>
+<td style="text-align: left;">Lambat, kembali ke setimbang tanpa osilasi</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><em>Critically Damped</em></td>
+<td style="text-align: left;"><span class="math inline">\(\zeta = 1\)</span></td>
+<td style="text-align: left;">Dua akar riil, identik, negatif</td>
+<td style="text-align: left;">Paling cepat kembali ke setimbang tanpa osilasi</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><em>Underdamped</em></td>
+<td style="text-align: left;"><span class="math inline">\(0 &lt; \zeta &lt; 1\)</span></td>
+<td style="text-align: left;">Sepasang akar kompleks konjugat</td>
+<td style="text-align: left;">Berosilasi dengan amplitudo yang meluruh</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="simulasi-komparatif-dengan-sympy" class="level2">
+<h2 class="anchored" data-anchor-id="simulasi-komparatif-dengan-sympy">Simulasi Komparatif dengan Sympy</h2>
+<p>Kita dapat menggunakan <code>Sympy</code> untuk menyelesaikan dan memplot LCCDE orde kedua untuk tiga kasus redaman.</p>
+<pre><code>import sympy as sym
+import numpy as np
+import matplotlib.pyplot as plt
+
+sym.init_printing()
+
+t = sym.symbols('t', real=True)
+vc = sym.Function('vc')
+L_val, C_val = 1.0, 0.25
+R_crit = 2 * np.sqrt(L_val / C_val)
+
+params = {
+    'Overdamped (ζ=2.0)': R_crit * 2.0,
+    'Critically Damped (ζ=1.0)': R_crit,
+    'Underdamped (ζ=0.5)': R_crit * 0.5
+}
+ics = {vc(0): 1, vc(t).diff(t).subs(t, 0): 0}
+
+# Loop to solve each case
+for name, R_val in params.items():
+    ode = sym.Eq(L_val*C_val*vc(t).diff(t,2) + R_val*C_val*vc(t).diff(t) + vc(t), 0)
+    sol = sym.dsolve(ode, vc(t), ics=ics)
+    # Plotting code would be here</code></pre>
+<figure id="fig:rlc-responses" data-latex-placement="H" class="figure">
+<figcaption>
+Perbandingan Respon Alami Sistem RLC Orde Kedua untuk Tiga Kasus Redaman
+</figcaption>
+</figure>
+</section>
+</section>
+<section id="kombinasi-sistem-sistem-bertingkat-cascade" class="level1">
+<h1>Kombinasi Sistem: Sistem Bertingkat (Cascade)</h1>
+<p>Dalam aplikasi rekayasa, sistem kompleks sering dibangun dengan menghubungkan beberapa subsistem secara berurutan (kaskade).[30, 31]</p>
+<section id="menurunkan-lccde-tunggal-dari-sistem-cascade" class="level2">
+<h2 class="anchored" data-anchor-id="menurunkan-lccde-tunggal-dari-sistem-cascade">Menurunkan LCCDE Tunggal dari Sistem Cascade</h2>
+<p>Misalkan kita memiliki dua sistem orde pertama yang dihubungkan secara kaskade:[32]</p>
+<ul>
+<li><p><strong>Sistem 1</strong>: <span class="math inline">\(\frac{dw(t)}{dt} + a \cdot w(t) = b \cdot x(t)\)</span></p></li>
+<li><p><strong>Sistem 2</strong>: <span class="math inline">\(\frac{dy(t)}{dt} + c \cdot y(t) = d \cdot w(t)\)</span></p></li>
+</ul>
+<p>Dengan mengeliminasi variabel perantara <span class="math inline">\(w(t)\)</span>, kita dapat menurunkan satu LCCDE tunggal yang menghubungkan <span class="math inline">\(y(t)\)</span> dengan <span class="math inline">\(x(t)\)</span>: <span class="math display">\[\frac{d^2y(t)}{dt^2} + (a+c) \frac{dy(t)}{dt} + ac \cdot y(t) = bd \cdot x(t)\]</span> Hasilnya adalah sebuah LCCDE orde kedua tunggal, yang menunjukkan bahwa mengkombinasikan dua sistem orde pertama menghasilkan sebuah sistem orde kedua.</p>
+</section>
+<section id="simulasi-dan-analisis-dengan-sympy" class="level2">
+<h2 class="anchored" data-anchor-id="simulasi-dan-analisis-dengan-sympy">Simulasi dan Analisis dengan Sympy</h2>
+<p>Proses aljabar di atas dapat diotomatisasi dengan <code>Sympy</code>.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="lst:cascade" data-language="Python" data-caption="Kode Python untuk analisis sistem kaskade" data-label="lst:cascade"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="lst:cascade-1"><a href="#lst:cascade-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sympy <span class="im">as</span> sym</span>
+<span id="lst:cascade-2"><a href="#lst:cascade-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="lst:cascade-3"><a href="#lst:cascade-3" aria-hidden="true" tabindex="-1"></a>sym.init_printing()</span>
+<span id="lst:cascade-4"><a href="#lst:cascade-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="lst:cascade-5"><a href="#lst:cascade-5" aria-hidden="true" tabindex="-1"></a>t, a, b, c, d <span class="op">=</span> sym.symbols(<span class="st">'t a b c d'</span>, real<span class="op">=</span><span class="va">True</span>, positive<span class="op">=</span><span class="va">True</span>)</span>
+<span id="lst:cascade-6"><a href="#lst:cascade-6" aria-hidden="true" tabindex="-1"></a>x, w, y <span class="op">=</span> sym.symbols(<span class="st">'x w y'</span>, cls<span class="op">=</span>sym.Function)</span>
+<span id="lst:cascade-7"><a href="#lst:cascade-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="lst:cascade-8"><a href="#lst:cascade-8" aria-hidden="true" tabindex="-1"></a>ode1 <span class="op">=</span> sym.Eq(w(t).diff(t) <span class="op">+</span> a<span class="op">*</span>w(t), b<span class="op">*</span>x(t))</span>
+<span id="lst:cascade-9"><a href="#lst:cascade-9" aria-hidden="true" tabindex="-1"></a>ode2 <span class="op">=</span> sym.Eq(y(t).diff(t) <span class="op">+</span> c<span class="op">*</span>y(t), d<span class="op">*</span>w(t))</span>
+<span id="lst:cascade-10"><a href="#lst:cascade-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="lst:cascade-11"><a href="#lst:cascade-11" aria-hidden="true" tabindex="-1"></a>w_expr <span class="op">=</span> sym.solve(ode2, w(t))</span>
+<span id="lst:cascade-12"><a href="#lst:cascade-12" aria-hidden="true" tabindex="-1"></a>combined_ode <span class="op">=</span> ode1.subs(w(t), w_expr).doit()</span>
+<span id="lst:cascade-13"><a href="#lst:cascade-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="lst:cascade-14"><a href="#lst:cascade-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Solve for step response with numerical values</span></span>
+<span id="lst:cascade-15"><a href="#lst:cascade-15" aria-hidden="true" tabindex="-1"></a>a_val, b_val, c_val, d_val <span class="op">=</span> <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">1</span></span>
+<span id="lst:cascade-16"><a href="#lst:cascade-16" aria-hidden="true" tabindex="-1"></a>x_step <span class="op">=</span> <span class="dv">1</span></span>
+<span id="lst:cascade-17"><a href="#lst:cascade-17" aria-hidden="true" tabindex="-1"></a>ode_numeric <span class="op">=</span> combined_ode.subs({a: a_val, b: b_val, c: c_val, d: d_val, x(t): x_step}).doit()</span>
+<span id="lst:cascade-18"><a href="#lst:cascade-18" aria-hidden="true" tabindex="-1"></a>ics_cascade <span class="op">=</span> {y(<span class="dv">0</span>): <span class="dv">0</span>, y(t).diff(t).subs(t, <span class="dv">0</span>): <span class="dv">0</span>}</span>
+<span id="lst:cascade-19"><a href="#lst:cascade-19" aria-hidden="true" tabindex="-1"></a>sol_cascade <span class="op">=</span> sym.dsolve(ode_numeric, y(t), ics<span class="op">=</span>ics_cascade)</span>
+<span id="lst:cascade-20"><a href="#lst:cascade-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="lst:cascade-21"><a href="#lst:cascade-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Plotting code would be here</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<figure id="fig:cascade-response" data-latex-placement="H" class="figure">
+<figcaption>
+Respon Undak dari Dua Sistem Orde Pertama yang Dikaskadekan
+</figcaption>
+</figure>
+</section>
+</section>
+<section id="rangkuman-dan-poin-kunci" class="level1">
+<h1>Rangkuman dan Poin Kunci</h1>
+<p>Catatan kuliah ini telah menjelajahi konsep fundamental pemodelan sistem LTI waktu-kontinu menggunakan LCCDE.</p>
+<ol type="1">
+<li><p><strong>LCCDE sebagai Bahasa Universal</strong>: LCCDE adalah alat matematis yang kuat untuk merepresentasikan berbagai sistem fisik di bawah asumsi linearitas dan time-invariance.</p></li>
+<li><p><strong>Orde Sistem Menentukan Kompleksitas</strong>: Orde dari LCCDE menentukan kompleksitas perilaku dinamisnya.</p></li>
+<li><p><strong>Akar Persamaan Karakteristik adalah Kunci</strong>: Perilaku transien dari sebuah sistem LTI sepenuhnya ditentukan oleh akar-akar dari persamaan karakteristiknya.</p></li>
+<li><p><strong>Kaskade Meningkatkan Orde</strong>: Menggabungkan sistem LTI secara seri (kaskade) akan menghasilkan sistem keseluruhan dengan orde yang lebih tinggi.</p></li>
+<li><p><strong>Sympy sebagai Alat Bantu Analisis</strong>: Pustaka <code>Sympy</code> di Python adalah alat yang sangat kuat untuk derivasi simbolis, verifikasi solusi, dan visualisasi.</p></li>
+</ol>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

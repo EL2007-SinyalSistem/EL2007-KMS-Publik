@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2025.2.21)  4 SEP 2025 10:21
+This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2025.2.21)  24 SEP 2025 09:24
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -923,21 +923,21 @@ chapter 1.
 [11]
 chapter 2.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 7.665pt on input line 786.
+(Font)              scaled to size 7.665pt on input line 776.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 5.475pt on input line 786.
+(Font)              scaled to size 5.475pt on input line 776.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 10.95099pt on input line 786.
+(Font)              scaled to size 10.95099pt on input line 776.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 7.66568pt on input line 786.
+(Font)              scaled to size 7.66568pt on input line 776.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 5.4755pt on input line 786.
+(Font)              scaled to size 5.4755pt on input line 776.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 10.94882pt on input line 786.
+(Font)              scaled to size 10.94882pt on input line 776.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 7.66417pt on input line 786.
+(Font)              scaled to size 7.66417pt on input line 776.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 5.47441pt on input line 786.
+(Font)              scaled to size 5.47441pt on input line 776.
 
 
 [12
@@ -947,275 +947,65 @@ LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
 [13]
 
 [14]
-
-[15]
-Overfull \hbox (20.28682pt too wide) in paragraph at lines 1047--1049
+Overfull \hbox (20.28682pt too wide) in paragraph at lines 1037--1039
 []\TU/lmr/m/n/10.95 Node: Energi/Daya (SWK_EnergiDaya), Periodik/Aperiodik (SWK_Periodisitas),
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1056--1060
+Underfull \hbox (badness 10000) in paragraph at lines 1046--1050
 []\TU/lmr/m/n/10.95 Node: Pergeseran Waktu (SWK_GeserWaktu), Penskalaan Waktu
  []
 
 
-Underfull \hbox (badness 4886) in paragraph at lines 1056--1060
+Underfull \hbox (badness 4886) in paragraph at lines 1046--1050
 \TU/lmr/m/n/10.95 (SWK_SkalaWaktu), Pembalikan Waktu (SWK_BalikWaktu), Penjum-
  []
 
 
-Underfull \hbox (badness 3635) in paragraph at lines 1056--1060
+Underfull \hbox (badness 3635) in paragraph at lines 1046--1050
 \TU/lmr/m/n/10.95 lahan (SWK_Jumlah), Perkalian (SWK_Kali), Penskalaan Amplitudo
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1103--1106
+
+[15]
+Underfull \hbox (badness 10000) in paragraph at lines 1093--1096
 []\TU/lmr/m/n/10.95 “SWK_Representasi” \TU/lmr/bx/n/10.95 MELIPUTI \TU/lmr/m/n/10.95 “SWK_Sinusoidal”, “SWK_Eksponensial”,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1106--1109
+Underfull \hbox (badness 10000) in paragraph at lines 1096--1099
 []\TU/lmr/m/n/10.95 “SWK_Klasifikasi” \TU/lmr/bx/n/10.95 MELIPUTI \TU/lmr/m/n/10.95 “SWK_EnergiDaya”, “SWK_Periodisitas”,
  []
 
 
-Overfull \hbox (48.68674pt too wide) in paragraph at lines 1109--1113
+Overfull \hbox (48.68674pt too wide) in paragraph at lines 1099--1103
 []\TU/lmr/m/n/10.95 “SWK_Operasi” \TU/lmr/bx/n/10.95 MELIPUTI \TU/lmr/m/n/10.95 “SWK_GeserWaktu”, “SWK_SkalaWaktu”, “SWK_BalikWaktu”,
  []
 
 
-Underfull \hbox (badness 6493) in paragraph at lines 1113--1116
+Underfull \hbox (badness 6493) in paragraph at lines 1103--1106
 []\TU/lmr/m/n/10.95 “SYWK_Representasi” \TU/lmr/bx/n/10.95 MELIPUTI \TU/lmr/m/n/10.95 “SYWK_Definisi”, “SYWK_DiagramBlok”,
  []
 
 
-
-[16]
-Overfull \hbox (41.7992pt too wide) in paragraph at lines 1116--1120
+Overfull \hbox (41.7992pt too wide) in paragraph at lines 1106--1110
 []\TU/lmr/m/n/10.95 “SYWK_Sifat” \TU/lmr/bx/n/10.95 MELIPUTI \TU/lmr/m/n/10.95 “SYWK_Memori”, “SYWK_Kausalitas”, “SYWK_Invertibilitas”,
  []
 
 
 
+[16]
+
 [17]
-
-[18]
-
-[19]
-Overfull \hbox (18.53493pt too wide) in paragraph at lines 1308--1310
-[]\TU/lmr/bx/n/10.95 Kendaraan: K_MAT_Aljabar \TU/lmr/m/n/10.95 (untuk membandingkan bentuk), \TU/lmr/bx/n/10.95 SWK_Representasi
- []
-
-
-Overfull \hbox (26.5941pt too wide) in paragraph at lines 1340--1344
-[]\TU/lmr/bx/n/10.95 Kendaraan: K_MAT_Aljabar \TU/lmr/m/n/10.95 (manipulasi ekspresi), \TU/lmr/bx/n/10.95 K_MAT_Bilangan_Kompleks
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1376--1378
-[]\TU/lmr/bx/n/10.95 Kendaraan: K_MAT_Kalkulus \TU/lmr/m/n/10.95 (integrasi), \TU/lmr/bx/n/10.95 K_MAT_Aljabar \TU/lmr/m/n/10.95 (limit),
- []
-
-
-
-[20]
-Underfull \hbox (badness 1442) in paragraph at lines 1461--1465
-\TU/lmr/bx/n/10.95 SWK_BalikWaktu\TU/lmr/m/n/10.95 . \TU/lmr/bx/n/10.95 Heuristik: \TU/lmr/m/n/10.95 “Menggambar Diagram”, “Menyederhanakan
- []
-
-
-
-[21]
-Overfull \hbox (27.54897pt too wide) in paragraph at lines 1533--1536
-[]\TU/lmr/bx/n/10.95 Kendaraan: K_MAT_Kalkulus \TU/lmr/m/n/10.95 (diferensiasi), \TU/lmr/bx/n/10.95 K_VIS_PlotSinyal\TU/lmr/m/n/10.95 , \TU/lmr/bx/n/10.95 SWK_UnitStep\TU/lmr/m/n/10.95 ,
- []
-
-
-
-[22]
-
-[23]
-Overfull \hbox (25.0259pt too wide) in paragraph at lines 1765--1768
-[]\TU/lmr/m/n/10.95 Jika $[][][][][] [] [][][][][]$ untuk semua $[][][][]$ dan $[][]$, sistem adalah \TU/lmr/bx/n/10.95 SYWK_InvarianWaktu\TU/lmr/m/n/10.95 . 
- []
-
-
-Underfull \hbox (badness 3229) in paragraph at lines 1772--1775
-[]\TU/lmr/bx/n/10.95 Kendaraan: K_MAT_Aljabar \TU/lmr/m/n/10.95 (manipulasi ekspresi), \TU/lmr/bx/n/10.95 SWK_GeserWaktu\TU/lmr/m/n/10.95 ,
- []
-
-
-Underfull \hbox (badness 3302) in paragraph at lines 1793--1798
-[]\TU/lmr/m/n/10.95 Terapkan langkah-langkah P8 hingga P13 secara berurutan untuk setiap
- []
-
-
-Underfull \hbox (badness 7433) in paragraph at lines 1793--1798
-\TU/lmr/m/n/10.95 sifat: \TU/lmr/bx/n/10.95 SYWK_Memori\TU/lmr/m/n/10.95 , \TU/lmr/bx/n/10.95 SYWK_Kausalitas\TU/lmr/m/n/10.95 , \TU/lmr/bx/n/10.95 SYWK_Invertibilitas\TU/lmr/m/n/10.95 ,
- []
-
-
-
-[24]
-Overfull \hbox (5.03355pt too wide) in paragraph at lines 1837--1839
-[]\TU/lmr/bx/n/10.95 Kendaraan: K_MAT_Bilangan_Kompleks \TU/lmr/m/n/10.95 (identitas Euler), \TU/lmr/bx/n/10.95 K_MAT_Aljabar\TU/lmr/m/n/10.95 . 
- []
-
-
-Underfull \hbox (badness 1173) in paragraph at lines 1863--1867
-[]\TU/lmr/m/n/10.95 Pisahkan integral menjadi dua bagian berdasarkan fungsi \TU/lmr/m/it/10.95 piecewise\TU/lmr/m/n/10.95 : $[] []
- []
-
-
-
-[25]
-Underfull \hbox (badness 6300) in paragraph at lines 1916--1920
-[]\TU/lmr/bx/n/10.95 Kendaraan: K_VIS_PlotSinyal\TU/lmr/m/n/10.95 , \TU/lmr/bx/n/10.95 SWK_UnitStep\TU/lmr/m/n/10.95 , \TU/lmr/bx/n/10.95 SWK_GeserWaktu\TU/lmr/m/n/10.95 ,
- []
-
-
-Underfull \hbox (badness 1226) in paragraph at lines 1916--1920
-\TU/lmr/bx/n/10.95 SWK_SkalaWaktu\TU/lmr/m/n/10.95 . \TU/lmr/bx/n/10.95 Heuristik: \TU/lmr/m/n/10.95 “Menggambar Diagram”, “Menyederhanakan
- []
-
-
-
-[26]
-Underfull \hbox (badness 3536) in paragraph at lines 2009--2012
-[]\TU/lmr/bx/n/10.95 Kendaraan: K_MAT_Aljabar\TU/lmr/m/n/10.95 , \TU/lmr/bx/n/10.95 SWK_GeserWaktu\TU/lmr/m/n/10.95 , \TU/lmr/bx/n/10.95 SYWK_Linearitas
- []
-
-
-Overfull \hbox (9.90439pt too wide) in paragraph at lines 2042--2044
-[]\TU/lmr/m/n/10.95 Sketsa masing-masing komponen $[][][][][]$ dan $[][][][][]$ menggunakan \TU/lmr/bx/n/10.95 K_VIS_PlotSinyal\TU/lmr/m/n/10.95 . 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 2046--2049
-[]\TU/lmr/bx/n/10.95 Kendaraan: K_MAT_Aljabar \TU/lmr/m/n/10.95 (manipulasi ekspresi, sifat trigonometri),
- []
-
-
-
-[27]
 chapter 3.
 
 
-[28
+[18
 
 ]
 
-[29]
-chapter 4.
-
-Overfull \hbox (18.53493pt too wide) in paragraph at lines 2208--2210
-[]\TU/lmr/bx/n/10.95 Kendaraan: K_MAT_Aljabar \TU/lmr/m/n/10.95 (untuk membandingkan bentuk), \TU/lmr/bx/n/10.95 SWK_Representasi
- []
-
-
-Overfull \hbox (26.5941pt too wide) in paragraph at lines 2240--2244
-[]\TU/lmr/bx/n/10.95 Kendaraan: K_MAT_Aljabar \TU/lmr/m/n/10.95 (manipulasi ekspresi), \TU/lmr/bx/n/10.95 K_MAT_Bilangan_Kompleks
- []
-
-
-
-[30
-
-]
-Underfull \hbox (badness 10000) in paragraph at lines 2276--2278
-[]\TU/lmr/bx/n/10.95 Kendaraan: K_MAT_Kalkulus \TU/lmr/m/n/10.95 (integrasi), \TU/lmr/bx/n/10.95 K_MAT_Aljabar \TU/lmr/m/n/10.95 (limit),
- []
-
-
-
-[31]
-Underfull \hbox (badness 1442) in paragraph at lines 2361--2365
-\TU/lmr/bx/n/10.95 SWK_BalikWaktu\TU/lmr/m/n/10.95 . \TU/lmr/bx/n/10.95 Heuristik: \TU/lmr/m/n/10.95 “Menggambar Diagram”, “Menyederhanakan
- []
-
-
-Overfull \hbox (27.54897pt too wide) in paragraph at lines 2433--2436
-[]\TU/lmr/bx/n/10.95 Kendaraan: K_MAT_Kalkulus \TU/lmr/m/n/10.95 (diferensiasi), \TU/lmr/bx/n/10.95 K_VIS_PlotSinyal\TU/lmr/m/n/10.95 , \TU/lmr/bx/n/10.95 SWK_UnitStep\TU/lmr/m/n/10.95 ,
- []
-
-
-
-[32]
-
-[33]
-
-[34]
-Overfull \hbox (25.0259pt too wide) in paragraph at lines 2665--2668
-[]\TU/lmr/m/n/10.95 Jika $[][][][][] [] [][][][][]$ untuk semua $[][][][]$ dan $[][]$, sistem adalah \TU/lmr/bx/n/10.95 SYWK_InvarianWaktu\TU/lmr/m/n/10.95 . 
- []
-
-
-Underfull \hbox (badness 3229) in paragraph at lines 2672--2675
-[]\TU/lmr/bx/n/10.95 Kendaraan: K_MAT_Aljabar \TU/lmr/m/n/10.95 (manipulasi ekspresi), \TU/lmr/bx/n/10.95 SWK_GeserWaktu\TU/lmr/m/n/10.95 ,
- []
-
-
-Underfull \hbox (badness 3302) in paragraph at lines 2693--2698
-[]\TU/lmr/m/n/10.95 Terapkan langkah-langkah P8 hingga P13 secara berurutan untuk setiap
- []
-
-
-Underfull \hbox (badness 7433) in paragraph at lines 2693--2698
-\TU/lmr/m/n/10.95 sifat: \TU/lmr/bx/n/10.95 SYWK_Memori\TU/lmr/m/n/10.95 , \TU/lmr/bx/n/10.95 SYWK_Kausalitas\TU/lmr/m/n/10.95 , \TU/lmr/bx/n/10.95 SYWK_Invertibilitas\TU/lmr/m/n/10.95 ,
- []
-
-
-Overfull \hbox (5.03355pt too wide) in paragraph at lines 2737--2739
-[]\TU/lmr/bx/n/10.95 Kendaraan: K_MAT_Bilangan_Kompleks \TU/lmr/m/n/10.95 (identitas Euler), \TU/lmr/bx/n/10.95 K_MAT_Aljabar\TU/lmr/m/n/10.95 . 
- []
-
-
-
-[35]
-Underfull \hbox (badness 1173) in paragraph at lines 2763--2767
-[]\TU/lmr/m/n/10.95 Pisahkan integral menjadi dua bagian berdasarkan fungsi \TU/lmr/m/it/10.95 piecewise\TU/lmr/m/n/10.95 : $[] []
- []
-
-
-Underfull \hbox (badness 6300) in paragraph at lines 2816--2820
-[]\TU/lmr/bx/n/10.95 Kendaraan: K_VIS_PlotSinyal\TU/lmr/m/n/10.95 , \TU/lmr/bx/n/10.95 SWK_UnitStep\TU/lmr/m/n/10.95 , \TU/lmr/bx/n/10.95 SWK_GeserWaktu\TU/lmr/m/n/10.95 ,
- []
-
-
-Underfull \hbox (badness 1226) in paragraph at lines 2816--2820
-\TU/lmr/bx/n/10.95 SWK_SkalaWaktu\TU/lmr/m/n/10.95 . \TU/lmr/bx/n/10.95 Heuristik: \TU/lmr/m/n/10.95 “Menggambar Diagram”, “Menyederhanakan
- []
-
-
-
-[36]
-Underfull \hbox (badness 3536) in paragraph at lines 2909--2912
-[]\TU/lmr/bx/n/10.95 Kendaraan: K_MAT_Aljabar\TU/lmr/m/n/10.95 , \TU/lmr/bx/n/10.95 SWK_GeserWaktu\TU/lmr/m/n/10.95 , \TU/lmr/bx/n/10.95 SYWK_Linearitas
- []
-
-
-Overfull \hbox (9.90439pt too wide) in paragraph at lines 2942--2944
-[]\TU/lmr/m/n/10.95 Sketsa masing-masing komponen $[][][][][]$ dan $[][][][][]$ menggunakan \TU/lmr/bx/n/10.95 K_VIS_PlotSinyal\TU/lmr/m/n/10.95 . 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 2946--2949
-[]\TU/lmr/bx/n/10.95 Kendaraan: K_MAT_Aljabar \TU/lmr/m/n/10.95 (manipulasi ekspresi, sifat trigonometri),
- []
-
-
-
-[37]
-
-[38]
-chapter 5.
-
-
-[39
-
-]
-
-[40]
+[19]
 
 ! LaTeX Error: Too deeply nested.
 
@@ -1223,15 +1013,15 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.3145         \begin{itemize}
+l.1341         \begin{itemize}
                                
 Here is how much of TeX's memory you used:
- 23488 strings out of 475785
- 456006 string characters out of 5771065
- 1177694 words of memory out of 5000000
- 46154 multiletter control sequences out of 15000+600000
+ 23482 strings out of 475785
+ 455970 string characters out of 5771065
+ 1170694 words of memory out of 5000000
+ 46148 multiletter control sequences out of 15000+600000
  565268 words of font info for 86 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
  108i,7n,114p,10919b,621s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on index.pdf (40 pages).
+Output written on index.pdf (19 pages).

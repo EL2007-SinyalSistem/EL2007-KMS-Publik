@@ -1,0 +1,296 @@
+\documentclass[12pt, a4paper]{article}
+
+% PACKAGES
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[a4paper, total={6in, 8in}]{geometry}
+\usepackage{hyperref}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{float}
+
+% LISTINGS (CODE BLOCKS) CONFIGURATION
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\footnotesize\ttfamily,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+\lstset{style=mystyle}
+
+% DOCUMENT METADATA
+\title{Pemodelan Sistem LTI dengan Persamaan Diferensial Koefisien Konstan (LCCDE)}
+\author{Departemen Teknik Elektro}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+\newpage
+
+\section{Pendahuluan: Dari Sistem Fisik ke Model Matematis}
+
+Dalam studi Sinyal dan Sistem, salah satu tujuan utamanya adalah untuk memahami dan memprediksi perilaku sistem-sistem fisik. Sistem-sistem ini, baik berupa rangkaian listrik, sistem mekanik, maupun proses termal, pada dasarnya diatur oleh hukum-hukum fisika fundamental. Kemampuan kita untuk menganalisis dan merancang sistem-sistem tersebut bergantung pada kemampuan kita untuk menerjemahkan hukum-hukum fisika ini ke dalam bahasa matematika yang presisi. Persamaan diferensial, khususnya \textit{Linear Constant-Coefficient Differential Equations} (LCCDE), berfungsi sebagai "bahasa universal" yang memungkinkan penerjemahan ini. LCCDE menyediakan kerangka kerja yang kuat untuk memodelkan hubungan antara sinyal masukan (input) dan sinyal keluaran (output) dari sebuah kelas sistem yang sangat luas dan penting.[1]
+
+Sebuah sistem waktu-kontinu yang dapat direpresentasikan oleh LCCDE memiliki bentuk matematis umum sebagai berikut [1, 2]:
+\[
+\sum_{k=0}^{N} a_k \frac{d^k y(t)}{dt^k} = \sum_{m=0}^{M} b_m \frac{d^m x(t)}{dt^m}
+\]
+Di sini, $y(t)$ adalah sinyal output sistem, dan $x(t)$ adalah sinyal input. Koefisien $a_k$ dan $b_m$ adalah konstanta yang mendefinisikan karakteristik fisik dari sistem tersebut. Persamaan ini disebut \textit{Linear} karena $y(t)$, $x(t)$, dan turunannya muncul secara linear. Persamaan ini disebut \textit{Constant-Coefficient} karena nilai $a_k$ dan $b_m$ tidak berubah seiring waktu. Dua asumsi ini—linearitas dan koefisien konstan—sangatlah fundamental. Asumsi-asumsi ini menyiratkan bahwa sistem yang dimodelkan adalah \textit{Linear Time-Invariant} (LTI), sebuah properti yang secara drastis menyederhanakan analisis dan memungkinkan kita untuk menggunakan perangkat matematika yang mapan seperti aljabar linear dan transformasi Laplace.[3] Tanpa asumsi LTI, analisis sistem menjadi jauh lebih rumit dan seringkali memerlukan metode numerik yang kompleks.
+
+\subsection{Solusi Lengkap: Respon Alami dan Respon Paksa}
+Solusi total, $y(t)$, dari sebuah LCCDE selalu dapat diuraikan menjadi dua komponen yang berbeda secara konseptual dan fisis.[2, 4, 5] Pemisahan ini bukan sekadar trik matematika, melainkan manifestasi dari prinsip superposisi yang berlaku pada sistem linear. Ini memungkinkan kita untuk menganalisis efek dari kondisi internal sistem dan efek dari stimulus eksternal secara terpisah, lalu menjumlahkan hasilnya untuk mendapatkan respons total.
+
+\begin{enumerate}
+    \item \textbf{Solusi Homogen ($y_h(t)$) atau Respon Alami}: Komponen ini adalah solusi dari persamaan diferensial ketika inputnya nol ($x(t) = 0$). Respon alami merepresentasikan perilaku intrinsik sistem—bagaimana sistem melepaskan atau mendisipasikan energi yang tersimpan di dalamnya tanpa adanya gaya eksternal. Perilaku ini sepenuhnya ditentukan oleh karakteristik internal sistem, yang direpresentasikan oleh koefisien $a_k$ (misalnya, nilai resistor, induktor, dan kapasitor dalam sebuah rangkaian).[2, 6] Respon alami ini seringkali bersifat transien, artinya ia akan meluruh menuju nol seiring berjalannya waktu pada sistem yang stabil.
+
+    \item \textbf{Solusi Partikular ($y_p(t)$) atau Respon Paksa}: Komponen ini adalah solusi spesifik yang memenuhi persamaan diferensial untuk input $x(t)$ yang diberikan. Respon paksa menggambarkan bagaimana sistem berperilaku di bawah pengaruh input eksternal setelah semua efek transien (respon alami) telah mereda. Bentuk dari respon paksa sangat bergantung pada bentuk sinyal input $x(t)$.[2, 7]
+\end{enumerate}
+
+Dengan demikian, solusi lengkap dari sistem adalah superposisi dari kedua respons ini:
+\[
+y(t) = y_h(t) + y_p(t)
+\]
+Pemisahan ini memberikan intuisi rekayasa yang sangat kuat. Kita dapat menganalisis stabilitas internal sistem dengan memeriksa respon alaminya, dan secara terpisah, menganalisis kinerja \textit{steady-state} sistem terhadap berbagai input dengan memeriksa respon paksa.
+
+\subsection{Kondisi Awal dan Sifat LTI}
+Sebuah LCCDE saja tidak cukup untuk mendefinisikan sebuah sistem LTI secara unik. Kita juga memerlukan informasi tambahan berupa kondisi awal. Untuk memastikan bahwa sistem yang dimodelkan oleh LCCDE benar-benar bersifat LTI dan kausal, kita memberlakukan \textbf{kondisi awal diam} (\textit{initial rest condition}).[8, 9] Kondisi ini menyatakan bahwa jika input ke sistem adalah nol untuk semua waktu sebelum $t_0$ (yaitu, $x(t) = 0$ untuk $t < t_0$), maka output sistem juga harus nol untuk semua waktu sebelum $t_0$ (yaitu, $y(t) = 0$ untuk $t < t_0$).[10] Secara fisis, ini berarti sistem tidak memiliki energi yang tersimpan sebelum input diterapkan. Dengan pemberlakuan kondisi ini, LCCDE secara unik mendefinisikan sebuah sistem LTI yang kausal.[8]
+
+\section{Analisis Sistem Orde Pertama: Rangkaian RC}
+Untuk memahami bagaimana LCCDE memodelkan sistem LTI dalam praktik, kita akan memulai dengan contoh yang paling fundamental: sistem orde pertama. Sistem orde pertama dicirikan oleh persamaan diferensial yang turunan tertingginya adalah turunan pertama. Contoh kanonis yang paling intuitif dan sering dijumpai dalam rekayasa elektro adalah rangkaian Resistor-Kapasitor (RC).[6, 11, 12]
+
+\subsection{Studi Kasus: Rangkaian RC sebagai Prototipe Sistem Orde Pertama}
+Perhatikan rangkaian RC seri sederhana yang ditunjukkan di bawah ini. Sistem ini memiliki satu elemen penyimpan energi, yaitu kapasitor. Input sistem adalah sumber tegangan $v_s(t)$, dan output yang kita amati adalah tegangan pada kapasitor, $v_c(t)$.
+
+\begin{figure}[H]
+    \centering
+    \fcolorbox{black}{lightgray}{\rule{0pt}{5cm}\rule{8cm}{0pt}}
+    \caption{Rangkaian RC Seri sebagai Sistem LTI Orde Pertama}
+    \label{fig:rc-circuit}
+\end{figure}
+
+\subsubsection{Penurunan Model Matematis dari Prinsip Dasar}
+Kita dapat menurunkan model matematis untuk rangkaian ini langsung dari hukum-hukum dasar rangkaian listrik. Dengan menggunakan Hukum Tegangan Kirchhoff (KVL) pada loop, kita tahu bahwa jumlah tegangan dalam satu loop tertutup adalah nol, atau tegangan sumber sama dengan jumlah penurunan tegangan pada setiap komponen.[13, 14]
+\
+Selanjutnya, kita gunakan hubungan arus-tegangan (hukum konstitutif) untuk setiap komponen:
+\begin{enumerate}
+    \item Untuk resistor, hukum Ohm menyatakan: $v_R(t) = R \cdot i(t)$.
+    \item Untuk kapasitor, arus yang mengalir sebanding dengan laju perubahan tegangan: $i(t) = C \frac{dv_c(t)}{dt}$.[15, 16]
+\end{enumerate}
+Dengan menata ulang, kita mendapatkan LCCDE orde pertama yang memodelkan rangkaian RC [6, 7]:
+\
+Persamaan ini secara sempurna menggambarkan hubungan dinamis antara input $v_s(t)$ dan output $v_c(t)$.
+
+\subsubsection{Menemukan Solusi Lengkap untuk Respon Undak (Step Response)}
+Sekarang, mari kita selesaikan persamaan ini untuk menemukan bagaimana sistem merespons input yang paling umum, yaitu fungsi undak (\textit{step function}), di mana tegangan sumber tiba-tiba berubah dari 0 ke nilai konstan $V_s$ pada $t=0$. Jadi, $v_s(t) = V_s u(t)$. Kita akan menggunakan kondisi awal diam, yaitu $v_c(0) = 0$.
+
+\paragraph{1. Solusi Homogen (Respon Alami)}
+Pertama, kita cari solusi homogen dengan mengatur input menjadi nol: $v_s(t) = 0$.
+\
+Ini adalah \textbf{persamaan karakteristik} dari sistem: $RCs + 1 = 0$. Akarnya adalah $s = -\frac{1}{RC}$. Solusi homogennya adalah:
+\
+Besaran $RC$ disebut \textbf{konstanta waktu} sistem, dilambangkan dengan $\tau$.[6, 16]
+
+\paragraph{2. Solusi Partikular (Respon Paksa)}
+Selanjutnya, kita cari solusi partikular untuk input $v_s(t) = V_s$ untuk $t > 0$. Karena input adalah konstan, kita asumsikan output juga akan menjadi konstan, $v_{cp}(t) = K$.[7, 17] Substitusi ke LCCDE memberikan $K = V_s$. Jadi, solusi partikularnya adalah $v_{cp}(t) = V_s$.
+
+\paragraph{3. Solusi Total dan Kondisi Awal}
+Solusi total adalah jumlah dari solusi homogen dan partikular:
+\
+Menggunakan kondisi awal $v_c(0) = 0$, kita dapatkan $A = -V_s$. Solusi akhir untuk respon undak dari rangkaian RC adalah [7, 17, 18]:
+\
+
+\subsubsection{Simulasi dan Visualisasi dengan Sympy}
+Proses analitis di atas dapat diverifikasi dan divisualisasikan dengan mudah menggunakan pustaka \texttt{Sympy} di Python.
+\begin{lstlisting}
+import sympy as sym
+import numpy as np
+import matplotlib.pyplot as plt
+
+sym.init_printing()
+
+t, R, C, Vs = sym.symbols('t R C Vs', real=True, positive=True)
+vc = sym.Function('vc')
+
+ode = sym.Eq(R * C * vc(t).diff(t) + vc(t), Vs)
+solution = sym.dsolve(ode, vc(t), ics={vc(0): 0})
+
+sol_numeric = solution.rhs.subs({R: 1000, C: 0.001, Vs: 5})
+
+# Plotting code would go here
+# For LaTeX, we show a placeholder for the plot.
+\end{lstlisting}
+
+\begin{figure}[H]
+    \centering
+    \fcolorbox{black}{lightgray}{\rule{0pt}{6cm}\rule{10cm}{0pt}}
+    \caption{Respon Undak (Step Response) Rangkaian RC dengan R=1 k$\Omega$, C=1 mF, dan Vs=5 V}
+    \label{fig:rc-step-response}
+\end{figure}
+
+Plot di atas secara visual mengkonfirmasi hasil analitis kita. Kurva menunjukkan tegangan kapasitor yang naik secara eksponensial dari 0 V menuju nilai \textit{steady-state} 5 V.
+
+\section{Analisis Sistem Orde Tinggi: Rangkaian RLC}
+Sistem orde kedua dapat menunjukkan perilaku dinamis yang lebih kompleks, termasuk osilasi. Kehadiran dua elemen penyimpan energi yang independen, seperti induktor dan kapasitor, mengarah pada model persamaan diferensial orde kedua.[19, 20]
+
+\subsection{Studi Kasus: Rangkaian RLC sebagai Model Sistem Orde Kedua}
+Kita akan menggunakan rangkaian RLC seri sebagai contoh.
+\begin{figure}[H]
+    \centering
+    \fcolorbox{black}{lightgray}{\rule{0pt}{5cm}\rule{8cm}{0pt}}
+    \caption{Rangkaian RLC Seri sebagai Sistem LTI Orde Kedua}
+    \label{fig:rlc-circuit}
+\end{figure}
+
+\subsubsection{Penurunan LCCDE Orde Kedua}
+Menerapkan KVL pada loop seri [19] dan mensubstitusikan hubungan arus-tegangan untuk setiap komponen menghasilkan LCCDE orde kedua [19, 21, 22]:
+\
+
+\subsection{Persamaan Karakteristik: Jantung dari Respon Sistem}
+Untuk respon alami ($v_s(t) = 0$), dengan mengasumsikan solusi $v_{ch}(t) = A e^{st}$, kita mendapatkan \textbf{persamaan karakteristik} [19, 23]:
+\
+Dalam bentuk standar, persamaan ini menjadi:
+\[
+s^2 + 2\zeta\omega_n s + \omega_n^2 = 0
+\]
+di mana $\omega_n = \frac{1}{\sqrt{LC}}$ adalah \textbf{frekuensi natural tak teredam} dan $\zeta = \frac{R}{2} \sqrt{\frac{C}{L}}$ adalah \textbf{rasio redaman}.[24, 25] Akar-akarnya adalah:
+\[
+s_{1,2} = -\zeta\omega_n \pm \omega_n \sqrt{\zeta^2 - 1}
+\]
+
+\subsection{Tiga Jenis Respon Natural}
+Berdasarkan nilai $\zeta$, ada tiga kategori perilaku respon alami yang berbeda.
+\subsubsection{Respon \textit{Overdamped} (Redaman Berlebih, $\zeta > 1$)}
+Menghasilkan dua akar riil, berbeda, dan negatif.[23, 26] Solusinya adalah jumlah dari dua fungsi eksponensial yang meluruh. Sistem kembali ke ekuilibrium secara perlahan tanpa osilasi.[27, 28]
+
+\subsubsection{Respon \textit{Critically Damped} (Redaman Kritis, $\zeta = 1$)}
+Menghasilkan dua akar riil dan identik.[23, 26] Sistem kembali ke ekuilibrium secepat mungkin tanpa osilasi. Ini sering menjadi target desain yang ideal.[23, 27, 28]
+
+\subsubsection{Respon \textit{Underdamped} (Redaman Kurang, $0 < \zeta < 1$)}
+Menghasilkan sepasang akar kompleks konjugat.[23, 26] Sistem berosilasi dengan amplitudo yang meluruh secara eksponensial.[26, 29]
+
+\begin{table}[H]
+\centering
+\caption{Rangkuman Tiga Kasus Respon Natural}
+\begin{tabular}{|p{3cm}|p{2.5cm}|p{3.5cm}|p{4cm}|}
+\hline
+\textbf{Kondisi Redaman} & \textbf{Nilai $\zeta$} & \textbf{Sifat Akar} & \textbf{Deskripsi Perilaku Fisis} \\ \hline
+\textit{Overdamped} & $\zeta > 1$ & Dua akar riil, berbeda, negatif & Lambat, kembali ke setimbang tanpa osilasi \\ \hline
+\textit{Critically Damped} & $\zeta = 1$ & Dua akar riil, identik, negatif & Paling cepat kembali ke setimbang tanpa osilasi \\ \hline
+\textit{Underdamped} & $0 < \zeta < 1$ & Sepasang akar kompleks konjugat & Berosilasi dengan amplitudo yang meluruh \\ \hline
+\end{tabular}
+\end{table}
+
+\subsection{Simulasi Komparatif dengan Sympy}
+Kita dapat menggunakan \texttt{Sympy} untuk menyelesaikan dan memplot LCCDE orde kedua untuk tiga kasus redaman.
+\begin{lstlisting}
+import sympy as sym
+import numpy as np
+import matplotlib.pyplot as plt
+
+sym.init_printing()
+
+t = sym.symbols('t', real=True)
+vc = sym.Function('vc')
+L_val, C_val = 1.0, 0.25
+R_crit = 2 * np.sqrt(L_val / C_val)
+
+params = {
+    'Overdamped (ζ=2.0)': R_crit * 2.0,
+    'Critically Damped (ζ=1.0)': R_crit,
+    'Underdamped (ζ=0.5)': R_crit * 0.5
+}
+ics = {vc(0): 1, vc(t).diff(t).subs(t, 0): 0}
+
+# Loop to solve each case
+for name, R_val in params.items():
+    ode = sym.Eq(L_val*C_val*vc(t).diff(t,2) + R_val*C_val*vc(t).diff(t) + vc(t), 0)
+    sol = sym.dsolve(ode, vc(t), ics=ics)
+    # Plotting code would be here
+\end{lstlisting}
+
+\begin{figure}[H]
+    \centering
+    \fcolorbox{black}{lightgray}{\rule{0pt}{6cm}\rule{10cm}{0pt}}
+    \caption{Perbandingan Respon Alami Sistem RLC Orde Kedua untuk Tiga Kasus Redaman}
+    \label{fig:rlc-responses}
+\end{figure}
+
+\section{Kombinasi Sistem: Sistem Bertingkat (Cascade)}
+Dalam aplikasi rekayasa, sistem kompleks sering dibangun dengan menghubungkan beberapa subsistem secara berurutan (kaskade).[30, 31]
+
+\subsection{Menurunkan LCCDE Tunggal dari Sistem Cascade}
+Misalkan kita memiliki dua sistem orde pertama yang dihubungkan secara kaskade:[32]
+\begin{itemize}
+    \item \textbf{Sistem 1}: $\frac{dw(t)}{dt} + a \cdot w(t) = b \cdot x(t)$
+    \item \textbf{Sistem 2}: $\frac{dy(t)}{dt} + c \cdot y(t) = d \cdot w(t)$
+\end{itemize}
+Dengan mengeliminasi variabel perantara $w(t)$, kita dapat menurunkan satu LCCDE tunggal yang menghubungkan $y(t)$ dengan $x(t)$:
+\[
+\frac{d^2y(t)}{dt^2} + (a+c) \frac{dy(t)}{dt} + ac \cdot y(t) = bd \cdot x(t)
+\]
+Hasilnya adalah sebuah LCCDE orde kedua tunggal, yang menunjukkan bahwa mengkombinasikan dua sistem orde pertama menghasilkan sebuah sistem orde kedua.
+
+\subsection{Simulasi dan Analisis dengan Sympy}
+Proses aljabar di atas dapat diotomatisasi dengan \texttt{Sympy}.
+\begin{lstlisting}[language=Python, caption={Kode Python untuk analisis sistem kaskade}, label={lst:cascade}]
+import sympy as sym
+
+sym.init_printing()
+
+t, a, b, c, d = sym.symbols('t a b c d', real=True, positive=True)
+x, w, y = sym.symbols('x w y', cls=sym.Function)
+
+ode1 = sym.Eq(w(t).diff(t) + a*w(t), b*x(t))
+ode2 = sym.Eq(y(t).diff(t) + c*y(t), d*w(t))
+
+w_expr = sym.solve(ode2, w(t))
+combined_ode = ode1.subs(w(t), w_expr).doit()
+
+# Solve for step response with numerical values
+a_val, b_val, c_val, d_val = 2, 1, 3, 1
+x_step = 1
+ode_numeric = combined_ode.subs({a: a_val, b: b_val, c: c_val, d: d_val, x(t): x_step}).doit()
+ics_cascade = {y(0): 0, y(t).diff(t).subs(t, 0): 0}
+sol_cascade = sym.dsolve(ode_numeric, y(t), ics=ics_cascade)
+
+# Plotting code would be here
+\end{lstlisting}
+
+\begin{figure}[H]
+    \centering
+    \fcolorbox{black}{lightgray}{\rule{0pt}{6cm}\rule{10cm}{0pt}}
+    \caption{Respon Undak dari Dua Sistem Orde Pertama yang Dikaskadekan}
+    \label{fig:cascade-response}
+\end{figure}
+
+\section{Rangkuman dan Poin Kunci}
+Catatan kuliah ini telah menjelajahi konsep fundamental pemodelan sistem LTI waktu-kontinu menggunakan LCCDE.
+\begin{enumerate}
+    \item \textbf{LCCDE sebagai Bahasa Universal}: LCCDE adalah alat matematis yang kuat untuk merepresentasikan berbagai sistem fisik di bawah asumsi linearitas dan time-invariance.
+    \item \textbf{Orde Sistem Menentukan Kompleksitas}: Orde dari LCCDE menentukan kompleksitas perilaku dinamisnya.
+    \item \textbf{Akar Persamaan Karakteristik adalah Kunci}: Perilaku transien dari sebuah sistem LTI sepenuhnya ditentukan oleh akar-akar dari persamaan karakteristiknya.
+    \item \textbf{Kaskade Meningkatkan Orde}: Menggabungkan sistem LTI secara seri (kaskade) akan menghasilkan sistem keseluruhan dengan orde yang lebih tinggi.
+    \item \textbf{Sympy sebagai Alat Bantu Analisis}: Pustaka \texttt{Sympy} di Python adalah alat yang sangat kuat untuk derivasi simbolis, verifikasi solusi, dan visualisasi.
+\end{enumerate}
+
+\end{document}

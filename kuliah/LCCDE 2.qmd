@@ -1,0 +1,143 @@
+---
+title: "Sistem LCCDE: Persamaan Diferensial Linear"
+subtitle: "EL2007 Signals and Systems"
+author: "Dibuat oleh Grok"
+format: revealjs
+---
+
+## Pengantar Sistem LCCDE
+
+Sistem Linear Constant Coefficient Differential Equation (LCCDE) adalah sistem yang dimodelkan menggunakan persamaan diferensial linear dengan koefisien konstan.
+
+Persamaan umum:
+
+\[
+\sum_{k=0}^{N} a_k \frac{d^k y(t)}{dt^k} = \sum_{m=0}^{M} b_m \frac{d^m x(t)}{dt^m}
+\]
+
+- \( y(t) \): output
+- \( x(t) \): input
+- \( a_k, b_m \): koefisien konstan
+
+Kita akan mulai dari orde pertama, lanjut ke orde tinggi, dan sistem cascade. Menggunakan SymPy untuk ilustrasi.
+
+## Sistem Orde Pertama
+
+Bentuk persamaan:
+
+\[
+a_1 \frac{dy(t)}{dt} + a_0 y(t) = b_0 x(t)
+\]
+
+Contoh: Rangkaian RC.
+
+### Penyelesaian dengan SymPy
+
+```{python}
+#| echo: true
+
+from sympy import symbols, Function, dsolve, Eq
+
+t, a0, a1, b0 = symbols('t a0 a1 b0')
+y = Function('y')
+x = Function('x')
+
+eq = Eq(a1 * y(t).diff(t) + a0 * y(t), b0 * x(t))
+
+sol = dsolve(eq, y(t))
+sol
+```
+
+## Sistem Orde Kedua
+
+Bentuk persamaan:
+
+\[
+a_2 \frac{d^2 y(t)}{dt^2} + a_1 \frac{dy(t)}{dt} + a_0 y(t) = b_0 x(t)
+\]
+
+Contoh: Rangkaian RLC atau sistem pegas.
+
+### Penyelesaian dengan SymPy
+
+```{python}
+#| echo: true
+
+from sympy import symbols, Function, dsolve, Eq
+
+t, a0, a1, a2, b0 = symbols('t a0 a1 a2 b0')
+y = Function('y')
+x = Function('x')
+
+eq = Eq(a2 * y(t).diff(t, 2) + a1 * y(t).diff(t) + a0 * y(t), b0 * x(t))
+
+sol = dsolve(eq, y(t))
+sol
+```
+
+## Sistem Orde Lebih Tinggi
+
+Prinsip sama untuk orde N > 2.
+
+Contoh orde ketiga:
+
+\[
+a_3 \frac{d^3 y(t)}{dt^3} + a_2 \frac{d^2 y(t)}{dt^2} + a_1 \frac{dy(t)}{dt} + a_0 y(t) = b_1 \frac{d x(t)}{dt} + b_0 x(t)
+\]
+
+### Penyelesaian dengan SymPy
+
+```{python}
+#| echo: true
+
+from sympy import symbols, Function, dsolve, Eq
+
+t, a0, a1, a2, a3, b0, b1 = symbols('t a0 a1 a2 a3 b0 b1')
+y = Function('y')
+x = Function('x')
+
+eq = Eq(a3 * y(t).diff(t, 3) + a2 * y(t).diff(t, 2) + a1 * y(t).diff(t) + a0 * y(t),
+        b1 * x(t).diff(t) + b0 * x(t))
+
+sol = dsolve(eq, y(t))
+sol
+```
+
+## Sistem Cascade
+
+Rangkaian sistem secara seri: output satu menjadi input berikutnya.
+
+Contoh: Dua sistem orde pertama.
+
+Sistem 1: \( \frac{dy_1(t)}{dt} + y_1(t) = x(t) \)
+
+Sistem 2: \( \frac{dy_2(t)}{dt} + y_2(t) = y_1(t) \)
+
+Hasil: Sistem orde kedua.
+
+### Model dengan SymPy
+
+```{python}
+#| echo: true
+
+from sympy import symbols, Function, dsolve, Eq
+
+t = symbols('t')
+y1, y2, x = Function('y1'), Function('y2'), Function('x')
+
+eq1 = Eq(y1(t).diff(t) + y1(t), x(t))
+sol1 = dsolve(eq1, y1(t), ics={y1(0): 0})
+
+eq2 = Eq(y2(t).diff(t) + y2(t), sol1.rhs)
+sol2 = dsolve(eq2, y2(t), ics={y2(0): 0})
+
+sol2
+```
+
+## Kesimpulan
+
+- LCCDE dasar pemodelan sistem dinamis.
+- SymPy membantu penyelesaian simbolik.
+- Eksplorasi dengan kode dan koefisien spesifik!
+
+Terima kasih!
