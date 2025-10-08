@@ -1,12 +1,9 @@
-Ini adalah respons komprehensif terhadap permintaan Anda, disajikan dalam bahasa Indonesia, berdasarkan sumber dan tujuan pembelajaran yang telah ditetapkan.
 
----
+# DERET FOURIER (FOURIER SERIES)
 
-## TOPIK: DERET FOURIER (FOURIER SERIES)
+## 1) Tujuan Belajar, Inti Materi, Ontologi, Peta Pengetahuan Dasar, dan Kendaraan
 
-### 1) Tujuan Belajar, Inti Materi, Ontologi, Peta Pengetahuan Dasar, dan Kendaraan
-
-#### (a) Inti Materi Kuliah Minggu Tersebut
+### (a) Inti Materi Kuliah Minggu Tersebut
 
 Inti materi kuliah Deret Fourier berpusat pada **representasi sinyal periodik dan penggunaannya untuk analisis sistem LTI**.
 
@@ -20,7 +17,7 @@ Inti materi kuliah Deret Fourier berpusat pada **representasi sinyal periodik da
     *   Respon sistem LTI terhadap $x(t) \leftrightarrow \{c_k\}$ adalah $y(t) \leftrightarrow \{c_k H(jk\omega_0)\}$. Ini menyederhanakan konvolusi di domain waktu menjadi perkalian skalar di domain frekuensi.
 5.  **Aplikasi Pemfilteran:** Mengenali bagaimana sistem LTI bertindak sebagai filter (*Frequency Shaping* atau *Frequency Selective*), seperti filter *low-pass* dan *high-pass*, yang dapat direalisasikan melalui Persamaan Diferensial Koefisien Konstan Linear (LCCDE).
 
-#### (b) Ontologi Pengetahuan Materi Deret Fourier (DF) dan Ekspresi Prolog
+### (b) Ontologi Pengetahuan Materi Deret Fourier (DF) dan Ekspresi Prolog
 
 Ontologi ini menggambarkan hubungan hierarkis dan fungsional dari konsep-konsep utama dalam topik Deret Fourier.
 
@@ -72,7 +69,7 @@ kendaraan(persamaan_analisis_ctfs, integral_fourier).
 kendaraan(persamaan_sintesis_ctfs, penjumlahan_eksponensial).
 ```
 
-#### (c) Peta Pengetahuan Dasar (Mengacu pada Ontologi)
+### (c) Peta Pengetahuan Dasar (Mengacu pada Ontologi)
 
 Peta Pengetahuan Dasar (PPD) mengorganisir konsep utama berdasarkan peran mereka.
 
@@ -92,7 +89,7 @@ Peta Pengetahuan Dasar (PPD) mengorganisir konsep utama berdasarkan peran mereka
         *   Input $x(t)$ diubah oleh **Respon Frekuensi ($H(j\omega)$)**.
         *   Output $y(t) \leftrightarrow \{c_k H(jk\omega_0)\}$.
 
-#### (d) Diagram Graphviz untuk Peta Pengetahuan Dasar
+### (d) Diagram Graphviz untuk Peta Pengetahuan Dasar
 
 ```graphviz
 digraph G {
@@ -150,7 +147,7 @@ digraph G {
 }
 ```
 
-#### (e) Kendaraan yang Diperlukan (Vehicles)
+### (e) Kendaraan yang Diperlukan (Vehicles)
 
 Kendaraan (persamaan matematis utama) yang digunakan dalam topik Deret Fourier (CTFS):
 
@@ -167,7 +164,7 @@ Kendaraan (persamaan matematis utama) yang digunakan dalam topik Deret Fourier (
 
 ---
 
-### 2) 20 Soal Deret Fourier Berdasarkan Taksonomi Bloom
+## 2) 20 Soal Deret Fourier Berdasarkan Taksonomi Bloom
 
 | No. | Produk Number | Level Bloom | Topik | Soal (Tanpa Solusi) |
 | :---: | :---: | :---: | :--- | :--- |
@@ -194,11 +191,11 @@ Kendaraan (persamaan matematis utama) yang digunakan dalam topik Deret Fourier (
 
 ---
 
-### 3) Peta Pengetahuan Aplikatif dan Solusi (5 Soal Representatif)
+## 3) Peta Pengetahuan Aplikatif dan Solusi (5 Soal Representatif)
 
 Untuk alasan keterbatasan ruang dan kompleksitas, kami akan menyajikan Peta Pengetahuan Aplikatif (KPA), Diagram Graphviz KPA, dan Solusi untuk 5 soal representatif (No. 3, 6, 8, 14, dan 19). Peta untuk soal lainnya akan mengikuti struktur yang serupa, menggunakan **Kendaraan** yang relevan.
 
-#### Soal Representatif 1: No. 3 [DF\_C2][CT\_PRP]
+### Soal Representatif 1: No. 3 [DF\_C2][CT\_PRP]
 
 **Soal:** Sinyal $x(t)$ bernilai real. Jelaskan hubungan antara $c_k$ dan $c_{-k}$.
 
@@ -232,7 +229,7 @@ digraph KPA_Q3 {
 
 Karena sinyal $x(t)$ bernilai real, maka berlaku kondisi **N1**: $x(t) = x^*(t)$. Koefisien Fourier dari $x^*(t)$ adalah $c^*_{-k}$ (**N2**). Dengan menyamakan kedua sisi, kita mendapatkan **N4** bahwa koefisien Deret Fourier dari sinyal real haruslah **konjugat simetris**, yaitu **$c_k = c^*_{-k}$**.
 
-#### Soal Representatif 2: No. 6 [DF\_C3][CT\_PROP]
+### Soal Representatif 2: No. 6 [DF\_C3][CT\_PROP]
 
 **Soal:** Sinyal $x(t)$ memiliki koefisien $c_k$. Tentukan koefisien Fourier ($b_k$) untuk sinyal $y(t) = x(t - T/2)$, di mana $T$ adalah periode fundamental.
 
@@ -274,7 +271,7 @@ Karena $e^{-jk\pi} = \cos(k\pi) - j \sin(k\pi) = (-1)^k$ (karena $\sin(k\pi)=0$)
 $$b_k = c_k (-1)^k$$
 Pergeseran sebesar setengah periode membalik tanda (magnitudo) koefisien harmonik ganjil dan mempertahankan tanda koefisien harmonik genap.
 
-#### Soal Representatif 3: No. 8 [DF\_C4][LTI\_RESP]
+### Soal Representatif 3: No. 8 [DF\_C4][LTI\_RESP]
 
 **Soal:** Sinyal $x(t)$ yang periodik dilewatkan melalui sistem LTI dengan respon frekuensi $H(j\omega)$. Jika $c_k$ adalah koefisien input, analisis koefisien output $d_k$.
 
@@ -318,7 +315,7 @@ Analisis ini didasarkan pada dua properti utama LTI: Eigenfunction dan Superposi
     $$\mathbf{d_k = c_k H(jk\omega_0)}$$.
 5.  Proses ini (**N5**) menunjukkan bahwa sistem LTI memodifikasi spektrum input secara individual pada setiap frekuensi harmonik melalui operasi perkalian skalar, bukan konvolusi.
 
-#### Soal Representatif 4: No. 14 [DF\_C5][FILTER\_RC]
+### Soal Representatif 4: No. 14 [DF\_C5][FILTER\_RC]
 
 **Soal:** Rangkaian RC seri mengambil tegangan kapasitor $v_c(t)$ sebagai output. Evaluasi mengapa rangkaian ini diklasifikasikan sebagai filter *low-pass*.
 
@@ -362,7 +359,7 @@ digraph KPA_Q14 {
     *   **Frekuensi Tinggi ($\omega \rightarrow \infty$):** $|H(j\omega)| \rightarrow 1 / |\infty| = 0$. Sinyal frekuensi tinggi diredam.
 3.  Karena filter **melewatkan frekuensi rendah** dan **meredam frekuensi tinggi**, maka secara universal diklasifikasikan sebagai **Filter Low Pass** (N5).
 
-#### Soal Representatif 5: No. 19 [DF\_C6][CT\_PROP]
+### Soal Representatif 5: No. 19 [DF\_C6][CT\_PROP]
 
 **Soal:** Diberikan koefisien Fourier $c_k$ dari sinyal real $x(t)$ (periode $T=2\pi/\omega_0$). Jika $c_k = 0$ untuk $|k| \ge 2$, dan $c_1 = 1$, tentukan ekspresi $x(t)$.
 
@@ -411,7 +408,7 @@ digraph KPA_Q19 {
 
 ---
 
-### 4) Daftar Kendaraan yang Digunakan
+## 4) Daftar Kendaraan yang Digunakan
 
 Berikut adalah daftar Kendaraan (persamaan, teorema, atau properti fundamental) yang digunakan dalam memecahkan soal-soal dan menyusun inti materi:
 
