@@ -1,0 +1,5 @@
+# Latihan UTS
+
+[Soal UTS 2023](UTS_2023_RC-3.soal.pdf)
+[solusi UTS 2023](./UTS_2023_RC-1.solusi.pdf)
+

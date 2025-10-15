@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>2&nbsp; Materi Pembelajaran Minggu 1: Deskripsi Matematis Sinyal Waktu Kontinu – EL-2007 Sinyal dan Sistem</title>
+<title>6&nbsp; Latihan UTS – EL-2007 Sinyal dan Sistem</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../kuliah/materi_2.html" rel="next">
-<link href="../intro.html" rel="prev">
+<link href="../summary.html" rel="next">
+<link href="../kuliah/materi_4.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -70,35 +70,6 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 </head>
 
@@ -111,7 +82,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../kuliah/materi_1.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Materi Pembelajaran Minggu 1: Deskripsi Matematis Sinyal Waktu Kontinu</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../kuliah/materi_7.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Latihan UTS</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -150,7 +121,7 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../kuliah/materi_1.html" class="sidebar-item-text sidebar-link active">
+  <a href="../kuliah/materi_1.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Materi Pembelajaran Minggu 1: Deskripsi Matematis Sinyal Waktu Kontinu</span></span></a>
   </div>
 </li>
@@ -174,7 +145,7 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../kuliah/materi_7.html" class="sidebar-item-text sidebar-link">
+  <a href="../kuliah/materi_7.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Latihan UTS</span></span></a>
   </div>
 </li>
@@ -195,27 +166,15 @@ window.Quarto = {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
-   
-  <ul>
-  <li><a href="#pengenalan-sinyal-waktu-kontinu-continuous-time-signals" id="toc-pengenalan-sinyal-waktu-kontinu-continuous-time-signals" class="nav-link active" data-scroll-target="#pengenalan-sinyal-waktu-kontinu-continuous-time-signals"><span class="header-section-number">2.1</span> 1.1 Pengenalan Sinyal Waktu Kontinu (Continuous-Time Signals)</a></li>
-  <li><a href="#klasifikasi-sinyal-waktu-kontinu" id="toc-klasifikasi-sinyal-waktu-kontinu" class="nav-link" data-scroll-target="#klasifikasi-sinyal-waktu-kontinu"><span class="header-section-number">2.2</span> 1.2 Klasifikasi Sinyal Waktu Kontinu</a></li>
-  <li><a href="#operasi-dasar-pada-sinyal-waktu-kontinu" id="toc-operasi-dasar-pada-sinyal-waktu-kontinu" class="nav-link" data-scroll-target="#operasi-dasar-pada-sinyal-waktu-kontinu"><span class="header-section-number">2.3</span> 1.3 Operasi Dasar pada Sinyal Waktu Kontinu</a></li>
-  <li><a href="#pengenalan-sistem-waktu-kontinu-continuous-time-systems" id="toc-pengenalan-sistem-waktu-kontinu-continuous-time-systems" class="nav-link" data-scroll-target="#pengenalan-sistem-waktu-kontinu-continuous-time-systems"><span class="header-section-number">2.4</span> 1.4 Pengenalan Sistem Waktu Kontinu (Continuous-Time Systems)</a></li>
-  <li><a href="#sifat-dasar-sistem-waktu-kontinu" id="toc-sifat-dasar-sistem-waktu-kontinu" class="nav-link" data-scroll-target="#sifat-dasar-sistem-waktu-kontinu"><span class="header-section-number">2.5</span> 1.5 Sifat Dasar Sistem Waktu Kontinu</a></li>
-  <li><a href="#peta-pengetahuan-primitif-sinyal-sistem-waktu-kontinu" id="toc-peta-pengetahuan-primitif-sinyal-sistem-waktu-kontinu" class="nav-link" data-scroll-target="#peta-pengetahuan-primitif-sinyal-sistem-waktu-kontinu"><span class="header-section-number">2.6</span> Peta Pengetahuan Primitif: Sinyal &amp; Sistem Waktu Kontinu</a></li>
-  <li><a href="#kendaraan-matematika-mathematical-vehicles" id="toc-kendaraan-matematika-mathematical-vehicles" class="nav-link" data-scroll-target="#kendaraan-matematika-mathematical-vehicles"><span class="header-section-number">2.7</span> Kendaraan Matematika (Mathematical Vehicles)</a></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Materi Pembelajaran Minggu 1: Deskripsi Matematis Sinyal Waktu Kontinu</span></h1>
+<h1 class="title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Latihan UTS</span></h1>
 </div>
 
 
@@ -232,162 +191,9 @@ window.Quarto = {
 </header>
 
 
-<p><strong>Capaian Pembelajaran Minggu (CPMK Terkait):</strong> Mahasiswa diharapkan mampu <strong>memahami dasar-dasar sinyal waktu kontinu dan representasi matematisnya</strong>.</p>
-<p>Minggu ini, kita akan menjelajahi konsep fundamental sinyal dan sistem waktu kontinu, yang merupakan fondasi penting dalam banyak disiplin ilmu teknik. Kita akan mulai dengan memahami apa itu sinyal waktu kontinu, bagaimana merepresentasikannya secara matematis, mengklasifikasikannya, melakukan operasi dasar pada sinyal, serta memperkenalkan sistem waktu kontinu dan sifat-sifat fundamentalnya.</p>
-<section id="pengenalan-sinyal-waktu-kontinu-continuous-time-signals" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="pengenalan-sinyal-waktu-kontinu-continuous-time-signals"><span class="header-section-number">2.1</span> 1.1 Pengenalan Sinyal Waktu Kontinu (Continuous-Time Signals)</h2>
-<p>Sinyal adalah suatu fungsi yang membawa informasi. Sinyal waktu kontinu (Continuous-Time Signals, CT Signals) adalah sinyal yang didefinisikan untuk setiap nilai waktu dalam suatu interval kontinu. Biasanya, ini direpresentasikan sebagai fungsi dari variabel waktu <span class="math inline">\(t\)</span>, misalnya <span class="math inline">\(x(t)\)</span>.</p>
-<p><strong>Contoh Sinyal Dasar Waktu Kontinu:</strong></p>
-<ul>
-<li><strong>Sinyal Sinusoidal:</strong> Menggambarkan osilasi periodik, misalnya <span class="math inline">\(x(t) = A \cos(\omega t + \phi)\)</span>.</li>
-<li><strong>Sinyal Eksponensial:</strong> Menunjukkan pertumbuhan atau peluruhan, misalnya <span class="math inline">\(x(t) = A e^{\alpha t}\)</span>.
-<ul>
-<li>Jika <span class="math inline">\(\alpha\)</span> real dan negatif, sinyal meluruh.</li>
-<li>Jika <span class="math inline">\(\alpha\)</span> real dan positif, sinyal bertumbuh.</li>
-<li>Jika <span class="math inline">\(\alpha\)</span> kompleks (<span class="math inline">\(j\omega\)</span>), menjadi eksponensial kompleks (<span class="math inline">\(e^{j\omega t} = \cos(\omega t) + j\sin(\omega t)\)</span>).</li>
-</ul></li>
-<li><strong>Fungsi Unit Step (Unit Step Function):</strong> Sinyal yang bernilai 0 untuk <span class="math inline">\(t&lt;0\)</span> dan 1 untuk <span class="math inline">\(t \ge 0\)</span>, dilambangkan <span class="math inline">\(u(t)\)</span>. Berguna untuk merepresentasikan sinyal yang “dimulai” pada waktu tertentu.</li>
-<li><strong>Fungsi Unit Impuls (Unit Impulse Function) / Delta Dirac:</strong> Sinyal ideal yang bernilai tak hingga pada <span class="math inline">\(t=0\)</span> dan nol di tempat lain, dengan luas area satu. Dilambangkan <span class="math inline">\(\delta(t)\)</span>. Sinyal ini sering digunakan sebagai “blok bangunan” untuk merepresentasikan sinyal lain dan menganalisis sistem.</li>
-</ul>
-</section>
-<section id="klasifikasi-sinyal-waktu-kontinu" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="klasifikasi-sinyal-waktu-kontinu"><span class="header-section-number">2.2</span> 1.2 Klasifikasi Sinyal Waktu Kontinu</h2>
-<p>Sinyal dapat diklasifikasikan berdasarkan beberapa properti penting:</p>
-<ul>
-<li><p><strong>Sinyal Energi (Energy Signal) vs.&nbsp;Sinyal Daya (Power Signal):</strong></p>
-<ul>
-<li><strong>Sinyal Energi:</strong> Memiliki energi total terbatas (<span class="math inline">\(0 &lt; E &lt; \infty\)</span>) dan daya rata-rata nol (<span class="math inline">\(P=0\)</span>). Energi <span class="math inline">\(E\)</span> dihitung sebagai <span class="math inline">\(E = \int_{-\infty}^{\infty} |x(t)|^2 dt\)</span>.</li>
-<li><strong>Sinyal Daya:</strong> Memiliki daya rata-rata terbatas (<span class="math inline">\(0 &lt; P &lt; \infty\)</span>) dan energi total tak hingga (<span class="math inline">\(E=\infty\)</span>). Daya rata-rata <span class="math inline">\(P\)</span> dihitung sebagai <span class="math inline">\(P = \lim_{T \to \infty} \frac{1}{2T} \int_{-T}^{T} |x(t)|^2 dt\)</span>.</li>
-<li>Sinyal yang tidak memenuhi kedua kondisi ini tidak diklasifikasikan sebagai sinyal energi maupun sinyal daya (misalnya, sinyal yang terus bertumbuh).</li>
-</ul></li>
-<li><p><strong>Sinyal Periodik (Periodic Signal) vs.&nbsp;Aperiodik (Aperiodic Signal):</strong></p>
-<ul>
-<li><strong>Sinyal Periodik:</strong> Sinyal yang berulang dengan periode waktu tertentu <span class="math inline">\(T &gt; 0\)</span>, yaitu <span class="math inline">\(x(t) = x(t+T)\)</span> untuk semua <span class="math inline">\(t\)</span>. <strong>Periode fundamental</strong> adalah periode <span class="math inline">\(T\)</span> terkecil yang memenuhi kondisi ini.</li>
-<li><strong>Sinyal Aperiodik:</strong> Sinyal yang tidak berulang.</li>
-</ul></li>
-<li><p><strong>Sinyal Genap (Even Signal) vs.&nbsp;Sinyal Ganjil (Odd Signal):</strong></p>
-<ul>
-<li><strong>Sinyal Genap:</strong> Sinyal yang simetris terhadap sumbu vertikal, yaitu <span class="math inline">\(x(t) = x(-t)\)</span>.</li>
-<li><strong>Sinyal Ganjil:</strong> Sinyal yang antisimetris terhadap sumbu vertikal, yaitu <span class="math inline">\(x(t) = -x(-t)\)</span>.</li>
-<li>Setiap sinyal dapat diuraikan menjadi komponen genap <span class="math inline">\(x_e(t) = \frac{1}{2}(x(t) + x(-t))\)</span> dan komponen ganjil <span class="math inline">\(x_o(t) = \frac{1}{2}(x(t) - x(-t))\)</span>.</li>
-</ul></li>
-</ul>
-</section>
-<section id="operasi-dasar-pada-sinyal-waktu-kontinu" class="level2" data-number="2.3">
-<h2 data-number="2.3" class="anchored" data-anchor-id="operasi-dasar-pada-sinyal-waktu-kontinu"><span class="header-section-number">2.3</span> 1.3 Operasi Dasar pada Sinyal Waktu Kontinu</h2>
-<p>Berbagai operasi dapat dilakukan pada sinyal waktu kontinu.</p>
-<ul>
-<li><p><strong>Transformasi Variabel Independen (Independent Variable Transformations):</strong></p>
-<ul>
-<li><strong>Pergeseran Waktu (Time Shift):</strong> <span class="math inline">\(y(t) = x(t-t_0)\)</span> menggeser sinyal <span class="math inline">\(x(t)\)</span> ke kanan (menunda) sebesar <span class="math inline">\(t_0\)</span> unit jika <span class="math inline">\(t_0 &gt; 0\)</span>. <span class="math inline">\(y(t) = x(t+t_0)\)</span> menggeser ke kiri (memajukan).</li>
-<li><strong>Penskalaan Waktu (Time Scaling):</strong> <span class="math inline">\(y(t) = x(at)\)</span> mengubah “kecepatan” sinyal. Jika <span class="math inline">\(|a|&gt;1\)</span>, sinyal dikompresi (dipercepat). Jika <span class="math inline">\(0 &lt; |a| &lt; 1\)</span>, sinyal diekspansi (diperlambat). Jika <span class="math inline">\(a &lt; 0\)</span>, juga terjadi pembalikan waktu.</li>
-<li><strong>Pembalikan Waktu (Time Reversal):</strong> <span class="math inline">\(y(t) = x(-t)\)</span> membalik sinyal terhadap sumbu vertikal.</li>
-</ul></li>
-<li><p><strong>Transformasi Variabel Dependen (Dependent Variable Transformations):</strong></p>
-<ul>
-<li><strong>Penskalaan Amplitudo:</strong> <span class="math inline">\(y(t) = A x(t)\)</span> mengalikan amplitudo sinyal dengan konstanta <span class="math inline">\(A\)</span>.</li>
-<li><strong>Penjumlahan Sinyal:</strong> <span class="math inline">\(y(t) = x_1(t) + x_2(t)\)</span>.</li>
-<li><strong>Perkalian Sinyal:</strong> <span class="math inline">\(y(t) = x_1(t) \cdot x_2(t)\)</span>.</li>
-<li><strong>Diferensiasi Sinyal:</strong> <span class="math inline">\(y(t) = \frac{dx(t)}{dt}\)</span>.</li>
-<li><strong>Integrasi Sinyal:</strong> <span class="math inline">\(y(t) = \int_{-\infty}^{t} x(\tau) d\tau\)</span>.</li>
-</ul></li>
-</ul>
-</section>
-<section id="pengenalan-sistem-waktu-kontinu-continuous-time-systems" class="level2" data-number="2.4">
-<h2 data-number="2.4" class="anchored" data-anchor-id="pengenalan-sistem-waktu-kontinu-continuous-time-systems"><span class="header-section-number">2.4</span> 1.4 Pengenalan Sistem Waktu Kontinu (Continuous-Time Systems)</h2>
-<p>Sistem dapat didefinisikan sebagai entitas yang memproses sinyal input untuk menghasilkan sinyal output. Hubungan input-output ini dapat direpresentasikan secara matematis atau grafis.</p>
-<ul>
-<li><strong>Representasi Diagram Blok (Block Diagram Representation):</strong> Digunakan untuk memvisualisasikan bagaimana komponen-komponen sistem dihubungkan. Simbol-simbol dasar meliputi penambah, pengali (gain), dan integrator/diferensiator.</li>
-<li><strong>Interkoneksi Sistem (Interconnection of Systems):</strong>
-<ul>
-<li><strong>Seri (Cascade):</strong> Output satu sistem menjadi input sistem berikutnya.</li>
-<li><strong>Paralel:</strong> Input yang sama diberikan ke beberapa sistem, dan outputnya dijumlahkan.</li>
-</ul></li>
-</ul>
-</section>
-<section id="sifat-dasar-sistem-waktu-kontinu" class="level2" data-number="2.5">
-<h2 data-number="2.5" class="anchored" data-anchor-id="sifat-dasar-sistem-waktu-kontinu"><span class="header-section-number">2.5</span> 1.5 Sifat Dasar Sistem Waktu Kontinu</h2>
-<p>Klasifikasi sistem penting untuk memahami perilakunya.</p>
-<ul>
-<li><p><strong>Sistem dengan Memori (System with Memory) vs.&nbsp;Tanpa Memori (Memoryless System):</strong></p>
-<ul>
-<li><strong>Tanpa Memori:</strong> Output <span class="math inline">\(y(t)\)</span> pada waktu <span class="math inline">\(t\)</span> hanya bergantung pada input <span class="math inline">\(x(t)\)</span> pada waktu yang sama.</li>
-<li><strong>Dengan Memori:</strong> Output <span class="math inline">\(y(t)\)</span> pada waktu <span class="math inline">\(t\)</span> bergantung pada nilai input atau output di masa lalu atau masa depan. Contohnya, integrator.</li>
-</ul></li>
-<li><p><strong>Kausalitas (Causality):</strong> Output <span class="math inline">\(y(t)\)</span> pada waktu <span class="math inline">\(t\)</span> hanya bergantung pada input <span class="math inline">\(x(\tau)\)</span> untuk <span class="math inline">\(\tau \le t\)</span> (yaitu, input saat ini atau masa lalu). Sistem tidak dapat “memprediksi” input masa depan. Sistem fisik harus kausal.</p></li>
-<li><p><strong>Invertibilitas (Invertibility):</strong> Sistem dikatakan invertibel jika inputnya dapat direkonstruksi secara unik dari outputnya. Artinya, ada sistem invers yang, jika dihubungkan secara seri, akan menghasilkan kembali input asli.</p></li>
-<li><p><strong>Stabilitas BIBO (Bounded-Input Bounded-Output Stability):</strong> Sistem stabil BIBO jika setiap input terbatas (bounded) menghasilkan output yang terbatas. Input <span class="math inline">\(x(t)\)</span> terbatas jika ada konstanta <span class="math inline">\(M_x &lt; \infty\)</span> sehingga <span class="math inline">\(|x(t)| \le M_x\)</span> untuk semua <span class="math inline">\(t\)</span>. Output <span class="math inline">\(y(t)\)</span> terbatas jika ada konstanta <span class="math inline">\(M_y &lt; \infty\)</span> sehingga <span class="math inline">\(|y(t)| \le M_y\)</span> untuk semua <span class="math inline">\(t\)</span>.</p></li>
-<li><p><strong>Invariansi Waktu (Time-Invariance):</strong> Karakteristik sistem tidak berubah seiring waktu. Jika input <span class="math inline">\(x(t)\)</span> menghasilkan output <span class="math inline">\(y(t)\)</span>, maka input yang digeser waktu <span class="math inline">\(x(t-t_0)\)</span> akan menghasilkan output <span class="math inline">\(y(t-t_0)\)</span>.</p></li>
-<li><p><strong>Linearitas (Linearity):</strong> Sistem linear jika memenuhi dua prinsip:</p>
-<ul>
-<li><strong>Aditivitas:</strong> Input <span class="math inline">\(x_1(t)+x_2(t)\)</span> menghasilkan output <span class="math inline">\(y_1(t)+y_2(t)\)</span>, di mana <span class="math inline">\(y_1(t)\)</span> adalah output dari <span class="math inline">\(x_1(t)\)</span> dan <span class="math inline">\(y_2(t)\)</span> adalah output dari <span class="math inline">\(x_2(t)\)</span>.</li>
-<li><strong>Homogenitas (Scaling):</strong> Input <span class="math inline">\(a x(t)\)</span> menghasilkan output <span class="math inline">\(a y(t)\)</span> untuk konstanta skalar <span class="math inline">\(a\)</span> apa pun.</li>
-<li>Seringkali disebut prinsip superposisi.</li>
-</ul></li>
-</ul>
-<hr>
-</section>
-<section id="peta-pengetahuan-primitif-sinyal-sistem-waktu-kontinu" class="level2" data-number="2.6">
-<h2 data-number="2.6" class="anchored" data-anchor-id="peta-pengetahuan-primitif-sinyal-sistem-waktu-kontinu"><span class="header-section-number">2.6</span> Peta Pengetahuan Primitif: Sinyal &amp; Sistem Waktu Kontinu</h2>
-<p><strong>Tujuan:</strong> Membantu mahasiswa melihat gambaran besar, interkonektivitas antar konsep, dan mengatur pengetahuan deklaratif (fakta dan definisi) sinyal dan sistem waktu kontinu. (Mengingat &amp; Memahami - Level 1-2 Bloom).</p>
-<p><strong>Node Pusat:</strong> <strong>Sinyal &amp; Sistem</strong></p>
-<ul>
-<li><p><strong>Cabang 1: SWK (Sinyal Waktu Kontinu)</strong></p>
-<ul>
-<li><strong>Sub-Cabang 1.1: Representasi Matematis (SWK_Representasi)</strong>
-<ul>
-<li>Node: Sinusoidal (SWK_Sinusoidal), Eksponensial (SWK_Eksponensial), Unit Step (SWK_UnitStep), Unit Impuls (SWK_UnitImpuls).</li>
-</ul></li>
-<li><strong>Sub-Cabang 1.2: Klasifikasi Sinyal (SWK_Klasifikasi)</strong>
-<ul>
-<li>Node: Energi/Daya (SWK_EnergiDaya), Periodik/Aperiodik (SWK_Periodisitas), Genap/Ganjil (SWK_Simetri).</li>
-</ul></li>
-<li><strong>Sub-Cabang 1.3: Operasi Sinyal (SWK_Operasi)</strong>
-<ul>
-<li>Node: Pergeseran Waktu (SWK_GeserWaktu), Penskalaan Waktu (SWK_SkalaWaktu), Pembalikan Waktu (SWK_BalikWaktu), Penjumlahan (SWK_Jumlah), Perkalian (SWK_Kali), Penskalaan Amplitudo (SWK_SkalaAmplitudo).</li>
-</ul></li>
-</ul></li>
-<li><p><strong>Cabang 2: SYWK (Sistem Waktu Kontinu)</strong></p>
-<ul>
-<li><strong>Sub-Cabang 2.1: Definisi &amp; Representasi (SYWK_Representasi)</strong>
-<ul>
-<li>Node: Sistem (SYWK_Definisi), Diagram Blok (SYWK_DiagramBlok), Interkoneksi (SYWK_Interkoneksi).</li>
-</ul></li>
-<li><strong>Sub-Cabang 2.2: Sifat Sistem (SYWK_Sifat)</strong>
-<ul>
-<li>Node: Memori (SYWK_Memori), Kausalitas (SYWK_Kausalitas), Invertibilitas (SYWK_Invertibilitas), Stabilitas (SYWK_Stabilitas), Invariansi Waktu (SYWK_InvarianWaktu), Linearitas (SYWK_Linearitas).</li>
-</ul></li>
-</ul></li>
-</ul>
-<p><strong>Hubungan (Edges):</strong></p>
-<ul>
-<li>“Sinyal &amp; Sistem” <strong>TERDIRI_DARI</strong> “SWK”, “SYWK”.</li>
-<li>“SWK” <strong>MEMILIKI</strong> “SWK_Representasi”, “SWK_Klasifikasi”, “SWK_Operasi”.</li>
-<li>“SYWK” <strong>MEMILIKI</strong> “SYWK_Representasi”, “SYWK_Sifat”.</li>
-<li>“SWK_Representasi” <strong>MELIPUTI</strong> “SWK_Sinusoidal”, “SWK_Eksponensial”, “SWK_UnitStep”, “SWK_UnitImpuls”.</li>
-<li>“SWK_Klasifikasi” <strong>MELIPUTI</strong> “SWK_EnergiDaya”, “SWK_Periodisitas”, “SWK_Simetri”.</li>
-<li>“SWK_Operasi” <strong>MELIPUTI</strong> “SWK_GeserWaktu”, “SWK_SkalaWaktu”, “SWK_BalikWaktu”, “SWK_Jumlah”, “SWK_Kali”, “SWK_SkalaAmplitudo”.</li>
-<li>“SYWK_Representasi” <strong>MELIPUTI</strong> “SYWK_Definisi”, “SYWK_DiagramBlok”, “SYWK_Interkoneksi”.</li>
-<li>“SYWK_Sifat” <strong>MELIPUTI</strong> “SYWK_Memori”, “SYWK_Kausalitas”, “SYWK_Invertibilitas”, “SYWK_Stabilitas”, “SYWK_InvarianWaktu”, “SYWK_Linearitas”.</li>
-<li>“SYWK_Interkoneksi” <strong>CONTOH_NYA</strong> “Seri”, “Paralel”.</li>
-<li>“SYWK_Linearitas” <strong>MELIPUTI</strong> “Aditivitas”, “Homogenitas”.</li>
-</ul>
-<hr>
-</section>
-<section id="kendaraan-matematika-mathematical-vehicles" class="level2" data-number="2.7">
-<h2 data-number="2.7" class="anchored" data-anchor-id="kendaraan-matematika-mathematical-vehicles"><span class="header-section-number">2.7</span> Kendaraan Matematika (Mathematical Vehicles)</h2>
-<p>Ini adalah alat, teknik, dan metode spesifik yang digunakan untuk memecahkan masalah dalam domain Sinyal dan Sistem.</p>
-<ul>
-<li><strong>K_MAT_Aljabar:</strong> Untuk manipulasi ekspresi matematis, penyelesaian persamaan, dan penyederhanaan.</li>
-<li><strong>K_MAT_Kalkulus:</strong> Untuk diferensiasi (turunan) dan integrasi fungsi waktu kontinu.</li>
-<li><strong>K_MAT_Bilangan_Kompleks:</strong> Untuk bekerja dengan sinyal eksponensial kompleks dan memahami representasi fasor.</li>
-<li><strong>K_OPS_Sinyal_Dasar:</strong> Meliputi operasi dasar pada sinyal seperti penskalaan amplitudo, pergeseran waktu, penskalaan waktu, pembalikan waktu, penjumlahan, perkalian, serta pemahaman definisi unit step dan unit impuls.</li>
-<li><strong>K_VIS_PlotSinyal:</strong> Untuk memvisualisasikan sinyal waktu kontinu, membantu dalam memahami dan menganalisis efek operasi sinyal.</li>
-</ul>
-<hr>
+<p><a href="UTS_2023_RC-3.soal.pdf">Soal UTS 2023</a> <a href="./UTS_2023_RC-1.solusi.pdf">solusi UTS 2023</a></p>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -791,13 +597,13 @@ window.Quarto = {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../intro.html" class="pagination-link" aria-label="Tinjauan Kuliah">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Tinjauan Kuliah</span></span>
+      <a href="../kuliah/materi_4.html" class="pagination-link" aria-label="I. Materi Pembelajaran Minggu 4: Analisis Sistem di Domain Waktu">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">I. Materi Pembelajaran Minggu 4: Analisis Sistem di Domain Waktu</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../kuliah/materi_2.html" class="pagination-link" aria-label="Materi Kuliah Minggu 2: Deskripsi Sistem di Domain Waktu dan Sifat-sifat Dasarnya">
-        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Materi Kuliah Minggu 2: Deskripsi Sistem di Domain Waktu dan Sifat-sifat Dasarnya</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../summary.html" class="pagination-link" aria-label="Lampiran Petunjuk Penggunaan Alat Bantu dan Kendaraan dalam Sinyal dan Sistem (VALORAIZE Learning)">
+        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Lampiran Petunjuk Penggunaan Alat Bantu dan Kendaraan dalam Sinyal dan Sistem (VALORAIZE Learning)</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
