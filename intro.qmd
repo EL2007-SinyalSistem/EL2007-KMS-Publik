@@ -1,4 +1,4 @@
-# Tinjauan Kuliah
+# Tinjauan Kuliah {.unnumbered}
 
 Berikut adalah gambaran umum (overview) mata kuliah Sinyal dan Sistem, mengintegrasikan filosofi pembelajaran VALORAIZE, struktur materi, dan tujuan utama yang dirancang untuk mahasiswa.
 

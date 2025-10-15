@@ -1,0 +1,140 @@
+---
+title: "Pemodelan Sistem LTI dengan Persamaan Diferensial Koefisien Konstan (LCCDE)"
+author: "Departemen Teknik Elektro"
+date: "today"
+format:
+  html:
+    theme: cosmo
+    code-fold: true
+    toc: true
+    toc-location: left
+jupyter: python3
+---
+
+## Pendahuluan: Dari Sistem Fisik ke Model Matematis
+
+Dalam studi Sinyal dan Sistem, salah satu tujuan utamanya adalah untuk memahami dan memprediksi perilaku sistem-sistem fisik. Sistem-sistem ini, baik berupa rangkaian listrik, sistem mekanik, maupun proses termal, pada dasarnya diatur oleh hukum-hukum fisika fundamental. Kemampuan kita untuk menganalisis dan merancang sistem-sistem tersebut bergantung pada kemampuan kita untuk menerjemahkan hukum-hukum fisika ini ke dalam bahasa matematika yang presisi. Persamaan diferensial, khususnya *Linear Constant-Coefficient Differential Equations* (LCCDE), berfungsi sebagai "bahasa universal" yang memungkinkan penerjemahan ini. LCCDE menyediakan kerangka kerja yang kuat untuk memodelkan hubungan antara sinyal masukan (input) dan sinyal keluaran (output) dari sebuah kelas sistem yang sangat luas dan penting.[1]
+
+Sebuah sistem waktu-kontinu yang dapat direpresentasikan oleh LCCDE memiliki bentuk matematis umum sebagai berikut [1, 2]:
+
+$$\sum_{k=0}^{N} a_k \frac{d^k y(t)}{dt^k} = \sum_{m=0}^{M} b_m \frac{d^m x(t)}{dt^m}$$
+
+Di sini, $y(t)$ adalah sinyal output sistem, dan $x(t)$ adalah sinyal input. Koefisien $a_k$ dan $b_m$ adalah konstanta yang mendefinisikan karakteristik fisik dari sistem tersebut. Persamaan ini disebut *Linear* karena $y(t)$, $x(t)$, dan turunannya muncul secara linear. Persamaan ini disebut *Constant-Coefficient* karena nilai $a_k$ dan $b_m$ tidak berubah seiring waktu. Dua asumsi ini—linearitas dan koefisien konstan—sangatlah fundamental. Asumsi-asumsi ini menyiratkan bahwa sistem yang dimodelkan adalah *Linear Time-Invariant* (LTI), sebuah properti yang secara drastis menyederhanakan analisis dan memungkinkan kita untuk menggunakan perangkat matematika yang mapan seperti aljabar linear dan transformasi Laplace.[3] Tanpa asumsi LTI, analisis sistem menjadi jauh lebih rumit dan seringkali memerlukan metode numerik yang kompleks.
+
+### Solusi Lengkap: Respon Alami dan Respon Paksa
+
+Solusi total, $y(t)$, dari sebuah LCCDE selalu dapat diuraikan menjadi dua komponen yang berbeda secara konseptual dan fisis.[2, 4, 5] Pemisahan ini bukan sekadar trik matematika, melainkan manifestasi dari prinsip superposisi yang berlaku pada sistem linear. Ini memungkinkan kita untuk menganalisis efek dari kondisi internal sistem dan efek dari stimulus eksternal secara terpisah, lalu menjumlahkan hasilnya untuk mendapatkan respons total.
+
+1.  **Solusi Homogen ($y_h(t)$) atau Respon Alami**: Komponen ini adalah solusi dari persamaan diferensial ketika inputnya nol ($x(t) = 0$). Respon alami merepresentasikan perilaku intrinsik sistem—bagaimana sistem melepaskan atau mendisipasikan energi yang tersimpan di dalamnya tanpa adanya gaya eksternal. Perilaku ini sepenuhnya ditentukan oleh karakteristik internal sistem, yang direpresentasikan oleh koefisien $a_k$ (misalnya, nilai resistor, induktor, dan kapasitor dalam sebuah rangkaian).[2, 6] Respon alami ini seringkali bersifat transien, artinya ia akan meluruh menuju nol seiring berjalannya waktu pada sistem yang stabil.
+
+2.  **Solusi Partikular ($y_p(t)$) atau Respon Paksa**: Komponen ini adalah solusi spesifik yang memenuhi persamaan diferensial untuk input $x(t)$ yang diberikan. Respon paksa menggambarkan bagaimana sistem berperilaku di bawah pengaruh input eksternal setelah semua efek transien (respon alami) telah mereda. Bentuk dari respon paksa sangat bergantung pada bentuk sinyal input $x(t)$.[2, 7]
+
+Dengan demikian, solusi lengkap dari sistem adalah superposisi dari kedua respons ini:
+
+$$y(t) = y_h(t) + y_p(t)$$
+
+Pemisahan ini memberikan intuisi rekayasa yang sangat kuat. Kita dapat menganalisis stabilitas internal sistem dengan memeriksa respon alaminya, dan secara terpisah, menganalisis kinerja *steady-state* sistem terhadap berbagai input dengan memeriksa respon paksa.
+
+### Kondisi Awal dan Sifat LTI
+
+Sebuah LCCDE saja tidak cukup untuk mendefinisikan sebuah sistem LTI secara unik. Kita juga memerlukan informasi tambahan berupa kondisi awal. Untuk memastikan bahwa sistem yang dimodelkan oleh LCCDE benar-benar bersifat LTI dan kausal, kita memberlakukan **kondisi awal diam** (*initial rest condition*).[8, 9] Kondisi ini menyatakan bahwa jika input ke sistem adalah nol untuk semua waktu sebelum $t_0$ (yaitu, $x(t) = 0$ untuk $t < t_0$), maka output sistem juga harus nol untuk semua waktu sebelum $t_0$ (yaitu, $y(t) = 0$ untuk $t < t_0$).[10] Secara fisis, ini berarti sistem tidak memiliki energi yang tersimpan sebelum input diterapkan. Dengan pemberlakuan kondisi ini, LCCDE secara unik mendefinisikan sebuah sistem LTI yang kausal.[8]
+
+## Analisis Sistem Orde Pertama: Rangkaian RC
+
+Untuk memahami bagaimana LCCDE memodelkan sistem LTI dalam praktik, kita akan memulai dengan contoh yang paling fundamental: sistem orde pertama. Sistem orde pertama dicirikan oleh persamaan diferensial yang turunan tertingginya adalah turunan pertama. Contoh kanonis yang paling intuitif dan sering dijumpai dalam rekayasa elektro adalah rangkaian Resistor-Kapasitor (RC).[6, 11, 12]
+
+### Studi Kasus: Rangkaian RC sebagai Prototipe Sistem Orde Pertama
+
+Perhatikan rangkaian RC seri sederhana yang ditunjukkan di bawah ini. Sistem ini memiliki satu elemen penyimpan energi, yaitu kapasitor. Input sistem adalah sumber tegangan $v_s(t)$, dan output yang kita amati adalah tegangan pada kapasitor, $v_c(t)$.
+
+```{python}
+#| echo: false
+#| fig-cap: "Rangkaian RC Seri sebagai Sistem LTI Orde Pertama"
+import matplotlib.pyplot as plt
+import schemdraw
+import schemdraw.elements as elm
+
+with schemdraw.Drawing() as d:
+    d.config(unit=1)
+    d += (vs := elm.SourceV().label('$v_s(t)$').up())
+    d += elm.Resistor().right().label('R')
+    d += elm.Capacitor().down().label('C')
+    d += elm.Line().left().to(vs.start)
+    d += elm.Ground(at=vs.start)
+    d.push()
+    d += elm.Line().right().at(d.here)
+    d.pop()
+    d += elm.Gap().toy(vs.end).label(['+','$v_c(t)$','-'])
+```
+```{python}
+#| label: fig-rc-step-response
+#| fig-cap: "Respon Undak (Step Response) Rangkaian RC dengan R=1 kΩ, C=1 mF, dan Vs=5 V"
+
+import sympy as sym
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Inisialisasi untuk plotting yang lebih baik di lingkungan notebook
+sym.init_printing()
+
+# 1. Definisi Simbol dan Fungsi
+t, R, C, Vs = sym.symbols('t R C Vs', real=True, positive=True)
+vc = sym.Function('vc')
+
+# 2. Penyusunan Persamaan Diferensial
+# RC * d(vc(t))/dt + vc(t) = Vs
+ode = sym.Eq(R * C * vc(t).diff(t) + vc(t), Vs)
+
+# Tampilkan persamaan dalam format LaTeX
+print("Persamaan Diferensial (LCCDE):")
+display(ode)
+
+# 3. Penyelesaian Simbolis dengan Kondisi Awal
+# Gunakan dsolve dengan initial condition vc(0) = 0
+solution = sym.dsolve(ode, vc(t), ics={vc(0): 0})
+
+print("\nSolusi Simbolis untuk vc(t):")
+display(solution)
+
+# 4. Substitusi Nilai Numerik dan Plotting
+# Berikan nilai numerik untuk R, C, dan Vs
+# R = 1 kOhm, C = 1 mF -> tau = RC = 1 detik
+# Vs = 5 Volt
+sol_numeric = solution.rhs.subs({R: 1000, C: 0.001, Vs: 5})
+
+print("\nSolusi Numerik untuk vc(t):")
+display(sym.Eq(vc(t), sol_numeric))
+
+# Plot solusi menggunakan sympy.plot
+# Rentang waktu dari 0 hingga 5 kali konstanta waktu (5*tau)
+
+
+p = sym.plot(sol_numeric, (t, 0, 5),
+             xlabel='Waktu (detik)',
+             ylabel='Tegangan Kapasitor vc(t) (Volt)',
+             title='Kurva Pengisian Kapasitor (Respon Undak)',
+             show=False)
+
+# Mengambil data dari plot untuk kustomisasi dengan matplotlib
+plot_data = p.get_points()
+x_vals = plot_data
+y_vals = plot_data[19]
+
+# Kustomisasi plot dengan Matplotlib untuk menambahkan anotasi
+plt.figure(figsize=(10, 6))
+plt.plot(x_vals, y_vals, label='Respon vc(t)')
+tau = 1.0 # RC = 1000 * 0.001 = 1
+plt.axhline(y=5, color='r', linestyle='--', label='Tegangan Steady-State (Vs = 5V)')
+plt.axvline(x=tau, color='g', linestyle='--', label=f'1 Tau ({tau}s)')
+val_at_tau = 5 * (1 - np.exp(-1))
+plt.plot(tau, val_at_tau, 'go')
+plt.text(tau + 0.1, val_at_tau, f'{val_at_tau:.2f}V (63.2% dari Vs)')
+
+plt.grid(True)
+plt.legend()
+plt.xlabel('Waktu (detik)')
+plt.ylabel('Tegangan Kapasitor vc(t) (Volt)')
+plt.title('Kurva Pengisian Kapasitor (Respon Undak)')
+plt.show()
+
+```
