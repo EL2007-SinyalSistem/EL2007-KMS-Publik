@@ -1,8 +1,5 @@
 # Latihan UTS
 
-[Soal UTS 2023](UTS_2023_RC-3.soal.pdf)
-[solusi UTS 2023](./UTS_2023_RC-1.solusi.pdf)
+[Soal UTS 2023](UTS_2023_RC-3.soal.pdf) dengan [solusi UTS 2023](./UTS_2023_RC-1.solusi.pdf)
 
-[soal UTS 2024](UTS__2022.pdf) , [dan](UTS_final_2_solusi.pdf)
-[solusi](UTS_final_2_solusi.pdf)
-
+[soal UTS 2022](UTS__2022.pdf) , dengan [Solusi ini](UTS_final_2_solusi.pdf), atau [solusi](UTS_final_2_solusi.pdf) ini.
