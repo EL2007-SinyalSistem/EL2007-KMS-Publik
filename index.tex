@@ -65,6 +65,46 @@
 \fi
 \makeatother
 
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{241,243,245}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.40,0.45,0.13}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\BuiltInTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\ExtensionTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.28,0.35,0.67}{#1}}
+\newcommand{\ImportTok}[1]{\textcolor[rgb]{0.00,0.46,0.62}{#1}}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\RegionMarkerTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.07,0.07,0.07}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
 
 \usepackage{longtable,booktabs,array}
 \usepackage{calc} % for calculating minipage widths
@@ -523,7 +563,10 @@ profesional yang sukses. Selamat belajar!
 
 \bookmarksetup{startatroot}
 
-\chapter{Tinjauan Kuliah}\label{tinjauan-kuliah}
+\chapter*{Tinjauan Kuliah}\label{tinjauan-kuliah}
+\addcontentsline{toc}{chapter}{Tinjauan Kuliah}
+
+\markboth{Tinjauan Kuliah}{Tinjauan Kuliah}
 
 Berikut adalah gambaran umum (overview) mata kuliah Sinyal dan Sistem,
 mengintegrasikan filosofi pembelajaran VALORAIZE, struktur materi, dan
@@ -531,9 +574,14 @@ tujuan utama yang dirancang untuk mahasiswa.
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
-\section{\texorpdfstring{\textbf{Gambaran Umum Mata Kuliah Sinyal dan
+\section*{\texorpdfstring{\textbf{Gambaran Umum Mata Kuliah Sinyal dan
 Sistem
 (EL2007)}}{Gambaran Umum Mata Kuliah Sinyal dan Sistem (EL2007)}}\label{gambaran-umum-mata-kuliah-sinyal-dan-sistem-el2007}
+\addcontentsline{toc}{section}{\textbf{Gambaran Umum Mata Kuliah Sinyal
+dan Sistem (EL2007)}}
+
+\markright{\textbf{Gambaran Umum Mata Kuliah Sinyal dan Sistem
+(EL2007)}}
 
 Mata kuliah Sinyal dan Sistem (kode EL2007) merupakan \textbf{fondasi
 penting dalam semua disiplin ilmu teknik}, khususnya teknik elektro.
@@ -572,8 +620,12 @@ setelah mengikuti mata kuliah ini meliputi kemampuan untuk:
   sinyal dan sistem.
 \end{enumerate}
 
-\section{\texorpdfstring{\textbf{I. Pilar Pembelajaran VALORAIZE
+\section*{\texorpdfstring{\textbf{I. Pilar Pembelajaran VALORAIZE
 Learning}}{I. Pilar Pembelajaran VALORAIZE Learning}}\label{i.-pilar-pembelajaran-valoraize-learning}
+\addcontentsline{toc}{section}{\textbf{I. Pilar Pembelajaran VALORAIZE
+Learning}}
+
+\markright{\textbf{I. Pilar Pembelajaran VALORAIZE Learning}}
 
 Untuk mencapai CPMK dan membentuk identitas profesional, VALORAIZE
 Learning mengintegrasikan beberapa pilar utama:
@@ -640,9 +692,13 @@ Learning mengintegrasikan beberapa pilar utama:
   memperdalam pemahaman.
 \end{enumerate}
 
-\section{\texorpdfstring{\textbf{II. Cakupan Materi Mata Kuliah
+\section*{\texorpdfstring{\textbf{II. Cakupan Materi Mata Kuliah
 (Distribusi
 Umum)}}{II. Cakupan Materi Mata Kuliah (Distribusi Umum)}}\label{ii.-cakupan-materi-mata-kuliah-distribusi-umum}
+\addcontentsline{toc}{section}{\textbf{II. Cakupan Materi Mata Kuliah
+(Distribusi Umum)}}
+
+\markright{\textbf{II. Cakupan Materi Mata Kuliah (Distribusi Umum)}}
 
 Mata kuliah ini akan mencakup serangkaian topik inti dalam Sinyal dan
 Sistem, seringkali disusun sebagai berikut:
@@ -2319,6 +2375,1642 @@ komutatif). \\
 & \textbf{Heuristik\_Menganalisis\_Batas} & Strategi memecah integral
 konvolusi menjadi kasus-kasus berdasarkan overlap sinyal. \\
 \end{longtable}
+
+\bookmarksetup{startatroot}
+
+\chapter{1) Analisis Materi Minggu ke-5
+(RPS.pdf)}\label{analisis-materi-minggu-ke-5-rps.pdf}
+
+Berdasarkan Rencana Pembelajaran Semester (RPS.pdf), \textbf{Minggu 4-5}
+membahas tema yang sama.
+
+\textbf{Tujuan Pembelajaran (CPMK Terkait):} Mampu \textbf{menganalisis
+respon sistem LTI menggunakan konvolusi dan menyelesaikan persamaan
+diferensial yang menggambarkan sistem}.
+
+\section{(a) Inti Materi Kuliah Minggu
+ke-5}\label{a-inti-materi-kuliah-minggu-ke-5}
+
+Inti materi kuliah Minggu ke-5 berfokus pada dua alat fundamental untuk
+menganalisis perilaku sistem Linear Tak-berubah Waktu (LTI) di domain
+waktu:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Konvolusi (Convolution):} Operasi matematis yang
+  mendefinisikan output \(y(t)\) atau \(y[n]\) dari sistem LTI sebagai
+  hasil input \(x(t)\) atau \(x[n]\) yang dikonvolusi dengan respons
+  impuls \(h(t)\) atau \(h[n]\) sistem.
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \textbf{Waktu Kontinu:} Integral Konvolusi:
+    \(y(t) = x(t) * h(t) = \int_{-\infty}^{\infty} x(\tau)h(t-\tau)d\tau\).
+  \item
+    \textbf{Sifat-sifat Konvolusi:} Komutatif, Distributif, dan
+    Asosiatif.
+  \end{itemize}
+\item
+  \textbf{Solusi Persamaan Diferensial (PD) Linear Koefisien Konstan
+  (LCCDEs):} Banyak sistem fisik Waktu Kontinu (WK) dimodelkan
+  menggunakan PD LCCDE. Solusi lengkap PD, yang merepresentasikan
+  respons total sistem, terdiri dari \textbf{solusi homogen
+  (\(y_h(t)\))} yang menjelaskan perilaku internal, dan \textbf{solusi
+  partikular (\(y_p(t)\))} yang menjelaskan respons terhadap input
+  spesifik.
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Penentuan konstanta dalam solusi homogen memerlukan \textbf{kondisi
+    awal} sistem.
+  \end{itemize}
+\item
+  \textbf{Hubungan LTI:} Konvolusi menyediakan representasi input-output
+  yang berlaku untuk semua sistem LTI. Persamaan diferensial adalah cara
+  umum untuk \textbf{menggambarkan} sistem LTI, dan konvolusi adalah
+  cara untuk \textbf{menganalisis} responsnya.
+\end{enumerate}
+
+\section{(b) Ontologi Pengetahuan dan Ekspresi
+Prolog}\label{b-ontologi-pengetahuan-dan-ekspresi-prolog}
+
+Ontologi Peta Pengetahuan Primitif (yang mencakup pengetahuan
+deklaratif/fundamental) untuk materi ini dapat berpusat pada konsep
+analisis sistem domain waktu:
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.5000}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.5000}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Node (Konsep)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Deskripsi
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\textbf{ANALISIS\_DW} & Analisis Sistem Domain Waktu (Node Pusat
+Materi) \\
+\textbf{SYWK\_LTI} & Sistem Waktu Kontinu Linear Tak-berubah Waktu \\
+\textbf{SYWK\_ResponImpuls} & Karakteristik penting dari SYWK\_LTI \\
+\textbf{SYWK\_Konvolusi} & Operasi untuk menemukan output SYWK\_LTI \\
+\textbf{SYWK\_IntKonvolusi} & Definisi formal konvolusi WK \\
+\textbf{SYWK\_SifatKonvolusi} & Sifat-sifat matematis (Komutatif,
+Asosiatif, Distributif) \\
+\textbf{SYWK\_PD} & Persamaan Diferensial LCC (Model matematika
+SYWK\_LTI) \\
+\textbf{SYWK\_SolusiPD} & Solusi Lengkap Persamaan Diferensial \\
+\textbf{SYWK\_SolusiHomogen} & Komponen respons internal (terkait akar
+karakteristik) \\
+\textbf{SYWK\_SolusiPartikular} & Komponen respons terhadap input
+spesifik \\
+\textbf{SYWK\_KondisiAwal} & Dibutuhkan untuk menentukan konstanta
+solusi homogen \\
+\end{longtable}
+
+\textbf{Ekspresi Prolog dari Ontologi:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\% Konsep Utama (Nodes)}
+\NormalTok{konsep(analisis\_dw)}\KeywordTok{.}
+\NormalTok{konsep(sywk\_lti)}\KeywordTok{.}
+\NormalTok{konsep(sywk\_responimpuls)}\KeywordTok{.}
+\NormalTok{konsep(sywk\_konvolusi)}\KeywordTok{.}
+\NormalTok{konsep(sywk\_intkonvolusi)}\KeywordTok{.}
+\NormalTok{konsep(sywk\_sifatkonvolusi)}\KeywordTok{.}
+\NormalTok{konsep(sywk\_pd)}\KeywordTok{.}
+\NormalTok{konsep(sywk\_solusipd)}\KeywordTok{.}
+\NormalTok{konsep(sywk\_solusihomogen)}\KeywordTok{.}
+\NormalTok{konsep(sywk\_solusipartikular)}\KeywordTok{.}
+\NormalTok{konsep(sywk\_kondisiawal)}\KeywordTok{.}
+\NormalTok{konsep(sywk\_output)}\KeywordTok{.}
+
+\CommentTok{\% Hubungan (Edges)}
+\NormalTok{hubungan(analisis\_dw}\KeywordTok{,}\NormalTok{ terdiri\_dari}\KeywordTok{,}\NormalTok{ sywk\_konvolusi)}\KeywordTok{.}
+\NormalTok{hubungan(analisis\_dw}\KeywordTok{,}\NormalTok{ terdiri\_dari}\KeywordTok{,}\NormalTok{ sywk\_pd)}\KeywordTok{.}
+\NormalTok{hubungan(sywk\_lti}\KeywordTok{,}\NormalTok{ dicirikan\_oleh}\KeywordTok{,}\NormalTok{ sywk\_responimpuls)}\KeywordTok{.}
+\NormalTok{hubungan(sywk\_konvolusi}\KeywordTok{,}\NormalTok{ menghitung\_output\_dgn}\KeywordTok{,}\NormalTok{ sywk\_responimpuls)}\KeywordTok{.}
+\NormalTok{hubungan(sywk\_konvolusi}\KeywordTok{,}\NormalTok{ menghitung\_output\_dgn}\KeywordTok{,}\NormalTok{ input)}\KeywordTok{.}
+\NormalTok{hubungan(sywk\_konvolusi}\KeywordTok{,}\NormalTok{ merupakan\_bentuk\_integrasi}\KeywordTok{,}\NormalTok{ sywk\_intkonvolusi)}\KeywordTok{.}
+\NormalTok{hubungan(sywk\_konvolusi}\KeywordTok{,}\NormalTok{ memiliki\_sifat}\KeywordTok{,}\NormalTok{ sywk\_sifatkonvolusi)}\KeywordTok{.}
+\NormalTok{hubungan(sywk\_pd}\KeywordTok{,}\NormalTok{ menggambarkan}\KeywordTok{,}\NormalTok{ sywk\_lti)}\KeywordTok{.}
+\NormalTok{hubungan(sywk\_solusipd}\KeywordTok{,}\NormalTok{ terdiri\_dari}\KeywordTok{,}\NormalTok{ sywk\_solusihomogen)}\KeywordTok{.}
+\NormalTok{hubungan(sywk\_solusipd}\KeywordTok{,}\NormalTok{ terdiri\_dari}\KeywordTok{,}\NormalTok{ sywk\_solusipartikular)}\KeywordTok{.}
+\NormalTok{hubungan(sywk\_solusipd}\KeywordTok{,}\NormalTok{ membutuhkan}\KeywordTok{,}\NormalTok{ sywk\_kondisiawal)}\KeywordTok{.}
+\NormalTok{hubungan(sywk\_konvolusi}\KeywordTok{,}\NormalTok{ menghasilkan}\KeywordTok{,}\NormalTok{ sywk\_output)}\KeywordTok{.}
+\NormalTok{hubungan(sywk\_solusipd}\KeywordTok{,}\NormalTok{ menghasilkan}\KeywordTok{,}\NormalTok{ sywk\_output)}\KeywordTok{.}
+\end{Highlighting}
+\end{Shaded}
+
+\section{(c) Diagram Graphviz Peta Pengetahuan
+Dasar}\label{c-diagram-graphviz-peta-pengetahuan-dasar}
+
+Berikut adalah kode Graphviz DOT untuk memvisualisasikan Peta
+Pengetahuan Primitif di atas:
+
+\includegraphics[width=5.5in,height=3.5in]{kuliah/undefined.pdf}
+
+\section{(d) Kendaraan yang
+Diperlukan}\label{d-kendaraan-yang-diperlukan}
+
+Untuk materi analisis sistem di domain waktu (konvolusi dan PD),
+kendaraan utama yang diperlukan meliputi:
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Kategori Kendaraan
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Kendaraan Spesifik
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Kegunaan
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\textbf{K\_MAT\_Aljabar} & Manipulasi Ekspresi, penyelesaian persamaan
+karakteristik, Deret Geometri. & Esensial untuk semua langkah
+perhitungan. \\
+\textbf{K\_MAT\_Kalkulus} & \textbf{Integrasi} (untuk Integral
+Konvolusi), \textbf{Diferensiasi} (untuk PD). & Krusial untuk menghitung
+konvolusi waktu kontinu dan solusi PD. \\
+\textbf{K\_MAT\_Bilangan\_Kompleks} & Identitas Euler, akar-akar
+kompleks. & Untuk menangani akar karakteristik kompleks dalam solusi
+homogen PD. \\
+\textbf{K\_OPS\_Sinyal\_Dasar} & Unit Step (\(u(t)\)), Unit Impuls
+(\(\delta(t)\)). & Digunakan sebagai input dan respon impuls, serta
+untuk mendefinisikan batas integral konvolusi. \\
+\textbf{K\_OPS\_Definisi} & Definisi LTI, Konvolusi, Orde PD, Solusi
+Homogen/Partikular. & Untuk memandu langkah-langkah pemecahan masalah
+(PMA). \\
+\textbf{K\_VIS\_PlotSinyal} & Sketsa Sinyal Input/Respon Impuls. & Untuk
+membantu visualisasi operasi lipat-geser dalam konvolusi. \\
+\textbf{Heuristik} & \textbf{Menggambar Diagram} (untuk konvolusi
+grafis), \textbf{Mentransformasi Masalah} (misalnya, konvolusi menjadi
+aljabar setelah Transformasi). & Strategi pemecahan masalah tingkat
+tinggi. \\
+\end{longtable}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\bookmarksetup{startatroot}
+
+\chapter{2) 20 Soal Tanpa Solusi (Minggu
+5)}\label{soal-tanpa-solusi-minggu-5}
+
+Berikut adalah 20 soal latihan yang berfokus pada Analisis Sistem Domain
+Waktu (Konvolusi dan PD), lengkap dengan Nomor Produk yang mencerminkan
+Topik (CV=Konvolusi, DE=Persamaan Diferensial, DS=Desain Sistem,
+AN=Analisis) dan Level Taksonomi Bloom (L3-L6).
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2500}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2500}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2500}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2500}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+No.
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Soal
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Nomor Produk
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Level Bloom
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+1 & Hitung dan gambarkan output \(y(t) = x(t) * h(t)\), di mana
+\(x(t) = u(t) - u(t-1)\) dan \(h(t) = u(t) - u(t-2)\). & WK5-CV-L3-P01 &
+Menerapkan (L3) \\
+2 & Tentukan respons impuls \(h(t)\) dari sistem waktu kontinu LTI yang
+dijelaskan oleh \(\frac{dy(t)}{dt} + 3y(t) = x(t)\). & WK5-DE-L3-P02 &
+Menerapkan (L3) \\
+3 & Tentukan respons homogen \(y_h(t)\) dari sistem PD orde kedua:
+\(\frac{d^2 y(t)}{dt^2} + 4 \frac{dy(t)}{dt} + 4 y(t) = 2x(t)\). &
+WK5-DE-L3-P03 & Menerapkan (L3) \\
+4 & Jika \(x[n] = \{1, 2, 3\}\) (mulai di \(n=0\)) dan
+\(h[n] = \delta[n-1] - 2\delta[n-2]\), hitung konvolusi diskrit
+\(y[n] = x[n] * h[n]\). & WK5-CV-L3-P04 & Menerapkan (L3) \\
+5 & Tentukan bentuk respons partikular \(y_p(t)\) yang paling umum untuk
+PD \(\frac{d^2 y(t)}{dt^2} + 5 \frac{dy(t)}{dt} + 6 y(t) = e^{-3t}\).
+(Perhatikan resonansi). & WK5-DE-L4-P05 & Menganalisis (L4) \\
+6 & Sistem LTI waktu kontinu memiliki respon impuls
+\(h(t) = e^{-2t} u(t)\). Evaluasi stabilitas BIBO sistem ini. &
+WK5-AN-L4-P06 & Menganalisis (L4) \\
+7 & Sebuah sistem LTI kaskade (seri) terdiri dari \(S_1\) dengan
+\(h_1(t) = u(t)\) dan \(S_2\) dengan \(h_2(t) = \delta(t-2)\). Evaluasi
+apakah urutan kaskade (\(S_1\) diikuti \(S_2\) atau sebaliknya)
+memengaruhi respons total. & WK5-CV-L5-P07 & Mengevaluasi (L5) \\
+8 & Diberikan respon impuls \(h[n] = (-2)^n u[n]\). Tentukan apakah
+sistem tersebut kausal dan stabil BIBO. & WK5-AN-L4-P08 & Menganalisis
+(L4) \\
+9 & Jika input \(x(t) = 5u(t)\) diberikan ke sistem yang dijelaskan oleh
+\(y(t) = \int_{t-1}^{t} x(\tau) d\tau\). Tentukan output \(y(t)\) untuk
+\(t > 1\). & WK5-CV-L3-P09 & Menerapkan (L3) \\
+10 & Rancang persamaan diferensial orde pertama LTI yang respon
+impulsnya adalah \(h(t) = 4e^{-0.5t} u(t)\). & WK5-DS-L6-P10 &
+Menciptakan (L6) \\
+11 & Diketahui \(x[n]\) adalah pulsa dari \(n=0\) hingga \(n=4\)
+(panjang 5) dan \(h[n]\) adalah pulsa dari \(n=1\) hingga \(n=5\)
+(panjang 5). Berapakah panjang total output \(y[n] = x[n] * h[n]\)? &
+WK5-CV-L3-P11 & Menerapkan (L3) \\
+12 & Sistem LTI diberikan oleh
+\(\frac{d y(t)}{dt} + 2y(t) = 2 \frac{d x(t)}{dt} + x(t)\). Tentukan
+sistem invers yang, jika dikaskadekan, mengembalikan input asli. &
+WK5-DS-L6-P12 & Menciptakan (L6) \\
+13 & Evaluasi kondisi awal \(y(0^-)\) dan \(\frac{dy(0^-)}{dt}\) yang
+diperlukan agar respons total sistem
+\(\frac{d^2 y(t)}{dt^2} + y(t) = x(t)u(t)\) menjadi respons nol-kondisi
+(zero-state response). & WK5-DE-L5-P13 & Mengevaluasi (L5) \\
+14 & Tentukan akar karakteristik dan nilai frekuensi alami \(\omega_n\)
+dari PD \(\frac{d^2 y(t)}{dt^2} + 2 \frac{dy(t)}{dt} + 10 y(t) = x(t)\).
+& WK5-DE-L3-P14 & Menerapkan (L3) \\
+15 & Analisis apakah konvolusi dari dua sinyal anti-kausal,
+\(x(t) = e^{t} u(-t)\) dan \(h(t) = u(-t)\), akan menghasilkan sinyal
+anti-kausal. & WK5-CV-L4-P15 & Menganalisis (L4) \\
+16 & Untuk sistem diskrit \(y[n] = x[n] * h[n]\), di mana \(h[n]\)
+memiliki panjang \(M\) dan \(x[n]\) memiliki panjang \(N\), gunakan
+sifat konvolusi untuk menyederhanakan perhitungan jika \(N \gg M\). &
+WK5-CV-L4-P16 & Menganalisis (L4) \\
+17 & Tentukan solusi lengkap \(y(t)\) untuk sistem
+\(\frac{dy(t)}{dt} + y(t) = 2u(t)\) dengan kondisi awal \(y(0^-) = 3\).
+& WK5-DE-L4-P17 & Menganalisis (L4) \\
+18 & Rancang persamaan beda LTI orde kedua yang merepresentasikan sistem
+yang outputnya adalah jumlah tiga sampel input saat ini dan dua sampel
+input sebelumnya. & WK5-DS-L6-P18 & Menciptakan (L6) \\
+19 & Evaluasi, menggunakan sifat asosiatif konvolusi, apakah filter LTI
+yang tersusun seri (\(h_{total} = h_1 * h_2 * h_3\)) tetap stabil BIBO
+jika salah satu sub-sistem (\(h_2\)) tidak stabil, tetapi \(h_1\) dan
+\(h_3\) dapat membatalkan kutub non-stabilnya. & WK5-AN-L5-P19 &
+Mengevaluasi (L5) \\
+20 & Diketahui output sistem \(y(t) = x(t) * h(t)\). Jika input diubah
+menjadi \(x_1(t) = \frac{d x(t)}{dt}\), tentukan output \(y_1(t)\) dalam
+bentuk konvolusi yang melibatkan \(h(t)\) dan \(x_1(t)\). &
+WK5-CV-L4-P20 & Menganalisis (L4) \\
+\end{longtable}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\bookmarksetup{startatroot}
+
+\chapter{3) Peta Pengetahuan Aplikatif dan
+Solusi}\label{peta-pengetahuan-aplikatif-dan-solusi}
+
+Di bawah ini, kami menyajikan Peta Pengetahuan Aplikatif (PMA),
+representasi Graphviz, dan Solusi untuk 5 contoh soal yang dipilih untuk
+mewakili berbagai tingkat kognitif: P01 (L3), P05 (L4), P07 (L5), P10
+(L6), dan P17 (L4).
+
+\section{Soal 1: Konvolusi Pulsa
+Persegi}\label{soal-1-konvolusi-pulsa-persegi}
+
+\textbf{Nomor Produk:} WK5-CV-L3-P01 \textbf{Soal:} Hitung dan gambarkan
+output \(y(t) = x(t) * h(t)\), di mana \(x(t) = u(t) - u(t-1)\) dan
+\(h(t) = u(t) - u(t-2)\).
+
+\subsection{3a) Peta Pengetahuan Aplikatif (PMA)
+WK5-CV-L3-P01}\label{a-peta-pengetahuan-aplikatif-pma-wk5-cv-l3-p01}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.5000}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.5000}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Komponen PMA
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Deskripsi
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\textbf{Titik Mulai} & Sinyal input \(x(t)\) (pulsa persegi, lebar 1)
+dan respon impuls \(h(t)\) (pulsa persegi, lebar 2). \\
+\textbf{Titik Akhir} & Ekspresi matematis dan sketsa grafis dari output
+konvolusi \(y(t)\). \\
+\textbf{Rute/Jalan} & 1. Tentukan batas integral konvolusi:
+\(y(t) = \int_{-\infty}^{\infty} x(\tau)h(t-\tau)d\tau\). 2. Terapkan
+Heuristik \textbf{Menggambar Diagram} untuk memvisualisasikan
+\(x(\tau)\) dan \(h(t-\tau)\). 3. Tentukan interval \(t\) di mana ada
+tumpang tindih (overlap). 4. Hitung integral untuk setiap interval. 5.
+Tuliskan ekspresi \(y(t)\) dan buat sketsa hasilnya. \\
+\textbf{Kendaraan} & K\_MAT\_Kalkulus (Integrasi), K\_MAT\_Aljabar
+(Manipulasi Batas), K\_OPS\_Sinyal\_Dasar (\(u(t)\)),
+K\_VIS\_PlotSinyal, Heuristik (Menggambar Diagram). \\
+\end{longtable}
+
+\subsection{3b) Diagram Graphviz PMA
+WK5-CV-L3-P01}\label{b-diagram-graphviz-pma-wk5-cv-l3-p01}
+
+\includegraphics[width=5.5in,height=3.5in]{kuliah/undefined.pdf}
+
+\subsection{3c) Solusi WK5-CV-L3-P01}\label{c-solusi-wk5-cv-l3-p01}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Definisi Sinyal:} \(x(\tau)\) adalah pulsa dari \(\tau=0\)
+  hingga \(\tau=1\). \(h(t-\tau)\) adalah pulsa dari \(\tau=t-2\) hingga
+  \(\tau=t\).
+\item
+  \textbf{Interval Tumpang Tindih:} Kita cari interval di mana
+  \[ pada $x(\tau)$ dan $[t-2, t]$ pada $h(t-\tau)$ berpotongan.
+   *   **Kasus 1: $0 \le t < 1$** (Pulsa $h(t-\tau)$ mulai tumpang tindih dari $\tau=0$ hingga $\tau=t$).
+       \]y(t) = \int\emph{\{0\}\^{}\{t\} 1 \cdot 1 d\tau = t\[
+   *   **Kasus 2: $1 \le t < 2$** (Pulsa $x(\tau)$ sepenuhnya tumpang tindih, tetapi $h(t-\tau)$ masih bergerak. Batas integrasi dari $\tau=0$ hingga $\tau=1$).
+       \]y(t) = \int}\{0\}\^{}\{1\} 1 \cdot 1 d\tau = 1\[
+   *   **Kasus 3: $2 \le t < 3$** (Pulsa $x(\tau)$ mulai keluar dari $h(t-\tau)$ dari $t-2$ hingga $1$).
+       \]y(t) = \int\_\{t-2\}\^{}\{1\} 1 \cdot 1 d\tau = 1 - (t-2) = 3 -
+  t\$\$
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \textbf{Kasus Lain:} \(y(t) = 0\).
+  \end{itemize}
+\end{enumerate}
+
+\textbf{Kesimpulan:}
+\[y(t) = \begin{cases} t & 0 \le t < 1 \\ 1 & 1 \le t < 2 \\ 3-t & 2 \le t < 3 \\ 0 & \text{lainnya} \end{cases}\]
+(Sketsa \(y(t)\) adalah trapesium yang naik dari 0 ke 1 (pada \(t=1\)),
+datar pada 1 (hingga \(t=2\)), dan turun ke 0 (pada \(t=3\))).
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\section{Soal 5: Solusi Partikular PD
+(Resonansi)}\label{soal-5-solusi-partikular-pd-resonansi}
+
+\textbf{Nomor Produk:} WK5-DE-L4-P05 \textbf{Soal:} Tentukan bentuk
+respons partikular \(y_p(t)\) yang paling umum untuk PD
+\(\frac{d^2 y(t)}{dt^2} + 5 \frac{dy(t)}{dt} + 6 y(t) = e^{-3t}\).
+(Perhatikan resonansi).
+
+\subsection{3a) Peta Pengetahuan Aplikatif (PMA)
+WK5-DE-L4-P05}\label{a-peta-pengetahuan-aplikatif-pma-wk5-de-l4-p05}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.5000}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.5000}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Komponen PMA
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Deskripsi
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\textbf{Titik Mulai} & Persamaan Diferensial (PD) orde kedua dengan
+input eksponensial \(x(t) = e^{-3t}\). \\
+\textbf{Titik Akhir} & Bentuk solusi partikular \(y_p(t)\) yang
+tepat. \\
+\textbf{Rute/Jalan} & 1. Tentukan persamaan karakteristik (PC) dari sisi
+homogen PD. 2. Cari akar-akar PC (\(\lambda_1, \lambda_2\)). 3.
+Bandingkan bentuk input \(x(t) = e^{st}\) dengan akar-akar \(\lambda\).
+4. Jika \(s\) adalah akar PC, modifikasi solusi partikular dasar
+(\(A e^{st}\)) menjadi \(A t e^{st}\). Jika \(s\) adalah akar berganda,
+gunakan \(A t^2 e^{st}\). 5. Tuliskan bentuk \(y_p(t)\) yang benar. \\
+\textbf{Kendaraan} & K\_MAT\_Aljabar (Persamaan Karakteristik,
+Faktorisasi), K\_OPS\_Definisi (Solusi Partikular, Resonansi). \\
+\end{longtable}
+
+\subsection{3b) Diagram Graphviz PMA
+WK5-DE-L4-P05}\label{b-diagram-graphviz-pma-wk5-de-l4-p05}
+
+\includegraphics[width=5.5in,height=3.5in]{kuliah/undefined.pdf}
+
+\subsection{3c) Solusi WK5-DE-L4-P05}\label{c-solusi-wk5-de-l4-p05}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Persamaan Karakteristik (PC):} Kita ganti turunan dengan
+  pangkat \(\lambda\). \[\lambda^2 + 5\lambda + 6 = 0\]
+\item
+  \textbf{Akar-akar PC:} Faktorisasi memberikan:
+  \[(\lambda + 2)(\lambda + 3) = 0\] Akar-akarnya adalah
+  \(\lambda_1 = -2\) dan \textbf{\(\lambda_2 = -3\)}.
+\item
+  \textbf{Analisis Resonansi:} Input adalah \(x(t) = e^{-3t}\). Ini
+  memiliki bentuk \(e^{st}\) di mana \(s = -3\).
+\item
+  Karena nilai \(s = -3\) sama dengan salah satu akar karakteristik
+  (\(\lambda_2 = -3\)), terjadi kasus resonansi.
+\item
+  \textbf{Bentuk Solusi Partikular yang Tepat:} Solusi partikular harus
+  dikalikan dengan \(t\) (karena ini adalah akar tunggal).
+\end{enumerate}
+
+\textbf{Kesimpulan:} Bentuk solusi partikular yang paling umum adalah
+\(\mathbf{y_p(t) = A t e^{-3t}}\).
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\section{Soal 7: Konvolusi Kaskade dan Sifat
+Komutatif}\label{soal-7-konvolusi-kaskade-dan-sifat-komutatif}
+
+\textbf{Nomor Produk:} WK5-CV-L5-P07 \textbf{Soal:} Sebuah sistem LTI
+kaskade (seri) terdiri dari \(S_1\) dengan \(h_1(t) = u(t)\) dan \(S_2\)
+dengan \(h_2(t) = \delta(t-2)\). Evaluasi apakah urutan kaskade (\(S_1\)
+diikuti \(S_2\) atau sebaliknya) memengaruhi respons total.
+
+\subsection{3a) Peta Pengetahuan Aplikatif (PMA)
+WK5-CV-L5-P07}\label{a-peta-pengetahuan-aplikatif-pma-wk5-cv-l5-p07}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.5000}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.5000}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Komponen PMA
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Deskripsi
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\textbf{Titik Mulai} & Dua respon impuls sistem LTI: \(h_1(t) = u(t)\)
+dan \(h_2(t) = \delta(t-2)\). \\
+\textbf{Titik Akhir} & Keputusan evaluatif mengenai pengaruh urutan
+kaskade terhadap respons total \(h_{total}(t)\). \\
+\textbf{Rute/Jalan} & 1. Mengingat definisi respon impuls total untuk
+sistem kaskade: \(h_{total} = h_1 * h_2\). 2. Mengingat sifat
+\textbf{Komutatif} konvolusi: \(h_1 * h_2 = h_2 * h_1\). 3. Hitung
+\(h_{total, A} = h_1(t) * h_2(t)\). 4. Hitung
+\(h_{total, B} = h_2(t) * h_1(t)\). 5. Evaluasi apakah
+\(h_{total, A} = h_{total, B}\). \\
+\textbf{Kendaraan} & K\_OPS\_Definisi (Sistem Kaskade LTI),
+K\_OPS\_Definisi (Sifat Komutatif Konvolusi), K\_OPS\_Sinyal\_Dasar
+(Sifat \(\delta(t)\) dalam Konvolusi). \\
+\end{longtable}
+
+\subsection{3b) Diagram Graphviz PMA
+WK5-CV-L5-P07}\label{b-diagram-graphviz-pma-wk5-cv-l5-p07}
+
+\includegraphics[width=5.5in,height=3.5in]{kuliah/undefined.pdf}
+
+\subsection{3c) Solusi WK5-CV-L5-P07}\label{c-solusi-wk5-cv-l5-p07}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Respon Impuls Total:} Untuk sistem kaskade LTI, respons impuls
+  total adalah konvolusi dari respons impuls individu.
+  \[h_{total}(t) = h_1(t) * h_2(t)\]
+\item
+  \textbf{Perhitungan Urutan A (\(S_1\) diikuti \(S_2\)):}
+  \[h_{total, A}(t) = u(t) * \delta(t-2)\] Menggunakan sifat
+  sifting/pergeseran impuls unit: \(x(t) * \delta(t-t_0) = x(t-t_0)\).
+  \[h_{total, A}(t) = u(t-2)\]
+\item
+  \textbf{Perhitungan Urutan B (\(S_2\) diikuti \(S_1\)):}
+  \[h_{total, B}(t) = \delta(t-2) * u(t)\] Karena konvolusi bersifat
+  komutatif (\(h_1 * h_2 = h_2 * h_1\)), hasilnya harus sama.
+  \[h_{total, B}(t) = u(t-2)\]
+\item
+  \textbf{Evaluasi:} Karena sifat LTI menjamin sifat komutatif
+  konvolusi, \(h_{total, A}(t) = h_{total, B}(t)\).
+\end{enumerate}
+
+\textbf{Kesimpulan:} Urutan kaskade \textbf{tidak memengaruhi} respons
+impuls total atau output sistem gabungan, karena konvolusi (operasi yang
+mendeskripsikan kaskade LTI) bersifat \textbf{komutatif}.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\section{Soal 10: Desain Persamaan Diferensial
+(PD)}\label{soal-10-desain-persamaan-diferensial-pd}
+
+\textbf{Nomor Produk:} WK5-DS-L6-P10 \textbf{Soal:} Rancang persamaan
+diferensial orde pertama LTI yang respon impulsnya adalah
+\(h(t) = 4e^{-0.5t} u(t)\).
+
+\subsection{3a) Peta Pengetahuan Aplikatif (PMA)
+WK5-DS-L6-P10}\label{a-peta-pengetahuan-aplikatif-pma-wk5-ds-l6-p10}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.5000}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.5000}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Komponen PMA
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Deskripsi
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\textbf{Titik Mulai} & Respon impuls \(h(t) = 4e^{-0.5t} u(t)\) (LTI
+orde pertama). \\
+\textbf{Titik Akhir} & Persamaan diferensial linear koefisien konstan
+(PD LCC) yang tepat. \\
+\textbf{Rute/Jalan} & 1. Identifikasi bentuk umum respons impuls PD orde
+pertama: \(h(t) = K e^{-t/T} u(t)\). 2. Tentukan Persamaan Diferensial
+yang sesuai dengan Respon Impuls tersebut:
+\(\tau \frac{dy(t)}{dt} + y(t) = K x(t)\). 3. Bandingkan \(h(t)\) yang
+diberikan untuk mencari konstanta \(\tau\) (konstanta waktu) dan \(K\).
+4. Susun PD LCC menggunakan nilai-nilai ini. \\
+\textbf{Kendaraan} & K\_OPS\_Definisi (Respon Impuls Orde Pertama),
+K\_MAT\_Aljabar (Perbandingan Koefisien),
+K\_OPS\_Representasi\_Matematis (Struktur PD). \\
+\end{longtable}
+
+\subsection{3b) Diagram Graphviz PMA
+WK5-DS-L6-P10}\label{b-diagram-graphviz-pma-wk5-ds-l6-p10}
+
+\includegraphics[width=5.5in,height=3.5in]{kuliah/undefined.pdf}
+
+\subsection{3c) Solusi WK5-DS-L6-P10}\label{c-solusi-wk5-ds-l6-p10}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Bentuk Standar Respon Impuls Orde Pertama:} Respon impuls orde
+  pertama (untuk sistem yang dimodelkan oleh
+  \(T \frac{dy(t)}{dt} + y(t) = K x(t)\)) memiliki bentuk umum
+  \(h(t) = (K/\tau) e^{-t/\tau} u(t)\) (jika input adalah
+  \(\frac{1}{\tau} x(t)\)) atau \(h(t) = K e^{-t/\tau} u(t)\)
+  (tergantung konvensi, di sini kita gunakan bentuk
+  \(h(t) = A e^{-\lambda t} u(t)\) di mana \(\lambda = 1/\tau\)).
+\item
+  \textbf{Identifikasi Parameter:}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Dari \(h(t) = 4e^{-0.5t} u(t)\), kita memiliki \(\lambda = 0.5\) dan
+    amplitudo awal \(A=4\).
+  \item
+    Sistem PD LTI orde pertama yang kausal (respons
+    \(e^{-\lambda t} u(t)\)) memiliki persamaan homogen
+    \(s + \lambda = 0\). Dalam domain waktu:
+    \(\frac{dy(t)}{dt} + \lambda y(t) = C x(t)\).
+  \item
+    Di sini, \(\lambda = 0.5\). Jadi,
+    \(\frac{dy(t)}{dt} + 0.5 y(t) = C x(t)\).
+  \end{itemize}
+\item
+  \textbf{Tentukan Konstanta Input C:} Respon impuls \(h(t)\) adalah
+  solusi PD ketika \(x(t) = \delta(t)\) dengan kondisi awal nol, atau
+  solusi ketika \(x(t)\) tidak nol dan kondisi awal nol. Jika kita
+  gunakan bentuk standar \(\frac{dy(t)}{dt} + \lambda y(t) = C x(t)\),
+  maka \(h(t) = C e^{-\lambda t} u(t)\).
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Membandingkan: \(C e^{-0.5t} u(t) = 4e^{-0.5t} u(t)\).
+  \item
+    Maka, \(C=4\).
+  \end{itemize}
+\end{enumerate}
+
+\textbf{Kesimpulan:} Persamaan diferensial yang menggambarkan sistem LTI
+orde pertama tersebut adalah
+\textbf{\(\frac{dy(t)}{dt} + 0.5 y(t) = 4 x(t)\)}.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\section{Soal 7: Solusi Lengkap PD (Respon
+Total)}\label{soal-7-solusi-lengkap-pd-respon-total}
+
+\textbf{Nomor Produk:} WK5-DE-L4-P17 \textbf{Soal:} Tentukan solusi
+lengkap \(y(t)\) untuk sistem \(\frac{dy(t)}{dt} + y(t) = 2u(t)\) dengan
+kondisi awal \(y(0^-) = 3\).
+
+\subsection{3a) Peta Pengetahuan Aplikatif (PMA)
+WK5-DE-L4-P17}\label{a-peta-pengetahuan-aplikatif-pma-wk5-de-l4-p17}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.5000}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.5000}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Komponen PMA
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Deskripsi
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\textbf{Titik Mulai} & PD Orde 1: \(\frac{dy(t)}{dt} + y(t) = 2u(t)\).
+Kondisi awal \(y(0^-) = 3\). \\
+\textbf{Titik Akhir} & Solusi lengkap \(y(t) = y_h(t) + y_p(t)\) untuk
+\(t \ge 0\). \\
+\textbf{Rute/Jalan} & 1. Cari \textbf{Solusi Homogen} (\(y_h(t)\)) dari
+persamaan karakteristik. 2. Cari \textbf{Solusi Partikular} (\(y_p(t)\))
+berdasarkan input \(x(t) = 2u(t)\). 3. Kombinasikan menjadi
+\(y(t) = y_h(t) + y_p(t)\), meninggalkan konstanta tak tentu (\(A\)). 4.
+Tentukan konstanta \(A\) menggunakan \textbf{Kondisi Awal} \(y(0^+)\).
+5. Tuliskan solusi lengkap. \\
+\textbf{Kendaraan} & K\_MAT\_Aljabar (Akar Karakteristik, Konstanta),
+K\_MAT\_Kalkulus (Diferensiasi, Substitusi), K\_OPS\_Definisi (Solusi
+Homogen/Partikular), K\_OPS\_Definisi (Kondisi Awal). \\
+\end{longtable}
+
+\subsection{3b) Diagram Graphviz PMA
+WK5-DE-L4-P17}\label{b-diagram-graphviz-pma-wk5-de-l4-p17}
+
+\includegraphics[width=5.5in,height=3.5in]{kuliah/undefined.pdf}
+
+\subsection{3c) Solusi WK5-DE-L4-P17}\label{c-solusi-wk5-de-l4-p17}
+
+\textbf{PD:} \(\frac{dy(t)}{dt} + y(t) = 2u(t)\), \(y(0^-) = 3\).
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Solusi Homogen (\(y_h(t)\)):}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Persamaan Karakteristik:
+    \(\lambda + 1 = 0 \Rightarrow \lambda = -1\).
+  \item
+    \[y_h(t) = A e^{-t}\]
+  \end{itemize}
+\item
+  \textbf{Solusi Partikular (\(y_p(t)\)):}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Input \(x(t) = 2u(t)\) (konstan untuk \(t>0\)). Asumsikan
+    \(y_p(t) = C\) untuk \(t \ge 0\).
+  \item
+    Substitusi ke PD: \(\frac{d}{dt}(C) + C = 2 \Rightarrow 0 + C = 2\).
+  \item
+    \[y_p(t) = 2\]
+  \end{itemize}
+\item
+  \textbf{Solusi Lengkap (Respons Total):}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \[y(t) = y_h(t) + y_p(t) = A e^{-t} + 2, \quad t \ge 0\]
+  \end{itemize}
+\item
+  \textbf{Tentukan Konstanta A menggunakan Kondisi Awal:}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Karena PD orde pertama tidak memiliki impuls di sisi kanan,
+    \(y(0^+) = y(0^-) = 3\).
+  \item
+    Terapkan \(t=0\): \(y(0) = A e^0 + 2 = 3\).
+  \item
+    \[A + 2 = 3 \Rightarrow A = 1\]
+  \end{itemize}
+\end{enumerate}
+
+\textbf{Kesimpulan:} Solusi lengkap sistem untuk \(t \ge 0\) adalah
+\(\mathbf{y(t) = e^{-t} + 2}\).
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\section{Soal 19: Analisis Stabilitas Kaskade (Pembatalan
+Pole/Zero)}\label{soal-19-analisis-stabilitas-kaskade-pembatalan-polezero}
+
+\textbf{Nomor Produk:} WK5-AN-L5-P19 \textbf{Soal:} Evaluasi,
+menggunakan sifat asosiatif konvolusi, apakah filter LTI yang tersusun
+seri (\(h_{total} = h_1 * h_2 * h_3\)) tetap stabil BIBO jika salah satu
+sub-sistem (\(h_2\)) tidak stabil, tetapi \(h_1\) dan \(h_3\) dapat
+membatalkan kutub non-stabilnya.
+
+\subsection{3a) Peta Pengetahuan Aplikatif (PMA)
+WK5-AN-L5-P19}\label{a-peta-pengetahuan-aplikatif-pma-wk5-an-l5-p19}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.5000}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.5000}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Komponen PMA
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Deskripsi
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\textbf{Titik Mulai} & Tiga sistem kaskade
+\(h_{total} = h_1 * h_2 * h_3\). \(h_2\) tidak stabil (memiliki pole
+non-stabil). \\
+\textbf{Titik Akhir} & Evaluasi apakah \(h_{total}\) secara keseluruhan
+stabil BIBO. \\
+\textbf{Rute/Jalan} & 1. Mengingat kriteria stabilitas BIBO untuk LTI:
+Respon impuls harus \emph{absolutely integrable}
+(\(\int |h_{total}(t)| dt < \infty\)). 2. Dalam domain transformasi
+(Laplace/Z), stabilitas ditentukan oleh pole sistem di Wilayah
+Konvergensi (ROC). 3. Terapkan sifat kaskade dalam domain transformasi:
+\(H_{total}(s) = H_1(s) H_2(s) H_3(s)\). 4. Analisis kondisi pole/zero:
+Jika \(H_2(s)\) memiliki pole non-stabil yang \textbf{tepat dibatalkan}
+oleh zero di \(H_1(s)\) atau \(H_3(s)\), maka pole tersebut tidak muncul
+di \(H_{total}(s)\). 5. Evaluasi apakah pembatalan pole non-stabil
+menjamin stabilitas total. \\
+\textbf{Kendaraan} & K\_OPS\_Definisi (Stabilitas BIBO LTI),
+K\_MAT\_Aljabar (Pembatalan Pole/Zero), Heuristik (Mentransformasi
+Masalah - ke Domain Transformasi), K\_OPS\_Definisi (Sifat Asosiatif
+Konvolusi). \\
+\end{longtable}
+
+\subsection{3b) Diagram Graphviz PMA
+WK5-AN-L5-P19}\label{b-diagram-graphviz-pma-wk5-an-l5-p19}
+
+\includegraphics[width=5.5in,height=3.5in]{kuliah/undefined.pdf}
+
+\subsection{3c) Solusi WK5-AN-L5-P19}\label{c-solusi-wk5-an-l5-p19}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Sifat Asosiatif dan Kaskade:} Karena sistem LTI, urutan
+  konvolusi tidak masalah (\(h_1 * h_2 * h_3 = h_2 * h_1 * h_3\)). Kita
+  menganalisis respons impuls total \(h_{total}\).
+\item
+  \textbf{Stabilitas Kaskade (Domain Transformasi):} Stabilitas BIBO
+  memerlukan semua pole dalam fungsi alih total \(H_{total}(s)\) berada
+  di sisi kiri bidang \(s\) (untuk WK kausal).
+  \[H_{total}(s) = H_1(s) H_2(s) H_3(s)\]
+\item
+  \textbf{Analisis Pembatalan Pole:} Misalkan \(H_2(s)\) memiliki pole
+  non-stabil di \(s = p_u\) (di sisi kanan bidang \(s\) atau pada sumbu
+  \(j\omega\)). Agar \(H_{total}(s)\) stabil, harus ada zero di
+  \(H_1(s)\) atau \(H_3(s)\) yang membatalkan tepat \(p_u\).
+\item
+  \textbf{Evaluasi:} Jika pole non-stabil \(p_u\) dari \(H_2(s)\)
+  \textbf{sepenuhnya dibatalkan} oleh zero pada sistem kaskade lainnya,
+  maka \(p_u\) tidak akan menjadi pole dari \(H_{total}(s)\). Jika semua
+  pole lain di \(H_{total}(s)\) stabil, maka \textbf{sistem kaskade
+  total (\(h_{total}\)) akan stabil BIBO}.
+\end{enumerate}
+
+\textbf{Kesimpulan:} Secara matematis (mengabaikan masalah implementasi
+praktis dan sensitivitas numerik), \textbf{YA}, sistem kaskade total
+dapat menjadi stabil BIBO jika sub-sistem yang tidak stabil (\(h_2\))
+memiliki pole non-stabil yang tepat dibatalkan oleh zero dari sub-sistem
+lain (\(h_1\) atau \(h_3\)).
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\bookmarksetup{startatroot}
+
+\chapter{4) Daftar Kendaraan yang
+Digunakan}\label{daftar-kendaraan-yang-digunakan-1}
+
+Berikut adalah daftar Kendaraan (Matematika, Operasi Dasar,
+Transformasi, dan Heuristik) yang digunakan atau direkomendasikan untuk
+memecahkan ke-20 soal di atas, yang mencakup persyaratan Tingkat Bloom
+yang lebih tinggi (L4-L6) dari tugas analisis:
+
+\section{A. Matematika (Fundamental)}\label{a.-matematika-fundamental}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{K\_MAT\_Aljabar:} Manipulasi persamaan, faktorisasi
+  polinomial, penyelesaian persamaan karakteristik (akar-akar PD),
+  perbandingan koefisien (untuk \(y_p(t)\)), penentuan batas
+  integral/sumasi, deret geometri (untuk uji stabilitas diskrit).
+\item
+  \textbf{K\_MAT\_Kalkulus:} Operasi Integral (untuk Konvolusi WK,
+  integral dalam uji stabilitas \(\int |h(t)| dt\)), Operasi
+  Diferensiasi (untuk turunan PD, dan dalam Konvolusi dengan
+  \(\delta'(t)\)).
+\item
+  \textbf{K\_MAT\_Bilangan\_Kompleks:} Perhitungan akar-akar
+  karakteristik kompleks (untuk \(\omega_n\) PD orde 2).
+\end{itemize}
+
+\section{B. Diagram \& Visualisasi}\label{b.-diagram-visualisasi}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{K\_VIS\_PlotSinyal:} Untuk memvisualisasikan sinyal input,
+  respon impuls, dan hasil konvolusi (esensial untuk Konvolusi Grafis).
+\end{itemize}
+
+\section{C. Operasi Dasar Sinyal/Sistem \&
+Definisi}\label{c.-operasi-dasar-sinyalsistem-definisi}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{K\_OPS\_Definisi (Sifat Konvolusi):} Komutatif, Asosiatif,
+  Distributif, dan sifat-sifat turunan/integral konvolusi.
+\item
+  \textbf{K\_OPS\_Definisi (Sifat Sistem):} Definisi Kausalitas dan
+  Stabilitas BIBO (kriteria \(\int |h(t)| dt < \infty\) atau
+  \(\sum |h[n]| < \infty\)).
+\item
+  \textbf{K\_OPS\_Definisi (PD/PB):} Definisi Orde PD/PB, Solusi
+  Homogen, Solusi Partikular, Kondisi Awal/Nol Kondisi, Resonansi.
+\item
+  \textbf{K\_OPS\_Sinyal\_Dasar:} Sifat Sifting Impuls Unit
+  (\(\delta(t)\)) dalam konvolusi.
+\item
+  \textbf{K\_OPS\_Representasi\_Matematis:} Struktur PD LCC orde
+  pertama/kedua.
+\end{itemize}
+
+\section{D. Transformasi (Algoritma)}\label{d.-transformasi-algoritma}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Transformasi Laplace/Z:} Digunakan secara konseptual
+  (Heuristik Mentransformasi Masalah) untuk menganalisis pole/zero
+  sistem, terutama dalam soal desain sistem invers dan evaluasi
+  stabilitas kaskade.
+\end{itemize}
+
+\section{E. Heuristik (Meta-Kendaraan
+Strategis)}\label{e.-heuristik-meta-kendaraan-strategis}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Menggambar Diagram:} Digunakan untuk memvisualisasikan
+  pulsa/sinyal dalam Konvolusi Grafis.
+\item
+  \textbf{Mentransformasi Masalah:} Mengubah masalah Domain Waktu
+  (Konvolusi atau PD) menjadi masalah Domain Transformasi (Laplace/Z)
+  untuk mencari fungsi alih atau menganalisis pole/zero (misalnya, P19,
+  P12).
+\item
+  \textbf{Bekerja Mundur:} Digunakan dalam soal desain (WK5-DS-L6-P10,
+  P12, P18), dimulai dari hasil yang diinginkan (respon impuls/fungsi
+  alih) untuk mendapatkan persamaan aslinya.
+\item
+  \textbf{Mencari Pola:} Digunakan untuk menentukan bentuk solusi
+  partikular yang tepat (P05) atau untuk menemukan rentang tumpang
+  tindih dalam konvolusi.
+\end{itemize}
+
+\bookmarksetup{startatroot}
+
+\chapter{DERET FOURIER (FOURIER
+SERIES)}\label{deret-fourier-fourier-series}
+
+\section{1) Tujuan Belajar, Inti Materi, Ontologi, Peta Pengetahuan
+Dasar, dan
+Kendaraan}\label{tujuan-belajar-inti-materi-ontologi-peta-pengetahuan-dasar-dan-kendaraan}
+
+\subsection{(a) Inti Materi Kuliah Minggu
+Tersebut}\label{a-inti-materi-kuliah-minggu-tersebut}
+
+Inti materi kuliah Deret Fourier berpusat pada \textbf{representasi
+sinyal periodik dan penggunaannya untuk analisis sistem LTI}.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Sinyal Periodik dan Eksponensial Kompleks:} Memahami bahwa
+  sinyal periodik adalah kelas sinyal yang memenuhi tuntutan komponen
+  transien dan \emph{steady state}. Semua sinyal periodik dapat
+  diuraikan ke dalam kombinasi linear sinyal kompleks eksponensial yang
+  terhubung secara harmonik (\(e^{jk\omega_0 t}\)).
+\item
+  \textbf{Representasi Deret Fourier (CTFS):} Menguasai persamaan
+  sintesis dan analisis.
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \textbf{Persamaan Sintesis:}
+    \(x(t) = \sum_{k=-\infty}^{+\infty} c_k e^{jk\omega_0 t}\).
+  \item
+    \textbf{Persamaan Analisis:}
+    \(c_k = \frac{1}{T} \int_T x(t) e^{-jk\omega_0 t} dt\).
+  \item
+    \(c_k\) (koefisien spektral) berfungsi sebagai ``kode ASCII'' yang
+    mewakili sinyal di domain frekuensi.
+  \end{itemize}
+\item
+  \textbf{Sifat-Sifat DF:} Menerapkan properti Deret Fourier seperti
+  Linearitas, Pergeseran Waktu (\emph{Time Shifting}), Pembalikan Waktu
+  (\emph{Time Reversal}), Konjugasi, dan Relasi Parseval.
+\item
+  \textbf{Aplikasi pada Sistem LTI:} Memahami konsep \textbf{Fungsi
+  Eigen}; bahwa sinyal kompleks eksponensial (\(e^{j\omega t}\)) adalah
+  \emph{eigenfunction} dari sistem LTI.
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Respon sistem LTI terhadap \(x(t) \leftrightarrow \{c_k\}\) adalah
+    \(y(t) \leftrightarrow \{c_k H(jk\omega_0)\}\). Ini menyederhanakan
+    konvolusi di domain waktu menjadi perkalian skalar di domain
+    frekuensi.
+  \end{itemize}
+\item
+  \textbf{Aplikasi Pemfilteran:} Mengenali bagaimana sistem LTI
+  bertindak sebagai filter (\emph{Frequency Shaping} atau
+  \emph{Frequency Selective}), seperti filter \emph{low-pass} dan
+  \emph{high-pass}, yang dapat direalisasikan melalui Persamaan
+  Diferensial Koefisien Konstan Linear (LCCDE).
+\end{enumerate}
+
+\subsection{(b) Ontologi Pengetahuan Materi Deret Fourier (DF) dan
+Ekspresi
+Prolog}\label{b-ontologi-pengetahuan-materi-deret-fourier-df-dan-ekspresi-prolog}
+
+Ontologi ini menggambarkan hubungan hierarkis dan fungsional dari
+konsep-konsep utama dalam topik Deret Fourier.
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Entitas/Kelas (Classes)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Keterangan
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Relasi (Relations)
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\texttt{Sinyal} & Objek dasar & \emph{memiliki} \\
+\texttt{SinyalPeriodik} (SP) & Turunan dari \texttt{Sinyal} &
+\emph{didekomposisi\_oleh} \\
+\texttt{RepresentasiFourier} (DF) & Kerangka analitis &
+\emph{terdiri\_dari}, \emph{memiliki\_properti} \\
+\texttt{KoefisienFourier} (CK) & Representasi domain frekuensi &
+\emph{merepresentasikan} \\
+\texttt{SinyalKompleksEksponensial} (SEK) & Basis DF (Eigenfunction LTI)
+& \emph{adalah\_eigenfunction\_dari} \\
+\texttt{Sistem} & Proses yang beroperasi pada \texttt{Sinyal} &
+\emph{dianalisis\_oleh} \\
+\texttt{SistemLTI} & Sistem fokus analisis & \emph{dihubungkan\_oleh} \\
+\texttt{ResponFrekuensi} (H\_Omega) & Nilai Eigen sistem LTI &
+\emph{digunakan\_untuk\_menghitung} \\
+\end{longtable}
+
+\textbf{Ekspresi Prolog:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\% FAKTA DASAR}
+\NormalTok{topik(deret\_fourier)}\KeywordTok{.}
+\NormalTok{is\_a(sinyal\_periodik}\KeywordTok{,}\NormalTok{ sinyal)}\KeywordTok{.}
+\NormalTok{is\_a(koefisien\_fourier}\KeywordTok{,}\NormalTok{ representasi\_spektral)}\KeywordTok{.}
+\NormalTok{is\_a(sek}\KeywordTok{,}\NormalTok{ sinyal\_basis)}\KeywordTok{.} \CommentTok{\% SEK: Sinyal Eksponensial Kompleks}
+
+\CommentTok{\% RELASI HIERARKI DAN DEKOMPOSISI}
+\NormalTok{didekomposisi\_oleh(sinyal\_periodik}\KeywordTok{,}\NormalTok{ representasi\_fourier)}\KeywordTok{.}
+\NormalTok{representasi\_fourier\_memiliki(koefisien\_fourier)}\KeywordTok{.}
+
+\CommentTok{\% RELASI MATEMATIKA (ANALISIS DAN SINTESIS)}
+\NormalTok{dihitung\_oleh(ck}\KeywordTok{,}\NormalTok{ persamaan\_analisis\_ctfs)}\KeywordTok{.}
+\NormalTok{dihitung\_oleh(x\_t}\KeywordTok{,}\NormalTok{ persamaan\_sintesis\_ctfs)}\KeywordTok{.}
+\NormalTok{basis\_dari(sek}\KeywordTok{,}\NormalTok{ representasi\_fourier)}\KeywordTok{.}
+
+\CommentTok{\% RELASI LTI}
+\NormalTok{adalah\_eigenfunction\_dari(sek}\KeywordTok{,}\NormalTok{ sistem\_lti)}\KeywordTok{.}
+\NormalTok{respon\_sistem\_lti(sinyal\_periodik}\KeywordTok{,}\NormalTok{ respon\_frekuensi)}\KeywordTok{.}
+\NormalTok{dimodifikasi\_oleh(koefisien\_fourier}\KeywordTok{,}\NormalTok{ respon\_frekuensi)}\KeywordTok{.}
+
+\CommentTok{\% PROPERTI}
+\NormalTok{memiliki\_properti(representasi\_fourier}\KeywordTok{,}\NormalTok{ linearitas)}\KeywordTok{.}
+\NormalTok{memiliki\_properti(representasi\_fourier}\KeywordTok{,}\NormalTok{ time\_shifting)}\KeywordTok{.}
+\NormalTok{memiliki\_properti(representasi\_fourier}\KeywordTok{,}\NormalTok{ parseval)}\KeywordTok{.}
+
+\CommentTok{\% APLIKASI}
+\NormalTok{digunakan\_untuk(representasi\_fourier}\KeywordTok{,}\NormalTok{ analisis\_sistem\_lti)}\KeywordTok{.}
+\NormalTok{digunakan\_untuk(respon\_frekuensi}\KeywordTok{,}\NormalTok{ perancangan\_filter)}\KeywordTok{.}
+
+\CommentTok{\% Kendaraan}
+\NormalTok{kendaraan(persamaan\_analisis\_ctfs}\KeywordTok{,}\NormalTok{ integral\_fourier)}\KeywordTok{.}
+\NormalTok{kendaraan(persamaan\_sintesis\_ctfs}\KeywordTok{,}\NormalTok{ penjumlahan\_eksponensial)}\KeywordTok{.}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{(c) Peta Pengetahuan Dasar (Mengacu pada
+Ontologi)}\label{c-peta-pengetahuan-dasar-mengacu-pada-ontologi}
+
+Peta Pengetahuan Dasar (PPD) mengorganisir konsep utama berdasarkan
+peran mereka.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Representasi (Domain Waktu \(\rightarrow\) Domain Frekuensi)}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \textbf{Sinyal Periodik (\(x(t)\))}
+
+    \begin{itemize}
+    \tightlist
+    \item
+      Didekomposisi menjadi: \textbf{Deret Fourier (DF)}
+    \item
+      Basis DF: \textbf{Sinyal Eksponensial Kompleks (SEK)}
+      (\(e^{jk\omega_0 t}\)).
+    \item
+      Representasi spektral: \textbf{Koefisien Fourier (\(c_k\))}.
+    \end{itemize}
+  \end{itemize}
+\item
+  \textbf{Sifat (Tata Bahasa DF)}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Linearitas
+  \item
+    Time Shifting
+  \item
+    Time Reversal
+  \item
+    Parseval's Relation
+  \end{itemize}
+\item
+  \textbf{Analisis Sistem (Aplikasi Utama)}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \textbf{Sistem LTI}
+
+    \begin{itemize}
+    \tightlist
+    \item
+      SEK adalah \emph{Eigenfunction}.
+    \item
+      Input \(x(t)\) diubah oleh \textbf{Respon Frekuensi
+      (\(H(j\omega)\))}.
+    \item
+      Output \(y(t) \leftrightarrow \{c_k H(jk\omega_0)\}\).
+    \end{itemize}
+  \end{itemize}
+\end{enumerate}
+
+\subsection{(d) Diagram Graphviz untuk Peta Pengetahuan
+Dasar}\label{d-diagram-graphviz-untuk-peta-pengetahuan-dasar}
+
+\includegraphics[width=5.5in,height=3.5in]{kuliah/undefined.pdf}
+
+\subsection{(e) Kendaraan yang Diperlukan
+(Vehicles)}\label{e-kendaraan-yang-diperlukan-vehicles}
+
+Kendaraan (persamaan matematis utama) yang digunakan dalam topik Deret
+Fourier (CTFS):
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Sinyal Kompleks Eksponensial Harmonik:}
+  \(\phi_k(t) = e^{jk\omega_0 t}\)
+\item
+  \textbf{Frekuensi Fundamental:} \(\omega_0 = 2\pi/T\)
+\item
+  \textbf{Persamaan Sintesis (Synthesis Equation):}
+  \(x(t) = \sum_{k=-\infty}^{+\infty} c_k e^{jk\omega_0 t}\)
+\item
+  \textbf{Persamaan Analisis (Analysis Equation):}
+  \(c_k = \frac{1}{T} \int_T x(t) e^{-jk\omega_0 t} dt\)
+\item
+  \textbf{Relasi Euler:}
+  \(e^{\pm j\theta} = \cos \theta \pm j \sin \theta\)
+\item
+  \textbf{Sifat Time Shifting:}
+  \(x(t-t_0) \leftrightarrow e^{-jk\omega_0 t_0} c_k\)
+\item
+  \textbf{Sifat Time Reversal:} \(x(-t) \leftrightarrow c_{-k}\)
+\item
+  \textbf{Respon Sistem LTI:} \(y(t) \leftrightarrow c_k H(jk\omega_0)\)
+\item
+  \textbf{Respon Frekuensi LTI:}
+  \(H(j\omega) = \int_{-\infty}^{\infty} h(t) e^{-j\omega t} dt\)
+\item
+  \textbf{Relasi Parseval:}
+  \(\frac{1}{T} \int_T |x(t)|^2 dt = \sum_{k=-\infty}^{+\infty} |c_k|^2\)
+\end{enumerate}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\section{2) 20 Soal Deret Fourier Berdasarkan Taksonomi
+Bloom}\label{soal-deret-fourier-berdasarkan-taksonomi-bloom}
+
+\begin{longtable}[]{@{}
+  >{\centering\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2174}}
+  >{\centering\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2174}}
+  >{\centering\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2174}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.1739}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.1739}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\centering
+No.
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+Produk Number
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+Level Bloom
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Topik
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Soal (Tanpa Solusi)
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+1. & {[}DF\_C1{]}{[}CT\_DEF{]} & C1 (Mengingat) & Dasar DF & Tuliskan
+Persamaan Analisis (Analysis Equation) untuk koefisien Deret Fourier
+waktu kontinu (\(c_k\)). \\
+2. & {[}DF\_C1{]}{[}CT\_DEF{]} & C1 (Mengingat) & Properti Dasar &
+Nyatakan Relasi Parseval untuk sinyal periodik waktu kontinu. \\
+3. & {[}DF\_C2{]}{[}CT\_PRP{]} & C2 (Memahami) & Simetri & Jelaskan
+hubungan antara \(c_k\) dan \(c_{-k}\) jika sinyal \(x(t)\) bernilai
+real. \\
+4. & {[}DF\_C2{]}{[}LTI\_EIGEN{]} & C2 (Memahami) & Fungsi Eigen &
+Jelaskan mengapa sinyal kompleks eksponensial (\(e^{j\omega t}\))
+disebut \emph{eigenfunction} dari sistem LTI. \\
+5. & {[}DF\_C3{]}{[}CT\_CALC{]} & C3 (Menerapkan) & Koefisien DC &
+Hitung koefisien \(c_0\) (nilai DC) untuk sinyal periodik \(x(t)\) yang
+didefinisikan selama satu periode \(T\) sebagai
+\(x(t) = 1 + \cos(\omega_0 t) + \sin(2\omega_0 t)\). \\
+6. & {[}DF\_C3{]}{[}CT\_PROP{]} & C3 (Menerapkan) & Time Shifting &
+Sinyal \(x(t)\) memiliki koefisien \(c_k\). Tentukan koefisien Fourier
+(\(b_k\)) untuk sinyal \(y(t) = x(t - T/2)\), di mana \(T\) adalah
+periode fundamental. \\
+7. & {[}DF\_C3{]}{[}CT\_SYN{]} & C3 (Menerapkan) & Sintesis & Sinyal
+\(x(t)\) dengan \(T=1\) memiliki koefisien \(c_0=1\), \(c_1=j/2\),
+\(c_{-1}=-j/2\). Tentukan ekspresi \(x(t)\) dalam bentuk fungsi
+trigonometri (sin/cos). \\
+8. & {[}DF\_C4{]}{[}LTI\_RESP{]} & C4 (Menganalisis) & Analisis LTI &
+Sinyal \(x(t)\) yang periodik dilewatkan melalui sistem LTI dengan
+respon frekuensi \(H(j\omega)\). Jika \(c_k\) adalah koefisien input,
+tuliskan koefisien output \(d_k\) dan jelaskan proses yang terjadi. \\
+9. & {[}DF\_C4{]}{[}CT\_CALC{]} & C4 (Menganalisis) & Sinyal
+Ganjil/Genap & Diberikan sinyal periodik \(x(t)\) real dan ganjil.
+Analisis apakah koefisien \(c_k\) real atau imajiner murni. \\
+10. & {[}DF\_C4{]}{[}CT\_CONV{]} & C4 (Menganalisis) & Konvergensi &
+Sinyal kotak periodik \(x(t)\) memiliki diskontinuitas. Berdasarkan
+Kondisi Dirichlet, analisis apakah Deret Fourier konvergen pada titik
+diskontinuitas tersebut. \\
+11. & {[}DF\_C4{]}{[}LTI\_FILTER{]} & C4 (Menganalisis) & Filter
+Diferensiator & Diberikan sistem diferensiator \(y(t) = d x(t)/dt\).
+Analisis bagaimana filter ini memodifikasi komponen harmonik frekuensi
+tinggi dan frekuensi rendah berdasarkan respon frekuensinya
+\(H(j\omega)\). \\
+12. & {[}DF\_C4{]}{[}CT\_PARSEVAL{]} & C4 (Menganalisis) & Daya & Sinyal
+\(x(t)\) memiliki daya rata-rata \(P\). Jika sinyal tersebut diperlambat
+(Time Scaling) menjadi \(y(t) = x(\alpha t)\) (\(\alpha > 1\)), analisis
+bagaimana daya rata-rata \(y(t)\) berubah. \\
+13. & {[}DF\_C5{]}{[}LTI\_EVAL{]} & C5 (Mengevaluasi) & Sistem \& Sifat
+& Diberikan sistem LTI yang merespon input eksponensial kompleks
+\(e^{s t}\) dengan output \(H(s) e^{s t}\). Evaluasi apakah sistem yang
+memiliki respon \(y(t) = t e^{s t}\) adalah sistem LTI. \\
+14. & {[}DF\_C5{]}{[}FILTER\_RC{]} & C5 (Mengevaluasi) & Filter RC &
+Rangkaian RC seri mengambil tegangan kapasitor \(v_c(t)\) sebagai
+output. Evaluasi mengapa rangkaian ini secara umum diklasifikasikan
+sebagai filter \emph{low-pass}. \\
+15. & {[}DF\_C5{]}{[}CT\_PROP{]} & C5 (Mengevaluasi) & Perkalian &
+Diketahui \(x(t) \leftrightarrow c_k\) dan \(y(t) \leftrightarrow d_k\),
+keduanya memiliki periode \(T\). Tentukan (Evaluate) koefisien Fourier
+\(h_k\) dari sinyal \(z(t) = x(t)y(t)\). \\
+16. & {[}DF\_C5{]}{[}CT\_CALC{]} & C5 (Mengevaluasi) & Sinyal Kotak &
+Evaluasi mengapa, dalam perhitungan koefisien Fourier sinyal kotak,
+interval integrasi \(-T/2 \le t < T/2\) menghasilkan hasil yang sama
+dengan \(0 \le t < T\). \\
+17. & {[}DF\_C6{]}{[}CT\_SYN{]} & C6 (Menciptakan) & Sintesis Koefisien
+& Jika sinyal \(x(t)\) adalah gelombang kotak periodik, tentukan
+(Create) ekspresi deret Fourier real dari \(x(t)\) jika diketahui hanya
+komponen sinus ganjil yang tidak nol. \\
+18. & {[}DF\_C6{]}{[}LTI\_DESIGN{]} & C6 (Menciptakan) & Desain
+Koefisien & Sinyal input \(x(t)\) memiliki \(c_k = 1/k^2\). Rancang
+(Determine) koefisien output \(d_k\) agar output \(y(t)\) memiliki daya
+rata-rata total terbatas (finite power). \\
+19. & {[}DF\_C6{]}{[}CT\_PROP{]} & C6 (Menciptakan) & Karakterisasi
+Sinyal & Diberikan koefisien Fourier \(c_k\) dari sinyal real \(x(t)\)
+(periode \(T=2\pi/\omega_0\)). Jika \(c_k = 0\) untuk \(|k| \ge 2\), dan
+\(c_1 = 1\), tentukan (Create) ekspresi \(x(t)\). \\
+20. & {[}DF\_C6{]}{[}FILTER\_SHAPE{]} & C6 (Menciptakan) & Filter
+Shaping & Rancang (Design) respon frekuensi ideal \(H(j\omega)\) untuk
+filter \emph{frequency shaping} yang menguatkan frekuensi di atas
+\(2\omega_0\) sebesar 10 kali (20 dB) dan melewatkan frekuensi di bawah
+\(2\omega_0\) tanpa perubahan. \\
+\end{longtable}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\section{3) Peta Pengetahuan Aplikatif dan Solusi (5 Soal
+Representatif)}\label{peta-pengetahuan-aplikatif-dan-solusi-5-soal-representatif}
+
+Untuk alasan keterbatasan ruang dan kompleksitas, kami akan menyajikan
+Peta Pengetahuan Aplikatif (KPA), Diagram Graphviz KPA, dan Solusi untuk
+5 soal representatif (No.~3, 6, 8, 14, dan 19). Peta untuk soal lainnya
+akan mengikuti struktur yang serupa, menggunakan \textbf{Kendaraan} yang
+relevan.
+
+\subsection{Soal Representatif 1: No.~3
+{[}DF\_C2{]}{[}CT\_PRP{]}}\label{soal-representatif-1-no.-3-df_c2ct_prp}
+
+\textbf{Soal:} Sinyal \(x(t)\) bernilai real. Jelaskan hubungan antara
+\(c_k\) dan \(c_{-k}\).
+
+\textbf{a) Peta Pengetahuan Aplikatif (KPA)}
+
+\begin{longtable}[]{@{}
+  >{\centering\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3846}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3077}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3077}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\centering
+Node
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Konsep/Formula
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Sumber
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\textbf{N1} & Kondisi sinyal real: \(x(t) = x^*(t)\) & \\
+\textbf{N2} & Hubungan Deret Fourier dengan Konjugat:
+\(x^*(t) \leftrightarrow c^*_{-k}\) & \\
+\textbf{N3} & Substitusi N1 ke N2 & \(x(t) \leftrightarrow c^*_{-k}\) \\
+\textbf{N4} & Hubungan Simetri Konjugat (Hasil) & \(c_k = c^*_{-k}\) \\
+\end{longtable}
+
+\textbf{b) Diagram Graphviz KPA}
+
+\includegraphics[width=5.5in,height=3.5in]{kuliah/undefined.pdf}
+
+\textbf{c) Solusi Menggunakan KPA}
+
+Karena sinyal \(x(t)\) bernilai real, maka berlaku kondisi \textbf{N1}:
+\(x(t) = x^*(t)\). Koefisien Fourier dari \(x^*(t)\) adalah \(c^*_{-k}\)
+(\textbf{N2}). Dengan menyamakan kedua sisi, kita mendapatkan
+\textbf{N4} bahwa koefisien Deret Fourier dari sinyal real haruslah
+\textbf{konjugat simetris}, yaitu \textbf{\(c_k = c^*_{-k}\)}.
+
+\subsection{Soal Representatif 2: No.~6
+{[}DF\_C3{]}{[}CT\_PROP{]}}\label{soal-representatif-2-no.-6-df_c3ct_prop}
+
+\textbf{Soal:} Sinyal \(x(t)\) memiliki koefisien \(c_k\). Tentukan
+koefisien Fourier (\(b_k\)) untuk sinyal \(y(t) = x(t - T/2)\), di mana
+\(T\) adalah periode fundamental.
+
+\textbf{a) Peta Pengetahuan Aplikatif (KPA)}
+
+\begin{longtable}[]{@{}
+  >{\centering\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3846}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3077}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3077}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\centering
+Node
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Konsep/Formula
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Sumber
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\textbf{N1} & Kendaraan Time Shifting Property &
+\(x(t-t_0) \leftrightarrow e^{-jk\omega_0 t_0} c_k\) \\
+\textbf{N2} & Definisi Frekuensi Fundamental & \(\omega_0 = 2\pi/T\) \\
+\textbf{N3} & Substitusi \(t_0 = T/2\) ke N1 &
+\(y(t) \leftrightarrow b_k = c_k \cdot e^{-jk\omega_0 (T/2)}\) \\
+\textbf{N4} & Substitusi \(\omega_0 = 2\pi/T\) ke N3 &
+\(b_k = c_k \cdot e^{-jk(2\pi/T)(T/2)}\) \\
+\textbf{N5} & Hasil Akhir &
+\(b_k = c_k \cdot e^{-jk\pi} = c_k (-1)^k\) \\
+\end{longtable}
+
+\textbf{b) Diagram Graphviz KPA}
+
+\includegraphics[width=5.5in,height=3.5in]{kuliah/undefined.pdf}
+
+\textbf{c) Solusi Menggunakan KPA}
+
+Menggunakan \textbf{Properti Time Shifting} (\textbf{N1}), koefisien
+\(b_k\) dari \(y(t) = x(t - t_0)\) adalah
+\(b_k = e^{-jk\omega_0 t_0} c_k\). Dengan \(t_0 = T/2\) dan
+\(\omega_0 = 2\pi/T\) (\textbf{N2}), kita substitusikan (\textbf{N3}):
+\[b_k = c_k \cdot e^{-jk \cdot (2\pi/T) \cdot (T/2)}\]
+\[b_k = c_k \cdot e^{-jk\pi}\] Karena
+\(e^{-jk\pi} = \cos(k\pi) - j \sin(k\pi) = (-1)^k\) (karena
+\(\sin(k\pi)=0\)), maka \textbf{N5} memberikan: \[b_k = c_k (-1)^k\]
+Pergeseran sebesar setengah periode membalik tanda (magnitudo) koefisien
+harmonik ganjil dan mempertahankan tanda koefisien harmonik genap.
+
+\subsection{Soal Representatif 3: No.~8
+{[}DF\_C4{]}{[}LTI\_RESP{]}}\label{soal-representatif-3-no.-8-df_c4lti_resp}
+
+\textbf{Soal:} Sinyal \(x(t)\) yang periodik dilewatkan melalui sistem
+LTI dengan respon frekuensi \(H(j\omega)\). Jika \(c_k\) adalah
+koefisien input, analisis koefisien output \(d_k\).
+
+\textbf{a) Peta Pengetahuan Aplikatif (KPA)}
+
+\begin{longtable}[]{@{}
+  >{\centering\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3846}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3077}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3077}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\centering
+Node
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Konsep/Formula
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Sumber
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\textbf{N1} & Input Periodik (Sintesis DF) &
+\(x(t) = \sum c_k e^{jk\omega_0 t}\) \\
+\textbf{N2} & SEK sebagai Eigenfunction LTI &
+\(e^{j\omega t} \rightarrow H(j\omega) e^{j\omega t}\) \\
+\textbf{N3} & Prinsip Superposisi (LTI) & Jumlah respon individu adalah
+respon total \\
+\textbf{N4} & Koefisien Output \(d_k\) (Respon pada harmonik \(k\)) &
+\(d_k = c_k \cdot H(jk\omega_0)\) \\
+\textbf{N5} & Fungsi Proses & Konvolusi di domain waktu \(\rightarrow\)
+Perkalian di domain frekuensi \\
+\end{longtable}
+
+\textbf{b) Diagram Graphviz KPA}
+
+\includegraphics[width=5.5in,height=3.5in]{kuliah/undefined.pdf}
+
+\textbf{c) Solusi Menggunakan KPA}
+
+Analisis ini didasarkan pada dua properti utama LTI: Eigenfunction dan
+Superposisi.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Input \(x(t)\) direpresentasikan sebagai kombinasi linear dari SEK
+  harmonik (\textbf{N1}).
+\item
+  Karena SEK adalah Eigenfunction (\textbf{N2}), setiap komponen
+  \(e^{jk\omega_0 t}\) menghasilkan output yang merupakan dirinya
+  sendiri dikalikan dengan nilai eigen \(H(j\omega)\) pada frekuensi
+  \(\omega = k\omega_0\).
+\item
+  Dengan Prinsip Superposisi (\textbf{N3}), respon total \(y(t)\) adalah
+  penjumlahan dari respon masing-masing komponen.
+\item
+  Oleh karena itu, koefisien Fourier output \(d_k\) (\textbf{N4}) adalah
+  koefisien input \(c_k\) dikalikan dengan Respon Frekuensi pada
+  harmonik ke-\(k\): \[\mathbf{d_k = c_k H(jk\omega_0)}\].
+\item
+  Proses ini (\textbf{N5}) menunjukkan bahwa sistem LTI memodifikasi
+  spektrum input secara individual pada setiap frekuensi harmonik
+  melalui operasi perkalian skalar, bukan konvolusi.
+\end{enumerate}
+
+\subsection{Soal Representatif 4: No.~14
+{[}DF\_C5{]}{[}FILTER\_RC{]}}\label{soal-representatif-4-no.-14-df_c5filter_rc}
+
+\textbf{Soal:} Rangkaian RC seri mengambil tegangan kapasitor \(v_c(t)\)
+sebagai output. Evaluasi mengapa rangkaian ini diklasifikasikan sebagai
+filter \emph{low-pass}.
+
+\textbf{a) Peta Pengetahuan Aplikatif (KPA)}
+
+\begin{longtable}[]{@{}
+  >{\centering\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3846}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3077}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3077}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\centering
+Node
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Konsep/Formula
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Sumber
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\textbf{N1} & Model Sistem RC (Output Kapasitor) & Persamaan diferensial
+order satu. \\
+\textbf{N2} & Respon Frekuensi (H(jω)) & \(H(j\omega)\) adalah
+transformasi Fourier dari respon impuls \\
+\textbf{N3} & Bentuk \(H(j\omega)\) Filter RC Lowpass &
+\(H(j\omega) = 1 / (1 + j\omega RC)\) (Asumsi Rangkaian RC Lowpass
+Standar) \\
+\textbf{N4} & Evaluasi Magnitudo Respon \(|H(j\omega)|\) & Uji batas
+\(\omega \rightarrow 0\) (frekuensi rendah) dan
+\(\omega \rightarrow \infty\) (frekuensi tinggi). \\
+\textbf{N5} & Kesimpulan Filter & Filter melewatkan frekuensi rendah
+(\(|H| \approx 1\)) dan meredam frekuensi tinggi (\(|H| \approx 0\)). \\
+\end{longtable}
+
+\textbf{b) Diagram Graphviz KPA}
+
+\includegraphics[width=5.5in,height=3.5in]{kuliah/undefined.pdf}
+
+\textbf{c) Solusi Menggunakan KPA}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Rangkaian RC dengan output diambil pada kapasitor (N1) dicirikan oleh
+  fungsi sistem yang analog dengan \(H(j\omega) = 1 / (1 + j\omega RC)\)
+  (N3).
+\item
+  Untuk mengevaluasi perilakunya (N4), kita periksa magnitudo respon
+  frekuensi \(|H(j\omega)|\):
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \textbf{Frekuensi Rendah (\(\omega \rightarrow 0\)):}
+    \(|H(j\omega)| \rightarrow 1 / |1 + 0| = 1\). Sinyal frekuensi
+    rendah (DC) dilewatkan sepenuhnya.
+  \item
+    \textbf{Frekuensi Tinggi (\(\omega \rightarrow \infty\)):}
+    \(|H(j\omega)| \rightarrow 1 / |\infty| = 0\). Sinyal frekuensi
+    tinggi diredam.
+  \end{itemize}
+\item
+  Karena filter \textbf{melewatkan frekuensi rendah} dan \textbf{meredam
+  frekuensi tinggi}, maka secara universal diklasifikasikan sebagai
+  \textbf{Filter Low Pass} (N5).
+\end{enumerate}
+
+\subsection{Soal Representatif 5: No.~19
+{[}DF\_C6{]}{[}CT\_PROP{]}}\label{soal-representatif-5-no.-19-df_c6ct_prop}
+
+\textbf{Soal:} Diberikan koefisien Fourier \(c_k\) dari sinyal real
+\(x(t)\) (periode \(T=2\pi/\omega_0\)). Jika \(c_k = 0\) untuk
+\(|k| \ge 2\), dan \(c_1 = 1\), tentukan ekspresi \(x(t)\).
+
+\textbf{a) Peta Pengetahuan Aplikatif (KPA)}
+
+\begin{longtable}[]{@{}
+  >{\centering\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3846}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3077}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3077}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\centering
+Node
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Konsep/Formula
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Sumber
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\textbf{N1} & Sinyal Real (Properti Simetri) & \(c_{-k} = c^*_k\). \\
+\textbf{N2} & Koefisien yang Diketahui & \(c_1 = 1\); \(c_k=0\) untuk
+\(|k| \ge 2\). \\
+\textbf{N3} & Tentukan \(c_{-1}\) & Karena \(x(t)\) real dan \(c_1=1\)
+(real), maka \(c_{-1} = c^*_1 = 1\). \\
+\textbf{N4} & Tentukan \(c_0\) & \(c_0\) adalah koefisien real (DC).
+Karena \(c_0\) tidak ditentukan, asumsikan nol agar sederhana, atau
+pertahankan sebagai konstanta \(A_0\). \\
+\textbf{N5} & Ekspresi Sintesis (Terminasi \(N=1\)) &
+\(x(t) = c_0 + c_1 e^{j\omega_0 t} + c_{-1} e^{-j\omega_0 t}\) \\
+\textbf{N6} & Solusi Akhir (Euler's Relation) &
+\(e^{j\omega_0 t} + e^{-j\omega_0 t} = 2 \cos(\omega_0 t)\) \\
+\end{longtable}
+
+\textbf{b) Diagram Graphviz KPA}
+
+\includegraphics[width=5.5in,height=3.5in]{kuliah/undefined.pdf}
+
+\textbf{c) Solusi Menggunakan KPA}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Sinyal hanya memiliki komponen harmonik untuk \(k=0, +1, -1\) (N2).
+\item
+  Karena \(x(t)\) real, berlaku \(c_{-k} = c^*_k\) (N1). Dengan
+  \(c_1 = 1\) (yang merupakan bilangan real), maka \(c_{-1} = 1^* = 1\)
+  (N3).
+\item
+  Asumsikan \(c_0 = 0\) (komponen DC).
+\item
+  Menggunakan Persamaan Sintesis Deret Fourier (N5):
+  \[x(t) = c_1 e^{j\omega_0 t} + c_{-1} e^{-j\omega_0 t}\]
+  \[x(t) = 1 \cdot e^{j\omega_0 t} + 1 \cdot e^{-j\omega_0 t}\]
+\item
+  Dengan menggunakan Relasi Euler (N6):
+  \[x(t) = e^{j\omega_0 t} + e^{-j\omega_0 t} = \mathbf{2 \cos(\omega_0 t)}\]
+  Ini adalah representasi sinyal cosinus murni.
+\end{enumerate}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\section{4) Daftar Kendaraan yang
+Digunakan}\label{daftar-kendaraan-yang-digunakan-2}
+
+Berikut adalah daftar Kendaraan (persamaan, teorema, atau properti
+fundamental) yang digunakan dalam memecahkan soal-soal dan menyusun inti
+materi:
+
+\begin{longtable}[]{@{}
+  >{\centering\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2941}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2353}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2353}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2353}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\centering
+No.
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Kendaraan
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Deskripsi/Formula Kunci
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Sumber
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+1. & \textbf{Persamaan Analisis CTFS} &
+\(c_k = \frac{1}{T} \int_T x(t) e^{-jk\omega_0 t} dt\) & \\
+2. & \textbf{Persamaan Sintesis CTFS} &
+\(x(t) = \sum_{k=-\infty}^{+\infty} c_k e^{jk\omega_0 t}\) & \\
+3. & \textbf{Frekuensi Fundamental} & \(\omega_0 = 2\pi/T\) & \\
+4. & \textbf{Relasi Euler} &
+\(e^{\pm j\theta} = \cos \theta \pm j \sin \theta\) & \\
+5. & \textbf{Definisi Koefisien DC} &
+\(c_0 = \frac{1}{T} \int_T x(t) dt\) (Nilai rata-rata) & \\
+6. & \textbf{Properti Time Shifting} &
+\(x(t-t_0) \leftrightarrow e^{-jk\omega_0 t_0} c_k\) & \\
+7. & \textbf{Properti Simetri Konjugat} & Jika \(x(t)\) real, maka
+\(c_k = c^*_{-k}\) & \\
+8. & \textbf{Properti Respon LTI} &
+\(y(t) \leftrightarrow c_k H(jk\omega_0)\) & \\
+9. & \textbf{Definisi Respon Frekuensi} &
+\(H(j\omega) = \int_{-\infty}^{\infty} h(t) e^{-j\omega t} dt\) & \\
+10. & \textbf{Fungsi Eigen LTI} & \(e^{j\omega t}\) adalah eigenfunction
+LTI & \\
+11. & \textbf{Properti Perkalian (Multiplication)} &
+\(x(t)y(t) \leftrightarrow h_k = \sum_{l=-\infty}^{\infty} a_l b_{k-l}\)
+& \\
+12. & \textbf{Relasi Parseval} &
+\(\frac{1}{T} \int_T |x(t)|^2 dt = \sum_{k=-\infty}^{+\infty} |c_k|^2\)
+& \\
+13. & \textbf{Kondisi Dirichlet} & Menentukan konvergensi deret Fourier
+(misalnya, \emph{absolutely integrable}) & \\
+\end{longtable}
+
+\bookmarksetup{startatroot}
+
+\chapter{Latihan UTS}\label{latihan-uts}
+
+\href{UTS_2023_RC-3.soal.pdf}{Soal UTS 2023}
+\href{./UTS_2023_RC-1.solusi.pdf}{solusi UTS 2023}
+
+\href{UTS_2023_RC-3.soal.pdf}{soal UTS 2024}
+\href{UTS_2023_RC-1.solusi.pdf}{solusi}
 
 \bookmarksetup{startatroot}
 
