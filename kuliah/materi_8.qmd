@@ -1,0 +1,384 @@
+# transformasi
+
+Peran utama transformasi domain frekuensi, seperti Fourier, Laplace, dan Z, dalam menganalisis sistem Linear Time-Invariant (LTI) kontinu dan diskrit adalah untuk **mengubah operasi domain waktu yang kompleks, seperti konvolusi dan persamaan diferensial/beda, menjadi manipulasi aljabar yang lebih sederhana**.
+
+Transformasi ini sangat penting karena sifat fundamental sistem LTI yang memungkinkan sinyal eksponensial kompleks menjadi *eigenfunction* (fungsi karakteristik), di mana respons sistem hanyalah sinyal yang sama dikalikan dengan faktor penguatan kompleks (nilai *eigenvalue*).
+
+Berikut adalah peran utama dan konteks spesifik dari masing-masing transformasi:
+
+### 1. Peran Sentral: Mengubah Konvolusi Menjadi Perkalian
+
+Dalam domain waktu, output $y(t)$ dari sistem LTI kontinu adalah konvolusi antara input $x(t)$ dan respon impuls $h(t)$ [$y(t) = x(t) * h(t)$]. Demikian pula untuk sistem diskrit [$y[n] = x[n] * h[n]$].
+
+Transformasi domain frekuensi mengubah operasi konvolusi ini menjadi perkalian aljabar sederhana:
+
+*   **Untuk LTI Kontinu (Laplace/Fourier):** Transformasi output $Y(s)$ atau $Y(j\omega)$ adalah hasil perkalian antara Transformasi input $X(s)$ atau $X(j\omega)$ dan Fungsi Sistem $H(s)$ atau Fungsi Respons Frekuensi $H(j\omega)$.
+    $$Y(s) = H(s)X(s)$$
+*   **Untuk LTI Diskrit (Z/Fourier Diskrit):** Transformasi output $Y(z)$ atau $Y(e^{j\Omega})$ adalah hasil perkalian antara Transformasi input $X(z)$ atau $X(e^{j\Omega})$ dan Fungsi Sistem $H(z)$ atau Fungsi Respons Frekuensi $H(e^{j\Omega})$.
+    $$Y(z) = H(z)X(z)$$
+
+Fungsi Sistem ($H(s)$ atau $H(z)$) ini merupakan transformasi Laplace atau Z dari respons impuls sistem, dan ia **sepenuhnya mengkarakterisasi perilaku sistem LTI**.
+
+### 2. Peran dalam Menganalisis Stabilitas, Kausalitas, dan Persamaan
+
+Transformasi domain kompleks (Laplace dan Z) sangat berguna karena memungkinkan analisis properti sistem LTI yang lebih mendalam, terutama jika sistem tersebut dijelaskan oleh Persamaan Diferensial (PD) atau Persamaan Beda (PB) linear koefisien konstan.
+
+#### A. Transformasi Fourier (Continuous-Time - CTFT dan Discrete-Time - DTFT)
+
+1.  **Analisis Frekuensi dan Pemfilteran:** Fourier Transform (atau Fungsi Respons Frekuensi $H(j\omega)$ dan $H(e^{j\Omega})$) digunakan untuk **mengkarakterisasi bagaimana sistem memodifikasi komponen frekuensi sinyal input**. Perubahan ini dapat berupa penguatan atau pelemahan frekuensi yang berbeda, yang merupakan dasar dari konsep *filtering* (pemfilteran).
+2.  **Konteks Konvergensi:** Fourier Transform terbatas pada kelas sinyal tertentu (seperti sinyal energi terbatas atau yang memenuhi kondisi Dirichlet).
+
+#### B. Transformasi Laplace (Sistem LTI Kontinu)
+
+1.  **Generalisasi Fourier:** Laplace Transform adalah generalisasi dari Fourier Transform (dimana $s = \sigma + j\omega$). Generalisasi ini memungkinkan analisis **sistem LTI tak stabil atau sinyal tak terbatas** yang Transformasi Fouriernya mungkin tidak konvergen.
+2.  **Solusi Persamaan Diferensial:** Laplace Transform mengubah Persamaan Diferensial Linear Koefisien Konstan (LCCDEs), yang sering memodelkan sistem fisik waktu kontinu, menjadi **persamaan aljabar** di domain $s$. Ini memungkinkan penentuan Fungsi Sistem $H(s)$ dengan mudah.
+3.  **Analisis Kausalitas dan Stabilitas:** Sifat-sifat sistem secara langsung terkait dengan lokasi *pole* dan *Region of Convergence* (ROC) di bidang $s$.
+    *   **Stabilitas BIBO:** Sistem LTI kontinu stabil **jika dan hanya jika ROC dari $H(s)$ mencakup sumbu $j\omega$**.
+    *   **Kausalitas:** Sistem LTI kontinu kausal **jika dan hanya jika ROC dari $H(s)$ berada di sebelah kanan *pole* paling kanan**.
+4.  **Transformasi Laplace Unilateral:** Bentuk ini sangat berguna untuk **menyelesaikan PD dengan kondisi awal tak nol** (sistem yang tidak berada dalam kondisi istirahat awal).
+
+#### C. Transformasi Z (Sistem LTI Diskrit)
+
+1.  **Transformasi Diskret:** Transformasi Z adalah padanan diskrit dari Transformasi Laplace. Ini mengubah Persamaan Beda Linear Koefisien Konstan (LCCDEs) menjadi **persamaan aljabar** di domain $z$, menyederhanakan analisis sistem waktu diskrit.
+2.  **Analisis Kausalitas dan Stabilitas:** Mirip dengan Laplace, properti sistem terkait dengan *pole* dan ROC di bidang $z$ .
+    *   **Hubungan ke DTFT:** DTFT adalah Transformasi Z dievaluasi pada lingkaran satuan ($|z|=1$), asalkan lingkaran satuan tersebut berada dalam ROC.
+    *   **Stabilitas BIBO:** Sistem LTI diskrit stabil **jika dan hanya jika ROC dari $H(z)$ mencakup lingkaran satuan**.
+    *   **Kausalitas:** Sistem LTI diskrit kausal **jika dan hanya jika ROC berada di luar *pole* terluar**.
+3.  **Transformasi Z Unilateral:** Bentuk ini digunakan untuk **menyelesaikan PB dengan kondisi awal tak nol**.
+
+Secara ringkas, transformasi ini adalah **kendaraan (Transformasi/Algoritma)** yang digunakan untuk **mentransformasi masalah** dari domain waktu (konvolusi atau PD/PB) ke domain aljabar (perkalian dan aljabar), yang merupakan langkah strategis penting dalam analisis sinyal dan sistem.
+
+# soal
+Transformasi Laplace adalah alat matematis yang sangat penting dalam menganalisis sistem waktu kontinu Linear Time-Invariant (LTI), karena mengubah persamaan diferensial menjadi persamaan aljabar di domain $s$.
+
+Berikut adalah 5 soal mengenai Transformasi Laplace beserta solusinya, disusun berdasarkan konsep-konsep inti yang dijelaskan dalam sumber:
+
+---
+
+### Soal 1: Transformasi Laplace Sinyal Eksponensial Kausal
+
+**Pertanyaan:**
+Tentukan Transformasi Laplace $X(s)$ dan *Region of Convergence* (ROC) dari sinyal waktu kontinu $x(t) = e^{-3t}u(t)$, di mana $u(t)$ adalah fungsi langkah unit.
+
+**Solusi:**
+Transformasi Laplace bilateral $X(s)$ dari sinyal $x(t)$ didefinisikan sebagai:
+$$X(s) = \int_{-\infty}^{\infty} x(t)e^{-st} dt$$
+
+1.  **Substitusi Sinyal:**
+    Karena $u(t)=1$ untuk $t \ge 0$ dan $0$ untuk $t < 0$, batas integrasi menjadi $0$ hingga $\infty$:
+    $$X(s) = \int_{0}^{\infty} e^{-3t}e^{-st} dt$$
+    $$X(s) = \int_{0}^{\infty} e^{-(s+3)t} dt$$
+
+2.  **Integrasi:**
+    $$X(s) = \left[ \frac{-e^{-(s+3)t}}{s+3} \right] \Big|_0^{\infty}$$
+
+3.  **Menentukan Konvergensi (ROC):**
+    Agar integral ini konvergen, kita memerlukan suku $e^{-(s+3)t}$ menuju nol saat $t \to \infty$. Misalkan $s = \sigma + j\omega$. Syarat konvergensi adalah $\text{Re}\{s+3\} > 0$, atau $\sigma + 3 > 0$, sehingga $\text{Re}\{s\} > -3$.
+
+4.  **Evaluasi pada Batas:**
+    Untuk $\text{Re}\{s\} > -3$:
+    $$X(s) = 0 - \left( \frac{-e^{-0}}{s+3} \right) = \frac{1}{s+3}$$
+
+**Jawaban:**
+$$X(s) = \frac{1}{s+3}, \quad \text{ROC}: \text{Re}\{s\} > -3$$
+
+---
+
+### Soal 2: Transformasi Laplace Sinyal Sisi Kiri dan Pentingnya ROC
+
+**Pertanyaan:**
+Tentukan Transformasi Laplace $X(s)$ dari sinyal $x(t) = -e^{5t}u(-t)$. Bandingkan hasil ini dengan Transformasi Laplace dari $e^{-5t}u(t)$.
+
+**Solusi:**
+Sinyal $x(t) = -e^{5t}u(-t)$ adalah sinyal sisi kiri (*left-sided signal*).
+
+1.  **Substitusi Sinyal:**
+    $$X(s) = \int_{-\infty}^{\infty} -e^{5t}u(-t)e^{-st} dt$$
+    Karena $u(-t)$ non-nol hanya untuk $t \le 0$, batas integrasi menjadi $-\infty$ hingga $0$:
+    $$X(s) = \int_{-\infty}^{0} -e^{5t}e^{-st} dt = - \int_{-\infty}^{0} e^{-(s-5)t} dt$$
+
+2.  **Integrasi:**
+    $$X(s) = - \left[ \frac{-e^{-(s-5)t}}{s-5} \right] \Big|_{-\infty}^{0}$$
+
+3.  **Menentukan Konvergensi (ROC):**
+    Agar integral ini konvergen, kita memerlukan suku $e^{-(s-5)t}$ menuju nol saat $t \to -\infty$. Syaratnya adalah $\text{Re}\{-(s-5)\} < 0$, atau $\text{Re}\{s-5\} > 0$, sehingga $\text{Re}\{s\} < 5$.
+
+4.  **Evaluasi pada Batas:**
+    Untuk $\text{Re}\{s\} < 5$:
+    $$X(s) = - \left[ \frac{-e^{-0}}{s-5} - 0 \right] = - \left( \frac{-1}{s-5} \right) = \frac{1}{s-5}$$
+
+**Jawaban dan Perbandingan:**
+$$X(s) = \frac{1}{s-5}, \quad \text{ROC}: \text{Re}\{s\} < 5$$
+
+Jika kita membandingkannya dengan sinyal sisi kanan $x_R(t) = e^{5t}u(t)$, Transformasi Laplace-nya adalah $X_R(s) = \frac{1}{s-5}$ dengan $\text{ROC}: \text{Re}\{s\} > 5$.
+Hal ini menunjukkan bahwa **Transformasi Laplace harus menyertakan ROC agar unik** (karena dua sinyal berbeda dapat menghasilkan ekspresi aljabar yang sama).
+
+---
+
+### Soal 3: Transformasi Laplace Invers (Ekspansi Pecahan Parsial)
+
+**Pertanyaan:**
+Tentukan Transformasi Laplace Invers $x(t)$ dari $X(s)$ berikut, jika diketahui ROC adalah $-3 < \text{Re}\{s\} < -2$.
+$$X(s) = \frac{s}{(s+2)(s+3)}$$
+
+**Solusi:**
+Karena $X(s)$ adalah rasional (rasio polinomial di $s$) dan orde penyebut lebih besar dari pembilang, kita dapat menggunakan Ekspansi Pecahan Parsial (PFE).
+
+1.  **Ekspansi Pecahan Parsial:**
+    $$X(s) = \frac{A}{s+2} + \frac{B}{s+3}$$
+    Menghitung koefisien A dan B menggunakan metode residue:
+    $$A = (s+2)X(s) \Big|_{s=-2} = \frac{-2}{-2+3} = -2$$
+    $$B = (s+3)X(s) \Big|_{s=-3} = \frac{-3}{-3+2} = 3$$
+    Sehingga:
+    $$X(s) = \frac{-2}{s+2} + \frac{3}{s+3}$$
+
+2.  **Menentukan Sinyal Waktu Berdasarkan ROC:**
+    ROC yang diberikan adalah $-3 < \text{Re}\{s\} < -2$. Ini adalah strip vertikal, yang mengindikasikan $x(t)$ adalah sinyal dua sisi (*two-sided signal*).
+
+    *   **Untuk suku $\frac{-2}{s+2}$:** Kutubnya adalah $s=-2$. Karena ROC $\text{Re}\{s\} < -2$ **tidak** memenuhi, tetapi $-3 < \text{Re}\{s\} < -2$ berarti ROC-nya berada di sebelah kiri $s=-2$. Oleh karena itu, invers transformasinya adalah sinyal sisi kiri, yaitu $-A e^{-at}u(-t)$.
+        $$-\mathcal{L}^{-1}\left\{ \frac{2}{s+2} \right\} = - \left[ -2 e^{-2t} u(-t) \right] = 2e^{-2t}u(-t)$$
+
+    *   **Untuk suku $\frac{3}{s+3}$:** Kutubnya adalah $s=-3$. Karena ROC $\text{Re}\{s\} > -3$ **tidak** memenuhi, tetapi $-3 < \text{Re}\{s\} < -2$ berarti ROC-nya berada di sebelah kanan $s=-3$. Oleh karena itu, invers transformasinya adalah sinyal sisi kanan $A e^{-at}u(t)$.
+        $$\mathcal{L}^{-1}\left\{ \frac{3}{s+3} \right\} = 3 e^{-3t} u(t)$$
+
+**Jawaban:**
+$$x(t) = 3e^{-3t}u(t) + 2e^{-2t}u(-t)$$
+
+---
+
+### Soal 4: Analisis Sistem LTI Menggunakan Sifat Konvolusi
+
+**Pertanyaan:**
+Sebuah sistem LTI waktu kontinu memiliki respon impuls $h(t) = 4e^{-t}u(t)$. Tentukan Transformasi Laplace dari output $Y(s)$ dan sinyal output $y(t)$ jika inputnya adalah $x(t) = e^{-2t}u(t)$.
+
+**Solusi:**
+Output sistem LTI adalah konvolusi input dan respons impuls, $y(t) = x(t) * h(t)$. Dalam domain Laplace, konvolusi menjadi perkalian: $Y(s) = X(s)H(s)$.
+
+1.  **Menentukan $X(s)$ dan $H(s)$:**
+    Menggunakan Transformasi Laplace standar untuk $e^{-at}u(t) \leftrightarrow 1/(s+a), \text{Re}\{s\} > -a$:
+    $$X(s) = \mathcal{L}\{e^{-2t}u(t)\} = \frac{1}{s+2}, \quad \text{ROC}_X: \text{Re}\{s\} > -2$$
+    $$H(s) = \mathcal{L}\{4e^{-t}u(t)\} = \frac{4}{s+1}, \quad \text{ROC}_H: \text{Re}\{s\} > -1$$
+
+2.  **Menghitung $Y(s)$:**
+    $$Y(s) = X(s)H(s) = \frac{4}{(s+1)(s+2)}$$
+    ROC $Y(s)$ adalah irisan dari $\text{ROC}_X$ dan $\text{ROC}_H$, yaitu $\text{Re}\{s\} > -1$.
+
+3.  **Ekspansi Pecahan Parsial (PFE) untuk $Y(s)$:**
+    $$Y(s) = \frac{A}{s+1} + \frac{B}{s+2}$$
+    $$A = (s+1)Y(s) \Big|_{s=-1} = \frac{4}{-1+2} = 4$$
+    $$B = (s+2)Y(s) \Big|_{s=-2} = \frac{4}{-2+1} = -4$$
+    $$Y(s) = \frac{4}{s+1} - \frac{4}{s+2}$$
+
+4.  **Menentukan Transformasi Invers $y(t)$:**
+    Karena ROC adalah $\text{Re}\{s\} > -1$, kedua suku adalah sinyal sisi kanan:
+    $$y(t) = \mathcal{L}^{-1}\{Y(s)\} = 4e^{-t}u(t) - 4e^{-2t}u(t)$$
+
+**Jawaban:**
+$$Y(s) = \frac{4}{(s+1)(s+2)}, \quad \text{ROC}: \text{Re}\{s\} > -1$$
+$$y(t) = 4(e^{-t} - e^{-2t})u(t)$$
+
+---
+
+### Soal 5: Penerapan Transformasi Laplace Unilateral (Penyelesaian PD dengan Kondisi Awal)
+
+**Pertanyaan:**
+Gunakan Transformasi Laplace Unilateral ($\mathcal{U}\mathcal{L}$) untuk menyelesaikan persamaan diferensial (PD) linear koefisien konstan berikut, dengan kondisi awal tak-nol:
+$$y'(t) + 4y(t) = 2\delta(t)$$
+dengan kondisi awal $y(0^-) = 5$. Tentukan $y(t)$ untuk $t \ge 0$.
+
+**Solusi:**
+Transformasi Laplace Unilateral sangat berguna untuk menyelesaikan PD dengan kondisi awal tak-nol.
+
+1.  **Properti Transformasi Unilateral:**
+    Kita gunakan properti diferensiasi di domain waktu untuk TUL:
+    $$\mathcal{U}\mathcal{L}\left\{ \frac{dy(t)}{dt} \right\} = sY(s) - y(0^-)$$
+
+2.  **Mengubah PD ke Domain $s$:**
+    Menggunakan $\mathcal{U}\mathcal{L}\{\delta(t)\} = 1$ dan $\mathcal{U}\mathcal{L}\{y(t)\} = Y(s)$:
+    $$\mathcal{U}\mathcal{L}\{y'(t)\} + 4\mathcal{U}\mathcal{L}\{y(t)\} = 2\mathcal{U}\mathcal{L}\{\delta(t)\}$$
+    $$[sY(s) - y(0^-)] + 4Y(s) = 2(1)$$
+
+3.  **Substitusi Kondisi Awal dan Penyelesaian untuk $Y(s)$:**
+    Masukkan $y(0^-) = 5$:
+    $$sY(s) - 5 + 4Y(s) = 2$$
+    $$(s+4)Y(s) = 7$$
+    $$Y(s) = \frac{7}{s+4}$$
+
+4.  **Menentukan Transformasi Invers $y(t)$:**
+    Transformasi Invers Unilateral selalu diasumsikan sinyal sisi kanan (kausal), menggunakan pasangan $e^{-at}u(t) \leftrightarrow 1/(s+a)$:
+    $$y(t) = \mathcal{U}\mathcal{L}^{-1}\left\{ \frac{7}{s+4} \right\} = 7e^{-4t}u(t)$$
+
+**Jawaban:**
+$$y(t) = 7e^{-4t}u(t) \quad \text{untuk } t \ge 0$$
+*(Perhatikan bahwa solusi ini menggabungkan respons yang disebabkan oleh kondisi awal (zero-input response) dan input (zero-state response) menjadi respons total $y(t)$)*.
+
+# Transformasi Fourier
+
+Hubungan antara Transformasi Laplace (LT) dan Transformasi Fourier (FT) adalah hubungan **generalisasi**, di mana **Transformasi Laplace dapat dilihat sebagai bentuk yang lebih umum dan luas dari Transformasi Fourier**.
+
+Transformasi Laplace sangat penting karena menyediakan alat tambahan dan wawasan bagi sinyal dan sistem yang tidak dapat dianalisis menggunakan Transformasi Fourier, seperti sistem yang tidak stabil atau sinyal yang tidak terbatas (unbounded signals).
+
+Berikut adalah poin-poin kunci yang menjelaskan hubungan ini:
+
+### 1. Transformasi Laplace sebagai Generalisasi Matematis
+
+Transformasi Laplace bilateral, $X(s)$, didefinisikan menggunakan variabel kompleks $s$, sedangkan Transformasi Fourier, $X(j\omega)$, didefinisikan menggunakan variabel imajiner murni $j\omega$.
+
+#### A. Hubungan Variabel Kompleks
+Variabel kompleks $s$ dalam Transformasi Laplace dinyatakan dalam bentuk Cartesian sebagai berikut:
+$$s = \sigma + j\omega$$
+Di mana:
+*   $\sigma = \text{Re}\{s\}$ (bagian riil)
+*   $\omega = \text{Im}\{s\}$ (bagian imajiner)
+
+#### B. Transformasi Fourier sebagai Kasus Khusus
+Transformasi Fourier Kontinu-Waktu (CTFT) dari sinyal $x(t)$ adalah Transformasi Laplace $X(s)$ yang dievaluasi pada sumbu imajiner, yaitu ketika bagian riil $s$ sama dengan nol ($\sigma = 0$).
+
+$$\mathcal{F}\{x(t)\} = X(j\omega) = X(s)\Big|_{s=j\omega}$$
+
+Dengan demikian, Transformasi Fourier adalah **kasus khusus** dari Transformasi Laplace di mana perhatian dibatasi pada nilai $s$ yang murni imajiner.
+
+### 2. Interpretasi sebagai Transformasi Fourier dari Sinyal Berbobot
+
+Transformasi Laplace $X(s)$ dapat diinterpretasikan sebagai Transformasi Fourier dari sinyal yang dimodifikasi oleh fungsi eksponensial riil $e^{-\sigma t}$.
+
+Jika kita menyubstitusikan $s = \sigma + j\omega$ ke dalam definisi Laplace, kita mendapatkan:
+$$X(\sigma + j\omega) = \int_{-\infty}^{\infty} [x(t)e^{-\sigma t}]e^{-j\omega t} dt = \mathcal{F}\{x(t)e^{-\sigma t}\}(\omega)$$
+
+Karena Transformasi Laplace dapat dilihat sebagai Transformasi Fourier dari sinyal $x(t)e^{-\sigma t}$, perkalian dengan eksponensial riil $e^{-\sigma t}$ memungkinkan sinyal yang tumbuh (misalnya, $e^{2t}u(t)$) menjadi "dilebur" (weighted) menjadi sinyal yang absolut *integrable* (dapat diintegralkan secara absolut), sehingga Transformasi Fourier dari sinyal berbobot tersebut dapat **konvergen**. Hal ini memungkinkan LT diterapkan pada kelas sinyal yang lebih luas dibandingkan FT.
+
+### 3. Pentingnya *Region of Convergence* (ROC)
+
+Hubungan antara Transformasi Laplace dan Transformasi Fourier sangat bergantung pada *Region of Convergence* (ROC) dari $X(s)$.
+
+1.  **Konvergensi Fourier:** Transformasi Fourier dari $x(t)$, $X(j\omega)$, **hanya akan konvergen** jika sumbu imajiner ($j\omega$-axis) termasuk dalam ROC dari $X(s)$.
+2.  **Stabilitas Sistem:** Untuk sistem LTI waktu kontinu, sistem dikatakan Stabil *Bounded-Input Bounded-Output* (BIBO) jika dan hanya jika ROC dari fungsi sistem $H(s)$ **mencakup seluruh sumbu** $j\omega$. Jika sumbu $j\omega$ berada di dalam ROC, maka respons frekuensi $H(j\omega)$ (Transformasi Fourier dari respons impuls) didefinisikan dan konvergen.
+
+Secara ringkas, Transformasi Laplace adalah alat di **domain kompleks** yang mencakup Transformasi Fourier sebagai subset-nya, dengan Transformasi Fourier hanya ada ketika sumbu imajiner $j\omega$ berada dalam wilayah konvergensi Transformasi Laplace.
+
+## Soal
+Tentu. Transformasi Fourier (FT), termasuk Continuous-Time Fourier Transform (CTFT) dan Discrete-Time Fourier Transform (DTFT), adalah alat fundamental untuk menganalisis sinyal dan sistem LTI di domain frekuensi.
+
+Berikut adalah 5 soal mengenai Transformasi Fourier, mencakup konsep dasar, sifat, dan penerapannya pada sistem LTI, beserta solusinya berdasarkan materi sumber:
+
+---
+
+### Soal 1: Transformasi Fourier dari Sinyal Impuls Kontinu
+
+**Pertanyaan:**
+Tentukan Transformasi Fourier Kontinu-Waktu (CTFT), $X(j\omega)$, dari fungsi impuls unit $x(t) = \delta(t)$.
+
+**Solusi:**
+Definisi Transformasi Fourier Kontinu-Waktu (CTFT) dari sinyal $x(t)$ adalah:
+$$X(j\omega) = \int_{-\infty}^{\infty} x(t)e^{-j\omega t} dt$$
+
+1.  **Substitusi Sinyal:**
+    Substitusikan $x(t) = \delta(t)$:
+    $$X(j\omega) = \int_{-\infty}^{\infty} \delta(t)e^{-j\omega t} dt$$
+
+2.  **Menggunakan Sifat *Sifting*:**
+    Berdasarkan sifat *sifting* dari fungsi impuls unit, integral tersebut mengevaluasi fungsi $e^{-j\omega t}$ pada $t=0$:
+    $$X(j\omega) = e^{-j\omega(0)}$$
+    $$X(j\omega) = 1$$
+
+**Jawaban:**
+Transformasi Fourier dari impuls unit adalah kontribusi yang sama pada semua frekuensi, yaitu:
+$$X(j\omega) = 1$$
+
+---
+
+### Soal 2: Transformasi Fourier Menggunakan Properti Pergeseran Waktu
+
+**Pertanyaan:**
+Gunakan properti Transformasi Fourier untuk menentukan $X(j\omega)$ dari sinyal langkah unit yang digeser, $x(t) = u(t-1)$.
+
+**Solusi:**
+Kita dapat menggunakan properti Pergeseran Waktu (Time Shifting).
+
+1.  **Sinyal Dasar dan Transformasinya:**
+    Transformasi Fourier dari sinyal langkah unit $u(t)$ adalah pasangan dasar yang diketahui:
+    $$u(t) \longleftrightarrow X_u(j\omega) = \pi\delta(\omega) + \frac{1}{j\omega}$$
+
+2.  **Properti Pergeseran Waktu:**
+    Jika $x(t) \longleftrightarrow X(j\omega)$, maka pergeseran waktu $x(t-t_0)$ akan menghasilkan $e^{-j\omega t_0} X(j\omega)$. Dalam kasus ini, $t_0 = 1$.
+
+3.  **Penerapan Properti:**
+    $$u(t-1) \longleftrightarrow e^{-j\omega(1)} \cdot X_u(j\omega)$$
+    $$X(j\omega) = e^{-j\omega} \left( \pi\delta(\omega) + \frac{1}{j\omega} \right)$$
+
+**Jawaban:**
+$$X(j\omega) = \pi e^{-j\omega}\delta(\omega) + \frac{e^{-j\omega}}{j\omega}$$
+
+---
+
+### Soal 3: Transformasi Fourier dari Sinyal Waktu Diskrit (DTFT)
+
+**Pertanyaan:**
+Tentukan Transformasi Fourier Waktu Diskrit (DTFT), $X(e^{j\Omega})$, dari urutan impuls unit $x[n] = \delta[n]$.
+
+**Solusi:**
+Definisi DTFT dari urutan $x[n]$ adalah:
+$$X(e^{j\Omega}) = \sum_{n=-\infty}^{\infty} x[n]e^{-j\Omega n}$$
+
+1.  **Substitusi Urutan:**
+    Substitusikan $x[n] = \delta[n]$:
+    $$X(e^{j\Omega}) = \sum_{n=-\infty}^{\infty} \delta[n]e^{-j\Omega n}$$
+
+2.  **Evaluasi Jumlah (*Summation*):**
+    Karena $\delta[n]$ hanya bernilai non-nol (yaitu 1) pada $n=0$, jumlah tersebut hanya menyisakan satu suku:
+    $$X(e^{j\Omega}) = \deltae^{-j\Omega(0)}$$
+    $$X(e^{j\Omega}) = 1 \cdot 1 = 1$$
+
+**Jawaban:**
+Transformasi Fourier Waktu Diskrit dari urutan impuls unit adalah:
+$$X(e^{j\Omega}) = 1$$
+
+---
+
+### Soal 4: Penerapan Sifat Konvolusi pada Analisis Sistem LTI
+
+**Pertanyaan:**
+Sistem LTI waktu kontinu stabil memiliki respons impuls $h(t) = e^{-2t}u(t)$. Jika input sistem adalah $x(t) = e^{-3t}u(t)$, tentukan Transformasi Fourier dari output sistem, $Y(j\omega)$.
+
+**Solusi:**
+Output $y(t)$ dari sistem LTI adalah konvolusi dari input $x(t)$ dan respons impuls $h(t)$, $y(t) = x(t) * h(t)$.
+Berdasarkan Properti Konvolusi Transformasi Fourier, konvolusi di domain waktu setara dengan perkalian di domain frekuensi:
+$$Y(j\omega) = X(j\omega)H(j\omega)$$
+
+1.  **Menentukan $X(j\omega)$ dan $H(j\omega)$:**
+    Kita menggunakan pasangan Transformasi Fourier dasar untuk sinyal eksponensial kausal, $e^{-at}u(t) \longleftrightarrow \frac{1}{a+j\omega}$:
+    $$X(j\omega) = \mathcal{F}\{e^{-3t}u(t)\} = \frac{1}{3+j\omega}$$
+    $$H(j\omega) = \mathcal{F}\{e^{-2t}u(t)\} = \frac{1}{2+j\omega}$$
+
+2.  **Menghitung $Y(j\omega)$:**
+    $$Y(j\omega) = X(j\omega)H(j\omega) = \left( \frac{1}{3+j\omega} \right) \left( \frac{1}{2+j\omega} \right)$$
+
+**Jawaban:**
+$$Y(j\omega) = \frac{1}{(3+j\omega)(2+j\omega)}$$
+
+---
+
+### Soal 5: Menentukan Respon Frekuensi dari Persamaan Diferensial LCCDE
+
+**Pertanyaan:**
+Tentukan Respon Frekuensi $H(j\omega)$ dari sistem LTI waktu kontinu yang dikarakterisasi oleh Persamaan Diferensial Linear Koefisien Konstan (LCCDE) berikut, dengan asumsi sistem pada kondisi diam awal (initially at rest):
+$$\frac{dy(t)}{dt} + 4y(t) = \frac{dx(t)}{dt} + 2x(t)$$
+
+**Solusi:**
+Kita menggunakan properti Transformasi Fourier yang mengubah diferensiasi di domain waktu menjadi perkalian dengan $j\omega$ di domain frekuensi. Respon frekuensi $H(j\omega)$ adalah rasio $Y(j\omega)/X(j\omega)$.
+
+1.  **Transformasikan LCCDE ke Domain Fourier:**
+    Menggunakan properti diferensiasi $\mathcal{F}\{\frac{dz(t)}{dt}\} = j\omega Z(j\omega)$:
+    $$\mathcal{F}\left\{\frac{dy(t)}{dt}\right\} + \mathcal{F}\{4y(t)\} = \mathcal{F}\left\{\frac{dx(t)}{dt}\right\} + \mathcal{F}\{2x(t)\}$$
+    $$(j\omega Y(j\omega)) + 4Y(j\omega) = (j\omega X(j\omega)) + 2X(j\omega)$$
+
+2.  **Faktorkan $Y(j\omega)$ dan $X(j\omega)$:**
+    $$Y(j\omega)(j\omega + 4) = X(j\omega)(j\omega + 2)$$
+
+3.  **Tentukan Respon Frekuensi $H(j\omega)$:**
+    $$H(j\omega) = \frac{Y(j\omega)}{X(j\omega)} = \frac{j\omega + 2}{j\omega + 4}$$
+
+**Jawaban:**
+Respon Frekuensi sistem adalah rasio polinomial dalam $j\omega$:
+$$H(j\omega) = \frac{j\omega + 2}{j\omega + 4}$$
+
