@@ -1,0 +1,94 @@
+\contentsline {chapter}{Petunjuk Belajar Mata Kuliah Sinyal dan Sistem}{3}{chapter*.2}%
+\contentsline {section}{\textbf {I. Fondasi VALORAIZE Learning: Membangun Keahlian Profesional}}{3}{section*.3}%
+\contentsline {section}{\textbf {II. Strategi Belajar Umum untuk Sinyal dan Sistem}}{6}{section*.4}%
+\contentsline {chapter}{Tinjauan Kuliah}{8}{chapter*.5}%
+\contentsline {section}{\textbf {Gambaran Umum Mata Kuliah Sinyal dan Sistem (EL2007)}}{8}{section*.6}%
+\contentsline {section}{\textbf {I. Pilar Pembelajaran VALORAIZE Learning}}{9}{section*.7}%
+\contentsline {section}{\textbf {II. Cakupan Materi Mata Kuliah (Distribusi Umum)}}{10}{section*.8}%
+\contentsline {chapter}{\numberline {1}Materi Pembelajaran Minggu 1: Deskripsi Matematis Sinyal Waktu Kontinu}{12}{chapter.1}%
+\contentsline {section}{\numberline {1.1}1.1 Pengenalan Sinyal Waktu Kontinu (Continuous-Time Signals)}{12}{section.1.1}%
+\contentsline {section}{\numberline {1.2}1.2 Klasifikasi Sinyal Waktu Kontinu}{13}{section.1.2}%
+\contentsline {section}{\numberline {1.3}1.3 Operasi Dasar pada Sinyal Waktu Kontinu}{13}{section.1.3}%
+\contentsline {section}{\numberline {1.4}1.4 Pengenalan Sistem Waktu Kontinu (Continuous-Time Systems)}{14}{section.1.4}%
+\contentsline {section}{\numberline {1.5}1.5 Sifat Dasar Sistem Waktu Kontinu}{14}{section.1.5}%
+\contentsline {section}{\numberline {1.6}Peta Pengetahuan Primitif: Sinyal \& Sistem Waktu Kontinu}{15}{section.1.6}%
+\contentsline {section}{\numberline {1.7}Kendaraan Matematika (Mathematical Vehicles)}{16}{section.1.7}%
+\contentsline {chapter}{\numberline {2}Materi Kuliah Minggu 2: Deskripsi Sistem di Domain Waktu dan Sifat-sifat Dasarnya}{18}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Peta Pengetahuan Primitif (Primitive Knowledge Map) Minggu 2: Deskripsi Sistem di Domain Waktu}{20}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Kendaraan yang Diperlukan untuk Peta Pengetahuan Primitif:}{21}{section.2.2}%
+\contentsline {chapter}{\numberline {3}Sistem LTI dan LCCDE}{22}{chapter.3}%
+\contentsline {chapter}{\numberline {4}Materi Pembelajaran Minggu 3: Analisis Sistem di Domain Waktu}{23}{chapter.4}%
+\contentsline {section}{\numberline {4.1}3.1 Sistem LTI (Linear Time-Invariant Systems)}{23}{section.4.1}%
+\contentsline {section}{\numberline {4.2}3.2 Konvolusi (Convolution)}{23}{section.4.2}%
+\contentsline {section}{\numberline {4.3}3.3 Persamaan Diferensial Linear Koefisien Konstan (LCCDEs)}{24}{section.4.3}%
+\contentsline {chapter}{\numberline {5}Peta Pengetahuan Primitif: Analisis Sistem di Domain Waktu (Minggu 3)}{26}{chapter.5}%
+\contentsline {chapter}{\numberline {6}Kendaraan Matematika (Mathematical Vehicles) untuk Minggu 3}{28}{chapter.6}%
+\contentsline {chapter}{\numberline {7}20 Soal Latihan (Tanpa Solusi)}{30}{chapter.7}%
+\contentsline {chapter}{\numberline {8}Daftar Kendaraan yang Digunakan}{32}{chapter.8}%
+\contentsline {chapter}{\numberline {9}I. Materi Pembelajaran Minggu 4: Analisis Sistem di Domain Waktu}{33}{chapter.9}%
+\contentsline {subsection}{\numberline {9.0.1}Konsep Kunci:}{33}{subsection.9.0.1}%
+\contentsline {subsubsection}{\numberline {9.0.1.1}1. Konvolusi untuk Sistem LTI Waktu Kontinu (CT Convolution)}{33}{subsubsection.9.0.1.1}%
+\contentsline {subsubsection}{\numberline {9.0.1.2}2. Persamaan Diferensial Linear Koefisien Konstan (LCCDEs)}{33}{subsubsection.9.0.1.2}%
+\contentsline {subsubsection}{\numberline {9.0.1.3}3. Solusi LCCDEs}{34}{subsubsection.9.0.1.3}%
+\contentsline {section}{\numberline {9.1}II. Peta Pengetahuan Primitif: Analisis Sistem di Domain Waktu (Minggu 4)}{34}{section.9.1}%
+\contentsline {subsection}{\numberline {9.1.1}Kendaraan Matematika dan Konseptual untuk Minggu 4}{34}{subsection.9.1.1}%
+\contentsline {section}{\numberline {9.2}III. 20 Soal Latihan Minggu 4 (Analisis Domain Waktu)}{35}{section.9.2}%
+\contentsline {section}{\numberline {9.3}V. Daftar Kendaraan yang Digunakan}{39}{section.9.3}%
+\contentsline {chapter}{\numberline {10}1) Analisis Materi Minggu ke-5 (RPS.pdf)}{41}{chapter.10}%
+\contentsline {section}{\numberline {10.1}(a) Inti Materi Kuliah Minggu ke-5}{41}{section.10.1}%
+\contentsline {section}{\numberline {10.2}(b) Ontologi Pengetahuan dan Ekspresi Prolog}{42}{section.10.2}%
+\contentsline {section}{\numberline {10.3}(c) Diagram Graphviz Peta Pengetahuan Dasar}{43}{section.10.3}%
+\contentsline {section}{\numberline {10.4}(d) Kendaraan yang Diperlukan}{44}{section.10.4}%
+\contentsline {chapter}{\numberline {11}2) 20 Soal Tanpa Solusi (Minggu 5)}{45}{chapter.11}%
+\contentsline {chapter}{\numberline {12}3) Peta Pengetahuan Aplikatif dan Solusi}{50}{chapter.12}%
+\contentsline {section}{\numberline {12.1}Soal 1: Konvolusi Pulsa Persegi}{50}{section.12.1}%
+\contentsline {subsection}{\numberline {12.1.1}3a) Peta Pengetahuan Aplikatif (PMA) WK5-CV-L3-P01}{50}{subsection.12.1.1}%
+\contentsline {subsection}{\numberline {12.1.2}3b) Diagram Graphviz PMA WK5-CV-L3-P01}{51}{subsection.12.1.2}%
+\contentsline {subsection}{\numberline {12.1.3}3c) Solusi WK5-CV-L3-P01}{51}{subsection.12.1.3}%
+\contentsline {section}{\numberline {12.2}Soal 5: Solusi Partikular PD (Resonansi)}{52}{section.12.2}%
+\contentsline {subsection}{\numberline {12.2.1}3a) Peta Pengetahuan Aplikatif (PMA) WK5-DE-L4-P05}{52}{subsection.12.2.1}%
+\contentsline {subsection}{\numberline {12.2.2}3b) Diagram Graphviz PMA WK5-DE-L4-P05}{53}{subsection.12.2.2}%
+\contentsline {subsection}{\numberline {12.2.3}3c) Solusi WK5-DE-L4-P05}{53}{subsection.12.2.3}%
+\contentsline {section}{\numberline {12.3}Soal 7: Konvolusi Kaskade dan Sifat Komutatif}{54}{section.12.3}%
+\contentsline {subsection}{\numberline {12.3.1}3a) Peta Pengetahuan Aplikatif (PMA) WK5-CV-L5-P07}{54}{subsection.12.3.1}%
+\contentsline {subsection}{\numberline {12.3.2}3b) Diagram Graphviz PMA WK5-CV-L5-P07}{55}{subsection.12.3.2}%
+\contentsline {subsection}{\numberline {12.3.3}3c) Solusi WK5-CV-L5-P07}{55}{subsection.12.3.3}%
+\contentsline {section}{\numberline {12.4}Soal 10: Desain Persamaan Diferensial (PD)}{56}{section.12.4}%
+\contentsline {subsection}{\numberline {12.4.1}3a) Peta Pengetahuan Aplikatif (PMA) WK5-DS-L6-P10}{56}{subsection.12.4.1}%
+\contentsline {subsection}{\numberline {12.4.2}3b) Diagram Graphviz PMA WK5-DS-L6-P10}{57}{subsection.12.4.2}%
+\contentsline {subsection}{\numberline {12.4.3}3c) Solusi WK5-DS-L6-P10}{57}{subsection.12.4.3}%
+\contentsline {section}{\numberline {12.5}Soal 7: Solusi Lengkap PD (Respon Total)}{58}{section.12.5}%
+\contentsline {subsection}{\numberline {12.5.1}3a) Peta Pengetahuan Aplikatif (PMA) WK5-DE-L4-P17}{58}{subsection.12.5.1}%
+\contentsline {subsection}{\numberline {12.5.2}3b) Diagram Graphviz PMA WK5-DE-L4-P17}{59}{subsection.12.5.2}%
+\contentsline {subsection}{\numberline {12.5.3}3c) Solusi WK5-DE-L4-P17}{59}{subsection.12.5.3}%
+\contentsline {section}{\numberline {12.6}Soal 19: Analisis Stabilitas Kaskade (Pembatalan Pole/Zero)}{60}{section.12.6}%
+\contentsline {subsection}{\numberline {12.6.1}3a) Peta Pengetahuan Aplikatif (PMA) WK5-AN-L5-P19}{60}{subsection.12.6.1}%
+\contentsline {subsection}{\numberline {12.6.2}3b) Diagram Graphviz PMA WK5-AN-L5-P19}{61}{subsection.12.6.2}%
+\contentsline {subsection}{\numberline {12.6.3}3c) Solusi WK5-AN-L5-P19}{61}{subsection.12.6.3}%
+\contentsline {chapter}{\numberline {13}4) Daftar Kendaraan yang Digunakan}{63}{chapter.13}%
+\contentsline {section}{\numberline {13.1}A. Matematika (Fundamental)}{63}{section.13.1}%
+\contentsline {section}{\numberline {13.2}B. Diagram \& Visualisasi}{63}{section.13.2}%
+\contentsline {section}{\numberline {13.3}C. Operasi Dasar Sinyal/Sistem \& Definisi}{63}{section.13.3}%
+\contentsline {section}{\numberline {13.4}D. Transformasi (Algoritma)}{64}{section.13.4}%
+\contentsline {section}{\numberline {13.5}E. Heuristik (Meta-Kendaraan Strategis)}{64}{section.13.5}%
+\contentsline {chapter}{\numberline {14}DERET FOURIER (FOURIER SERIES)}{65}{chapter.14}%
+\contentsline {section}{\numberline {14.1}1) Tujuan Belajar, Inti Materi, Ontologi, Peta Pengetahuan Dasar, dan Kendaraan}{65}{section.14.1}%
+\contentsline {subsection}{\numberline {14.1.1}(a) Inti Materi Kuliah Minggu Tersebut}{65}{subsection.14.1.1}%
+\contentsline {subsection}{\numberline {14.1.2}(b) Ontologi Pengetahuan Materi Deret Fourier (DF) dan Ekspresi Prolog}{66}{subsection.14.1.2}%
+\contentsline {subsection}{\numberline {14.1.3}(c) Peta Pengetahuan Dasar (Mengacu pada Ontologi)}{67}{subsection.14.1.3}%
+\contentsline {subsection}{\numberline {14.1.4}(d) Diagram Graphviz untuk Peta Pengetahuan Dasar}{68}{subsection.14.1.4}%
+\contentsline {subsection}{\numberline {14.1.5}(e) Kendaraan yang Diperlukan (Vehicles)}{68}{subsection.14.1.5}%
+\contentsline {section}{\numberline {14.2}2) 20 Soal Deret Fourier Berdasarkan Taksonomi Bloom}{69}{section.14.2}%
+\contentsline {section}{\numberline {14.3}3) Peta Pengetahuan Aplikatif dan Solusi (5 Soal Representatif)}{76}{section.14.3}%
+\contentsline {subsection}{\numberline {14.3.1}Soal Representatif 1: No.\nobreakspace {}3 {[}DF\_C2{]}{[}CT\_PRP{]}}{76}{subsection.14.3.1}%
+\contentsline {subsection}{\numberline {14.3.2}Soal Representatif 2: No.\nobreakspace {}6 {[}DF\_C3{]}{[}CT\_PROP{]}}{77}{subsection.14.3.2}%
+\contentsline {subsection}{\numberline {14.3.3}Soal Representatif 3: No.\nobreakspace {}8 {[}DF\_C4{]}{[}LTI\_RESP{]}}{79}{subsection.14.3.3}%
+\contentsline {subsection}{\numberline {14.3.4}Soal Representatif 4: No.\nobreakspace {}14 {[}DF\_C5{]}{[}FILTER\_RC{]}}{80}{subsection.14.3.4}%
+\contentsline {subsection}{\numberline {14.3.5}Soal Representatif 5: No.\nobreakspace {}19 {[}DF\_C6{]}{[}CT\_PROP{]}}{82}{subsection.14.3.5}%
+\contentsline {section}{\numberline {14.4}4) Daftar Kendaraan yang Digunakan}{83}{section.14.4}%
+\contentsline {chapter}{\numberline {15}Latihan UTS}{85}{chapter.15}%
+\contentsline {chapter}{\numberline {16}Lampiran Petunjuk Penggunaan Alat Bantu dan Kendaraan dalam Sinyal dan Sistem (VALORAIZE Learning)}{86}{chapter.16}%
+\contentsline {section}{\numberline {16.1}\textbf {I. Kategori Kendaraan Pemecahan Masalah}}{86}{section.16.1}%
+\contentsline {section}{\numberline {16.2}\textbf {II. Alat Bantu Umum (General Purpose Tools)}}{90}{section.16.2}%
+\contentsline {chapter}{References}{91}{chapter*.9}%
+\providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 
