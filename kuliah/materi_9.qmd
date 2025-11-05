@@ -22,14 +22,21 @@ CTFT memiliki berbagai properti penting yang menghubungkan domain waktu dan doma
 2.  **Pergeseran Waktu (Time Shifting):** Pergeseran sinyal $x(t)$ dalam waktu ($t_0$) hanya memengaruhi fase spektrum tanpa mengubah magnitudo:
     $$x(t-t_0) \leftrightarrow e^{-j\omega t_0} X(j\omega)$$.
 
-3.  **Penskalaan Waktu dan Frekuensi (Time and Frequency Scaling):** Penskalaan waktu $x(at)$ menghasilkan penskalaan invers pada domain frekuensi dan amplitudo:
+3.  **Pergeseran Frekuensi (Frequency Shifting):**  perkalian sinyal  $x(t)$ di domain waktu dengan eksponensial kompleks menghasilkan pergeseran spektrum frekuensi di domain Fourier:
+    $$e^{j\omega_0 t}x(t)  \leftrightarrow X(j\omega - j\omega_0)$$
+di mana $\omega_0$ adalah konstanta riil.
+
+
+4.  **Penskalaan Waktu dan Frekuensi (Time and Frequency Scaling):** Penskalaan waktu $x(at)$ menghasilkan penskalaan invers pada domain frekuensi dan amplitudo:
     $$x(at) \leftrightarrow \frac{1}{|a|} X(\frac{j\omega}{a})$$. Ini menyiratkan bahwa kompresi waktu (a> 1) menghasilkan perluasan spektral.
 
-4.  **Konvolusi (Convolution Property):** Operasi konvolusi dalam domain waktu diterjemahkan menjadi perkalian dalam domain frekuensi:
+5.  **Konvolusi (Convolution Property):** Operasi konvolusi dalam domain waktu diterjemahkan menjadi perkalian dalam domain frekuensi:
     $$x_1(t) * x_2(t) \leftrightarrow X_1(j\omega)X_2(j\omega)$$. Properti ini sangat penting dalam analisis sistem Linear Tak Berubah Waktu (LTI).
 
-5.  **Dualitas (Duality):** Simetri antara persamaan analisis dan sintesis CTFT memungkinkan adanya pasangan transformasi dual, di mana bentuk sinyal di domain waktu berpasangan dengan bentuk spektrum yang serupa:
+6.  **Dualitas (Duality):** Simetri antara persamaan analisis dan sintesis CTFT memungkinkan adanya pasangan transformasi dual, di mana bentuk sinyal di domain waktu berpasangan dengan bentuk spektrum yang serupa:
     $$X(t) \leftrightarrow 2\pi x(-\omega)$$.
+
+
 
 ## Hubungan CTFT dengan Fourier Series
 
