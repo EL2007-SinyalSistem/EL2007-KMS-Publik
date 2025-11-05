@@ -1,0 +1,192 @@
+# Transformasi Fourier Waktu Kontinu (Continuous-Time Fourier Transform/CTFT)
+## Definisi
+Transformasi Fourier Waktu Kontinu (Continuous-Time Fourier Transform/CTFT) adalah representasi sinyal non-periodik (aperiodik) yang memungkinkan sinyal direpresentasikan sebagai integral dari eksponensial kompleks pada semua frekuensi.
+
+CTFT, yang dilambangkan $X(j\omega)$, ditemukan menggunakan **persamaan analisis** (Fourier Transform):
+
+$$X(j\omega) = \int_{-\infty}^{+\infty} x(t)e^{-j\omega t} dt$$
+
+Dan sinyal $x(t)$ dapat diperoleh kembali melalui **persamaan sintesis** (Inverse Fourier Transform):
+
+$$x(t) = \frac{1}{2\pi} \int_{-\infty}^{+\infty} X(j\omega)e^{j\omega t} d\omega$$
+
+***
+
+## Properti Utama Continuous-Time Fourier Transform (CTFT)
+
+CTFT memiliki berbagai properti penting yang menghubungkan domain waktu dan domain frekuensi:
+
+1.  **Linearitas (Linearity):** Jika $x_1(t) \leftrightarrow X_1(j\omega)$ dan $x_2(t) \leftrightarrow X_2(j\omega)$, maka kombinasi linear mereka juga berlaku di domain frekuensi:
+    $$a_1x_1(t) + a_2x_2(t) \leftrightarrow a_1X_1(j\omega) + a_2X_2(j\omega)$$.
+
+2.  **Pergeseran Waktu (Time Shifting):** Pergeseran sinyal $x(t)$ dalam waktu ($t_0$) hanya memengaruhi fase spektrum tanpa mengubah magnitudo:
+    $$x(t-t_0) \leftrightarrow e^{-j\omega t_0} X(j\omega)$$.
+
+3.  **Penskalaan Waktu dan Frekuensi (Time and Frequency Scaling):** Penskalaan waktu $x(at)$ menghasilkan penskalaan invers pada domain frekuensi dan amplitudo:
+    $$x(at) \leftrightarrow \frac{1}{|a|} X(\frac{j\omega}{a})$$. Ini menyiratkan bahwa kompresi waktu (a> 1) menghasilkan perluasan spektral.
+
+4.  **Konvolusi (Convolution Property):** Operasi konvolusi dalam domain waktu diterjemahkan menjadi perkalian dalam domain frekuensi:
+    $$x_1(t) * x_2(t) \leftrightarrow X_1(j\omega)X_2(j\omega)$$. Properti ini sangat penting dalam analisis sistem Linear Tak Berubah Waktu (LTI).
+
+5.  **Dualitas (Duality):** Simetri antara persamaan analisis dan sintesis CTFT memungkinkan adanya pasangan transformasi dual, di mana bentuk sinyal di domain waktu berpasangan dengan bentuk spektrum yang serupa:
+    $$X(t) \leftrightarrow 2\pi x(-\omega)$$.
+
+## Hubungan CTFT dengan Fourier Series
+
+Transformasi Fourier Waktu Kontinu (CTFT) dikembangkan sebagai **limit dari Deret Fourier Waktu Kontinu (CTFS)**.
+
+1.  **Pendekatan Limit:** CTFT diturunkan dengan mempertimbangkan sinyal aperiodik $x(t)$ sebagai limit dari sinyal periodik $x_T(t)$ ketika periode $T$ menjadi sangat besar ($T \to \infty$).
+2.  **Kepadatan Spektral:** Saat $T$ meningkat, frekuensi fundamental $\omega_0 = 2\pi/T$ berkurang, dan koefisien Deret Fourier ($a_k$) yang dikalikan dengan $T$ menjadi sampel yang semakin rapat dari fungsi selubung kontinyu.
+3.  **Hasil Akhir:** Ketika $T$ mendekati tak hingga, penjumlahan diskrit dalam Deret Fourier berubah menjadi integral kontinyu, dan fungsi selubung yang disampel mendekati fungsi spektrum kontinyu $X(j\omega)$ (Transformasi Fourier). Perspektif ini menekankan hubungan erat antara deret dan transformasi Fourier.
+
+## CTFT dari Sinyal Periodik
+
+Sinyal periodik, yang memiliki energi tak hingga, dapat direpresentasikan menggunakan CTFT dengan bantuan **fungsi impuls (Dirac delta)** di domain frekuensi.
+
+Jika sinyal periodik $x(t)$ memiliki representasi Deret Fourier $x(t) = \sum_{k=-\infty}^{+\infty} a_k e^{j k \omega_0 t}$, Transformasi Fouriernya $X(j\omega)$ adalah **deretan impuls** yang terletak pada frekuensi harmonik $k\omega_0$:
+
+$$X(j\omega) = \sum_{k=-\infty}^{+\infty} 2\pi a_k \delta(\omega - k\omega_0)$$.
+
+Di sini, impuls-impuls tersebut terletak pada kelipatan integer dari frekuensi fundamental $\omega_0$, dan **area setiap impuls berbanding lurus dengan koefisien Deret Fourier** yang sesuai ($2\pi a_k$).
+
+## Beberapa Kasus
+# Sinyal DC atau Konstatnta
+
+Transformasi Fourier Waktu Kontinu (Continuous-Time Fourier Transform/CTFT) dari sinyal konstan $x(t) = 1$ adalah:
+
+$$X(j\omega) = 2\pi\delta(\omega)$$
+
+Transformasi ini menunjukkan bahwa sinyal arus searah (DC), yang memiliki nilai 1 di domain waktu untuk semua $t$, hanya mengandung satu komponen frekuensi, yaitu pada $\omega = 0$.
+
+Hasil ini ditemukan dalam tabel pasangan Transformasi Fourier dasar dan dapat dibuktikan menggunakan properti dualitas dari pasangan Transformasi Fourier impuls. Karena kita tahu bahwa Transformasi Fourier dari impuls satuan $\delta(t)$ adalah 1 (yaitu, $\delta(t) \leftrightarrow 1$), maka dengan menggunakan properti Dualitas $X(t) \leftrightarrow 2\pi x(-\omega)$, kita memperoleh:
+
+$$1 \leftrightarrow 2\pi\delta(-\omega) = 2\pi\delta(\omega)$$
+
+Transformasi ini memerlukan penggunaan fungsi impuls Dirac $\delta(\omega)$ karena sinyal konstan $x(t)=1$ adalah sinyal daya (energi tak hingga) dan tidak termasuk dalam kelas sinyal yang memiliki energi terbatas (finite-energy signals), sehingga memerlukan Transformasi Fourier yang digeneralisasi (Generalized Fourier Transform).
+
+## Sinyal Sinusoidal
+
+Transformasi ini adalah dasar untuk memahami sinyal DC di domain frekuensi. Kita ingin mengetahui bagaimana kita menggunakan properti linearitas dan pergeseran frekuensi untuk mencari Transformasi Fourier dari sinyal sinusoidal, seperti $x(t) = \cos(\omega_0 t)$. Transformasi Fourier Waktu Kontinu (Continuous-Time Fourier Transform/CTFT) dari sinyal kosinus $x(t) = \cos(\omega_0 t)$ adalah:
+
+$$X(j\omega) = \pi\delta(\omega - \omega_0) + \pi\delta(\omega + \omega_0)$$
+
+Hasil ini menunjukkan bahwa sinyal sinusoidal terdiri dari dua komponen frekuensi murni, yang direpresentasikan oleh **impuls Dirac** pada frekuensi $\omega_0$ dan $-\omega_0$.
+
+### Derivasi Menggunakan Properti Linearitas dan Pergeseran Frekuensi
+
+Transformasi ini dapat diturunkan dengan menggabungkan dua properti utama CTFT:
+
+1.  **Dekomposisi Sinyal (Menggunakan Linearitas):**
+    Sinyal $x(t) = \cos(\omega_0 t)$ pertama kali diuraikan menjadi eksponensial kompleks menggunakan identitas Euler:
+    $$x(t) = \frac{1}{2}e^{j\omega_0 t} + \frac{1}{2}e^{-j\omega_0 t}$$
+    Karena CTFT adalah operasi linier, Transformasi Fourier dari $x(t)$ adalah jumlah dari Transformasi Fourier dari masing-masing komponen eksponensial.
+
+2.  **Properti Eksponensial Kompleks (Pergeseran Frekuensi):**
+    Transformasi Fourier dari sinyal eksponensial kompleks $e^{j\omega_0 t}$ adalah implikasi dari Properti Pergeseran Frekuensi (Frequency Shifting Property), di mana Transformasi Fourier dari konstanta 1 adalah $2\pi\delta(\omega)$.
+    Secara umum, Transformasi Fourier dari eksponensial kompleks adalah impuls yang digeser dalam domain frekuensi:
+    $$e^{j\lambda t} \leftrightarrow 2\pi\delta(\omega - \lambda)$$
+    Menerapkan ini pada kedua komponen:
+    $$\mathcal{F}\{e^{j\omega_0 t}\} = 2\pi\delta(\omega - \omega_0)$$
+    $$\mathcal{F}\{e^{-j\omega_0 t}\} = 2\pi\delta(\omega - (-\omega_0)) = 2\pi\delta(\omega + \omega_0)$$
+
+3.  **Aplikasi Linearitas:**
+    Menggabungkan komponen-komponen ini menggunakan properti linearitas:
+    $$X(j\omega) = \mathcal{F}\{\frac{1}{2}e^{j\omega_0 t}\} + \mathcal{F}\{\frac{1}{2}e^{-j\omega_0 t}\}$$
+    $$X(j\omega) = \frac{1}{2} (2\pi\delta(\omega - \omega_0)) + \frac{1}{2} (2\pi\delta(\omega + \omega_0))$$
+    Sehingga diperoleh Transformasi Fourier akhirnya:
+    $$X(j\omega) = \pi\delta(\omega - \omega_0) + \pi\delta(\omega + \omega_0)$$
+
+Transformasi Fourier dari sinyal periodik seperti $\cos(\omega_0 t)$ harus didefinisikan menggunakan fungsi impuls, yang merupakan bagian dari konsep **Generalized Fourier Transform**.
+
+Transformasi Fourier Waktu Kontinu (CTFT) dari sinyal sinus murni $x(t) = \sin(\omega_0 t)$ adalah:
+
+$$X(j\omega) = j\pi [\delta(\omega + \omega_0) - \delta(\omega - \omega_0)]$$
+
+Transformasi ini menunjukkan bahwa, berbeda dengan $\cos(\omega_0 t)$ yang Transformasi Fouriernya bernilai riil (hanya impuls positif), $\sin(\omega_0 t)$ memiliki spektrum yang sepenuhnya imajiner, mencerminkan sifatnya yang ganjil (odd) terhadap waktu.
+
+### Derivasi Menggunakan Identitas Euler dan Linearitas
+
+Transformasi Fourier diperoleh dengan menggunakan identitas Euler dan properti Linearitas dari CTFT:
+
+1.  **Menguraikan sinyal menggunakan Identitas Euler:**
+    Sinyal $x(t) = \sin(\omega_0 t)$ diuraikan menjadi dua eksponensial kompleks:
+    $$x(t) = \frac{1}{2j} e^{j\omega_0 t} - \frac{1}{2j} e^{-j\omega_0 t}$$
+
+2.  **Menerapkan Transformasi Fourier (Linearitas dan Pergeseran Frekuensi):**
+    Menggunakan properti linearitas dan Transformasi Fourier tergeneralisasi untuk eksponensial kompleks ($\mathcal{F}\{e^{j\lambda t}\} = 2\pi\delta(\omega - \lambda)$):
+    $$X(j\omega) = \mathcal{F}\{\frac{1}{2j} e^{j\omega_0 t}\} - \mathcal{F}\{\frac{1}{2j} e^{-j\omega_0 t}\}$$
+    $$X(j\omega) = \frac{1}{2j} [2\pi\delta(\omega - \omega_0)] - \frac{1}{2j} [2\pi\delta(\omega + \omega_0)]$$
+
+3.  **Penyederhanaan:**
+    $$X(j\omega) = \frac{\pi}{j} \delta(\omega - \omega_0) - \frac{\pi}{j} \delta(\omega + \omega_0)$$
+    Karena $1/j = -j$, kita mendapatkan:
+    $$X(j\omega) = -j\pi \delta(\omega - \omega_0) + j\pi \delta(\omega + \omega_0)$$
+    Atau disederhanakan menjadi:
+    $$X(j\omega) = j\pi [\delta(\omega + \omega_0) - \delta(\omega - \omega_0)]$$
+
+## Hubungan dengan Deret Fourier
+
+Seperti yang dibahas sebelumnya, CTFT sinyal periodik adalah deretan impuls di domain frekuensi, di mana luas impuls berbanding lurus dengan koefisien Deret Fourier $a_k$ (yaitu, $2\pi a_k$).
+
+Untuk $x(t) = \sin(\omega_0 t)$:
+*   Koefisien Deret Fourier untuk harmonik positif ($k=1$) adalah $a_1 = 1/(2j)$.
+*   Koefisien Deret Fourier untuk harmonik negatif ($k=-1$) adalah $a_{-1} = -1/(2j)$.
+*   Transformasi Fourier adalah $X(j\omega) = 2\pi a_1 \delta(\omega - \omega_0) + 2\pi a_{-1} \delta(\omega + \omega_0)$.
+*   $X(j\omega) = 2\pi (\frac{1}{2j}) \delta(\omega - \omega_0) + 2\pi (\frac{-1}{2j}) \delta(\omega + \omega_0) = \frac{\pi}{j} \delta(\omega - \omega_0) - \frac{\pi}{j} \delta(\omega + \omega_0)$, yang menghasilkan formula di atas.
+
+## Tafsiran $|X(j\omega)|^2$ sebagai Kepadatan Energi
+
+Interpretasi dari kuadrat magnitudo Transformasi Fourier Waktu Kontinu, $|X(j\omega)|^2$, adalah **Spektrum Kepadatan Energi (Energy-Density Spectrum)** dari sinyal $x(t)$.
+
+Interpretasi ini didasarkan pada **Hubungan Parseval (Parseval's Relation)** untuk sinyal berenergi terbatas (finite-energy signals). Hubungan Parseval menunjukkan bahwa total energi ($E$) sinyal $x(t)$ di domain waktu sama dengan total energi spektralnya di domain frekuensi, yaitu:
+
+$$E = \int_{-\infty}^{+\infty} |x(t)|^2 dt = \frac{1}{2\pi} \int_{-\infty}^{+\infty} |X(j\omega)|^2 d\omega$$.
+
+
+Karena total energi sinyal $E$ dapat ditentukan dengan mengintegrasikan kuantitas $|X(j\omega)|^2 / (2\pi)$ pada semua frekuensi, maka kuantitas $|X(j\omega)|^2$ tersebut disebut sebagai **Spektrum Kepadatan Energi** sinyal $x(t)$.
+
+1.  **Distribusi Energi:** Spektrum Kepadatan Energi ($|X(j\omega)|^2$) **menunjukkan bagaimana energi dalam sinyal $x(t)$ didistribusikan terhadap frekuensi**.
+2.  **Kepadatan Per Unit Frekuensi:** $|X(j\omega)|^2$ adalah metrik untuk **kepadatan energi per unit frekuensi**.
+3.  **Energi Pita Frekuensi:** Jumlah $|X(j\omega)|^2 d\omega / (2\pi)$ dapat dianggap sebagai jumlah energi dalam sinyal $x(t)$ yang terletak dalam pita frekuensi sangat kecil antara $\omega$ dan $\omega + d\omega$.
+4.  **Aplikasi Pemfilteran:** Dalam konteks praktis, jika kita mempertimbangkan pita frekuensi kecil ($\Delta\omega$) di sekitar frekuensi $\omega_0$, energi dalam sinyal di pita tersebut adalah proporsional terhadap $\Delta\omega |X(j\omega_0)|^2$. Oleh karena alasan inilah, $|X(j\omega)|^2$ dianggap sebagai spektrum kepadatan energi.
+
+## Analisa Sistem LTI
+Analisis Transformasi Fourier Waktu Kontinu (CTFT) **sangat efektif** dalam menganalisis Sistem Linear Tak Berubah Waktu (LTI) yang dijelaskan oleh Persamaan Diferensial Koefisien Konstan Linear (LCCDE).
+
+Metode ini, yang menggunakan **properti konvolusi**, mengubah masalah diferensial yang kompleks di domain waktu menjadi operasi aljabar sederhana di domain frekuensi.
+
+Mari kita analisis persamaan diferensial yang Anda sebutkan:
+$$\frac{dy(t)}{dt} + 3y(t) = x(t)$$
+
+### 1. Transformasi Persamaan Diferensial
+
+Langkah pertama adalah menerapkan Transformasi Fourier ke seluruh persamaan. Ini dimungkinkan karena Transformasi Fourier mengubah persamaan diferensial menjadi persamaan aljabar.
+
+Menggunakan **properti Linearitas** CTFT:
+$$\mathcal{F}\left\{\frac{dy(t)}{dt}\right\} + 3\mathcal{F}\{y(t)\} = \mathcal{F}\{x(t)\}$$
+
+Menggunakan **properti Diferensiasi** (di mana $\mathcal{F}\{\frac{dy(t)}{dt}\} = j\omega Y(j\omega)$):
+$$j\omega Y(j\omega) + 3 Y(j\omega) = X(j\omega)$$
+
+### 2. Menentukan Fungsi Respons Frekuensi ($H(j\omega)$)
+
+Sekarang, persamaan tersebut murni aljabar. Kita dapat memfaktorkan $Y(j\omega)$:
+$$Y(j\omega) (j\omega + 3) = X(j\omega)$$
+
+Fungsi Respons Frekuensi ($H(j\omega)$) didefinisikan sebagai rasio Transformasi Fourier output $Y(j\omega)$ terhadap Transformasi Fourier input $X(j\omega)$:
+$$H(j\omega) = \frac{Y(j\omega)}{X(j\omega)} = \frac{1}{j\omega + 3}$$
+
+### 3. Menggunakan Properti Konvolusi
+
+Dalam domain frekuensi, **properti Konvolusi** (Convolution Property) menyatakan bahwa respons output $Y(j\omega)$ dari sistem LTI adalah hasil **perkalian** antara Transformasi Fourier input $X(j\omega)$ dan Respons Frekuensi sistem $H(j\omega)$:
+
+$$Y(j\omega) = H(j\omega) X(j\omega)$$
+
+Untuk sistem kita:
+$$Y(j\omega) = \left(\frac{1}{j\omega + 3}\right) X(j\omega)$$
+
+### Kesimpulan
+
+Analisis di domain frekuensi memungkinkan kita untuk menghindari kalkulasi integral konvolusi di domain waktu ($y(t) = x(t) * h(t)$) dengan mengubahnya menjadi perkalian aljabar $Y(j\omega) = X(j\omega) H(j\omega)$. Untuk mendapatkan output $y(t)$ dalam domain waktu, kita cukup menerapkan Transformasi Fourier Invers (IFT) pada $Y(j\omega)$.
+
+
