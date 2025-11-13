@@ -1,0 +1,10 @@
+# Ujian Tengah Semester
+
+## soal
+{{< include uts/uts_soala.qmd >}}
+
+## Solusi
+{{< include uts/uts_solusi.qmd >}}
+
+## hasil
+[Hasil UTS]( uts/hasilUTS.pdf )

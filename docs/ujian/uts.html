@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.33">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>8&nbsp; Ujian Tengah Semester – EL-2007 Sinyal dan Sistem</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../kuliah/materi_8.html" rel="next">
+<link href="../kuliah/materi_7.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-364982630eef5352dd1537128a8ed5cb.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../ujian/uts.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Ujian Tengah Semester</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">EL-2007 Sinyal dan Sistem</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Petunjuk Belajar Mata Kuliah Sinyal dan Sistem</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Tinjauan Kuliah</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../kuliah/materi_1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Materi Pembelajaran Minggu 1: Deskripsi Matematis Sinyal Waktu Kontinu</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../kuliah/materi_2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Materi Kuliah Minggu 2: Deskripsi Sistem di Domain Waktu dan Sifat-sifat Dasarnya</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../kuliah/materi_3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Sistem LTI dan LCCDE</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../kuliah/materi_4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">I. Materi Pembelajaran Minggu 4: Analisis Sistem di Domain Waktu</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../kuliah/materi_5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">1) Analisis Materi Minggu ke-5 (RPS.pdf)</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../kuliah/materi_6.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">DERET FOURIER (FOURIER SERIES)</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../kuliah/materi_7.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Latihan UTS</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ujian/uts.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Ujian Tengah Semester</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../kuliah/materi_8.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">transformasi</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../kuliah/materi_9.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Transformasi Fourier Waktu Kontinu (Continuous-Time Fourier Transform/CTFT)</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../summary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Lampiran Petunjuk Penggunaan Alat Bantu dan Kendaraan dalam Sinyal dan Sistem (VALORAIZE Learning)</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#soal" id="toc-soal" class="nav-link active" data-scroll-target="#soal"><span class="header-section-number">8.1</span> soal</a></li>
+  <li><a href="#soal-ujian-tengah-semester-uts-sinyal-dan-sistem-2025" id="toc-soal-ujian-tengah-semester-uts-sinyal-dan-sistem-2025" class="nav-link" data-scroll-target="#soal-ujian-tengah-semester-uts-sinyal-dan-sistem-2025"><span class="header-section-number">9</span> Soal Ujian Tengah Semester (UTS) Sinyal dan Sistem 2025</a>
+  <ul class="collapse">
+  <li><a href="#soal-periodisitas-waktu-kontinu" id="toc-soal-periodisitas-waktu-kontinu" class="nav-link" data-scroll-target="#soal-periodisitas-waktu-kontinu"><span class="header-section-number">9.1</span> 1. Soal Periodisitas (Waktu Kontinu)</a></li>
+  <li><a href="#soal-cek-linearitas-dan-invariansi-waktu-lti" id="toc-soal-cek-linearitas-dan-invariansi-waktu-lti" class="nav-link" data-scroll-target="#soal-cek-linearitas-dan-invariansi-waktu-lti"><span class="header-section-number">9.2</span> 2. Soal Cek Linearitas dan Invariansi Waktu (LTI)</a></li>
+  <li><a href="#soal-konvolusi-integral-konvolusi-waktu-kontinu" id="toc-soal-konvolusi-integral-konvolusi-waktu-kontinu" class="nav-link" data-scroll-target="#soal-konvolusi-integral-konvolusi-waktu-kontinu"><span class="header-section-number">9.3</span> 3. Soal Konvolusi (Integral Konvolusi Waktu Kontinu)</a></li>
+  <li><a href="#soal-lccde-orde-1-respon-impuls" id="toc-soal-lccde-orde-1-respon-impuls" class="nav-link" data-scroll-target="#soal-lccde-orde-1-respon-impuls"><span class="header-section-number">9.4</span> 4. Soal LCCDE Orde 1 (Respon Impuls)</a></li>
+  <li><a href="#soal-lccde-orde-1-solusi-lengkap" id="toc-soal-lccde-orde-1-solusi-lengkap" class="nav-link" data-scroll-target="#soal-lccde-orde-1-solusi-lengkap"><span class="header-section-number">9.5</span> 5. Soal LCCDE Orde 1 (Solusi Lengkap)</a></li>
+  <li><a href="#soal-deret-fourier-waktu-kontinu-ctfs---koefisien" id="toc-soal-deret-fourier-waktu-kontinu-ctfs---koefisien" class="nav-link" data-scroll-target="#soal-deret-fourier-waktu-kontinu-ctfs---koefisien"><span class="header-section-number">9.6</span> 6. Soal Deret Fourier Waktu Kontinu (CTFS - Koefisien)</a></li>
+  <li><a href="#soal-deret-fourier-waktu-kontinu-ctfs---aplikasi-lti" id="toc-soal-deret-fourier-waktu-kontinu-ctfs---aplikasi-lti" class="nav-link" data-scroll-target="#soal-deret-fourier-waktu-kontinu-ctfs---aplikasi-lti"><span class="header-section-number">9.7</span> 7. Soal Deret Fourier Waktu Kontinu (CTFS - Aplikasi LTI)</a></li>
+  <li><a href="#solusi" id="toc-solusi" class="nav-link" data-scroll-target="#solusi"><span class="header-section-number">9.8</span> Solusi</a>
+  <ul class="collapse">
+  <li><a href="#solusi-ujian-tengah-semester-uts-sinyal-dan-sistem" id="toc-solusi-ujian-tengah-semester-uts-sinyal-dan-sistem" class="nav-link" data-scroll-target="#solusi-ujian-tengah-semester-uts-sinyal-dan-sistem"><span class="header-section-number">9.8.1</span> <strong>Solusi Ujian Tengah Semester (UTS) Sinyal dan Sistem</strong></a></li>
+  </ul></li>
+  <li><a href="#hasil" id="toc-hasil" class="nav-link" data-scroll-target="#hasil"><span class="header-section-number">9.9</span> hasil</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Ujian Tengah Semester</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="soal" class="level2" data-number="8.1">
+<h2 data-number="8.1" class="anchored" data-anchor-id="soal"><span class="header-section-number">8.1</span> soal</h2>
+</section>
+<section id="soal-ujian-tengah-semester-uts-sinyal-dan-sistem-2025" class="level1" data-number="9">
+<h1 data-number="9"><span class="header-section-number">9</span> Soal Ujian Tengah Semester (UTS) Sinyal dan Sistem 2025</h1>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>Rabu,22 Oktober 2025. Pk 11:00-13:00. Waktu: 2 Jam.</li>
+<li>TUTUP BUKU. Kerjakan apa adanya. Gunakan asumsi bila diperlukan</li>
+<li>Kerjakan soal-soal berikut pad lembar jawaban yang disediakan. Jangan lupa memberi Nama dan NIM pad lembar jawaban</li>
+</ul>
+</div>
+</div>
+<section id="soal-periodisitas-waktu-kontinu" class="level2" data-number="9.1">
+<h2 data-number="9.1" class="anchored" data-anchor-id="soal-periodisitas-waktu-kontinu"><span class="header-section-number">9.1</span> 1. Soal Periodisitas (Waktu Kontinu)</h2>
+<p>Tentukan apakah sinyal waktu kontinu <span class="math inline">\(x(t)\)</span> berikut adalah periodik. Jika ya, tentukan periode fundamentalnya, <span class="math inline">\(T_0\)</span>.</p>
+<p><span class="math display">\[x(t) = 5\cos(4t) - 3\sin(6t)\]</span></p>
+<p><strong>Petunjuk Konsep:</strong></p>
+<p>Sinyal waktu kontinu <span class="math inline">\(x(t)\)</span> dikatakan periodik jika terdapat nilai positif <span class="math inline">\(T\)</span> sedemikian rupa sehingga <span class="math inline">\(x(t) = x(t+T)\)</span> untuk semua nilai <span class="math inline">\(t\)</span>. Periode fundamental (<span class="math inline">\(T_0\)</span>) adalah nilai <span class="math inline">\(T\)</span> positif terkecil yang memenuhi kondisi ini.</p>
+<p>Untuk sinyal sinusoidal <span class="math inline">\(x(t) = A\cos(\omega_0 t + \phi)\)</span>, periode fundamentalnya adalah <span class="math inline">\(T_0 = 2\pi/|\omega_0|\)</span>. Sinyal yang merupakan penjumlahan dua sinyal periodik <span class="math inline">\(x_1(t)\)</span> (periode <span class="math inline">\(T_1\)</span>) dan <span class="math inline">\(x_2(t)\)</span> (periode <span class="math inline">\(T_2\)</span>) adalah periodik jika rasio <span class="math inline">\(T_1/T_2\)</span> adalah bilangan rasional. Jika <span class="math inline">\(T_1/T_2 = q/r\)</span>, di mana <span class="math inline">\(q\)</span> dan <span class="math inline">\(r\)</span> adalah bilangan bulat prima relatif, maka periode fundamental gabungannya adalah <span class="math inline">\(T_0 = rT_1 = qT_2\)</span>.</p>
+<hr>
+</section>
+<section id="soal-cek-linearitas-dan-invariansi-waktu-lti" class="level2" data-number="9.2">
+<h2 data-number="9.2" class="anchored" data-anchor-id="soal-cek-linearitas-dan-invariansi-waktu-lti"><span class="header-section-number">9.2</span> 2. Soal Cek Linearitas dan Invariansi Waktu (LTI)</h2>
+<p>Sistem waktu kontinu didefinisikan oleh hubungan input-output:</p>
+<p><span class="math display">\[y(t) = t x(t)\]</span></p>
+<p>Tunjukkan secara formal apakah sistem ini memenuhi sifat <strong>Linearitas</strong> dan <strong>Invariansi Waktu (Time-Invariance)</strong>.</p>
+<p>(Petunjuk: Linearitas harus memenuhi prinsip superposisi (aditivitas dan homogenitas). Invariansi Waktu mengharuskan pergeseran waktu pada input menghasilkan pergeseran waktu yang identik pada output).</p>
+<hr>
+</section>
+<section id="soal-konvolusi-integral-konvolusi-waktu-kontinu" class="level2" data-number="9.3">
+<h2 data-number="9.3" class="anchored" data-anchor-id="soal-konvolusi-integral-konvolusi-waktu-kontinu"><span class="header-section-number">9.3</span> 3. Soal Konvolusi (Integral Konvolusi Waktu Kontinu)</h2>
+<p>Sebuah Sistem Linear Tak-berubah Waktu (LTI) waktu kontinu sepenuhnya dikarakterisasi oleh respon impulsnya, <span class="math inline">\(h(t)\)</span>. Jika sistem memiliki respon impuls <span class="math inline">\(h(t)\)</span> dan input <span class="math inline">\(x(t)\)</span> sebagai berikut:</p>
+<p><span class="math display">\[h(t) = e^{-2t}u(t)\]</span> <span class="math display">\[x(t) = e^{-t}u(t)\]</span></p>
+<p>Hitunglah output sistem <span class="math inline">\(y(t)\)</span> menggunakan integral konvolusi:</p>
+<p><span class="math display">\[y(t) = x(t) * h(t) = \int_{-\infty}^{\infty} x(\tau)h(t-\tau)d\tau\]</span></p>
+<p>(Asumsikan <span class="math inline">\(t \ge 0\)</span>).</p>
+<hr>
+</section>
+<section id="soal-lccde-orde-1-respon-impuls" class="level2" data-number="9.4">
+<h2 data-number="9.4" class="anchored" data-anchor-id="soal-lccde-orde-1-respon-impuls"><span class="header-section-number">9.4</span> 4. Soal LCCDE Orde 1 (Respon Impuls)</h2>
+<p>Banyak sistem fisik waktu kontinu dapat dimodelkan menggunakan Persamaan Diferensial Linear Koefisien Konstan (LCCDE).</p>
+<p>Tentukan <strong>respon impuls</strong> <span class="math inline">\(h(t)\)</span> untuk sistem LTI waktu kontinu kausal yang dijelaskan oleh LCCDE orde pertama berikut:</p>
+<p><span class="math display">\[\frac{dy(t)}{dt} + 5y(t) = x(t)\]</span></p>
+<p>(Asumsikan sistem dalam kondisi diam awal (initial rest). Respon impuls <span class="math inline">\(h(t)\)</span> adalah output ketika input <span class="math inline">\(x(t) = \delta(t)\)</span>.</p>
+<hr>
+</section>
+<section id="soal-lccde-orde-1-solusi-lengkap" class="level2" data-number="9.5">
+<h2 data-number="9.5" class="anchored" data-anchor-id="soal-lccde-orde-1-solusi-lengkap"><span class="header-section-number">9.5</span> 5. Soal LCCDE Orde 1 (Solusi Lengkap)</h2>
+<p>Sistem waktu kontinu dijelaskan oleh persamaan diferensial:</p>
+<p><span class="math display">\[\frac{dy(t)}{dt} + 2y(t) = 4u(t)\]</span></p>
+<p>Jika <strong>kondisi awal</strong> sistem adalah <span class="math inline">\(y(0^-)=1\)</span>, tentukan solusi lengkap <span class="math inline">\(y(t)\)</span> untuk <span class="math inline">\(t \ge 0\)</span>.</p>
+<p>(Solusi lengkap dari persamaan diferensial terdiri dari solusi homogen <span class="math inline">\(y_h(t)\)</span> dan solusi partikular <span class="math inline">\(y_p(t)\)</span>. Kondisi awal diperlukan untuk menemukan konstanta solusi homogen).</p>
+<hr>
+</section>
+<section id="soal-deret-fourier-waktu-kontinu-ctfs---koefisien" class="level2" data-number="9.6">
+<h2 data-number="9.6" class="anchored" data-anchor-id="soal-deret-fourier-waktu-kontinu-ctfs---koefisien"><span class="header-section-number">9.6</span> 6. Soal Deret Fourier Waktu Kontinu (CTFS - Koefisien)</h2>
+<p>Sinyal waktu kontinu periodik <span class="math inline">\(x(t)\)</span> dapat diwakili sebagai penjumlahan kompleks eksponensial harmonik (Deret Fourier):</p>
+<p><span class="math display">\[x(t) = \sum_{k=-\infty}^{\infty} a_k e^{jk\omega_0 t}\]</span></p>
+<p>Sinyal waktu kontinu periodik <span class="math inline">\(x(t)\)</span> diberikan oleh:</p>
+<p><span class="math display">\[x(t) = \cos(2t)\]</span></p>
+<p>Tentukan frekuensi fundamental <span class="math inline">\(\omega_0\)</span> dan koefisien Deret Fourier kompleksnya, <span class="math inline">\(a_k\)</span>.</p>
+<p>(Petunjuk: Gunakan identitas Euler untuk menyederhanakan <span class="math inline">\(x(t)\)</span>. Koefisien <span class="math inline">\(a_k\)</span> yang dihasilkan akan berada pada harmonik tertentu).</p>
+<hr>
+</section>
+<section id="soal-deret-fourier-waktu-kontinu-ctfs---aplikasi-lti" class="level2" data-number="9.7">
+<h2 data-number="9.7" class="anchored" data-anchor-id="soal-deret-fourier-waktu-kontinu-ctfs---aplikasi-lti"><span class="header-section-number">9.7</span> 7. Soal Deret Fourier Waktu Kontinu (CTFS - Aplikasi LTI)</h2>
+<p>Sinyal input periodik <span class="math inline">\(x(t)\)</span> dengan frekuensi fundamental <span class="math inline">\(\omega_0 = 4\)</span> rad/s dilewatkan melalui sistem LTI waktu kontinu. Koefisien Deret Fourier <span class="math inline">\(x(t)\)</span> adalah <span class="math inline">\(a_k\)</span>.</p>
+<p>Sistem LTI tersebut memiliki <strong>respon frekuensi</strong> <span class="math inline">\(H(j\omega)\)</span> sebagai berikut:</p>
+<p><span class="math display">\[H(j\omega) = \frac{1}{1+j\omega}\]</span></p>
+<p>Tuliskan ekspresi untuk koefisien Deret Fourier output, <span class="math inline">\(b_k\)</span>, dalam bentuk <span class="math inline">\(a_k\)</span> dan <span class="math inline">\(k\)</span>.</p>
+<p>(Petunjuk: Ketika sinyal periodik dilewatkan melalui sistem LTI, koefisien Deret Fourier output <span class="math inline">\(b_k\)</span> dihitung dengan mengalikan koefisien input <span class="math inline">\(a_k\)</span> dengan respon frekuensi sistem <span class="math inline">\(H(j\omega)\)</span> yang dievaluasi pada frekuensi harmonik <span class="math inline">\(k\omega_0\)</span>).</p>
+</section>
+<section id="solusi" class="level2" data-number="9.8">
+<h2 data-number="9.8" class="anchored" data-anchor-id="solusi"><span class="header-section-number">9.8</span> Solusi</h2>
+<p>Tentu, berikut adalah solusi terperinci untuk 7 soal Ujian Tengah Semester (UTS) yang telah Anda susun, dengan merujuk pada prinsip-prinsip Sinyal dan Sistem yang ditemukan dalam sumber.</p>
+<section id="solusi-ujian-tengah-semester-uts-sinyal-dan-sistem" class="level3" data-number="9.8.1">
+<h3 data-number="9.8.1" class="anchored" data-anchor-id="solusi-ujian-tengah-semester-uts-sinyal-dan-sistem"><span class="header-section-number">9.8.1</span> <strong>Solusi Ujian Tengah Semester (UTS) Sinyal dan Sistem</strong></h3>
+<section id="soal-periodisitas-waktu-kontinu-1" class="level4" data-number="9.8.1.1">
+<h4 data-number="9.8.1.1" class="anchored" data-anchor-id="soal-periodisitas-waktu-kontinu-1"><span class="header-section-number">9.8.1.1</span> <strong>1. Soal Periodisitas (Waktu Kontinu)</strong></h4>
+<p><strong>Sinyal:</strong> <span class="math inline">\(x(t) = 5\cos(4t) - 3\sin(6t)\)</span></p>
+<p><strong>Solusi:</strong></p>
+<ol type="1">
+<li><p><strong>Tentukan Periode Fundamental untuk setiap komponen</strong>: Sinyal <span class="math inline">\(x(t)\)</span> merupakan penjumlahan dari dua sinyal periodik:</p>
+<ul>
+<li><span class="math inline">\(x_1(t) = 5\cos(4t)\)</span>. Frekuensi fundamental <span class="math inline">\(\omega_1 = 4\)</span> rad/s. <span class="math display">\[T_1 = \frac{2\pi}{\omega_1} = \frac{2\pi}{4} = \frac{\pi}{2}\]</span></li>
+<li><span class="math inline">\(x_2(t) = 3\sin(6t)\)</span>. Frekuensi fundamental <span class="math inline">\(\omega_2 = 6\)</span> rad/s. <span class="math display">\[T_2 = \frac{2\pi}{\omega_2} = \frac{2\pi}{6} = \frac{\pi}{3}\]</span></li>
+</ul></li>
+<li><p><strong>Cek Keterkaitan Rasional:</strong> Sinyal gabungan periodik jika rasio periodenya rasional. <span class="math display">\[\frac{T_1}{T_2} = \frac{\pi/2}{\pi/3} = \frac{3}{2}\]</span> Karena rasio <span class="math inline">\(T_1/T_2 = 3/2\)</span> adalah bilangan rasional, sinyal <span class="math inline">\(x(t)\)</span> <strong>adalah periodik</strong>.</p></li>
+<li><p><strong>Tentukan Periode Fundamental <span class="math inline">\(T_0\)</span>:</strong> <span class="math inline">\(T_0\)</span> adalah kelipatan persekutuan terkecil (KPK) dari <span class="math inline">\(T_1\)</span> dan <span class="math inline">\(T_2\)</span> yang dihitung berdasarkan rasio rasional <span class="math inline">\(3/2\)</span> (di mana 3 dan 2 adalah bilangan bulat prima relatif, <span class="math inline">\(q=3\)</span> dan <span class="math inline">\(r=2\)</span>). <span class="math display">\[T_0 = 2 \cdot T_1 = 2 \cdot \frac{\pi}{2} = \pi\]</span> Atau <span class="math display">\[T_0 = 3 \cdot T_2 = 3 \cdot \frac{\pi}{3} = \pi\]</span></p></li>
+</ol>
+<p><strong>Kesimpulan:</strong> Sinyal <span class="math inline">\(x(t)\)</span> adalah periodik dengan periode fundamental <span class="math inline">\(T_0 = \pi\)</span>.</p>
+<hr>
+</section>
+<section id="soal-cek-linearitas-dan-invariansi-waktu-lti-1" class="level4" data-number="9.8.1.2">
+<h4 data-number="9.8.1.2" class="anchored" data-anchor-id="soal-cek-linearitas-dan-invariansi-waktu-lti-1"><span class="header-section-number">9.8.1.2</span> <strong>2. Soal Cek Linearitas dan Invariansi Waktu (LTI)</strong></h4>
+<p><strong>Sistem:</strong> <span class="math inline">\(y(t) = t x(t)\)</span></p>
+<p><strong>Solusi:</strong></p>
+<ol type="1">
+<li><p><strong>Uji Linearitas (Linearity)</strong> Linearitas harus memenuhi prinsip superposisi (aditivitas dan homogenitas).</p>
+<ul>
+<li><strong>Aditivitas dan Homogenitas (Prinsip Superposisi):</strong> Misalkan input <span class="math inline">\(x(t) = a x_1(t) + b x_2(t)\)</span>. Output sistem: <span class="math display">\[y(t) = T\{a x_1(t) + b x_2(t)\} = t [a x_1(t) + b x_2(t)]\]</span> <span class="math display">\[y(t) = a [t x_1(t)] + b [t x_2(t)]\]</span> Karena <span class="math inline">\(y_1(t) = t x_1(t)\)</span> dan <span class="math inline">\(y_2(t) = t x_2(t)\)</span>, maka: <span class="math display">\[y(t) = a y_1(t) + b y_2(t)\]</span> Karena prinsip superposisi terpenuhi, <strong>sistem adalah Linear</strong>.</li>
+</ul></li>
+<li><p><strong>Uji Invariansi Waktu (Time-Invariance - TI)</strong> TI terpenuhi jika pergeseran input <span class="math inline">\(x(t-t_0)\)</span> menghasilkan pergeseran output <span class="math inline">\(y(t-t_0)\)</span>.</p>
+<ul>
+<li><strong>Output dari Input yang Digeser (<span class="math inline">\(y_d(t)\)</span>):</strong> <span class="math display">\[y_d(t) = T\{x(t-t_0)\} = t x(t-t_0)\]</span></li>
+<li><strong>Output yang Digeser (<span class="math inline">\(y_s(t)\)</span>):</strong> Kita ambil output asli <span class="math inline">\(y(t) = t x(t)\)</span>, lalu geser waktu <span class="math inline">\(t \to (t-t_0)\)</span>: <span class="math display">\[y_s(t) = y(t-t_0) = (t-t_0) x(t-t_0)\]</span></li>
+<li><strong>Perbandingan:</strong> <span class="math display">\[y_d(t) = t x(t-t_0)\]</span> <span class="math display">\[y_s(t) = t x(t-t_0) - t_0 x(t-t_0)\]</span> Karena <span class="math inline">\(y_d(t) \neq y_s(t)\)</span> (kecuali jika <span class="math inline">\(t_0=0\)</span>), <strong>sistem tidak Invarian Waktu</strong> (Time-Varying).</li>
+</ul></li>
+</ol>
+<p><strong>Kesimpulan:</strong> Sistem <span class="math inline">\(y(t) = t x(t)\)</span> adalah <strong>Linear</strong> tetapi <strong>tidak Invarian Waktu</strong>.</p>
+<hr>
+</section>
+<section id="soal-konvolusi-integral-konvolusi-waktu-kontinu-1" class="level4" data-number="9.8.1.3">
+<h4 data-number="9.8.1.3" class="anchored" data-anchor-id="soal-konvolusi-integral-konvolusi-waktu-kontinu-1"><span class="header-section-number">9.8.1.3</span> <strong>3. Soal Konvolusi (Integral Konvolusi Waktu Kontinu)</strong></h4>
+<p><strong>Sinyal:</strong> <span class="math inline">\(h(t) = e^{-2t}u(t)\)</span>, <span class="math inline">\(x(t) = e^{-t}u(t)\)</span>. Hitung <span class="math inline">\(y(t) = x(t) * h(t)\)</span>.</p>
+<p><strong>Solusi:</strong></p>
+<p>Kita akan menggunakan integral konvolusi: <span class="math display">\[y(t) = \int_{-\infty}^{\infty} x(\tau)h(t-\tau)d\tau\]</span></p>
+<ol type="1">
+<li><p><strong>Substitusi dan Batasan Integrasi:</strong></p>
+<ul>
+<li><span class="math inline">\(x(\tau) = e^{-\tau}u(\tau)\)</span></li>
+<li><span class="math inline">\(h(t-\tau) = e^{-2(t-\tau)}u(t-\tau)\)</span> Karena <span class="math inline">\(u(\tau)\)</span> memerlukan <span class="math inline">\(\tau \ge 0\)</span>, dan <span class="math inline">\(u(t-\tau)\)</span> memerlukan <span class="math inline">\(t-\tau \ge 0\)</span> (atau <span class="math inline">\(\tau \le t\)</span>), batas integrasi menjadi <span class="math inline">\([0, t]\)</span> untuk <span class="math inline">\(t \ge 0\)</span>. Untuk <span class="math inline">\(t &lt; 0\)</span>, tidak ada <em>overlap</em>, sehingga <span class="math inline">\(y(t)=0\)</span>.</li>
+</ul></li>
+<li><p><strong>Formulasi Integral (untuk <span class="math inline">\(t \ge 0\)</span>):</strong> <span class="math display">\[y(t) = \int_{0}^{t} e^{-\tau} e^{-2(t-\tau)} d\tau\]</span></p></li>
+<li><p><strong>Penyederhanaan Integran:</strong> <span class="math display">\[y(t) = \int_{0}^{t} e^{-\tau} e^{-2t} e^{2\tau} d\tau = e^{-2t} \int_{0}^{t} e^{2\tau - \tau} d\tau\]</span> <span class="math display">\[y(t) = e^{-2t} \int_{0}^{t} e^{\tau} d\tau\]</span></p></li>
+<li><p><strong>Perhitungan Integral:</strong> <span class="math display">\[y(t) = e^{-2t} [e^{\tau}]_{0}^{t} = e^{-2t} (e^t - e^0)\]</span> <span class="math display">\[y(t) = e^{-2t} (e^t - 1) = e^{-2t} e^t - e^{-2t}\]</span> <span class="math display">\[y(t) = e^{-t} - e^{-2t}\]</span></p></li>
+</ol>
+<p><strong>Kesimpulan:</strong> Mengingat batasan <span class="math inline">\(t \ge 0\)</span>, output sistem adalah: <span class="math display">\[y(t) = (e^{-t} - e^{-2t})u(t)\]</span></p>
+<hr>
+</section>
+<section id="soal-lccde-orde-1-respon-impuls-1" class="level4" data-number="9.8.1.4">
+<h4 data-number="9.8.1.4" class="anchored" data-anchor-id="soal-lccde-orde-1-respon-impuls-1"><span class="header-section-number">9.8.1.4</span> <strong>4. Soal LCCDE Orde 1 (Respon Impuls)</strong></h4>
+<p><strong>LCCDE:</strong> <span class="math inline">\(\frac{dy(t)}{dt} + 5y(t) = x(t)\)</span>. (Sistem kausal, diam awal).</p>
+<p><strong>Solusi:</strong></p>
+<p>Kita mencari respon impuls <span class="math inline">\(h(t)\)</span>, yang merupakan output <span class="math inline">\(y(t)\)</span> ketika input <span class="math inline">\(x(t) = \delta(t)\)</span>.</p>
+<ol type="1">
+<li><p><strong>Persamaan Homogen (untuk <span class="math inline">\(t &gt; 0\)</span>):</strong> Untuk <span class="math inline">\(t &gt; 0\)</span>, <span class="math inline">\(x(t) = 0\)</span>. Persamaan menjadi: <span class="math display">\[\frac{dh(t)}{dt} + 5h(t) = 0\]</span> Persamaan karakteristiknya adalah <span class="math inline">\(s+5=0\)</span>, sehingga <span class="math inline">\(s=-5\)</span>. Solusi homogennya adalah <span class="math inline">\(h(t) = A e^{-5t}\)</span> untuk <span class="math inline">\(t &gt; 0\)</span>.</p></li>
+<li><p><strong>Menentukan Kondisi Awal (<span class="math inline">\(h(0^+)\)</span>) menggunakan <span class="math inline">\(\delta(t)\)</span>:</strong> Integrasikan persamaan diferensial dari <span class="math inline">\(t=0^-\)</span> hingga <span class="math inline">\(t=0^+\)</span>: <span class="math display">\[\int_{0^-}^{0^+} \frac{dh(t)}{dt} dt + 5 \int_{0^-}^{0^+} h(t) dt = \int_{0^-}^{0^+} \delta(t) dt\]</span></p>
+<ul>
+<li>Integral kiri pertama menghasilkan <span class="math inline">\(h(0^+) - h(0^-)\)</span>.</li>
+<li>Karena sistem diam awal, <span class="math inline">\(h(0^-)=0\)</span>.</li>
+<li>Integral kiri kedua nol karena <span class="math inline">\(h(t)\)</span> terhingga.</li>
+<li>Integral kanan adalah <span class="math inline">\(1\)</span> (sifat impuls). <span class="math display">\[h(0^+) - 0 + 0 = 1 \implies h(0^+) = 1\]</span></li>
+</ul></li>
+<li><p><strong>Menentukan Konstanta A:</strong> Gunakan kondisi <span class="math inline">\(h(0^+) = 1\)</span> pada <span class="math inline">\(h(t) = A e^{-5t}\)</span>: <span class="math display">\[1 = A e^{-5(0)} \implies A = 1\]</span></p></li>
+<li><p><strong>Respon Impuls:</strong> Karena sistem kausal, <span class="math inline">\(h(t)=0\)</span> untuk <span class="math inline">\(t&lt;0\)</span>.</p></li>
+</ol>
+<p><strong>Kesimpulan:</strong> Respon impulsnya adalah: <span class="math display">\[h(t) = e^{-5t}u(t)\]</span></p>
+<hr>
+</section>
+<section id="soal-lccde-orde-1-solusi-lengkap-1" class="level4" data-number="9.8.1.5">
+<h4 data-number="9.8.1.5" class="anchored" data-anchor-id="soal-lccde-orde-1-solusi-lengkap-1"><span class="header-section-number">9.8.1.5</span> <strong>5. Soal LCCDE Orde 1 (Solusi Lengkap)</strong></h4>
+<p><strong>LCCDE:</strong> <span class="math inline">\(\frac{dy(t)}{dt} + 2y(t) = 4u(t)\)</span>, dengan <span class="math inline">\(y(0^-)=1\)</span>.</p>
+<p><strong>Solusi:</strong></p>
+<p>Solusi lengkap <span class="math inline">\(y(t)\)</span> adalah jumlah dari solusi homogen <span class="math inline">\(y_h(t)\)</span> dan solusi partikular <span class="math inline">\(y_p(t)\)</span>.</p>
+<ol type="1">
+<li><p><strong>Solusi Homogen (<span class="math inline">\(y_h(t)\)</span>):</strong> Persamaan karakteristik: <span class="math inline">\(s+2=0\)</span>, sehingga <span class="math inline">\(s=-2\)</span>. <span class="math display">\[y_h(t) = A e^{-2t}\]</span></p></li>
+<li><p><strong>Solusi Partikular (<span class="math inline">\(y_p(t)\)</span>):</strong> Karena input <span class="math inline">\(x(t) = 4u(t)\)</span> adalah konstanta 4 untuk <span class="math inline">\(t \ge 0\)</span>, kita asumsikan solusi partikular berbentuk konstanta <span class="math inline">\(Y\)</span>. <span class="math display">\[\frac{d(Y)}{dt} + 2(Y) = 4\]</span> <span class="math display">\[0 + 2Y = 4 \implies Y = 2\]</span> <span class="math display">\[y_p(t) = 2\]</span></p></li>
+<li><p><strong>Solusi Lengkap:</strong> <span class="math display">\[y(t) = y_h(t) + y_p(t) = A e^{-2t} + 2\]</span></p></li>
+<li><p><strong>Tentukan Konstanta A dari Kondisi Awal:</strong> Gunakan kondisi awal <span class="math inline">\(y(0^-)=1\)</span>. Karena input <span class="math inline">\(4u(t)\)</span> tidak mengandung impuls, <span class="math inline">\(y(t)\)</span> bersifat kontinu di <span class="math inline">\(t=0\)</span>, sehingga <span class="math inline">\(y(0^+) = y(0^-) = 1\)</span>. Substitusikan <span class="math inline">\(t=0\)</span> ke dalam solusi lengkap: <span class="math display">\[y(0) = A e^{-2(0)} + 2\]</span> <span class="math display">\[1 = A + 2\]</span> <span class="math display">\[A = -1\]</span></p></li>
+</ol>
+<p><strong>Kesimpulan:</strong> Solusi lengkap untuk <span class="math inline">\(t \ge 0\)</span> adalah: <span class="math display">\[y(t) = 2 - e^{-2t}\]</span></p>
+<hr>
+</section>
+<section id="soal-deret-fourier-waktu-kontinu-ctfs---koefisien-1" class="level4" data-number="9.8.1.6">
+<h4 data-number="9.8.1.6" class="anchored" data-anchor-id="soal-deret-fourier-waktu-kontinu-ctfs---koefisien-1"><span class="header-section-number">9.8.1.6</span> <strong>6. Soal Deret Fourier Waktu Kontinu (CTFS - Koefisien)</strong></h4>
+<p><strong>Sinyal:</strong> <span class="math inline">\(x(t) = \cos(2t)\)</span></p>
+<p><strong>Solusi:</strong></p>
+<ol type="1">
+<li><p><strong>Tentukan Frekuensi Fundamental (<span class="math inline">\(\omega_0\)</span>):</strong> Dari <span class="math inline">\(x(t) = \cos(2t)\)</span>, kita peroleh <span class="math inline">\(\omega_0 = 2\)</span> rad/s.</p></li>
+<li><p><strong>Gunakan Identitas Euler:</strong> Representasikan <span class="math inline">\(\cos(2t)\)</span> sebagai eksponensial kompleks: <span class="math display">\[x(t) = \cos(2t) = \frac{1}{2} e^{j2t} + \frac{1}{2} e^{-j2t}\]</span></p></li>
+<li><p><strong>Bandingkan dengan Persamaan Sintesis CTFS:</strong> Persamaan sintesis CTFS adalah <span class="math inline">\(x(t) = \sum_{k=-\infty}^{\infty} a_k e^{jk\omega_0 t}\)</span>. Dengan <span class="math inline">\(\omega_0=2\)</span>, kita punya: <span class="math display">\[x(t) = \sum_{k=-\infty}^{\infty} a_k e^{jk2t}\]</span></p></li>
+<li><p><strong>Identifikasi Koefisien <span class="math inline">\(a_k\)</span>:</strong> Dengan membandingkan hasil Euler dengan persamaan sintesis, kita peroleh:</p>
+<ul>
+<li>Koefisien <span class="math inline">\(e^{j2t}\)</span> terjadi saat <span class="math inline">\(k=1\)</span>, sehingga <span class="math inline">\(a_1 = 1/2\)</span>.</li>
+<li>Koefisien <span class="math inline">\(e^{-j2t}\)</span> terjadi saat <span class="math inline">\(k=-1\)</span>, sehingga <span class="math inline">\(a_{-1} = 1/2\)</span>.</li>
+<li>Tidak ada harmonik lain.</li>
+</ul></li>
+</ol>
+<p><strong>Kesimpulan:</strong> Koefisien Deret Fourier kompleksnya adalah: <span class="math display">\[a_k = \begin{cases} 1/2 &amp; \text{untuk } k = 1 \\ 1/2 &amp; \text{untuk } k = -1 \\ 0 &amp; \text{untuk } |k| \neq 1 \end{cases}\]</span></p>
+<hr>
+</section>
+<section id="soal-deret-fourier-waktu-kontinu-ctfs---aplikasi-lti-1" class="level4" data-number="9.8.1.7">
+<h4 data-number="9.8.1.7" class="anchored" data-anchor-id="soal-deret-fourier-waktu-kontinu-ctfs---aplikasi-lti-1"><span class="header-section-number">9.8.1.7</span> <strong>7. Soal Deret Fourier Waktu Kontinu (CTFS - Aplikasi LTI)</strong></h4>
+<p><strong>Input:</strong> <span class="math inline">\(x(t)\)</span> dengan koefisien <span class="math inline">\(a_k\)</span>. <strong>Sistem LTI:</strong> <span class="math inline">\(H(j\omega) = \frac{1}{1+j\omega}\)</span>. <strong>Frekuensi Fundamental:</strong> <span class="math inline">\(\omega_0 = 4\)</span> rad/s. <strong>Tujuan:</strong> Tuliskan ekspresi untuk koefisien output <span class="math inline">\(b_k\)</span>.</p>
+<p><strong>Solusi:</strong></p>
+<ol type="1">
+<li><p><strong>Hubungan Koefisien Input-Output pada Sistem LTI:</strong> Untuk sistem LTI, koefisien Deret Fourier output <span class="math inline">\(b_k\)</span> dihubungkan dengan koefisien input <span class="math inline">\(a_k\)</span> melalui respon frekuensi sistem <span class="math inline">\(H(j\omega)\)</span> yang dievaluasi pada frekuensi harmonik <span class="math inline">\(k\omega_0\)</span>. <span class="math display">\[b_k = a_k H(j k \omega_0)\]</span></p></li>
+<li><p><strong>Substitusi Frekuensi Harmonik:</strong> Dengan <span class="math inline">\(\omega_0 = 4\)</span>, frekuensi harmonik adalah <span class="math inline">\(\omega = 4k\)</span>. Substitusikan <span class="math inline">\(\omega = 4k\)</span> ke dalam <span class="math inline">\(H(j\omega)\)</span>: <span class="math display">\[H(j k \omega_0) = H(j 4k) = \frac{1}{1 + j(4k)}\]</span></p></li>
+<li><p><strong>Ekspresi Koefisien Output:</strong> <span class="math display">\[b_k = a_k \cdot \left( \frac{1}{1 + j 4k} \right)\]</span></p></li>
+</ol>
+<p><strong>Kesimpulan:</strong> Koefisien Deret Fourier output <span class="math inline">\(b_k\)</span> adalah: <span class="math display">\[b_k = \frac{a_k}{1 + j 4k}\]</span></p>
+</section>
+</section>
+</section>
+<section id="hasil" class="level2" data-number="9.9">
+<h2 data-number="9.9" class="anchored" data-anchor-id="hasil"><span class="header-section-number">9.9</span> hasil</h2>
+<p><a href="uts/hasilUTS.pdf">Hasil UTS</a></p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../kuliah/materi_7.html" class="pagination-link" aria-label="Latihan UTS">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Latihan UTS</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../kuliah/materi_8.html" class="pagination-link" aria-label="transformasi">
+        <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">transformasi</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
