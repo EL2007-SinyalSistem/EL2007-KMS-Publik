@@ -1,0 +1,203 @@
+# Kuliah 10 Analisis Sistem di Domain Laplace: Fungsi Alih (Transfer Function)
+
+Materi catatan kuliah ini membahas analisis sistem *Linear Time-Invariant* (LTI) menggunakan Transformasi Laplace, yang merupakan alat fundamental, terutama dalam konteks sistem waktu kontinu.
+
+Kerjakan tugas berikut ini.
+
+## Tugas
+
+**Soal 1: Transformasi Laplace dari Respons Impuls**
+
+Respons impuls dari suatu sistem LTI adalah $h(t) = t e^{-5t} u(t)$. Tentukan Fungsi Alih $H(s)$ dari sistem ini, termasuk Pol dan ROC.
+
+**Soal 2: Analisis Stabilitas dan Kausalitas dari Fungsi Alih**
+
+Sistem LTI dijelaskan oleh Fungsi Alih rasional:
+$$H(s) = \frac{s}{s^2 + 4s + 3} = \frac{s}{(s+1)(s+3)}$$
+Terdapat tiga kemungkinan ROC: $R_1: \text{Re}\{s\} < -3$, $R_2: -3 < \text{Re}\{s\} < -1$, dan $R_3: \text{Re}\{s\} > -1$.
+Untuk setiap ROC, tentukan:
+(a) Apakah sistemnya kausal?
+(b) Apakah sistemnya stabil?
+
+**Soal 3: Fungsi Alih Interkoneksi Kompleks**
+
+Sistem LTI kausal memiliki input $x(t)$ dan output $y(t)$ yang terkait melalui representasi diagram blok umpan balik yang lebih kompleks (seperti pada Gambar P9.35 buku Oppenheim):
+*Forward Path* terdiri dari sistem $H_A(s) = \frac{1}{s+2}$.
+*Feedback Path* terdiri dari sistem $H_B(s) = \frac{4}{s+1}$.
+Kedua jalur ini dihubungkan melalui penjumlahan pada *forward path* dan umpan balik negatif. Tentukan Fungsi Alih keseluruhan $H(s) = Y(s)/X(s)$ dan tentukan apakah sistem *closed-loop* ini stabil.
+
+
+Manfaatkan materi berikut ini untuk bisa mengerjakan tugas terlampir
+
+## Catatan Kuliah Minggu 11-12: Analisis Sistem di Domain Laplace
+
+### 1. Konsep Transformasi Laplace (TL)
+
+Transformasi Laplace ($\mathcal{L}$) adalah generalisasi dari Transformasi Fourier (TF). TL memungkinkan representasi sinyal dalam domain kompleks $s = \sigma + j\omega$.
+
+Definisi Transformasi Laplace bilateral $X(s)$ dari sinyal $x(t)$ adalah:
+$$X(s) = \mathcal{L}\{x(t)\} = \int_{-\infty}^{\infty} x(t)e^{-st} dt$$
+TL sangat berguna karena eksponensial kompleks $e^{st}$ adalah **fungsi eigen** (*eigenfunction*) dari sistem LTI. Jika input ke sistem LTI adalah $x(t) = e^{st}$, maka outputnya adalah $y(t) = H(s)e^{st}$.
+
+**Daerah Konvergensi (Region of Convergence, ROC)**
+Spesifikasi lengkap dari Transformasi Laplace memerlukan ekspresi aljabar $X(s)$ dan Daerah Konvergensi (ROC) yang terkait. ROC terdiri dari nilai $s = \sigma + j\omega$ di mana integral TL konvergen. ROC selalu merupakan strip, setengah bidang kiri, setengah bidang kanan, atau seluruh bidang $s$.
+
+### 2. Fungsi Sistem (Fungsi Alih) $H(s)$
+
+Fungsi sistem atau **Fungsi Alih** (*Transfer Function*) $H(s)$ didefinisikan sebagai Transformasi Laplace dari respons impuls $h(t)$ dari sistem LTI.
+
+Dalam domain Laplace, hubungan antara input $X(s)$ dan output $Y(s)$ melalui sistem LTI (menggunakan sifat konvolusi TL) adalah perkalian:
+$$Y(s) = H(s)X(s)$$
+
+Oleh karena itu, Fungsi Alih dapat didefinisikan sebagai rasio transformasi Laplace output terhadap input:
+$$H(s) = \frac{Y(s)}{X(s)}$$
+
+### 3. Fungsi Alih dari Persamaan Diferensial (LCCDE)
+
+Untuk sistem LTI waktu-kontinu yang dijelaskan oleh Persamaan Diferensial Koefisien Konstanta Linier (*Linear Constant-Coefficient Differential Equation*, LCCDE), Fungsi Alih $H(s)$ selalu berbentuk rasional (rasio dua polinomial dalam $s$).
+
+Diberikan LCCDE umum:
+$$\sum_{k=0}^{N} a_k \frac{d^k y(t)}{dt^k} = \sum_{k=0}^{M} b_k \frac{d^k x(t)}{dt^k}$$
+
+Dengan menerapkan TL dan menggunakan sifat diferensiasi dalam waktu ($\mathcal{L}\{\frac{d^k x(t)}{dt^k}\} = s^k X(s)$), kita mendapatkan:
+$$H(s) = \frac{Y(s)}{X(s)} = \frac{\sum_{k=0}^{M} b_k s^k}{\sum_{k=0}^{N} a_k s^k}$$
+
+### 4. Analisis Sistem Menggunakan Fungsi Alih: Pole, Zero, ROC
+
+**Pol (Pole) dan Nol (Zero)**
+$H(s)$ yang rasional dapat diwakili oleh lokasi Pol dan Nol dalam bidang $s$.
+*   **Pol** adalah akar dari polinomial penyebut $D(s)$ (nilai $s$ di mana $H(s)$ tak terhingga).
+*   **Nol** adalah akar dari polinomial pembilang $N(s)$ (nilai $s$ di mana $H(s) = 0$).
+
+**Karakteristik Sistem dan ROC**
+Karakteristik sistem LTI terkait erat dengan lokasi Pol dan ROC dari $H(s)$:
+1.  **Kausalitas (Causality):** Sistem LTI adalah kausal jika dan hanya jika $h(t)$ adalah sinyal *right-sided*. Jika $H(s)$ rasional dan sistem kausal, maka ROC adalah bidang setengah kanan di sebelah kanan pol paling kanan.
+2.  **Stabilitas (Stability):** Sistem LTI stabil (*BIBO stable*) jika dan hanya jika ROC dari $H(s)$ mencakup sumbu $j\omega$.
+3.  **Sistem Kausal dan Stabil:** Jika sistem LTI kausal dan stabil, maka semua pol dari $H(s)$ harus berada di bidang setengah kiri (LHP), yaitu $\text{Re}\{s\} < 0$.
+
+### 5. Aljabar Fungsi Alih dan Diagram Blok
+
+Fungsi Alih menyederhanakan analisis interkoneksi sistem LTI karena operasi domain waktu (konvolusi) diganti dengan operasi aljabar (perkalian).
+
+**Interkoneksi Dasar**
+1.  **Kaskade (Seri):** Fungsi alih total $H(s)$ adalah perkalian individual:
+    $$H(s) = H_1(s)H_2(s)$$
+2.  **Paralel:** Fungsi alih total adalah penjumlahan individual:
+    $$H(s) = H_1(s) + H_2(s)$$
+3.  **Umpan Balik (Feedback):** Untuk konfigurasi umpan balik standar (input $X(s)$, *forward path* $H_1(s)$, *feedback path* $H_2(s)$), fungsi alih *closed-loop* $Q(s)$ adalah:
+    $$Q(s) = \frac{Y(s)}{X(s)} = \frac{H_1(s)}{1 + H_1(s)H_2(s)}$$
+
+**Representasi Diagram Blok**
+Sistem LTI kausal dengan $H(s)$ rasional dapat direpresentasikan menggunakan diagram blok yang terdiri dari tiga elemen dasar: penambah (*adder*), pengali koefisien, dan pengintegrasi ($\frac{1}{s}$). Representasi ini dapat berupa bentuk langsung (*direct form*), kaskade (*cascade form*), atau paralel (*parallel form*).
+
+---
+
+## 10 Contoh Soal Beserta Jawaban
+
+### Contoh 1: Menemukan TL dan ROC Sinyal Kausal
+Tentukan Transformasi Laplace $X(s)$ dan ROC untuk sinyal $x(t) = e^{-2t}u(t)$.
+
+**Jawaban:**
+Menggunakan definisi TL atau tabel transformasi dasar:
+$$X(s) = \mathcal{L}\{e^{-2t}u(t)\} = \frac{1}{s + 2}$$
+Untuk konvergensi, kita memerlukan $\text{Re}\{s\} > \text{Re}\{-2\}$, sehingga **ROC adalah $\text{Re}\{s\} > -2$**.
+
+### Contoh 2: Fungsi Alih dari LCCDE Orde Satu
+Tentukan Fungsi Alih $H(s)$ untuk sistem LTI kausal yang dijelaskan oleh persamaan diferensial:
+$$\frac{dy(t)}{dt} + 3y(t) = x(t)$$
+
+**Jawaban:**
+Terapkan TL pada kedua sisi (dengan asumsi kondisi awal nol untuk mencari H(s)):
+$$sY(s) + 3Y(s) = X(s)$$
+$$(s + 3)Y(s) = X(s)$$
+$$H(s) = \frac{Y(s)}{X(s)} = \frac{1}{s + 3}$$
+Karena sistemnya kausal, **ROC adalah $\text{Re}\{s\} > -3$**.
+
+### Contoh 3: Fungsi Alih dari LCCDE Orde Dua
+Tentukan Fungsi Alih $H(s)$ untuk sistem LTI yang dijelaskan oleh:
+$$y''(t) + y'(t) - 2y(t) = x(t)$$
+
+**Jawaban:**
+Terapkan TL:
+$$s^2 Y(s) + s Y(s) - 2 Y(s) = X(s)$$
+$$(s^2 + s - 2)Y(s) = X(s)$$
+$$H(s) = \frac{Y(s)}{X(s)} = \frac{1}{s^2 + s - 2} = \frac{1}{(s + 2)(s - 1)}$$
+
+### Contoh 4: Analisis Kausalitas dan Stabilitas dari Pol dan ROC
+Diberikan $H(s) = \frac{s-1}{(s+1)(s-2)}$. Pol berada di $s = -1$ dan $s = 2$. Tentukan apakah sistem tersebut: (i) Kausal, (ii) Stabil.
+
+**Jawaban:**
+Terdapat tiga kemungkinan ROC: $\text{Re}\{s\} < -1$, $-1 < \text{Re}\{s\} < 2$, atau $\text{Re}\{s\} > 2$.
+*   (i) **Kausalitas:** Harus ROC paling kanan. Jika $\text{ROC}: \text{Re}\{s\} > 2$, sistem adalah kausal.
+*   (ii) **Stabilitas:** Harus mencakup sumbu $j\omega$ ($\text{Re}\{s\} = 0$). Hanya ROC tengah yang stabil. Jika $\text{ROC}: -1 < \text{Re}\{s\} < 2$, sistem adalah stabil.
+*   *Catatan:* Sistem tidak dapat secara simultan kausal ($\text{Re}\{s\} > 2$) dan stabil (harus mencakup $j\omega$-axis) karena ROC kausal tidak mencakup sumbu $j\omega$.
+
+### Contoh 5: Transformasi Laplace Balik (Inverse LT)
+Tentukan respons impuls $h(t)$ (TL Balik) untuk $H(s) = \frac{1}{(s+1)(s+2)}$, jika diketahui sistem kausal.
+
+**Jawaban:**
+Karena sistem kausal, **ROC adalah $\text{Re}\{s\} > -1$**.
+Gunakan ekspansi pecahan parsial:
+$$H(s) = \frac{A}{s+1} + \frac{B}{s+2}$$
+Menghitung koefisien:
+$$A = [(s+1)H(s)]|_{s=-1} = \frac{1}{-1+2} = 1$$
+$$B = [(s+2)H(s)]|_{s=-2} = \frac{1}{-2+1} = -1$$
+$$H(s) = \frac{1}{s+1} - \frac{1}{s+2}$$
+Karena ROC adalah $\text{Re}\{s\} > -1$ (di sebelah kanan semua pol), kedua suku adalah sinyal *right-sided*.
+Mengambil TL Balik:
+$$h(t) = (e^{-t} - e^{-2t})u(t)$$
+
+### Contoh 6: Menentukan Output Menggunakan Perkalian TL
+Sistem LTI memiliki fungsi alih $H(s) = \frac{s+3}{(s+1)(s+2)}$. Jika inputnya $x(t) = e^{-3t}u(t)$, tentukan output $y(t)$.
+
+**Jawaban:**
+TL dari input: $X(s) = \frac{1}{s+3}$, $\text{Re}\{s\} > -3$.
+Output TL:
+$$Y(s) = H(s)X(s) = \frac{s+3}{(s+1)(s+2)} \cdot \frac{1}{s+3} = \frac{1}{(s+1)(s+2)}$$
+ROC $Y(s)$ adalah irisan ROC $H(s)$ dan $X(s)$. Jika $H(s)$ kausal, ROC adalah $\text{Re}\{s\} > -1$. Maka $Y(s)$ memiliki $\text{ROC}: \text{Re}\{s\} > -1$.
+Menggunakan hasil dari Contoh 5:
+$$y(t) = (e^{-t} - e^{-2t})u(t)$$
+
+### Contoh 7: Fungsi Alih Kaskade (Seri)
+Dua sistem LTI dihubungkan secara kaskade. $H_1(s) = \frac{1}{s+2}$ dan $H_2(s) = \frac{2}{s+1}$. Tentukan fungsi alih keseluruhan $H(s)$ dan respons impuls $h(t)$.
+
+**Jawaban:**
+Fungsi alih kaskade adalah perkalian:
+$$H(s) = H_1(s)H_2(s) = \frac{1}{s+2} \cdot \frac{2}{s+1} = \frac{2}{(s+1)(s+2)}$$
+Ekspansi pecahan parsial:
+$$H(s) = \frac{A}{s+1} + \frac{B}{s+2}$$
+$A = 2/(-1+2) = 2$. $B = 2/(-2+1) = -2$.
+$$H(s) = \frac{2}{s+1} - \frac{2}{s+2}$$
+Jika diasumsikan kausal (ROC: $\text{Re}\{s\} > -1$), TL Balik adalah:
+$$h(t) = 2e^{-t}u(t) - 2e^{-2t}u(t) = 2(e^{-t} - e^{-2t})u(t)$$
+
+### Contoh 8: Fungsi Alih Paralel
+Dua sistem LTI dihubungkan secara paralel. $H_1(s) = \frac{1}{s+1}$ dan $H_2(s) = \frac{1}{s+3}$. Tentukan $H(s)$.
+
+**Jawaban:**
+Fungsi alih paralel adalah penjumlahan:
+$$H(s) = H_1(s) + H_2(s) = \frac{1}{s+1} + \frac{1}{s+3}$$
+Menyamakan penyebut:
+$$H(s) = \frac{(s+3) + (s+1)}{(s+1)(s+3)} = \frac{2s+4}{s^2+4s+3}$$
+
+### Contoh 9: Fungsi Alih Umpan Balik (Feedback)
+Sistem umpan balik dasar memiliki $H_1(s) = H(s)$ (jalur maju) dan $H_2(s) = G(s)$ (jalur umpan balik). Jika $H(s) = \frac{4}{s^2+1}$ dan $G(s) = 1$, tentukan fungsi alih *closed-loop* $Q(s)$.
+
+**Jawaban:**
+Menggunakan rumus umpan balik:
+$$Q(s) = \frac{H(s)}{1 + G(s)H(s)} = \frac{\frac{4}{s^2+1}}{1 + 1 \cdot \frac{4}{s^2+1}}$$
+$$Q(s) = \frac{4}{(s^2+1) + 4} = \frac{4}{s^2+5}$$
+
+### Contoh 10: Menggunakan TL Unilateral untuk Kondisi Awal
+Persamaan diferensial sistem diberikan oleh $y'(t) + ay(t) = x(t)$. Jika kondisi awal $y(0^-) = y_0$ dan input $x(t) = 0$, tentukan respons tanpa input (*zero-input response*) $y_{zi}(t)$ menggunakan TL unilateral.
+
+**Jawaban:**
+Gunakan TL Unilateral ($\mathcal{L}_I$) dan sifat diferensiasi: $\mathcal{L}_I \{\frac{dy(t)}{dt}\} = sY_I(s) - y(0^-)$.
+Input $X_I(s) = 0$.
+$$sY_I(s) - y(0^-) + aY_I(s) = 0$$
+$$(s + a)Y_I(s) = y_0$$
+$$Y_I(s) = \frac{y_0}{s + a}$$
+Mengambil TL Balik (asumsi $\text{Re}\{s\} > -a$):
+$$y_{zi}(t) = y_0 e^{-at}u(t)$$
+Respons tanpa input adalah respon terhadap kondisi awal saja.
+

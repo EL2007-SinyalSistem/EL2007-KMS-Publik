@@ -1,4 +1,4 @@
-# Ujian Tengah Semester
+# Hasil UTS
 
 ## soal
 {{< include uts/uts_soala.qmd >}}

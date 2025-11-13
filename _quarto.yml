@@ -19,6 +19,8 @@ book:
     - ujian/uts.qmd
     - kuliah/materi_8.qmd
     - kuliah/materi_9.qmd
+    - kuliah/materi_10.qmd
+    - ujian/uas.qmd   
     - summary.qmd
     - references.qmd
 
