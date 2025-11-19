@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>4&nbsp; I. Materi Pembelajaran Minggu 4: Analisis Sistem di Domain Waktu – EL-2007 Sinyal dan Sistem</title>
+<title>12&nbsp; Desain Filter Lowpass dan Highpass – EL-2007 Sinyal dan Sistem</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../kuliah/materi_5.html" rel="next">
-<link href="../kuliah/materi_3.html" rel="prev">
+<link href="../ujian/uas.html" rel="next">
+<link href="../kuliah/materi_10.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -112,7 +112,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../kuliah/materi_4.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">I. Materi Pembelajaran Minggu 4: Analisis Sistem di Domain Waktu</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../kuliah/materi_11.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Desain Filter Lowpass dan Highpass</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -171,7 +171,7 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../kuliah/materi_4.html" class="sidebar-item-text sidebar-link active">
+  <a href="../kuliah/materi_4.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">I. Materi Pembelajaran Minggu 4: Analisis Sistem di Domain Waktu</span></span></a>
   </div>
 </li>
@@ -219,7 +219,7 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../kuliah/materi_11.html" class="sidebar-item-text sidebar-link">
+  <a href="../kuliah/materi_11.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Desain Filter Lowpass dan Highpass</span></span></a>
   </div>
 </li>
@@ -251,13 +251,18 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#konsep-kunci" id="toc-konsep-kunci" class="nav-link active" data-scroll-target="#konsep-kunci"><span class="header-section-number">4.0.1</span> Konsep Kunci:</a></li>
-  <li><a href="#ii.-peta-pengetahuan-primitif-analisis-sistem-di-domain-waktu-minggu-4" id="toc-ii.-peta-pengetahuan-primitif-analisis-sistem-di-domain-waktu-minggu-4" class="nav-link" data-scroll-target="#ii.-peta-pengetahuan-primitif-analisis-sistem-di-domain-waktu-minggu-4"><span class="header-section-number">4.1</span> II. Peta Pengetahuan Primitif: Analisis Sistem di Domain Waktu (Minggu 4)</a>
+  <li><a href="#respons-frekuensi-dan-fasa" id="toc-respons-frekuensi-dan-fasa" class="nav-link active" data-scroll-target="#respons-frekuensi-dan-fasa"><span class="header-section-number">13</span> Respons Frekuensi dan Fasa</a>
   <ul class="collapse">
-  <li><a href="#kendaraan-matematika-dan-konseptual-untuk-minggu-4" id="toc-kendaraan-matematika-dan-konseptual-untuk-minggu-4" class="nav-link" data-scroll-target="#kendaraan-matematika-dan-konseptual-untuk-minggu-4"><span class="header-section-number">4.1.1</span> Kendaraan Matematika dan Konseptual untuk Minggu 4</a></li>
+  <li><a href="#menentukan-fungsi-sistem-hs-dari-lccde" id="toc-menentukan-fungsi-sistem-hs-dari-lccde" class="nav-link" data-scroll-target="#menentukan-fungsi-sistem-hs-dari-lccde"><span class="header-section-number">13.0.1</span> 1. Menentukan Fungsi Sistem (<span class="math inline">\(H(s)\)</span>) dari LCCDE</a></li>
+  <li><a href="#menemukan-respons-frekuensi-dan-respons-fase" id="toc-menemukan-respons-frekuensi-dan-respons-fase" class="nav-link" data-scroll-target="#menemukan-respons-frekuensi-dan-respons-fase"><span class="header-section-number">13.0.2</span> 2. Menemukan Respons Frekuensi dan Respons Fase</a></li>
+  <li><a href="#aplikasi-pada-filter-butterworth" id="toc-aplikasi-pada-filter-butterworth" class="nav-link" data-scroll-target="#aplikasi-pada-filter-butterworth"><span class="header-section-number">13.0.3</span> 3. Aplikasi pada Filter Butterworth</a></li>
   </ul></li>
-  <li><a href="#iii.-20-soal-latihan-minggu-4-analisis-domain-waktu" id="toc-iii.-20-soal-latihan-minggu-4-analisis-domain-waktu" class="nav-link" data-scroll-target="#iii.-20-soal-latihan-minggu-4-analisis-domain-waktu"><span class="header-section-number">4.2</span> III. 20 Soal Latihan Minggu 4 (Analisis Domain Waktu)</a></li>
-  <li><a href="#v.-daftar-kendaraan-yang-digunakan" id="toc-v.-daftar-kendaraan-yang-digunakan" class="nav-link" data-scroll-target="#v.-daftar-kendaraan-yang-digunakan"><span class="header-section-number">4.3</span> V. Daftar Kendaraan yang Digunakan</a></li>
+  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"><span class="header-section-number">14</span> </a></li>
+  <li><a href="#transformasi-frekuensi" id="toc-transformasi-frekuensi" class="nav-link" data-scroll-target="#transformasi-frekuensi"><span class="header-section-number">15</span> Transformasi Frekuensi</a>
+  <ul class="collapse">
+  <li><a href="#mekanisme-transformasi-mathbfs-rightarrow-fracomega_0s" id="toc-mekanisme-transformasi-mathbfs-rightarrow-fracomega_0s" class="nav-link" data-scroll-target="#mekanisme-transformasi-mathbfs-rightarrow-fracomega_0s"><span class="header-section-number">15.0.1</span> Mekanisme Transformasi <span class="math inline">\(\mathbf{s \rightarrow \frac{\omega_0}{s}}\)</span></a></li>
+  <li><a href="#contoh-kasus-filter-butterworth" id="toc-contoh-kasus-filter-butterworth" class="nav-link" data-scroll-target="#contoh-kasus-filter-butterworth"><span class="header-section-number">15.0.2</span> Contoh Kasus: Filter Butterworth</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -266,7 +271,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">I. Materi Pembelajaran Minggu 4: Analisis Sistem di Domain Waktu</span></h1>
+<h1 class="title"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Desain Filter Lowpass dan Highpass</span></h1>
 </div>
 
 
@@ -283,273 +288,125 @@ window.Quarto = {
 </header>
 
 
-<p>**Berdasarkan tujuan pembelajaran yang ditetapkan dalam RPS.pdf untuk Minggu 4, materi kuliah akan berfokus pada analisis sistem Linear Tak-berubah Waktu (LTI) di Domain Waktu, menggunakan dua alat fundamental: Konvolusi dan Persamaan Diferensial Linear Koefisien Konstan (LCCDEs).</p>
-<hr>
-<p><strong>Bahan Kajian:</strong> Analisis Sistem di Domain Waktu: Solusi Persamaan Diferensial dan Konvolusi (Time-Domain Analysis of Systems: Solution to Differential Equation and Convolution). <strong>CPMK Terkait:</strong> Mampu <strong>menganalisis respon sistem LTI menggunakan konvolusi dan menyelesaikan persamaan diferensial yang menggambarkan sistem</strong>.</p>
-<section id="konsep-kunci" class="level3" data-number="4.0.1">
-<h3 data-number="4.0.1" class="anchored" data-anchor-id="konsep-kunci"><span class="header-section-number">4.0.1</span> Konsep Kunci:</h3>
-<section id="konvolusi-untuk-sistem-lti-waktu-kontinu-ct-convolution" class="level4" data-number="4.0.1.1">
-<h4 data-number="4.0.1.1" class="anchored" data-anchor-id="konvolusi-untuk-sistem-lti-waktu-kontinu-ct-convolution"><span class="header-section-number">4.0.1.1</span> 1. Konvolusi untuk Sistem LTI Waktu Kontinu (CT Convolution)</h4>
-<p>Sistem Linear Tak-berubah Waktu (LTI) sepenuhnya dikarakterisasi oleh <strong>respon impulsnya</strong>, <span class="math inline">\(h(t)\)</span>. Output <span class="math inline">\(y(t)\)</span> dari sistem LTI untuk input <span class="math inline">\(x(t)\)</span> yang diberikan dapat ditentukan secara eksklusif menggunakan <strong>operasi konvolusi</strong>: <span class="math display">\[y(t) = x(t) * h(t) = \int_{-\infty}^{\infty} x(\tau)h(t-\tau)d\tau\]</span>.</p>
-<p>Operasi konvolusi memungkinkan kita untuk menemukan output sistem untuk input sembarang. Konvolusi juga memiliki sifat-sifat aljabar penting seperti <strong>komutatif</strong> (<span class="math inline">\(x(t) * h(t) = h(t) * x(t)\)</span>), <strong>distributif</strong>, dan <strong>asosiatif</strong>.</p>
-</section>
-<section id="persamaan-diferensial-linear-koefisien-konstan-lccdes" class="level4" data-number="4.0.1.2">
-<h4 data-number="4.0.1.2" class="anchored" data-anchor-id="persamaan-diferensial-linear-koefisien-konstan-lccdes"><span class="header-section-number">4.0.1.2</span> 2. Persamaan Diferensial Linear Koefisien Konstan (LCCDEs)</h4>
-<p>Banyak sistem fisik waktu kontinu (seperti rangkaian listrik atau sistem mekanik) dimodelkan menggunakan persamaan diferensial linear koefisien konstan. Bentuk umum: <span class="math inline">\(\sum_{k=0}^{N} a_k \frac{d^k y(t)}{dt^k} = \sum_{k=0}^{M} b_k \frac{d^k x(t)}{dt^k}\)</span>.</p>
-</section>
-<section id="solusi-lccdes" class="level4" data-number="4.0.1.3">
-<h4 data-number="4.0.1.3" class="anchored" data-anchor-id="solusi-lccdes"><span class="header-section-number">4.0.1.3</span> 3. Solusi LCCDEs</h4>
-<p>Solusi lengkap dari persamaan diferensial ini terdiri dari dua bagian: 1. <strong>Solusi Homogen (<span class="math inline">\(y_h(t)\)</span>):</strong> Menjelaskan perilaku internal sistem (disebut juga <em>natural response</em>) dan ditentukan oleh <strong>akar-akar persamaan karakteristik</strong> sistem (yang diperoleh dengan menyamakan input menjadi nol). 2. <strong>Solusi Partikular (<span class="math inline">\(y_p(t)\)</span>):</strong> Menjelaskan respon sistem terhadap input tertentu (<em>forced response</em>) dan biasanya memiliki bentuk yang sama dengan input atau turunan-turunannya. Solusi lengkapnya adalah <span class="math inline">\(y(t) = y_h(t) + y_p(t)\)</span>. <strong>Kondisi awal</strong> seringkali diperlukan untuk menemukan konstanta dalam solusi homogen.</p>
-<hr>
-</section>
-</section>
-<section id="ii.-peta-pengetahuan-primitif-analisis-sistem-di-domain-waktu-minggu-4" class="level2" data-number="4.1">
-<h2 data-number="4.1" class="anchored" data-anchor-id="ii.-peta-pengetahuan-primitif-analisis-sistem-di-domain-waktu-minggu-4"><span class="header-section-number">4.1</span> II. Peta Pengetahuan Primitif: Analisis Sistem di Domain Waktu (Minggu 4)</h2>
-<p>Peta ini berfokus pada pengetahuan deklaratif dan konseptual yang mengatur operasi utama analisis sistem LTI di domain waktu.</p>
-<p><strong>Node Pusat:</strong> <strong>Sinyal &amp; Sistem</strong> * <strong>Cabang 1: Analisis Domain Waktu (ADW)</strong> * <strong>Sub-Cabang 1.1: Pemodelan Sistem (ADW_Pemodelan)</strong> * Node: Sistem LTI (LTI), Respon Impuls (<span class="math inline">\(h(t)\)</span>). * Node: Persamaan Diferensial (PD). * <strong>Sub-Cabang 1.2: Konvolusi (ADW_Konvolusi)</strong> * Node: Integral Konvolusi (IntKonvolusi). * Node: Sifat Konvolusi (SifatKonvolusi). * Node: Input Sinyal Dasar (SWK_Dasar). * <strong>Sub-Cabang 1.3: Solusi PD (ADW_SolusiPD)</strong> * Node: Solusi Lengkap (YLengkap). * Node: Solusi Homogen (<span class="math inline">\(y_h\)</span>). * Node: Solusi Partikular (<span class="math inline">\(y_p\)</span>). * Node: Persamaan Karakteristik (PK). * Node: Kondisi Awal (KA). * <strong>Cabang 2: Sifat LTI dari <span class="math inline">\(h(t)\)</span> (LTI_Sifat)</strong> * Node: Kausalitas_h(t). * Node: Stabilitas_h(t) (BIBO).</p>
-<p><strong>Hubungan (Edges):</strong> * “LTI” <strong>DICIRIKAN_OLEH</strong> “<span class="math inline">\(h(t)\)</span>”. * “Output Sistem LTI” <strong>DIHITUNG_DENGAN</strong> “IntKonvolusi”. * “PD” <strong>MENGGAMBARKAN</strong> “LTI”. * “YLengkap” <strong>TERDIRI_DARI</strong> “<span class="math inline">\(y_h\)</span>” <strong>DAN</strong> “<span class="math inline">\(y_p\)</span>”. * “<span class="math inline">\(y_h\)</span>” <strong>DITENTUKAN_OLEH</strong> “PK”. * “PK” <strong>DITENTUKAN_OLEH</strong> “PD”. * “KA” <strong>DIPERLUKAN_UNTUK_MENEMUKAN_KONSTANTA_DI</strong> “<span class="math inline">\(y_h\)</span>”. * “Kausalitas_h(t)” <strong>DITENTUKAN_OLEH</strong> “<span class="math inline">\(h(t)=0\)</span> untuk <span class="math inline">\(t&lt;0\)</span>”. * “Stabilitas_h(t)” <strong>DITENTUKAN_OLEH</strong> “<span class="math inline">\(\int |h(t)| dt &lt; \infty\)</span>”.</p>
-<section id="kendaraan-matematika-dan-konseptual-untuk-minggu-4" class="level3" data-number="4.1.1">
-<h3 data-number="4.1.1" class="anchored" data-anchor-id="kendaraan-matematika-dan-konseptual-untuk-minggu-4"><span class="header-section-number">4.1.1</span> Kendaraan Matematika dan Konseptual untuk Minggu 4</h3>
-<p>Kendaraan (Vehicles) yang diperlukan untuk mengoperasikan Peta Pengetahuan Primitif dan memecahkan masalah Minggu 4 meliputi: * <strong>K_MAT_Aljabar:</strong> Untuk manipulasi ekspresi, penyederhanaan, penyelesaian persamaan karakteristik, dan manipulasi sinyal dasar. * <strong>K_MAT_Kalkulus:</strong> Untuk diferensiasi dan <strong>integrasi fungsi waktu kontinu</strong> (khususnya Integral Konvolusi) dan mengevaluasi stabilitas. * <strong>K_MAT_Bilangan_Kompleks:</strong> Untuk menemukan akar-akar PD (persamaan karakteristik) yang kompleks, yang menghasilkan solusi homogen sinusoidal. * <strong>K_OPS_Definisi:</strong> Definisi Konvolusi, Respon Impuls (<span class="math inline">\(h(t)\)</span>), Linearitas, Kausalitas LTI, dan Stabilitas BIBO. * <strong>K_OPS_Representasi_Matematis:</strong> Struktur PD LCC dan Persamaan Karakteristik. * <strong>K_OPS_SifatKonvolusi:</strong> Properti Asosiatif, Komutatif, dan Distributif. * <strong>K_VIS_PlotSinyal:</strong> Untuk memvisualisasikan sinyal <span class="math inline">\(x(\tau)\)</span> dan <span class="math inline">\(h(t-\tau)\)</span> dalam rangka menentukan batas integral konvolusi (Graphical Convolution). * <strong>Heuristik_Menganalisis_Batas:</strong> Aturan tak-algoritmik untuk memecah masalah konvolusi menjadi kasus-kasus berdasarkan overlap sinyal.</p>
-<hr>
+<section id="respons-frekuensi-dan-fasa" class="level1" data-number="13">
+<h1 data-number="13"><span class="header-section-number">13</span> Respons Frekuensi dan Fasa</h1>
+<p>Ini adalah penjelasan mengenai cara menemukan respons frekuensi dan respons fase dari Sistem Linear Tak-berubah Waktu (LTI) yang dikarakterisasi oleh Persamaan Diferensial Linear Koefisien Konstan (LCCDE) melalui Transformasi Laplace, serta penerapannya pada Filter Butterworth.</p>
+<p>Dalam analisis sistem LTI waktu kontinu, Transformasi Laplace (<span class="math inline">\(H(s)\)</span>, yang disebut fungsi sistem atau fungsi alih) adalah generalisasi dari Transformasi Fourier (<span class="math inline">\(H(j\omega)\)</span>, yang disebut respons frekuensi).</p>
+<section id="menentukan-fungsi-sistem-hs-dari-lccde" class="level3" data-number="13.0.1">
+<h3 data-number="13.0.1" class="anchored" data-anchor-id="menentukan-fungsi-sistem-hs-dari-lccde"><span class="header-section-number">13.0.1</span> 1. Menentukan Fungsi Sistem (<span class="math inline">\(H(s)\)</span>) dari LCCDE</h3>
+<p>Sistem LTI waktu kontinu yang dijelaskan oleh LCCDE memiliki bentuk umum: <span class="math display">\[\sum_{k=0}^{N} a_k \frac{d^k y(t)}{dt^k} = \sum_{k=0}^{M} b_k \frac{d^k x(t)}{dt^k}\]</span>.</p>
+<p>Dengan menerapkan <strong>Transformasi Laplace</strong> pada kedua sisi persamaan, menggunakan sifat linearitas dan turunan di ranah waktu, persamaan diferensial berubah menjadi persamaan aljabar di ranah <span class="math inline">\(s\)</span>:</p>
+<p><span class="math display">\[D(s) Y(s) = N(s) X(s)\]</span></p>
+<p>Fungsi Sistem (Transfer Function), <span class="math inline">\(H(s)\)</span>, diperoleh sebagai rasio Transformasi Laplace output (<span class="math inline">\(Y(s)\)</span>) terhadap input (<span class="math inline">\(X(s)\)</span>):</p>
+<p><span class="math display">\[H(s) = \frac{Y(s)}{X(s)} = \frac{N(s)}{D(s)} = \frac{\sum_{k=0}^{M} b_k s^k}{\sum_{k=0}^{N} a_k s^k}\]</span>.</p>
+<p>Fungsi sistem <span class="math inline">\(H(s)\)</span> ini selalu merupakan <strong>fungsi rasional</strong>.</p>
+<section id="bentuk-pole-zero" class="level4" data-number="13.0.1.1">
+<h4 data-number="13.0.1.1" class="anchored" data-anchor-id="bentuk-pole-zero"><span class="header-section-number">13.0.1.1</span> Bentuk Pole-Zero</h4>
+<p>Fungsi rasional <span class="math inline">\(H(s)\)</span> dapat difaktorkan menjadi bentuk pole-zero:</p>
+<p><span class="math display">\[H(s) = M \frac{\prod_{k=1}^{M} (s - z_k)}{\prod_{i=1}^{N} (s - p_i)}\]</span>.</p>
+<p>Di mana:</p>
+<ul>
+<li><span class="math inline">\(z_k\)</span>: adalah <strong>zero</strong> (akar dari <span class="math inline">\(N(s)\)</span>).</li>
+<li><span class="math inline">\(p_i\)</span>: adalah <strong>pole</strong> (akar dari <span class="math inline">\(D(s)\)</span>).</li>
+<li><span class="math inline">\(M\)</span>: adalah faktor <em>gain</em> skala.</li>
+</ul>
 </section>
 </section>
-<section id="iii.-20-soal-latihan-minggu-4-analisis-domain-waktu" class="level2" data-number="4.2">
-<h2 data-number="4.2" class="anchored" data-anchor-id="iii.-20-soal-latihan-minggu-4-analisis-domain-waktu"><span class="header-section-number">4.2</span> III. 20 Soal Latihan Minggu 4 (Analisis Domain Waktu)</h2>
-<p>Berikut 20 soal latihan yang berfokus pada Konvolusi (CONV), Solusi Persamaan Diferensial (PD_SOL), dan sifat LTI dari Respon Impuls (IR_AN / IR_PROP), tanpa solusi.</p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 20%">
-<col style="width: 20%">
-<col style="width: 20%">
-<col style="width: 20%">
-<col style="width: 20%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;">No.</th>
-<th style="text-align: left;">Produk Number</th>
-<th style="text-align: left;">Topik</th>
-<th style="text-align: left;">Level Bloom</th>
-<th style="text-align: left;">Deskripsi Soal</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><strong>1</strong></td>
-<td style="text-align: left;"><strong>WK4-CONV-L3-P01</strong></td>
-<td style="text-align: left;">CONV</td>
-<td style="text-align: left;">Menerapkan (L3)</td>
-<td style="text-align: left;">Hitung output <span class="math inline">\(y(t) = x(t) * h(t)\)</span> jika <span class="math inline">\(x(t) = u(t-2)\)</span> dan <span class="math inline">\(h(t) = \delta(t+1)\)</span>.</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>2</strong></td>
-<td style="text-align: left;"><strong>WK4-PD_SOL-L2-P02</strong></td>
-<td style="text-align: left;">PD_SOL</td>
-<td style="text-align: left;">Memahami (L2)</td>
-<td style="text-align: left;">Tuliskan bentuk umum solusi homogen <span class="math inline">\(y_h(t)\)</span> untuk PD orde kedua <span class="math inline">\(d^2y/dt^2 - 4dy/dt + 4y(t) = x(t)\)</span>. (Asumsikan akar kembar real).</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><strong>3</strong></td>
-<td style="text-align: left;"><strong>WK4-IR_AN-L4-P03</strong></td>
-<td style="text-align: left;">IR_AN</td>
-<td style="text-align: left;">Menganalisis (L4)</td>
-<td style="text-align: left;">Analisis kausalitas sistem LTI waktu kontinu dengan respon impuls <span class="math inline">\(h(t) = e^{2t}u(1-t)\)</span>.</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>4</strong></td>
-<td style="text-align: left;"><strong>WK4-CONV-L3-P04</strong></td>
-<td style="text-align: left;">CONV</td>
-<td style="text-align: left;">Menerapkan (L3)</td>
-<td style="text-align: left;">Diberikan <span class="math inline">\(x(t) = e^{-t}u(t)\)</span> dan <span class="math inline">\(h(t) = u(t)\)</span>, hitung nilai output <span class="math inline">\(y(t)\)</span> pada <span class="math inline">\(t=2\)</span>.</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><strong>5</strong></td>
-<td style="text-align: left;"><strong>WK4-PD_SOL-L4-P05</strong></td>
-<td style="text-align: left;">PD_SOL</td>
-<td style="text-align: left;">Menganalisis (L4)</td>
-<td style="text-align: left;">Tentukan solusi partikular <span class="math inline">\(y_p(t)\)</span> untuk PD orde pertama <span class="math inline">\(\frac{dy(t)}{dt} + 2y(t) = 3u(t)\)</span>.</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>6</strong></td>
-<td style="text-align: left;"><strong>WK4-CONV-L5-P06</strong></td>
-<td style="text-align: left;">CONV</td>
-<td style="text-align: left;">Mengevaluasi (L5)</td>
-<td style="text-align: left;">Evaluasi apakah <span class="math inline">\(x(t) * \delta(t-t_0) = \delta(t-t_0) * x(t)\)</span>. Justifikasikan menggunakan sifat konvolusi.</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><strong>7</strong></td>
-<td style="text-align: left;"><strong>WK4-PD_SOL-L2-P07</strong></td>
-<td style="text-align: left;">PD_SOL</td>
-<td style="text-align: left;">Memahami (L2)</td>
-<td style="text-align: left;">Jelaskan perbedaan peran solusi homogen dan solusi partikular dalam menentukan respon sistem LTI yang dimodelkan oleh PD.</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>8</strong></td>
-<td style="text-align: left;"><strong>WK4-IR_AN-L4-P08</strong></td>
-<td style="text-align: left;">IR_AN</td>
-<td style="text-align: left;">Menganalisis (L4)</td>
-<td style="text-align: left;">Buktikan stabilitas BIBO untuk sistem LTI waktu kontinu dengan respon impuls <span class="math inline">\(h(t) = 5e^{-0.5t}u(t)\)</span>.</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><strong>9</strong></td>
-<td style="text-align: left;"><strong>WK4-CONV-L4-P09</strong></td>
-<td style="text-align: left;">CONV</td>
-<td style="text-align: left;">Menganalisis (L4)</td>
-<td style="text-align: left;">Hitung dan sketsa output <span class="math inline">\(y(t)\)</span> jika <span class="math inline">\(x(t)\)</span> adalah pulsa persegi (dari 0 hingga 1) dan <span class="math inline">\(h(t) = \delta(t) + \delta(t-1)\)</span>.</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>10</strong></td>
-<td style="text-align: left;"><strong>WK4-PD_SOL-L3-P10</strong></td>
-<td style="text-align: left;">PD_SOL</td>
-<td style="text-align: left;">Menerapkan (L3)</td>
-<td style="text-align: left;">Tentukan respon natural (solusi homogen) dari sistem yang dijelaskan oleh <span class="math inline">\(\frac{d^2y(t)}{dt^2} + 9y(t) = x(t)\)</span>.</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><strong>11</strong></td>
-<td style="text-align: left;"><strong>WK4-IR_PROP-L2-P11</strong></td>
-<td style="text-align: left;">IR_PROP</td>
-<td style="text-align: left;">Memahami (L2)</td>
-<td style="text-align: left;">Tuliskan kriteria matematis untuk stabilitas BIBO sistem LTI waktu kontinu berdasarkan respon impuls <span class="math inline">\(h(t)\)</span>.</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>12</strong></td>
-<td style="text-align: left;"><strong>WK4-CONV-L3-P12</strong></td>
-<td style="text-align: left;">CONV</td>
-<td style="text-align: left;">Menerapkan (L3)</td>
-<td style="text-align: left;">Selesaikan konvolusi integral untuk <span class="math inline">\(x(t) = e^{-2t}u(t)\)</span> dan <span class="math inline">\(h(t) = e^{-3t}u(t)\)</span>.</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><strong>13</strong></td>
-<td style="text-align: left;"><strong>WK4-LTI_PROP-L4-P13</strong></td>
-<td style="text-align: left;">LTI_PROP</td>
-<td style="text-align: left;">Menganalisis (L4)</td>
-<td style="text-align: left;">Diberikan dua sistem LTI kausal <span class="math inline">\(h_1(t)\)</span> dan <span class="math inline">\(h_2(t)\)</span>. Analisis apakah sistem kaskade <span class="math inline">\(h_1(t) * h_2(t)\)</span> pasti kausal.</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>14</strong></td>
-<td style="text-align: left;"><strong>WK4-IR_PROP-L6-P14</strong></td>
-<td style="text-align: left;">IR_PROP</td>
-<td style="text-align: left;">Menciptakan (L6)</td>
-<td style="text-align: left;">Formulasikan ekspresi respon impuls <span class="math inline">\(h(t)\)</span> sistem LTI agar kausal dan tidak stabil BIBO.</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><strong>15</strong></td>
-<td style="text-align: left;"><strong>WK4-CONV-L3-P15</strong></td>
-<td style="text-align: left;">CONV</td>
-<td style="text-align: left;">Menerapkan (L3)</td>
-<td style="text-align: left;">Hitung output <span class="math inline">\(y[n]\)</span> dari konvolusi waktu diskrit <span class="math inline">\(x[n] * h[n]\)</span> di mana <span class="math inline">\(x[n] = \{1, 2, 0, 1\}\)</span> dan <span class="math inline">\(h[n] = \{1, 1, 1\}\)</span>.</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>16</strong></td>
-<td style="text-align: left;"><strong>WK4-PD_SOL-L5-P16</strong></td>
-<td style="text-align: left;">PD_SOL</td>
-<td style="text-align: left;">Mengevaluasi (L5)</td>
-<td style="text-align: left;">Evaluasi apakah kondisi awal <span class="math inline">\(y(0)\)</span> dan <span class="math inline">\(dy(0)/dt\)</span> (untuk PD orde 2) sama dengan nol jika sistem berada dalam keadaan istirahat (<em>at rest</em>).</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><strong>17</strong></td>
-<td style="text-align: left;"><strong>WK4-IR_AN-L4-P17</strong></td>
-<td style="text-align: left;">IR_AN</td>
-<td style="text-align: left;">Menganalisis (L4)</td>
-<td style="text-align: left;">Tentukan respon impuls <span class="math inline">\(h(t)\)</span> untuk sistem yang didefinisikan oleh <span class="math inline">\(y(t) = 3x(t) + \frac{1}{2}\frac{dx(t)}{dt}\)</span>.</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>18</strong></td>
-<td style="text-align: left;"><strong>WK4-CONV-L4-P18</strong></td>
-<td style="text-align: left;">CONV</td>
-<td style="text-align: left;">Menganalisis (L4)</td>
-<td style="text-align: left;">Diberikan output <span class="math inline">\(y(t)\)</span> dan respon impuls <span class="math inline">\(h(t)\)</span>, tunjukkan bagaimana sifat komutatif konvolusi membantu memecahkan masalah dekonvolusi.</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><strong>19</strong></td>
-<td style="text-align: left;"><strong>WK4-PD_SOL-L4-P19</strong></td>
-<td style="text-align: left;">PD_SOL</td>
-<td style="text-align: left;">Menganalisis (L4)</td>
-<td style="text-align: left;">Tentukan bentuk solusi partikular yang tepat jika sistem PD orde 2 memiliki akar homogen <span class="math inline">\(s_1 = -1\)</span> dan <span class="math inline">\(s_2 = -2\)</span>, dan inputnya adalah <span class="math inline">\(x(t) = e^{-2t}u(t)\)</span>.</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>20</strong></td>
-<td style="text-align: left;"><strong>WK4-PD_SOL-L6-P20</strong></td>
-<td style="text-align: left;">PD_SOL</td>
-<td style="text-align: left;">Menciptakan (L6)</td>
-<td style="text-align: left;">Formulasikan PD orde 2 LTI yang menghasilkan respon homogen osilasi teredam (damped oscillation).</td>
-</tr>
-</tbody>
-</table>
-<hr>
+<section id="menemukan-respons-frekuensi-dan-respons-fase" class="level3" data-number="13.0.2">
+<h3 data-number="13.0.2" class="anchored" data-anchor-id="menemukan-respons-frekuensi-dan-respons-fase"><span class="header-section-number">13.0.2</span> 2. Menemukan Respons Frekuensi dan Respons Fase</h3>
+<p>Respons Frekuensi <span class="math inline">\(H(j\omega)\)</span> adalah hasil evaluasi <span class="math inline">\(H(s)\)</span> pada sumbu imajiner, di mana <span class="math inline">\(\mathbf{s = j\omega}\)</span>. Evaluasi ini dapat dilakukan secara aljabar (mengganti <span class="math inline">\(s\)</span> dengan <span class="math inline">\(j\omega\)</span>) atau secara geometris dari plot pole-zero.</p>
+<section id="a.-respons-magnitudo-hjomega" class="level4" data-number="13.0.2.1">
+<h4 data-number="13.0.2.1" class="anchored" data-anchor-id="a.-respons-magnitudo-hjomega"><span class="header-section-number">13.0.2.1</span> A. Respons Magnitudo <span class="math inline">\(|H(j\omega)|\)</span></h4>
+<p>Respons magnitudo sistem LTI menunjukkan bagaimana sistem memperkuat atau melemahkan komponen frekuensi input.</p>
+<p><strong>Cara Geometris (Geometric Evaluation):</strong></p>
+<ol type="1">
+<li>Untuk menemukan magnitudo <span class="math inline">\(|H(j\omega)|\)</span> pada frekuensi tertentu <span class="math inline">\(\omega\)</span>, kita mengevaluasi <span class="math inline">\(H(s)\)</span> pada titik <span class="math inline">\(s = j\omega\)</span> di bidang <span class="math inline">\(s\)</span>.</li>
+<li>Setiap suku di pembilang <span class="math inline">\((j\omega - z_k)\)</span> dan penyebut <span class="math inline">\((j\omega - p_i)\)</span> merepresentasikan <strong>vektor</strong> yang ditarik dari lokasi zero (<span class="math inline">\(z_k\)</span>) atau pole (<span class="math inline">\(p_i\)</span>) ke titik evaluasi <span class="math inline">\(j\omega\)</span> di sumbu imajiner.</li>
+<li><strong>Magnitudo <span class="math inline">\(|H(j\omega)|\)</span></strong> dihitung sebagai: <span class="math display">\[\mathbf{|H(j\omega)| = |M| \times \frac{\text{Produk panjang vektor dari semua zero ke } j\omega}{\text{Produk panjang vektor dari semua pole ke } j\omega}}\]</span></li>
+<li>Semakin dekat sebuah pole ke sumbu <span class="math inline">\(j\omega\)</span>, semakin pendek vektor pole tersebut, yang menghasilkan magnitudo <span class="math inline">\(|H(j\omega)|\)</span> yang <strong>besar</strong> pada frekuensi <span class="math inline">\(\omega\)</span> tersebut (karakteristik filter <em>bandpass</em> atau <em>lowpass</em>).</li>
+</ol>
 </section>
-<section id="v.-daftar-kendaraan-yang-digunakan" class="level2" data-number="4.3">
-<h2 data-number="4.3" class="anchored" data-anchor-id="v.-daftar-kendaraan-yang-digunakan"><span class="header-section-number">4.3</span> V. Daftar Kendaraan yang Digunakan</h2>
-<p>Berikut adalah daftar kendaraan unik yang digunakan dalam Peta Pengetahuan Aplikatif untuk analisis Domain Waktu (Minggu 4):</p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;">Kategori Kendaraan</th>
-<th style="text-align: left;">Kendaraan Spesifik</th>
-<th style="text-align: left;">Deskripsi Penggunaan</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><strong>Matematika (Fundamental)</strong></td>
-<td style="text-align: left;"><strong>K_MAT_Aljabar</strong></td>
-<td style="text-align: left;">Manipulasi ekspresi, faktorisasi, penyelesaian konstanta PD, penjumlahan sinyal.</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"></td>
-<td style="text-align: left;"><strong>K_MAT_Kalkulus</strong></td>
-<td style="text-align: left;">Diferensiasi untuk analisis PD, <strong>integrasi</strong> untuk Konvolusi dan uji stabilitas.</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"></td>
-<td style="text-align: left;"><strong>K_MAT_Bilangan_Kompleks</strong></td>
-<td style="text-align: left;">Penentuan akar persamaan karakteristik kompleks konjugat.</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>Operasi Dasar Sinyal/Sistem</strong></td>
-<td style="text-align: left;"><strong>K_OPS_Definisi</strong></td>
-<td style="text-align: left;">Definisi Konvolusi Integral, Respon Impuls (<span class="math inline">\(h(t)\)</span>), Kausalitas LTI, Stabilitas BIBO, Solusi PD.</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"></td>
-<td style="text-align: left;"><strong>K_OPS_SifatKonvolusi</strong></td>
-<td style="text-align: left;">Penerapan sifat Komutatif, Distributif, dan Sifting Property dari <span class="math inline">\(\delta(t)\)</span>.</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"></td>
-<td style="text-align: left;"><strong>K_OPS_Representasi_Matematis</strong></td>
-<td style="text-align: left;">Struktur PD LCC, bentuk umum Solusi Homogen (<span class="math inline">\(y_h\)</span>), dan bentuk asumsi Solusi Partikular (<span class="math inline">\(y_p\)</span>).</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"></td>
-<td style="text-align: left;"><strong>K_OPS_Sinyal_Dasar</strong></td>
-<td style="text-align: left;">Turunan dari fungsi impuls (<span class="math inline">\(\delta'(t)\)</span>).</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>Diagram &amp; Visualisasi</strong></td>
-<td style="text-align: left;"><strong>K_VIS_PlotSinyal</strong></td>
-<td style="text-align: left;">Sketsa sinyal output dan visualisasi batas integral konvolusi.</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><strong>Heuristik</strong></td>
-<td style="text-align: left;"><strong>Heuristik_MenyederhanakanMasalah</strong></td>
-<td style="text-align: left;">Memilih urutan konvolusi yang lebih mudah dihitung (memanfaatkan sifat komutatif).</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"></td>
-<td style="text-align: left;"><strong>Heuristik_Menganalisis_Batas</strong></td>
-<td style="text-align: left;">Strategi memecah integral konvolusi menjadi kasus-kasus berdasarkan overlap sinyal.</td>
-</tr>
-</tbody>
-</table>
+<section id="b.-respons-fase-angle-hjomega" class="level4" data-number="13.0.2.2">
+<h4 data-number="13.0.2.2" class="anchored" data-anchor-id="b.-respons-fase-angle-hjomega"><span class="header-section-number">13.0.2.2</span> B. Respons Fase <span class="math inline">\(\angle H(j\omega)\)</span></h4>
+<p>Respons fase menunjukkan bagaimana sistem menggeser fase komponen frekuensi input.</p>
+<p><strong>Cara Geometris:</strong></p>
+<ol type="1">
+<li><strong>Fase <span class="math inline">\(\angle H(j\omega)\)</span></strong> dihitung dengan menjumlahkan sudut dari vektor zero dan menguranginya dengan jumlah sudut dari vektor pole.</li>
+<li><strong>Fase <span class="math inline">\(\angle H(j\omega)\)</span></strong> dihitung sebagai: <span class="math display">\[\mathbf{\angle H(j\omega) = \sum_{k} \angle(j\omega - z_k) - \sum_{i} \angle(j\omega - p_i)}\]</span></li>
+<li>(Ditambah sudut tambahan <span class="math inline">\(\pi\)</span> jika faktor skala <span class="math inline">\(M\)</span> adalah negatif).</li>
+</ol>
+</section>
+</section>
+<section id="aplikasi-pada-filter-butterworth" class="level3" data-number="13.0.3">
+<h3 data-number="13.0.3" class="anchored" data-anchor-id="aplikasi-pada-filter-butterworth"><span class="header-section-number">13.0.3</span> 3. Aplikasi pada Filter Butterworth</h3>
+<p>Filter Butterworth adalah kelas filter yang dirancang untuk memiliki respons magnitudo yang <strong>maksimal datar</strong> (<em>maximally flat</em>) di <em>passband</em>. Filter ini sering digunakan dalam praktik dan memiliki respons frekuensi rasional.</p>
+<section id="a.-persamaan-magnitudo" class="level4" data-number="13.0.3.1">
+<h4 data-number="13.0.3.1" class="anchored" data-anchor-id="a.-persamaan-magnitudo"><span class="header-section-number">13.0.3.1</span> A. Persamaan Magnitudo</h4>
+<p>Filter <em>lowpass</em> Butterworth orde <span class="math inline">\(N\)</span> memiliki kuadrat magnitudo respons frekuensi yang diberikan oleh:</p>
+<p><span class="math display">\[\mathbf{|B(j\omega)|^2 = \frac{1}{1 + (\omega / \omega_c)^{2N}}}\]</span>.</p>
+<p>Di mana <span class="math inline">\(\omega_c\)</span> adalah frekuensi <em>cutoff</em>. Pada <span class="math inline">\(\omega = \omega_c\)</span>, magnitudo jatuh ke <span class="math inline">\(1/\sqrt{2}\)</span> dari nilai maksimumnya (atau -3 dB).</p>
+</section>
+<section id="b.-menentukan-fungsi-sistem-bs-pole-placement" class="level4" data-number="13.0.3.2">
+<h4 data-number="13.0.3.2" class="anchored" data-anchor-id="b.-menentukan-fungsi-sistem-bs-pole-placement"><span class="header-section-number">13.0.3.2</span> B. Menentukan Fungsi Sistem <span class="math inline">\(B(s)\)</span> (Pole Placement)</h4>
+<p>Untuk menentukan fungsi sistem <span class="math inline">\(B(s)\)</span> yang menghasilkan magnitudo di atas, kita harus menemukan letak pole-polenya:</p>
+<ol type="1">
+<li>Kita tahu bahwa <span class="math inline">\(|B(j\omega)|^2 = B(j\omega)B^*(j\omega)\)</span>. Jika kita mengasumsikan respons impulsnya nyata (real), maka <span class="math inline">\(B^*(j\omega) = B(-j\omega)\)</span>, yang berarti <span class="math inline">\(|B(j\omega)|^2 = B(j\omega)B(-j\omega)\)</span>.</li>
+<li>Dengan mengganti <span class="math inline">\(j\omega\)</span> dengan variabel <span class="math inline">\(s\)</span> (sehingga <span class="math inline">\((j\omega)^2\)</span> menjadi <span class="math inline">\(-s^2\)</span>), kita mendapatkan polinomial <span class="math inline">\(B(s)B(-s)\)</span>: <span class="math display">\[B(s)B(-s) = \frac{1}{1 + (-s^2 / \omega_c^2)^{N}}\]</span></li>
+<li>Untuk sistem LTI waktu kontinu agar <strong>kausal dan stabil</strong>, semua pole-nya harus terletak di <strong>bidang setengah kiri terbuka</strong> (<em>open left half-plane</em>—LHP), yang berarti bagian riil <span class="math inline">\(\mathcal{Re}{s} &lt; 0\)</span>.</li>
+<li>Oleh karena itu, fungsi sistem <span class="math inline">\(B(s)\)</span> dibentuk hanya dengan memilih <span class="math inline">\(N\)</span> pole dari <span class="math inline">\(B(s)B(-s)\)</span> yang terletak di <strong>LHP</strong>.</li>
+</ol>
+</section>
+<section id="c.-contoh-orde-kedua-n2" class="level4" data-number="13.0.3.3">
+<h4 data-number="13.0.3.3" class="anchored" data-anchor-id="c.-contoh-orde-kedua-n2"><span class="header-section-number">13.0.3.3</span> C. Contoh Orde Kedua (<span class="math inline">\(N=2\)</span>)</h4>
+<p>Untuk Filter Butterworth Orde Kedua, fungsi sistem yang kausal dan stabil adalah:</p>
+<p><span class="math display">\[\mathbf{B(s) = \frac{\omega_c^2}{s^2 + \sqrt{2}\omega_c s + \omega_c^2}}\]</span>.</p>
+<p>Polinomial penyebut (denominator) ini dikenal sebagai <strong>polinomial karakteristik Butterworth orde kedua</strong>. Pole-pole ini berada di LHP, memastikan sistem ini stabil. Dari bentuk <span class="math inline">\(B(s)\)</span>, kita dapat langsung menyimpulkan:</p>
+<ol type="1">
+<li><strong>Respons Magnitudo:</strong> Pole-pole yang berada di LHP tersebut menjamin bahwa magnitudo respons frekuensi turun secara mulus dan maksimal datar di <em>passband</em>.</li>
+<li><strong>Respons Fase:</strong> Karena <span class="math inline">\(B(s)\)</span> adalah fungsi rasional, respons fasenya adalah hasil dari penjumlahan/pengurangan sudut vektor pole dan zero (yang dalam kasus <span class="math inline">\(N=2\)</span> lowpass standar, tidak ada <em>finite zero</em>). Filter orde tinggi umumnya menunjukkan <strong>fase non-linear</strong>, meskipun filter Bessel seringkali lebih baik dalam mendekati fase linear dibandingkan Butterworth.</li>
+</ol>
+<p>Dengan demikian, analisis pole-zero (ranah Laplace) memungkinkan kita untuk merancang penempatan pole secara spesifik (seperti pada Filter Butterworth) untuk mencapai spesifikasi magnitudo tertentu di ranah frekuensi.</p>
+</section>
+</section>
+</section>
+<section id="section" class="level1" data-number="14">
+<h1 data-number="14"><span class="header-section-number">14</span> </h1>
+</section>
+<section id="transformasi-frekuensi" class="level1" data-number="15">
+<h1 data-number="15"><span class="header-section-number">15</span> Transformasi Frekuensi</h1>
+<p>Transformasi frekuensi <span class="math inline">\(\mathbf{s \rightarrow \frac{\omega_0}{s}}\)</span> (atau variannya <span class="math inline">\(\frac{1}{s}\)</span> untuk frekuensi <em>cutoff</em> terstandardisasi) adalah metode transformasi filter analog yang umum digunakan untuk mengubah fungsi sistem filter <em>Lowpass</em> (LP) menjadi fungsi sistem filter <em>Highpass</em> (HP).</p>
+<p>Transformasi ini memanfaatkan hubungan Transformasi Laplace <span class="math inline">\(H(s)\)</span> dengan Respons Frekuensi <span class="math inline">\(H(j\omega)\)</span> (dengan mengganti <span class="math inline">\(s\)</span> dengan <span class="math inline">\(j\omega\)</span>).</p>
+<section id="mekanisme-transformasi-mathbfs-rightarrow-fracomega_0s" class="level3" data-number="15.0.1">
+<h3 data-number="15.0.1" class="anchored" data-anchor-id="mekanisme-transformasi-mathbfs-rightarrow-fracomega_0s"><span class="header-section-number">15.0.1</span> Mekanisme Transformasi <span class="math inline">\(\mathbf{s \rightarrow \frac{\omega_0}{s}}\)</span></h3>
+<p>Jika kita memiliki fungsi sistem <em>prototype</em> lowpass <span class="math inline">\(H_{LP}(s)\)</span> dengan frekuensi <em>cutoff</em> terstandardisasi (misalnya, <span class="math inline">\(\omega_0 = 1\)</span> rad/detik), kita dapat memperoleh fungsi sistem <em>highpass</em> <span class="math inline">\(H_{HP}(s)\)</span> dengan mengganti <span class="math inline">\(s\)</span> dalam <span class="math inline">\(H_{LP}(s)\)</span> dengan <span class="math inline">\(\frac{\omega_0}{s}\)</span>:</p>
+<p><span class="math display">\[\mathbf{H_{HP}(s) = H_{LP}\left(\frac{\omega_0}{s}\right)}\]</span></p>
+<p>Untuk memahami bagaimana transformasi ini mengubah karakter respons, kita mengevaluasinya di ranah frekuensi dengan mengganti <span class="math inline">\(s\)</span> dengan <span class="math inline">\(j\omega\)</span>:</p>
+<p><span class="math display">\[\mathbf{|H_{HP}(j\omega)| = \left|H_{LP}\left(\frac{\omega_0}{j\omega}\right)\right| = \left|H_{LP}\left(\frac{-j\omega_0}{\omega}\right)\right|}\]</span></p>
+<p>Transformasi ini secara efektif <strong>membalik (me-refleksi) sumbu frekuensi</strong> sehubungan dengan karakteristik aslinya:</p>
+<ol type="1">
+<li><strong>Frekuensi Rendah pada Filter HP (<span class="math inline">\(\omega \rightarrow 0\)</span>):</strong> Ketika frekuensi input <span class="math inline">\(\omega\)</span> mendekati nol, argumen transformasi <span class="math inline">\(\frac{\omega_0}{\omega}\)</span> menuju tak terhingga (<span class="math inline">\(\infty\)</span>). Karena <span class="math inline">\(H_{LP}\)</span> adalah filter <em>lowpass</em>, responsnya pada frekuensi tinggi adalah rendah (stopband). Oleh karena itu, <span class="math inline">\(|H_{HP}(j\omega)|\)</span> menjadi kecil, mencerminkan sifat <em>stopband</em> dari filter <em>highpass</em> pada frekuensi rendah.</li>
+<li><strong>Frekuensi Tinggi pada Filter HP (<span class="math inline">\(\omega \rightarrow \infty\)</span>):</strong> Ketika frekuensi input <span class="math inline">\(\omega\)</span> menuju tak terhingga, argumen transformasi <span class="math inline">\(\frac{\omega_0}{\omega}\)</span> mendekati nol. Karena <span class="math inline">\(H_{LP}\)</span> adalah filter <em>lowpass</em>, responsnya pada frekuensi rendah adalah tinggi (passband). Oleh karena itu, <span class="math inline">\(|H_{HP}(j\omega)|\)</span> menjadi besar, mencerminkan sifat <em>passband</em> dari filter <em>highpass</em> pada frekuensi tinggi.</li>
+</ol>
+<p>Dengan demikian, sifat-sifat magnitudo yang melemah di frekuensi tinggi pada filter LP diubah menjadi sifat-sifat yang diteruskan di frekuensi tinggi pada filter HP.</p>
+</section>
+<section id="contoh-kasus-filter-butterworth" class="level3" data-number="15.0.2">
+<h3 data-number="15.0.2" class="anchored" data-anchor-id="contoh-kasus-filter-butterworth"><span class="header-section-number">15.0.2</span> Contoh Kasus: Filter Butterworth</h3>
+<p>Filter Butterworth <em>lowpass</em> (LP) orde <span class="math inline">\(N\)</span> memiliki kuadrat magnitudo respons frekuensi yang diberikan oleh:</p>
+<p><span class="math display">\[\mathbf{|B_{LP}(j\omega)|^2 = \frac{1}{1 + \left(\frac{\omega}{\omega_c}\right)^{2N}}}\]</span></p>
+<p>Di mana <span class="math inline">\(\omega_c\)</span> adalah frekuensi <em>cutoff</em>.</p>
+<p>Untuk mendapatkan Filter Butterworth <em>highpass</em> (HP), kita menerapkan transformasi <span class="math inline">\(\mathbf{s \rightarrow \frac{\omega_c}{s}}\)</span>. Dalam ranah frekuensi, ini berarti kita mengganti rasio <span class="math inline">\(\frac{\omega}{\omega_c}\)</span> dengan <span class="math inline">\(\frac{\omega_c}{\omega}\)</span> (atau lebih formal, mengganti <span class="math inline">\(j\omega\)</span> dengan <span class="math inline">\(\frac{\omega_c}{j\omega}\)</span>) ke dalam formula magnitudo kuadrat:</p>
+<p><span class="math display">\[\mathbf{|B_{HP}(j\omega)|^2 = \frac{1}{1 + \left(\frac{\omega_c}{\omega}\right)^{2N}}}\]</span></p>
+<p><strong>Analisis Magnitudo Filter HP Hasil Transformasi:</strong></p>
+<ul>
+<li><strong>Pada frekuensi sangat rendah (<span class="math inline">\(\omega \approx 0\)</span>):</strong> Rasio <span class="math inline">\(\left(\frac{\omega_c}{\omega}\right)^{2N} \rightarrow \infty\)</span>. Maka, <span class="math inline">\(|B_{HP}(j\omega)|^2 \rightarrow \frac{1}{1 + \infty} \rightarrow 0\)</span>. (Menunjukkan <em>Stopband</em>).</li>
+<li><strong>Pada frekuensi sangat tinggi (<span class="math inline">\(\omega \rightarrow \infty\)</span>):</strong> Rasio <span class="math inline">\(\left(\frac{\omega_c}{\omega}\right)^{2N} \rightarrow 0\)</span>. Maka, <span class="math inline">\(|B_{HP}(j\omega)|^2 \rightarrow \frac{1}{1 + 0} \rightarrow 1\)</span>. (Menunjukkan <em>Passband</em>).</li>
+<li><strong>Pada frekuensi <em>cutoff</em> (<span class="math inline">\(\omega = \omega_c\)</span>):</strong> Rasio <span class="math inline">\(\left(\frac{\omega_c}{\omega_c}\right)^{2N} = 1\)</span>. Maka, <span class="math inline">\(|B_{HP}(j\omega_c)|^2 = \frac{1}{1 + 1} = \frac{1}{2}\)</span>. (Magnitudo turun 3 dB, sama dengan filter LP asli).</li>
+</ul>
+<p>Hasilnya adalah filter yang memiliki karakteristik magnitudo datar maksimal (<em>maximally flat</em>) di <em>passband</em>-nya, tetapi dengan respons yang terbalik di sumbu frekuensi—semua frekuensi rendah dilemahkan dan semua frekuensi tinggi diteruskan, yang merupakan karakteristik filter <em>highpass</em>.</p>
+<p>Prosedur umum ini (Lowpass-to-Highpass transformations) sering digunakan dalam desain filter karena memudahkan; alih-alih merancang filter baru dari awal untuk setiap tipe respons (HP, <em>Bandpass</em>, <em>Bandstop</em>), insinyur cukup merancang satu filter <em>prototype</em> LP yang stabil dan kemudian menerapkan transformasi frekuensi yang sesuai.</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -955,13 +812,13 @@ window.Quarto = {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../kuliah/materi_3.html" class="pagination-link" aria-label="Sistem LTI dan LCCDE">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Sistem LTI dan LCCDE</span></span>
+      <a href="../kuliah/materi_10.html" class="pagination-link" aria-label="Kuliah 10 Analisis Sistem di Domain Laplace: Fungsi Alih (Transfer Function)">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Kuliah 10 Analisis Sistem di Domain Laplace: Fungsi Alih (Transfer Function)</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../kuliah/materi_5.html" class="pagination-link" aria-label="1) Analisis Materi Minggu ke-5 (RPS.pdf)">
-        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">1) Analisis Materi Minggu ke-5 (RPS.pdf)</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../ujian/uas.html" class="pagination-link" aria-label="uas.html">
+        <span class="nav-page-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">uas.html</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

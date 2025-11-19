@@ -1,0 +1,141 @@
+# Desain Filter Lowpass dan Highpass
+
+# Respons Frekuensi dan Fasa
+
+Ini adalah penjelasan mengenai cara menemukan respons frekuensi dan respons fase dari Sistem Linear Tak-berubah Waktu (LTI) yang dikarakterisasi oleh Persamaan Diferensial Linear Koefisien Konstan (LCCDE) melalui Transformasi Laplace, serta penerapannya pada Filter Butterworth.
+
+Dalam analisis sistem LTI waktu kontinu, Transformasi Laplace ($H(s)$, yang disebut fungsi sistem atau fungsi alih) adalah generalisasi dari Transformasi Fourier ($H(j\omega)$, yang disebut respons frekuensi).
+
+### 1. Menentukan Fungsi Sistem ($H(s)$) dari LCCDE
+
+Sistem LTI waktu kontinu yang dijelaskan oleh LCCDE memiliki bentuk umum: $$\sum_{k=0}^{N} a_k \frac{d^k y(t)}{dt^k} = \sum_{k=0}^{M} b_k \frac{d^k x(t)}{dt^k}$$.
+
+Dengan menerapkan **Transformasi Laplace** pada kedua sisi persamaan, menggunakan sifat linearitas dan turunan di ranah waktu, persamaan diferensial berubah menjadi persamaan aljabar di ranah $s$:
+
+$$D(s) Y(s) = N(s) X(s)$$
+
+Fungsi Sistem (Transfer Function), $H(s)$, diperoleh sebagai rasio Transformasi Laplace output ($Y(s)$) terhadap input ($X(s)$):
+
+$$H(s) = \frac{Y(s)}{X(s)} = \frac{N(s)}{D(s)} = \frac{\sum_{k=0}^{M} b_k s^k}{\sum_{k=0}^{N} a_k s^k}$$.
+
+Fungsi sistem $H(s)$ ini selalu merupakan **fungsi rasional**.
+
+#### Bentuk Pole-Zero
+
+Fungsi rasional $H(s)$ dapat difaktorkan menjadi bentuk pole-zero:
+
+$$H(s) = M \frac{\prod_{k=1}^{M} (s - z_k)}{\prod_{i=1}^{N} (s - p_i)}$$.
+
+Di mana:
+
+- $z_k$: adalah **zero** (akar dari $N(s)$).
+- $p_i$: adalah **pole** (akar dari $D(s)$).
+- $M$: adalah faktor _gain_ skala.
+
+### 2. Menemukan Respons Frekuensi dan Respons Fase
+
+Respons Frekuensi $H(j\omega)$ adalah hasil evaluasi $H(s)$ pada sumbu imajiner, di mana $\mathbf{s = j\omega}$. Evaluasi ini dapat dilakukan secara aljabar (mengganti $s$ dengan $j\omega$) atau secara geometris dari plot pole-zero.
+
+#### A. Respons Magnitudo $|H(j\omega)|$
+
+Respons magnitudo sistem LTI menunjukkan bagaimana sistem memperkuat atau melemahkan komponen frekuensi input.
+
+**Cara Geometris (Geometric Evaluation):**
+
+1. Untuk menemukan magnitudo $|H(j\omega)|$ pada frekuensi tertentu $\omega$, kita mengevaluasi $H(s)$ pada titik $s = j\omega$ di bidang $s$.
+2. Setiap suku di pembilang $(j\omega - z_k)$ dan penyebut $(j\omega - p_i)$ merepresentasikan **vektor** yang ditarik dari lokasi zero ($z_k$) atau pole ($p_i$) ke titik evaluasi $j\omega$ di sumbu imajiner.
+3. **Magnitudo $|H(j\omega)|$** dihitung sebagai: $$\mathbf{|H(j\omega)| = |M| \times \frac{\text{Produk panjang vektor dari semua zero ke } j\omega}{\text{Produk panjang vektor dari semua pole ke } j\omega}}$$
+4. Semakin dekat sebuah pole ke sumbu $j\omega$, semakin pendek vektor pole tersebut, yang menghasilkan magnitudo $|H(j\omega)|$ yang **besar** pada frekuensi $\omega$ tersebut (karakteristik filter _bandpass_ atau _lowpass_).
+
+#### B. Respons Fase $\angle H(j\omega)$
+
+Respons fase menunjukkan bagaimana sistem menggeser fase komponen frekuensi input.
+
+**Cara Geometris:**
+
+1. **Fase $\angle H(j\omega)$** dihitung dengan menjumlahkan sudut dari vektor zero dan menguranginya dengan jumlah sudut dari vektor pole.
+2. **Fase $\angle H(j\omega)$** dihitung sebagai: $$\mathbf{\angle H(j\omega) = \sum_{k} \angle(j\omega - z_k) - \sum_{i} \angle(j\omega - p_i)}$$
+3. (Ditambah sudut tambahan $\pi$ jika faktor skala $M$ adalah negatif).
+
+### 3. Aplikasi pada Filter Butterworth
+
+Filter Butterworth adalah kelas filter yang dirancang untuk memiliki respons magnitudo yang **maksimal datar** (_maximally flat_) di _passband_. Filter ini sering digunakan dalam praktik dan memiliki respons frekuensi rasional.
+
+#### A. Persamaan Magnitudo
+
+Filter _lowpass_ Butterworth orde $N$ memiliki kuadrat magnitudo respons frekuensi yang diberikan oleh:
+
+$$\mathbf{|B(j\omega)|^2 = \frac{1}{1 + (\omega / \omega_c)^{2N}}}$$.
+
+Di mana $\omega_c$ adalah frekuensi _cutoff_. Pada $\omega = \omega_c$, magnitudo jatuh ke $1/\sqrt{2}$ dari nilai maksimumnya (atau -3 dB).
+
+#### B. Menentukan Fungsi Sistem $B(s)$ (Pole Placement)
+
+Untuk menentukan fungsi sistem $B(s)$ yang menghasilkan magnitudo di atas, kita harus menemukan letak pole-polenya:
+
+1. Kita tahu bahwa $|B(j\omega)|^2 = B(j\omega)B^*(j\omega)$. Jika kita mengasumsikan respons impulsnya nyata (real), maka $B^*(j\omega) = B(-j\omega)$, yang berarti $|B(j\omega)|^2 = B(j\omega)B(-j\omega)$.
+2. Dengan mengganti $j\omega$ dengan variabel $s$ (sehingga $(j\omega)^2$ menjadi $-s^2$), kita mendapatkan polinomial $B(s)B(-s)$: $$B(s)B(-s) = \frac{1}{1 + (-s^2 / \omega_c^2)^{N}}$$
+3. Untuk sistem LTI waktu kontinu agar **kausal dan stabil**, semua pole-nya harus terletak di **bidang setengah kiri terbuka** (_open left half-plane_—LHP), yang berarti bagian riil $\mathcal{Re}{s} < 0$.
+4. Oleh karena itu, fungsi sistem $B(s)$ dibentuk hanya dengan memilih $N$ pole dari $B(s)B(-s)$ yang terletak di **LHP**.
+
+#### C. Contoh Orde Kedua ($N=2$)
+
+Untuk Filter Butterworth Orde Kedua, fungsi sistem yang kausal dan stabil adalah:
+
+$$\mathbf{B(s) = \frac{\omega_c^2}{s^2 + \sqrt{2}\omega_c s + \omega_c^2}}$$.
+
+Polinomial penyebut (denominator) ini dikenal sebagai **polinomial karakteristik Butterworth orde kedua**. Pole-pole ini berada di LHP, memastikan sistem ini stabil. Dari bentuk $B(s)$, kita dapat langsung menyimpulkan:
+
+1. **Respons Magnitudo:** Pole-pole yang berada di LHP tersebut menjamin bahwa magnitudo respons frekuensi turun secara mulus dan maksimal datar di _passband_.
+2. **Respons Fase:** Karena $B(s)$ adalah fungsi rasional, respons fasenya adalah hasil dari penjumlahan/pengurangan sudut vektor pole dan zero (yang dalam kasus $N=2$ lowpass standar, tidak ada _finite zero_). Filter orde tinggi umumnya menunjukkan **fase non-linear**, meskipun filter Bessel seringkali lebih baik dalam mendekati fase linear dibandingkan Butterworth.
+
+Dengan demikian, analisis pole-zero (ranah Laplace) memungkinkan kita untuk merancang penempatan pole secara spesifik (seperti pada Filter Butterworth) untuk mencapai spesifikasi magnitudo tertentu di ranah frekuensi.
+
+  
+
+#   
+
+# Transformasi Frekuensi
+
+Transformasi frekuensi $\mathbf{s \rightarrow \frac{\omega_0}{s}}$ (atau variannya $\frac{1}{s}$ untuk frekuensi _cutoff_ terstandardisasi) adalah metode transformasi filter analog yang umum digunakan untuk mengubah fungsi sistem filter _Lowpass_ (LP) menjadi fungsi sistem filter _Highpass_ (HP).
+
+Transformasi ini memanfaatkan hubungan Transformasi Laplace $H(s)$ dengan Respons Frekuensi $H(j\omega)$ (dengan mengganti $s$ dengan $j\omega$).
+
+### Mekanisme Transformasi $\mathbf{s \rightarrow \frac{\omega_0}{s}}$
+
+Jika kita memiliki fungsi sistem _prototype_ lowpass $H_{LP}(s)$ dengan frekuensi _cutoff_ terstandardisasi (misalnya, $\omega_0 = 1$ rad/detik), kita dapat memperoleh fungsi sistem _highpass_ $H_{HP}(s)$ dengan mengganti $s$ dalam $H_{LP}(s)$ dengan $\frac{\omega_0}{s}$:
+
+$$\mathbf{H_{HP}(s) = H_{LP}\left(\frac{\omega_0}{s}\right)}$$
+
+Untuk memahami bagaimana transformasi ini mengubah karakter respons, kita mengevaluasinya di ranah frekuensi dengan mengganti $s$ dengan $j\omega$:
+
+$$\mathbf{|H_{HP}(j\omega)| = \left|H_{LP}\left(\frac{\omega_0}{j\omega}\right)\right| = \left|H_{LP}\left(\frac{-j\omega_0}{\omega}\right)\right|}$$
+
+Transformasi ini secara efektif **membalik (me-refleksi) sumbu frekuensi** sehubungan dengan karakteristik aslinya:
+
+1. **Frekuensi Rendah pada Filter HP ($\omega \rightarrow 0$):** Ketika frekuensi input $\omega$ mendekati nol, argumen transformasi $\frac{\omega_0}{\omega}$ menuju tak terhingga ($\infty$). Karena $H_{LP}$ adalah filter _lowpass_, responsnya pada frekuensi tinggi adalah rendah (stopband). Oleh karena itu, $|H_{HP}(j\omega)|$ menjadi kecil, mencerminkan sifat _stopband_ dari filter _highpass_ pada frekuensi rendah.
+2. **Frekuensi Tinggi pada Filter HP ($\omega \rightarrow \infty$):** Ketika frekuensi input $\omega$ menuju tak terhingga, argumen transformasi $\frac{\omega_0}{\omega}$ mendekati nol. Karena $H_{LP}$ adalah filter _lowpass_, responsnya pada frekuensi rendah adalah tinggi (passband). Oleh karena itu, $|H_{HP}(j\omega)|$ menjadi besar, mencerminkan sifat _passband_ dari filter _highpass_ pada frekuensi tinggi.
+
+Dengan demikian, sifat-sifat magnitudo yang melemah di frekuensi tinggi pada filter LP diubah menjadi sifat-sifat yang diteruskan di frekuensi tinggi pada filter HP.
+
+### Contoh Kasus: Filter Butterworth
+
+Filter Butterworth _lowpass_ (LP) orde $N$ memiliki kuadrat magnitudo respons frekuensi yang diberikan oleh:
+
+$$\mathbf{|B_{LP}(j\omega)|^2 = \frac{1}{1 + \left(\frac{\omega}{\omega_c}\right)^{2N}}}$$
+
+Di mana $\omega_c$ adalah frekuensi _cutoff_.
+
+Untuk mendapatkan Filter Butterworth _highpass_ (HP), kita menerapkan transformasi $\mathbf{s \rightarrow \frac{\omega_c}{s}}$. Dalam ranah frekuensi, ini berarti kita mengganti rasio $\frac{\omega}{\omega_c}$ dengan $\frac{\omega_c}{\omega}$ (atau lebih formal, mengganti $j\omega$ dengan $\frac{\omega_c}{j\omega}$) ke dalam formula magnitudo kuadrat:
+
+$$\mathbf{|B_{HP}(j\omega)|^2 = \frac{1}{1 + \left(\frac{\omega_c}{\omega}\right)^{2N}}}$$
+
+**Analisis Magnitudo Filter HP Hasil Transformasi:**
+
+- **Pada frekuensi sangat rendah ($\omega \approx 0$):** Rasio $\left(\frac{\omega_c}{\omega}\right)^{2N} \rightarrow \infty$. Maka, $|B_{HP}(j\omega)|^2 \rightarrow \frac{1}{1 + \infty} \rightarrow 0$. (Menunjukkan _Stopband_).
+- **Pada frekuensi sangat tinggi ($\omega \rightarrow \infty$):** Rasio $\left(\frac{\omega_c}{\omega}\right)^{2N} \rightarrow 0$. Maka, $|B_{HP}(j\omega)|^2 \rightarrow \frac{1}{1 + 0} \rightarrow 1$. (Menunjukkan _Passband_).
+- **Pada frekuensi _cutoff_ ($\omega = \omega_c$):** Rasio $\left(\frac{\omega_c}{\omega_c}\right)^{2N} = 1$. Maka, $|B_{HP}(j\omega_c)|^2 = \frac{1}{1 + 1} = \frac{1}{2}$. (Magnitudo turun 3 dB, sama dengan filter LP asli).
+
+Hasilnya adalah filter yang memiliki karakteristik magnitudo datar maksimal (_maximally flat_) di _passband_-nya, tetapi dengan respons yang terbalik di sumbu frekuensi—semua frekuensi rendah dilemahkan dan semua frekuensi tinggi diteruskan, yang merupakan karakteristik filter _highpass_.
+
+Prosedur umum ini (Lowpass-to-Highpass transformations) sering digunakan dalam desain filter karena memudahkan; alih-alih merancang filter baru dari awal untuk setiap tipe respons (HP, _Bandpass_, _Bandstop_), insinyur cukup merancang satu filter _prototype_ LP yang stabil dan kemudian menerapkan transformasi frekuensi yang sesuai.
