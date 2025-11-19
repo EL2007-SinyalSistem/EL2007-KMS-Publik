@@ -1,0 +1,99 @@
+# Soal Ujian Tengah Semester (UTS) Sinyal dan Sistem 2025
+:::{.callout-important}
+* Rabu,22 Oktober 2025. Pk 11:00-13:00. Waktu: 2 Jam. 
+* TUTUP BUKU. Kerjakan apa adanya. Gunakan asumsi bila diperlukan
+* Kerjakan soal-soal berikut pad lembar jawaban yang disediakan. Jangan lupa memberi Nama dan NIM pad lembar jawaban
+:::
+
+## 1. Soal Periodisitas (Waktu Kontinu)
+
+Tentukan apakah sinyal waktu kontinu $x(t)$ berikut adalah periodik. Jika ya, tentukan periode fundamentalnya, $T_0$.
+
+$$x(t) = 5\cos(4t) - 3\sin(6t)$$
+
+**Petunjuk Konsep:**
+
+Sinyal waktu kontinu $x(t)$ dikatakan periodik jika terdapat nilai positif $T$ sedemikian rupa sehingga $x(t) = x(t+T)$ untuk semua nilai $t$. Periode fundamental ($T_0$) adalah nilai $T$ positif terkecil yang memenuhi kondisi ini.
+
+Untuk sinyal sinusoidal $x(t) = A\cos(\omega_0 t + \phi)$, periode fundamentalnya adalah $T_0 = 2\pi/|\omega_0|$. Sinyal yang merupakan penjumlahan dua sinyal periodik $x_1(t)$ (periode $T_1$) dan $x_2(t)$ (periode $T_2$) adalah periodik jika rasio $T_1/T_2$ adalah bilangan rasional. Jika $T_1/T_2 = q/r$, di mana $q$ dan $r$ adalah bilangan bulat prima relatif, maka periode fundamental gabungannya adalah $T_0 = rT_1 = qT_2$.
+
+---
+
+## 2. Soal Cek Linearitas dan Invariansi Waktu (LTI)
+
+Sistem waktu kontinu didefinisikan oleh hubungan input-output:
+
+$$y(t) = t x(t)$$
+
+Tunjukkan secara formal apakah sistem ini memenuhi sifat **Linearitas** dan **Invariansi Waktu (Time-Invariance)**.
+
+(Petunjuk: Linearitas harus memenuhi prinsip superposisi (aditivitas dan homogenitas). Invariansi Waktu mengharuskan pergeseran waktu pada input menghasilkan pergeseran waktu yang identik pada output).
+
+---
+
+## 3. Soal Konvolusi (Integral Konvolusi Waktu Kontinu)
+
+Sebuah Sistem Linear Tak-berubah Waktu (LTI) waktu kontinu sepenuhnya dikarakterisasi oleh respon impulsnya, $h(t)$. Jika sistem memiliki respon impuls $h(t)$ dan input $x(t)$ sebagai berikut:
+
+$$h(t) = e^{-2t}u(t)$$
+$$x(t) = e^{-t}u(t)$$
+
+Hitunglah output sistem $y(t)$ menggunakan integral konvolusi:
+
+$$y(t) = x(t) * h(t) = \int_{-\infty}^{\infty} x(\tau)h(t-\tau)d\tau$$
+
+(Asumsikan $t \ge 0$).
+
+---
+
+## 4. Soal LCCDE Orde 1 (Respon Impuls)
+
+Banyak sistem fisik waktu kontinu dapat dimodelkan menggunakan Persamaan Diferensial Linear Koefisien Konstan (LCCDE).
+
+Tentukan **respon impuls** $h(t)$ untuk sistem LTI waktu kontinu kausal yang dijelaskan oleh LCCDE orde pertama berikut:
+
+$$\frac{dy(t)}{dt} + 5y(t) = x(t)$$
+
+(Asumsikan sistem dalam kondisi diam awal (initial rest). Respon impuls $h(t)$ adalah output ketika input $x(t) = \delta(t)$.
+
+---
+
+## 5. Soal LCCDE Orde 1 (Solusi Lengkap)
+
+Sistem waktu kontinu dijelaskan oleh persamaan diferensial:
+
+$$\frac{dy(t)}{dt} + 2y(t) = 4u(t)$$
+
+Jika **kondisi awal** sistem adalah $y(0^-)=1$, tentukan solusi lengkap $y(t)$ untuk $t \ge 0$.
+
+(Solusi lengkap dari persamaan diferensial terdiri dari solusi homogen $y_h(t)$ dan solusi partikular $y_p(t)$. Kondisi awal diperlukan untuk menemukan konstanta solusi homogen).
+
+---
+
+## 6. Soal Deret Fourier Waktu Kontinu (CTFS - Koefisien)
+
+Sinyal waktu kontinu periodik $x(t)$ dapat diwakili sebagai penjumlahan kompleks eksponensial harmonik (Deret Fourier):
+
+$$x(t) = \sum_{k=-\infty}^{\infty} a_k e^{jk\omega_0 t}$$
+
+Sinyal waktu kontinu periodik $x(t)$ diberikan oleh:
+
+$$x(t) = \cos(2t)$$
+
+Tentukan frekuensi fundamental $\omega_0$ dan koefisien Deret Fourier kompleksnya, $a_k$.
+
+(Petunjuk: Gunakan identitas Euler untuk menyederhanakan $x(t)$. Koefisien $a_k$ yang dihasilkan akan berada pada harmonik tertentu).
+
+---
+
+## 7. Soal Deret Fourier Waktu Kontinu (CTFS - Aplikasi LTI)
+
+Sinyal input periodik $x(t)$ dengan frekuensi fundamental $\omega_0 = 4$ rad/s dilewatkan melalui sistem LTI waktu kontinu. Koefisien Deret Fourier $x(t)$ adalah $a_k$.
+
+Sistem LTI tersebut memiliki **respon frekuensi** $H(j\omega)$ sebagai berikut:
+
+$$H(j\omega) = \frac{1}{1+j\omega}$$
+
+Tuliskan ekspresi untuk koefisien Deret Fourier output, $b_k$, dalam bentuk $a_k$ dan $k$.
+
+(Petunjuk: Ketika sinyal periodik dilewatkan melalui sistem LTI, koefisien Deret Fourier output $b_k$ dihitung dengan mengalikan koefisien input $a_k$ dengan respon frekuensi sistem $H(j\omega)$ yang dievaluasi pada frekuensi harmonik $k\omega_0$).

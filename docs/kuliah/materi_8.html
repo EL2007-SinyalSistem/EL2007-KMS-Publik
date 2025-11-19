@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.24">
+<meta name="generator" content="quarto-1.7.33">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>8&nbsp; transformasi – EL-2007 Sinyal dan Sistem</title>
+<title>9&nbsp; transformasi – EL-2007 Sinyal dan Sistem</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -31,18 +31,17 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
 <link href="../kuliah/materi_9.html" rel="next">
-<link href="../kuliah/materi_7.html" rel="prev">
+<link href="../ujian/uts.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-2d3d50682d03e2815b63c4e032ea834e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-364982630eef5352dd1537128a8ed5cb.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -85,7 +84,7 @@ const typesetMath = (el) => {
     var macros = [];
     for (var i = 0; i < mathElements.length; i++) {
       var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+      if (mathElements[i].tagName == "SPAN") {
         window.katex.render(texText.data, mathElements[i], {
           displayMode: mathElements[i].classList.contains('display'),
           throwOnError: false,
@@ -112,7 +111,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../kuliah/materi_8.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">transformasi</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../kuliah/materi_8.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">transformasi</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -125,9 +124,7 @@ window.Quarto = {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
-      <a href="../index.html" class="sidebar-logo-link">
-      </a>
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="../">EL-2007 Sinyal dan Sistem</a> 
     </div>
@@ -190,25 +187,43 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../kuliah/materi_7.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Latihan UTS</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Ujian Tengah Semester</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ujian/uts.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Hasil UTS</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../kuliah/materi_8.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">transformasi</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">transformasi</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../kuliah/materi_9.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Transformasi Fourier Waktu Kontinu (Continuous-Time Fourier Transform/CTFT)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Transformasi Fourier Waktu Kontinu (Continuous-Time Fourier Transform/CTFT)</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../kuliah/materi_10.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Kuliah 10 Analisis Sistem di Domain Laplace: Fungsi Alih (Transfer Function)</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ujian/uas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">uas.html</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../summary.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Lampiran Petunjuk Penggunaan Alat Bantu dan Kendaraan dalam Sinyal dan Sistem (VALORAIZE Learning)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Lampiran Petunjuk Penggunaan Alat Bantu dan Kendaraan dalam Sinyal dan Sistem (VALORAIZE Learning)</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -227,28 +242,28 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#peran-sentral-mengubah-konvolusi-menjadi-perkalian" id="toc-peran-sentral-mengubah-konvolusi-menjadi-perkalian" class="nav-link active" data-scroll-target="#peran-sentral-mengubah-konvolusi-menjadi-perkalian"><span class="header-section-number">8.0.1</span> 1. Peran Sentral: Mengubah Konvolusi Menjadi Perkalian</a></li>
-  <li><a href="#peran-dalam-menganalisis-stabilitas-kausalitas-dan-persamaan" id="toc-peran-dalam-menganalisis-stabilitas-kausalitas-dan-persamaan" class="nav-link" data-scroll-target="#peran-dalam-menganalisis-stabilitas-kausalitas-dan-persamaan"><span class="header-section-number">8.0.2</span> 2. Peran dalam Menganalisis Stabilitas, Kausalitas, dan Persamaan</a></li>
-  <li><a href="#soal" id="toc-soal" class="nav-link" data-scroll-target="#soal"><span class="header-section-number">9</span> soal</a>
+  <li><a href="#peran-sentral-mengubah-konvolusi-menjadi-perkalian" id="toc-peran-sentral-mengubah-konvolusi-menjadi-perkalian" class="nav-link active" data-scroll-target="#peran-sentral-mengubah-konvolusi-menjadi-perkalian"><span class="header-section-number">9.0.1</span> 1. Peran Sentral: Mengubah Konvolusi Menjadi Perkalian</a></li>
+  <li><a href="#peran-dalam-menganalisis-stabilitas-kausalitas-dan-persamaan" id="toc-peran-dalam-menganalisis-stabilitas-kausalitas-dan-persamaan" class="nav-link" data-scroll-target="#peran-dalam-menganalisis-stabilitas-kausalitas-dan-persamaan"><span class="header-section-number">9.0.2</span> 2. Peran dalam Menganalisis Stabilitas, Kausalitas, dan Persamaan</a></li>
+  <li><a href="#soal" id="toc-soal" class="nav-link" data-scroll-target="#soal"><span class="header-section-number">10</span> soal</a>
   <ul class="collapse">
-  <li><a href="#soal-1-transformasi-laplace-sinyal-eksponensial-kausal" id="toc-soal-1-transformasi-laplace-sinyal-eksponensial-kausal" class="nav-link" data-scroll-target="#soal-1-transformasi-laplace-sinyal-eksponensial-kausal"><span class="header-section-number">9.0.1</span> Soal 1: Transformasi Laplace Sinyal Eksponensial Kausal</a></li>
-  <li><a href="#soal-2-transformasi-laplace-sinyal-sisi-kiri-dan-pentingnya-roc" id="toc-soal-2-transformasi-laplace-sinyal-sisi-kiri-dan-pentingnya-roc" class="nav-link" data-scroll-target="#soal-2-transformasi-laplace-sinyal-sisi-kiri-dan-pentingnya-roc"><span class="header-section-number">9.0.2</span> Soal 2: Transformasi Laplace Sinyal Sisi Kiri dan Pentingnya ROC</a></li>
-  <li><a href="#soal-3-transformasi-laplace-invers-ekspansi-pecahan-parsial" id="toc-soal-3-transformasi-laplace-invers-ekspansi-pecahan-parsial" class="nav-link" data-scroll-target="#soal-3-transformasi-laplace-invers-ekspansi-pecahan-parsial"><span class="header-section-number">9.0.3</span> Soal 3: Transformasi Laplace Invers (Ekspansi Pecahan Parsial)</a></li>
-  <li><a href="#soal-4-analisis-sistem-lti-menggunakan-sifat-konvolusi" id="toc-soal-4-analisis-sistem-lti-menggunakan-sifat-konvolusi" class="nav-link" data-scroll-target="#soal-4-analisis-sistem-lti-menggunakan-sifat-konvolusi"><span class="header-section-number">9.0.4</span> Soal 4: Analisis Sistem LTI Menggunakan Sifat Konvolusi</a></li>
-  <li><a href="#soal-5-penerapan-transformasi-laplace-unilateral-penyelesaian-pd-dengan-kondisi-awal" id="toc-soal-5-penerapan-transformasi-laplace-unilateral-penyelesaian-pd-dengan-kondisi-awal" class="nav-link" data-scroll-target="#soal-5-penerapan-transformasi-laplace-unilateral-penyelesaian-pd-dengan-kondisi-awal"><span class="header-section-number">9.0.5</span> Soal 5: Penerapan Transformasi Laplace Unilateral (Penyelesaian PD dengan Kondisi Awal)</a></li>
+  <li><a href="#soal-1-transformasi-laplace-sinyal-eksponensial-kausal" id="toc-soal-1-transformasi-laplace-sinyal-eksponensial-kausal" class="nav-link" data-scroll-target="#soal-1-transformasi-laplace-sinyal-eksponensial-kausal"><span class="header-section-number">10.0.1</span> Soal 1: Transformasi Laplace Sinyal Eksponensial Kausal</a></li>
+  <li><a href="#soal-2-transformasi-laplace-sinyal-sisi-kiri-dan-pentingnya-roc" id="toc-soal-2-transformasi-laplace-sinyal-sisi-kiri-dan-pentingnya-roc" class="nav-link" data-scroll-target="#soal-2-transformasi-laplace-sinyal-sisi-kiri-dan-pentingnya-roc"><span class="header-section-number">10.0.2</span> Soal 2: Transformasi Laplace Sinyal Sisi Kiri dan Pentingnya ROC</a></li>
+  <li><a href="#soal-3-transformasi-laplace-invers-ekspansi-pecahan-parsial" id="toc-soal-3-transformasi-laplace-invers-ekspansi-pecahan-parsial" class="nav-link" data-scroll-target="#soal-3-transformasi-laplace-invers-ekspansi-pecahan-parsial"><span class="header-section-number">10.0.3</span> Soal 3: Transformasi Laplace Invers (Ekspansi Pecahan Parsial)</a></li>
+  <li><a href="#soal-4-analisis-sistem-lti-menggunakan-sifat-konvolusi" id="toc-soal-4-analisis-sistem-lti-menggunakan-sifat-konvolusi" class="nav-link" data-scroll-target="#soal-4-analisis-sistem-lti-menggunakan-sifat-konvolusi"><span class="header-section-number">10.0.4</span> Soal 4: Analisis Sistem LTI Menggunakan Sifat Konvolusi</a></li>
+  <li><a href="#soal-5-penerapan-transformasi-laplace-unilateral-penyelesaian-pd-dengan-kondisi-awal" id="toc-soal-5-penerapan-transformasi-laplace-unilateral-penyelesaian-pd-dengan-kondisi-awal" class="nav-link" data-scroll-target="#soal-5-penerapan-transformasi-laplace-unilateral-penyelesaian-pd-dengan-kondisi-awal"><span class="header-section-number">10.0.5</span> Soal 5: Penerapan Transformasi Laplace Unilateral (Penyelesaian PD dengan Kondisi Awal)</a></li>
   </ul></li>
-  <li><a href="#transformasi-fourier" id="toc-transformasi-fourier" class="nav-link" data-scroll-target="#transformasi-fourier"><span class="header-section-number">10</span> Transformasi Fourier</a>
+  <li><a href="#transformasi-fourier" id="toc-transformasi-fourier" class="nav-link" data-scroll-target="#transformasi-fourier"><span class="header-section-number">11</span> Transformasi Fourier</a>
   <ul class="collapse">
-  <li><a href="#transformasi-laplace-sebagai-generalisasi-matematis" id="toc-transformasi-laplace-sebagai-generalisasi-matematis" class="nav-link" data-scroll-target="#transformasi-laplace-sebagai-generalisasi-matematis"><span class="header-section-number">10.0.1</span> 1. Transformasi Laplace sebagai Generalisasi Matematis</a></li>
-  <li><a href="#interpretasi-sebagai-transformasi-fourier-dari-sinyal-berbobot" id="toc-interpretasi-sebagai-transformasi-fourier-dari-sinyal-berbobot" class="nav-link" data-scroll-target="#interpretasi-sebagai-transformasi-fourier-dari-sinyal-berbobot"><span class="header-section-number">10.0.2</span> 2. Interpretasi sebagai Transformasi Fourier dari Sinyal Berbobot</a></li>
-  <li><a href="#pentingnya-region-of-convergence-roc" id="toc-pentingnya-region-of-convergence-roc" class="nav-link" data-scroll-target="#pentingnya-region-of-convergence-roc"><span class="header-section-number">10.0.3</span> 3. Pentingnya <em>Region of Convergence</em> (ROC)</a></li>
-  <li><a href="#soal-1" id="toc-soal-1" class="nav-link" data-scroll-target="#soal-1"><span class="header-section-number">10.1</span> Soal</a>
+  <li><a href="#transformasi-laplace-sebagai-generalisasi-matematis" id="toc-transformasi-laplace-sebagai-generalisasi-matematis" class="nav-link" data-scroll-target="#transformasi-laplace-sebagai-generalisasi-matematis"><span class="header-section-number">11.0.1</span> 1. Transformasi Laplace sebagai Generalisasi Matematis</a></li>
+  <li><a href="#interpretasi-sebagai-transformasi-fourier-dari-sinyal-berbobot" id="toc-interpretasi-sebagai-transformasi-fourier-dari-sinyal-berbobot" class="nav-link" data-scroll-target="#interpretasi-sebagai-transformasi-fourier-dari-sinyal-berbobot"><span class="header-section-number">11.0.2</span> 2. Interpretasi sebagai Transformasi Fourier dari Sinyal Berbobot</a></li>
+  <li><a href="#pentingnya-region-of-convergence-roc" id="toc-pentingnya-region-of-convergence-roc" class="nav-link" data-scroll-target="#pentingnya-region-of-convergence-roc"><span class="header-section-number">11.0.3</span> 3. Pentingnya <em>Region of Convergence</em> (ROC)</a></li>
+  <li><a href="#soal-1" id="toc-soal-1" class="nav-link" data-scroll-target="#soal-1"><span class="header-section-number">11.1</span> Soal</a>
   <ul class="collapse">
-  <li><a href="#soal-1-transformasi-fourier-dari-sinyal-impuls-kontinu" id="toc-soal-1-transformasi-fourier-dari-sinyal-impuls-kontinu" class="nav-link" data-scroll-target="#soal-1-transformasi-fourier-dari-sinyal-impuls-kontinu"><span class="header-section-number">10.1.1</span> Soal 1: Transformasi Fourier dari Sinyal Impuls Kontinu</a></li>
-  <li><a href="#soal-2-transformasi-fourier-menggunakan-properti-pergeseran-waktu" id="toc-soal-2-transformasi-fourier-menggunakan-properti-pergeseran-waktu" class="nav-link" data-scroll-target="#soal-2-transformasi-fourier-menggunakan-properti-pergeseran-waktu"><span class="header-section-number">10.1.2</span> Soal 2: Transformasi Fourier Menggunakan Properti Pergeseran Waktu</a></li>
-  <li><a href="#soal-3-transformasi-fourier-dari-sinyal-waktu-diskrit-dtft" id="toc-soal-3-transformasi-fourier-dari-sinyal-waktu-diskrit-dtft" class="nav-link" data-scroll-target="#soal-3-transformasi-fourier-dari-sinyal-waktu-diskrit-dtft"><span class="header-section-number">10.1.3</span> Soal 3: Transformasi Fourier dari Sinyal Waktu Diskrit (DTFT)</a></li>
-  <li><a href="#soal-4-penerapan-sifat-konvolusi-pada-analisis-sistem-lti" id="toc-soal-4-penerapan-sifat-konvolusi-pada-analisis-sistem-lti" class="nav-link" data-scroll-target="#soal-4-penerapan-sifat-konvolusi-pada-analisis-sistem-lti"><span class="header-section-number">10.1.4</span> Soal 4: Penerapan Sifat Konvolusi pada Analisis Sistem LTI</a></li>
-  <li><a href="#soal-5-menentukan-respon-frekuensi-dari-persamaan-diferensial-lccde" id="toc-soal-5-menentukan-respon-frekuensi-dari-persamaan-diferensial-lccde" class="nav-link" data-scroll-target="#soal-5-menentukan-respon-frekuensi-dari-persamaan-diferensial-lccde"><span class="header-section-number">10.1.5</span> Soal 5: Menentukan Respon Frekuensi dari Persamaan Diferensial LCCDE</a></li>
+  <li><a href="#soal-1-transformasi-fourier-dari-sinyal-impuls-kontinu" id="toc-soal-1-transformasi-fourier-dari-sinyal-impuls-kontinu" class="nav-link" data-scroll-target="#soal-1-transformasi-fourier-dari-sinyal-impuls-kontinu"><span class="header-section-number">11.1.1</span> Soal 1: Transformasi Fourier dari Sinyal Impuls Kontinu</a></li>
+  <li><a href="#soal-2-transformasi-fourier-menggunakan-properti-pergeseran-waktu" id="toc-soal-2-transformasi-fourier-menggunakan-properti-pergeseran-waktu" class="nav-link" data-scroll-target="#soal-2-transformasi-fourier-menggunakan-properti-pergeseran-waktu"><span class="header-section-number">11.1.2</span> Soal 2: Transformasi Fourier Menggunakan Properti Pergeseran Waktu</a></li>
+  <li><a href="#soal-3-transformasi-fourier-dari-sinyal-waktu-diskrit-dtft" id="toc-soal-3-transformasi-fourier-dari-sinyal-waktu-diskrit-dtft" class="nav-link" data-scroll-target="#soal-3-transformasi-fourier-dari-sinyal-waktu-diskrit-dtft"><span class="header-section-number">11.1.3</span> Soal 3: Transformasi Fourier dari Sinyal Waktu Diskrit (DTFT)</a></li>
+  <li><a href="#soal-4-penerapan-sifat-konvolusi-pada-analisis-sistem-lti" id="toc-soal-4-penerapan-sifat-konvolusi-pada-analisis-sistem-lti" class="nav-link" data-scroll-target="#soal-4-penerapan-sifat-konvolusi-pada-analisis-sistem-lti"><span class="header-section-number">11.1.4</span> Soal 4: Penerapan Sifat Konvolusi pada Analisis Sistem LTI</a></li>
+  <li><a href="#soal-5-menentukan-respon-frekuensi-dari-persamaan-diferensial-lccde" id="toc-soal-5-menentukan-respon-frekuensi-dari-persamaan-diferensial-lccde" class="nav-link" data-scroll-target="#soal-5-menentukan-respon-frekuensi-dari-persamaan-diferensial-lccde"><span class="header-section-number">11.1.5</span> Soal 5: Menentukan Respon Frekuensi dari Persamaan Diferensial LCCDE</a></li>
   </ul></li>
   </ul></li>
   </ul>
@@ -259,7 +274,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">transformasi</span></h1>
+<h1 class="title"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">transformasi</span></h1>
 </div>
 
 
@@ -279,8 +294,8 @@ window.Quarto = {
 <p>Peran utama transformasi domain frekuensi, seperti Fourier, Laplace, dan Z, dalam menganalisis sistem Linear Time-Invariant (LTI) kontinu dan diskrit adalah untuk <strong>mengubah operasi domain waktu yang kompleks, seperti konvolusi dan persamaan diferensial/beda, menjadi manipulasi aljabar yang lebih sederhana</strong>.</p>
 <p>Transformasi ini sangat penting karena sifat fundamental sistem LTI yang memungkinkan sinyal eksponensial kompleks menjadi <em>eigenfunction</em> (fungsi karakteristik), di mana respons sistem hanyalah sinyal yang sama dikalikan dengan faktor penguatan kompleks (nilai <em>eigenvalue</em>).</p>
 <p>Berikut adalah peran utama dan konteks spesifik dari masing-masing transformasi:</p>
-<section id="peran-sentral-mengubah-konvolusi-menjadi-perkalian" class="level3" data-number="8.0.1">
-<h3 data-number="8.0.1" class="anchored" data-anchor-id="peran-sentral-mengubah-konvolusi-menjadi-perkalian"><span class="header-section-number">8.0.1</span> 1. Peran Sentral: Mengubah Konvolusi Menjadi Perkalian</h3>
+<section id="peran-sentral-mengubah-konvolusi-menjadi-perkalian" class="level3" data-number="9.0.1">
+<h3 data-number="9.0.1" class="anchored" data-anchor-id="peran-sentral-mengubah-konvolusi-menjadi-perkalian"><span class="header-section-number">9.0.1</span> 1. Peran Sentral: Mengubah Konvolusi Menjadi Perkalian</h3>
 <p>Dalam domain waktu, output <span class="math inline">\(y(t)\)</span> dari sistem LTI kontinu adalah konvolusi antara input <span class="math inline">\(x(t)\)</span> dan respon impuls <span class="math inline">\(h(t)\)</span> [<span class="math inline">\(y(t) = x(t) * h(t)\)</span>]. Demikian pula untuk sistem diskrit [<span class="math inline">\(y[n] = x[n] * h[n]\)</span>].</p>
 <p>Transformasi domain frekuensi mengubah operasi konvolusi ini menjadi perkalian aljabar sederhana:</p>
 <ul>
@@ -289,18 +304,18 @@ window.Quarto = {
 </ul>
 <p>Fungsi Sistem (<span class="math inline">\(H(s)\)</span> atau <span class="math inline">\(H(z)\)</span>) ini merupakan transformasi Laplace atau Z dari respons impuls sistem, dan ia <strong>sepenuhnya mengkarakterisasi perilaku sistem LTI</strong>.</p>
 </section>
-<section id="peran-dalam-menganalisis-stabilitas-kausalitas-dan-persamaan" class="level3" data-number="8.0.2">
-<h3 data-number="8.0.2" class="anchored" data-anchor-id="peran-dalam-menganalisis-stabilitas-kausalitas-dan-persamaan"><span class="header-section-number">8.0.2</span> 2. Peran dalam Menganalisis Stabilitas, Kausalitas, dan Persamaan</h3>
+<section id="peran-dalam-menganalisis-stabilitas-kausalitas-dan-persamaan" class="level3" data-number="9.0.2">
+<h3 data-number="9.0.2" class="anchored" data-anchor-id="peran-dalam-menganalisis-stabilitas-kausalitas-dan-persamaan"><span class="header-section-number">9.0.2</span> 2. Peran dalam Menganalisis Stabilitas, Kausalitas, dan Persamaan</h3>
 <p>Transformasi domain kompleks (Laplace dan Z) sangat berguna karena memungkinkan analisis properti sistem LTI yang lebih mendalam, terutama jika sistem tersebut dijelaskan oleh Persamaan Diferensial (PD) atau Persamaan Beda (PB) linear koefisien konstan.</p>
-<section id="a.-transformasi-fourier-continuous-time---ctft-dan-discrete-time---dtft" class="level4" data-number="8.0.2.1">
-<h4 data-number="8.0.2.1" class="anchored" data-anchor-id="a.-transformasi-fourier-continuous-time---ctft-dan-discrete-time---dtft"><span class="header-section-number">8.0.2.1</span> A. Transformasi Fourier (Continuous-Time - CTFT dan Discrete-Time - DTFT)</h4>
+<section id="a.-transformasi-fourier-continuous-time---ctft-dan-discrete-time---dtft" class="level4" data-number="9.0.2.1">
+<h4 data-number="9.0.2.1" class="anchored" data-anchor-id="a.-transformasi-fourier-continuous-time---ctft-dan-discrete-time---dtft"><span class="header-section-number">9.0.2.1</span> A. Transformasi Fourier (Continuous-Time - CTFT dan Discrete-Time - DTFT)</h4>
 <ol type="1">
 <li><strong>Analisis Frekuensi dan Pemfilteran:</strong> Fourier Transform (atau Fungsi Respons Frekuensi <span class="math inline">\(H(j\omega)\)</span> dan <span class="math inline">\(H(e^{j\Omega})\)</span>) digunakan untuk <strong>mengkarakterisasi bagaimana sistem memodifikasi komponen frekuensi sinyal input</strong>. Perubahan ini dapat berupa penguatan atau pelemahan frekuensi yang berbeda, yang merupakan dasar dari konsep <em>filtering</em> (pemfilteran).</li>
 <li><strong>Konteks Konvergensi:</strong> Fourier Transform terbatas pada kelas sinyal tertentu (seperti sinyal energi terbatas atau yang memenuhi kondisi Dirichlet).</li>
 </ol>
 </section>
-<section id="b.-transformasi-laplace-sistem-lti-kontinu" class="level4" data-number="8.0.2.2">
-<h4 data-number="8.0.2.2" class="anchored" data-anchor-id="b.-transformasi-laplace-sistem-lti-kontinu"><span class="header-section-number">8.0.2.2</span> B. Transformasi Laplace (Sistem LTI Kontinu)</h4>
+<section id="b.-transformasi-laplace-sistem-lti-kontinu" class="level4" data-number="9.0.2.2">
+<h4 data-number="9.0.2.2" class="anchored" data-anchor-id="b.-transformasi-laplace-sistem-lti-kontinu"><span class="header-section-number">9.0.2.2</span> B. Transformasi Laplace (Sistem LTI Kontinu)</h4>
 <ol type="1">
 <li><strong>Generalisasi Fourier:</strong> Laplace Transform adalah generalisasi dari Fourier Transform (dimana <span class="math inline">\(s = \sigma + j\omega\)</span>). Generalisasi ini memungkinkan analisis <strong>sistem LTI tak stabil atau sinyal tak terbatas</strong> yang Transformasi Fouriernya mungkin tidak konvergen.</li>
 <li><strong>Solusi Persamaan Diferensial:</strong> Laplace Transform mengubah Persamaan Diferensial Linear Koefisien Konstan (LCCDEs), yang sering memodelkan sistem fisik waktu kontinu, menjadi <strong>persamaan aljabar</strong> di domain <span class="math inline">\(s\)</span>. Ini memungkinkan penentuan Fungsi Sistem <span class="math inline">\(H(s)\)</span> dengan mudah.</li>
@@ -312,8 +327,8 @@ window.Quarto = {
 <li><strong>Transformasi Laplace Unilateral:</strong> Bentuk ini sangat berguna untuk <strong>menyelesaikan PD dengan kondisi awal tak nol</strong> (sistem yang tidak berada dalam kondisi istirahat awal).</li>
 </ol>
 </section>
-<section id="c.-transformasi-z-sistem-lti-diskrit" class="level4" data-number="8.0.2.3">
-<h4 data-number="8.0.2.3" class="anchored" data-anchor-id="c.-transformasi-z-sistem-lti-diskrit"><span class="header-section-number">8.0.2.3</span> C. Transformasi Z (Sistem LTI Diskrit)</h4>
+<section id="c.-transformasi-z-sistem-lti-diskrit" class="level4" data-number="9.0.2.3">
+<h4 data-number="9.0.2.3" class="anchored" data-anchor-id="c.-transformasi-z-sistem-lti-diskrit"><span class="header-section-number">9.0.2.3</span> C. Transformasi Z (Sistem LTI Diskrit)</h4>
 <ol type="1">
 <li><strong>Transformasi Diskret:</strong> Transformasi Z adalah padanan diskrit dari Transformasi Laplace. Ini mengubah Persamaan Beda Linear Koefisien Konstan (LCCDEs) menjadi <strong>persamaan aljabar</strong> di domain <span class="math inline">\(z\)</span>, menyederhanakan analisis sistem waktu diskrit.</li>
 <li><strong>Analisis Kausalitas dan Stabilitas:</strong> Mirip dengan Laplace, properti sistem terkait dengan <em>pole</em> dan ROC di bidang <span class="math inline">\(z\)</span> .
@@ -327,13 +342,13 @@ window.Quarto = {
 <p>Secara ringkas, transformasi ini adalah <strong>kendaraan (Transformasi/Algoritma)</strong> yang digunakan untuk <strong>mentransformasi masalah</strong> dari domain waktu (konvolusi atau PD/PB) ke domain aljabar (perkalian dan aljabar), yang merupakan langkah strategis penting dalam analisis sinyal dan sistem.</p>
 </section>
 </section>
-<section id="soal" class="level1" data-number="9">
-<h1 data-number="9"><span class="header-section-number">9</span> soal</h1>
+<section id="soal" class="level1" data-number="10">
+<h1 data-number="10"><span class="header-section-number">10</span> soal</h1>
 <p>Transformasi Laplace adalah alat matematis yang sangat penting dalam menganalisis sistem waktu kontinu Linear Time-Invariant (LTI), karena mengubah persamaan diferensial menjadi persamaan aljabar di domain <span class="math inline">\(s\)</span>.</p>
 <p>Berikut adalah 5 soal mengenai Transformasi Laplace beserta solusinya, disusun berdasarkan konsep-konsep inti yang dijelaskan dalam sumber:</p>
 <hr>
-<section id="soal-1-transformasi-laplace-sinyal-eksponensial-kausal" class="level3" data-number="9.0.1">
-<h3 data-number="9.0.1" class="anchored" data-anchor-id="soal-1-transformasi-laplace-sinyal-eksponensial-kausal"><span class="header-section-number">9.0.1</span> Soal 1: Transformasi Laplace Sinyal Eksponensial Kausal</h3>
+<section id="soal-1-transformasi-laplace-sinyal-eksponensial-kausal" class="level3" data-number="10.0.1">
+<h3 data-number="10.0.1" class="anchored" data-anchor-id="soal-1-transformasi-laplace-sinyal-eksponensial-kausal"><span class="header-section-number">10.0.1</span> Soal 1: Transformasi Laplace Sinyal Eksponensial Kausal</h3>
 <p><strong>Pertanyaan:</strong> Tentukan Transformasi Laplace <span class="math inline">\(X(s)\)</span> dan <em>Region of Convergence</em> (ROC) dari sinyal waktu kontinu <span class="math inline">\(x(t) = e^{-3t}u(t)\)</span>, di mana <span class="math inline">\(u(t)\)</span> adalah fungsi langkah unit.</p>
 <p><strong>Solusi:</strong> Transformasi Laplace bilateral <span class="math inline">\(X(s)\)</span> dari sinyal <span class="math inline">\(x(t)\)</span> didefinisikan sebagai: <span class="math display">\[X(s) = \int_{-\infty}^{\infty} x(t)e^{-st} dt\]</span></p>
 <ol type="1">
@@ -345,8 +360,8 @@ window.Quarto = {
 <p><strong>Jawaban:</strong> <span class="math display">\[X(s) = \frac{1}{s+3}, \quad \text{ROC}: \text{Re}\{s\} &gt; -3\]</span></p>
 <hr>
 </section>
-<section id="soal-2-transformasi-laplace-sinyal-sisi-kiri-dan-pentingnya-roc" class="level3" data-number="9.0.2">
-<h3 data-number="9.0.2" class="anchored" data-anchor-id="soal-2-transformasi-laplace-sinyal-sisi-kiri-dan-pentingnya-roc"><span class="header-section-number">9.0.2</span> Soal 2: Transformasi Laplace Sinyal Sisi Kiri dan Pentingnya ROC</h3>
+<section id="soal-2-transformasi-laplace-sinyal-sisi-kiri-dan-pentingnya-roc" class="level3" data-number="10.0.2">
+<h3 data-number="10.0.2" class="anchored" data-anchor-id="soal-2-transformasi-laplace-sinyal-sisi-kiri-dan-pentingnya-roc"><span class="header-section-number">10.0.2</span> Soal 2: Transformasi Laplace Sinyal Sisi Kiri dan Pentingnya ROC</h3>
 <p><strong>Pertanyaan:</strong> Tentukan Transformasi Laplace <span class="math inline">\(X(s)\)</span> dari sinyal <span class="math inline">\(x(t) = -e^{5t}u(-t)\)</span>. Bandingkan hasil ini dengan Transformasi Laplace dari <span class="math inline">\(e^{-5t}u(t)\)</span>.</p>
 <p><strong>Solusi:</strong> Sinyal <span class="math inline">\(x(t) = -e^{5t}u(-t)\)</span> adalah sinyal sisi kiri (<em>left-sided signal</em>).</p>
 <ol type="1">
@@ -359,8 +374,8 @@ window.Quarto = {
 <p>Jika kita membandingkannya dengan sinyal sisi kanan <span class="math inline">\(x_R(t) = e^{5t}u(t)\)</span>, Transformasi Laplace-nya adalah <span class="math inline">\(X_R(s) = \frac{1}{s-5}\)</span> dengan <span class="math inline">\(\text{ROC}: \text{Re}\{s\} &gt; 5\)</span>. Hal ini menunjukkan bahwa <strong>Transformasi Laplace harus menyertakan ROC agar unik</strong> (karena dua sinyal berbeda dapat menghasilkan ekspresi aljabar yang sama).</p>
 <hr>
 </section>
-<section id="soal-3-transformasi-laplace-invers-ekspansi-pecahan-parsial" class="level3" data-number="9.0.3">
-<h3 data-number="9.0.3" class="anchored" data-anchor-id="soal-3-transformasi-laplace-invers-ekspansi-pecahan-parsial"><span class="header-section-number">9.0.3</span> Soal 3: Transformasi Laplace Invers (Ekspansi Pecahan Parsial)</h3>
+<section id="soal-3-transformasi-laplace-invers-ekspansi-pecahan-parsial" class="level3" data-number="10.0.3">
+<h3 data-number="10.0.3" class="anchored" data-anchor-id="soal-3-transformasi-laplace-invers-ekspansi-pecahan-parsial"><span class="header-section-number">10.0.3</span> Soal 3: Transformasi Laplace Invers (Ekspansi Pecahan Parsial)</h3>
 <p><strong>Pertanyaan:</strong> Tentukan Transformasi Laplace Invers <span class="math inline">\(x(t)\)</span> dari <span class="math inline">\(X(s)\)</span> berikut, jika diketahui ROC adalah <span class="math inline">\(-3 &lt; \text{Re}\{s\} &lt; -2\)</span>. <span class="math display">\[X(s) = \frac{s}{(s+2)(s+3)}\]</span></p>
 <p><strong>Solusi:</strong> Karena <span class="math inline">\(X(s)\)</span> adalah rasional (rasio polinomial di <span class="math inline">\(s\)</span>) dan orde penyebut lebih besar dari pembilang, kita dapat menggunakan Ekspansi Pecahan Parsial (PFE).</p>
 <ol type="1">
@@ -374,8 +389,8 @@ window.Quarto = {
 <p><strong>Jawaban:</strong> <span class="math display">\[x(t) = 3e^{-3t}u(t) + 2e^{-2t}u(-t)\]</span></p>
 <hr>
 </section>
-<section id="soal-4-analisis-sistem-lti-menggunakan-sifat-konvolusi" class="level3" data-number="9.0.4">
-<h3 data-number="9.0.4" class="anchored" data-anchor-id="soal-4-analisis-sistem-lti-menggunakan-sifat-konvolusi"><span class="header-section-number">9.0.4</span> Soal 4: Analisis Sistem LTI Menggunakan Sifat Konvolusi</h3>
+<section id="soal-4-analisis-sistem-lti-menggunakan-sifat-konvolusi" class="level3" data-number="10.0.4">
+<h3 data-number="10.0.4" class="anchored" data-anchor-id="soal-4-analisis-sistem-lti-menggunakan-sifat-konvolusi"><span class="header-section-number">10.0.4</span> Soal 4: Analisis Sistem LTI Menggunakan Sifat Konvolusi</h3>
 <p><strong>Pertanyaan:</strong> Sebuah sistem LTI waktu kontinu memiliki respon impuls <span class="math inline">\(h(t) = 4e^{-t}u(t)\)</span>. Tentukan Transformasi Laplace dari output <span class="math inline">\(Y(s)\)</span> dan sinyal output <span class="math inline">\(y(t)\)</span> jika inputnya adalah <span class="math inline">\(x(t) = e^{-2t}u(t)\)</span>.</p>
 <p><strong>Solusi:</strong> Output sistem LTI adalah konvolusi input dan respons impuls, <span class="math inline">\(y(t) = x(t) * h(t)\)</span>. Dalam domain Laplace, konvolusi menjadi perkalian: <span class="math inline">\(Y(s) = X(s)H(s)\)</span>.</p>
 <ol type="1">
@@ -387,8 +402,8 @@ window.Quarto = {
 <p><strong>Jawaban:</strong> <span class="math display">\[Y(s) = \frac{4}{(s+1)(s+2)}, \quad \text{ROC}: \text{Re}\{s\} &gt; -1\]</span> <span class="math display">\[y(t) = 4(e^{-t} - e^{-2t})u(t)\]</span></p>
 <hr>
 </section>
-<section id="soal-5-penerapan-transformasi-laplace-unilateral-penyelesaian-pd-dengan-kondisi-awal" class="level3" data-number="9.0.5">
-<h3 data-number="9.0.5" class="anchored" data-anchor-id="soal-5-penerapan-transformasi-laplace-unilateral-penyelesaian-pd-dengan-kondisi-awal"><span class="header-section-number">9.0.5</span> Soal 5: Penerapan Transformasi Laplace Unilateral (Penyelesaian PD dengan Kondisi Awal)</h3>
+<section id="soal-5-penerapan-transformasi-laplace-unilateral-penyelesaian-pd-dengan-kondisi-awal" class="level3" data-number="10.0.5">
+<h3 data-number="10.0.5" class="anchored" data-anchor-id="soal-5-penerapan-transformasi-laplace-unilateral-penyelesaian-pd-dengan-kondisi-awal"><span class="header-section-number">10.0.5</span> Soal 5: Penerapan Transformasi Laplace Unilateral (Penyelesaian PD dengan Kondisi Awal)</h3>
 <p><strong>Pertanyaan:</strong> Gunakan Transformasi Laplace Unilateral (<span class="math inline">\(\mathcal{U}\mathcal{L}\)</span>) untuk menyelesaikan persamaan diferensial (PD) linear koefisien konstan berikut, dengan kondisi awal tak-nol: <span class="math display">\[y'(t) + 4y(t) = 2\delta(t)\]</span> dengan kondisi awal <span class="math inline">\(y(0^-) = 5\)</span>. Tentukan <span class="math inline">\(y(t)\)</span> untuk <span class="math inline">\(t \ge 0\)</span>.</p>
 <p><strong>Solusi:</strong> Transformasi Laplace Unilateral sangat berguna untuk menyelesaikan PD dengan kondisi awal tak-nol.</p>
 <ol type="1">
@@ -400,33 +415,33 @@ window.Quarto = {
 <p><strong>Jawaban:</strong> <span class="math display">\[y(t) = 7e^{-4t}u(t) \quad \text{untuk } t \ge 0\]</span> <em>(Perhatikan bahwa solusi ini menggabungkan respons yang disebabkan oleh kondisi awal (zero-input response) dan input (zero-state response) menjadi respons total <span class="math inline">\(y(t)\)</span>)</em>.</p>
 </section>
 </section>
-<section id="transformasi-fourier" class="level1" data-number="10">
-<h1 data-number="10"><span class="header-section-number">10</span> Transformasi Fourier</h1>
+<section id="transformasi-fourier" class="level1" data-number="11">
+<h1 data-number="11"><span class="header-section-number">11</span> Transformasi Fourier</h1>
 <p>Hubungan antara Transformasi Laplace (LT) dan Transformasi Fourier (FT) adalah hubungan <strong>generalisasi</strong>, di mana <strong>Transformasi Laplace dapat dilihat sebagai bentuk yang lebih umum dan luas dari Transformasi Fourier</strong>.</p>
 <p>Transformasi Laplace sangat penting karena menyediakan alat tambahan dan wawasan bagi sinyal dan sistem yang tidak dapat dianalisis menggunakan Transformasi Fourier, seperti sistem yang tidak stabil atau sinyal yang tidak terbatas (unbounded signals).</p>
 <p>Berikut adalah poin-poin kunci yang menjelaskan hubungan ini:</p>
-<section id="transformasi-laplace-sebagai-generalisasi-matematis" class="level3" data-number="10.0.1">
-<h3 data-number="10.0.1" class="anchored" data-anchor-id="transformasi-laplace-sebagai-generalisasi-matematis"><span class="header-section-number">10.0.1</span> 1. Transformasi Laplace sebagai Generalisasi Matematis</h3>
+<section id="transformasi-laplace-sebagai-generalisasi-matematis" class="level3" data-number="11.0.1">
+<h3 data-number="11.0.1" class="anchored" data-anchor-id="transformasi-laplace-sebagai-generalisasi-matematis"><span class="header-section-number">11.0.1</span> 1. Transformasi Laplace sebagai Generalisasi Matematis</h3>
 <p>Transformasi Laplace bilateral, <span class="math inline">\(X(s)\)</span>, didefinisikan menggunakan variabel kompleks <span class="math inline">\(s\)</span>, sedangkan Transformasi Fourier, <span class="math inline">\(X(j\omega)\)</span>, didefinisikan menggunakan variabel imajiner murni <span class="math inline">\(j\omega\)</span>.</p>
-<section id="a.-hubungan-variabel-kompleks" class="level4" data-number="10.0.1.1">
-<h4 data-number="10.0.1.1" class="anchored" data-anchor-id="a.-hubungan-variabel-kompleks"><span class="header-section-number">10.0.1.1</span> A. Hubungan Variabel Kompleks</h4>
+<section id="a.-hubungan-variabel-kompleks" class="level4" data-number="11.0.1.1">
+<h4 data-number="11.0.1.1" class="anchored" data-anchor-id="a.-hubungan-variabel-kompleks"><span class="header-section-number">11.0.1.1</span> A. Hubungan Variabel Kompleks</h4>
 <p>Variabel kompleks <span class="math inline">\(s\)</span> dalam Transformasi Laplace dinyatakan dalam bentuk Cartesian sebagai berikut: <span class="math display">\[s = \sigma + j\omega\]</span> Di mana: * <span class="math inline">\(\sigma = \text{Re}\{s\}\)</span> (bagian riil) * <span class="math inline">\(\omega = \text{Im}\{s\}\)</span> (bagian imajiner)</p>
 </section>
-<section id="b.-transformasi-fourier-sebagai-kasus-khusus" class="level4" data-number="10.0.1.2">
-<h4 data-number="10.0.1.2" class="anchored" data-anchor-id="b.-transformasi-fourier-sebagai-kasus-khusus"><span class="header-section-number">10.0.1.2</span> B. Transformasi Fourier sebagai Kasus Khusus</h4>
+<section id="b.-transformasi-fourier-sebagai-kasus-khusus" class="level4" data-number="11.0.1.2">
+<h4 data-number="11.0.1.2" class="anchored" data-anchor-id="b.-transformasi-fourier-sebagai-kasus-khusus"><span class="header-section-number">11.0.1.2</span> B. Transformasi Fourier sebagai Kasus Khusus</h4>
 <p>Transformasi Fourier Kontinu-Waktu (CTFT) dari sinyal <span class="math inline">\(x(t)\)</span> adalah Transformasi Laplace <span class="math inline">\(X(s)\)</span> yang dievaluasi pada sumbu imajiner, yaitu ketika bagian riil <span class="math inline">\(s\)</span> sama dengan nol (<span class="math inline">\(\sigma = 0\)</span>).</p>
 <p><span class="math display">\[\mathcal{F}\{x(t)\} = X(j\omega) = X(s)\Big|_{s=j\omega}\]</span></p>
 <p>Dengan demikian, Transformasi Fourier adalah <strong>kasus khusus</strong> dari Transformasi Laplace di mana perhatian dibatasi pada nilai <span class="math inline">\(s\)</span> yang murni imajiner.</p>
 </section>
 </section>
-<section id="interpretasi-sebagai-transformasi-fourier-dari-sinyal-berbobot" class="level3" data-number="10.0.2">
-<h3 data-number="10.0.2" class="anchored" data-anchor-id="interpretasi-sebagai-transformasi-fourier-dari-sinyal-berbobot"><span class="header-section-number">10.0.2</span> 2. Interpretasi sebagai Transformasi Fourier dari Sinyal Berbobot</h3>
+<section id="interpretasi-sebagai-transformasi-fourier-dari-sinyal-berbobot" class="level3" data-number="11.0.2">
+<h3 data-number="11.0.2" class="anchored" data-anchor-id="interpretasi-sebagai-transformasi-fourier-dari-sinyal-berbobot"><span class="header-section-number">11.0.2</span> 2. Interpretasi sebagai Transformasi Fourier dari Sinyal Berbobot</h3>
 <p>Transformasi Laplace <span class="math inline">\(X(s)\)</span> dapat diinterpretasikan sebagai Transformasi Fourier dari sinyal yang dimodifikasi oleh fungsi eksponensial riil <span class="math inline">\(e^{-\sigma t}\)</span>.</p>
 <p>Jika kita menyubstitusikan <span class="math inline">\(s = \sigma + j\omega\)</span> ke dalam definisi Laplace, kita mendapatkan: <span class="math display">\[X(\sigma + j\omega) = \int_{-\infty}^{\infty} [x(t)e^{-\sigma t}]e^{-j\omega t} dt = \mathcal{F}\{x(t)e^{-\sigma t}\}(\omega)\]</span></p>
 <p>Karena Transformasi Laplace dapat dilihat sebagai Transformasi Fourier dari sinyal <span class="math inline">\(x(t)e^{-\sigma t}\)</span>, perkalian dengan eksponensial riil <span class="math inline">\(e^{-\sigma t}\)</span> memungkinkan sinyal yang tumbuh (misalnya, <span class="math inline">\(e^{2t}u(t)\)</span>) menjadi “dilebur” (weighted) menjadi sinyal yang absolut <em>integrable</em> (dapat diintegralkan secara absolut), sehingga Transformasi Fourier dari sinyal berbobot tersebut dapat <strong>konvergen</strong>. Hal ini memungkinkan LT diterapkan pada kelas sinyal yang lebih luas dibandingkan FT.</p>
 </section>
-<section id="pentingnya-region-of-convergence-roc" class="level3" data-number="10.0.3">
-<h3 data-number="10.0.3" class="anchored" data-anchor-id="pentingnya-region-of-convergence-roc"><span class="header-section-number">10.0.3</span> 3. Pentingnya <em>Region of Convergence</em> (ROC)</h3>
+<section id="pentingnya-region-of-convergence-roc" class="level3" data-number="11.0.3">
+<h3 data-number="11.0.3" class="anchored" data-anchor-id="pentingnya-region-of-convergence-roc"><span class="header-section-number">11.0.3</span> 3. Pentingnya <em>Region of Convergence</em> (ROC)</h3>
 <p>Hubungan antara Transformasi Laplace dan Transformasi Fourier sangat bergantung pada <em>Region of Convergence</em> (ROC) dari <span class="math inline">\(X(s)\)</span>.</p>
 <ol type="1">
 <li><strong>Konvergensi Fourier:</strong> Transformasi Fourier dari <span class="math inline">\(x(t)\)</span>, <span class="math inline">\(X(j\omega)\)</span>, <strong>hanya akan konvergen</strong> jika sumbu imajiner (<span class="math inline">\(j\omega\)</span>-axis) termasuk dalam ROC dari <span class="math inline">\(X(s)\)</span>.</li>
@@ -434,13 +449,13 @@ window.Quarto = {
 </ol>
 <p>Secara ringkas, Transformasi Laplace adalah alat di <strong>domain kompleks</strong> yang mencakup Transformasi Fourier sebagai subset-nya, dengan Transformasi Fourier hanya ada ketika sumbu imajiner <span class="math inline">\(j\omega\)</span> berada dalam wilayah konvergensi Transformasi Laplace.</p>
 </section>
-<section id="soal-1" class="level2" data-number="10.1">
-<h2 data-number="10.1" class="anchored" data-anchor-id="soal-1"><span class="header-section-number">10.1</span> Soal</h2>
+<section id="soal-1" class="level2" data-number="11.1">
+<h2 data-number="11.1" class="anchored" data-anchor-id="soal-1"><span class="header-section-number">11.1</span> Soal</h2>
 <p>Tentu. Transformasi Fourier (FT), termasuk Continuous-Time Fourier Transform (CTFT) dan Discrete-Time Fourier Transform (DTFT), adalah alat fundamental untuk menganalisis sinyal dan sistem LTI di domain frekuensi.</p>
 <p>Berikut adalah 5 soal mengenai Transformasi Fourier, mencakup konsep dasar, sifat, dan penerapannya pada sistem LTI, beserta solusinya berdasarkan materi sumber:</p>
 <hr>
-<section id="soal-1-transformasi-fourier-dari-sinyal-impuls-kontinu" class="level3" data-number="10.1.1">
-<h3 data-number="10.1.1" class="anchored" data-anchor-id="soal-1-transformasi-fourier-dari-sinyal-impuls-kontinu"><span class="header-section-number">10.1.1</span> Soal 1: Transformasi Fourier dari Sinyal Impuls Kontinu</h3>
+<section id="soal-1-transformasi-fourier-dari-sinyal-impuls-kontinu" class="level3" data-number="11.1.1">
+<h3 data-number="11.1.1" class="anchored" data-anchor-id="soal-1-transformasi-fourier-dari-sinyal-impuls-kontinu"><span class="header-section-number">11.1.1</span> Soal 1: Transformasi Fourier dari Sinyal Impuls Kontinu</h3>
 <p><strong>Pertanyaan:</strong> Tentukan Transformasi Fourier Kontinu-Waktu (CTFT), <span class="math inline">\(X(j\omega)\)</span>, dari fungsi impuls unit <span class="math inline">\(x(t) = \delta(t)\)</span>.</p>
 <p><strong>Solusi:</strong> Definisi Transformasi Fourier Kontinu-Waktu (CTFT) dari sinyal <span class="math inline">\(x(t)\)</span> adalah: <span class="math display">\[X(j\omega) = \int_{-\infty}^{\infty} x(t)e^{-j\omega t} dt\]</span></p>
 <ol type="1">
@@ -450,8 +465,8 @@ window.Quarto = {
 <p><strong>Jawaban:</strong> Transformasi Fourier dari impuls unit adalah kontribusi yang sama pada semua frekuensi, yaitu: <span class="math display">\[X(j\omega) = 1\]</span></p>
 <hr>
 </section>
-<section id="soal-2-transformasi-fourier-menggunakan-properti-pergeseran-waktu" class="level3" data-number="10.1.2">
-<h3 data-number="10.1.2" class="anchored" data-anchor-id="soal-2-transformasi-fourier-menggunakan-properti-pergeseran-waktu"><span class="header-section-number">10.1.2</span> Soal 2: Transformasi Fourier Menggunakan Properti Pergeseran Waktu</h3>
+<section id="soal-2-transformasi-fourier-menggunakan-properti-pergeseran-waktu" class="level3" data-number="11.1.2">
+<h3 data-number="11.1.2" class="anchored" data-anchor-id="soal-2-transformasi-fourier-menggunakan-properti-pergeseran-waktu"><span class="header-section-number">11.1.2</span> Soal 2: Transformasi Fourier Menggunakan Properti Pergeseran Waktu</h3>
 <p><strong>Pertanyaan:</strong> Gunakan properti Transformasi Fourier untuk menentukan <span class="math inline">\(X(j\omega)\)</span> dari sinyal langkah unit yang digeser, <span class="math inline">\(x(t) = u(t-1)\)</span>.</p>
 <p><strong>Solusi:</strong> Kita dapat menggunakan properti Pergeseran Waktu (Time Shifting).</p>
 <ol type="1">
@@ -462,8 +477,8 @@ window.Quarto = {
 <p><strong>Jawaban:</strong> <span class="math display">\[X(j\omega) = \pi e^{-j\omega}\delta(\omega) + \frac{e^{-j\omega}}{j\omega}\]</span></p>
 <hr>
 </section>
-<section id="soal-3-transformasi-fourier-dari-sinyal-waktu-diskrit-dtft" class="level3" data-number="10.1.3">
-<h3 data-number="10.1.3" class="anchored" data-anchor-id="soal-3-transformasi-fourier-dari-sinyal-waktu-diskrit-dtft"><span class="header-section-number">10.1.3</span> Soal 3: Transformasi Fourier dari Sinyal Waktu Diskrit (DTFT)</h3>
+<section id="soal-3-transformasi-fourier-dari-sinyal-waktu-diskrit-dtft" class="level3" data-number="11.1.3">
+<h3 data-number="11.1.3" class="anchored" data-anchor-id="soal-3-transformasi-fourier-dari-sinyal-waktu-diskrit-dtft"><span class="header-section-number">11.1.3</span> Soal 3: Transformasi Fourier dari Sinyal Waktu Diskrit (DTFT)</h3>
 <p><strong>Pertanyaan:</strong> Tentukan Transformasi Fourier Waktu Diskrit (DTFT), <span class="math inline">\(X(e^{j\Omega})\)</span>, dari urutan impuls unit <span class="math inline">\(x[n] = \delta[n]\)</span>.</p>
 <p><strong>Solusi:</strong> Definisi DTFT dari urutan <span class="math inline">\(x[n]\)</span> adalah: <span class="math display">\[X(e^{j\Omega}) = \sum_{n=-\infty}^{\infty} x[n]e^{-j\Omega n}\]</span></p>
 <ol type="1">
@@ -473,8 +488,8 @@ window.Quarto = {
 <p><strong>Jawaban:</strong> Transformasi Fourier Waktu Diskrit dari urutan impuls unit adalah: <span class="math display">\[X(e^{j\Omega}) = 1\]</span></p>
 <hr>
 </section>
-<section id="soal-4-penerapan-sifat-konvolusi-pada-analisis-sistem-lti" class="level3" data-number="10.1.4">
-<h3 data-number="10.1.4" class="anchored" data-anchor-id="soal-4-penerapan-sifat-konvolusi-pada-analisis-sistem-lti"><span class="header-section-number">10.1.4</span> Soal 4: Penerapan Sifat Konvolusi pada Analisis Sistem LTI</h3>
+<section id="soal-4-penerapan-sifat-konvolusi-pada-analisis-sistem-lti" class="level3" data-number="11.1.4">
+<h3 data-number="11.1.4" class="anchored" data-anchor-id="soal-4-penerapan-sifat-konvolusi-pada-analisis-sistem-lti"><span class="header-section-number">11.1.4</span> Soal 4: Penerapan Sifat Konvolusi pada Analisis Sistem LTI</h3>
 <p><strong>Pertanyaan:</strong> Sistem LTI waktu kontinu stabil memiliki respons impuls <span class="math inline">\(h(t) = e^{-2t}u(t)\)</span>. Jika input sistem adalah <span class="math inline">\(x(t) = e^{-3t}u(t)\)</span>, tentukan Transformasi Fourier dari output sistem, <span class="math inline">\(Y(j\omega)\)</span>.</p>
 <p><strong>Solusi:</strong> Output <span class="math inline">\(y(t)\)</span> dari sistem LTI adalah konvolusi dari input <span class="math inline">\(x(t)\)</span> dan respons impuls <span class="math inline">\(h(t)\)</span>, <span class="math inline">\(y(t) = x(t) * h(t)\)</span>. Berdasarkan Properti Konvolusi Transformasi Fourier, konvolusi di domain waktu setara dengan perkalian di domain frekuensi: <span class="math display">\[Y(j\omega) = X(j\omega)H(j\omega)\]</span></p>
 <ol type="1">
@@ -484,8 +499,8 @@ window.Quarto = {
 <p><strong>Jawaban:</strong> <span class="math display">\[Y(j\omega) = \frac{1}{(3+j\omega)(2+j\omega)}\]</span></p>
 <hr>
 </section>
-<section id="soal-5-menentukan-respon-frekuensi-dari-persamaan-diferensial-lccde" class="level3" data-number="10.1.5">
-<h3 data-number="10.1.5" class="anchored" data-anchor-id="soal-5-menentukan-respon-frekuensi-dari-persamaan-diferensial-lccde"><span class="header-section-number">10.1.5</span> Soal 5: Menentukan Respon Frekuensi dari Persamaan Diferensial LCCDE</h3>
+<section id="soal-5-menentukan-respon-frekuensi-dari-persamaan-diferensial-lccde" class="level3" data-number="11.1.5">
+<h3 data-number="11.1.5" class="anchored" data-anchor-id="soal-5-menentukan-respon-frekuensi-dari-persamaan-diferensial-lccde"><span class="header-section-number">11.1.5</span> Soal 5: Menentukan Respon Frekuensi dari Persamaan Diferensial LCCDE</h3>
 <p><strong>Pertanyaan:</strong> Tentukan Respon Frekuensi <span class="math inline">\(H(j\omega)\)</span> dari sistem LTI waktu kontinu yang dikarakterisasi oleh Persamaan Diferensial Linear Koefisien Konstan (LCCDE) berikut, dengan asumsi sistem pada kondisi diam awal (initially at rest): <span class="math display">\[\frac{dy(t)}{dt} + 4y(t) = \frac{dx(t)}{dt} + 2x(t)\]</span></p>
 <p><strong>Solusi:</strong> Kita menggunakan properti Transformasi Fourier yang mengubah diferensiasi di domain waktu menjadi perkalian dengan <span class="math inline">\(j\omega\)</span> di domain frekuensi. Respon frekuensi <span class="math inline">\(H(j\omega)\)</span> adalah rasio <span class="math inline">\(Y(j\omega)/X(j\omega)\)</span>.</p>
 <ol type="1">
@@ -552,14 +567,13 @@ window.Quarto = {
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-      const outerScaffold = trigger.parentElement.cloneNode(true);
-      const codeEl = outerScaffold.querySelector('code');
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
         }
-      }
-      return codeEl.innerText;
+        return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy
@@ -903,13 +917,13 @@ window.Quarto = {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../kuliah/materi_7.html" class="pagination-link" aria-label="Latihan UTS">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Latihan UTS</span></span>
+      <a href="../ujian/uts.html" class="pagination-link" aria-label="Hasil UTS">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Hasil UTS</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="../kuliah/materi_9.html" class="pagination-link" aria-label="Transformasi Fourier Waktu Kontinu (Continuous-Time Fourier Transform/CTFT)">
-        <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Transformasi Fourier Waktu Kontinu (Continuous-Time Fourier Transform/CTFT)</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Transformasi Fourier Waktu Kontinu (Continuous-Time Fourier Transform/CTFT)</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.24">
+<meta name="generator" content="quarto-1.7.33">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>9&nbsp; Transformasi Fourier Waktu Kontinu (Continuous-Time Fourier Transform/CTFT) – EL-2007 Sinyal dan Sistem</title>
+<title>10&nbsp; Transformasi Fourier Waktu Kontinu (Continuous-Time Fourier Transform/CTFT) – EL-2007 Sinyal dan Sistem</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,19 +30,18 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../summary.html" rel="next">
+<link href="../kuliah/materi_10.html" rel="next">
 <link href="../kuliah/materi_8.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-2d3d50682d03e2815b63c4e032ea834e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-364982630eef5352dd1537128a8ed5cb.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -85,7 +84,7 @@ const typesetMath = (el) => {
     var macros = [];
     for (var i = 0; i < mathElements.length; i++) {
       var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+      if (mathElements[i].tagName == "SPAN") {
         window.katex.render(texText.data, mathElements[i], {
           displayMode: mathElements[i].classList.contains('display'),
           throwOnError: false,
@@ -112,7 +111,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../kuliah/materi_9.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Transformasi Fourier Waktu Kontinu (Continuous-Time Fourier Transform/CTFT)</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../kuliah/materi_9.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Transformasi Fourier Waktu Kontinu (Continuous-Time Fourier Transform/CTFT)</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -125,9 +124,7 @@ window.Quarto = {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
-      <a href="../index.html" class="sidebar-logo-link">
-      </a>
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="../">EL-2007 Sinyal dan Sistem</a> 
     </div>
@@ -190,25 +187,43 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../kuliah/materi_7.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Latihan UTS</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Ujian Tengah Semester</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ujian/uts.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Hasil UTS</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../kuliah/materi_8.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">transformasi</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">transformasi</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../kuliah/materi_9.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Transformasi Fourier Waktu Kontinu (Continuous-Time Fourier Transform/CTFT)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Transformasi Fourier Waktu Kontinu (Continuous-Time Fourier Transform/CTFT)</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../kuliah/materi_10.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Kuliah 10 Analisis Sistem di Domain Laplace: Fungsi Alih (Transfer Function)</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ujian/uas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">uas.html</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../summary.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Lampiran Petunjuk Penggunaan Alat Bantu dan Kendaraan dalam Sinyal dan Sistem (VALORAIZE Learning)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Lampiran Petunjuk Penggunaan Alat Bantu dan Kendaraan dalam Sinyal dan Sistem (VALORAIZE Learning)</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -227,26 +242,26 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#definisi" id="toc-definisi" class="nav-link active" data-scroll-target="#definisi"><span class="header-section-number">9.1</span> Definisi</a></li>
-  <li><a href="#properti-utama-continuous-time-fourier-transform-ctft" id="toc-properti-utama-continuous-time-fourier-transform-ctft" class="nav-link" data-scroll-target="#properti-utama-continuous-time-fourier-transform-ctft"><span class="header-section-number">9.2</span> Properti Utama Continuous-Time Fourier Transform (CTFT)</a></li>
-  <li><a href="#hubungan-ctft-dengan-fourier-series" id="toc-hubungan-ctft-dengan-fourier-series" class="nav-link" data-scroll-target="#hubungan-ctft-dengan-fourier-series"><span class="header-section-number">9.3</span> Hubungan CTFT dengan Fourier Series</a></li>
-  <li><a href="#ctft-dari-sinyal-periodik" id="toc-ctft-dari-sinyal-periodik" class="nav-link" data-scroll-target="#ctft-dari-sinyal-periodik"><span class="header-section-number">9.4</span> CTFT dari Sinyal Periodik</a></li>
-  <li><a href="#beberapa-kasus" id="toc-beberapa-kasus" class="nav-link" data-scroll-target="#beberapa-kasus"><span class="header-section-number">9.5</span> Beberapa Kasus</a></li>
-  <li><a href="#sinyal-dc-atau-konstatnta" id="toc-sinyal-dc-atau-konstatnta" class="nav-link" data-scroll-target="#sinyal-dc-atau-konstatnta"><span class="header-section-number">10</span> Sinyal DC atau Konstatnta</a>
+  <li><a href="#definisi" id="toc-definisi" class="nav-link active" data-scroll-target="#definisi"><span class="header-section-number">10.1</span> Definisi</a></li>
+  <li><a href="#properti-utama-continuous-time-fourier-transform-ctft" id="toc-properti-utama-continuous-time-fourier-transform-ctft" class="nav-link" data-scroll-target="#properti-utama-continuous-time-fourier-transform-ctft"><span class="header-section-number">10.2</span> Properti Utama Continuous-Time Fourier Transform (CTFT)</a></li>
+  <li><a href="#hubungan-ctft-dengan-fourier-series" id="toc-hubungan-ctft-dengan-fourier-series" class="nav-link" data-scroll-target="#hubungan-ctft-dengan-fourier-series"><span class="header-section-number">10.3</span> Hubungan CTFT dengan Fourier Series</a></li>
+  <li><a href="#ctft-dari-sinyal-periodik" id="toc-ctft-dari-sinyal-periodik" class="nav-link" data-scroll-target="#ctft-dari-sinyal-periodik"><span class="header-section-number">10.4</span> CTFT dari Sinyal Periodik</a></li>
+  <li><a href="#beberapa-kasus" id="toc-beberapa-kasus" class="nav-link" data-scroll-target="#beberapa-kasus"><span class="header-section-number">10.5</span> Beberapa Kasus</a></li>
+  <li><a href="#sinyal-dc-atau-konstatnta" id="toc-sinyal-dc-atau-konstatnta" class="nav-link" data-scroll-target="#sinyal-dc-atau-konstatnta"><span class="header-section-number">11</span> Sinyal DC atau Konstatnta</a>
   <ul class="collapse">
-  <li><a href="#sinyal-sinusoidal" id="toc-sinyal-sinusoidal" class="nav-link" data-scroll-target="#sinyal-sinusoidal"><span class="header-section-number">10.1</span> Sinyal Sinusoidal</a>
+  <li><a href="#sinyal-sinusoidal" id="toc-sinyal-sinusoidal" class="nav-link" data-scroll-target="#sinyal-sinusoidal"><span class="header-section-number">11.1</span> Sinyal Sinusoidal</a>
   <ul class="collapse">
-  <li><a href="#derivasi-menggunakan-properti-linearitas-dan-pergeseran-frekuensi" id="toc-derivasi-menggunakan-properti-linearitas-dan-pergeseran-frekuensi" class="nav-link" data-scroll-target="#derivasi-menggunakan-properti-linearitas-dan-pergeseran-frekuensi"><span class="header-section-number">10.1.1</span> Derivasi Menggunakan Properti Linearitas dan Pergeseran Frekuensi</a></li>
-  <li><a href="#derivasi-menggunakan-identitas-euler-dan-linearitas" id="toc-derivasi-menggunakan-identitas-euler-dan-linearitas" class="nav-link" data-scroll-target="#derivasi-menggunakan-identitas-euler-dan-linearitas"><span class="header-section-number">10.1.2</span> Derivasi Menggunakan Identitas Euler dan Linearitas</a></li>
+  <li><a href="#derivasi-menggunakan-properti-linearitas-dan-pergeseran-frekuensi" id="toc-derivasi-menggunakan-properti-linearitas-dan-pergeseran-frekuensi" class="nav-link" data-scroll-target="#derivasi-menggunakan-properti-linearitas-dan-pergeseran-frekuensi"><span class="header-section-number">11.1.1</span> Derivasi Menggunakan Properti Linearitas dan Pergeseran Frekuensi</a></li>
+  <li><a href="#derivasi-menggunakan-identitas-euler-dan-linearitas" id="toc-derivasi-menggunakan-identitas-euler-dan-linearitas" class="nav-link" data-scroll-target="#derivasi-menggunakan-identitas-euler-dan-linearitas"><span class="header-section-number">11.1.2</span> Derivasi Menggunakan Identitas Euler dan Linearitas</a></li>
   </ul></li>
-  <li><a href="#hubungan-dengan-deret-fourier" id="toc-hubungan-dengan-deret-fourier" class="nav-link" data-scroll-target="#hubungan-dengan-deret-fourier"><span class="header-section-number">10.2</span> Hubungan dengan Deret Fourier</a></li>
-  <li><a href="#tafsiran-xjomega2-sebagai-kepadatan-energi" id="toc-tafsiran-xjomega2-sebagai-kepadatan-energi" class="nav-link" data-scroll-target="#tafsiran-xjomega2-sebagai-kepadatan-energi"><span class="header-section-number">10.3</span> Tafsiran <span class="math inline">\(|X(j\omega)|^2\)</span> sebagai Kepadatan Energi</a></li>
-  <li><a href="#analisa-sistem-lti" id="toc-analisa-sistem-lti" class="nav-link" data-scroll-target="#analisa-sistem-lti"><span class="header-section-number">10.4</span> Analisa Sistem LTI</a>
+  <li><a href="#hubungan-dengan-deret-fourier" id="toc-hubungan-dengan-deret-fourier" class="nav-link" data-scroll-target="#hubungan-dengan-deret-fourier"><span class="header-section-number">11.2</span> Hubungan dengan Deret Fourier</a></li>
+  <li><a href="#tafsiran-xjomega2-sebagai-kepadatan-energi" id="toc-tafsiran-xjomega2-sebagai-kepadatan-energi" class="nav-link" data-scroll-target="#tafsiran-xjomega2-sebagai-kepadatan-energi"><span class="header-section-number">11.3</span> Tafsiran <span class="math inline">\(|X(j\omega)|^2\)</span> sebagai Kepadatan Energi</a></li>
+  <li><a href="#analisa-sistem-lti" id="toc-analisa-sistem-lti" class="nav-link" data-scroll-target="#analisa-sistem-lti"><span class="header-section-number">11.4</span> Analisa Sistem LTI</a>
   <ul class="collapse">
-  <li><a href="#transformasi-persamaan-diferensial" id="toc-transformasi-persamaan-diferensial" class="nav-link" data-scroll-target="#transformasi-persamaan-diferensial"><span class="header-section-number">10.4.1</span> 1. Transformasi Persamaan Diferensial</a></li>
-  <li><a href="#menentukan-fungsi-respons-frekuensi-hjomega" id="toc-menentukan-fungsi-respons-frekuensi-hjomega" class="nav-link" data-scroll-target="#menentukan-fungsi-respons-frekuensi-hjomega"><span class="header-section-number">10.4.2</span> 2. Menentukan Fungsi Respons Frekuensi (<span class="math inline">\(H(j\omega)\)</span>)</a></li>
-  <li><a href="#menggunakan-properti-konvolusi" id="toc-menggunakan-properti-konvolusi" class="nav-link" data-scroll-target="#menggunakan-properti-konvolusi"><span class="header-section-number">10.4.3</span> 3. Menggunakan Properti Konvolusi</a></li>
-  <li><a href="#kesimpulan" id="toc-kesimpulan" class="nav-link" data-scroll-target="#kesimpulan"><span class="header-section-number">10.4.4</span> Kesimpulan</a></li>
+  <li><a href="#transformasi-persamaan-diferensial" id="toc-transformasi-persamaan-diferensial" class="nav-link" data-scroll-target="#transformasi-persamaan-diferensial"><span class="header-section-number">11.4.1</span> 1. Transformasi Persamaan Diferensial</a></li>
+  <li><a href="#menentukan-fungsi-respons-frekuensi-hjomega" id="toc-menentukan-fungsi-respons-frekuensi-hjomega" class="nav-link" data-scroll-target="#menentukan-fungsi-respons-frekuensi-hjomega"><span class="header-section-number">11.4.2</span> 2. Menentukan Fungsi Respons Frekuensi (<span class="math inline">\(H(j\omega)\)</span>)</a></li>
+  <li><a href="#menggunakan-properti-konvolusi" id="toc-menggunakan-properti-konvolusi" class="nav-link" data-scroll-target="#menggunakan-properti-konvolusi"><span class="header-section-number">11.4.3</span> 3. Menggunakan Properti Konvolusi</a></li>
+  <li><a href="#kesimpulan" id="toc-kesimpulan" class="nav-link" data-scroll-target="#kesimpulan"><span class="header-section-number">11.4.4</span> Kesimpulan</a></li>
   </ul></li>
   </ul></li>
   </ul>
@@ -257,7 +272,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Transformasi Fourier Waktu Kontinu (Continuous-Time Fourier Transform/CTFT)</span></h1>
+<h1 class="title"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Transformasi Fourier Waktu Kontinu (Continuous-Time Fourier Transform/CTFT)</span></h1>
 </div>
 
 
@@ -274,8 +289,8 @@ window.Quarto = {
 </header>
 
 
-<section id="definisi" class="level2" data-number="9.1">
-<h2 data-number="9.1" class="anchored" data-anchor-id="definisi"><span class="header-section-number">9.1</span> Definisi</h2>
+<section id="definisi" class="level2" data-number="10.1">
+<h2 data-number="10.1" class="anchored" data-anchor-id="definisi"><span class="header-section-number">10.1</span> Definisi</h2>
 <p>Transformasi Fourier Waktu Kontinu (Continuous-Time Fourier Transform/CTFT) adalah representasi sinyal non-periodik (aperiodik) yang memungkinkan sinyal direpresentasikan sebagai integral dari eksponensial kompleks pada semua frekuensi.</p>
 <p>CTFT, yang dilambangkan <span class="math inline">\(X(j\omega)\)</span>, ditemukan menggunakan <strong>persamaan analisis</strong> (Fourier Transform):</p>
 <p><span class="math display">\[X(j\omega) = \int_{-\infty}^{+\infty} x(t)e^{-j\omega t} dt\]</span></p>
@@ -283,8 +298,8 @@ window.Quarto = {
 <p><span class="math display">\[x(t) = \frac{1}{2\pi} \int_{-\infty}^{+\infty} X(j\omega)e^{j\omega t} d\omega\]</span></p>
 <hr>
 </section>
-<section id="properti-utama-continuous-time-fourier-transform-ctft" class="level2" data-number="9.2">
-<h2 data-number="9.2" class="anchored" data-anchor-id="properti-utama-continuous-time-fourier-transform-ctft"><span class="header-section-number">9.2</span> Properti Utama Continuous-Time Fourier Transform (CTFT)</h2>
+<section id="properti-utama-continuous-time-fourier-transform-ctft" class="level2" data-number="10.2">
+<h2 data-number="10.2" class="anchored" data-anchor-id="properti-utama-continuous-time-fourier-transform-ctft"><span class="header-section-number">10.2</span> Properti Utama Continuous-Time Fourier Transform (CTFT)</h2>
 <p>CTFT memiliki berbagai properti penting yang menghubungkan domain waktu dan domain frekuensi:</p>
 <ol type="1">
 <li><p><strong>Linearitas (Linearity):</strong> Jika <span class="math inline">\(x_1(t) \leftrightarrow X_1(j\omega)\)</span> dan <span class="math inline">\(x_2(t) \leftrightarrow X_2(j\omega)\)</span>, maka kombinasi linear mereka juga berlaku di domain frekuensi: <span class="math display">\[a_1x_1(t) + a_2x_2(t) \leftrightarrow a_1X_1(j\omega) + a_2X_2(j\omega)\]</span>.</p></li>
@@ -295,8 +310,8 @@ window.Quarto = {
 <li><p><strong>Dualitas (Duality):</strong> Simetri antara persamaan analisis dan sintesis CTFT memungkinkan adanya pasangan transformasi dual, di mana bentuk sinyal di domain waktu berpasangan dengan bentuk spektrum yang serupa: <span class="math display">\[X(t) \leftrightarrow 2\pi x(-\omega)\]</span>.</p></li>
 </ol>
 </section>
-<section id="hubungan-ctft-dengan-fourier-series" class="level2" data-number="9.3">
-<h2 data-number="9.3" class="anchored" data-anchor-id="hubungan-ctft-dengan-fourier-series"><span class="header-section-number">9.3</span> Hubungan CTFT dengan Fourier Series</h2>
+<section id="hubungan-ctft-dengan-fourier-series" class="level2" data-number="10.3">
+<h2 data-number="10.3" class="anchored" data-anchor-id="hubungan-ctft-dengan-fourier-series"><span class="header-section-number">10.3</span> Hubungan CTFT dengan Fourier Series</h2>
 <p>Transformasi Fourier Waktu Kontinu (CTFT) dikembangkan sebagai <strong>limit dari Deret Fourier Waktu Kontinu (CTFS)</strong>.</p>
 <ol type="1">
 <li><strong>Pendekatan Limit:</strong> CTFT diturunkan dengan mempertimbangkan sinyal aperiodik <span class="math inline">\(x(t)\)</span> sebagai limit dari sinyal periodik <span class="math inline">\(x_T(t)\)</span> ketika periode <span class="math inline">\(T\)</span> menjadi sangat besar (<span class="math inline">\(T \to \infty\)</span>).</li>
@@ -304,31 +319,31 @@ window.Quarto = {
 <li><strong>Hasil Akhir:</strong> Ketika <span class="math inline">\(T\)</span> mendekati tak hingga, penjumlahan diskrit dalam Deret Fourier berubah menjadi integral kontinyu, dan fungsi selubung yang disampel mendekati fungsi spektrum kontinyu <span class="math inline">\(X(j\omega)\)</span> (Transformasi Fourier). Perspektif ini menekankan hubungan erat antara deret dan transformasi Fourier.</li>
 </ol>
 </section>
-<section id="ctft-dari-sinyal-periodik" class="level2" data-number="9.4">
-<h2 data-number="9.4" class="anchored" data-anchor-id="ctft-dari-sinyal-periodik"><span class="header-section-number">9.4</span> CTFT dari Sinyal Periodik</h2>
+<section id="ctft-dari-sinyal-periodik" class="level2" data-number="10.4">
+<h2 data-number="10.4" class="anchored" data-anchor-id="ctft-dari-sinyal-periodik"><span class="header-section-number">10.4</span> CTFT dari Sinyal Periodik</h2>
 <p>Sinyal periodik, yang memiliki energi tak hingga, dapat direpresentasikan menggunakan CTFT dengan bantuan <strong>fungsi impuls (Dirac delta)</strong> di domain frekuensi.</p>
 <p>Jika sinyal periodik <span class="math inline">\(x(t)\)</span> memiliki representasi Deret Fourier <span class="math inline">\(x(t) = \sum_{k=-\infty}^{+\infty} a_k e^{j k \omega_0 t}\)</span>, Transformasi Fouriernya <span class="math inline">\(X(j\omega)\)</span> adalah <strong>deretan impuls</strong> yang terletak pada frekuensi harmonik <span class="math inline">\(k\omega_0\)</span>:</p>
 <p><span class="math display">\[X(j\omega) = \sum_{k=-\infty}^{+\infty} 2\pi a_k \delta(\omega - k\omega_0)\]</span>.</p>
 <p>Di sini, impuls-impuls tersebut terletak pada kelipatan integer dari frekuensi fundamental <span class="math inline">\(\omega_0\)</span>, dan <strong>area setiap impuls berbanding lurus dengan koefisien Deret Fourier</strong> yang sesuai (<span class="math inline">\(2\pi a_k\)</span>).</p>
 </section>
-<section id="beberapa-kasus" class="level2" data-number="9.5">
-<h2 data-number="9.5" class="anchored" data-anchor-id="beberapa-kasus"><span class="header-section-number">9.5</span> Beberapa Kasus</h2>
+<section id="beberapa-kasus" class="level2" data-number="10.5">
+<h2 data-number="10.5" class="anchored" data-anchor-id="beberapa-kasus"><span class="header-section-number">10.5</span> Beberapa Kasus</h2>
 </section>
-<section id="sinyal-dc-atau-konstatnta" class="level1" data-number="10">
-<h1 data-number="10"><span class="header-section-number">10</span> Sinyal DC atau Konstatnta</h1>
+<section id="sinyal-dc-atau-konstatnta" class="level1" data-number="11">
+<h1 data-number="11"><span class="header-section-number">11</span> Sinyal DC atau Konstatnta</h1>
 <p>Transformasi Fourier Waktu Kontinu (Continuous-Time Fourier Transform/CTFT) dari sinyal konstan <span class="math inline">\(x(t) = 1\)</span> adalah:</p>
 <p><span class="math display">\[X(j\omega) = 2\pi\delta(\omega)\]</span></p>
 <p>Transformasi ini menunjukkan bahwa sinyal arus searah (DC), yang memiliki nilai 1 di domain waktu untuk semua <span class="math inline">\(t\)</span>, hanya mengandung satu komponen frekuensi, yaitu pada <span class="math inline">\(\omega = 0\)</span>.</p>
 <p>Hasil ini ditemukan dalam tabel pasangan Transformasi Fourier dasar dan dapat dibuktikan menggunakan properti dualitas dari pasangan Transformasi Fourier impuls. Karena kita tahu bahwa Transformasi Fourier dari impuls satuan <span class="math inline">\(\delta(t)\)</span> adalah 1 (yaitu, <span class="math inline">\(\delta(t) \leftrightarrow 1\)</span>), maka dengan menggunakan properti Dualitas <span class="math inline">\(X(t) \leftrightarrow 2\pi x(-\omega)\)</span>, kita memperoleh:</p>
 <p><span class="math display">\[1 \leftrightarrow 2\pi\delta(-\omega) = 2\pi\delta(\omega)\]</span></p>
 <p>Transformasi ini memerlukan penggunaan fungsi impuls Dirac <span class="math inline">\(\delta(\omega)\)</span> karena sinyal konstan <span class="math inline">\(x(t)=1\)</span> adalah sinyal daya (energi tak hingga) dan tidak termasuk dalam kelas sinyal yang memiliki energi terbatas (finite-energy signals), sehingga memerlukan Transformasi Fourier yang digeneralisasi (Generalized Fourier Transform).</p>
-<section id="sinyal-sinusoidal" class="level2" data-number="10.1">
-<h2 data-number="10.1" class="anchored" data-anchor-id="sinyal-sinusoidal"><span class="header-section-number">10.1</span> Sinyal Sinusoidal</h2>
+<section id="sinyal-sinusoidal" class="level2" data-number="11.1">
+<h2 data-number="11.1" class="anchored" data-anchor-id="sinyal-sinusoidal"><span class="header-section-number">11.1</span> Sinyal Sinusoidal</h2>
 <p>Transformasi ini adalah dasar untuk memahami sinyal DC di domain frekuensi. Kita ingin mengetahui bagaimana kita menggunakan properti linearitas dan pergeseran frekuensi untuk mencari Transformasi Fourier dari sinyal sinusoidal, seperti <span class="math inline">\(x(t) = \cos(\omega_0 t)\)</span>. Transformasi Fourier Waktu Kontinu (Continuous-Time Fourier Transform/CTFT) dari sinyal kosinus <span class="math inline">\(x(t) = \cos(\omega_0 t)\)</span> adalah:</p>
 <p><span class="math display">\[X(j\omega) = \pi\delta(\omega - \omega_0) + \pi\delta(\omega + \omega_0)\]</span></p>
 <p>Hasil ini menunjukkan bahwa sinyal sinusoidal terdiri dari dua komponen frekuensi murni, yang direpresentasikan oleh <strong>impuls Dirac</strong> pada frekuensi <span class="math inline">\(\omega_0\)</span> dan <span class="math inline">\(-\omega_0\)</span>.</p>
-<section id="derivasi-menggunakan-properti-linearitas-dan-pergeseran-frekuensi" class="level3" data-number="10.1.1">
-<h3 data-number="10.1.1" class="anchored" data-anchor-id="derivasi-menggunakan-properti-linearitas-dan-pergeseran-frekuensi"><span class="header-section-number">10.1.1</span> Derivasi Menggunakan Properti Linearitas dan Pergeseran Frekuensi</h3>
+<section id="derivasi-menggunakan-properti-linearitas-dan-pergeseran-frekuensi" class="level3" data-number="11.1.1">
+<h3 data-number="11.1.1" class="anchored" data-anchor-id="derivasi-menggunakan-properti-linearitas-dan-pergeseran-frekuensi"><span class="header-section-number">11.1.1</span> Derivasi Menggunakan Properti Linearitas dan Pergeseran Frekuensi</h3>
 <p>Transformasi ini dapat diturunkan dengan menggabungkan dua properti utama CTFT:</p>
 <ol type="1">
 <li><p><strong>Dekomposisi Sinyal (Menggunakan Linearitas):</strong> Sinyal <span class="math inline">\(x(t) = \cos(\omega_0 t)\)</span> pertama kali diuraikan menjadi eksponensial kompleks menggunakan identitas Euler: <span class="math display">\[x(t) = \frac{1}{2}e^{j\omega_0 t} + \frac{1}{2}e^{-j\omega_0 t}\]</span> Karena CTFT adalah operasi linier, Transformasi Fourier dari <span class="math inline">\(x(t)\)</span> adalah jumlah dari Transformasi Fourier dari masing-masing komponen eksponensial.</p></li>
@@ -340,8 +355,8 @@ window.Quarto = {
 <p><span class="math display">\[X(j\omega) = j\pi [\delta(\omega + \omega_0) - \delta(\omega - \omega_0)]\]</span></p>
 <p>Transformasi ini menunjukkan bahwa, berbeda dengan <span class="math inline">\(\cos(\omega_0 t)\)</span> yang Transformasi Fouriernya bernilai riil (hanya impuls positif), <span class="math inline">\(\sin(\omega_0 t)\)</span> memiliki spektrum yang sepenuhnya imajiner, mencerminkan sifatnya yang ganjil (odd) terhadap waktu.</p>
 </section>
-<section id="derivasi-menggunakan-identitas-euler-dan-linearitas" class="level3" data-number="10.1.2">
-<h3 data-number="10.1.2" class="anchored" data-anchor-id="derivasi-menggunakan-identitas-euler-dan-linearitas"><span class="header-section-number">10.1.2</span> Derivasi Menggunakan Identitas Euler dan Linearitas</h3>
+<section id="derivasi-menggunakan-identitas-euler-dan-linearitas" class="level3" data-number="11.1.2">
+<h3 data-number="11.1.2" class="anchored" data-anchor-id="derivasi-menggunakan-identitas-euler-dan-linearitas"><span class="header-section-number">11.1.2</span> Derivasi Menggunakan Identitas Euler dan Linearitas</h3>
 <p>Transformasi Fourier diperoleh dengan menggunakan identitas Euler dan properti Linearitas dari CTFT:</p>
 <ol type="1">
 <li><p><strong>Menguraikan sinyal menggunakan Identitas Euler:</strong> Sinyal <span class="math inline">\(x(t) = \sin(\omega_0 t)\)</span> diuraikan menjadi dua eksponensial kompleks: <span class="math display">\[x(t) = \frac{1}{2j} e^{j\omega_0 t} - \frac{1}{2j} e^{-j\omega_0 t}\]</span></p></li>
@@ -350,13 +365,13 @@ window.Quarto = {
 </ol>
 </section>
 </section>
-<section id="hubungan-dengan-deret-fourier" class="level2" data-number="10.2">
-<h2 data-number="10.2" class="anchored" data-anchor-id="hubungan-dengan-deret-fourier"><span class="header-section-number">10.2</span> Hubungan dengan Deret Fourier</h2>
+<section id="hubungan-dengan-deret-fourier" class="level2" data-number="11.2">
+<h2 data-number="11.2" class="anchored" data-anchor-id="hubungan-dengan-deret-fourier"><span class="header-section-number">11.2</span> Hubungan dengan Deret Fourier</h2>
 <p>Seperti yang dibahas sebelumnya, CTFT sinyal periodik adalah deretan impuls di domain frekuensi, di mana luas impuls berbanding lurus dengan koefisien Deret Fourier <span class="math inline">\(a_k\)</span> (yaitu, <span class="math inline">\(2\pi a_k\)</span>).</p>
 <p>Untuk <span class="math inline">\(x(t) = \sin(\omega_0 t)\)</span>: * Koefisien Deret Fourier untuk harmonik positif (<span class="math inline">\(k=1\)</span>) adalah <span class="math inline">\(a_1 = 1/(2j)\)</span>. * Koefisien Deret Fourier untuk harmonik negatif (<span class="math inline">\(k=-1\)</span>) adalah <span class="math inline">\(a_{-1} = -1/(2j)\)</span>. * Transformasi Fourier adalah <span class="math inline">\(X(j\omega) = 2\pi a_1 \delta(\omega - \omega_0) + 2\pi a_{-1} \delta(\omega + \omega_0)\)</span>. * <span class="math inline">\(X(j\omega) = 2\pi (\frac{1}{2j}) \delta(\omega - \omega_0) + 2\pi (\frac{-1}{2j}) \delta(\omega + \omega_0) = \frac{\pi}{j} \delta(\omega - \omega_0) - \frac{\pi}{j} \delta(\omega + \omega_0)\)</span>, yang menghasilkan formula di atas.</p>
 </section>
-<section id="tafsiran-xjomega2-sebagai-kepadatan-energi" class="level2" data-number="10.3">
-<h2 data-number="10.3" class="anchored" data-anchor-id="tafsiran-xjomega2-sebagai-kepadatan-energi"><span class="header-section-number">10.3</span> Tafsiran <span class="math inline">\(|X(j\omega)|^2\)</span> sebagai Kepadatan Energi</h2>
+<section id="tafsiran-xjomega2-sebagai-kepadatan-energi" class="level2" data-number="11.3">
+<h2 data-number="11.3" class="anchored" data-anchor-id="tafsiran-xjomega2-sebagai-kepadatan-energi"><span class="header-section-number">11.3</span> Tafsiran <span class="math inline">\(|X(j\omega)|^2\)</span> sebagai Kepadatan Energi</h2>
 <p>Interpretasi dari kuadrat magnitudo Transformasi Fourier Waktu Kontinu, <span class="math inline">\(|X(j\omega)|^2\)</span>, adalah <strong>Spektrum Kepadatan Energi (Energy-Density Spectrum)</strong> dari sinyal <span class="math inline">\(x(t)\)</span>.</p>
 <p>Interpretasi ini didasarkan pada <strong>Hubungan Parseval (Parseval’s Relation)</strong> untuk sinyal berenergi terbatas (finite-energy signals). Hubungan Parseval menunjukkan bahwa total energi (<span class="math inline">\(E\)</span>) sinyal <span class="math inline">\(x(t)\)</span> di domain waktu sama dengan total energi spektralnya di domain frekuensi, yaitu:</p>
 <p><span class="math display">\[E = \int_{-\infty}^{+\infty} |x(t)|^2 dt = \frac{1}{2\pi} \int_{-\infty}^{+\infty} |X(j\omega)|^2 d\omega\]</span>.</p>
@@ -368,30 +383,30 @@ window.Quarto = {
 <li><strong>Aplikasi Pemfilteran:</strong> Dalam konteks praktis, jika kita mempertimbangkan pita frekuensi kecil (<span class="math inline">\(\Delta\omega\)</span>) di sekitar frekuensi <span class="math inline">\(\omega_0\)</span>, energi dalam sinyal di pita tersebut adalah proporsional terhadap <span class="math inline">\(\Delta\omega |X(j\omega_0)|^2\)</span>. Oleh karena alasan inilah, <span class="math inline">\(|X(j\omega)|^2\)</span> dianggap sebagai spektrum kepadatan energi.</li>
 </ol>
 </section>
-<section id="analisa-sistem-lti" class="level2" data-number="10.4">
-<h2 data-number="10.4" class="anchored" data-anchor-id="analisa-sistem-lti"><span class="header-section-number">10.4</span> Analisa Sistem LTI</h2>
+<section id="analisa-sistem-lti" class="level2" data-number="11.4">
+<h2 data-number="11.4" class="anchored" data-anchor-id="analisa-sistem-lti"><span class="header-section-number">11.4</span> Analisa Sistem LTI</h2>
 <p>Analisis Transformasi Fourier Waktu Kontinu (CTFT) <strong>sangat efektif</strong> dalam menganalisis Sistem Linear Tak Berubah Waktu (LTI) yang dijelaskan oleh Persamaan Diferensial Koefisien Konstan Linear (LCCDE).</p>
 <p>Metode ini, yang menggunakan <strong>properti konvolusi</strong>, mengubah masalah diferensial yang kompleks di domain waktu menjadi operasi aljabar sederhana di domain frekuensi.</p>
 <p>Mari kita analisis persamaan diferensial yang Anda sebutkan: <span class="math display">\[\frac{dy(t)}{dt} + 3y(t) = x(t)\]</span></p>
-<section id="transformasi-persamaan-diferensial" class="level3" data-number="10.4.1">
-<h3 data-number="10.4.1" class="anchored" data-anchor-id="transformasi-persamaan-diferensial"><span class="header-section-number">10.4.1</span> 1. Transformasi Persamaan Diferensial</h3>
+<section id="transformasi-persamaan-diferensial" class="level3" data-number="11.4.1">
+<h3 data-number="11.4.1" class="anchored" data-anchor-id="transformasi-persamaan-diferensial"><span class="header-section-number">11.4.1</span> 1. Transformasi Persamaan Diferensial</h3>
 <p>Langkah pertama adalah menerapkan Transformasi Fourier ke seluruh persamaan. Ini dimungkinkan karena Transformasi Fourier mengubah persamaan diferensial menjadi persamaan aljabar.</p>
 <p>Menggunakan <strong>properti Linearitas</strong> CTFT: <span class="math display">\[\mathcal{F}\left\{\frac{dy(t)}{dt}\right\} + 3\mathcal{F}\{y(t)\} = \mathcal{F}\{x(t)\}\]</span></p>
 <p>Menggunakan <strong>properti Diferensiasi</strong> (di mana <span class="math inline">\(\mathcal{F}\{\frac{dy(t)}{dt}\} = j\omega Y(j\omega)\)</span>): <span class="math display">\[j\omega Y(j\omega) + 3 Y(j\omega) = X(j\omega)\]</span></p>
 </section>
-<section id="menentukan-fungsi-respons-frekuensi-hjomega" class="level3" data-number="10.4.2">
-<h3 data-number="10.4.2" class="anchored" data-anchor-id="menentukan-fungsi-respons-frekuensi-hjomega"><span class="header-section-number">10.4.2</span> 2. Menentukan Fungsi Respons Frekuensi (<span class="math inline">\(H(j\omega)\)</span>)</h3>
+<section id="menentukan-fungsi-respons-frekuensi-hjomega" class="level3" data-number="11.4.2">
+<h3 data-number="11.4.2" class="anchored" data-anchor-id="menentukan-fungsi-respons-frekuensi-hjomega"><span class="header-section-number">11.4.2</span> 2. Menentukan Fungsi Respons Frekuensi (<span class="math inline">\(H(j\omega)\)</span>)</h3>
 <p>Sekarang, persamaan tersebut murni aljabar. Kita dapat memfaktorkan <span class="math inline">\(Y(j\omega)\)</span>: <span class="math display">\[Y(j\omega) (j\omega + 3) = X(j\omega)\]</span></p>
 <p>Fungsi Respons Frekuensi (<span class="math inline">\(H(j\omega)\)</span>) didefinisikan sebagai rasio Transformasi Fourier output <span class="math inline">\(Y(j\omega)\)</span> terhadap Transformasi Fourier input <span class="math inline">\(X(j\omega)\)</span>: <span class="math display">\[H(j\omega) = \frac{Y(j\omega)}{X(j\omega)} = \frac{1}{j\omega + 3}\]</span></p>
 </section>
-<section id="menggunakan-properti-konvolusi" class="level3" data-number="10.4.3">
-<h3 data-number="10.4.3" class="anchored" data-anchor-id="menggunakan-properti-konvolusi"><span class="header-section-number">10.4.3</span> 3. Menggunakan Properti Konvolusi</h3>
+<section id="menggunakan-properti-konvolusi" class="level3" data-number="11.4.3">
+<h3 data-number="11.4.3" class="anchored" data-anchor-id="menggunakan-properti-konvolusi"><span class="header-section-number">11.4.3</span> 3. Menggunakan Properti Konvolusi</h3>
 <p>Dalam domain frekuensi, <strong>properti Konvolusi</strong> (Convolution Property) menyatakan bahwa respons output <span class="math inline">\(Y(j\omega)\)</span> dari sistem LTI adalah hasil <strong>perkalian</strong> antara Transformasi Fourier input <span class="math inline">\(X(j\omega)\)</span> dan Respons Frekuensi sistem <span class="math inline">\(H(j\omega)\)</span>:</p>
 <p><span class="math display">\[Y(j\omega) = H(j\omega) X(j\omega)\]</span></p>
 <p>Untuk sistem kita: <span class="math display">\[Y(j\omega) = \left(\frac{1}{j\omega + 3}\right) X(j\omega)\]</span></p>
 </section>
-<section id="kesimpulan" class="level3" data-number="10.4.4">
-<h3 data-number="10.4.4" class="anchored" data-anchor-id="kesimpulan"><span class="header-section-number">10.4.4</span> Kesimpulan</h3>
+<section id="kesimpulan" class="level3" data-number="11.4.4">
+<h3 data-number="11.4.4" class="anchored" data-anchor-id="kesimpulan"><span class="header-section-number">11.4.4</span> Kesimpulan</h3>
 <p>Analisis di domain frekuensi memungkinkan kita untuk menghindari kalkulasi integral konvolusi di domain waktu (<span class="math inline">\(y(t) = x(t) * h(t)\)</span>) dengan mengubahnya menjadi perkalian aljabar <span class="math inline">\(Y(j\omega) = X(j\omega) H(j\omega)\)</span>. Untuk mendapatkan output <span class="math inline">\(y(t)\)</span> dalam domain waktu, kita cukup menerapkan Transformasi Fourier Invers (IFT) pada <span class="math inline">\(Y(j\omega)\)</span>.</p>
 
 
@@ -451,14 +466,13 @@ window.Quarto = {
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-      const outerScaffold = trigger.parentElement.cloneNode(true);
-      const codeEl = outerScaffold.querySelector('code');
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
         }
-      }
-      return codeEl.innerText;
+        return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy
@@ -803,12 +817,12 @@ window.Quarto = {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="../kuliah/materi_8.html" class="pagination-link" aria-label="transformasi">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">transformasi</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">transformasi</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../summary.html" class="pagination-link" aria-label="Lampiran Petunjuk Penggunaan Alat Bantu dan Kendaraan dalam Sinyal dan Sistem (VALORAIZE Learning)">
-        <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Lampiran Petunjuk Penggunaan Alat Bantu dan Kendaraan dalam Sinyal dan Sistem (VALORAIZE Learning)</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../kuliah/materi_10.html" class="pagination-link" aria-label="Kuliah 10 Analisis Sistem di Domain Laplace: Fungsi Alih (Transfer Function)">
+        <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Kuliah 10 Analisis Sistem di Domain Laplace: Fungsi Alih (Transfer Function)</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
