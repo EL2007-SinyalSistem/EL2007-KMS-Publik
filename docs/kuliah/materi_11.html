@@ -42,7 +42,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-70a47bd5681a7291082a5b9f83d58762.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-2d3d50682d03e2815b63c4e032ea834e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -262,6 +262,15 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#mekanisme-transformasi-mathbfs-rightarrow-fracomega_0s" id="toc-mekanisme-transformasi-mathbfs-rightarrow-fracomega_0s" class="nav-link" data-scroll-target="#mekanisme-transformasi-mathbfs-rightarrow-fracomega_0s"><span class="header-section-number">15.0.1</span> Mekanisme Transformasi <span class="math inline">\(\mathbf{s \rightarrow \frac{\omega_0}{s}}\)</span></a></li>
   <li><a href="#contoh-kasus-filter-butterworth" id="toc-contoh-kasus-filter-butterworth" class="nav-link" data-scroll-target="#contoh-kasus-filter-butterworth"><span class="header-section-number">15.0.2</span> Contoh Kasus: Filter Butterworth</a></li>
+  <li><a href="#filter-desain" id="toc-filter-desain" class="nav-link" data-scroll-target="#filter-desain"><span class="header-section-number">15.1</span> Filter desain</a>
+  <ul class="collapse">
+  <li><a href="#spesifikasi-magnitudo-respons-frekuensi" id="toc-spesifikasi-magnitudo-respons-frekuensi" class="nav-link" data-scroll-target="#spesifikasi-magnitudo-respons-frekuensi"><span class="header-section-number">15.1.1</span> 1. Spesifikasi Magnitudo Respons Frekuensi</a></li>
+  <li><a href="#transformasi-ke-ranah-laplace-dan-penentuan-pole-bsb-s" id="toc-transformasi-ke-ranah-laplace-dan-penentuan-pole-bsb-s" class="nav-link" data-scroll-target="#transformasi-ke-ranah-laplace-dan-penentuan-pole-bsb-s"><span class="header-section-number">15.1.2</span> 2. Transformasi ke Ranah Laplace dan Penentuan Pole <span class="math inline">\(B(s)B(-s)\)</span></a></li>
+  <li><a href="#pemilihan-pole-pole-placement-untuk-kausalitas-dan-stabilitas" id="toc-pemilihan-pole-pole-placement-untuk-kausalitas-dan-stabilitas" class="nav-link" data-scroll-target="#pemilihan-pole-pole-placement-untuk-kausalitas-dan-stabilitas"><span class="header-section-number">15.1.3</span> 3. Pemilihan Pole (Pole Placement) untuk Kausalitas dan Stabilitas</a></li>
+  <li><a href="#menentukan-faktor-skala-gain" id="toc-menentukan-faktor-skala-gain" class="nav-link" data-scroll-target="#menentukan-faktor-skala-gain"><span class="header-section-number">15.1.4</span> 4. Menentukan Faktor Skala (Gain)</a></li>
+  <li><a href="#contoh-untuk-orde-n2" id="toc-contoh-untuk-orde-n2" class="nav-link" data-scroll-target="#contoh-untuk-orde-n2"><span class="header-section-number">15.1.5</span> Contoh untuk Orde N=2</a></li>
+  <li><a href="#transformasi-frekuensi-untuk-filter-non-lowpass" id="toc-transformasi-frekuensi-untuk-filter-non-lowpass" class="nav-link" data-scroll-target="#transformasi-frekuensi-untuk-filter-non-lowpass"><span class="header-section-number">15.1.6</span> 5. Transformasi Frekuensi (Untuk Filter Non-Lowpass)</a></li>
+  </ul></li>
   </ul></li>
   </ul>
 </nav>
@@ -404,8 +413,59 @@ window.Quarto = {
 </ul>
 <p>Hasilnya adalah filter yang memiliki karakteristik magnitudo datar maksimal (<em>maximally flat</em>) di <em>passband</em>-nya, tetapi dengan respons yang terbalik di sumbu frekuensi—semua frekuensi rendah dilemahkan dan semua frekuensi tinggi diteruskan, yang merupakan karakteristik filter <em>highpass</em>.</p>
 <p>Prosedur umum ini (Lowpass-to-Highpass transformations) sering digunakan dalam desain filter karena memudahkan; alih-alih merancang filter baru dari awal untuk setiap tipe respons (HP, <em>Bandpass</em>, <em>Bandstop</em>), insinyur cukup merancang satu filter <em>prototype</em> LP yang stabil dan kemudian menerapkan transformasi frekuensi yang sesuai.</p>
+</section>
+<section id="filter-desain" class="level2" data-number="15.1">
+<h2 data-number="15.1" class="anchored" data-anchor-id="filter-desain"><span class="header-section-number">15.1</span> Filter desain</h2>
+<p>Merancang Filter Butterworth melibatkan prosedur sistematis dalam ranah Transformasi Laplace (ranah <span class="math inline">\(s\)</span>) untuk menentukan fungsi sistem <span class="math inline">\(B(s)\)</span> berdasarkan spesifikasi respons magnitudo yang diinginkan. Filter ini banyak digunakan karena karakteristik <strong>magnitudo datar maksimal</strong> (<em>maximally flat</em>) di <em>passband</em>-nya.</p>
+<p>Desain filter Butterworth, khususnya tipe <em>lowpass</em> (LP), dilakukan dengan menentukan lokasi <em>pole</em> di bidang <span class="math inline">\(s\)</span> yang memenuhi kriteria stabilitas dan respons frekuensi yang datar.</p>
+<p>Berikut adalah langkah-langkah utama dalam merancang Filter Butterworth analog orde <span class="math inline">\(N\)</span>:</p>
+<section id="spesifikasi-magnitudo-respons-frekuensi" class="level3" data-number="15.1.1">
+<h3 data-number="15.1.1" class="anchored" data-anchor-id="spesifikasi-magnitudo-respons-frekuensi"><span class="header-section-number">15.1.1</span> 1. Spesifikasi Magnitudo Respons Frekuensi</h3>
+<p>Langkah pertama adalah mendefinisikan kuadrat magnitudo respons frekuensi target untuk filter <em>lowpass</em> orde <span class="math inline">\(N\)</span> dengan frekuensi <em>cutoff</em> <span class="math inline">\(\omega_c\)</span>: <span class="math display">\[\mathbf{|B(j\omega)|^2 = \frac{1}{1 + (\omega / \omega_c)^{2N}}}\]</span></p>
+<p>Karakteristik kunci dari magnitudo ini adalah: * <strong>Gain DC:</strong> Pada <span class="math inline">\(\omega = 0\)</span>, <span class="math inline">\(|B(j\omega)|^2 = 1\)</span>. * <strong>Frekuensi <em>Cutoff</em></strong>: Pada <span class="math inline">\(\omega = \omega_c\)</span>, magnitudo jatuh menjadi <span class="math inline">\(1/\sqrt{2}\)</span> (atau magnitudo kuadratnya menjadi <span class="math inline">\(1/2\)</span>), terlepas dari orde <span class="math inline">\(N\)</span>. * <strong>Ketajaman:</strong> Semakin tinggi orde <span class="math inline">\(N\)</span>, semakin sempit <em>transition band</em> filter tersebut.</p>
+</section>
+<section id="transformasi-ke-ranah-laplace-dan-penentuan-pole-bsb-s" class="level3" data-number="15.1.2">
+<h3 data-number="15.1.2" class="anchored" data-anchor-id="transformasi-ke-ranah-laplace-dan-penentuan-pole-bsb-s"><span class="header-section-number">15.1.2</span> 2. Transformasi ke Ranah Laplace dan Penentuan Pole <span class="math inline">\(B(s)B(-s)\)</span></h3>
+<p>Untuk menemukan fungsi sistem <span class="math inline">\(B(s)\)</span>, kita menggunakan hubungan bahwa, untuk respons impuls nyata (real), <span class="math inline">\(|B(j\omega)|^2 = B(j\omega)B(-j\omega)\)</span>.</p>
+<ol type="1">
+<li>Ganti <span class="math inline">\(j\omega\)</span> dengan variabel <span class="math inline">\(s\)</span> (yang berarti mengganti <span class="math inline">\((j\omega)^2\)</span> dengan <span class="math inline">\(-s^2\)</span>) pada persamaan magnitudo. Ini menghasilkan polinomial <span class="math inline">\(B(s)B(-s)\)</span>: <span class="math display">\[B(s)B(-s) = \frac{1}{1 + (-s^2 / \omega_c^2)^{N}}\]</span></li>
+<li>Polinomial penyebut (denominator) dari <span class="math inline">\(B(s)B(-s)\)</span> harus diselesaikan untuk menemukan <span class="math inline">\(2N\)</span> akarnya (pole).</li>
+<li>Secara umum, pole-pole ini terletak <strong>secara merata (sama jarak sudut)</strong> pada sebuah lingkaran di bidang <span class="math inline">\(s\)</span> dengan radius <span class="math inline">\(\omega_c\)</span>. Jarak sudut antar pole adalah <span class="math inline">\(\pi/N\)</span> radian.</li>
+</ol>
+</section>
+<section id="pemilihan-pole-pole-placement-untuk-kausalitas-dan-stabilitas" class="level3" data-number="15.1.3">
+<h3 data-number="15.1.3" class="anchored" data-anchor-id="pemilihan-pole-pole-placement-untuk-kausalitas-dan-stabilitas"><span class="header-section-number">15.1.3</span> 3. Pemilihan Pole (Pole Placement) untuk Kausalitas dan Stabilitas</h3>
+<p>Langkah yang paling penting dalam desain ini adalah menentukan pole mana yang akan menjadi bagian dari <span class="math inline">\(B(s)\)</span>:</p>
+<ol type="1">
+<li>Karena sistem yang diinginkan harus <strong>kausal dan stabil</strong>, semua <em>pole</em> dari fungsi sistem <span class="math inline">\(B(s)\)</span> harus terletak di <strong>bidang setengah kiri terbuka</strong> (<em>open left half-plane</em> - LHP), yaitu, memiliki bagian riil negatif (<span class="math inline">\(\mathcal{Re}\{s\} &lt; 0\)</span>).</li>
+<li><strong>Konstruksi <span class="math inline">\(B(s)\)</span>:</strong> Fungsi sistem <span class="math inline">\(B(s)\)</span> dibentuk dengan memilih <span class="math inline">\(N\)</span> pole dari <span class="math inline">\(B(s)B(-s)\)</span> yang terletak di LHP (pole-pole yang berada di sepanjang setengah lingkaran di LHP).</li>
+<li>Pole-pole yang dipilih ini menentukan <span class="math inline">\(B(s)\)</span> hingga faktor skala.</li>
+</ol>
+</section>
+<section id="menentukan-faktor-skala-gain" class="level3" data-number="15.1.4">
+<h3 data-number="15.1.4" class="anchored" data-anchor-id="menentukan-faktor-skala-gain"><span class="header-section-number">15.1.4</span> 4. Menentukan Faktor Skala (Gain)</h3>
+<p>Setelah <span class="math inline">\(N\)</span> pole <span class="math inline">\(p_i\)</span> di LHP dipilih, fungsi sistem <span class="math inline">\(B(s)\)</span> berada dalam bentuk: <span class="math display">\[B(s) = M \frac{1}{\prod_{i=1}^{N} (s - p_i)}\]</span></p>
+<ol type="1">
+<li>Faktor skala <span class="math inline">\(M\)</span> dipilih sedemikian rupa sehingga filter memiliki <strong>gain unity pada frekuensi DC</strong> (<span class="math inline">\(\omega=0\)</span>).</li>
+<li>Hal ini dipastikan dengan menetapkan <span class="math inline">\(|B(j\omega)|^2\)</span> pada <span class="math inline">\(\omega=0\)</span> sama dengan 1, atau <span class="math inline">\(B^2(s)|_{s=0} = 1\)</span>.</li>
+</ol>
+</section>
+<section id="contoh-untuk-orde-n2" class="level3" data-number="15.1.5">
+<h3 data-number="15.1.5" class="anchored" data-anchor-id="contoh-untuk-orde-n2"><span class="header-section-number">15.1.5</span> Contoh untuk Orde N=2</h3>
+<p>Untuk Filter Butterworth orde kedua (<span class="math inline">\(N=2\)</span>) dengan frekuensi <em>cutoff</em> <span class="math inline">\(\omega_c\)</span>, setelah melalui pemilihan pole stabil di LHP, fungsi sistemnya menjadi: <span class="math display">\[\mathbf{B(s) = \frac{\omega_c^2}{s^2 + \sqrt{2}\omega_c s + \omega_c^2}}\]</span></p>
+<p>Filter ini dikenal sebagai filter <strong>lowpass Butterworth orde kedua</strong>. Dari fungsi sistem ini, kita dapat memperoleh Persamaan Diferensial Koefisien Konstan Linear (LCCDE) yang mengkarakterisasi sistem LTI tersebut.</p>
+</section>
+<section id="transformasi-frekuensi-untuk-filter-non-lowpass" class="level3" data-number="15.1.6">
+<h3 data-number="15.1.6" class="anchored" data-anchor-id="transformasi-frekuensi-untuk-filter-non-lowpass"><span class="header-section-number">15.1.6</span> 5. Transformasi Frekuensi (Untuk Filter Non-Lowpass)</h3>
+<p>Jika respons filter yang diinginkan bukan <em>lowpass</em>, desainer akan menggunakan Transformasi Frekuensi pada filter <em>prototype</em> lowpass yang baru saja dirancang.</p>
+<ul>
+<li><strong>Lowpass ke Highpass (LP-HP):</strong> Mengganti <span class="math inline">\(s\)</span> dengan <span class="math inline">\(\frac{\omega_c}{s}\)</span> dalam <span class="math inline">\(B(s)\)</span> akan mengubah karakteristik <em>lowpass</em> menjadi <em>highpass</em> dengan membalik respons frekuensi.</li>
+<li><strong>Lowpass ke Bandpass/Bandstop:</strong> Transformasi yang lebih kompleks dapat diterapkan untuk mendapatkan filter <em>bandpass</em> atau <em>bandstop</em>.</li>
+</ul>
+<p>Secara keseluruhan, merancang Filter Butterworth adalah proses Transformasi Laplace yang kuat, yang memungkinkan para insinyur merancang penempatan pole secara spesifik (ranah <span class="math inline">\(s\)</span>) untuk mencapai spesifikasi magnitudo yang sangat halus di ranah frekuensi.</p>
 
 
+</section>
 </section>
 </section>
 

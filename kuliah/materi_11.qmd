@@ -139,3 +139,62 @@ $$\mathbf{|B_{HP}(j\omega)|^2 = \frac{1}{1 + \left(\frac{\omega_c}{\omega}\right
 Hasilnya adalah filter yang memiliki karakteristik magnitudo datar maksimal (_maximally flat_) di _passband_-nya, tetapi dengan respons yang terbalik di sumbu frekuensi—semua frekuensi rendah dilemahkan dan semua frekuensi tinggi diteruskan, yang merupakan karakteristik filter _highpass_.
 
 Prosedur umum ini (Lowpass-to-Highpass transformations) sering digunakan dalam desain filter karena memudahkan; alih-alih merancang filter baru dari awal untuk setiap tipe respons (HP, _Bandpass_, _Bandstop_), insinyur cukup merancang satu filter _prototype_ LP yang stabil dan kemudian menerapkan transformasi frekuensi yang sesuai.
+
+## Filter desain
+
+Merancang Filter Butterworth melibatkan prosedur sistematis dalam ranah Transformasi Laplace (ranah $s$) untuk menentukan fungsi sistem $B(s)$ berdasarkan spesifikasi respons magnitudo yang diinginkan. Filter ini banyak digunakan karena karakteristik **magnitudo datar maksimal** (*maximally flat*) di *passband*-nya.
+
+Desain filter Butterworth, khususnya tipe *lowpass* (LP), dilakukan dengan menentukan lokasi *pole* di bidang $s$ yang memenuhi kriteria stabilitas dan respons frekuensi yang datar.
+
+Berikut adalah langkah-langkah utama dalam merancang Filter Butterworth analog orde $N$:
+
+### 1. Spesifikasi Magnitudo Respons Frekuensi
+
+Langkah pertama adalah mendefinisikan kuadrat magnitudo respons frekuensi target untuk filter *lowpass* orde $N$ dengan frekuensi *cutoff* $\omega_c$:
+$$\mathbf{|B(j\omega)|^2 = \frac{1}{1 + (\omega / \omega_c)^{2N}}}$$
+
+Karakteristik kunci dari magnitudo ini adalah:
+*   **Gain DC:** Pada $\omega = 0$, $|B(j\omega)|^2 = 1$.
+*   **Frekuensi *Cutoff***: Pada $\omega = \omega_c$, magnitudo jatuh menjadi $1/\sqrt{2}$ (atau magnitudo kuadratnya menjadi $1/2$), terlepas dari orde $N$.
+*   **Ketajaman:** Semakin tinggi orde $N$, semakin sempit *transition band* filter tersebut.
+
+### 2. Transformasi ke Ranah Laplace dan Penentuan Pole $B(s)B(-s)$
+
+Untuk menemukan fungsi sistem $B(s)$, kita menggunakan hubungan bahwa, untuk respons impuls nyata (real), $|B(j\omega)|^2 = B(j\omega)B(-j\omega)$.
+
+1.  Ganti $j\omega$ dengan variabel $s$ (yang berarti mengganti $(j\omega)^2$ dengan $-s^2$) pada persamaan magnitudo. Ini menghasilkan polinomial $B(s)B(-s)$:
+    $$B(s)B(-s) = \frac{1}{1 + (-s^2 / \omega_c^2)^{N}}$$
+2.  Polinomial penyebut (denominator) dari $B(s)B(-s)$ harus diselesaikan untuk menemukan $2N$ akarnya (pole).
+3.  Secara umum, pole-pole ini terletak **secara merata (sama jarak sudut)** pada sebuah lingkaran di bidang $s$ dengan radius $\omega_c$. Jarak sudut antar pole adalah $\pi/N$ radian.
+
+### 3. Pemilihan Pole (Pole Placement) untuk Kausalitas dan Stabilitas
+
+Langkah yang paling penting dalam desain ini adalah menentukan pole mana yang akan menjadi bagian dari $B(s)$:
+
+1.  Karena sistem yang diinginkan harus **kausal dan stabil**, semua *pole* dari fungsi sistem $B(s)$ harus terletak di **bidang setengah kiri terbuka** (*open left half-plane* - LHP), yaitu, memiliki bagian riil negatif ($\mathcal{Re}\{s\} < 0$).
+2.  **Konstruksi $B(s)$:** Fungsi sistem $B(s)$ dibentuk dengan memilih $N$ pole dari $B(s)B(-s)$ yang terletak di LHP (pole-pole yang berada di sepanjang setengah lingkaran di LHP).
+3.  Pole-pole yang dipilih ini menentukan $B(s)$ hingga faktor skala.
+
+### 4. Menentukan Faktor Skala (Gain)
+
+Setelah $N$ pole $p_i$ di LHP dipilih, fungsi sistem $B(s)$ berada dalam bentuk:
+$$B(s) = M \frac{1}{\prod_{i=1}^{N} (s - p_i)}$$
+
+1.  Faktor skala $M$ dipilih sedemikian rupa sehingga filter memiliki **gain unity pada frekuensi DC** ($\omega=0$).
+2.  Hal ini dipastikan dengan menetapkan $|B(j\omega)|^2$ pada $\omega=0$ sama dengan 1, atau $B^2(s)|_{s=0} = 1$.
+
+### Contoh untuk Orde N=2
+
+Untuk Filter Butterworth orde kedua ($N=2$) dengan frekuensi *cutoff* $\omega_c$, setelah melalui pemilihan pole stabil di LHP, fungsi sistemnya menjadi:
+$$\mathbf{B(s) = \frac{\omega_c^2}{s^2 + \sqrt{2}\omega_c s + \omega_c^2}}$$
+
+Filter ini dikenal sebagai filter **lowpass Butterworth orde kedua**. Dari fungsi sistem ini, kita dapat memperoleh Persamaan Diferensial Koefisien Konstan Linear (LCCDE) yang mengkarakterisasi sistem LTI tersebut.
+
+### 5. Transformasi Frekuensi (Untuk Filter Non-Lowpass)
+
+Jika respons filter yang diinginkan bukan *lowpass*, desainer akan menggunakan Transformasi Frekuensi pada filter *prototype* lowpass yang baru saja dirancang.
+
+*   **Lowpass ke Highpass (LP-HP):** Mengganti $s$ dengan $\frac{\omega_c}{s}$ dalam $B(s)$ akan mengubah karakteristik *lowpass* menjadi *highpass* dengan membalik respons frekuensi.
+*   **Lowpass ke Bandpass/Bandstop:** Transformasi yang lebih kompleks dapat diterapkan untuk mendapatkan filter *bandpass* atau *bandstop*.
+
+Secara keseluruhan, merancang Filter Butterworth adalah proses Transformasi Laplace yang kuat, yang memungkinkan para insinyur merancang penempatan pole secara spesifik (ranah $s$) untuk mencapai spesifikasi magnitudo yang sangat halus di ranah frekuensi.
