@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>uas – EL-2007 Sinyal dan Sistem</title>
+<title>15&nbsp; Latihan Ujian – EL-2007 Sinyal dan Sistem</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -31,7 +31,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
 <link href="../summary.html" rel="next">
-<link href="../kuliah/materi_11.html" rel="prev">
+<link href="../ujian/proyek.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -71,10 +71,39 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
-<body class="nav-sidebar floating fullcontent quarto-light">
+<body class="nav-sidebar floating quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -83,7 +112,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../ujian/uas.html"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">uas.html</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../ujian/uas.html"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Latihan Ujian</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -196,14 +225,26 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../kuliah/materi_12.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Respons Frekuensi Dari LCCDE Orde 1 dan Orde 2</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ujian/proyek.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Proyek Akhir Semester</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../ujian/uas.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">uas.html</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Latihan Ujian</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../summary.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Lampiran Petunjuk Penggunaan Alat Bantu dan Kendaraan dalam Sinyal dan Sistem (VALORAIZE Learning)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Lampiran Petunjuk Penggunaan Alat Bantu dan Kendaraan dalam Sinyal dan Sistem (VALORAIZE Learning)</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -217,15 +258,119 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#soal-ujian-akhir-semester" id="toc-soal-ujian-akhir-semester" class="nav-link active" data-scroll-target="#soal-ujian-akhir-semester"><span class="header-section-number">16</span> Soal Ujian Akhir Semester</a>
+  <ul class="collapse">
+  <li><a href="#soal-1-transformasi-laplace-dan-daerah-konvergensi-roc" id="toc-soal-1-transformasi-laplace-dan-daerah-konvergensi-roc" class="nav-link" data-scroll-target="#soal-1-transformasi-laplace-dan-daerah-konvergensi-roc"><span class="header-section-number">16.1</span> Soal 1: Transformasi Laplace dan Daerah Konvergensi (ROC)</a></li>
+  <li><a href="#soal-2-fungsi-alih-dari-persamaan-diferensial-dan-analisis-stabilitas" id="toc-soal-2-fungsi-alih-dari-persamaan-diferensial-dan-analisis-stabilitas" class="nav-link" data-scroll-target="#soal-2-fungsi-alih-dari-persamaan-diferensial-dan-analisis-stabilitas"><span class="header-section-number">16.2</span> Soal 2: Fungsi Alih dari Persamaan Diferensial dan Analisis Stabilitas</a></li>
+  <li><a href="#soal-3-aljabar-fungsi-alih-untuk-interkoneksi-sistem-umpan-balik" id="toc-soal-3-aljabar-fungsi-alih-untuk-interkoneksi-sistem-umpan-balik" class="nav-link" data-scroll-target="#soal-3-aljabar-fungsi-alih-untuk-interkoneksi-sistem-umpan-balik"><span class="header-section-number">16.3</span> Soal 3: Aljabar Fungsi Alih untuk Interkoneksi Sistem Umpan Balik</a></li>
+  <li><a href="#soal-4-properti-perkalian-transformasi-fourier-dalam-modulasi" id="toc-soal-4-properti-perkalian-transformasi-fourier-dalam-modulasi" class="nav-link" data-scroll-target="#soal-4-properti-perkalian-transformasi-fourier-dalam-modulasi"><span class="header-section-number">16.4</span> Soal 4: Properti Perkalian Transformasi Fourier dalam Modulasi</a></li>
+  <li><a href="#soal-5-hubungan-antara-transformasi-laplace-dan-respons-frekuensi" id="toc-soal-5-hubungan-antara-transformasi-laplace-dan-respons-frekuensi" class="nav-link" data-scroll-target="#soal-5-hubungan-antara-transformasi-laplace-dan-respons-frekuensi"><span class="header-section-number">16.5</span> Soal 5: Hubungan antara Transformasi Laplace dan Respons Frekuensi</a></li>
+  <li><a href="#soal-6-transformasi-fourier-sinyal-periodik" id="toc-soal-6-transformasi-fourier-sinyal-periodik" class="nav-link" data-scroll-target="#soal-6-transformasi-fourier-sinyal-periodik"><span class="header-section-number">16.6</span> Soal 6: Transformasi Fourier Sinyal Periodik</a></li>
+  <li><a href="#soal-7-menggunakan-transformasi-laplace-unilateral-untuk-respons-tanpa-input" id="toc-soal-7-menggunakan-transformasi-laplace-unilateral-untuk-respons-tanpa-input" class="nav-link" data-scroll-target="#soal-7-menggunakan-transformasi-laplace-unilateral-untuk-respons-tanpa-input"><span class="header-section-number">16.7</span> Soal 7: Menggunakan Transformasi Laplace Unilateral untuk Respons Tanpa Input</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Latihan Ujian</span></h1>
+</div>
 
 
 
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
 
 
+</header>
 
+
+<p><strong>Ujian Akhir Semester: Sinyal dan Sistem (Transformasi Laplace, Transformasi Fourier, dan Respons Frekuensi)</strong></p>
+<p>Berikut adalah 7 soal ujian akhir semester yang dirancang dengan fokus pada Transformasi Fourier, Transformasi Laplace, dan Respons Frekuensi, berdasarkan materi yang tersedia dalam sumber dan riwayat percakapan.</p>
+<section id="soal-ujian-akhir-semester" class="level1" data-number="16">
+<h1 data-number="16"><span class="header-section-number">16</span> Soal Ujian Akhir Semester</h1>
+<section id="soal-1-transformasi-laplace-dan-daerah-konvergensi-roc" class="level2" data-number="16.1">
+<h2 data-number="16.1" class="anchored" data-anchor-id="soal-1-transformasi-laplace-dan-daerah-konvergensi-roc"><span class="header-section-number">16.1</span> Soal 1: Transformasi Laplace dan Daerah Konvergensi (ROC)</h2>
+<p>Transformasi Laplace (<span class="math inline">\(\mathcal{L}\)</span>) adalah generalisasi dari Transformasi Fourier (TF) yang memungkinkan representasi sinyal dalam domain kompleks <span class="math inline">\(s = \sigma + j\omega\)</span>. Transformasi Laplace bilateral <span class="math inline">\(X(s)\)</span> dari sinyal <span class="math inline">\(x(t)\)</span> didefinisikan sebagai <span class="math inline">\(X(s) = \int_{-\infty}^{\infty} x(t)e^{-st} dt\)</span>. Spesifikasi lengkap dari Transformasi Laplace memerlukan ekspresi aljabar <span class="math inline">\(X(s)\)</span> dan Daerah Konvergensi (ROC) yang terkait.</p>
+<p><strong>Pertanyaan:</strong></p>
+<p>Diberikan sinyal <span class="math inline">\(x(t) = e^{5t}u(-t)\)</span>. (a) Tentukan Transformasi Laplace <span class="math inline">\(X(s)\)</span> dari <span class="math inline">\(x(t)\)</span>. (b) Tentukan Daerah Konvergensi (ROC) dari <span class="math inline">\(X(s)\)</span>. (c) Jelaskan hubungan antara ROC yang Anda temukan dengan jenis sinyal <span class="math inline">\(x(t)\)</span> (kiri, kanan, atau dua sisi) dan mengapa ROC selalu berupa strip, setengah bidang kiri, setengah bidang kanan, atau seluruh bidang <span class="math inline">\(s\)</span>.</p>
+</section>
+<section id="soal-2-fungsi-alih-dari-persamaan-diferensial-dan-analisis-stabilitas" class="level2" data-number="16.2">
+<h2 data-number="16.2" class="anchored" data-anchor-id="soal-2-fungsi-alih-dari-persamaan-diferensial-dan-analisis-stabilitas"><span class="header-section-number">16.2</span> Soal 2: Fungsi Alih dari Persamaan Diferensial dan Analisis Stabilitas</h2>
+<p>Fungsi Alih (<em>Transfer Function</em>) <span class="math inline">\(H(s)\)</span> dari sistem <span class="math inline">\(Linear Time-Invariant\)</span> (LTI) waktu-kontinu didefinisikan sebagai Transformasi Laplace dari respons impuls <span class="math inline">\(h(t)\)</span>. Untuk sistem LTI yang dijelaskan oleh Persamaan Diferensial Koefisien Konstanta Linier (LCCDE), <span class="math inline">\(H(s)\)</span> selalu berbentuk rasional (rasio dua polinomial dalam <span class="math inline">\(s\)</span>).</p>
+<p><strong>Pertanyaan:</strong></p>
+<p>Sistem LTI kausal dijelaskan oleh Persamaan Diferensial berikut: <span class="math display">\[\frac{d^2 y(t)}{dt^2} + 4 \frac{dy(t)}{dt} + 3y(t) = x(t)\]</span></p>
+<ol type="a">
+<li>Tentukan Fungsi Alih <span class="math inline">\(H(s) = \frac{Y(s)}{X(s)}\)</span> dari sistem tersebut.</li>
+<li>Tentukan lokasi Pol dari <span class="math inline">\(H(s)\)</span> dan nyatakan ROC-nya, dengan asumsi sistem tersebut kausal.</li>
+<li>Berdasarkan ROC dan lokasi Pol, analisis dan tentukan apakah sistem ini <strong>stabil</strong>. (Sistem LTI stabil jika dan hanya jika ROC dari <span class="math inline">\(H(s)\)</span> mencakup sumbu <span class="math inline">\(j\omega\)</span>).</li>
+</ol>
+</section>
+<section id="soal-3-aljabar-fungsi-alih-untuk-interkoneksi-sistem-umpan-balik" class="level2" data-number="16.3">
+<h2 data-number="16.3" class="anchored" data-anchor-id="soal-3-aljabar-fungsi-alih-untuk-interkoneksi-sistem-umpan-balik"><span class="header-section-number">16.3</span> Soal 3: Aljabar Fungsi Alih untuk Interkoneksi Sistem Umpan Balik</h2>
+<p>Fungsi Alih menyederhanakan analisis interkoneksi sistem LTI karena operasi domain waktu (konvolusi) diganti dengan operasi aljabar (perkalian).</p>
+<p><strong>Pertanyaan:</strong></p>
+<p>Dua sistem LTI dihubungkan dalam konfigurasi Umpan Balik (<em>Feedback</em>) standar. Jalur maju (<em>forward path</em>) adalah <span class="math inline">\(H_1(s)\)</span> dan jalur umpan balik (<em>feedback path</em>) adalah <span class="math inline">\(H_2(s)\)</span>. <span class="math display">\[H_1(s) = \frac{5}{s+4} \quad \text{dan} \quad H_2(s) = 2\]</span></p>
+<ol type="a">
+<li>Tentukan Fungsi Alih <em>closed-loop</em> <span class="math inline">\(Q(s) = \frac{Y(s)}{X(s)}\)</span>.</li>
+<li>Tentukan lokasi Pol dari <span class="math inline">\(Q(s)\)</span> dan jelaskan dampaknya terhadap stabilitas sistem <em>closed-loop</em> tersebut, asumsi sistem kausal.</li>
+</ol>
+</section>
+<section id="soal-4-properti-perkalian-transformasi-fourier-dalam-modulasi" class="level2" data-number="16.4">
+<h2 data-number="16.4" class="anchored" data-anchor-id="soal-4-properti-perkalian-transformasi-fourier-dalam-modulasi"><span class="header-section-number">16.4</span> Soal 4: Properti Perkalian Transformasi Fourier dalam Modulasi</h2>
+<p>Transformasi Laplace (<span class="math inline">\(\mathcal{L}\)</span>) adalah generalisasi dari Transformasi Fourier (TF). Salah satu properti paling penting dari Transformasi Fourier adalah <strong>sifat perkalian</strong> (<em>multiplication property</em>).</p>
+<p><strong>Pertanyaan:</strong></p>
+<p>Dalam konteks Modulasi Amplitudo (AM), sinyal informasi <span class="math inline">\(s(t)\)</span> dikalikan dengan sinyal <em>carrier</em> <span class="math inline">\(p(t) = \cos \omega_0 t\)</span>, menghasilkan sinyal termodulasi <span class="math inline">\(r(t) = s(t) \cos \omega_0 t\)</span>.</p>
+<ol type="a">
+<li>Tuliskan hubungan <span class="math inline">\(R(j\omega)\)</span> (Transformasi Fourier dari <span class="math inline">\(r(t)\)</span>) dalam hal <span class="math inline">\(S(j\omega)\)</span> (TF dari <span class="math inline">\(s(t)\)</span>) dan <span class="math inline">\(\omega_0\)</span>, dengan memanfaatkan sifat perkalian Transformasi Fourier.</li>
+<li>Asumsikan spektrum <span class="math inline">\(S(j\omega)\)</span> dibatasi band (<em>band-limited</em>) dengan lebar <span class="math inline">\(W_M\)</span> (yaitu <span class="math inline">\(S(j\omega)=0\)</span> untuk <span class="math inline">\(|\omega| &gt; W_M\)</span>). Jelaskan secara singkat mengapa perkalian di domain waktu ini setara dengan <strong>konvolusi</strong> spektrum di domain frekuensi, dan bagaimana ini menyebabkan pergeseran spektrum <span class="math inline">\(S(j\omega)\)</span>.</li>
+</ol>
+</section>
+<section id="soal-5-hubungan-antara-transformasi-laplace-dan-respons-frekuensi" class="level2" data-number="16.5">
+<h2 data-number="16.5" class="anchored" data-anchor-id="soal-5-hubungan-antara-transformasi-laplace-dan-respons-frekuensi"><span class="header-section-number">16.5</span> Soal 5: Hubungan antara Transformasi Laplace dan Respons Frekuensi</h2>
+<p>Fungsi Alih <span class="math inline">\(H(s)\)</span> dapat dihubungkan dengan Respons Frekuensi <span class="math inline">\(H(j\omega)\)</span> dengan menetapkan <span class="math inline">\(s = j\omega\)</span>. Respons Frekuensi <span class="math inline">\(H(j\omega)\)</span> memiliki representasi Magnitudo dan Fase.</p>
+<p><strong>Pertanyaan:</strong></p>
+<p>Diberikan Fungsi Alih sistem LTI: <span class="math display">\[H(s) = \frac{10}{s + 10}\]</span></p>
+<ol type="a">
+<li>Tentukan Respons Frekuensi <span class="math inline">\(H(j\omega)\)</span>.</li>
+<li>Tentukan ekspresi untuk <strong>Respons Magnitudo</strong> <span class="math inline">\(|H(j\omega)|\)</span> (juga dikenal sebagai <em>gain</em> dari sistem).</li>
+<li>Tentukan ekspresi untuk <strong>Respons Fase</strong> <span class="math inline">\(\angle H(j\omega)\)</span> (juga dikenal sebagai <em>phase shift</em> dari sistem).</li>
+<li>Hitung Magnitudo dalam Desibel (dB) pada frekuensi <span class="math inline">\(DC\)</span> (<span class="math inline">\(\omega = 0\)</span>).</li>
+</ol>
+</section>
+<section id="soal-6-transformasi-fourier-sinyal-periodik" class="level2" data-number="16.6">
+<h2 data-number="16.6" class="anchored" data-anchor-id="soal-6-transformasi-fourier-sinyal-periodik"><span class="header-section-number">16.6</span> Soal 6: Transformasi Fourier Sinyal Periodik</h2>
+<p>Sinyal periodik dalam waktu dapat direpresentasikan oleh Transformasi Fourier, yang terdiri dari deret impuls di domain frekuensi.</p>
+<p><strong>Pertanyaan:</strong></p>
+<ol type="a">
+<li>Jelaskan bagaimana Transformasi Fourier <span class="math inline">\(X(j\omega)\)</span> dari sinyal periodik <span class="math inline">\(x(t)\)</span> (dengan periode fundamental <span class="math inline">\(T\)</span>) dibangun dari Koefisien Deret Fourier <span class="math inline">\(a_k\)</span>.</li>
+<li>Tuliskan ekspresi matematis untuk Transformasi Fourier <span class="math inline">\(X(j\omega)\)</span> dari sinyal <span class="math inline">\(x(t) = \cos \omega_0 t\)</span>. (Gunakan fungsi impuls <span class="math inline">\(\delta(\cdot)\)</span>).</li>
+</ol>
+</section>
+<section id="soal-7-menggunakan-transformasi-laplace-unilateral-untuk-respons-tanpa-input" class="level2" data-number="16.7">
+<h2 data-number="16.7" class="anchored" data-anchor-id="soal-7-menggunakan-transformasi-laplace-unilateral-untuk-respons-tanpa-input"><span class="header-section-number">16.7</span> Soal 7: Menggunakan Transformasi Laplace Unilateral untuk Respons Tanpa Input</h2>
+<p>Transformasi Laplace Unilateral (<span class="math inline">\(\mathcal{L}_I\)</span>) sangat berguna dalam menganalisis sistem yang dijelaskan oleh persamaan diferensial dengan kondisi awal yang tidak nol. Respons tanpa input (<em>zero-input response</em>) adalah respons yang dihasilkan oleh kondisi awal saja.</p>
+<p><strong>Pertanyaan:</strong></p>
+<p>Sistem LTI orde pertama dijelaskan oleh persamaan diferensial: <span class="math display">\[\frac{dy(t)}{dt} + 4y(t) = x(t)\]</span></p>
+<p>Gunakan Transformasi Laplace Unilateral untuk menemukan respons tanpa input <span class="math inline">\(y_{zi}(t)\)</span> jika input <span class="math inline">\(x(t) = 0\)</span> dan kondisi awal adalah <span class="math inline">\(y(0^-) = 5\)</span>.</p>
+<p>(Petunjuk: Gunakan sifat diferensiasi waktu pada Transformasi Laplace Unilateral: <span class="math inline">\(\mathcal{L}_I \{\frac{dy(t)}{dt}\} = sY_I(s) - y(0^-)\)</span>).</p>
+
+
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -630,13 +775,13 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../kuliah/materi_11.html" class="pagination-link" aria-label="Desain Filter Lowpass dan Highpass">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Desain Filter Lowpass dan Highpass</span></span>
+      <a href="../ujian/proyek.html" class="pagination-link" aria-label="Proyek Akhir Semester">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Proyek Akhir Semester</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="../summary.html" class="pagination-link" aria-label="Lampiran Petunjuk Penggunaan Alat Bantu dan Kendaraan dalam Sinyal dan Sistem (VALORAIZE Learning)">
-        <span class="nav-page-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Lampiran Petunjuk Penggunaan Alat Bantu dan Kendaraan dalam Sinyal dan Sistem (VALORAIZE Learning)</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Lampiran Petunjuk Penggunaan Alat Bantu dan Kendaraan dalam Sinyal dan Sistem (VALORAIZE Learning)</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

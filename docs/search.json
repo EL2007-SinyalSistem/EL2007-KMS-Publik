@@ -750,33 +750,213 @@
     ]
   },
   {
+    "objectID": "kuliah/materi_12.html",
+    "href": "kuliah/materi_12.html",
+    "title": "13  Respons Frekuensi Dari LCCDE Orde 1 dan Orde 2",
+    "section": "",
+    "text": "14 Kuliah 12 Respons Frekuensi\nBerikut ini penjelasan mengenai cara menghitung dan memplot Respons Magnitudo dan Respons Fase dari sistem Persamaan Diferensial Koefisien Konstanta Linier (LCCDE) orde 1 dan 2 menggunakan kerangka kerja Python.\nAnalisis Respons Frekuensi sistem LTI waktu-kontinu sangat bergantung pada Transformasi Laplace, di mana Fungsi Alih \\(H(s)\\) menjadi representasi aljabar sistem.",
+    "crumbs": [
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Respons Frekuensi Dari LCCDE Orde 1 dan Orde 2</span>"
+    ]
+  },
+  {
+    "objectID": "kuliah/materi_12.html#dasar-matematis-dari-lccde-ke-hjomega",
+    "href": "kuliah/materi_12.html#dasar-matematis-dari-lccde-ke-hjomega",
+    "title": "13  Respons Frekuensi Dari LCCDE Orde 1 dan Orde 2",
+    "section": "14.1 1. Dasar Matematis: Dari LCCDE ke \\(H(j\\omega)\\)",
+    "text": "14.1 1. Dasar Matematis: Dari LCCDE ke \\(H(j\\omega)\\)\nSistem LTI waktu-kontinu yang dijelaskan oleh LCCDE umum memiliki bentuk Fungsi Alih rasional \\(H(s)\\):\n\\[H(s) = \\frac{Y(s)}{X(s)} = \\frac{\\sum_{k=0}^{M} b_k s^k}{\\sum_{k=0}^{N} a_k s^k} \\tag{1}\\]\nRespons frekuensi \\(H(j\\omega)\\) diperoleh dengan mengganti variabel kompleks \\(s\\) dalam \\(H(s)\\) dengan \\(j\\omega\\) (di mana \\(\\sigma = 0\\) di sumbu \\(j\\omega\\)). Ini memungkinkan kita menganalisis bagaimana sistem merespons input sinusoidal \\(x(t) = e^{j\\omega t}\\).\n\\[H(j\\omega) = \\left. H(s) \\right|_{s=j\\omega} = \\frac{\\sum_{k=0}^{M} b_k (j\\omega)^k}{\\sum_{k=0}^{N} a_k (j\\omega)^k} \\tag{2}\\]\nRespons frekuensi \\(H(j\\omega)\\) adalah fungsi bernilai kompleks yang dapat diwakili dalam bentuk polar:\n\\[H(j\\omega) = |H(j\\omega)| e^{j \\angle H(j\\omega)}\\]\nA. Respons Magnitudo (Magnitude Response): Magnitudo \\(|H(j\\omega)|\\) menunjukkan gain (penguatan) sistem pada frekuensi \\(\\omega\\) tertentu. Dalam konteks Fourier Transform, magnitudo output adalah perkalian magnitudo input dengan magnitudo respons frekuensi: \\[|Y(j\\omega)| = |H(j\\omega)| |X(j\\omega)|\\]\nB. Respons Fase (Phase Response): Fase \\(\\angle H(j\\omega)\\) (atau phase shift) menunjukkan pergeseran waktu relatif pada setiap komponen frekuensi. Fase output adalah penjumlahan fase input dengan fase respons frekuensi: \\[\\angle Y(j\\omega) = \\angle H(j\\omega) + \\angle X(j\\omega)\\]",
+    "crumbs": [
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Respons Frekuensi Dari LCCDE Orde 1 dan Orde 2</span>"
+    ]
+  },
+  {
+    "objectID": "kuliah/materi_12.html#representasi-sistem-orde-1-dan-orde-2",
+    "href": "kuliah/materi_12.html#representasi-sistem-orde-1-dan-orde-2",
+    "title": "13  Respons Frekuensi Dari LCCDE Orde 1 dan Orde 2",
+    "section": "14.2 2. Representasi Sistem Orde 1 dan Orde 2",
+    "text": "14.2 2. Representasi Sistem Orde 1 dan Orde 2\nSistem orde 1 dan 2 dapat direpresentasikan oleh koefisien \\(a_k\\) (penyebut) dan \\(b_k\\) (pembilang) dalam \\(H(s)\\) (persamaan 1).\n\n\n\n\n\n\n\n\n\nOrde Sistem\nPersamaan Diferensial (Contoh Kausal)\n\\(H(s)\\) Umum\nKoefisien Python (b, a)\n\n\n\n\nOrde 1\n\\(\\frac{dy(t)}{dt} + a_0 y(t) = b_0 x(t)\\)\n\\(\\frac{b_0}{s + a_0}\\)\n\\(b = [b_0]\\), \\(a = [1, a_0]\\)\n\n\nOrde 2\n\\(\\frac{d^2y}{dt^2} + a_1 \\frac{dy}{dt} + a_0 y = b_0 x\\)\n\\(\\frac{b_0}{s^2 + a_1 s + a_0}\\)\n\\(b = [b_0]\\), \\(a = [1, a_1, a_0]\\)\n\n\nOrde 2 (Bentuk Standar)\n-\n\\(\\frac{\\omega_n^2}{s^2 + 2\\zeta\\omega_n s + \\omega_n^2}\\)\n\\(b = [\\omega_n^2]\\), \\(a = [1, 2\\zeta\\omega_n, \\omega_n^2]\\)",
+    "crumbs": [
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Respons Frekuensi Dari LCCDE Orde 1 dan Orde 2</span>"
+    ]
+  },
+  {
+    "objectID": "kuliah/materi_12.html#prosedur-perhitungan-dan-plotting-menggunakan-python",
+    "href": "kuliah/materi_12.html#prosedur-perhitungan-dan-plotting-menggunakan-python",
+    "title": "13  Respons Frekuensi Dari LCCDE Orde 1 dan Orde 2",
+    "section": "14.3 3. Prosedur Perhitungan dan Plotting Menggunakan Python",
+    "text": "14.3 3. Prosedur Perhitungan dan Plotting Menggunakan Python\nUntuk melakukan perhitungan ini secara numerik dalam Python, kita menggunakan representasi Fungsi Alih \\(H(s)\\) melalui vektor koefisiennya, seperti yang ditunjukkan di atas.\n(Catatan: Pustaka scipy.signal adalah alat standar di Python untuk analisis sistem LTI, meskipun nama fungsinya tidak disebutkan dalam sumber yang diberikan, penggunaannya didasarkan pada prinsip-prinsip LCCDE yang dijelaskan dalam sumber.)\n\n14.3.1 Langkah 1: Definisikan Sistem\nTentukan vektor koefisien pembilang (\\(b\\)) dan penyebut (\\(a\\)).\nContoh Orde 1 (Sistem LPF RC: \\(H(s) = \\frac{1}{s+1}\\)): \\[b =\\] \\[a =\\]\nContoh Orde 2 (Sistem Underdamped \\(\\zeta=0.5, \\omega_n=1\\)): \\[H(s) = \\frac{1}{s^2 + s + 1}\\] \\[b =\\] \\[a =\\]\n\n\n14.3.2 Langkah 2: Hitung Respons Frekuensi Numerik\nGunakan fungsi yang relevan (misalnya, scipy.signal.freqs) yang menerima koefisien \\(b\\) dan \\(a\\) serta mengembalikan frekuensi angular (\\(\\omega\\)) dan nilai kompleks \\(H(j\\omega)\\).\n\n\n14.3.3 Langkah 3: Hitung Magnitudo dan Fase\nSetelah mendapatkan nilai kompleks \\(H(j\\omega)\\) untuk setiap \\(\\omega\\), pisahkan Magnitudo dan Fase:\n\nMagnitudo Mutlak: Hitung magnitudo mutlak dari \\(H(j\\omega)\\).\nMagnitudo dalam Desibel (dB): Untuk membuat Bode Plot (yang merupakan representasi grafis umum, terutama untuk orde 1 dan 2), ubah magnitudo ke skala logaritmik: \\[\\text{Magnitudo (dB)} = 20 \\log_{10} |H(j\\omega)|\\]\nFase: Hitung argumen (sudut) dari \\(H(j\\omega)\\), biasanya dikembalikan dalam radian. Jika diperlukan, ubah ke derajat.\n\n\n\n14.3.4 Langkah 4: Plotting\nMagnitudo dan Fase diplot terhadap \\(\\omega\\).\n\nPlot Magnitudo: Plot Magnitudo (dB) terhadap frekuensi \\(\\omega\\). Seringkali, skala frekuensi juga menggunakan skala logaritmik, membentuk Bode Magnitude Plot. Plot ini memungkinkan visualisasi break frequency dan laju peluruhan gain (misalnya, \\(-20\\) dB/dekade untuk orde 1 dan \\(-40\\) dB/dekade untuk orde 2 di frekuensi tinggi).\nPlot Fase: Plot Fase (derajat atau radian) terhadap frekuensi \\(\\omega\\).\n\nPerhitungan Respons Magnitudo logaritmik (dB) dan Respons Fase sangat penting karena menyederhanakan analisis interkoneksi sistem. Karena Fungsi Alih total dari sistem kaskade (seri) adalah perkalian fungsi alih individual, maka: * Di domain logaritmik, Magnitudo total diperoleh dengan menjumlahkan Magnitudo (dB) individual. * Fase total diperoleh dengan menjumlahkan Fase individual.\nKonsep Bode Plot ini sangat berguna untuk menganalisis sistem LTI orde tinggi yang merupakan perkalian faktor-faktor orde 1 dan 2, di mana plot total didapatkan hanya dengan menjumlahkan plot asimptotik dari faktor-faktor penyusunnya.",
+    "crumbs": [
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Respons Frekuensi Dari LCCDE Orde 1 dan Orde 2</span>"
+    ]
+  },
+  {
+    "objectID": "ujian/proyek.html",
+    "href": "ujian/proyek.html",
+    "title": "14  Proyek Akhir Semester",
+    "section": "",
+    "text": "14.1 Soal Proyek 1: Analisis Respons Frekuensi Filter Butterworth Orde 5 Ternormalisasi (\\(\\omega_c = 1\\))\nPetunjuk: Berikut adalah lima soal proyek yang mencakup topik-topik yang Anda minta, dirancang untuk menganalisis sistem LTI dan Filter Butterworth, termasuk transformasi dan implementasi. Waktu sd 23 Desember 2025\nFilter Low Pass Butterworth orde \\(N\\) memiliki respons magnitudo kuadrat ternormalisasi.\nAsumsi: Filter ini kausal dan stabil. Fungsi Alih ternormalisasi \\(B_N(s)\\) dengan frekuensi cutoff \\(\\omega_c = 1 \\text{ rad/s}\\) (\\(B_N(j\\omega)\\) adalah transform Laplace dari respons impuls \\(b_N(t)\\)).\nTugas Proyek:",
+    "crumbs": [
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Proyek Akhir Semester</span>"
+    ]
+  },
+  {
+    "objectID": "ujian/proyek.html#soal-proyek-1-analisis-respons-frekuensi-filter-butterworth-orde-5-ternormalisasi-omega_c-1",
+    "href": "ujian/proyek.html#soal-proyek-1-analisis-respons-frekuensi-filter-butterworth-orde-5-ternormalisasi-omega_c-1",
+    "title": "14  Proyek Akhir Semester",
+    "section": "",
+    "text": "Tentukan lokasi Pol (kutub) \\(s_k\\) dari Filter Butterworth orde \\(N=5\\) pada bidang \\(s\\). Ingat bahwa untuk sistem stabil, semua pol harus berada di bidang setengah kiri.\nTuliskan Fungsi Alih rasional \\(B_5(s)\\) dalam bentuk perkalian faktor-faktor orde pertama dan kedua (sistem orde tinggi dapat difaktorkan menjadi produk faktor-faktor orde 1 dan 2).\nHitung dan plot Respons Magnitudo \\(20 \\log_{10} |B_5(j\\omega)|\\) dalam Desibel (dB) untuk rentang frekuensi \\(\\omega\\) dari \\(0.1\\) hingga \\(10 \\text{ rad/s}\\) menggunakan skala logaritmik (Bode Plot).\nJelaskan mengapa laju peluruhan magnitudo di frekuensi tinggi (slope asimptotik) Filter Butterworth orde 5 adalah \\(-100 \\text{ dB/dekade}\\) (setiap pol memberikan \\(-20 \\text{ dB/dekade}\\)).",
+    "crumbs": [
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Proyek Akhir Semester</span>"
+    ]
+  },
+  {
+    "objectID": "ujian/proyek.html#soal-proyek-2-desain-filter-low-pass-butterworth-berdasarkan-spesifikasi",
+    "href": "ujian/proyek.html#soal-proyek-2-desain-filter-low-pass-butterworth-berdasarkan-spesifikasi",
+    "title": "14  Proyek Akhir Semester",
+    "section": "14.2 Soal Proyek 2: Desain Filter Low Pass Butterworth Berdasarkan Spesifikasi",
+    "text": "14.2 Soal Proyek 2: Desain Filter Low Pass Butterworth Berdasarkan Spesifikasi\nAnda diminta merancang Filter Low Pass Butterworth yang memenuhi spesifikasi berikut: * Redaman (ripple) maksimal di passband \\(A_p\\): \\(0.5 \\text{ dB}\\) pada frekuensi \\(\\omega_p = 10 \\text{ krad/s}\\). * Redaman minimal di stopband \\(A_s\\): \\(40 \\text{ dB}\\) pada frekuensi \\(\\omega_s = 20 \\text{ krad/s}\\).\nTugas Proyek:\n\nTentukan orde minimum \\(N\\) yang diperlukan untuk memenuhi kedua spesifikasi \\(A_p\\) dan \\(A_s\\). Gunakan rumus magnitudo kuadrat Filter Butterworth, \\(|B(j\\omega)|^2 = \\frac{1}{1 + (\\omega/\\omega_c)^{2N}}\\).\nHitung frekuensi cutoff tepat \\(\\omega_c\\) (frekuensi \\(-3 \\text{ dB}\\)) yang sesuai dengan orde \\(N\\) yang dipilih.\nTuliskan Fungsi Alih \\(H(s)\\) untuk filter yang telah didesain ini. Fungsi Alih didefinisikan sebagai Transformasi Laplace dari respons impuls \\(h(t)\\).",
+    "crumbs": [
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Proyek Akhir Semester</span>"
+    ]
+  },
+  {
+    "objectID": "ujian/proyek.html#soal-proyek-3-transformasi-low-pass-ke-low-pass-denormalisasi-frekuensi",
+    "href": "ujian/proyek.html#soal-proyek-3-transformasi-low-pass-ke-low-pass-denormalisasi-frekuensi",
+    "title": "14  Proyek Akhir Semester",
+    "section": "14.3 Soal Proyek 3: Transformasi Low Pass ke Low Pass (Denormalisasi Frekuensi)",
+    "text": "14.3 Soal Proyek 3: Transformasi Low Pass ke Low Pass (Denormalisasi Frekuensi)\nMisalkan Anda memiliki Fungsi Alih \\(H_{norm}(s)\\) dari Filter Low Pass ternormalisasi dengan \\(\\omega_{c,norm} = 1 \\text{ rad/s}\\).\n\\[H_{norm}(s) = \\frac{1}{(s+0.618)(s^2 + 1.618s + 1)}\\]\nTugas Proyek:\n\nTentukan orde \\(N\\) dari filter \\(H_{norm}(s)\\) di atas dan identifikasi pol-polnya.\nLakukan transformasi frekuensi Low Pass ke Low Pass (denormalisasi) pada \\(H_{norm}(s)\\) untuk mendapatkan Fungsi Alih \\(H_{target}(s)\\) dengan frekuensi cutoff yang baru, \\(f_{c, target} = 5 \\text{ kHz}\\). (Transformasi ini biasanya melibatkan penskalaan frekuensi, di mana setiap \\(s\\) diganti dengan \\(s/\\alpha\\), dengan \\(\\alpha\\) adalah faktor penskalaan yang sesuai).\nHitung dan bandingkan respons magnitudo \\(|H_{norm}(j1)|\\) dan \\(|H_{target}(j\\omega)|\\) pada frekuensi \\(f = 5 \\text{ kHz}\\). Jelaskan apakah transformasi tersebut mempertahankan karakteristik cutoff filter.",
+    "crumbs": [
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Proyek Akhir Semester</span>"
+    ]
+  },
+  {
+    "objectID": "ujian/proyek.html#soal-proyek-4-analisis-sistem-lti-kaskade-seri",
+    "href": "ujian/proyek.html#soal-proyek-4-analisis-sistem-lti-kaskade-seri",
+    "title": "14  Proyek Akhir Semester",
+    "section": "14.4 Soal Proyek 4: Analisis Sistem LTI Kaskade (Seri)",
+    "text": "14.4 Soal Proyek 4: Analisis Sistem LTI Kaskade (Seri)\nDua sistem LTI dihubungkan secara kaskade (seri). Sistem A adalah sistem orde pertama (low pass) \\(H_A(s)\\) dan Sistem B adalah filter all-pass orde kedua \\(H_B(s)\\).\n\\[H_A(s) = \\frac{10}{s+10}\\] \\[H_B(s) = \\frac{s^2 - 4s + 8}{s^2 + 4s + 8}\\]\nTugas Proyek:\n\nTentukan Fungsi Alih total \\(H(s)\\) dari sistem kaskade tersebut. Dalam domain Laplace, Fungsi Alih total dari kaskade adalah perkalian Fungsi Alih individual: \\(H(s) = H_A(s)H_B(s)\\).\nTentukan semua lokasi Pol dan Nol dari \\(H(s)\\). Fungsi Alih \\(H(s)\\) didefinisikan sebagai rasio transformasi Laplace output terhadap input.\nAnalisis stabilitas sistem kaskade ini. Mengapa sistem \\(H_B(s)\\) disebut all-pass? (Petunjuk: Bandingkan pol dan nol \\(H_B(s)\\) dan dampaknya pada respons magnitudo \\(H_B(j\\omega)\\)).\n\nTentu, ini adalah Soal Proyek tambahan (Soal Proyek 6) yang berfokus pada desain Filter High Pass (HPF) melalui Transformasi Low Pass (LP) ke High Pass (HP).",
+    "crumbs": [
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Proyek Akhir Semester</span>"
+    ]
+  },
+  {
+    "objectID": "ujian/proyek.html#soal-proyek-6-analisis-trade-off-dan-transformasi-digital-filter",
+    "href": "ujian/proyek.html#soal-proyek-6-analisis-trade-off-dan-transformasi-digital-filter",
+    "title": "14  Proyek Akhir Semester",
+    "section": "15.1 Soal Proyek 6: Analisis Trade-off dan Transformasi Digital Filter",
+    "text": "15.1 Soal Proyek 6: Analisis Trade-off dan Transformasi Digital Filter\nMisalkan Anda telah mendesain Filter Butterworth orde tinggi (misalnya, \\(N=6\\)) dengan transisi yang sangat tajam antara passband dan stopband.\nTugas Proyek:\n\nJelaskan trade-off (pertukaran) antara Frequency Selectivity (ketajaman transisi filter di domain frekuensi) dan perilaku di domain waktu (time-domain characteristics), seperti rise time dan ringing dalam respons step. Mengapa filter yang sangat selektif (tajam) mungkin menunjukkan ringing yang lebih signifikan pada respons stepnya?\nFilter orde 6 yang telah Anda desain memiliki Fungsi Alih \\(H_c(s)\\) (domain waktu kontinu). Jelaskan langkah-langkah untuk mengimplementasikan filter ini secara digital menggunakan Transformasi Bilinear. Transformasi Bilinear digunakan untuk mendapatkan \\(H_d(z)\\) (domain waktu diskrit) dari \\(H_c(s)\\).\nMengapa Transformasi Bilinear sering kali disukai dibandingkan metode lain (seperti impulse invariance) saat mendesain filter digital dari prototipe analog untuk mempertahankan karakteristik magnitudo (misalnya, cutoff \\(3 \\text{ dB}\\))? (Petunjuk: Pertimbangkan pemetaan frekuensi \\(\\omega\\) ke \\(\\Omega\\)).",
+    "crumbs": [
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Proyek Akhir Semester</span>"
+    ]
+  },
+  {
+    "objectID": "ujian/uas.html",
+    "href": "ujian/uas.html",
+    "title": "15  Latihan Ujian",
+    "section": "",
+    "text": "16 Soal Ujian Akhir Semester\nUjian Akhir Semester: Sinyal dan Sistem (Transformasi Laplace, Transformasi Fourier, dan Respons Frekuensi)\nBerikut adalah 7 soal ujian akhir semester yang dirancang dengan fokus pada Transformasi Fourier, Transformasi Laplace, dan Respons Frekuensi, berdasarkan materi yang tersedia dalam sumber dan riwayat percakapan.",
+    "crumbs": [
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Latihan Ujian</span>"
+    ]
+  },
+  {
+    "objectID": "ujian/uas.html#soal-1-transformasi-laplace-dan-daerah-konvergensi-roc",
+    "href": "ujian/uas.html#soal-1-transformasi-laplace-dan-daerah-konvergensi-roc",
+    "title": "15  Latihan Ujian",
+    "section": "16.1 Soal 1: Transformasi Laplace dan Daerah Konvergensi (ROC)",
+    "text": "16.1 Soal 1: Transformasi Laplace dan Daerah Konvergensi (ROC)\nTransformasi Laplace (\\(\\mathcal{L}\\)) adalah generalisasi dari Transformasi Fourier (TF) yang memungkinkan representasi sinyal dalam domain kompleks \\(s = \\sigma + j\\omega\\). Transformasi Laplace bilateral \\(X(s)\\) dari sinyal \\(x(t)\\) didefinisikan sebagai \\(X(s) = \\int_{-\\infty}^{\\infty} x(t)e^{-st} dt\\). Spesifikasi lengkap dari Transformasi Laplace memerlukan ekspresi aljabar \\(X(s)\\) dan Daerah Konvergensi (ROC) yang terkait.\nPertanyaan:\nDiberikan sinyal \\(x(t) = e^{5t}u(-t)\\). (a) Tentukan Transformasi Laplace \\(X(s)\\) dari \\(x(t)\\). (b) Tentukan Daerah Konvergensi (ROC) dari \\(X(s)\\). (c) Jelaskan hubungan antara ROC yang Anda temukan dengan jenis sinyal \\(x(t)\\) (kiri, kanan, atau dua sisi) dan mengapa ROC selalu berupa strip, setengah bidang kiri, setengah bidang kanan, atau seluruh bidang \\(s\\).",
+    "crumbs": [
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Latihan Ujian</span>"
+    ]
+  },
+  {
+    "objectID": "ujian/uas.html#soal-2-fungsi-alih-dari-persamaan-diferensial-dan-analisis-stabilitas",
+    "href": "ujian/uas.html#soal-2-fungsi-alih-dari-persamaan-diferensial-dan-analisis-stabilitas",
+    "title": "15  Latihan Ujian",
+    "section": "16.2 Soal 2: Fungsi Alih dari Persamaan Diferensial dan Analisis Stabilitas",
+    "text": "16.2 Soal 2: Fungsi Alih dari Persamaan Diferensial dan Analisis Stabilitas\nFungsi Alih (Transfer Function) \\(H(s)\\) dari sistem \\(Linear Time-Invariant\\) (LTI) waktu-kontinu didefinisikan sebagai Transformasi Laplace dari respons impuls \\(h(t)\\). Untuk sistem LTI yang dijelaskan oleh Persamaan Diferensial Koefisien Konstanta Linier (LCCDE), \\(H(s)\\) selalu berbentuk rasional (rasio dua polinomial dalam \\(s\\)).\nPertanyaan:\nSistem LTI kausal dijelaskan oleh Persamaan Diferensial berikut: \\[\\frac{d^2 y(t)}{dt^2} + 4 \\frac{dy(t)}{dt} + 3y(t) = x(t)\\]\n\nTentukan Fungsi Alih \\(H(s) = \\frac{Y(s)}{X(s)}\\) dari sistem tersebut.\nTentukan lokasi Pol dari \\(H(s)\\) dan nyatakan ROC-nya, dengan asumsi sistem tersebut kausal.\nBerdasarkan ROC dan lokasi Pol, analisis dan tentukan apakah sistem ini stabil. (Sistem LTI stabil jika dan hanya jika ROC dari \\(H(s)\\) mencakup sumbu \\(j\\omega\\)).",
+    "crumbs": [
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Latihan Ujian</span>"
+    ]
+  },
+  {
+    "objectID": "ujian/uas.html#soal-3-aljabar-fungsi-alih-untuk-interkoneksi-sistem-umpan-balik",
+    "href": "ujian/uas.html#soal-3-aljabar-fungsi-alih-untuk-interkoneksi-sistem-umpan-balik",
+    "title": "15  Latihan Ujian",
+    "section": "16.3 Soal 3: Aljabar Fungsi Alih untuk Interkoneksi Sistem Umpan Balik",
+    "text": "16.3 Soal 3: Aljabar Fungsi Alih untuk Interkoneksi Sistem Umpan Balik\nFungsi Alih menyederhanakan analisis interkoneksi sistem LTI karena operasi domain waktu (konvolusi) diganti dengan operasi aljabar (perkalian).\nPertanyaan:\nDua sistem LTI dihubungkan dalam konfigurasi Umpan Balik (Feedback) standar. Jalur maju (forward path) adalah \\(H_1(s)\\) dan jalur umpan balik (feedback path) adalah \\(H_2(s)\\). \\[H_1(s) = \\frac{5}{s+4} \\quad \\text{dan} \\quad H_2(s) = 2\\]\n\nTentukan Fungsi Alih closed-loop \\(Q(s) = \\frac{Y(s)}{X(s)}\\).\nTentukan lokasi Pol dari \\(Q(s)\\) dan jelaskan dampaknya terhadap stabilitas sistem closed-loop tersebut, asumsi sistem kausal.",
+    "crumbs": [
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Latihan Ujian</span>"
+    ]
+  },
+  {
+    "objectID": "ujian/uas.html#soal-4-properti-perkalian-transformasi-fourier-dalam-modulasi",
+    "href": "ujian/uas.html#soal-4-properti-perkalian-transformasi-fourier-dalam-modulasi",
+    "title": "15  Latihan Ujian",
+    "section": "16.4 Soal 4: Properti Perkalian Transformasi Fourier dalam Modulasi",
+    "text": "16.4 Soal 4: Properti Perkalian Transformasi Fourier dalam Modulasi\nTransformasi Laplace (\\(\\mathcal{L}\\)) adalah generalisasi dari Transformasi Fourier (TF). Salah satu properti paling penting dari Transformasi Fourier adalah sifat perkalian (multiplication property).\nPertanyaan:\nDalam konteks Modulasi Amplitudo (AM), sinyal informasi \\(s(t)\\) dikalikan dengan sinyal carrier \\(p(t) = \\cos \\omega_0 t\\), menghasilkan sinyal termodulasi \\(r(t) = s(t) \\cos \\omega_0 t\\).\n\nTuliskan hubungan \\(R(j\\omega)\\) (Transformasi Fourier dari \\(r(t)\\)) dalam hal \\(S(j\\omega)\\) (TF dari \\(s(t)\\)) dan \\(\\omega_0\\), dengan memanfaatkan sifat perkalian Transformasi Fourier.\nAsumsikan spektrum \\(S(j\\omega)\\) dibatasi band (band-limited) dengan lebar \\(W_M\\) (yaitu \\(S(j\\omega)=0\\) untuk \\(|\\omega| &gt; W_M\\)). Jelaskan secara singkat mengapa perkalian di domain waktu ini setara dengan konvolusi spektrum di domain frekuensi, dan bagaimana ini menyebabkan pergeseran spektrum \\(S(j\\omega)\\).",
+    "crumbs": [
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Latihan Ujian</span>"
+    ]
+  },
+  {
+    "objectID": "ujian/uas.html#soal-5-hubungan-antara-transformasi-laplace-dan-respons-frekuensi",
+    "href": "ujian/uas.html#soal-5-hubungan-antara-transformasi-laplace-dan-respons-frekuensi",
+    "title": "15  Latihan Ujian",
+    "section": "16.5 Soal 5: Hubungan antara Transformasi Laplace dan Respons Frekuensi",
+    "text": "16.5 Soal 5: Hubungan antara Transformasi Laplace dan Respons Frekuensi\nFungsi Alih \\(H(s)\\) dapat dihubungkan dengan Respons Frekuensi \\(H(j\\omega)\\) dengan menetapkan \\(s = j\\omega\\). Respons Frekuensi \\(H(j\\omega)\\) memiliki representasi Magnitudo dan Fase.\nPertanyaan:\nDiberikan Fungsi Alih sistem LTI: \\[H(s) = \\frac{10}{s + 10}\\]\n\nTentukan Respons Frekuensi \\(H(j\\omega)\\).\nTentukan ekspresi untuk Respons Magnitudo \\(|H(j\\omega)|\\) (juga dikenal sebagai gain dari sistem).\nTentukan ekspresi untuk Respons Fase \\(\\angle H(j\\omega)\\) (juga dikenal sebagai phase shift dari sistem).\nHitung Magnitudo dalam Desibel (dB) pada frekuensi \\(DC\\) (\\(\\omega = 0\\)).",
+    "crumbs": [
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Latihan Ujian</span>"
+    ]
+  },
+  {
+    "objectID": "ujian/uas.html#soal-6-transformasi-fourier-sinyal-periodik",
+    "href": "ujian/uas.html#soal-6-transformasi-fourier-sinyal-periodik",
+    "title": "15  Latihan Ujian",
+    "section": "16.6 Soal 6: Transformasi Fourier Sinyal Periodik",
+    "text": "16.6 Soal 6: Transformasi Fourier Sinyal Periodik\nSinyal periodik dalam waktu dapat direpresentasikan oleh Transformasi Fourier, yang terdiri dari deret impuls di domain frekuensi.\nPertanyaan:\n\nJelaskan bagaimana Transformasi Fourier \\(X(j\\omega)\\) dari sinyal periodik \\(x(t)\\) (dengan periode fundamental \\(T\\)) dibangun dari Koefisien Deret Fourier \\(a_k\\).\nTuliskan ekspresi matematis untuk Transformasi Fourier \\(X(j\\omega)\\) dari sinyal \\(x(t) = \\cos \\omega_0 t\\). (Gunakan fungsi impuls \\(\\delta(\\cdot)\\)).",
+    "crumbs": [
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Latihan Ujian</span>"
+    ]
+  },
+  {
+    "objectID": "ujian/uas.html#soal-7-menggunakan-transformasi-laplace-unilateral-untuk-respons-tanpa-input",
+    "href": "ujian/uas.html#soal-7-menggunakan-transformasi-laplace-unilateral-untuk-respons-tanpa-input",
+    "title": "15  Latihan Ujian",
+    "section": "16.7 Soal 7: Menggunakan Transformasi Laplace Unilateral untuk Respons Tanpa Input",
+    "text": "16.7 Soal 7: Menggunakan Transformasi Laplace Unilateral untuk Respons Tanpa Input\nTransformasi Laplace Unilateral (\\(\\mathcal{L}_I\\)) sangat berguna dalam menganalisis sistem yang dijelaskan oleh persamaan diferensial dengan kondisi awal yang tidak nol. Respons tanpa input (zero-input response) adalah respons yang dihasilkan oleh kondisi awal saja.\nPertanyaan:\nSistem LTI orde pertama dijelaskan oleh persamaan diferensial: \\[\\frac{dy(t)}{dt} + 4y(t) = x(t)\\]\nGunakan Transformasi Laplace Unilateral untuk menemukan respons tanpa input \\(y_{zi}(t)\\) jika input \\(x(t) = 0\\) dan kondisi awal adalah \\(y(0^-) = 5\\).\n(Petunjuk: Gunakan sifat diferensiasi waktu pada Transformasi Laplace Unilateral: \\(\\mathcal{L}_I \\{\\frac{dy(t)}{dt}\\} = sY_I(s) - y(0^-)\\)).",
+    "crumbs": [
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Latihan Ujian</span>"
+    ]
+  },
+  {
     "objectID": "summary.html",
     "href": "summary.html",
-    "title": "14  Lampiran Petunjuk Penggunaan Alat Bantu dan Kendaraan dalam Sinyal dan Sistem (VALORAIZE Learning)",
+    "title": "16  Lampiran Petunjuk Penggunaan Alat Bantu dan Kendaraan dalam Sinyal dan Sistem (VALORAIZE Learning)",
     "section": "",
-    "text": "14.1 I. Kategori Kendaraan Pemecahan Masalah\nKnuth (1984) Dalam kerangka pembelajaran VALORAIZE, penguasaan alat bantu (tools) dan “kendaraan” (vehicles) merupakan elemen krusial untuk mengembangkan pemahaman mendalam dan keterampilan pemecahan masalah layaknya ahli. Berikut adalah petunjuk penggunaan alat bantu dan kategori kendaraan yang relevan:\nDalam VALORAIZE Learning, proses pemecahan masalah dikonseptualisasikan sebagai upaya menjembatani “celah” antara informasi yang diketahui (“Titik Mulai”) dan solusi yang diinginkan (“Titik Akhir”). Untuk melintasi celah ini, Anda akan menggunakan “rute” (langkah-langkah) dan “kendaraan” (alat, teknik, metode) yang tepat. Dosen akan bertindak sebagai fasilitator yang memodelkan proses berpikir ini.\n“Kendaraan” adalah alat, teknik, dan metode spesifik yang digunakan untuk melintasi peta pengetahuan dan menjembatani kesenjangan antara yang diketahui dan yang tidak diketahui. Ini dikategorikan sebagai berikut:",
+    "text": "16.1 I. Kategori Kendaraan Pemecahan Masalah\nKnuth (1984) Dalam kerangka pembelajaran VALORAIZE, penguasaan alat bantu (tools) dan “kendaraan” (vehicles) merupakan elemen krusial untuk mengembangkan pemahaman mendalam dan keterampilan pemecahan masalah layaknya ahli. Berikut adalah petunjuk penggunaan alat bantu dan kategori kendaraan yang relevan:\nDalam VALORAIZE Learning, proses pemecahan masalah dikonseptualisasikan sebagai upaya menjembatani “celah” antara informasi yang diketahui (“Titik Mulai”) dan solusi yang diinginkan (“Titik Akhir”). Untuk melintasi celah ini, Anda akan menggunakan “rute” (langkah-langkah) dan “kendaraan” (alat, teknik, metode) yang tepat. Dosen akan bertindak sebagai fasilitator yang memodelkan proses berpikir ini.\n“Kendaraan” adalah alat, teknik, dan metode spesifik yang digunakan untuk melintasi peta pengetahuan dan menjembatani kesenjangan antara yang diketahui dan yang tidak diketahui. Ini dikategorikan sebagai berikut:",
     "crumbs": [
-      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Lampiran Petunjuk Penggunaan Alat Bantu dan Kendaraan dalam Sinyal dan Sistem (VALORAIZE Learning)</span>"
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Lampiran Petunjuk Penggunaan Alat Bantu dan Kendaraan dalam Sinyal dan Sistem (VALORAIZE Learning)</span>"
     ]
   },
   {
     "objectID": "summary.html#i.-kategori-kendaraan-pemecahan-masalah",
     "href": "summary.html#i.-kategori-kendaraan-pemecahan-masalah",
-    "title": "14  Lampiran Petunjuk Penggunaan Alat Bantu dan Kendaraan dalam Sinyal dan Sistem (VALORAIZE Learning)",
+    "title": "16  Lampiran Petunjuk Penggunaan Alat Bantu dan Kendaraan dalam Sinyal dan Sistem (VALORAIZE Learning)",
     "section": "",
     "text": "Matematika (Fundamental)\n\nDeskripsi: Meliputi alat dasar matematis yang menjadi fondasi untuk menganalisis sinyal dan sistem.\nPenggunaan:\n\nAljabar (K_MAT_Aljabar): Digunakan untuk manipulasi persamaan, penyelesaian sistem persamaan, dan menyederhanakan ekspresi kompleks yang muncul dalam deskripsi sinyal dan sistem. Misalnya, dalam Transformasi Laplace atau Z, persamaan diferensial/beda diubah menjadi persamaan aljabar untuk penyelesaian yang lebih mudah.\nKalkulus (K_MAT_Kalkulus): Esensial untuk operasi seperti diferensiasi dan integrasi sinyal waktu kontinu, yang merupakan bagian inti dari analisis sinyal dan sistem. Diferensiasi digunakan untuk menganalisis laju perubahan sinyal, sedangkan integrasi (misalnya, konvolusi) digunakan untuk menentukan respons sistem.\nBilangan Kompleks (K_MAT_Bilangan Kompleks): Digunakan untuk merepresentasikan sinyal eksponensial kompleks dan sinusoidal serta dalam analisis domain frekuensi (Transformasi Fourier) dan domain kompleks (Transformasi Laplace dan Z). Properti bilangan kompleks (misalnya, bentuk polar dan Cartesian) sangat penting untuk memahami spektrum sinyal.\n\n\nDiagram & Visualisasi (K_VIS_)\n\nDeskripsi: Alat visual grafis untuk memahami, menganalisis, dan merepresentasikan sinyal dan sistem.\nPenggunaan:\n\nDiagram Blok (K_VIS_DiagramBlok): Merepresentasikan interkoneksi sistem dan aliran sinyal secara visual. Ini membantu dalam memahami struktur sistem yang kompleks dan properti seperti linearitas dan invarian waktu.\nPlot Sinyal (K_VIS_PlotSinyal): Menggambarkan bentuk gelombang sinyal terhadap waktu atau variabel independen lainnya. Berguna untuk menganalisis properti sinyal seperti periodisitas, energi, daya, serta sinyal genap dan ganjil.\nPlot Pole-Zero (K_VIS_PoleZeroPlot): Visualisasi posisi pole dan zero dari fungsi transfer sistem pada bidang kompleks. Ini penting untuk menganalisis stabilitas, kausalitas, dan respons frekuensi sistem LTI.\nBode Plot (K_VIS_BodePlot): Plot magnitudo dan fase respons frekuensi sistem. Digunakan untuk menganalisis kinerja filter dan sistem kendali, serta stabilitas sistem umpan balik.\n\nAlat Tambahan (bukan dari sumber secara eksplisit sebagai kendaraan tapi mendukung visualisasi):\n\nMermaid: (Informasi ini tidak secara langsung ditemukan dalam sumber yang diberikan, namun diselaraskan dengan filosofi VALORAIZE). Mermaid adalah alat berbasis teks untuk membuat diagram dan flowchart. Anda dapat menggunakannya untuk membuat Diagram Blok, Flowchart Peta Pemecahan Masalah, atau visualisasi lainnya dengan sintaksis Markdown yang mudah. Ini dapat diintegrasikan dengan baik dalam dokumen Quarto.\n\n\nOperasi Dasar Sinyal/Sistem\n\nDeskripsi: Transformasi variabel independen dan operasi aritmetika pada sinyal yang fundamental dalam analisis sinyal.\nPenggunaan:\n\nPenskalaan Amplitudo: Mengubah magnitudo sinyal.\nPergeseran Waktu (Time Shifting): Menggeser sinyal di sepanjang sumbu waktu. Penting untuk analisis kausalitas dan invarian waktu.\nPenskalaan Waktu (Time Scaling): Memampatkan atau meregangkan sinyal di sepanjang sumbu waktu.\nPembalikan Waktu (Time Reversal): Membalik sinyal.\nPenjumlahan, Perkalian, Diferensiasi, Integrasi: Operasi dasar yang diterapkan pada sinyal atau dalam persamaan sistem. Konvolusi adalah salah satu operasi kunci yang merupakan integral (atau penjumlahan) terbobot.\n\n\nKomputasi (Super Kendaraan)\n\nDeskripsi: Alat perangkat lunak canggih untuk komputasi, simulasi, dan analisis. Teknologi digital dan AI berfungsi sebagai “pengganda kekuatan”.\nPenggunaan:\n\nPython: Bahasa pemrograman yang kuat dan serbaguna, banyak digunakan dalam teknik dan analisis data.\n\nSymPy (K_KOM_SymPy): Pustaka Python untuk komputasi simbolik. Mirip dengan Symbolic Math Toolbox di MATLAB, memungkinkan Anda bekerja dengan ekspresi matematika secara simbolis (misalnya, diferensiasi, integrasi, manipulasi aljabar) tanpa perlu nilai numerik. Ini sangat berguna untuk mendapatkan solusi analitis dari transformasi atau persamaan sistem.\nSciPy (K_KOM_SciPy): Pustaka Python untuk komputasi ilmiah dan teknis. Menyediakan modul untuk pemrosesan sinyal, aljabar linear, optimasi, statistik, dll. Sangat berguna untuk implementasi numerik algoritma sinyal dan sistem (misalnya, konvolusi, transformasi Fourier diskrit, desain filter).\nMatplotlib (implisit dari sumber): Pustaka Python untuk membuat plot dan visualisasi. Digunakan bersama SciPy dan SymPy untuk memvisualisasikan sinyal, respons frekuensi, plot pole-zero, dan hasil simulasi lainnya.\n\nMATLAB: Disebutkan sebagai alat penting untuk komputasi dan visualisasi, dengan companion book seperti Explorations in Signals and Systems Using MATLAB. Menyediakan fungsi bawaan untuk analisis sinyal (misalnya, freqs, freqz, impulse, step) dan desain filter (butter, besself, cheby1, cheby2, fir1, fir2, fircls, firls, firpm, ellip).\nAlat Pembuatan Peta Pengetahuan Digital: Miro, MindMeister, Microsoft Visio, Creately, XMind, Coggle, SimpleMind, Eraser DiagramGPT, Math Whiteboard, dan Excalidraw direkomendasikan untuk membuat peta pengetahuan interaktif dan kolaboratif, mengurangi beban kognitif ekstrinsik.\n\n\nTransformasi (Algoritma)\n\nDeskripsi: Algoritma matematis yang mengubah sinyal dari satu domain ke domain lain untuk menyederhanakan analisis.\nPenggunaan:\n\nTransformasi Fourier: Mengubah sinyal dari domain waktu ke domain frekuensi. Penting untuk menganalisis konten frekuensi sinyal dan respons frekuensi sistem LTI.\nTransformasi Laplace: Mengubah sinyal waktu kontinu dan persamaan diferensial menjadi domain s-kompleks. Transformasi ini sangat efektif untuk menganalisis stabilitas dan respons transien sistem LTI.\nTransformasi Z: Analog dengan Transformasi Laplace untuk sinyal waktu diskrit dan persamaan beda. Digunakan untuk menganalisis stabilitas dan respons sistem LTI waktu diskrit.\n\n\nHeuristik\n\nDeskripsi: Aturan atau metode non-algoritmik yang digunakan untuk merencanakan solusi dan memandu pemikiran strategis tingkat tinggi dalam pemecahan masalah. Ini adalah “meta-kendaraan”.\nPenggunaan:\n\n“Menggambar Diagram”: Memvisualisasikan masalah atau sistem untuk mendapatkan wawasan awal (misalnya, diagram blok, plot sinyal).\n“Mentransformasi Masalah”: Mengubah masalah ke domain lain (misalnya, dari domain waktu ke frekuensi menggunakan Fourier) untuk membuatnya lebih mudah dipecahkan.\n“Mencari Pola”: Mengidentifikasi keteraturan atau struktur berulang dalam data atau solusi.\n“Bekerja Mundur”: Memulai dari hasil yang diinginkan dan melacak kembali langkah-langkah untuk menemukan titik awal.\n“Menyederhanakan Masalah”: Memecah masalah kompleks menjadi sub-masalah yang lebih kecil atau menganalisis versi yang lebih sederhana dari masalah tersebut.",
     "crumbs": [
-      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Lampiran Petunjuk Penggunaan Alat Bantu dan Kendaraan dalam Sinyal dan Sistem (VALORAIZE Learning)</span>"
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Lampiran Petunjuk Penggunaan Alat Bantu dan Kendaraan dalam Sinyal dan Sistem (VALORAIZE Learning)</span>"
     ]
   },
   {
     "objectID": "summary.html#ii.-alat-bantu-umum-general-purpose-tools",
     "href": "summary.html#ii.-alat-bantu-umum-general-purpose-tools",
-    "title": "14  Lampiran Petunjuk Penggunaan Alat Bantu dan Kendaraan dalam Sinyal dan Sistem (VALORAIZE Learning)",
-    "section": "14.2 II. Alat Bantu Umum (General Purpose Tools)",
-    "text": "14.2 II. Alat Bantu Umum (General Purpose Tools)\n\nGitHub\n\nDeskripsi: Platform berbasis web untuk kontrol versi menggunakan Git.\nPenggunaan: GitHub sangat dianjurkan untuk melacak progres proyek dan jurnal pembelajaran Anda. Ini menciptakan catatan kronologis yang terperinci, tidak dapat diubah, dan dapat diverifikasi dari perjalanan intelektual Anda, termasuk setiap draf dan revisi. Ini juga menanamkan kebiasaan dokumentasi yang cermat dan pendekatan manajemen proyek yang profesional. Mahasiswa dapat membuat repositori untuk menyimpan Peta Pengetahuan dan Jurnal Pembelajaran mereka, memungkinkan kolaborasi dan pelacakan perubahan.\n\nQuarto (untuk Kemasan Dokumen)\n\nDeskripsi: (Informasi ini tidak secara langsung ditemukan dalam sumber yang diberikan, namun diselaraskan dengan filosofi VALORAIZE). Quarto adalah sistem penerbitan ilmiah sumber terbuka yang memungkinkan Anda membuat dokumen berkualitas tinggi (laporan, presentasi, situs web, buku) dari Markdown dengan integrasi kode (misalnya, Python).\nPenggunaan: Mengingat penekanan VALORAIZE pada “artefak produk pengetahuan yang personal dan otentik”, “dokumen laporan”, dan “portofolio kuliah” yang ditautkan di blog pribadi, Quarto akan menjadi alat yang sangat sesuai. Anda dapat menggunakan Quarto untuk:\n\nMenggabungkan teks penjelasan, kode Python (dengan SciPy, SymPy, Matplotlib), dan visualisasi (termasuk diagram Mermaid) ke dalam satu dokumen terpadu.\nMenghasilkan laporan tugas dan Peta Pengetahuan Aplikatif dalam format yang rapi (PDF, HTML, Word).\nMembangun situs web portofolio pribadi Anda untuk menampilkan artefak pembelajaran Anda.\n\n\n\n\nDengan memahami dan menerapkan kendaraan serta alat bantu ini secara efektif, Anda akan tidak hanya menguasai materi Sinyal dan Sistem, tetapi juga mengembangkan pola pikir dan keterampilan yang esensial bagi seorang insinyur profesional di era digital.\n\n\n\n\nKnuth, Donald E. 1984. “Literate Programming.” Comput. J. 27 (2): 97–111. https://doi.org/10.1093/comjnl/27.2.97.",
+    "title": "16  Lampiran Petunjuk Penggunaan Alat Bantu dan Kendaraan dalam Sinyal dan Sistem (VALORAIZE Learning)",
+    "section": "16.2 II. Alat Bantu Umum (General Purpose Tools)",
+    "text": "16.2 II. Alat Bantu Umum (General Purpose Tools)\n\nGitHub\n\nDeskripsi: Platform berbasis web untuk kontrol versi menggunakan Git.\nPenggunaan: GitHub sangat dianjurkan untuk melacak progres proyek dan jurnal pembelajaran Anda. Ini menciptakan catatan kronologis yang terperinci, tidak dapat diubah, dan dapat diverifikasi dari perjalanan intelektual Anda, termasuk setiap draf dan revisi. Ini juga menanamkan kebiasaan dokumentasi yang cermat dan pendekatan manajemen proyek yang profesional. Mahasiswa dapat membuat repositori untuk menyimpan Peta Pengetahuan dan Jurnal Pembelajaran mereka, memungkinkan kolaborasi dan pelacakan perubahan.\n\nQuarto (untuk Kemasan Dokumen)\n\nDeskripsi: (Informasi ini tidak secara langsung ditemukan dalam sumber yang diberikan, namun diselaraskan dengan filosofi VALORAIZE). Quarto adalah sistem penerbitan ilmiah sumber terbuka yang memungkinkan Anda membuat dokumen berkualitas tinggi (laporan, presentasi, situs web, buku) dari Markdown dengan integrasi kode (misalnya, Python).\nPenggunaan: Mengingat penekanan VALORAIZE pada “artefak produk pengetahuan yang personal dan otentik”, “dokumen laporan”, dan “portofolio kuliah” yang ditautkan di blog pribadi, Quarto akan menjadi alat yang sangat sesuai. Anda dapat menggunakan Quarto untuk:\n\nMenggabungkan teks penjelasan, kode Python (dengan SciPy, SymPy, Matplotlib), dan visualisasi (termasuk diagram Mermaid) ke dalam satu dokumen terpadu.\nMenghasilkan laporan tugas dan Peta Pengetahuan Aplikatif dalam format yang rapi (PDF, HTML, Word).\nMembangun situs web portofolio pribadi Anda untuk menampilkan artefak pembelajaran Anda.\n\n\n\n\nDengan memahami dan menerapkan kendaraan serta alat bantu ini secara efektif, Anda akan tidak hanya menguasai materi Sinyal dan Sistem, tetapi juga mengembangkan pola pikir dan keterampilan yang esensial bagi seorang insinyur profesional di era digital.\n\n\n\n\nKnuth, Donald E. 1984. “Literate Programming.” Comput. J. 27 (2): 97–111. https://doi.org/10.1093/comjnl/27.2.97.",
     "crumbs": [
-      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Lampiran Petunjuk Penggunaan Alat Bantu dan Kendaraan dalam Sinyal dan Sistem (VALORAIZE Learning)</span>"
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Lampiran Petunjuk Penggunaan Alat Bantu dan Kendaraan dalam Sinyal dan Sistem (VALORAIZE Learning)</span>"
     ]
   },
   {

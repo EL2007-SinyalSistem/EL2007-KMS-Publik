@@ -2,6 +2,7 @@
 title: "Respons Frekuensi Dari LCCDE Orde 1 dan Orde 2"
 format: html
 ---
+# Kuliah 12 Respons Frekuensi
 
 Berikut ini penjelasan mengenai cara menghitung dan memplot Respons Magnitudo dan Respons Fase dari sistem Persamaan Diferensial Koefisien Konstanta Linier (LCCDE) orde 1 dan 2 menggunakan kerangka kerja Python.
 
@@ -232,8 +233,10 @@ Dengan memilih $N=5$ dan $f_c=25 \text{ Hz}$, redaman yang dicapai pada $f_s=50 
 
 Merancang filter adalah seperti memesan tirai untuk jendela. Anda ingin jendela (frekuensi *cutoff*) terlihat rapi, tetapi Anda harus memastikan tirai tersebut (redaman) cukup tebal untuk memblokir cahaya (sinyal yang tidak diinginkan) dari luar (frekuensi stopband). Jika Anda ingin menggunakan kain yang relatif tipis (orde $N$ rendah), Anda harus memulainya jauh sebelum sumber cahaya itu (memilih $\omega_c$ yang jauh lebih rendah dari $\omega_s$). Tetapi, jika Anda bersikeras ingin tirai dimulai dekat dengan sumber cahaya (memilih $\omega_c$ dekat dengan $\omega_s$), Anda harus memilih bahan yang sangat tebal (orde $N$ yang sangat tinggi) untuk mencapai tingkat pemblokiran yang sama. Dalam kasus ini, kita harus memilih **ketebalan** $N=5$ untuk mencapai blokade $30 \text{ dB}$ jika titik potongnya diposisikan pada $25 \text{ Hz}$.
 
-# Transformasi frekuensi High Pass
+# Soal
 
 1.  Sebuah filter Butterworth orde 3 $H(\tilde{s})$ dengan \$\omega\_{c} = 1 \$ mengalami transformasi frekuensi $\tilde{s} = \omega_{p} s$. asumsi \$\omega\_{p} = 2\$ plot respons frekuensi
 
-2.  Sebuah filter Butterworth orde 3 $H(\tilde{s})$ dengan \$ \omega\_{c} = 1 \$ mengalami transformasi frekuensi $\tilde{s}= \frac{\omega_{p}}{s}$. asumsi $\omega_{p} = 2$ plot respons frekuensi
+2.  Sebuah filter Butterworth orde 3 $H(\tilde{s})$ dengan \$\omega\_{c} = 1 \$ mengalami transformasi frekuensi $\tilde{s} = \omega_{p} s$. asumsi \$\omega\_{p} = 2\$ plot respons frekuensi
+
+3.  Sebuah filter Butterworth orde 3 $H(\tilde{s})$ dengan \$ \omega\_{c} = 1 \$ mengalami transformasi frekuensi $\tilde{s}= \frac{\omega_{p}}{s}$. asumsi $\omega_{p} = 2$ plot respons frekuensi

@@ -1,0 +1,170 @@
+
+
+# Solusi Ujian Akhir Semester
+Berikut adalah solusi komprehensif untuk 7 soal ujian akhir semester yang telah Anda berikan, dengan mengacu pada informasi yang terdapat dalam sumber-sumber yang tersedia.
+
+
+## Soal 1: Transformasi Laplace dan Daerah Konvergensi (ROC)
+
+Diberikan sinyal $x(t) = e^{5t}u(-t)$.
+
+**(a) Tentukan Transformasi Laplace $X(s)$ dari $x(t)$.**
+
+Transformasi Laplace bilateral $X(s)$ dari sinyal $x(t)$ didefinisikan sebagai $X(s) = \int_{-\infty}^{\infty} x(t)e^{-st} dt$.
+
+$$X(s) = \int_{-\infty}^{\infty} e^{5t}u(-t)e^{-st} dt$$
+$$X(s) = \int_{-\infty}^{0} e^{5t}e^{-st} dt = \int_{-\infty}^{0} e^{(5-s)t} dt$$
+
+$$X(s) = \left. \frac{1}{5-s} e^{(5-s)t} \right|_{-\infty}^{0}$$
+
+Agar integral konvergen saat $t \rightarrow -\infty$, kita memerlukan $\text{Re}\{5-s\} > 0$, atau $\text{Re}\{s\} < 5$.
+
+Dengan mengevaluasi batas-batas:
+$$X(s) = \frac{1}{5-s} (e^0 - 0) = \frac{1}{5-s}$$
+$$X(s) = \mathbf{\frac{-1}{s-5}}$$
+
+**(b) Tentukan Daerah Konvergensi (ROC) dari $X(s)$.**
+
+Berdasarkan syarat konvergensi yang ditemukan di bagian (a), **ROC adalah $\text{Re}\{s\} < 5$**.
+
+**(c) Jelaskan hubungan antara ROC yang Anda temukan dengan jenis sinyal dan bentuk ROC.**
+
+Transformasi Laplace memerlukan ekspresi aljabar $X(s)$ dan Daerah Konvergensi (ROC) yang terkait untuk spesifikasi lengkapnya.
+
+1.  **Jenis Sinyal:** Sinyal $x(t) = e^{5t}u(-t)$ adalah sinyal *left-sided* (atau *anti-causal*).
+2.  **Hubungan ROC dan Jenis Sinyal:** Untuk sinyal *left-sided*, ROC adalah **bidang setengah kiri** di sebelah kiri pol paling kiri. Karena pol berada di $s=5$, ROC $\text{Re}\{s\} < 5$ adalah setengah bidang kiri, yang konsisten.
+3.  **Bentuk ROC:** ROC selalu merupakan strip, setengah bidang kiri, setengah bidang kanan, atau seluruh bidang $s$.
+
+---
+
+## Soal 2: Fungsi Alih dari Persamaan Diferensial dan Analisis Stabilitas
+
+Diberikan LCCDE: $\frac{d^2 y(t)}{dt^2} + 4 \frac{dy(t)}{dt} + 3y(t) = x(t)$. Sistem diasumsikan kausal.
+
+**(a) Tentukan Fungsi Alih $H(s)$ dari sistem tersebut.**
+
+Dengan menerapkan Transformasi Laplace pada kedua sisi persamaan (dengan asumsi kondisi awal nol untuk menentukan $H(s)$):
+
+$$s^2 Y(s) + 4s Y(s) + 3 Y(s) = X(s)$$
+$$(s^2 + 4s + 3) Y(s) = X(s)$$
+$$H(s) = \frac{Y(s)}{X(s)} = \mathbf{\frac{1}{s^2 + 4s + 3}}$$
+
+**(b) Tentukan lokasi Pol dari $H(s)$ dan nyatakan ROC-nya.**
+
+Pol adalah akar dari polinomial penyebut:
+$$s^2 + 4s + 3 = (s+1)(s+3) = 0$$
+Lokasi Pol berada di $\mathbf{s = -1}$ dan $\mathbf{s = -3}$.
+
+Karena sistemnya kausal, ROC adalah bidang setengah kanan di sebelah kanan pol paling kanan. Pol paling kanan adalah $s = -1$.
+$$\mathbf{ROC: \text{Re}\{s\} > -1}$$
+
+**(c) Berdasarkan ROC dan lokasi Pol, analisis dan tentukan apakah sistem ini stabil.**
+
+Sistem LTI stabil (*BIBO stable*) jika dan hanya jika ROC dari $H(s)$ mencakup sumbu $j\omega$ ($\text{Re}\{s\} = 0$).
+
+Karena $\text{ROC}: \text{Re}\{s\} > -1$ mencakup sumbu $j\omega$, sistem tersebut **stabil**. Selain itu, karena sistem kausal dan semua polnya berada di bidang setengah kiri ($\text{Re}\{s\} < 0$), maka sistem tersebut adalah stabil.
+
+---
+
+## Soal 3: Aljabar Fungsi Alih untuk Interkoneksi Sistem Umpan Balik
+
+Diberikan $H_1(s) = \frac{5}{s+4}$ (jalur maju) dan $H_2(s) = 2$ (jalur umpan balik).
+
+**(a) Tentukan Fungsi Alih *closed-loop* $Q(s) = \frac{Y(s)}{X(s)}$.**
+
+Menggunakan rumus Fungsi Alih Umpan Balik:
+$$Q(s) = \frac{H_1(s)}{1 + H_1(s)H_2(s)}$$
+$$Q(s) = \frac{\frac{5}{s+4}}{1 + \frac{5}{s+4} \cdot 2} = \frac{5}{s+4 + 10}$$
+$$Q(s) = \mathbf{\frac{5}{s+14}}$$
+
+**(b) Tentukan lokasi Pol $Q(s)$ dan jelaskan dampaknya terhadap stabilitas sistem *closed-loop* tersebut.**
+
+Pol $Q(s)$ adalah akar dari penyebut: $s+14 = 0$.
+$$\mathbf{Pol \text{ terletak di } s = -14}$$
+
+Dengan asumsi sistem *closed-loop* adalah kausal, ROC-nya adalah $\text{Re}\{s\} > -14$. Karena pol $s = -14$ terletak di bidang setengah kiri ($\text{Re}\{s\} < 0$), dan ROC mencakup sumbu $j\omega$, maka sistem *closed-loop* tersebut **stabil**.
+
+---
+
+## Soal 4: Properti Perkalian Transformasi Fourier dalam Modulasi
+
+Diberikan sinyal termodulasi $r(t) = s(t) \cos \omega_0 t$.
+
+**(a) Tuliskan hubungan $R(j\omega)$ (Transformasi Fourier dari $r(t)$) dalam hal $S(j\omega)$ (TF dari $s(t)$) dan $\omega_0$.**
+
+Perkalian di domain waktu (Modulasi) setara dengan konvolusi di domain frekuensi.
+Transformasi Fourier dari *carrier* $\cos \omega_0 t$ adalah $P(j\omega) = \pi \delta(\omega - \omega_0) + \pi \delta(\omega + \omega_0)$.
+
+$$R(j\omega) = \frac{1}{2\pi} [S(j\omega) * P(j\omega)]$$
+$$R(j\omega) = \mathbf{\frac{1}{2} S(j(\omega - \omega_0)) + \frac{1}{2} S(j(\omega + \omega_0))}$$
+
+**(b) Jelaskan secara singkat mengapa perkalian di domain waktu ini menyebabkan pergeseran spektrum $S(j\omega)$.**
+
+Perkalian di domain waktu setara dengan **konvolusi** spektrum di domain frekuensi. Konvolusi spektrum sinyal informasi $S(j\omega)$ dengan impuls pada $\omega = \pm \omega_0$ (Transformasi Fourier dari *carrier* $\cos \omega_0 t$) menghasilkan dua salinan dari spektrum $S(j\omega)$. Salinan-salinan ini **digeser** dari pusat $\omega = 0$ ke frekuensi *carrier* $\omega = +\omega_0$ dan $\omega = -\omega_0$, dan diamplifikasi dengan faktor $1/2$.
+
+---
+
+## Soal 5: Hubungan antara Transformasi Laplace dan Respons Frekuensi
+
+Diberikan Fungsi Alih sistem LTI: $H(s) = \frac{10}{s + 10}$.
+
+**(a) Tentukan Respons Frekuensi $H(j\omega)$.**
+
+Respons Frekuensi diperoleh dengan mengganti $s$ dengan $j\omega$:
+$$H(j\omega) = \mathbf{\frac{10}{10 + j\omega}}$$
+
+**(b) Tentukan ekspresi untuk Respons Magnitudo $|H(j\omega)|$.**
+
+$$|H(j\omega)| = \frac{|10|}{|10 + j\omega|} = \mathbf{\frac{10}{\sqrt{100 + \omega^2}}}$$
+
+**(c) Tentukan ekspresi untuk Respons Fase $\angle H(j\omega)$.**
+
+Fase dari $H(j\omega)$ adalah fase pembilang dikurangi fase penyebut. Karena pembilang adalah konstanta real positif (10), fasenya adalah 0.
+
+$$\angle H(j\omega) = \angle(10) - \angle(10 + j\omega)$$
+$$\angle H(j\omega) = 0 - \arctan\left(\frac{\omega}{10}\right) = \mathbf{-\arctan\left(\frac{\omega}{10}\right)}$$
+
+**(d) Hitung Magnitudo dalam Desibel (dB) pada frekuensi $DC$ ($\omega = 0$).**
+
+Pada $\omega = 0$:
+$$|H(j0)| = \frac{10}{\sqrt{100 + 0}} = 1$$
+Magnitudo dalam Desibel (dB):
+$$\text{Magnitudo (dB)} = 20 \log_{10} |H(j0)| = 20 \log_{10} (1) = \mathbf{0 \text{ dB}}$$
+
+---
+
+## Soal 6: Transformasi Fourier Sinyal Periodik
+
+**(a) Jelaskan bagaimana Transformasi Fourier $X(j\omega)$ dari sinyal periodik $x(t)$ (periode fundamental $T$) dibangun dari Koefisien Deret Fourier $a_k$.**
+
+Transformasi Fourier dari sinyal periodik $x(t)$ yang memiliki koefisien Deret Fourier $a_k$ (dengan frekuensi fundamental $\omega_0 = 2\pi/T$) terdiri dari **deret impuls** di domain frekuensi. Setiap impuls terletak pada harmonik $\omega = k\omega_0$ dan memiliki bobot yang sebanding dengan koefisien Deret Fourier yang bersesuaian, $a_k$.
+
+**(b) Tuliskan ekspresi matematis untuk Transformasi Fourier $X(j\omega)$ dari sinyal $x(t) = \cos \omega_0 t$.**
+
+Sinyal $x(t) = \cos \omega_0 t$ adalah sinyal *carrier* sinusoidal. Transformasi Fourier-nya terdiri dari dua impuls:
+
+$$X(j\omega) = \mathbf{\pi \delta(\omega - \omega_0) + \pi \delta(\omega + \omega_0)}$$
+
+---
+
+## Soal 7: Menggunakan Transformasi Laplace Unilateral untuk Respons Tanpa Input
+
+Diberikan LCCDE $\frac{dy(t)}{dt} + 4y(t) = x(t)$, dengan $x(t) = 0$ dan kondisi awal $y(0^-) = 5$.
+
+**Tentukan respons tanpa input $y_{zi}(t)$ menggunakan TL unilateral.**
+
+Respons tanpa input (*zero-input response*) adalah respons yang disebabkan oleh kondisi awal saja.
+
+Gunakan Transformasi Laplace Unilateral ($\mathcal{L}_I$) dan sifat diferensiasi: $\mathcal{L}_I \{\frac{dy(t)}{dt}\} = sY_I(s) - y(0^-)$.
+
+Terapkan $\mathcal{L}_I$ pada LCCDE:
+$$\mathcal{L}_I \left\{ \frac{dy(t)}{dt} \right\} + 4 \mathcal{L}_I \{y(t)\} = \mathcal{L}_I \{x(t)\}$$
+$$[sY_I(s) - y(0^-)] + 4Y_I(s) = 0$$
+
+Substitusi $y(0^-) = 5$:
+$$sY_I(s) - 5 + 4Y_I(s) = 0$$
+$$(s + 4)Y_I(s) = 5$$
+$$Y_I(s) = \frac{5}{s + 4}$$
+
+Mengambil Transformasi Laplace Balik (menggunakan pasangan $\frac{1}{s+a} \leftrightarrow e^{-at}u(t)$), kita mendapatkan:
+$$y_{zi}(t) = \mathbf{5e^{-4t}u(t)}$$

@@ -1,0 +1,89 @@
+# Latihan Ujian
+**Ujian Akhir Semester: Sinyal dan Sistem (Transformasi Laplace, Transformasi Fourier, dan Respons Frekuensi)**
+
+Berikut adalah 7 soal ujian akhir semester yang dirancang dengan fokus pada Transformasi Fourier, Transformasi Laplace, dan Respons Frekuensi, berdasarkan materi yang tersedia dalam sumber dan riwayat percakapan.
+
+# Soal Ujian Akhir Semester
+
+## Soal 1: Transformasi Laplace dan Daerah Konvergensi (ROC)
+
+Transformasi Laplace ($\mathcal{L}$) adalah generalisasi dari Transformasi Fourier (TF) yang memungkinkan representasi sinyal dalam domain kompleks $s = \sigma + j\omega$. Transformasi Laplace bilateral $X(s)$ dari sinyal $x(t)$ didefinisikan sebagai $X(s) = \int_{-\infty}^{\infty} x(t)e^{-st} dt$. Spesifikasi lengkap dari Transformasi Laplace memerlukan ekspresi aljabar $X(s)$ dan Daerah Konvergensi (ROC) yang terkait.
+
+**Pertanyaan:**
+
+Diberikan sinyal $x(t) = e^{5t}u(-t)$.
+(a) Tentukan Transformasi Laplace $X(s)$ dari $x(t)$.
+(b) Tentukan Daerah Konvergensi (ROC) dari $X(s)$.
+(c) Jelaskan hubungan antara ROC yang Anda temukan dengan jenis sinyal $x(t)$ (kiri, kanan, atau dua sisi) dan mengapa ROC selalu berupa strip, setengah bidang kiri, setengah bidang kanan, atau seluruh bidang $s$.
+
+## Soal 2: Fungsi Alih dari Persamaan Diferensial dan Analisis Stabilitas
+
+Fungsi Alih (*Transfer Function*) $H(s)$ dari sistem $Linear Time-Invariant$ (LTI) waktu-kontinu didefinisikan sebagai Transformasi Laplace dari respons impuls $h(t)$. Untuk sistem LTI yang dijelaskan oleh Persamaan Diferensial Koefisien Konstanta Linier (LCCDE), $H(s)$ selalu berbentuk rasional (rasio dua polinomial dalam $s$).
+
+**Pertanyaan:**
+
+Sistem LTI kausal dijelaskan oleh Persamaan Diferensial berikut:
+$$\frac{d^2 y(t)}{dt^2} + 4 \frac{dy(t)}{dt} + 3y(t) = x(t)$$
+
+(a) Tentukan Fungsi Alih $H(s) = \frac{Y(s)}{X(s)}$ dari sistem tersebut.
+(b) Tentukan lokasi Pol dari $H(s)$ dan nyatakan ROC-nya, dengan asumsi sistem tersebut kausal.
+(c) Berdasarkan ROC dan lokasi Pol, analisis dan tentukan apakah sistem ini **stabil**. (Sistem LTI stabil jika dan hanya jika ROC dari $H(s)$ mencakup sumbu $j\omega$).
+
+## Soal 3: Aljabar Fungsi Alih untuk Interkoneksi Sistem Umpan Balik
+
+Fungsi Alih menyederhanakan analisis interkoneksi sistem LTI karena operasi domain waktu (konvolusi) diganti dengan operasi aljabar (perkalian).
+
+**Pertanyaan:**
+
+Dua sistem LTI dihubungkan dalam konfigurasi Umpan Balik (*Feedback*) standar. Jalur maju (*forward path*) adalah $H_1(s)$ dan jalur umpan balik (*feedback path*) adalah $H_2(s)$.
+$$H_1(s) = \frac{5}{s+4} \quad \text{dan} \quad H_2(s) = 2$$
+
+(a) Tentukan Fungsi Alih *closed-loop* $Q(s) = \frac{Y(s)}{X(s)}$.
+(b) Tentukan lokasi Pol dari $Q(s)$ dan jelaskan dampaknya terhadap stabilitas sistem *closed-loop* tersebut, asumsi sistem kausal.
+
+## Soal 4: Properti Perkalian Transformasi Fourier dalam Modulasi
+
+Transformasi Laplace ($\mathcal{L}$) adalah generalisasi dari Transformasi Fourier (TF). Salah satu properti paling penting dari Transformasi Fourier adalah **sifat perkalian** (*multiplication property*).
+
+**Pertanyaan:**
+
+Dalam konteks Modulasi Amplitudo (AM), sinyal informasi $s(t)$ dikalikan dengan sinyal *carrier* $p(t) = \cos \omega_0 t$, menghasilkan sinyal termodulasi $r(t) = s(t) \cos \omega_0 t$.
+
+(a) Tuliskan hubungan $R(j\omega)$ (Transformasi Fourier dari $r(t)$) dalam hal $S(j\omega)$ (TF dari $s(t)$) dan $\omega_0$, dengan memanfaatkan sifat perkalian Transformasi Fourier.
+(b) Asumsikan spektrum $S(j\omega)$ dibatasi band (*band-limited*) dengan lebar $W_M$ (yaitu $S(j\omega)=0$ untuk $|\omega| > W_M$). Jelaskan secara singkat mengapa perkalian di domain waktu ini setara dengan **konvolusi** spektrum di domain frekuensi, dan bagaimana ini menyebabkan pergeseran spektrum $S(j\omega)$.
+
+## Soal 5: Hubungan antara Transformasi Laplace dan Respons Frekuensi
+
+Fungsi Alih $H(s)$ dapat dihubungkan dengan Respons Frekuensi $H(j\omega)$ dengan menetapkan $s = j\omega$. Respons Frekuensi $H(j\omega)$ memiliki representasi Magnitudo dan Fase.
+
+**Pertanyaan:**
+
+Diberikan Fungsi Alih sistem LTI:
+$$H(s) = \frac{10}{s + 10}$$
+
+(a) Tentukan Respons Frekuensi $H(j\omega)$.
+(b) Tentukan ekspresi untuk **Respons Magnitudo** $|H(j\omega)|$ (juga dikenal sebagai *gain* dari sistem).
+(c) Tentukan ekspresi untuk **Respons Fase** $\angle H(j\omega)$ (juga dikenal sebagai *phase shift* dari sistem).
+(d) Hitung Magnitudo dalam Desibel (dB) pada frekuensi $DC$ ($\omega = 0$).
+
+## Soal 6: Transformasi Fourier Sinyal Periodik
+
+Sinyal periodik dalam waktu dapat direpresentasikan oleh Transformasi Fourier, yang terdiri dari deret impuls di domain frekuensi.
+
+**Pertanyaan:**
+
+(a) Jelaskan bagaimana Transformasi Fourier $X(j\omega)$ dari sinyal periodik $x(t)$ (dengan periode fundamental $T$) dibangun dari Koefisien Deret Fourier $a_k$.
+(b) Tuliskan ekspresi matematis untuk Transformasi Fourier $X(j\omega)$ dari sinyal $x(t) = \cos \omega_0 t$. (Gunakan fungsi impuls $\delta(\cdot)$).
+
+## Soal 7: Menggunakan Transformasi Laplace Unilateral untuk Respons Tanpa Input
+
+Transformasi Laplace Unilateral ($\mathcal{L}_I$) sangat berguna dalam menganalisis sistem yang dijelaskan oleh persamaan diferensial dengan kondisi awal yang tidak nol. Respons tanpa input (*zero-input response*) adalah respons yang dihasilkan oleh kondisi awal saja.
+
+**Pertanyaan:**
+
+Sistem LTI orde pertama dijelaskan oleh persamaan diferensial:
+$$\frac{dy(t)}{dt} + 4y(t) = x(t)$$
+
+Gunakan Transformasi Laplace Unilateral untuk menemukan respons tanpa input $y_{zi}(t)$ jika input $x(t) = 0$ dan kondisi awal adalah $y(0^-) = 5$.
+
+(Petunjuk: Gunakan sifat diferensiasi waktu pada Transformasi Laplace Unilateral: $\mathcal{L}_I \{\frac{dy(t)}{dt}\} = sY_I(s) - y(0^-)$).
