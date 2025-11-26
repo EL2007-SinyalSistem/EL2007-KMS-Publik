@@ -235,8 +235,8 @@ Merancang filter adalah seperti memesan tirai untuk jendela. Anda ingin jendela 
 
 # Soal
 
-1.  Sebuah filter Butterworth orde 3 $H(\tilde{s})$ dengan \$\omega\_{c} = 1 \$ mengalami transformasi frekuensi $\tilde{s} = \omega_{p} s$. asumsi \$\omega\_{p} = 2\$ plot respons frekuensi
+1.  Sebuah filter Butterworth orde 3 $H(\tilde{s})$ dengan $\omega_{c} = 1 $ mengalami transformasi frekuensi $\tilde{s} = \omega_{p} s$. asumsi $\omega_{p} = 2$ plot respons frekuensi
 
-2.  Sebuah filter Butterworth orde 3 $H(\tilde{s})$ dengan \$\omega\_{c} = 1 \$ mengalami transformasi frekuensi $\tilde{s} = \omega_{p} s$. asumsi \$\omega\_{p} = 2\$ plot respons frekuensi
+2.  Sebuah filter Butterworth orde 3 $H(\tilde{s})$ dengan $\omega_{c} = 1 $ mengalami transformasi frekuensi $\tilde{s} = \omega_{p} s$. asumsi $\omega_{p} = 2$ plot respons frekuensi
 
-3.  Sebuah filter Butterworth orde 3 $H(\tilde{s})$ dengan \$ \omega\_{c} = 1 \$ mengalami transformasi frekuensi $\tilde{s}= \frac{\omega_{p}}{s}$. asumsi $\omega_{p} = 2$ plot respons frekuensi
+3.  Sebuah filter Butterworth orde 3 $H(\tilde{s})$ dengan $ \omega_{c} = 1 $ mengalami transformasi frekuensi $\tilde{s}= \frac{\omega_{p}}{s}$. asumsi $\omega_{p} = 2$ plot respons frekuensi
