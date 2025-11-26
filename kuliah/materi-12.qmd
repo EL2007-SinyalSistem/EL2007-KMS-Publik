@@ -1,0 +1,239 @@
+---
+title: "Respons Frekuensi Dari LCCDE Orde 1 dan Orde 2"
+format: html
+---
+
+Berikut ini penjelasan mengenai cara menghitung dan memplot Respons Magnitudo dan Respons Fase dari sistem Persamaan Diferensial Koefisien Konstanta Linier (LCCDE) orde 1 dan 2 menggunakan kerangka kerja Python.
+
+Analisis Respons Frekuensi sistem LTI waktu-kontinu sangat bergantung pada Transformasi Laplace, di mana Fungsi Alih $H(s)$ menjadi representasi aljabar sistem.
+
+## 1. Dasar Matematis: Dari LCCDE ke $H(j\omega)$
+
+Sistem LTI waktu-kontinu yang dijelaskan oleh LCCDE umum memiliki bentuk Fungsi Alih rasional $H(s)$:
+
+$$H(s) = \frac{Y(s)}{X(s)} = \frac{\sum_{k=0}^{M} b_k s^k}{\sum_{k=0}^{N} a_k s^k} \tag{1}$$
+
+Respons frekuensi $H(j\omega)$ diperoleh dengan mengganti variabel kompleks $s$ dalam $H(s)$ dengan $j\omega$ (di mana $\sigma = 0$ di sumbu $j\omega$). Ini memungkinkan kita menganalisis bagaimana sistem merespons input sinusoidal $x(t) = e^{j\omega t}$.
+
+$$H(j\omega) = \left. H(s) \right|_{s=j\omega} = \frac{\sum_{k=0}^{M} b_k (j\omega)^k}{\sum_{k=0}^{N} a_k (j\omega)^k} \tag{2}$$
+
+Respons frekuensi $H(j\omega)$ adalah fungsi bernilai kompleks yang dapat diwakili dalam bentuk polar:
+
+$$H(j\omega) = |H(j\omega)| e^{j \angle H(j\omega)}$$
+
+**A. Respons Magnitudo (Magnitude Response):** Magnitudo $|H(j\omega)|$ menunjukkan *gain* (penguatan) sistem pada frekuensi $\omega$ tertentu. Dalam konteks Fourier Transform, magnitudo output adalah perkalian magnitudo input dengan magnitudo respons frekuensi: $$|Y(j\omega)| = |H(j\omega)| |X(j\omega)|$$
+
+**B. Respons Fase (Phase Response):** Fase $\angle H(j\omega)$ (atau *phase shift*) menunjukkan pergeseran waktu relatif pada setiap komponen frekuensi. Fase output adalah penjumlahan fase input dengan fase respons frekuensi: $$\angle Y(j\omega) = \angle H(j\omega) + \angle X(j\omega)$$
+
+## 2. Representasi Sistem Orde 1 dan Orde 2
+
+Sistem orde 1 dan 2 dapat direpresentasikan oleh koefisien $a_k$ (penyebut) dan $b_k$ (pembilang) dalam $H(s)$ (persamaan 1).
+
+| Orde Sistem | Persamaan Diferensial (Contoh Kausal) | $H(s)$ Umum | Koefisien Python (b, a) |
+|:----------------:|:----------------:|:----------------:|:----------------:|
+| **Orde 1** | $\frac{dy(t)}{dt} + a_0 y(t) = b_0 x(t)$ | $\frac{b_0}{s + a_0}$ | $b = [b_0]$, $a = [1, a_0]$ |
+| **Orde 2** | $\frac{d^2y}{dt^2} + a_1 \frac{dy}{dt} + a_0 y = b_0 x$ | $\frac{b_0}{s^2 + a_1 s + a_0}$ | $b = [b_0]$, $a = [1, a_1, a_0]$ |
+| **Orde 2 (Bentuk Standar)** | \- | $\frac{\omega_n^2}{s^2 + 2\zeta\omega_n s + \omega_n^2}$ | $b = [\omega_n^2]$, $a = [1, 2\zeta\omega_n, \omega_n^2]$ |
+
+## 3. Prosedur Perhitungan dan Plotting Menggunakan Python
+
+Untuk melakukan perhitungan ini secara numerik dalam Python, kita menggunakan representasi Fungsi Alih $H(s)$ melalui vektor koefisiennya, seperti yang ditunjukkan di atas.
+
+**(Catatan: Pustaka `scipy.signal` adalah alat standar di Python untuk analisis sistem LTI, meskipun nama fungsinya tidak disebutkan dalam sumber yang diberikan, penggunaannya didasarkan pada prinsip-prinsip LCCDE yang dijelaskan dalam sumber.)**
+
+### Langkah 1: Definisikan Sistem
+
+Tentukan vektor koefisien pembilang ($b$) dan penyebut ($a$).
+
+*Contoh Orde 1 (Sistem LPF RC:* $H(s) = \frac{1}{s+1}$): $$b =$$ $$a =$$
+
+*Contoh Orde 2 (Sistem Underdamped* $\zeta=0.5, \omega_n=1$): $$H(s) = \frac{1}{s^2 + s + 1}$$ $$b =$$ $$a =$$
+
+### Langkah 2: Hitung Respons Frekuensi Numerik
+
+Gunakan fungsi yang relevan (misalnya, `scipy.signal.freqs`) yang menerima koefisien $b$ dan $a$ serta mengembalikan frekuensi angular ($\omega$) dan nilai kompleks $H(j\omega)$.
+
+### Langkah 3: Hitung Magnitudo dan Fase
+
+Setelah mendapatkan nilai kompleks $H(j\omega)$ untuk setiap $\omega$, pisahkan Magnitudo dan Fase:
+
+1.  **Magnitudo Mutlak:** Hitung magnitudo mutlak dari $H(j\omega)$.
+2.  **Magnitudo dalam Desibel (dB):** Untuk membuat *Bode Plot* (yang merupakan representasi grafis umum, terutama untuk orde 1 dan 2), ubah magnitudo ke skala logaritmik: $$\text{Magnitudo (dB)} = 20 \log_{10} |H(j\omega)|$$
+3.  **Fase:** Hitung argumen (sudut) dari $H(j\omega)$, biasanya dikembalikan dalam radian. Jika diperlukan, ubah ke derajat.
+
+### Langkah 4: Plotting
+
+Magnitudo dan Fase diplot terhadap $\omega$.
+
+-   **Plot Magnitudo:** Plot Magnitudo (dB) terhadap frekuensi $\omega$. Seringkali, skala frekuensi juga menggunakan skala logaritmik, membentuk **Bode Magnitude Plot**. Plot ini memungkinkan visualisasi *break frequency* dan laju peluruhan gain (misalnya, $-20$ dB/dekade untuk orde 1 dan $-40$ dB/dekade untuk orde 2 di frekuensi tinggi).
+-   **Plot Fase:** Plot Fase (derajat atau radian) terhadap frekuensi $\omega$.
+
+Perhitungan Respons Magnitudo logaritmik (dB) dan Respons Fase sangat penting karena menyederhanakan analisis interkoneksi sistem. Karena Fungsi Alih total dari sistem *kaskade* (seri) adalah perkalian fungsi alih individual, maka: \* Di domain logaritmik, Magnitudo total diperoleh dengan **menjumlahkan** Magnitudo (dB) individual. \* Fase total diperoleh dengan **menjumlahkan** Fase individual.
+
+Konsep **Bode Plot** ini sangat berguna untuk menganalisis sistem LTI orde tinggi yang merupakan perkalian faktor-faktor orde 1 dan 2, di mana plot total didapatkan hanya dengan menjumlahkan plot asimptotik dari faktor-faktor penyusunnya.
+
+# Filter Butterworth
+
+Ini adalah penjelasan mengenai Respons Frekuensi dari Filter Butterworth dan langkah-langkah konseptual untuk memplotnya menggunakan Python, dengan mengacu pada materi sumber yang diberikan.
+
+### 1. Respons Frekuensi Filter Butterworth
+
+Filter Butterworth adalah salah satu kelas sistem *Linear Time-Invariant* (LTI) yang banyak digunakan, khususnya sebagai filter lolos-rendah (lowpass). Sifat filter ini sering ditentukan berdasarkan spesifikasi magnitudo respons frekuensinya.
+
+Respons frekuensi $H(j\omega)$ dari sistem LTI adalah Transformasi Fourier dari respons impuls $h(t)$. Dalam analisis domain Laplace, kita menggunakan Fungsi Alih $H(s)$, di mana $H(j\omega)$ diperoleh dengan mengganti $s$ dengan $j\omega$.
+
+#### A. Persamaan Magnitudo Kuadrat
+
+Untuk filter Butterworth lowpass orde $N$, kuadrat dari magnitudo respons frekuensi $|B(j\omega)|^2$ (dengan $B(s)$ sebagai fungsi sistem) diberikan oleh:
+
+$$|B(j\omega)|^2 = \frac{1}{1 + (\omega/\omega_c)^{2N}} \tag{1}$$
+
+Di sini, $N$ adalah orde filter, dan $\omega_c$ adalah frekuensi *cutoff* (frekuensi potong).
+
+#### B. Respons Magnitudo Mutlak
+
+Respons Magnitudo $|B(j\omega)|$ adalah akar kuadrat dari persamaan di atas. Respons ini menunjukkan *gain* (penguatan) sistem pada frekuensi $\omega$ tertentu:
+
+$$|B(j\omega)| = \frac{1}{\sqrt{1 + (\omega/\omega_c)^{2N}}}$$
+
+**Karakteristik Kunci:** 1. Pada $\omega = 0$ (frekuensi rendah), $|B(j\omega)| = 1$ (atau 0 dB), menunjukkan bahwa frekuensi rendah dilewatkan tanpa atenuasi. 2. Pada $\omega = \omega_c$ (frekuensi *cutoff*), $|B(j\omega)| = 1/\sqrt{2}$ (atau -3 dB), yang merupakan definisi frekuensi potong untuk filter Butterworth. 3. Di luar pita lolos (passband), magnitudo meluruh seiring peningkatan orde $N$. Peningkatan orde $N$ akan membuat transisi dari *passband* ke *stopband* menjadi lebih tajam.
+
+### 2. Memplot Respons Magnitudo dan Fase Menggunakan Python
+
+Untuk memvisualisasikan respons frekuensi, plot yang paling umum digunakan adalah **Bode Plot**, di mana magnitudo diplot dalam satuan **Desibel (dB)**, dan sumbu frekuensi sering kali menggunakan skala logaritmik.
+
+#### A. Respons Magnitudo dalam Desibel (dB)
+
+Magnitudo dalam desibel dihitung sebagai: $$\text{Magnitudo (dB)} = 20 \log_{10} |B(j\omega)|$$
+
+Penggunaan skala logaritmik (dB) bermanfaat karena ia mengubah hubungan perkalian dalam domain magnitudo menjadi hubungan penjumlahan (logaritmik) saat menganalisis sistem yang terhubung secara kaskade (seri).
+
+#### B. Respons Fase
+
+Meskipun persamaan (1) hanya memberikan informasi magnitudo kuadrat, respons frekuensi *full* $B(j\omega)$ juga memiliki komponen fase, $\angle B(j\omega)$. Komponen fase ini menunjukkan pergeseran waktu relatif pada setiap komponen frekuensi. Filter lowpass Butterworth umumnya memiliki respons impuls nyata dan kausal.
+
+Dalam konteks Python, plotting Respons Magnitudo dan Fase (Bode Plot) melibatkan langkah-langkah konseptual berikut:
+
+**Langkah-Langkah Implementasi Konseptual:**
+
+1.  **Definisi Sistem:** Tentukan parameter filter, yaitu orde $N$ dan frekuensi potong $\omega_c$.
+2.  **Generasi Frekuensi:** Buat sebuah array frekuensi $\omega$ (biasanya pada skala logaritmik, sesuai dengan Bode Plot).
+3.  **Perhitungan Magnitudo:** Hitung $|B(j\omega)|$ untuk setiap $\omega$ menggunakan formula di atas.
+4.  **Konversi ke dB:** Konversi magnitudo ke skala logaritmik: $20 \log_{10} |B(j\omega)|$.
+5.  **Perhitungan Fase (Konseptual):** Dalam praktiknya, perhitungan fase memerlukan koefisien polinomial pembilang dan penyebut dari Fungsi Alih rasional $B(s)$. Walaupun bentuk kuadrat magnitudo diberikan, bentuk $B(s)$ yang sebenarnya (yang merupakan rasio polinomial dalam $s$) harus diketahui untuk menghitung fase $\angle B(j\omega)$.
+6.  **Plotting:** Plot Magnitudo (dB) dan Fase ($\angle B(j\omega)$, biasanya dalam derajat atau radian) terhadap frekuensi $\omega$.
+
+Memplot magnitudo logaritmik terhadap frekuensi logaritmik (Bode Plot) sangat membantu dalam menganalisis filter yang dijelaskan oleh persamaan diferensial/fungsi alih rasional, terutama untuk melihat laju peluruhan *gain* (misalnya, -20 dB/dekade untuk orde pertama, -40 dB/dekade untuk orde kedua) di frekuensi tinggi.
+
+# Sifat Filter Butterworth
+
+Ini adalah analisis perancangan Filter Low Pass (LPF) Butterworth orde 3 ($N=3$) dengan frekuensi *cutoff* $\omega_c$ setara $25 \text{ Hz}$.
+
+Untuk menganalisis Filter Butterworth, kita menggunakan persamaan kuadrat magnitudo respons frekuensi $|B(j\omega)|^2$:
+
+$$|B(j\omega)|^2 = \frac{1}{1 + (\omega/\omega_c)^{2N}} \tag{1}$$
+
+Di mana $N=3$ dan $\omega_c$ adalah $2\pi f_c$, atau $2\pi(25) \text{ rad/s}$.
+
+Attenuasi $A$ (Redaman) dalam Desibel (dB) didefinisikan berdasarkan *gain* $20 \log_{10} |B(j\omega)|$. Jika $A$ adalah redaman, maka:
+
+$$A = 20 \log_{10} \left( \frac{1}{|B(j\omega)|} \right) \tag{2}$$
+
+### 1. Mencari Frekuensi Passband ($\omega_p$) untuk Ripple Maksimal $A_p = 1 \text{ dB}$
+
+Passband *ripple* ($A_p$) adalah redaman yang terjadi di dalam pita lolos.
+
+#### Langkah 1: Konversi Redaman $A_p$ ke $|B(j\omega_p)|^2$
+
+Jika redaman maksimal $A_p = 1 \text{ dB}$: $$1 = 20 \log_{10} \left( \frac{1}{|B(j\omega_p)|} \right)$$ $$\frac{1}{20} = 0.05 = \log_{10} \left( \frac{1}{|B(j\omega_p)|} \right)$$ $$\frac{1}{|B(j\omega_p)|} = 10^{0.05} \approx 1.122$$ $$|B(j\omega_p)|^2 = \left( \frac{1}{1.122} \right)^2 \approx 0.7943$$
+
+#### Langkah 2: Hitung Rasio Frekuensi $\omega_p / \omega_c$
+
+Gunakan Persamaan (1) dengan $N=3$ dan $|B(j\omega_p)|^2 \approx 0.7943$: $$0.7943 = \frac{1}{1 + (\omega_p/\omega_c)^{2(3)}}$$ $$1 + (\omega_p/\omega_c)^6 = \frac{1}{0.7943} \approx 1.2589$$ $$(\omega_p/\omega_c)^6 = 0.2589$$ $$\frac{\omega_p}{\omega_c} = (0.2589)^{1/6} \approx 0.8037$$
+
+#### Langkah 3: Tentukan $\omega_p$ (atau $f_p$)
+
+Karena frekuensi *cutoff* $f_c = 25 \text{ Hz}$, maka $f_p$ adalah: $$f_p = 0.8037 \cdot f_c$$ $$f_p = 0.8037 \cdot 25 \text{ Hz} \approx \mathbf{20.09 \text{ Hz}}$$
+
+Filter Butterworth orde 3 ini memiliki **ripple passband maksimal** $1 \text{ dB}$ pada frekuensi $\mathbf{f_p \approx 20.09 \text{ Hz}}$.
+
+### 2. Mencari Frekuensi Stopband ($\omega_s$) untuk Atenuasi Minimal $A_s = 30 \text{ dB}$
+
+Stopband ($A_s$) adalah redaman minimal yang harus dipenuhi di luar $\omega_s$.
+
+#### Langkah 1: Konversi Atenuasi $A_s$ ke $|B(j\omega_s)|^2$
+
+Jika redaman minimal $A_s = 30 \text{ dB}$: $$30 = 20 \log_{10} \left( \frac{1}{|B(j\omega_s)|} \right)$$ $$1.5 = \log_{10} \left( \frac{1}{|B(j\omega_s)|} \right)$$ $$\frac{1}{|B(j\omega_s)|} = 10^{1.5} \approx 31.62$$ $$|B(j\omega_s)|^2 = \left( \frac{1}{31.62} \right)^2 = \frac{1}{1000} = 0.001$$
+
+#### Langkah 2: Hitung Rasio Frekuensi $\omega_s / \omega_c$
+
+Gunakan Persamaan (1) dengan $N=3$ dan $|B(j\omega_s)|^2 = 0.001$: $$0.001 = \frac{1}{1 + (\omega_s/\omega_c)^{6}}$$ $$1 + (\omega_s/\omega_c)^6 = \frac{1}{0.001} = 1000$$ $$(\omega_s/\omega_c)^6 = 999$$ $$\frac{\omega_s}{\omega_c} = (999)^{1/6} \approx 3.149$$
+
+#### Langkah 3: Tentukan $\omega_s$ (atau $f_s$)
+
+Karena frekuensi *cutoff* $f_c = 25 \text{ Hz}$, maka $f_s$ adalah: $$f_s = 3.149 \cdot f_c$$ $$f_s = 3.149 \cdot 25 \text{ Hz} \approx \mathbf{78.73 \text{ Hz}}$$
+
+Filter Butterworth orde 3 ini mencapai **atenuasi minimal** $30 \text{ dB}$ pada frekuensi $\mathbf{f_s \approx 78.73 \text{ Hz}}$.
+
+# Desain LPF
+
+Permintaan Anda bertujuan untuk merancang (memilih parameter) Filter Low Pass Butterworth berdasarkan persyaratan redaman stopband.
+
+Karena spesifikasi yang diberikan (redaman pada $\omega_s = 2\pi(50) \text{ rad/s}$) tidak memberikan batasan yang ketat pada frekuensi *passband* ($\omega_p$ atau $\omega_c$), solusi untuk orde ($N$) dan frekuensi *cutoff* ($\omega_c$) tidak unik. Kita harus memilih salah satu parameter untuk menentukan yang lain.
+
+### 1. Dasar Matematis Filter Butterworth
+
+Magnitudo kuadrat respons frekuensi $|B(j\omega)|^2$ dari Filter Low Pass Butterworth orde $N$ diberikan oleh: $$|B(j\omega)|^2 = \frac{1}{1 + (\omega/\omega_c)^{2N}}$$
+
+Redaman ($A$) dalam Desibel (dB) untuk filter *lowpass* dengan *gain* unit di DC (frekuensi 0) didefinisikan sebagai: $$A = 20 \log_{10} \left( \frac{1}{|B(j\omega)|} \right) \tag{E1}$$
+
+### 2. Menghitung Rasio Redaman
+
+Kita menetapkan persyaratan pada frekuensi stopband $\omega_s$: \* Redaman minimal $A_s = 30 \text{ dB}$. \* Frekuensi stopband $f_s = 50 \text{ Hz}$ ($\omega_s = 2\pi \cdot 50 \text{ rad/s}$).
+
+Tentukan besaran minimum $|B(j\omega_s)|$ yang diperlukan: $$30 = 20 \log_{10} \left( \frac{1}{|B(j\omega_s)|} \right)$$ $$1.5 = \log_{10} \left( \frac{1}{|B(j\omega_s)|} \right)$$ $$\frac{1}{|B(j\omega_s)|} = 10^{1.5} \approx 31.62$$ $$|B(j\omega_s)|^2 = \left( \frac{1}{10^{1.5}} \right)^2 = \frac{1}{10^3} = \frac{1}{1000}$$
+
+Substitusikan nilai $|B(j\omega_s)|^2$ ke persamaan dasar Filter Butterworth: $$\frac{1}{1000} = \frac{1}{1 + (\omega_s/\omega_c)^{2N}}$$ $$1000 = 1 + (\omega_s/\omega_c)^{2N}$$ $$999 = (\omega_s/\omega_c)^{2N}$$
+
+Untuk menyederhanakan perhitungan, kita gunakan aproksimasi $999 \approx 1000$: $$1000 \approx (\omega_s/\omega_c)^{2N}$$
+
+Dalam bentuk logaritma: $$2N \log_{10} (\omega_s/\omega_c) \approx \log_{10}(1000) = 3$$ $$N \approx \frac{3}{2 \log_{10} (\omega_s/\omega_c)} \tag{E2}$$
+
+### 3. Penentuan $\omega_c$ dan Orde $N$
+
+Untuk mendapatkan solusi, kita perlu memilih frekuensi *cutoff* $\omega_c$ (yang secara konvensional adalah frekuensi $-3 \text{ dB}$) yang lebih rendah dari $\omega_s$ (frekuensi stopband).
+
+**Pilihan Desain:** Misalnya, kita memilih frekuensi *cutoff* Filter Butterworth ($f_c$) sebagai berikut:
+
+$$\mathbf{f_c = 25 \text{ Hz}}$$ (Ini berarti $\omega_c = 2\pi \cdot 25 \text{ rad/s}$)
+
+Ini memberikan rasio $\omega_s/\omega_c$ sebesar: $$\frac{\omega_s}{\omega_c} = \frac{50 \text{ Hz}}{25 \text{ Hz}} = 2$$
+
+Gunakan rasio ini untuk menghitung orde minimum $N$ yang diperlukan (menggunakan Persamaan E2): $$N \approx \frac{3}{2 \log_{10} (2)}$$
+
+Menggunakan nilai $\log_{10}(2) \approx 0.301$: $$N \approx \frac{3}{2 \times 0.301} = \frac{3}{0.602} \approx 4.98$$
+
+Karena **orde filter (**$N$) haruslah bilangan bulat dan harus memenuhi redaman minimal $A_s \geq 30 \text{ dB}$, kita harus memilih bilangan bulat terdekat ke atas:
+
+$$\mathbf{N = 5}$$
+
+### Kesimpulan
+
+Untuk mencapai redaman minimal $30 \text{ dB}$ pada frekuensi $50 \text{ Hz}$, pilihan yang **paling sesuai** (dengan asumsi rasio frekuensi 2:1 antara stopband dan cutoff) adalah:
+
+1.  **Orde Filter (**$N$): **5**
+2.  **Frekuensi Cutoff (**$f_c$ atau $\omega_c$): $25 \text{ Hz}$ (atau $\omega_c = 50\pi \text{ rad/s}$)
+
+Dengan memilih $N=5$ dan $f_c=25 \text{ Hz}$, redaman yang dicapai pada $f_s=50 \text{ Hz}$ adalah: $$A \approx 30.1 \text{ dB}$$ (yang melebihi syarat minimal $30 \text{ dB}$).
+
+------------------------------------------------------------------------
+
+**Analogi:**
+
+Merancang filter adalah seperti memesan tirai untuk jendela. Anda ingin jendela (frekuensi *cutoff*) terlihat rapi, tetapi Anda harus memastikan tirai tersebut (redaman) cukup tebal untuk memblokir cahaya (sinyal yang tidak diinginkan) dari luar (frekuensi stopband). Jika Anda ingin menggunakan kain yang relatif tipis (orde $N$ rendah), Anda harus memulainya jauh sebelum sumber cahaya itu (memilih $\omega_c$ yang jauh lebih rendah dari $\omega_s$). Tetapi, jika Anda bersikeras ingin tirai dimulai dekat dengan sumber cahaya (memilih $\omega_c$ dekat dengan $\omega_s$), Anda harus memilih bahan yang sangat tebal (orde $N$ yang sangat tinggi) untuk mencapai tingkat pemblokiran yang sama. Dalam kasus ini, kita harus memilih **ketebalan** $N=5$ untuk mencapai blokade $30 \text{ dB}$ jika titik potongnya diposisikan pada $25 \text{ Hz}$.
+
+# Transformasi frekuensi High Pass
+
+1.  Sebuah filter Butterworth orde 3 $H(\tilde{s})$ dengan \$\omega\_{c} = 1 \$ mengalami transformasi frekuensi $\tilde{s} = \omega_{p} s$. asumsi \$\omega\_{p} = 2\$ plot respons frekuensi
+
+2.  Sebuah filter Butterworth orde 3 $H(\tilde{s})$ dengan \$ \omega\_{c} = 1 \$ mengalami transformasi frekuensi $\tilde{s}= \frac{\omega_{p}}{s}$. asumsi $\omega_{p} = 2$ plot respons frekuensi
