@@ -4042,7 +4042,7 @@ LTI & \\
 \chapter{Soal Ujian Tengah Semester (UTS) Sinyal dan Sistem
 2025}\label{soal-ujian-tengah-semester-uts-sinyal-dan-sistem-2025}
 
-\begin{tcolorbox}[enhanced jigsaw, bottomtitle=1mm, bottomrule=.15mm, left=2mm, colback=white, arc=.35mm, titlerule=0mm, toprule=.15mm, colbacktitle=quarto-callout-important-color!10!white, colframe=quarto-callout-important-color-frame, opacityback=0, coltitle=black, toptitle=1mm, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Important}, rightrule=.15mm, leftrule=.75mm, opacitybacktitle=0.6, breakable]
+\begin{tcolorbox}[enhanced jigsaw, opacityback=0, leftrule=.75mm, left=2mm, breakable, colframe=quarto-callout-important-color-frame, colbacktitle=quarto-callout-important-color!10!white, rightrule=.15mm, colback=white, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Important}, titlerule=0mm, coltitle=black, toprule=.15mm, arc=.35mm, bottomtitle=1mm, toptitle=1mm, bottomrule=.15mm, opacitybacktitle=0.6]
 
 \begin{itemize}
 \tightlist
@@ -5771,7 +5771,1386 @@ Respons tanpa input adalah respon terhadap kondisi awal saja.
 
 \bookmarksetup{startatroot}
 
+\chapter{Desain Filter Lowpass dan
+Highpass}\label{desain-filter-lowpass-dan-highpass}
+
+\bookmarksetup{startatroot}
+
+\chapter{Respons Frekuensi dan Fasa}\label{respons-frekuensi-dan-fasa}
+
+Ini adalah penjelasan mengenai cara menemukan respons frekuensi dan
+respons fase dari Sistem Linear Tak-berubah Waktu (LTI) yang
+dikarakterisasi oleh Persamaan Diferensial Linear Koefisien Konstan
+(LCCDE) melalui Transformasi Laplace, serta penerapannya pada Filter
+Butterworth.
+
+Dalam analisis sistem LTI waktu kontinu, Transformasi Laplace (\(H(s)\),
+yang disebut fungsi sistem atau fungsi alih) adalah generalisasi dari
+Transformasi Fourier (\(H(j\omega)\), yang disebut respons frekuensi).
+
+\subsection{\texorpdfstring{1. Menentukan Fungsi Sistem (\(H(s)\)) dari
+LCCDE}{1. Menentukan Fungsi Sistem (H(s)) dari LCCDE}}\label{menentukan-fungsi-sistem-hs-dari-lccde}
+
+Sistem LTI waktu kontinu yang dijelaskan oleh LCCDE memiliki bentuk
+umum:
+\[\sum_{k=0}^{N} a_k \frac{d^k y(t)}{dt^k} = \sum_{k=0}^{M} b_k \frac{d^k x(t)}{dt^k}\].
+
+Dengan menerapkan \textbf{Transformasi Laplace} pada kedua sisi
+persamaan, menggunakan sifat linearitas dan turunan di ranah waktu,
+persamaan diferensial berubah menjadi persamaan aljabar di ranah \(s\):
+
+\[D(s) Y(s) = N(s) X(s)\]
+
+Fungsi Sistem (Transfer Function), \(H(s)\), diperoleh sebagai rasio
+Transformasi Laplace output (\(Y(s)\)) terhadap input (\(X(s)\)):
+
+\[H(s) = \frac{Y(s)}{X(s)} = \frac{N(s)}{D(s)} = \frac{\sum_{k=0}^{M} b_k s^k}{\sum_{k=0}^{N} a_k s^k}\].
+
+Fungsi sistem \(H(s)\) ini selalu merupakan \textbf{fungsi rasional}.
+
+\subsubsection{Bentuk Pole-Zero}\label{bentuk-pole-zero}
+
+Fungsi rasional \(H(s)\) dapat difaktorkan menjadi bentuk pole-zero:
+
+\[H(s) = M \frac{\prod_{k=1}^{M} (s - z_k)}{\prod_{i=1}^{N} (s - p_i)}\].
+
+Di mana:
+
+\begin{itemize}
+\tightlist
+\item
+  \(z_k\): adalah \textbf{zero} (akar dari \(N(s)\)).
+\item
+  \(p_i\): adalah \textbf{pole} (akar dari \(D(s)\)).
+\item
+  \(M\): adalah faktor \emph{gain} skala.
+\end{itemize}
+
+\subsection{2. Menemukan Respons Frekuensi dan Respons
+Fase}\label{menemukan-respons-frekuensi-dan-respons-fase}
+
+Respons Frekuensi \(H(j\omega)\) adalah hasil evaluasi \(H(s)\) pada
+sumbu imajiner, di mana \(\mathbf{s = j\omega}\). Evaluasi ini dapat
+dilakukan secara aljabar (mengganti \(s\) dengan \(j\omega\)) atau
+secara geometris dari plot pole-zero.
+
+\subsubsection{\texorpdfstring{A. Respons Magnitudo
+\(|H(j\omega)|\)}{A. Respons Magnitudo \textbar H(j\textbackslash omega)\textbar{}}}\label{a.-respons-magnitudo-hjomega}
+
+Respons magnitudo sistem LTI menunjukkan bagaimana sistem memperkuat
+atau melemahkan komponen frekuensi input.
+
+\textbf{Cara Geometris (Geometric Evaluation):}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Untuk menemukan magnitudo \(|H(j\omega)|\) pada frekuensi tertentu
+  \(\omega\), kita mengevaluasi \(H(s)\) pada titik \(s = j\omega\) di
+  bidang \(s\).
+\item
+  Setiap suku di pembilang \((j\omega - z_k)\) dan penyebut
+  \((j\omega - p_i)\) merepresentasikan \textbf{vektor} yang ditarik
+  dari lokasi zero (\(z_k\)) atau pole (\(p_i\)) ke titik evaluasi
+  \(j\omega\) di sumbu imajiner.
+\item
+  \textbf{Magnitudo \(|H(j\omega)|\)} dihitung sebagai:
+  \[\mathbf{|H(j\omega)| = |M| \times \frac{\text{Produk panjang vektor dari semua zero ke } j\omega}{\text{Produk panjang vektor dari semua pole ke } j\omega}}\]
+\item
+  Semakin dekat sebuah pole ke sumbu \(j\omega\), semakin pendek vektor
+  pole tersebut, yang menghasilkan magnitudo \(|H(j\omega)|\) yang
+  \textbf{besar} pada frekuensi \(\omega\) tersebut (karakteristik
+  filter \emph{bandpass} atau \emph{lowpass}).
+\end{enumerate}
+
+\subsubsection{\texorpdfstring{B. Respons Fase
+\(\angle H(j\omega)\)}{B. Respons Fase \textbackslash angle H(j\textbackslash omega)}}\label{b.-respons-fase-angle-hjomega}
+
+Respons fase menunjukkan bagaimana sistem menggeser fase komponen
+frekuensi input.
+
+\textbf{Cara Geometris:}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Fase \(\angle H(j\omega)\)} dihitung dengan menjumlahkan sudut
+  dari vektor zero dan menguranginya dengan jumlah sudut dari vektor
+  pole.
+\item
+  \textbf{Fase \(\angle H(j\omega)\)} dihitung sebagai:
+  \[\mathbf{\angle H(j\omega) = \sum_{k} \angle(j\omega - z_k) - \sum_{i} \angle(j\omega - p_i)}\]
+\item
+  (Ditambah sudut tambahan \(\pi\) jika faktor skala \(M\) adalah
+  negatif).
+\end{enumerate}
+
+\subsection{3. Aplikasi pada Filter
+Butterworth}\label{aplikasi-pada-filter-butterworth}
+
+Filter Butterworth adalah kelas filter yang dirancang untuk memiliki
+respons magnitudo yang \textbf{maksimal datar} (\emph{maximally flat})
+di \emph{passband}. Filter ini sering digunakan dalam praktik dan
+memiliki respons frekuensi rasional.
+
+\subsubsection{A. Persamaan Magnitudo}\label{a.-persamaan-magnitudo}
+
+Filter \emph{lowpass} Butterworth orde \(N\) memiliki kuadrat magnitudo
+respons frekuensi yang diberikan oleh:
+
+\[\mathbf{|B(j\omega)|^2 = \frac{1}{1 + (\omega / \omega_c)^{2N}}}\].
+
+Di mana \(\omega_c\) adalah frekuensi \emph{cutoff}. Pada
+\(\omega = \omega_c\), magnitudo jatuh ke \(1/\sqrt{2}\) dari nilai
+maksimumnya (atau -3 dB).
+
+\subsubsection{\texorpdfstring{B. Menentukan Fungsi Sistem \(B(s)\)
+(Pole
+Placement)}{B. Menentukan Fungsi Sistem B(s) (Pole Placement)}}\label{b.-menentukan-fungsi-sistem-bs-pole-placement}
+
+Untuk menentukan fungsi sistem \(B(s)\) yang menghasilkan magnitudo di
+atas, kita harus menemukan letak pole-polenya:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Kita tahu bahwa \(|B(j\omega)|^2 = B(j\omega)B^*(j\omega)\). Jika kita
+  mengasumsikan respons impulsnya nyata (real), maka
+  \(B^*(j\omega) = B(-j\omega)\), yang berarti
+  \(|B(j\omega)|^2 = B(j\omega)B(-j\omega)\).
+\item
+  Dengan mengganti \(j\omega\) dengan variabel \(s\) (sehingga
+  \((j\omega)^2\) menjadi \(-s^2\)), kita mendapatkan polinomial
+  \(B(s)B(-s)\): \[B(s)B(-s) = \frac{1}{1 + (-s^2 / \omega_c^2)^{N}}\]
+\item
+  Untuk sistem LTI waktu kontinu agar \textbf{kausal dan stabil}, semua
+  pole-nya harus terletak di \textbf{bidang setengah kiri terbuka}
+  (\emph{open left half-plane}---LHP), yang berarti bagian riil
+  \(\mathcal{Re}{s} < 0\).
+\item
+  Oleh karena itu, fungsi sistem \(B(s)\) dibentuk hanya dengan memilih
+  \(N\) pole dari \(B(s)B(-s)\) yang terletak di \textbf{LHP}.
+\end{enumerate}
+
+\subsubsection{\texorpdfstring{C. Contoh Orde Kedua
+(\(N=2\))}{C. Contoh Orde Kedua (N=2)}}\label{c.-contoh-orde-kedua-n2}
+
+Untuk Filter Butterworth Orde Kedua, fungsi sistem yang kausal dan
+stabil adalah:
+
+\[\mathbf{B(s) = \frac{\omega_c^2}{s^2 + \sqrt{2}\omega_c s + \omega_c^2}}\].
+
+Polinomial penyebut (denominator) ini dikenal sebagai \textbf{polinomial
+karakteristik Butterworth orde kedua}. Pole-pole ini berada di LHP,
+memastikan sistem ini stabil. Dari bentuk \(B(s)\), kita dapat langsung
+menyimpulkan:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Respons Magnitudo:} Pole-pole yang berada di LHP tersebut
+  menjamin bahwa magnitudo respons frekuensi turun secara mulus dan
+  maksimal datar di \emph{passband}.
+\item
+  \textbf{Respons Fase:} Karena \(B(s)\) adalah fungsi rasional, respons
+  fasenya adalah hasil dari penjumlahan/pengurangan sudut vektor pole
+  dan zero (yang dalam kasus \(N=2\) lowpass standar, tidak ada
+  \emph{finite zero}). Filter orde tinggi umumnya menunjukkan
+  \textbf{fase non-linear}, meskipun filter Bessel seringkali lebih baik
+  dalam mendekati fase linear dibandingkan Butterworth.
+\end{enumerate}
+
+Dengan demikian, analisis pole-zero (ranah Laplace) memungkinkan kita
+untuk merancang penempatan pole secara spesifik (seperti pada Filter
+Butterworth) untuk mencapai spesifikasi magnitudo tertentu di ranah
+frekuensi.
+
+\bookmarksetup{startatroot}
+
 \chapter{}\label{section}
+
+\bookmarksetup{startatroot}
+
+\chapter{Transformasi Frekuensi}\label{transformasi-frekuensi}
+
+Transformasi frekuensi \(\mathbf{s \rightarrow \frac{\omega_0}{s}}\)
+(atau variannya \(\frac{1}{s}\) untuk frekuensi \emph{cutoff}
+terstandardisasi) adalah metode transformasi filter analog yang umum
+digunakan untuk mengubah fungsi sistem filter \emph{Lowpass} (LP)
+menjadi fungsi sistem filter \emph{Highpass} (HP).
+
+Transformasi ini memanfaatkan hubungan Transformasi Laplace \(H(s)\)
+dengan Respons Frekuensi \(H(j\omega)\) (dengan mengganti \(s\) dengan
+\(j\omega\)).
+
+\subsection{\texorpdfstring{Mekanisme Transformasi
+\(\mathbf{s \rightarrow \frac{\omega_0}{s}}\)}{Mekanisme Transformasi \textbackslash mathbf\{s \textbackslash rightarrow \textbackslash frac\{\textbackslash omega\_0\}\{s\}\}}}\label{mekanisme-transformasi-mathbfs-rightarrow-fracomega_0s}
+
+Jika kita memiliki fungsi sistem \emph{prototype} lowpass \(H_{LP}(s)\)
+dengan frekuensi \emph{cutoff} terstandardisasi (misalnya,
+\(\omega_0 = 1\) rad/detik), kita dapat memperoleh fungsi sistem
+\emph{highpass} \(H_{HP}(s)\) dengan mengganti \(s\) dalam \(H_{LP}(s)\)
+dengan \(\frac{\omega_0}{s}\):
+
+\[\mathbf{H_{HP}(s) = H_{LP}\left(\frac{\omega_0}{s}\right)}\]
+
+Untuk memahami bagaimana transformasi ini mengubah karakter respons,
+kita mengevaluasinya di ranah frekuensi dengan mengganti \(s\) dengan
+\(j\omega\):
+
+\[\mathbf{|H_{HP}(j\omega)| = \left|H_{LP}\left(\frac{\omega_0}{j\omega}\right)\right| = \left|H_{LP}\left(\frac{-j\omega_0}{\omega}\right)\right|}\]
+
+Transformasi ini secara efektif \textbf{membalik (me-refleksi) sumbu
+frekuensi} sehubungan dengan karakteristik aslinya:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Frekuensi Rendah pada Filter HP (\(\omega \rightarrow 0\)):}
+  Ketika frekuensi input \(\omega\) mendekati nol, argumen transformasi
+  \(\frac{\omega_0}{\omega}\) menuju tak terhingga (\(\infty\)). Karena
+  \(H_{LP}\) adalah filter \emph{lowpass}, responsnya pada frekuensi
+  tinggi adalah rendah (stopband). Oleh karena itu,
+  \(|H_{HP}(j\omega)|\) menjadi kecil, mencerminkan sifat
+  \emph{stopband} dari filter \emph{highpass} pada frekuensi rendah.
+\item
+  \textbf{Frekuensi Tinggi pada Filter HP
+  (\(\omega \rightarrow \infty\)):} Ketika frekuensi input \(\omega\)
+  menuju tak terhingga, argumen transformasi \(\frac{\omega_0}{\omega}\)
+  mendekati nol. Karena \(H_{LP}\) adalah filter \emph{lowpass},
+  responsnya pada frekuensi rendah adalah tinggi (passband). Oleh karena
+  itu, \(|H_{HP}(j\omega)|\) menjadi besar, mencerminkan sifat
+  \emph{passband} dari filter \emph{highpass} pada frekuensi tinggi.
+\end{enumerate}
+
+Dengan demikian, sifat-sifat magnitudo yang melemah di frekuensi tinggi
+pada filter LP diubah menjadi sifat-sifat yang diteruskan di frekuensi
+tinggi pada filter HP.
+
+\subsection{Contoh Kasus: Filter
+Butterworth}\label{contoh-kasus-filter-butterworth}
+
+Filter Butterworth \emph{lowpass} (LP) orde \(N\) memiliki kuadrat
+magnitudo respons frekuensi yang diberikan oleh:
+
+\[\mathbf{|B_{LP}(j\omega)|^2 = \frac{1}{1 + \left(\frac{\omega}{\omega_c}\right)^{2N}}}\]
+
+Di mana \(\omega_c\) adalah frekuensi \emph{cutoff}.
+
+Untuk mendapatkan Filter Butterworth \emph{highpass} (HP), kita
+menerapkan transformasi \(\mathbf{s \rightarrow \frac{\omega_c}{s}}\).
+Dalam ranah frekuensi, ini berarti kita mengganti rasio
+\(\frac{\omega}{\omega_c}\) dengan \(\frac{\omega_c}{\omega}\) (atau
+lebih formal, mengganti \(j\omega\) dengan \(\frac{\omega_c}{j\omega}\))
+ke dalam formula magnitudo kuadrat:
+
+\[\mathbf{|B_{HP}(j\omega)|^2 = \frac{1}{1 + \left(\frac{\omega_c}{\omega}\right)^{2N}}}\]
+
+\textbf{Analisis Magnitudo Filter HP Hasil Transformasi:}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Pada frekuensi sangat rendah (\(\omega \approx 0\)):} Rasio
+  \(\left(\frac{\omega_c}{\omega}\right)^{2N} \rightarrow \infty\).
+  Maka,
+  \(|B_{HP}(j\omega)|^2 \rightarrow \frac{1}{1 + \infty} \rightarrow 0\).
+  (Menunjukkan \emph{Stopband}).
+\item
+  \textbf{Pada frekuensi sangat tinggi (\(\omega \rightarrow \infty\)):}
+  Rasio \(\left(\frac{\omega_c}{\omega}\right)^{2N} \rightarrow 0\).
+  Maka,
+  \(|B_{HP}(j\omega)|^2 \rightarrow \frac{1}{1 + 0} \rightarrow 1\).
+  (Menunjukkan \emph{Passband}).
+\item
+  \textbf{Pada frekuensi \emph{cutoff} (\(\omega = \omega_c\)):} Rasio
+  \(\left(\frac{\omega_c}{\omega_c}\right)^{2N} = 1\). Maka,
+  \(|B_{HP}(j\omega_c)|^2 = \frac{1}{1 + 1} = \frac{1}{2}\). (Magnitudo
+  turun 3 dB, sama dengan filter LP asli).
+\end{itemize}
+
+Hasilnya adalah filter yang memiliki karakteristik magnitudo datar
+maksimal (\emph{maximally flat}) di \emph{passband}-nya, tetapi dengan
+respons yang terbalik di sumbu frekuensi---semua frekuensi rendah
+dilemahkan dan semua frekuensi tinggi diteruskan, yang merupakan
+karakteristik filter \emph{highpass}.
+
+Prosedur umum ini (Lowpass-to-Highpass transformations) sering digunakan
+dalam desain filter karena memudahkan; alih-alih merancang filter baru
+dari awal untuk setiap tipe respons (HP, \emph{Bandpass},
+\emph{Bandstop}), insinyur cukup merancang satu filter \emph{prototype}
+LP yang stabil dan kemudian menerapkan transformasi frekuensi yang
+sesuai.
+
+\section{Filter desain}\label{filter-desain}
+
+Merancang Filter Butterworth melibatkan prosedur sistematis dalam ranah
+Transformasi Laplace (ranah \(s\)) untuk menentukan fungsi sistem
+\(B(s)\) berdasarkan spesifikasi respons magnitudo yang diinginkan.
+Filter ini banyak digunakan karena karakteristik \textbf{magnitudo datar
+maksimal} (\emph{maximally flat}) di \emph{passband}-nya.
+
+Desain filter Butterworth, khususnya tipe \emph{lowpass} (LP), dilakukan
+dengan menentukan lokasi \emph{pole} di bidang \(s\) yang memenuhi
+kriteria stabilitas dan respons frekuensi yang datar.
+
+Berikut adalah langkah-langkah utama dalam merancang Filter Butterworth
+analog orde \(N\):
+
+\subsection{1. Spesifikasi Magnitudo Respons
+Frekuensi}\label{spesifikasi-magnitudo-respons-frekuensi}
+
+Langkah pertama adalah mendefinisikan kuadrat magnitudo respons
+frekuensi target untuk filter \emph{lowpass} orde \(N\) dengan frekuensi
+\emph{cutoff} \(\omega_c\):
+\[\mathbf{|B(j\omega)|^2 = \frac{1}{1 + (\omega / \omega_c)^{2N}}}\]
+
+Karakteristik kunci dari magnitudo ini adalah: * \textbf{Gain DC:} Pada
+\(\omega = 0\), \(|B(j\omega)|^2 = 1\). * \textbf{Frekuensi
+\emph{Cutoff}}: Pada \(\omega = \omega_c\), magnitudo jatuh menjadi
+\(1/\sqrt{2}\) (atau magnitudo kuadratnya menjadi \(1/2\)), terlepas
+dari orde \(N\). * \textbf{Ketajaman:} Semakin tinggi orde \(N\),
+semakin sempit \emph{transition band} filter tersebut.
+
+\subsection{\texorpdfstring{2. Transformasi ke Ranah Laplace dan
+Penentuan Pole
+\(B(s)B(-s)\)}{2. Transformasi ke Ranah Laplace dan Penentuan Pole B(s)B(-s)}}\label{transformasi-ke-ranah-laplace-dan-penentuan-pole-bsb-s}
+
+Untuk menemukan fungsi sistem \(B(s)\), kita menggunakan hubungan bahwa,
+untuk respons impuls nyata (real),
+\(|B(j\omega)|^2 = B(j\omega)B(-j\omega)\).
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Ganti \(j\omega\) dengan variabel \(s\) (yang berarti mengganti
+  \((j\omega)^2\) dengan \(-s^2\)) pada persamaan magnitudo. Ini
+  menghasilkan polinomial \(B(s)B(-s)\):
+  \[B(s)B(-s) = \frac{1}{1 + (-s^2 / \omega_c^2)^{N}}\]
+\item
+  Polinomial penyebut (denominator) dari \(B(s)B(-s)\) harus
+  diselesaikan untuk menemukan \(2N\) akarnya (pole).
+\item
+  Secara umum, pole-pole ini terletak \textbf{secara merata (sama jarak
+  sudut)} pada sebuah lingkaran di bidang \(s\) dengan radius
+  \(\omega_c\). Jarak sudut antar pole adalah \(\pi/N\) radian.
+\end{enumerate}
+
+\subsection{3. Pemilihan Pole (Pole Placement) untuk Kausalitas dan
+Stabilitas}\label{pemilihan-pole-pole-placement-untuk-kausalitas-dan-stabilitas}
+
+Langkah yang paling penting dalam desain ini adalah menentukan pole mana
+yang akan menjadi bagian dari \(B(s)\):
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Karena sistem yang diinginkan harus \textbf{kausal dan stabil}, semua
+  \emph{pole} dari fungsi sistem \(B(s)\) harus terletak di
+  \textbf{bidang setengah kiri terbuka} (\emph{open left half-plane} -
+  LHP), yaitu, memiliki bagian riil negatif (\(\mathcal{Re}\{s\} < 0\)).
+\item
+  \textbf{Konstruksi \(B(s)\):} Fungsi sistem \(B(s)\) dibentuk dengan
+  memilih \(N\) pole dari \(B(s)B(-s)\) yang terletak di LHP (pole-pole
+  yang berada di sepanjang setengah lingkaran di LHP).
+\item
+  Pole-pole yang dipilih ini menentukan \(B(s)\) hingga faktor skala.
+\end{enumerate}
+
+\subsection{4. Menentukan Faktor Skala
+(Gain)}\label{menentukan-faktor-skala-gain}
+
+Setelah \(N\) pole \(p_i\) di LHP dipilih, fungsi sistem \(B(s)\) berada
+dalam bentuk: \[B(s) = M \frac{1}{\prod_{i=1}^{N} (s - p_i)}\]
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Faktor skala \(M\) dipilih sedemikian rupa sehingga filter memiliki
+  \textbf{gain unity pada frekuensi DC} (\(\omega=0\)).
+\item
+  Hal ini dipastikan dengan menetapkan \(|B(j\omega)|^2\) pada
+  \(\omega=0\) sama dengan 1, atau \(B^2(s)|_{s=0} = 1\).
+\end{enumerate}
+
+\subsection{Contoh untuk Orde N=2}\label{contoh-untuk-orde-n2}
+
+Untuk Filter Butterworth orde kedua (\(N=2\)) dengan frekuensi
+\emph{cutoff} \(\omega_c\), setelah melalui pemilihan pole stabil di
+LHP, fungsi sistemnya menjadi:
+\[\mathbf{B(s) = \frac{\omega_c^2}{s^2 + \sqrt{2}\omega_c s + \omega_c^2}}\]
+
+Filter ini dikenal sebagai filter \textbf{lowpass Butterworth orde
+kedua}. Dari fungsi sistem ini, kita dapat memperoleh Persamaan
+Diferensial Koefisien Konstan Linear (LCCDE) yang mengkarakterisasi
+sistem LTI tersebut.
+
+\subsection{5. Transformasi Frekuensi (Untuk Filter
+Non-Lowpass)}\label{transformasi-frekuensi-untuk-filter-non-lowpass}
+
+Jika respons filter yang diinginkan bukan \emph{lowpass}, desainer akan
+menggunakan Transformasi Frekuensi pada filter \emph{prototype} lowpass
+yang baru saja dirancang.
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Lowpass ke Highpass (LP-HP):} Mengganti \(s\) dengan
+  \(\frac{\omega_c}{s}\) dalam \(B(s)\) akan mengubah karakteristik
+  \emph{lowpass} menjadi \emph{highpass} dengan membalik respons
+  frekuensi.
+\item
+  \textbf{Lowpass ke Bandpass/Bandstop:} Transformasi yang lebih
+  kompleks dapat diterapkan untuk mendapatkan filter \emph{bandpass}
+  atau \emph{bandstop}.
+\end{itemize}
+
+Secara keseluruhan, merancang Filter Butterworth adalah proses
+Transformasi Laplace yang kuat, yang memungkinkan para insinyur
+merancang penempatan pole secara spesifik (ranah \(s\)) untuk mencapai
+spesifikasi magnitudo yang sangat halus di ranah frekuensi.
+
+\bookmarksetup{startatroot}
+
+\chapter{Respons Frekuensi Dari LCCDE Orde 1 dan Orde
+2}\label{respons-frekuensi-dari-lccde-orde-1-dan-orde-2}
+
+\bookmarksetup{startatroot}
+
+\chapter{Kuliah 12 Respons Frekuensi}\label{kuliah-12-respons-frekuensi}
+
+Berikut ini penjelasan mengenai cara menghitung dan memplot Respons
+Magnitudo dan Respons Fase dari sistem Persamaan Diferensial Koefisien
+Konstanta Linier (LCCDE) orde 1 dan 2 menggunakan kerangka kerja Python.
+
+Analisis Respons Frekuensi sistem LTI waktu-kontinu sangat bergantung
+pada Transformasi Laplace, di mana Fungsi Alih \(H(s)\) menjadi
+representasi aljabar sistem.
+
+\section{\texorpdfstring{1. Dasar Matematis: Dari LCCDE ke
+\(H(j\omega)\)}{1. Dasar Matematis: Dari LCCDE ke H(j\textbackslash omega)}}\label{dasar-matematis-dari-lccde-ke-hjomega}
+
+Sistem LTI waktu-kontinu yang dijelaskan oleh LCCDE umum memiliki bentuk
+Fungsi Alih rasional \(H(s)\):
+
+\[H(s) = \frac{Y(s)}{X(s)} = \frac{\sum_{k=0}^{M} b_k s^k}{\sum_{k=0}^{N} a_k s^k} \tag{1}\]
+
+Respons frekuensi \(H(j\omega)\) diperoleh dengan mengganti variabel
+kompleks \(s\) dalam \(H(s)\) dengan \(j\omega\) (di mana \(\sigma = 0\)
+di sumbu \(j\omega\)). Ini memungkinkan kita menganalisis bagaimana
+sistem merespons input sinusoidal \(x(t) = e^{j\omega t}\).
+
+\[H(j\omega) = \left. H(s) \right|_{s=j\omega} = \frac{\sum_{k=0}^{M} b_k (j\omega)^k}{\sum_{k=0}^{N} a_k (j\omega)^k} \tag{2}\]
+
+Respons frekuensi \(H(j\omega)\) adalah fungsi bernilai kompleks yang
+dapat diwakili dalam bentuk polar:
+
+\[H(j\omega) = |H(j\omega)| e^{j \angle H(j\omega)}\]
+
+\textbf{A. Respons Magnitudo (Magnitude Response):} Magnitudo
+\(|H(j\omega)|\) menunjukkan \emph{gain} (penguatan) sistem pada
+frekuensi \(\omega\) tertentu. Dalam konteks Fourier Transform,
+magnitudo output adalah perkalian magnitudo input dengan magnitudo
+respons frekuensi: \[|Y(j\omega)| = |H(j\omega)| |X(j\omega)|\]
+
+\textbf{B. Respons Fase (Phase Response):} Fase \(\angle H(j\omega)\)
+(atau \emph{phase shift}) menunjukkan pergeseran waktu relatif pada
+setiap komponen frekuensi. Fase output adalah penjumlahan fase input
+dengan fase respons frekuensi:
+\[\angle Y(j\omega) = \angle H(j\omega) + \angle X(j\omega)\]
+
+\section{2. Representasi Sistem Orde 1 dan Orde
+2}\label{representasi-sistem-orde-1-dan-orde-2}
+
+Sistem orde 1 dan 2 dapat direpresentasikan oleh koefisien \(a_k\)
+(penyebut) dan \(b_k\) (pembilang) dalam \(H(s)\) (persamaan 1).
+
+\begin{longtable}[]{@{}
+  >{\centering\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2500}}
+  >{\centering\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2500}}
+  >{\centering\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2500}}
+  >{\centering\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2500}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\centering
+Orde Sistem
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+Persamaan Diferensial (Contoh Kausal)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\(H(s)\) Umum
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+Koefisien Python (b, a)
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\textbf{Orde 1} & \(\frac{dy(t)}{dt} + a_0 y(t) = b_0 x(t)\) &
+\(\frac{b_0}{s + a_0}\) & \(b = [b_0]\), \(a = [1, a_0]\) \\
+\textbf{Orde 2} &
+\(\frac{d^2y}{dt^2} + a_1 \frac{dy}{dt} + a_0 y = b_0 x\) &
+\(\frac{b_0}{s^2 + a_1 s + a_0}\) & \(b = [b_0]\),
+\(a = [1, a_1, a_0]\) \\
+\textbf{Orde 2 (Bentuk Standar)} & - &
+\(\frac{\omega_n^2}{s^2 + 2\zeta\omega_n s + \omega_n^2}\) &
+\(b = [\omega_n^2]\), \(a = [1, 2\zeta\omega_n, \omega_n^2]\) \\
+\end{longtable}
+
+\section{3. Prosedur Perhitungan dan Plotting Menggunakan
+Python}\label{prosedur-perhitungan-dan-plotting-menggunakan-python}
+
+Untuk melakukan perhitungan ini secara numerik dalam Python, kita
+menggunakan representasi Fungsi Alih \(H(s)\) melalui vektor
+koefisiennya, seperti yang ditunjukkan di atas.
+
+\textbf{(Catatan: Pustaka \texttt{scipy.signal} adalah alat standar di
+Python untuk analisis sistem LTI, meskipun nama fungsinya tidak
+disebutkan dalam sumber yang diberikan, penggunaannya didasarkan pada
+prinsip-prinsip LCCDE yang dijelaskan dalam sumber.)}
+
+\subsection{Langkah 1: Definisikan
+Sistem}\label{langkah-1-definisikan-sistem}
+
+Tentukan vektor koefisien pembilang (\(b\)) dan penyebut (\(a\)).
+
+\emph{Contoh Orde 1 (Sistem LPF RC:} \(H(s) = \frac{1}{s+1}\)): \[b =\]
+\[a =\]
+
+\emph{Contoh Orde 2 (Sistem Underdamped} \(\zeta=0.5, \omega_n=1\)):
+\[H(s) = \frac{1}{s^2 + s + 1}\] \[b =\] \[a =\]
+
+\subsection{Langkah 2: Hitung Respons Frekuensi
+Numerik}\label{langkah-2-hitung-respons-frekuensi-numerik}
+
+Gunakan fungsi yang relevan (misalnya, \texttt{scipy.signal.freqs}) yang
+menerima koefisien \(b\) dan \(a\) serta mengembalikan frekuensi angular
+(\(\omega\)) dan nilai kompleks \(H(j\omega)\).
+
+\subsection{Langkah 3: Hitung Magnitudo dan
+Fase}\label{langkah-3-hitung-magnitudo-dan-fase}
+
+Setelah mendapatkan nilai kompleks \(H(j\omega)\) untuk setiap
+\(\omega\), pisahkan Magnitudo dan Fase:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Magnitudo Mutlak:} Hitung magnitudo mutlak dari
+  \(H(j\omega)\).
+\item
+  \textbf{Magnitudo dalam Desibel (dB):} Untuk membuat \emph{Bode Plot}
+  (yang merupakan representasi grafis umum, terutama untuk orde 1 dan
+  2), ubah magnitudo ke skala logaritmik:
+  \[\text{Magnitudo (dB)} = 20 \log_{10} |H(j\omega)|\]
+\item
+  \textbf{Fase:} Hitung argumen (sudut) dari \(H(j\omega)\), biasanya
+  dikembalikan dalam radian. Jika diperlukan, ubah ke derajat.
+\end{enumerate}
+
+\subsection{Langkah 4: Plotting}\label{langkah-4-plotting}
+
+Magnitudo dan Fase diplot terhadap \(\omega\).
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Plot Magnitudo:} Plot Magnitudo (dB) terhadap frekuensi
+  \(\omega\). Seringkali, skala frekuensi juga menggunakan skala
+  logaritmik, membentuk \textbf{Bode Magnitude Plot}. Plot ini
+  memungkinkan visualisasi \emph{break frequency} dan laju peluruhan
+  gain (misalnya, \(-20\) dB/dekade untuk orde 1 dan \(-40\) dB/dekade
+  untuk orde 2 di frekuensi tinggi).
+\item
+  \textbf{Plot Fase:} Plot Fase (derajat atau radian) terhadap frekuensi
+  \(\omega\).
+\end{itemize}
+
+Perhitungan Respons Magnitudo logaritmik (dB) dan Respons Fase sangat
+penting karena menyederhanakan analisis interkoneksi sistem. Karena
+Fungsi Alih total dari sistem \emph{kaskade} (seri) adalah perkalian
+fungsi alih individual, maka: * Di domain logaritmik, Magnitudo total
+diperoleh dengan \textbf{menjumlahkan} Magnitudo (dB) individual. * Fase
+total diperoleh dengan \textbf{menjumlahkan} Fase individual.
+
+Konsep \textbf{Bode Plot} ini sangat berguna untuk menganalisis sistem
+LTI orde tinggi yang merupakan perkalian faktor-faktor orde 1 dan 2, di
+mana plot total didapatkan hanya dengan menjumlahkan plot asimptotik
+dari faktor-faktor penyusunnya.
+
+\bookmarksetup{startatroot}
+
+\chapter{Filter Butterworth}\label{filter-butterworth}
+
+Ini adalah penjelasan mengenai Respons Frekuensi dari Filter Butterworth
+dan langkah-langkah konseptual untuk memplotnya menggunakan Python,
+dengan mengacu pada materi sumber yang diberikan.
+
+\subsection{1. Respons Frekuensi Filter
+Butterworth}\label{respons-frekuensi-filter-butterworth}
+
+Filter Butterworth adalah salah satu kelas sistem \emph{Linear
+Time-Invariant} (LTI) yang banyak digunakan, khususnya sebagai filter
+lolos-rendah (lowpass). Sifat filter ini sering ditentukan berdasarkan
+spesifikasi magnitudo respons frekuensinya.
+
+Respons frekuensi \(H(j\omega)\) dari sistem LTI adalah Transformasi
+Fourier dari respons impuls \(h(t)\). Dalam analisis domain Laplace,
+kita menggunakan Fungsi Alih \(H(s)\), di mana \(H(j\omega)\) diperoleh
+dengan mengganti \(s\) dengan \(j\omega\).
+
+\subsubsection{A. Persamaan Magnitudo
+Kuadrat}\label{a.-persamaan-magnitudo-kuadrat}
+
+Untuk filter Butterworth lowpass orde \(N\), kuadrat dari magnitudo
+respons frekuensi \(|B(j\omega)|^2\) (dengan \(B(s)\) sebagai fungsi
+sistem) diberikan oleh:
+
+\[|B(j\omega)|^2 = \frac{1}{1 + (\omega/\omega_c)^{2N}} \tag{1}\]
+
+Di sini, \(N\) adalah orde filter, dan \(\omega_c\) adalah frekuensi
+\emph{cutoff} (frekuensi potong).
+
+\subsubsection{B. Respons Magnitudo
+Mutlak}\label{b.-respons-magnitudo-mutlak}
+
+Respons Magnitudo \(|B(j\omega)|\) adalah akar kuadrat dari persamaan di
+atas. Respons ini menunjukkan \emph{gain} (penguatan) sistem pada
+frekuensi \(\omega\) tertentu:
+
+\[|B(j\omega)| = \frac{1}{\sqrt{1 + (\omega/\omega_c)^{2N}}}\]
+
+\textbf{Karakteristik Kunci:} 1. Pada \(\omega = 0\) (frekuensi rendah),
+\(|B(j\omega)| = 1\) (atau 0 dB), menunjukkan bahwa frekuensi rendah
+dilewatkan tanpa atenuasi. 2. Pada \(\omega = \omega_c\) (frekuensi
+\emph{cutoff}), \(|B(j\omega)| = 1/\sqrt{2}\) (atau -3 dB), yang
+merupakan definisi frekuensi potong untuk filter Butterworth. 3. Di luar
+pita lolos (passband), magnitudo meluruh seiring peningkatan orde \(N\).
+Peningkatan orde \(N\) akan membuat transisi dari \emph{passband} ke
+\emph{stopband} menjadi lebih tajam.
+
+\subsection{2. Memplot Respons Magnitudo dan Fase Menggunakan
+Python}\label{memplot-respons-magnitudo-dan-fase-menggunakan-python}
+
+Untuk memvisualisasikan respons frekuensi, plot yang paling umum
+digunakan adalah \textbf{Bode Plot}, di mana magnitudo diplot dalam
+satuan \textbf{Desibel (dB)}, dan sumbu frekuensi sering kali
+menggunakan skala logaritmik.
+
+\subsubsection{A. Respons Magnitudo dalam Desibel
+(dB)}\label{a.-respons-magnitudo-dalam-desibel-db}
+
+Magnitudo dalam desibel dihitung sebagai:
+\[\text{Magnitudo (dB)} = 20 \log_{10} |B(j\omega)|\]
+
+Penggunaan skala logaritmik (dB) bermanfaat karena ia mengubah hubungan
+perkalian dalam domain magnitudo menjadi hubungan penjumlahan
+(logaritmik) saat menganalisis sistem yang terhubung secara kaskade
+(seri).
+
+\subsubsection{B. Respons Fase}\label{b.-respons-fase}
+
+Meskipun persamaan (1) hanya memberikan informasi magnitudo kuadrat,
+respons frekuensi \emph{full} \(B(j\omega)\) juga memiliki komponen
+fase, \(\angle B(j\omega)\). Komponen fase ini menunjukkan pergeseran
+waktu relatif pada setiap komponen frekuensi. Filter lowpass Butterworth
+umumnya memiliki respons impuls nyata dan kausal.
+
+Dalam konteks Python, plotting Respons Magnitudo dan Fase (Bode Plot)
+melibatkan langkah-langkah konseptual berikut:
+
+\textbf{Langkah-Langkah Implementasi Konseptual:}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Definisi Sistem:} Tentukan parameter filter, yaitu orde \(N\)
+  dan frekuensi potong \(\omega_c\).
+\item
+  \textbf{Generasi Frekuensi:} Buat sebuah array frekuensi \(\omega\)
+  (biasanya pada skala logaritmik, sesuai dengan Bode Plot).
+\item
+  \textbf{Perhitungan Magnitudo:} Hitung \(|B(j\omega)|\) untuk setiap
+  \(\omega\) menggunakan formula di atas.
+\item
+  \textbf{Konversi ke dB:} Konversi magnitudo ke skala logaritmik:
+  \(20 \log_{10} |B(j\omega)|\).
+\item
+  \textbf{Perhitungan Fase (Konseptual):} Dalam praktiknya, perhitungan
+  fase memerlukan koefisien polinomial pembilang dan penyebut dari
+  Fungsi Alih rasional \(B(s)\). Walaupun bentuk kuadrat magnitudo
+  diberikan, bentuk \(B(s)\) yang sebenarnya (yang merupakan rasio
+  polinomial dalam \(s\)) harus diketahui untuk menghitung fase
+  \(\angle B(j\omega)\).
+\item
+  \textbf{Plotting:} Plot Magnitudo (dB) dan Fase
+  (\(\angle B(j\omega)\), biasanya dalam derajat atau radian) terhadap
+  frekuensi \(\omega\).
+\end{enumerate}
+
+Memplot magnitudo logaritmik terhadap frekuensi logaritmik (Bode Plot)
+sangat membantu dalam menganalisis filter yang dijelaskan oleh persamaan
+diferensial/fungsi alih rasional, terutama untuk melihat laju peluruhan
+\emph{gain} (misalnya, -20 dB/dekade untuk orde pertama, -40 dB/dekade
+untuk orde kedua) di frekuensi tinggi.
+
+\bookmarksetup{startatroot}
+
+\chapter{Sifat Filter Butterworth}\label{sifat-filter-butterworth}
+
+Ini adalah analisis perancangan Filter Low Pass (LPF) Butterworth orde 3
+(\(N=3\)) dengan frekuensi \emph{cutoff} \(\omega_c\) setara
+\(25 \text{ Hz}\).
+
+Untuk menganalisis Filter Butterworth, kita menggunakan persamaan
+kuadrat magnitudo respons frekuensi \(|B(j\omega)|^2\):
+
+\[|B(j\omega)|^2 = \frac{1}{1 + (\omega/\omega_c)^{2N}} \tag{1}\]
+
+Di mana \(N=3\) dan \(\omega_c\) adalah \(2\pi f_c\), atau
+\(2\pi(25) \text{ rad/s}\).
+
+Attenuasi \(A\) (Redaman) dalam Desibel (dB) didefinisikan berdasarkan
+\emph{gain} \(20 \log_{10} |B(j\omega)|\). Jika \(A\) adalah redaman,
+maka:
+
+\[A = 20 \log_{10} \left( \frac{1}{|B(j\omega)|} \right) \tag{2}\]
+
+\subsection{\texorpdfstring{1. Mencari Frekuensi Passband (\(\omega_p\))
+untuk Ripple Maksimal
+\(A_p = 1 \text{ dB}\)}{1. Mencari Frekuensi Passband (\textbackslash omega\_p) untuk Ripple Maksimal A\_p = 1 \textbackslash text\{ dB\}}}\label{mencari-frekuensi-passband-omega_p-untuk-ripple-maksimal-a_p-1-text-db}
+
+Passband \emph{ripple} (\(A_p\)) adalah redaman yang terjadi di dalam
+pita lolos.
+
+\subsubsection{\texorpdfstring{Langkah 1: Konversi Redaman \(A_p\) ke
+\(|B(j\omega_p)|^2\)}{Langkah 1: Konversi Redaman A\_p ke \textbar B(j\textbackslash omega\_p)\textbar\^{}2}}\label{langkah-1-konversi-redaman-a_p-ke-bjomega_p2}
+
+Jika redaman maksimal \(A_p = 1 \text{ dB}\):
+\[1 = 20 \log_{10} \left( \frac{1}{|B(j\omega_p)|} \right)\]
+\[\frac{1}{20} = 0.05 = \log_{10} \left( \frac{1}{|B(j\omega_p)|} \right)\]
+\[\frac{1}{|B(j\omega_p)|} = 10^{0.05} \approx 1.122\]
+\[|B(j\omega_p)|^2 = \left( \frac{1}{1.122} \right)^2 \approx 0.7943\]
+
+\subsubsection{\texorpdfstring{Langkah 2: Hitung Rasio Frekuensi
+\(\omega_p / \omega_c\)}{Langkah 2: Hitung Rasio Frekuensi \textbackslash omega\_p / \textbackslash omega\_c}}\label{langkah-2-hitung-rasio-frekuensi-omega_p-omega_c}
+
+Gunakan Persamaan (1) dengan \(N=3\) dan
+\(|B(j\omega_p)|^2 \approx 0.7943\):
+\[0.7943 = \frac{1}{1 + (\omega_p/\omega_c)^{2(3)}}\]
+\[1 + (\omega_p/\omega_c)^6 = \frac{1}{0.7943} \approx 1.2589\]
+\[(\omega_p/\omega_c)^6 = 0.2589\]
+\[\frac{\omega_p}{\omega_c} = (0.2589)^{1/6} \approx 0.8037\]
+
+\subsubsection{\texorpdfstring{Langkah 3: Tentukan \(\omega_p\) (atau
+\(f_p\))}{Langkah 3: Tentukan \textbackslash omega\_p (atau f\_p)}}\label{langkah-3-tentukan-omega_p-atau-f_p}
+
+Karena frekuensi \emph{cutoff} \(f_c = 25 \text{ Hz}\), maka \(f_p\)
+adalah: \[f_p = 0.8037 \cdot f_c\]
+\[f_p = 0.8037 \cdot 25 \text{ Hz} \approx \mathbf{20.09 \text{ Hz}}\]
+
+Filter Butterworth orde 3 ini memiliki \textbf{ripple passband maksimal}
+\(1 \text{ dB}\) pada frekuensi
+\(\mathbf{f_p \approx 20.09 \text{ Hz}}\).
+
+\subsection{\texorpdfstring{2. Mencari Frekuensi Stopband (\(\omega_s\))
+untuk Atenuasi Minimal
+\(A_s = 30 \text{ dB}\)}{2. Mencari Frekuensi Stopband (\textbackslash omega\_s) untuk Atenuasi Minimal A\_s = 30 \textbackslash text\{ dB\}}}\label{mencari-frekuensi-stopband-omega_s-untuk-atenuasi-minimal-a_s-30-text-db}
+
+Stopband (\(A_s\)) adalah redaman minimal yang harus dipenuhi di luar
+\(\omega_s\).
+
+\subsubsection{\texorpdfstring{Langkah 1: Konversi Atenuasi \(A_s\) ke
+\(|B(j\omega_s)|^2\)}{Langkah 1: Konversi Atenuasi A\_s ke \textbar B(j\textbackslash omega\_s)\textbar\^{}2}}\label{langkah-1-konversi-atenuasi-a_s-ke-bjomega_s2}
+
+Jika redaman minimal \(A_s = 30 \text{ dB}\):
+\[30 = 20 \log_{10} \left( \frac{1}{|B(j\omega_s)|} \right)\]
+\[1.5 = \log_{10} \left( \frac{1}{|B(j\omega_s)|} \right)\]
+\[\frac{1}{|B(j\omega_s)|} = 10^{1.5} \approx 31.62\]
+\[|B(j\omega_s)|^2 = \left( \frac{1}{31.62} \right)^2 = \frac{1}{1000} = 0.001\]
+
+\subsubsection{\texorpdfstring{Langkah 2: Hitung Rasio Frekuensi
+\(\omega_s / \omega_c\)}{Langkah 2: Hitung Rasio Frekuensi \textbackslash omega\_s / \textbackslash omega\_c}}\label{langkah-2-hitung-rasio-frekuensi-omega_s-omega_c}
+
+Gunakan Persamaan (1) dengan \(N=3\) dan \(|B(j\omega_s)|^2 = 0.001\):
+\[0.001 = \frac{1}{1 + (\omega_s/\omega_c)^{6}}\]
+\[1 + (\omega_s/\omega_c)^6 = \frac{1}{0.001} = 1000\]
+\[(\omega_s/\omega_c)^6 = 999\]
+\[\frac{\omega_s}{\omega_c} = (999)^{1/6} \approx 3.149\]
+
+\subsubsection{\texorpdfstring{Langkah 3: Tentukan \(\omega_s\) (atau
+\(f_s\))}{Langkah 3: Tentukan \textbackslash omega\_s (atau f\_s)}}\label{langkah-3-tentukan-omega_s-atau-f_s}
+
+Karena frekuensi \emph{cutoff} \(f_c = 25 \text{ Hz}\), maka \(f_s\)
+adalah: \[f_s = 3.149 \cdot f_c\]
+\[f_s = 3.149 \cdot 25 \text{ Hz} \approx \mathbf{78.73 \text{ Hz}}\]
+
+Filter Butterworth orde 3 ini mencapai \textbf{atenuasi minimal}
+\(30 \text{ dB}\) pada frekuensi
+\(\mathbf{f_s \approx 78.73 \text{ Hz}}\).
+
+\bookmarksetup{startatroot}
+
+\chapter{Desain LPF}\label{desain-lpf}
+
+Permintaan Anda bertujuan untuk merancang (memilih parameter) Filter Low
+Pass Butterworth berdasarkan persyaratan redaman stopband.
+
+Karena spesifikasi yang diberikan (redaman pada
+\(\omega_s = 2\pi(50) \text{ rad/s}\)) tidak memberikan batasan yang
+ketat pada frekuensi \emph{passband} (\(\omega_p\) atau \(\omega_c\)),
+solusi untuk orde (\(N\)) dan frekuensi \emph{cutoff} (\(\omega_c\))
+tidak unik. Kita harus memilih salah satu parameter untuk menentukan
+yang lain.
+
+\subsection{1. Dasar Matematis Filter
+Butterworth}\label{dasar-matematis-filter-butterworth}
+
+Magnitudo kuadrat respons frekuensi \(|B(j\omega)|^2\) dari Filter Low
+Pass Butterworth orde \(N\) diberikan oleh:
+\[|B(j\omega)|^2 = \frac{1}{1 + (\omega/\omega_c)^{2N}}\]
+
+Redaman (\(A\)) dalam Desibel (dB) untuk filter \emph{lowpass} dengan
+\emph{gain} unit di DC (frekuensi 0) didefinisikan sebagai:
+\[A = 20 \log_{10} \left( \frac{1}{|B(j\omega)|} \right) \tag{E1}\]
+
+\subsection{2. Menghitung Rasio Redaman}\label{menghitung-rasio-redaman}
+
+Kita menetapkan persyaratan pada frekuensi stopband \(\omega_s\): *
+Redaman minimal \(A_s = 30 \text{ dB}\). * Frekuensi stopband
+\(f_s = 50 \text{ Hz}\) (\(\omega_s = 2\pi \cdot 50 \text{ rad/s}\)).
+
+Tentukan besaran minimum \(|B(j\omega_s)|\) yang diperlukan:
+\[30 = 20 \log_{10} \left( \frac{1}{|B(j\omega_s)|} \right)\]
+\[1.5 = \log_{10} \left( \frac{1}{|B(j\omega_s)|} \right)\]
+\[\frac{1}{|B(j\omega_s)|} = 10^{1.5} \approx 31.62\]
+\[|B(j\omega_s)|^2 = \left( \frac{1}{10^{1.5}} \right)^2 = \frac{1}{10^3} = \frac{1}{1000}\]
+
+Substitusikan nilai \(|B(j\omega_s)|^2\) ke persamaan dasar Filter
+Butterworth: \[\frac{1}{1000} = \frac{1}{1 + (\omega_s/\omega_c)^{2N}}\]
+\[1000 = 1 + (\omega_s/\omega_c)^{2N}\]
+\[999 = (\omega_s/\omega_c)^{2N}\]
+
+Untuk menyederhanakan perhitungan, kita gunakan aproksimasi
+\(999 \approx 1000\): \[1000 \approx (\omega_s/\omega_c)^{2N}\]
+
+Dalam bentuk logaritma:
+\[2N \log_{10} (\omega_s/\omega_c) \approx \log_{10}(1000) = 3\]
+\[N \approx \frac{3}{2 \log_{10} (\omega_s/\omega_c)} \tag{E2}\]
+
+\subsection{\texorpdfstring{3. Penentuan \(\omega_c\) dan Orde
+\(N\)}{3. Penentuan \textbackslash omega\_c dan Orde N}}\label{penentuan-omega_c-dan-orde-n}
+
+Untuk mendapatkan solusi, kita perlu memilih frekuensi \emph{cutoff}
+\(\omega_c\) (yang secara konvensional adalah frekuensi
+\(-3 \text{ dB}\)) yang lebih rendah dari \(\omega_s\) (frekuensi
+stopband).
+
+\textbf{Pilihan Desain:} Misalnya, kita memilih frekuensi \emph{cutoff}
+Filter Butterworth (\(f_c\)) sebagai berikut:
+
+\[\mathbf{f_c = 25 \text{ Hz}}\] (Ini berarti
+\(\omega_c = 2\pi \cdot 25 \text{ rad/s}\))
+
+Ini memberikan rasio \(\omega_s/\omega_c\) sebesar:
+\[\frac{\omega_s}{\omega_c} = \frac{50 \text{ Hz}}{25 \text{ Hz}} = 2\]
+
+Gunakan rasio ini untuk menghitung orde minimum \(N\) yang diperlukan
+(menggunakan Persamaan E2): \[N \approx \frac{3}{2 \log_{10} (2)}\]
+
+Menggunakan nilai \(\log_{10}(2) \approx 0.301\):
+\[N \approx \frac{3}{2 \times 0.301} = \frac{3}{0.602} \approx 4.98\]
+
+Karena \textbf{orde filter (}\(N\)) haruslah bilangan bulat dan harus
+memenuhi redaman minimal \(A_s \geq 30 \text{ dB}\), kita harus memilih
+bilangan bulat terdekat ke atas:
+
+\[\mathbf{N = 5}\]
+
+\subsection{Kesimpulan}\label{kesimpulan-1}
+
+Untuk mencapai redaman minimal \(30 \text{ dB}\) pada frekuensi
+\(50 \text{ Hz}\), pilihan yang \textbf{paling sesuai} (dengan asumsi
+rasio frekuensi 2:1 antara stopband dan cutoff) adalah:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Orde Filter (}\(N\)): \textbf{5}
+\item
+  \textbf{Frekuensi Cutoff (}\(f_c\) atau \(\omega_c\)):
+  \(25 \text{ Hz}\) (atau \(\omega_c = 50\pi \text{ rad/s}\))
+\end{enumerate}
+
+Dengan memilih \(N=5\) dan \(f_c=25 \text{ Hz}\), redaman yang dicapai
+pada \(f_s=50 \text{ Hz}\) adalah: \[A \approx 30.1 \text{ dB}\] (yang
+melebihi syarat minimal \(30 \text{ dB}\)).
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\textbf{Analogi:}
+
+Merancang filter adalah seperti memesan tirai untuk jendela. Anda ingin
+jendela (frekuensi \emph{cutoff}) terlihat rapi, tetapi Anda harus
+memastikan tirai tersebut (redaman) cukup tebal untuk memblokir cahaya
+(sinyal yang tidak diinginkan) dari luar (frekuensi stopband). Jika Anda
+ingin menggunakan kain yang relatif tipis (orde \(N\) rendah), Anda
+harus memulainya jauh sebelum sumber cahaya itu (memilih \(\omega_c\)
+yang jauh lebih rendah dari \(\omega_s\)). Tetapi, jika Anda bersikeras
+ingin tirai dimulai dekat dengan sumber cahaya (memilih \(\omega_c\)
+dekat dengan \(\omega_s\)), Anda harus memilih bahan yang sangat tebal
+(orde \(N\) yang sangat tinggi) untuk mencapai tingkat pemblokiran yang
+sama. Dalam kasus ini, kita harus memilih \textbf{ketebalan} \(N=5\)
+untuk mencapai blokade \(30 \text{ dB}\) jika titik potongnya
+diposisikan pada \(25 \text{ Hz}\).
+
+\bookmarksetup{startatroot}
+
+\chapter{Soal}\label{soal-3}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Sebuah filter Butterworth orde 3 \(H(\tilde{s})\) dengan
+  \$\omega\_\{c\} = 1 \$ mengalami transformasi frekuensi
+  \(\tilde{s} = \omega_{p} s\). asumsi \(\omega_{p} = 2\) plot respons
+  frekuensi
+\item
+  Sebuah filter Butterworth orde 3 \(H(\tilde{s})\) dengan
+  \$\omega\_\{c\} = 1 \$ mengalami transformasi frekuensi
+  \(\tilde{s} = \omega_{p} s\). asumsi \(\omega_{p} = 2\) plot respons
+  frekuensi
+\item
+  Sebuah filter Butterworth orde 3 \(H(\tilde{s})\) dengan \$
+  \omega\_\{c\} = 1 \$ mengalami transformasi frekuensi
+  \(\tilde{s}= \frac{\omega_{p}}{s}\). asumsi \(\omega_{p} = 2\) plot
+  respons frekuensi
+\end{enumerate}
+
+\bookmarksetup{startatroot}
+
+\chapter{Proyek Akhir Semester}\label{proyek-akhir-semester}
+
+Petunjuk: Berikut adalah lima soal proyek yang mencakup topik-topik yang
+Anda minta, dirancang untuk menganalisis sistem LTI dan Filter
+Butterworth, termasuk transformasi dan implementasi. Waktu sd 23
+Desember 2025
+
+\section{\texorpdfstring{Soal Proyek 1: Analisis Respons Frekuensi
+Filter Butterworth Orde 5 Ternormalisasi
+(\(\omega_c = 1\))}{Soal Proyek 1: Analisis Respons Frekuensi Filter Butterworth Orde 5 Ternormalisasi (\textbackslash omega\_c = 1)}}\label{soal-proyek-1-analisis-respons-frekuensi-filter-butterworth-orde-5-ternormalisasi-omega_c-1}
+
+Filter Low Pass Butterworth orde \(N\) memiliki respons magnitudo
+kuadrat ternormalisasi.
+
+\textbf{Asumsi:} Filter ini kausal dan stabil. Fungsi Alih
+ternormalisasi \(B_N(s)\) dengan frekuensi \emph{cutoff}
+\(\omega_c = 1 \text{ rad/s}\) (\(B_N(j\omega)\) adalah transform
+Laplace dari respons impuls \(b_N(t)\)).
+
+\textbf{Tugas Proyek:}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Tentukan lokasi Pol (kutub) \(s_k\) dari Filter Butterworth orde
+  \(N=5\) pada bidang \(s\). Ingat bahwa untuk sistem stabil, semua pol
+  harus berada di bidang setengah kiri.
+\item
+  Tuliskan Fungsi Alih rasional \(B_5(s)\) dalam bentuk perkalian
+  faktor-faktor orde pertama dan kedua (sistem orde tinggi dapat
+  difaktorkan menjadi produk faktor-faktor orde 1 dan 2).
+\item
+  Hitung dan plot \textbf{Respons Magnitudo}
+  \(20 \log_{10} |B_5(j\omega)|\) dalam Desibel (dB) untuk rentang
+  frekuensi \(\omega\) dari \(0.1\) hingga \(10 \text{ rad/s}\)
+  menggunakan skala logaritmik (Bode Plot).
+\item
+  Jelaskan mengapa laju peluruhan magnitudo di frekuensi tinggi (slope
+  asimptotik) Filter Butterworth orde 5 adalah
+  \(-100 \text{ dB/dekade}\) (setiap pol memberikan
+  \(-20 \text{ dB/dekade}\)).
+\end{enumerate}
+
+\section{Soal Proyek 2: Desain Filter Low Pass Butterworth Berdasarkan
+Spesifikasi}\label{soal-proyek-2-desain-filter-low-pass-butterworth-berdasarkan-spesifikasi}
+
+Anda diminta merancang Filter Low Pass Butterworth yang memenuhi
+spesifikasi berikut: * Redaman (\emph{ripple}) maksimal di
+\emph{passband} \(A_p\): \(0.5 \text{ dB}\) pada frekuensi
+\(\omega_p = 10 \text{ krad/s}\). * Redaman minimal di \emph{stopband}
+\(A_s\): \(40 \text{ dB}\) pada frekuensi
+\(\omega_s = 20 \text{ krad/s}\).
+
+\textbf{Tugas Proyek:}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Tentukan orde minimum \(N\) yang diperlukan untuk memenuhi kedua
+  spesifikasi \(A_p\) dan \(A_s\). Gunakan rumus magnitudo kuadrat
+  Filter Butterworth,
+  \(|B(j\omega)|^2 = \frac{1}{1 + (\omega/\omega_c)^{2N}}\).
+\item
+  Hitung frekuensi \emph{cutoff} tepat \(\omega_c\) (frekuensi
+  \(-3 \text{ dB}\)) yang sesuai dengan orde \(N\) yang dipilih.
+\item
+  Tuliskan Fungsi Alih \(H(s)\) untuk filter yang telah didesain ini.
+  Fungsi Alih didefinisikan sebagai Transformasi Laplace dari respons
+  impuls \(h(t)\).
+\end{enumerate}
+
+\section{Soal Proyek 3: Transformasi Low Pass ke Low Pass (Denormalisasi
+Frekuensi)}\label{soal-proyek-3-transformasi-low-pass-ke-low-pass-denormalisasi-frekuensi}
+
+Misalkan Anda memiliki Fungsi Alih \(H_{norm}(s)\) dari Filter Low Pass
+ternormalisasi dengan \(\omega_{c,norm} = 1 \text{ rad/s}\).
+
+\[H_{norm}(s) = \frac{1}{(s+0.618)(s^2 + 1.618s + 1)}\]
+
+\textbf{Tugas Proyek:}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Tentukan orde \(N\) dari filter \(H_{norm}(s)\) di atas dan
+  identifikasi pol-polnya.
+\item
+  Lakukan transformasi frekuensi \emph{Low Pass} ke \emph{Low Pass}
+  (denormalisasi) pada \(H_{norm}(s)\) untuk mendapatkan Fungsi Alih
+  \(H_{target}(s)\) dengan frekuensi \emph{cutoff} yang baru,
+  \(f_{c, target} = 5 \text{ kHz}\). (Transformasi ini biasanya
+  melibatkan penskalaan frekuensi, di mana setiap \(s\) diganti dengan
+  \(s/\alpha\), dengan \(\alpha\) adalah faktor penskalaan yang sesuai).
+\item
+  Hitung dan bandingkan respons magnitudo \(|H_{norm}(j1)|\) dan
+  \(|H_{target}(j\omega)|\) pada frekuensi \(f = 5 \text{ kHz}\).
+  Jelaskan apakah transformasi tersebut mempertahankan karakteristik
+  \emph{cutoff} filter.
+\end{enumerate}
+
+\section{Soal Proyek 4: Analisis Sistem LTI Kaskade
+(Seri)}\label{soal-proyek-4-analisis-sistem-lti-kaskade-seri}
+
+Dua sistem LTI dihubungkan secara kaskade (seri). Sistem A adalah sistem
+orde pertama (low pass) \(H_A(s)\) dan Sistem B adalah filter
+\emph{all-pass} orde kedua \(H_B(s)\).
+
+\[H_A(s) = \frac{10}{s+10}\]
+\[H_B(s) = \frac{s^2 - 4s + 8}{s^2 + 4s + 8}\]
+
+\textbf{Tugas Proyek:}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Tentukan Fungsi Alih total \(H(s)\) dari sistem kaskade tersebut.
+  Dalam domain Laplace, Fungsi Alih total dari kaskade adalah perkalian
+  Fungsi Alih individual: \(H(s) = H_A(s)H_B(s)\).
+\item
+  Tentukan semua lokasi Pol dan Nol dari \(H(s)\). Fungsi Alih \(H(s)\)
+  didefinisikan sebagai rasio transformasi Laplace output terhadap
+  input.
+\item
+  Analisis stabilitas sistem kaskade ini. Mengapa sistem \(H_B(s)\)
+  disebut \emph{all-pass}? (Petunjuk: Bandingkan pol dan nol \(H_B(s)\)
+  dan dampaknya pada respons magnitudo \(H_B(j\omega)\)).
+\end{enumerate}
+
+Tentu, ini adalah Soal Proyek tambahan (Soal Proyek 6) yang berfokus
+pada desain Filter High Pass (HPF) melalui Transformasi Low Pass (LP) ke
+High Pass (HP).
+
+\bookmarksetup{startatroot}
+
+\chapter{Soal Proyek 5: Desain Filter High Pass Melalui Transformasi
+Frekuensi}\label{soal-proyek-5-desain-filter-high-pass-melalui-transformasi-frekuensi}
+
+Salah satu metode standar dalam desain filter waktu-kontinu adalah
+menggunakan prototipe Filter Low Pass (LPF) yang ternormalisasi dan
+kemudian menerapkan transformasi frekuensi pada Fungsi Alih
+\(H_{LP}(s)\) untuk mendapatkan Filter High Pass (HPF) yang diinginkan.
+Transformasi \(LP \rightarrow HP\) (Low Pass to High Pass) melibatkan
+penggantian variabel \(s\) dalam \(H_{LP}(s)\) dengan
+\(\frac{\omega_c}{s}\), di mana \(\omega_c\) adalah frekuensi
+\emph{cutoff} yang baru (target HPF).
+
+Asumsikan kita memulai dengan prototipe LPF orde pertama ternormalisasi:
+\[H_{LP}(s) = \frac{1}{s + 1}\]
+
+\textbf{Tugas Proyek:}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Terapkan Transformasi:} Terapkan transformasi \emph{Low Pass}
+  ke \emph{High Pass} (LP \(\rightarrow\) HP) dengan \emph{cutoff}
+  ternormalisasi (\(\omega_c = 1 \text{ rad/s}\)), yaitu, ganti \(s\)
+  dalam \(H_{LP}(s)\) dengan \(\frac{1}{s}\). Tuliskan Fungsi Alih yang
+  dihasilkan, \(H_{HP}(s)\), dan sederhanakan bentuknya menjadi rasio
+  polinomial dalam \(s\).
+\item
+  \textbf{Analisis Fungsi Alih:} Tentukan lokasi \textbf{Pol} dan
+  \textbf{Nol} dari \(H_{HP}(s)\). Analisis stabilitas sistem ini
+  berdasarkan lokasi Pol.
+\item
+  \textbf{Analisis Respons Frekuensi:}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Hitung respons magnitudo \(|H_{HP}(j\omega)|\) dari filter yang
+    dihasilkan.
+  \item
+    Buktikan bahwa \(|H_{HP}(j\omega)| \rightarrow 0\) saat
+    \(\omega \rightarrow 0\) (seperti yang diharapkan untuk \emph{low
+    frequency attenuation}) dan \(|H_{HP}(j\omega)| \rightarrow 1\) saat
+    \(\omega \rightarrow \infty\) (seperti yang diharapkan untuk
+    \emph{high frequency passband}).
+  \item
+    Hitunglah nilai \(\omega\) (frekuensi \emph{cutoff}) di mana
+    \(|H_{HP}(j\omega)| = 1/\sqrt{2}\) (magnitudo \(-3 \text{ dB}\)).
+  \end{itemize}
+\item
+  \textbf{Representasi Domain Waktu:} Tuliskan Persamaan Diferensial
+  Koefisien Konstanta Linier (LCCDE) yang menghubungkan output \(y(t)\)
+  dan input \(x(t)\) dari \(H_{HP}(s)\) yang telah Anda tentukan.
+\end{enumerate}
+
+\section{Soal Proyek 6: Analisis Trade-off dan Transformasi Digital
+Filter}\label{soal-proyek-6-analisis-trade-off-dan-transformasi-digital-filter}
+
+Misalkan Anda telah mendesain Filter Butterworth orde tinggi (misalnya,
+\(N=6\)) dengan transisi yang sangat tajam antara \emph{passband} dan
+\emph{stopband}.
+
+\textbf{Tugas Proyek:}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Jelaskan \emph{trade-off} (pertukaran) antara \emph{Frequency
+  Selectivity} (ketajaman transisi filter di domain frekuensi) dan
+  perilaku di domain waktu (\emph{time-domain characteristics}), seperti
+  \emph{rise time} dan \emph{ringing} dalam respons \emph{step}. Mengapa
+  filter yang sangat selektif (tajam) mungkin menunjukkan \emph{ringing}
+  yang lebih signifikan pada respons \emph{step}nya?
+\item
+  Filter orde 6 yang telah Anda desain memiliki Fungsi Alih \(H_c(s)\)
+  (domain waktu kontinu). Jelaskan langkah-langkah untuk
+  mengimplementasikan filter ini secara digital menggunakan Transformasi
+  Bilinear. Transformasi Bilinear digunakan untuk mendapatkan \(H_d(z)\)
+  (domain waktu diskrit) dari \(H_c(s)\).
+\item
+  Mengapa Transformasi Bilinear sering kali disukai dibandingkan metode
+  lain (seperti \emph{impulse invariance}) saat mendesain filter digital
+  dari prototipe analog untuk mempertahankan karakteristik magnitudo
+  (misalnya, \emph{cutoff} \(3 \text{ dB}\))? (Petunjuk: Pertimbangkan
+  pemetaan frekuensi \(\omega\) ke \(\Omega\)).
+\end{enumerate}
+
+\bookmarksetup{startatroot}
+
+\chapter{Latihan Ujian}\label{latihan-ujian}
+
+\textbf{Ujian Akhir Semester: Sinyal dan Sistem (Transformasi Laplace,
+Transformasi Fourier, dan Respons Frekuensi)}
+
+Berikut adalah 7 soal ujian akhir semester yang dirancang dengan fokus
+pada Transformasi Fourier, Transformasi Laplace, dan Respons Frekuensi,
+berdasarkan materi yang tersedia dalam sumber dan riwayat percakapan.
+
+\bookmarksetup{startatroot}
+
+\chapter{Soal Ujian Akhir Semester}\label{soal-ujian-akhir-semester}
+
+\section{Soal 1: Transformasi Laplace dan Daerah Konvergensi
+(ROC)}\label{soal-1-transformasi-laplace-dan-daerah-konvergensi-roc}
+
+Transformasi Laplace (\(\mathcal{L}\)) adalah generalisasi dari
+Transformasi Fourier (TF) yang memungkinkan representasi sinyal dalam
+domain kompleks \(s = \sigma + j\omega\). Transformasi Laplace bilateral
+\(X(s)\) dari sinyal \(x(t)\) didefinisikan sebagai
+\(X(s) = \int_{-\infty}^{\infty} x(t)e^{-st} dt\). Spesifikasi lengkap
+dari Transformasi Laplace memerlukan ekspresi aljabar \(X(s)\) dan
+Daerah Konvergensi (ROC) yang terkait.
+
+\textbf{Pertanyaan:}
+
+Diberikan sinyal \(x(t) = e^{5t}u(-t)\). (a) Tentukan Transformasi
+Laplace \(X(s)\) dari \(x(t)\). (b) Tentukan Daerah Konvergensi (ROC)
+dari \(X(s)\). (c) Jelaskan hubungan antara ROC yang Anda temukan dengan
+jenis sinyal \(x(t)\) (kiri, kanan, atau dua sisi) dan mengapa ROC
+selalu berupa strip, setengah bidang kiri, setengah bidang kanan, atau
+seluruh bidang \(s\).
+
+\section{Soal 2: Fungsi Alih dari Persamaan Diferensial dan Analisis
+Stabilitas}\label{soal-2-fungsi-alih-dari-persamaan-diferensial-dan-analisis-stabilitas}
+
+Fungsi Alih (\emph{Transfer Function}) \(H(s)\) dari sistem
+\(Linear Time-Invariant\) (LTI) waktu-kontinu didefinisikan sebagai
+Transformasi Laplace dari respons impuls \(h(t)\). Untuk sistem LTI yang
+dijelaskan oleh Persamaan Diferensial Koefisien Konstanta Linier
+(LCCDE), \(H(s)\) selalu berbentuk rasional (rasio dua polinomial dalam
+\(s\)).
+
+\textbf{Pertanyaan:}
+
+Sistem LTI kausal dijelaskan oleh Persamaan Diferensial berikut:
+\[\frac{d^2 y(t)}{dt^2} + 4 \frac{dy(t)}{dt} + 3y(t) = x(t)\]
+
+\begin{enumerate}
+\def\labelenumi{(\alph{enumi})}
+\tightlist
+\item
+  Tentukan Fungsi Alih \(H(s) = \frac{Y(s)}{X(s)}\) dari sistem
+  tersebut.
+\item
+  Tentukan lokasi Pol dari \(H(s)\) dan nyatakan ROC-nya, dengan asumsi
+  sistem tersebut kausal.
+\item
+  Berdasarkan ROC dan lokasi Pol, analisis dan tentukan apakah sistem
+  ini \textbf{stabil}. (Sistem LTI stabil jika dan hanya jika ROC dari
+  \(H(s)\) mencakup sumbu \(j\omega\)).
+\end{enumerate}
+
+\section{Soal 3: Aljabar Fungsi Alih untuk Interkoneksi Sistem Umpan
+Balik}\label{soal-3-aljabar-fungsi-alih-untuk-interkoneksi-sistem-umpan-balik}
+
+Fungsi Alih menyederhanakan analisis interkoneksi sistem LTI karena
+operasi domain waktu (konvolusi) diganti dengan operasi aljabar
+(perkalian).
+
+\textbf{Pertanyaan:}
+
+Dua sistem LTI dihubungkan dalam konfigurasi Umpan Balik
+(\emph{Feedback}) standar. Jalur maju (\emph{forward path}) adalah
+\(H_1(s)\) dan jalur umpan balik (\emph{feedback path}) adalah
+\(H_2(s)\). \[H_1(s) = \frac{5}{s+4} \quad \text{dan} \quad H_2(s) = 2\]
+
+\begin{enumerate}
+\def\labelenumi{(\alph{enumi})}
+\tightlist
+\item
+  Tentukan Fungsi Alih \emph{closed-loop} \(Q(s) = \frac{Y(s)}{X(s)}\).
+\item
+  Tentukan lokasi Pol dari \(Q(s)\) dan jelaskan dampaknya terhadap
+  stabilitas sistem \emph{closed-loop} tersebut, asumsi sistem kausal.
+\end{enumerate}
+
+\section{Soal 4: Properti Perkalian Transformasi Fourier dalam
+Modulasi}\label{soal-4-properti-perkalian-transformasi-fourier-dalam-modulasi}
+
+Transformasi Laplace (\(\mathcal{L}\)) adalah generalisasi dari
+Transformasi Fourier (TF). Salah satu properti paling penting dari
+Transformasi Fourier adalah \textbf{sifat perkalian}
+(\emph{multiplication property}).
+
+\textbf{Pertanyaan:}
+
+Dalam konteks Modulasi Amplitudo (AM), sinyal informasi \(s(t)\)
+dikalikan dengan sinyal \emph{carrier} \(p(t) = \cos \omega_0 t\),
+menghasilkan sinyal termodulasi \(r(t) = s(t) \cos \omega_0 t\).
+
+\begin{enumerate}
+\def\labelenumi{(\alph{enumi})}
+\tightlist
+\item
+  Tuliskan hubungan \(R(j\omega)\) (Transformasi Fourier dari \(r(t)\))
+  dalam hal \(S(j\omega)\) (TF dari \(s(t)\)) dan \(\omega_0\), dengan
+  memanfaatkan sifat perkalian Transformasi Fourier.
+\item
+  Asumsikan spektrum \(S(j\omega)\) dibatasi band (\emph{band-limited})
+  dengan lebar \(W_M\) (yaitu \(S(j\omega)=0\) untuk
+  \(|\omega| > W_M\)). Jelaskan secara singkat mengapa perkalian di
+  domain waktu ini setara dengan \textbf{konvolusi} spektrum di domain
+  frekuensi, dan bagaimana ini menyebabkan pergeseran spektrum
+  \(S(j\omega)\).
+\end{enumerate}
+
+\section{Soal 5: Hubungan antara Transformasi Laplace dan Respons
+Frekuensi}\label{soal-5-hubungan-antara-transformasi-laplace-dan-respons-frekuensi}
+
+Fungsi Alih \(H(s)\) dapat dihubungkan dengan Respons Frekuensi
+\(H(j\omega)\) dengan menetapkan \(s = j\omega\). Respons Frekuensi
+\(H(j\omega)\) memiliki representasi Magnitudo dan Fase.
+
+\textbf{Pertanyaan:}
+
+Diberikan Fungsi Alih sistem LTI: \[H(s) = \frac{10}{s + 10}\]
+
+\begin{enumerate}
+\def\labelenumi{(\alph{enumi})}
+\tightlist
+\item
+  Tentukan Respons Frekuensi \(H(j\omega)\).
+\item
+  Tentukan ekspresi untuk \textbf{Respons Magnitudo} \(|H(j\omega)|\)
+  (juga dikenal sebagai \emph{gain} dari sistem).
+\item
+  Tentukan ekspresi untuk \textbf{Respons Fase} \(\angle H(j\omega)\)
+  (juga dikenal sebagai \emph{phase shift} dari sistem).
+\item
+  Hitung Magnitudo dalam Desibel (dB) pada frekuensi \(DC\)
+  (\(\omega = 0\)).
+\end{enumerate}
+
+\section{Soal 6: Transformasi Fourier Sinyal
+Periodik}\label{soal-6-transformasi-fourier-sinyal-periodik}
+
+Sinyal periodik dalam waktu dapat direpresentasikan oleh Transformasi
+Fourier, yang terdiri dari deret impuls di domain frekuensi.
+
+\textbf{Pertanyaan:}
+
+\begin{enumerate}
+\def\labelenumi{(\alph{enumi})}
+\tightlist
+\item
+  Jelaskan bagaimana Transformasi Fourier \(X(j\omega)\) dari sinyal
+  periodik \(x(t)\) (dengan periode fundamental \(T\)) dibangun dari
+  Koefisien Deret Fourier \(a_k\).
+\item
+  Tuliskan ekspresi matematis untuk Transformasi Fourier \(X(j\omega)\)
+  dari sinyal \(x(t) = \cos \omega_0 t\). (Gunakan fungsi impuls
+  \(\delta(\cdot)\)).
+\end{enumerate}
+
+\section{Soal 7: Menggunakan Transformasi Laplace Unilateral untuk
+Respons Tanpa
+Input}\label{soal-7-menggunakan-transformasi-laplace-unilateral-untuk-respons-tanpa-input}
+
+Transformasi Laplace Unilateral (\(\mathcal{L}_I\)) sangat berguna dalam
+menganalisis sistem yang dijelaskan oleh persamaan diferensial dengan
+kondisi awal yang tidak nol. Respons tanpa input (\emph{zero-input
+response}) adalah respons yang dihasilkan oleh kondisi awal saja.
+
+\textbf{Pertanyaan:}
+
+Sistem LTI orde pertama dijelaskan oleh persamaan diferensial:
+\[\frac{dy(t)}{dt} + 4y(t) = x(t)\]
+
+Gunakan Transformasi Laplace Unilateral untuk menemukan respons tanpa
+input \(y_{zi}(t)\) jika input \(x(t) = 0\) dan kondisi awal adalah
+\(y(0^-) = 5\).
+
+(Petunjuk: Gunakan sifat diferensiasi waktu pada Transformasi Laplace
+Unilateral: \(\mathcal{L}_I \{\frac{dy(t)}{dt}\} = sY_I(s) - y(0^-)\)).
 
 \bookmarksetup{startatroot}
 
